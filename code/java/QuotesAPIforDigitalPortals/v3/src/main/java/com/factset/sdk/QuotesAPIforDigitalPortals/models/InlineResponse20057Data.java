@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -27,6 +27,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -47,16 +51,16 @@ public class InlineResponse20057Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private JsonNullable<String> id = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM = "fsym";
   private InlineResponse20036Fsym fsym;
 
   public static final String JSON_PROPERTY_VALIDITY = "validity";
-  private InlineResponse20055DataValidity validity;
+  private JsonNullable<InlineResponse20055DataValidity> validity = JsonNullable.<InlineResponse20055DataValidity>undefined();
 
   public static final String JSON_PROPERTY_SOURCE_W_K_N = "sourceWKN";
-  private String sourceWKN;
+  private JsonNullable<String> sourceWKN = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private InlineResponse20057Status status;
@@ -65,7 +69,7 @@ public class InlineResponse20057Data implements Serializable {
   }
 
   public InlineResponse20057Data id(String id) {
-    this.id = id;
+    this.id = JsonNullable.<String>of(id);
     return this;
   }
 
@@ -75,18 +79,26 @@ public class InlineResponse20057Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the instrument.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getId() {
-    return id;
+        return id.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
+
+  public JsonNullable<String> getId_JsonNullable() {
+    return id;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<String> id) {
     this.id = id;
+  }
+
+  public void setId(String id) {
+    this.id = JsonNullable.<String>of(id);
   }
 
 
@@ -117,7 +129,7 @@ public class InlineResponse20057Data implements Serializable {
 
 
   public InlineResponse20057Data validity(InlineResponse20055DataValidity validity) {
-    this.validity = validity;
+    this.validity = JsonNullable.<InlineResponse20055DataValidity>of(validity);
     return this;
   }
 
@@ -127,23 +139,31 @@ public class InlineResponse20057Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALIDITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public InlineResponse20055DataValidity getValidity() {
-    return validity;
+        return validity.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_VALIDITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValidity(InlineResponse20055DataValidity validity) {
+
+  public JsonNullable<InlineResponse20055DataValidity> getValidity_JsonNullable() {
+    return validity;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALIDITY)
+  public void setValidity_JsonNullable(JsonNullable<InlineResponse20055DataValidity> validity) {
     this.validity = validity;
+  }
+
+  public void setValidity(InlineResponse20055DataValidity validity) {
+    this.validity = JsonNullable.<InlineResponse20055DataValidity>of(validity);
   }
 
 
   public InlineResponse20057Data sourceWKN(String sourceWKN) {
-    this.sourceWKN = sourceWKN;
+    this.sourceWKN = JsonNullable.<String>of(sourceWKN);
     return this;
   }
 
@@ -153,18 +173,26 @@ public class InlineResponse20057Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The source WKN that the instrument is translated for.")
-  @JsonProperty(JSON_PROPERTY_SOURCE_W_K_N)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSourceWKN() {
-    return sourceWKN;
+        return sourceWKN.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SOURCE_W_K_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSourceWKN(String sourceWKN) {
+
+  public JsonNullable<String> getSourceWKN_JsonNullable() {
+    return sourceWKN;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SOURCE_W_K_N)
+  public void setSourceWKN_JsonNullable(JsonNullable<String> sourceWKN) {
     this.sourceWKN = sourceWKN;
+  }
+
+  public void setSourceWKN(String sourceWKN) {
+    this.sourceWKN = JsonNullable.<String>of(sourceWKN);
   }
 
 
@@ -206,16 +234,27 @@ public class InlineResponse20057Data implements Serializable {
       return false;
     }
     InlineResponse20057Data inlineResponse20057Data = (InlineResponse20057Data) o;
-    return Objects.equals(this.id, inlineResponse20057Data.id) &&
+    return equalsNullable(this.id, inlineResponse20057Data.id) &&
         Objects.equals(this.fsym, inlineResponse20057Data.fsym) &&
-        Objects.equals(this.validity, inlineResponse20057Data.validity) &&
-        Objects.equals(this.sourceWKN, inlineResponse20057Data.sourceWKN) &&
+        equalsNullable(this.validity, inlineResponse20057Data.validity) &&
+        equalsNullable(this.sourceWKN, inlineResponse20057Data.sourceWKN) &&
         Objects.equals(this.status, inlineResponse20057Data.status);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, fsym, validity, sourceWKN, status);
+    return Objects.hash(hashCodeNullable(id), fsym, hashCodeNullable(validity), hashCodeNullable(sourceWKN), status);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

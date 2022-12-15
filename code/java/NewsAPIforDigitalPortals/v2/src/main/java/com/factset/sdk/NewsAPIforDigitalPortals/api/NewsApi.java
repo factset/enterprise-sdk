@@ -12,15 +12,10 @@ import java.util.Map;
 import java.util.Objects;
 
 import java.math.BigDecimal;
-import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineObject;
-import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineObject1;
-import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineObject2;
-import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineObject3;
-import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineObject4;
-import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineObject5;
-import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineObject6;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse200;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2001;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse20010;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse20011;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2002;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2003;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2004;
@@ -29,6 +24,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2006;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2007;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2008;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2009;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.PostNewsArticleListByChainRequest;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.PostNewsArticleListByIndexRequest;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.PostNewsArticleListByInstrumentRequest;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.PostNewsArticleListByMediaKindRequest;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.PostNewsArticleListRequest;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.PostNewsArticleSearchByTextRequest;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.PostNewsPublisherSearchByNameRequest;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NewsApi {
@@ -48,31 +50,31 @@ public class NewsApi {
   }
   private static final Map<Integer, GenericType> getNewsArticleTypeGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNewsArticleTypeGetResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+    getNewsArticleTypeGetResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
   }
   private static final Map<Integer, GenericType> getNewsArticleTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNewsArticleTypeListResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
+    getNewsArticleTypeListResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
   }
   private static final Map<Integer, GenericType> getNewsDistributorGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNewsDistributorGetResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
+    getNewsDistributorGetResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
   }
   private static final Map<Integer, GenericType> getNewsDistributorListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNewsDistributorListResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
+    getNewsDistributorListResponseTypeMap.put(200, new GenericType<InlineResponse2008>(){});
   }
   private static final Map<Integer, GenericType> getNewsPublisherGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNewsPublisherGetResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
+    getNewsPublisherGetResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
   }
   private static final Map<Integer, GenericType> getNewsPublisherListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNewsPublisherListResponseTypeMap.put(200, new GenericType<InlineResponse2008>(){});
+    getNewsPublisherListResponseTypeMap.put(200, new GenericType<InlineResponse20010>(){});
   }
   private static final Map<Integer, GenericType> getNewsPublisherListByDistributorResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNewsPublisherListByDistributorResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
+    getNewsPublisherListByDistributorResponseTypeMap.put(200, new GenericType<InlineResponse20011>(){});
   }
   private static final Map<Integer, GenericType> postNewsArticleListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
@@ -84,11 +86,11 @@ public class NewsApi {
   }
   private static final Map<Integer, GenericType> postNewsArticleListByIndexResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postNewsArticleListByIndexResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+    postNewsArticleListByIndexResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
   }
   private static final Map<Integer, GenericType> postNewsArticleListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postNewsArticleListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+    postNewsArticleListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
   }
   private static final Map<Integer, GenericType> postNewsArticleListByMediaKindResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
@@ -100,7 +102,7 @@ public class NewsApi {
   }
   private static final Map<Integer, GenericType> postNewsPublisherSearchByNameResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postNewsPublisherSearchByNameResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
+    postNewsPublisherSearchByNameResponseTypeMap.put(200, new GenericType<InlineResponse20011>(){});
   }
 
    
@@ -213,7 +215,7 @@ public class NewsApi {
    * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param language  (optional)
-   * @return InlineResponse2003
+   * @return InlineResponse2005
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -221,7 +223,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2003 getNewsArticleTypeGet(BigDecimal id, java.util.Set<String> attributes, String language) throws ApiException {
+  public InlineResponse2005 getNewsArticleTypeGet(BigDecimal id, java.util.Set<String> attributes, String language) throws ApiException {
     return getNewsArticleTypeGetWithHttpInfo(id, attributes, language).getData();
   }
 
@@ -231,7 +233,7 @@ public class NewsApi {
    * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param language  (optional)
-   * @return ApiResponse&lt;InlineResponse2003&gt;
+   * @return ApiResponse&lt;InlineResponse2005&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -239,7 +241,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> getNewsArticleTypeGetWithHttpInfo(BigDecimal id, java.util.Set<String> attributes, String language) throws ApiException {
+  public ApiResponse<InlineResponse2005> getNewsArticleTypeGetWithHttpInfo(BigDecimal id, java.util.Set<String> attributes, String language) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -278,7 +280,7 @@ public class NewsApi {
 
     ApiResponse<
         
-        InlineResponse2003
+        InlineResponse2005
       
     > apiResponse = apiClient.invokeAPI("NewsApi.getNewsArticleTypeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -292,7 +294,7 @@ public class NewsApi {
    * List of news article types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param language  (optional)
-   * @return InlineResponse2004
+   * @return InlineResponse2006
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -300,7 +302,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2004 getNewsArticleTypeList(java.util.Set<String> attributes, String language) throws ApiException {
+  public InlineResponse2006 getNewsArticleTypeList(java.util.Set<String> attributes, String language) throws ApiException {
     return getNewsArticleTypeListWithHttpInfo(attributes, language).getData();
   }
 
@@ -309,7 +311,7 @@ public class NewsApi {
    * List of news article types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param language  (optional)
-   * @return ApiResponse&lt;InlineResponse2004&gt;
+   * @return ApiResponse&lt;InlineResponse2006&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -317,7 +319,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2004> getNewsArticleTypeListWithHttpInfo(java.util.Set<String> attributes, String language) throws ApiException {
+  public ApiResponse<InlineResponse2006> getNewsArticleTypeListWithHttpInfo(java.util.Set<String> attributes, String language) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -350,7 +352,7 @@ public class NewsApi {
 
     ApiResponse<
         
-        InlineResponse2004
+        InlineResponse2006
       
     > apiResponse = apiClient.invokeAPI("NewsApi.getNewsArticleTypeList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -364,7 +366,7 @@ public class NewsApi {
    * Details of a distributor.
    * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse2005
+   * @return InlineResponse2007
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -372,7 +374,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2005 getNewsDistributorGet(BigDecimal id, java.util.Set<String> attributes) throws ApiException {
+  public InlineResponse2007 getNewsDistributorGet(BigDecimal id, java.util.Set<String> attributes) throws ApiException {
     return getNewsDistributorGetWithHttpInfo(id, attributes).getData();
   }
 
@@ -381,7 +383,7 @@ public class NewsApi {
    * Details of a distributor.
    * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse2005&gt;
+   * @return ApiResponse&lt;InlineResponse2007&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -389,7 +391,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2005> getNewsDistributorGetWithHttpInfo(BigDecimal id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse2007> getNewsDistributorGetWithHttpInfo(BigDecimal id, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -427,7 +429,7 @@ public class NewsApi {
 
     ApiResponse<
         
-        InlineResponse2005
+        InlineResponse2007
       
     > apiResponse = apiClient.invokeAPI("NewsApi.getNewsDistributorGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -442,7 +444,7 @@ public class NewsApi {
    * @param ids  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
-   * @return InlineResponse2006
+   * @return InlineResponse2008
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -450,7 +452,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2006 getNewsDistributorList(java.util.Set<BigDecimal> ids, java.util.Set<String> attributes, java.util.Set<String> sort) throws ApiException {
+  public InlineResponse2008 getNewsDistributorList(java.util.Set<BigDecimal> ids, java.util.Set<String> attributes, java.util.Set<String> sort) throws ApiException {
     return getNewsDistributorListWithHttpInfo(ids, attributes, sort).getData();
   }
 
@@ -460,7 +462,7 @@ public class NewsApi {
    * @param ids  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
-   * @return ApiResponse&lt;InlineResponse2006&gt;
+   * @return ApiResponse&lt;InlineResponse2008&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -468,7 +470,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2006> getNewsDistributorListWithHttpInfo(java.util.Set<BigDecimal> ids, java.util.Set<String> attributes, java.util.Set<String> sort) throws ApiException {
+  public ApiResponse<InlineResponse2008> getNewsDistributorListWithHttpInfo(java.util.Set<BigDecimal> ids, java.util.Set<String> attributes, java.util.Set<String> sort) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -502,7 +504,7 @@ public class NewsApi {
 
     ApiResponse<
         
-        InlineResponse2006
+        InlineResponse2008
       
     > apiResponse = apiClient.invokeAPI("NewsApi.getNewsDistributorList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -516,7 +518,7 @@ public class NewsApi {
    * Details of a publisher.
    * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse2007
+   * @return InlineResponse2009
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -524,7 +526,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2007 getNewsPublisherGet(BigDecimal id, java.util.Set<String> attributes) throws ApiException {
+  public InlineResponse2009 getNewsPublisherGet(BigDecimal id, java.util.Set<String> attributes) throws ApiException {
     return getNewsPublisherGetWithHttpInfo(id, attributes).getData();
   }
 
@@ -533,7 +535,7 @@ public class NewsApi {
    * Details of a publisher.
    * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse2007&gt;
+   * @return ApiResponse&lt;InlineResponse2009&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -541,7 +543,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2007> getNewsPublisherGetWithHttpInfo(BigDecimal id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse2009> getNewsPublisherGetWithHttpInfo(BigDecimal id, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -579,7 +581,7 @@ public class NewsApi {
 
     ApiResponse<
         
-        InlineResponse2007
+        InlineResponse2009
       
     > apiResponse = apiClient.invokeAPI("NewsApi.getNewsPublisherGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -596,7 +598,7 @@ public class NewsApi {
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
    * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
-   * @return InlineResponse2008
+   * @return InlineResponse20010
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -604,7 +606,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2008 getNewsPublisherList(java.util.Set<BigDecimal> ids, java.util.Set<String> attributes, java.util.Set<String> sort, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
+  public InlineResponse20010 getNewsPublisherList(java.util.Set<BigDecimal> ids, java.util.Set<String> attributes, java.util.Set<String> sort, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
     return getNewsPublisherListWithHttpInfo(ids, attributes, sort, paginationOffset, paginationLimit).getData();
   }
 
@@ -616,7 +618,7 @@ public class NewsApi {
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
    * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
-   * @return ApiResponse&lt;InlineResponse2008&gt;
+   * @return ApiResponse&lt;InlineResponse20010&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -624,7 +626,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2008> getNewsPublisherListWithHttpInfo(java.util.Set<BigDecimal> ids, java.util.Set<String> attributes, java.util.Set<String> sort, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
+  public ApiResponse<InlineResponse20010> getNewsPublisherListWithHttpInfo(java.util.Set<BigDecimal> ids, java.util.Set<String> attributes, java.util.Set<String> sort, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -660,7 +662,7 @@ public class NewsApi {
 
     ApiResponse<
         
-        InlineResponse2008
+        InlineResponse20010
       
     > apiResponse = apiClient.invokeAPI("NewsApi.getNewsPublisherList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -675,7 +677,7 @@ public class NewsApi {
    * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
-   * @return InlineResponse2009
+   * @return InlineResponse20011
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -683,7 +685,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2009 getNewsPublisherListByDistributor(BigDecimal id, java.util.Set<String> attributes, java.util.Set<String> sort) throws ApiException {
+  public InlineResponse20011 getNewsPublisherListByDistributor(BigDecimal id, java.util.Set<String> attributes, java.util.Set<String> sort) throws ApiException {
     return getNewsPublisherListByDistributorWithHttpInfo(id, attributes, sort).getData();
   }
 
@@ -693,7 +695,7 @@ public class NewsApi {
    * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
-   * @return ApiResponse&lt;InlineResponse2009&gt;
+   * @return ApiResponse&lt;InlineResponse20011&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -701,7 +703,7 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2009> getNewsPublisherListByDistributorWithHttpInfo(BigDecimal id, java.util.Set<String> attributes, java.util.Set<String> sort) throws ApiException {
+  public ApiResponse<InlineResponse20011> getNewsPublisherListByDistributorWithHttpInfo(BigDecimal id, java.util.Set<String> attributes, java.util.Set<String> sort) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -740,7 +742,7 @@ public class NewsApi {
 
     ApiResponse<
         
-        InlineResponse2009
+        InlineResponse20011
       
     > apiResponse = apiClient.invokeAPI("NewsApi.getNewsPublisherListByDistributor", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -752,7 +754,7 @@ public class NewsApi {
   /**
    * List of news articles.
    * List of news articles.
-   * @param inlineObject  (optional)
+   * @param postNewsArticleListRequest  (optional)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -761,14 +763,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postNewsArticleList(InlineObject inlineObject) throws ApiException {
-    return postNewsArticleListWithHttpInfo(inlineObject).getData();
+  public InlineResponse2001 postNewsArticleList(PostNewsArticleListRequest postNewsArticleListRequest) throws ApiException {
+    return postNewsArticleListWithHttpInfo(postNewsArticleListRequest).getData();
   }
 
   /**
    * List of news articles.
    * List of news articles.
-   * @param inlineObject  (optional)
+   * @param postNewsArticleListRequest  (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -777,8 +779,8 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postNewsArticleListWithHttpInfo(InlineObject inlineObject) throws ApiException {
-    Object localVarPostBody = inlineObject;
+  public ApiResponse<InlineResponse2001> postNewsArticleListWithHttpInfo(PostNewsArticleListRequest postNewsArticleListRequest) throws ApiException {
+    Object localVarPostBody = postNewsArticleListRequest;
     
     // create path and map variables
     String localVarPath = "/news/article/list";
@@ -820,7 +822,7 @@ public class NewsApi {
   /**
    * List news articles of an article chain.
    * List news articles of an article chain.
-   * @param inlineObject1  (required)
+   * @param postNewsArticleListByChainRequest  (optional)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -829,14 +831,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2002 postNewsArticleListByChain(InlineObject1 inlineObject1) throws ApiException {
-    return postNewsArticleListByChainWithHttpInfo(inlineObject1).getData();
+  public InlineResponse2002 postNewsArticleListByChain(PostNewsArticleListByChainRequest postNewsArticleListByChainRequest) throws ApiException {
+    return postNewsArticleListByChainWithHttpInfo(postNewsArticleListByChainRequest).getData();
   }
 
   /**
    * List news articles of an article chain.
    * List news articles of an article chain.
-   * @param inlineObject1  (required)
+   * @param postNewsArticleListByChainRequest  (optional)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -845,13 +847,8 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2002> postNewsArticleListByChainWithHttpInfo(InlineObject1 inlineObject1) throws ApiException {
-    Object localVarPostBody = inlineObject1;
-    
-    // verify the required parameter 'inlineObject1' is set
-    if (inlineObject1 == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject1' when calling postNewsArticleListByChain");
-    }
+  public ApiResponse<InlineResponse2002> postNewsArticleListByChainWithHttpInfo(PostNewsArticleListByChainRequest postNewsArticleListByChainRequest) throws ApiException {
+    Object localVarPostBody = postNewsArticleListByChainRequest;
     
     // create path and map variables
     String localVarPath = "/news/article/listByChain";
@@ -893,8 +890,8 @@ public class NewsApi {
   /**
    * News articles for instruments that are constituents of the given indices.
    * News articles for instruments that are constituents of the given indices.
-   * @param inlineObject2  (required)
-   * @return InlineResponse2001
+   * @param postNewsArticleListByIndexRequest  (optional)
+   * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -902,15 +899,15 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postNewsArticleListByIndex(InlineObject2 inlineObject2) throws ApiException {
-    return postNewsArticleListByIndexWithHttpInfo(inlineObject2).getData();
+  public InlineResponse2003 postNewsArticleListByIndex(PostNewsArticleListByIndexRequest postNewsArticleListByIndexRequest) throws ApiException {
+    return postNewsArticleListByIndexWithHttpInfo(postNewsArticleListByIndexRequest).getData();
   }
 
   /**
    * News articles for instruments that are constituents of the given indices.
    * News articles for instruments that are constituents of the given indices.
-   * @param inlineObject2  (required)
-   * @return ApiResponse&lt;InlineResponse2001&gt;
+   * @param postNewsArticleListByIndexRequest  (optional)
+   * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -918,13 +915,8 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postNewsArticleListByIndexWithHttpInfo(InlineObject2 inlineObject2) throws ApiException {
-    Object localVarPostBody = inlineObject2;
-    
-    // verify the required parameter 'inlineObject2' is set
-    if (inlineObject2 == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject2' when calling postNewsArticleListByIndex");
-    }
+  public ApiResponse<InlineResponse2003> postNewsArticleListByIndexWithHttpInfo(PostNewsArticleListByIndexRequest postNewsArticleListByIndexRequest) throws ApiException {
+    Object localVarPostBody = postNewsArticleListByIndexRequest;
     
     // create path and map variables
     String localVarPath = "/news/article/listByIndex";
@@ -954,7 +946,7 @@ public class NewsApi {
 
     ApiResponse<
         
-        InlineResponse2001
+        InlineResponse2003
       
     > apiResponse = apiClient.invokeAPI("NewsApi.postNewsArticleListByIndex", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -966,8 +958,8 @@ public class NewsApi {
   /**
    * News articles for instruments.
    * News articles for instruments.
-   * @param inlineObject3  (required)
-   * @return InlineResponse2001
+   * @param postNewsArticleListByInstrumentRequest  (optional)
+   * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -975,15 +967,15 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postNewsArticleListByInstrument(InlineObject3 inlineObject3) throws ApiException {
-    return postNewsArticleListByInstrumentWithHttpInfo(inlineObject3).getData();
+  public InlineResponse2004 postNewsArticleListByInstrument(PostNewsArticleListByInstrumentRequest postNewsArticleListByInstrumentRequest) throws ApiException {
+    return postNewsArticleListByInstrumentWithHttpInfo(postNewsArticleListByInstrumentRequest).getData();
   }
 
   /**
    * News articles for instruments.
    * News articles for instruments.
-   * @param inlineObject3  (required)
-   * @return ApiResponse&lt;InlineResponse2001&gt;
+   * @param postNewsArticleListByInstrumentRequest  (optional)
+   * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -991,13 +983,8 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postNewsArticleListByInstrumentWithHttpInfo(InlineObject3 inlineObject3) throws ApiException {
-    Object localVarPostBody = inlineObject3;
-    
-    // verify the required parameter 'inlineObject3' is set
-    if (inlineObject3 == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject3' when calling postNewsArticleListByInstrument");
-    }
+  public ApiResponse<InlineResponse2004> postNewsArticleListByInstrumentWithHttpInfo(PostNewsArticleListByInstrumentRequest postNewsArticleListByInstrumentRequest) throws ApiException {
+    Object localVarPostBody = postNewsArticleListByInstrumentRequest;
     
     // create path and map variables
     String localVarPath = "/news/article/listByInstrument";
@@ -1027,7 +1014,7 @@ public class NewsApi {
 
     ApiResponse<
         
-        InlineResponse2001
+        InlineResponse2004
       
     > apiResponse = apiClient.invokeAPI("NewsApi.postNewsArticleListByInstrument", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1039,7 +1026,7 @@ public class NewsApi {
   /**
    * List news articles which contain media of specific media kinds.
    * List news articles which contain media of specific media kinds.
-   * @param inlineObject4  (required)
+   * @param postNewsArticleListByMediaKindRequest  (optional)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1048,14 +1035,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postNewsArticleListByMediaKind(InlineObject4 inlineObject4) throws ApiException {
-    return postNewsArticleListByMediaKindWithHttpInfo(inlineObject4).getData();
+  public InlineResponse2001 postNewsArticleListByMediaKind(PostNewsArticleListByMediaKindRequest postNewsArticleListByMediaKindRequest) throws ApiException {
+    return postNewsArticleListByMediaKindWithHttpInfo(postNewsArticleListByMediaKindRequest).getData();
   }
 
   /**
    * List news articles which contain media of specific media kinds.
    * List news articles which contain media of specific media kinds.
-   * @param inlineObject4  (required)
+   * @param postNewsArticleListByMediaKindRequest  (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1064,13 +1051,8 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postNewsArticleListByMediaKindWithHttpInfo(InlineObject4 inlineObject4) throws ApiException {
-    Object localVarPostBody = inlineObject4;
-    
-    // verify the required parameter 'inlineObject4' is set
-    if (inlineObject4 == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject4' when calling postNewsArticleListByMediaKind");
-    }
+  public ApiResponse<InlineResponse2001> postNewsArticleListByMediaKindWithHttpInfo(PostNewsArticleListByMediaKindRequest postNewsArticleListByMediaKindRequest) throws ApiException {
+    Object localVarPostBody = postNewsArticleListByMediaKindRequest;
     
     // create path and map variables
     String localVarPath = "/news/article/listByMediaKind";
@@ -1112,7 +1094,7 @@ public class NewsApi {
   /**
    * Search for news articles using a fulltext search.
    * Search for news articles using a fulltext search. All specified criteria need to be fulfilled for an article to match. Each criterion is handled according to its selectionType; \&quot;include\&quot; requires the criterion to evaluate to true, \&quot;exclude\&quot; requires the criterion to evaluate to false. A criterion is fulfilled when at least one of its values is found.
-   * @param inlineObject5  (optional)
+   * @param postNewsArticleSearchByTextRequest  (optional)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1121,14 +1103,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postNewsArticleSearchByText(InlineObject5 inlineObject5) throws ApiException {
-    return postNewsArticleSearchByTextWithHttpInfo(inlineObject5).getData();
+  public InlineResponse2001 postNewsArticleSearchByText(PostNewsArticleSearchByTextRequest postNewsArticleSearchByTextRequest) throws ApiException {
+    return postNewsArticleSearchByTextWithHttpInfo(postNewsArticleSearchByTextRequest).getData();
   }
 
   /**
    * Search for news articles using a fulltext search.
    * Search for news articles using a fulltext search. All specified criteria need to be fulfilled for an article to match. Each criterion is handled according to its selectionType; \&quot;include\&quot; requires the criterion to evaluate to true, \&quot;exclude\&quot; requires the criterion to evaluate to false. A criterion is fulfilled when at least one of its values is found.
-   * @param inlineObject5  (optional)
+   * @param postNewsArticleSearchByTextRequest  (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1137,8 +1119,8 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postNewsArticleSearchByTextWithHttpInfo(InlineObject5 inlineObject5) throws ApiException {
-    Object localVarPostBody = inlineObject5;
+  public ApiResponse<InlineResponse2001> postNewsArticleSearchByTextWithHttpInfo(PostNewsArticleSearchByTextRequest postNewsArticleSearchByTextRequest) throws ApiException {
+    Object localVarPostBody = postNewsArticleSearchByTextRequest;
     
     // create path and map variables
     String localVarPath = "/news/article/searchByText";
@@ -1180,8 +1162,8 @@ public class NewsApi {
   /**
    * Search for publishers.
    * Search for publishers by the name of the publisher.
-   * @param inlineObject6  (required)
-   * @return InlineResponse2009
+   * @param postNewsPublisherSearchByNameRequest  (optional)
+   * @return InlineResponse20011
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1189,15 +1171,15 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2009 postNewsPublisherSearchByName(InlineObject6 inlineObject6) throws ApiException {
-    return postNewsPublisherSearchByNameWithHttpInfo(inlineObject6).getData();
+  public InlineResponse20011 postNewsPublisherSearchByName(PostNewsPublisherSearchByNameRequest postNewsPublisherSearchByNameRequest) throws ApiException {
+    return postNewsPublisherSearchByNameWithHttpInfo(postNewsPublisherSearchByNameRequest).getData();
   }
 
   /**
    * Search for publishers.
    * Search for publishers by the name of the publisher.
-   * @param inlineObject6  (required)
-   * @return ApiResponse&lt;InlineResponse2009&gt;
+   * @param postNewsPublisherSearchByNameRequest  (optional)
+   * @return ApiResponse&lt;InlineResponse20011&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1205,13 +1187,8 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2009> postNewsPublisherSearchByNameWithHttpInfo(InlineObject6 inlineObject6) throws ApiException {
-    Object localVarPostBody = inlineObject6;
-    
-    // verify the required parameter 'inlineObject6' is set
-    if (inlineObject6 == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject6' when calling postNewsPublisherSearchByName");
-    }
+  public ApiResponse<InlineResponse20011> postNewsPublisherSearchByNameWithHttpInfo(PostNewsPublisherSearchByNameRequest postNewsPublisherSearchByNameRequest) throws ApiException {
+    Object localVarPostBody = postNewsPublisherSearchByNameRequest;
     
     // create path and map variables
     String localVarPath = "/news/publisher/searchByName";
@@ -1241,7 +1218,7 @@ public class NewsApi {
 
     ApiResponse<
         
-        InlineResponse2009
+        InlineResponse20011
       
     > apiResponse = apiClient.invokeAPI("NewsApi.postNewsPublisherSearchByName", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

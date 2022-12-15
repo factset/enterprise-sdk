@@ -1,6 +1,6 @@
 # fds.sdk.QuotesAPIforDigitalPortals.NotationApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,12 +15,16 @@ Method | HTTP request | Description
 [**get_notation_key_figures_month_6_list**](NotationApi.md#get_notation_key_figures_month_6_list) | **GET** /notation/keyFigures/month/6/list | End-of-day (EOD) key figures for the time range of six months, for a list of notations.
 [**get_notation_key_figures_week_1_get**](NotationApi.md#get_notation_key_figures_week_1_get) | **GET** /notation/keyFigures/week/1/get | End-of-day (EOD) key figures for the time range of one week.
 [**get_notation_key_figures_week_1_list**](NotationApi.md#get_notation_key_figures_week_1_list) | **GET** /notation/keyFigures/week/1/list | End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+[**get_notation_key_figures_year_10_get**](NotationApi.md#get_notation_key_figures_year_10_get) | **GET** /notation/keyFigures/year/10/get | End-of-day (EOD) key figures for the time range of ten years.
+[**get_notation_key_figures_year_10_list**](NotationApi.md#get_notation_key_figures_year_10_list) | **GET** /notation/keyFigures/year/10/list | End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
 [**get_notation_key_figures_year_1_get**](NotationApi.md#get_notation_key_figures_year_1_get) | **GET** /notation/keyFigures/year/1/get | End-of-day (EOD) key figures for the time range of one year.
 [**get_notation_key_figures_year_1_list**](NotationApi.md#get_notation_key_figures_year_1_list) | **GET** /notation/keyFigures/year/1/list | End-of-day (EOD) key figures for the time range of one year, for a list of notations.
 [**get_notation_key_figures_year_3_get**](NotationApi.md#get_notation_key_figures_year_3_get) | **GET** /notation/keyFigures/year/3/get | End-of-day (EOD) key figures for the time range of three years.
 [**get_notation_key_figures_year_3_list**](NotationApi.md#get_notation_key_figures_year_3_list) | **GET** /notation/keyFigures/year/3/list | End-of-day (EOD) key figures for the time range of three years, for a list of notations.
 [**get_notation_key_figures_year_5_get**](NotationApi.md#get_notation_key_figures_year_5_get) | **GET** /notation/keyFigures/year/5/get | End-of-day (EOD) key figures for the time range of five years.
 [**get_notation_key_figures_year_5_list**](NotationApi.md#get_notation_key_figures_year_5_list) | **GET** /notation/keyFigures/year/5/list | End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+[**get_notation_key_figures_year_7_get**](NotationApi.md#get_notation_key_figures_year_7_get) | **GET** /notation/keyFigures/year/7/get | End-of-day (EOD) key figures for the time range of seven years.
+[**get_notation_key_figures_year_7_list**](NotationApi.md#get_notation_key_figures_year_7_list) | **GET** /notation/keyFigures/year/7/list | End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
 [**get_notation_key_figures_year_to_date_get**](NotationApi.md#get_notation_key_figures_year_to_date_get) | **GET** /notation/keyFigures/yearToDate/get | End-of-day (EOD) key figures for the time range year-to-date (YTD)..
 [**get_notation_key_figures_year_to_date_list**](NotationApi.md#get_notation_key_figures_year_to_date_list) | **GET** /notation/keyFigures/yearToDate/list | End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
 [**get_notation_list**](NotationApi.md#get_notation_list) | **GET** /notation/list | Basic data for a list of notations.
@@ -32,11 +36,12 @@ Method | HTTP request | Description
 [**post_notation_cross_reference_list_by_instrument**](NotationApi.md#post_notation_cross_reference_list_by_instrument) | **POST** /notation/crossReference/listByInstrument | List of entitled notations.
 [**post_notation_cross_reference_list_by_isin**](NotationApi.md#post_notation_cross_reference_list_by_isin) | **POST** /notation/crossReference/listByISIN | List of entitled notations.
 [**post_notation_cross_reference_list_by_symbol**](NotationApi.md#post_notation_cross_reference_list_by_symbol) | **POST** /notation/crossReference/listBySymbol | List of entitled notations.
+[**post_notation_market_list**](NotationApi.md#post_notation_market_list) | **POST** /notation/market/list | List of markets with entitled notations.
 [**post_notation_search_by_text**](NotationApi.md#post_notation_search_by_text) | **POST** /notation/searchByText | Text-based search for notations.
 
 
 # **get_notation_cross_reference_fact_set_identifier_get**
-> InlineResponse20069 get_notation_cross_reference_fact_set_identifier_get(id)
+> InlineResponse20071 get_notation_cross_reference_fact_set_identifier_get(identifier, identifier_type)
 
 Retrieve FactSet identifiers for a given notation.
 
@@ -82,7 +87,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of a notation.
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -91,7 +97,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # Retrieve FactSet identifiers for a given notation.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_cross_reference_fact_set_identifier_get(id, attributes=attributes)
+        api_response = api_instance.get_notation_cross_reference_fact_set_identifier_get(identifier, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -103,12 +109,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of a notation. |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20069**](InlineResponse20069.md)
+[**InlineResponse20071**](InlineResponse20071.md)
 
 ### Authorization
 
@@ -129,7 +136,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_cross_reference_get_by_fact_set_market_symbol**
-> InlineResponse20066 get_notation_cross_reference_get_by_fact_set_market_symbol(fact_set_market_symbol)
+> InlineResponse20067 get_notation_cross_reference_get_by_fact_set_market_symbol(fact_set_market_symbol)
 
 Translate a FactSet market symbol to a notation.
 
@@ -175,11 +182,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    fact_set_market_symbol = "factSetMarketSymbol_example" # str | Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE).
+    fact_set_market_symbol = "factSetMarketSymbol_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Translate a FactSet market symbol to a notation.
@@ -197,13 +204,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fact_set_market_symbol** | **str**| Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE). |
+ **fact_set_market_symbol** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse20066**](InlineResponse20066.md)
+[**InlineResponse20067**](InlineResponse20067.md)
 
 ### Authorization
 
@@ -224,7 +231,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_get**
-> InlineResponse20064 get_notation_get(id)
+> InlineResponse20065 get_notation_get(identifier, identifier_type)
 
 Basic data for a notation.
 
@@ -270,17 +277,18 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of a notation.
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Basic data for a notation.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_get(id, attributes=attributes, language=language)
+        api_response = api_instance.get_notation_get(identifier, identifier_type, attributes=attributes, language=language)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -292,13 +300,14 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of a notation. |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse20064**](InlineResponse20064.md)
+[**InlineResponse20065**](InlineResponse20065.md)
 
 ### Authorization
 
@@ -319,7 +328,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_1_get**
-> InlineResponse20072 get_notation_key_figures_month_1_get(id)
+> InlineResponse20076 get_notation_key_figures_month_1_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one month.
 
@@ -365,7 +374,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -374,7 +384,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of one month.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_month_1_get(id, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_month_1_get(identifier, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -386,12 +396,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -412,7 +423,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_1_list**
-> InlineResponse20073 get_notation_key_figures_month_1_list(ids)
+> InlineResponse20077 get_notation_key_figures_month_1_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one month, for a list of notations.
 
@@ -458,9 +469,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    ids = [
-        "ids_example",
-    ] # [str] | List of notations.
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -469,7 +481,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of one month, for a list of notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_month_1_list(ids, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_month_1_list(identifiers, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -481,12 +493,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| List of notations. |
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -507,7 +520,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_3_get**
-> InlineResponse20074 get_notation_key_figures_month_3_get(id)
+> InlineResponse20074 get_notation_key_figures_month_3_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of three months.
 
@@ -553,7 +566,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -562,7 +576,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of three months.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_month_3_get(id, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_month_3_get(identifier, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -574,7 +588,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -600,7 +615,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_3_list**
-> InlineResponse20075 get_notation_key_figures_month_3_list(ids)
+> InlineResponse20075 get_notation_key_figures_month_3_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of three months, for a list of notations.
 
@@ -646,9 +661,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    ids = [
-        "ids_example",
-    ] # [str] | List of notations.
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -657,7 +673,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of three months, for a list of notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_month_3_list(ids, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_month_3_list(identifiers, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -669,7 +685,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| List of notations. |
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -695,7 +712,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_6_get**
-> InlineResponse20074 get_notation_key_figures_month_6_get(id)
+> InlineResponse20074 get_notation_key_figures_month_6_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of six months.
 
@@ -741,7 +758,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -750,7 +768,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of six months.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_month_6_get(id, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_month_6_get(identifier, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -762,7 +780,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -788,7 +807,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_6_list**
-> InlineResponse20075 get_notation_key_figures_month_6_list(ids)
+> InlineResponse20075 get_notation_key_figures_month_6_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of six months, for a list of notations.
 
@@ -834,9 +853,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    ids = [
-        "ids_example",
-    ] # [str] | List of notations.
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -845,7 +865,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of six months, for a list of notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_month_6_list(ids, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_month_6_list(identifiers, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -857,7 +877,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| List of notations. |
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -883,7 +904,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_week_1_get**
-> InlineResponse20072 get_notation_key_figures_week_1_get(id)
+> InlineResponse20076 get_notation_key_figures_week_1_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one week.
 
@@ -929,7 +950,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -938,7 +960,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of one week.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_week_1_get(id, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_week_1_get(identifier, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -950,12 +972,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -976,7 +999,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_week_1_list**
-> InlineResponse20073 get_notation_key_figures_week_1_list(ids)
+> InlineResponse20077 get_notation_key_figures_week_1_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one week, for a list of notations.
 
@@ -1022,9 +1045,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    ids = [
-        "ids_example",
-    ] # [str] | List of notations.
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1033,7 +1057,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of one week, for a list of notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_week_1_list(ids, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_week_1_list(identifiers, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1045,12 +1069,205 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| List of notations. |
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20077**](InlineResponse20077.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_notation_key_figures_year_10_get**
+> InlineResponse20074 get_notation_key_figures_year_10_get(identifier, identifier_type)
+
+End-of-day (EOD) key figures for the time range of ten years.
+
+End-of-day (EOD) key figures for the time range of ten years.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.QuotesAPIforDigitalPortals
+from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = notation_api.NotationApi(api_client)
+
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
+    attributes = [
+        "_attributes_example",
+    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
+
+    try:
+        # End-of-day (EOD) key figures for the time range of ten years.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_notation_key_figures_year_10_get(identifier, identifier_type, attributes=attributes)
+        pprint(api_response)
+
+    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling NotationApi->get_notation_key_figures_year_10_get: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
+ **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse20074**](InlineResponse20074.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_notation_key_figures_year_10_list**
+> InlineResponse20075 get_notation_key_figures_year_10_list(identifiers, identifier_type)
+
+End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+
+End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.QuotesAPIforDigitalPortals
+from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = notation_api.NotationApi(api_client)
+
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
+    attributes = [
+        "_attributes_example",
+    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
+
+    try:
+        # End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_notation_key_figures_year_10_list(identifiers, identifier_type, attributes=attributes)
+        pprint(api_response)
+
+    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling NotationApi->get_notation_key_figures_year_10_list: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
+ **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1071,7 +1288,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_1_get**
-> InlineResponse20072 get_notation_key_figures_year_1_get(id)
+> InlineResponse20076 get_notation_key_figures_year_1_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one year.
 
@@ -1117,7 +1334,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1126,7 +1344,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of one year.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_year_1_get(id, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_year_1_get(identifier, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1138,12 +1356,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1164,7 +1383,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_1_list**
-> InlineResponse20073 get_notation_key_figures_year_1_list(ids)
+> InlineResponse20077 get_notation_key_figures_year_1_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one year, for a list of notations.
 
@@ -1210,9 +1429,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    ids = [
-        "ids_example",
-    ] # [str] | List of notations.
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1221,7 +1441,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of one year, for a list of notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_year_1_list(ids, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_year_1_list(identifiers, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1233,12 +1453,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| List of notations. |
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -1259,7 +1480,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_3_get**
-> InlineResponse20074 get_notation_key_figures_year_3_get(id)
+> InlineResponse20074 get_notation_key_figures_year_3_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of three years.
 
@@ -1305,7 +1526,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1314,7 +1536,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of three years.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_year_3_get(id, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_year_3_get(identifier, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1326,7 +1548,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1352,7 +1575,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_3_list**
-> InlineResponse20075 get_notation_key_figures_year_3_list(ids)
+> InlineResponse20075 get_notation_key_figures_year_3_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of three years, for a list of notations.
 
@@ -1398,9 +1621,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    ids = [
-        "ids_example",
-    ] # [str] | List of notations.
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1409,7 +1633,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of three years, for a list of notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_year_3_list(ids, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_year_3_list(identifiers, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1421,7 +1645,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| List of notations. |
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1447,7 +1672,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_5_get**
-> InlineResponse20074 get_notation_key_figures_year_5_get(id)
+> InlineResponse20074 get_notation_key_figures_year_5_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of five years.
 
@@ -1493,7 +1718,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1502,7 +1728,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of five years.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_year_5_get(id, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_year_5_get(identifier, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1514,7 +1740,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1540,7 +1767,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_5_list**
-> InlineResponse20075 get_notation_key_figures_year_5_list(ids)
+> InlineResponse20075 get_notation_key_figures_year_5_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of five years, for a list of notations.
 
@@ -1586,9 +1813,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    ids = [
-        "ids_example",
-    ] # [str] | List of notations.
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1597,7 +1825,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range of five years, for a list of notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_year_5_list(ids, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_year_5_list(identifiers, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1609,7 +1837,200 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| List of notations. |
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
+ **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse20075**](InlineResponse20075.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_notation_key_figures_year_7_get**
+> InlineResponse20074 get_notation_key_figures_year_7_get(identifier, identifier_type)
+
+End-of-day (EOD) key figures for the time range of seven years.
+
+End-of-day (EOD) key figures for the time range of seven years.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.QuotesAPIforDigitalPortals
+from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = notation_api.NotationApi(api_client)
+
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
+    attributes = [
+        "_attributes_example",
+    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
+
+    try:
+        # End-of-day (EOD) key figures for the time range of seven years.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_notation_key_figures_year_7_get(identifier, identifier_type, attributes=attributes)
+        pprint(api_response)
+
+    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling NotationApi->get_notation_key_figures_year_7_get: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
+ **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse20074**](InlineResponse20074.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_notation_key_figures_year_7_list**
+> InlineResponse20075 get_notation_key_figures_year_7_list(identifiers, identifier_type)
+
+End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+
+End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.QuotesAPIforDigitalPortals
+from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = notation_api.NotationApi(api_client)
+
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
+    attributes = [
+        "_attributes_example",
+    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
+
+    try:
+        # End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_notation_key_figures_year_7_list(identifiers, identifier_type, attributes=attributes)
+        pprint(api_response)
+
+    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling NotationApi->get_notation_key_figures_year_7_list: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1635,7 +2056,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_to_date_get**
-> InlineResponse20076 get_notation_key_figures_year_to_date_get(id)
+> InlineResponse20078 get_notation_key_figures_year_to_date_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD)..
 
@@ -1681,7 +2102,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1690,7 +2112,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range year-to-date (YTD)..
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_year_to_date_get(id, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_year_to_date_get(identifier, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1702,12 +2124,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -1728,7 +2151,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_to_date_list**
-> InlineResponse20077 get_notation_key_figures_year_to_date_list(ids)
+> InlineResponse20079 get_notation_key_figures_year_to_date_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
 
@@ -1774,9 +2197,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    ids = [
-        "ids_example",
-    ] # [str] | List of notations.
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1785,7 +2209,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_key_figures_year_to_date_list(ids, attributes=attributes)
+        api_response = api_instance.get_notation_key_figures_year_to_date_list(identifiers, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1797,12 +2221,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| List of notations. |
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20079**](InlineResponse20079.md)
 
 ### Authorization
 
@@ -1823,7 +2248,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_list**
-> InlineResponse20065 get_notation_list(ids)
+> InlineResponse20066 get_notation_list(identifiers, identifier_type)
 
 Basic data for a list of notations.
 
@@ -1869,19 +2294,20 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    ids = [
-        "ids_example",
-    ] # [str] | List of notations.
+    identifiers = [
+        "80728880015",
+    ] # [str] | 
+    identifier_type = "idNotation" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Basic data for a list of notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_list(ids, attributes=attributes, language=language)
+        api_response = api_instance.get_notation_list(identifiers, identifier_type, attributes=attributes, language=language)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1893,13 +2319,14 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| List of notations. |
+ **identifiers** | **[str]**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse20065**](InlineResponse20065.md)
+[**InlineResponse20066**](InlineResponse20066.md)
 
 ### Authorization
 
@@ -1920,7 +2347,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_search_basic**
-> InlineResponse20088 get_notation_search_basic(search_value)
+> InlineResponse20091 get_notation_search_basic(search_value)
 
 Basic search for notations.
 
@@ -1966,19 +2393,19 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    search_value = "RyDnZVoeN782F) 9-xW)gz" # str | Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+    search_value = "RyDnZVoeN782F) 9-xW)gz" # str | 
     nsins = [
         "wkn",
-    ] # [str] | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional)
-    asset_class = "index" # str | A parameter to limit the output to a particular asset class. (optional)
-    only_active = True # bool | If true, restricts the result to active notations. (optional) if omitted the server will use the default value of True
-    popularity = False # bool | If true, the results are sorted by descending popularity. (optional) if omitted the server will use the default value of False
+    ] # [str] |  (optional)
+    asset_class = "index" # str |  (optional)
+    only_active = True # bool |  (optional) if omitted the server will use the default value of True
+    popularity = False # bool |  (optional) if omitted the server will use the default value of False
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
+    language = "_language_example" # str |  (optional)
+    pagination_offset = 0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0
+    pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
         # Basic search for notations.
@@ -1996,19 +2423,19 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search_value** | **str**| Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. |
- **nsins** | **[str]**| A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. | [optional]
- **asset_class** | **str**| A parameter to limit the output to a particular asset class. | [optional]
- **only_active** | **bool**| If true, restricts the result to active notations. | [optional] if omitted the server will use the default value of True
- **popularity** | **bool**| If true, the results are sorted by descending popularity. | [optional] if omitted the server will use the default value of False
+ **search_value** | **str**|  |
+ **nsins** | **[str]**|  | [optional]
+ **asset_class** | **str**|  | [optional]
+ **only_active** | **bool**|  | [optional] if omitted the server will use the default value of True
+ **popularity** | **bool**|  | [optional] if omitted the server will use the default value of False
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20.0
+ **language** | **str**|  | [optional]
+ **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0
+ **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20
 
 ### Return type
 
-[**InlineResponse20088**](InlineResponse20088.md)
+[**InlineResponse20091**](InlineResponse20091.md)
 
 ### Authorization
 
@@ -2029,7 +2456,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_search_by_text_ranked_by_volume**
-> InlineResponse20090 get_notation_search_by_text_ranked_by_volume(search_value)
+> InlineResponse20093 get_notation_search_by_text_ranked_by_volume(search_value)
 
 Basic search for notations.
 
@@ -2075,23 +2502,23 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    search_value = "e*otg6ww0E+TcmO6LlnYuL" # str | Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+    search_value = "e*otg6ww0E+TcmO6LlnYuL" # str | 
     id_markets = [
         3.14,
-    ] # [float] | List of market identifiers. Limits the results to the given markets. For possible values, see endpoint `/basic/market/list`. (optional)
+    ] # [float] |  (optional)
     nsins = [
         "wkn",
-    ] # [str] | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional)
+    ] # [str] |  (optional)
     asset_class = [
         "index",
-    ] # [str] | Limits the results to a particular asset class. (optional)
-    only_active = True # bool | If true, restricts the result to active notations. (optional) if omitted the server will use the default value of True
+    ] # [str] |  (optional)
+    only_active = True # bool |  (optional) if omitted the server will use the default value of True
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
+    language = "_language_example" # str |  (optional)
+    pagination_offset = 0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0
+    pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
         # Basic search for notations.
@@ -2109,19 +2536,19 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search_value** | **str**| Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. |
- **id_markets** | **[float]**| List of market identifiers. Limits the results to the given markets. For possible values, see endpoint &#x60;/basic/market/list&#x60;. | [optional]
- **nsins** | **[str]**| A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. | [optional]
- **asset_class** | **[str]**| Limits the results to a particular asset class. | [optional]
- **only_active** | **bool**| If true, restricts the result to active notations. | [optional] if omitted the server will use the default value of True
+ **search_value** | **str**|  |
+ **id_markets** | **[float]**|  | [optional]
+ **nsins** | **[str]**|  | [optional]
+ **asset_class** | **[str]**|  | [optional]
+ **only_active** | **bool**|  | [optional] if omitted the server will use the default value of True
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20.0
+ **language** | **str**|  | [optional]
+ **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0
+ **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20
 
 ### Return type
 
-[**InlineResponse20090**](InlineResponse20090.md)
+[**InlineResponse20093**](InlineResponse20093.md)
 
 ### Authorization
 
@@ -2142,7 +2569,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_status_get**
-> InlineResponse20078 get_notation_status_get(id)
+> InlineResponse20081 get_notation_status_get(identifier, identifier_type)
 
 Intraday trading status of a notation.
 
@@ -2188,8 +2615,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    id = "id_example" # str | Identifier of a notation.
-    quality = "DLY" # str | Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). (optional) if omitted the server will use the default value of "DLY"
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
+    quality = "DLY" # str |  (optional) if omitted the server will use the default value of "DLY"
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -2198,7 +2626,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # Intraday trading status of a notation.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notation_status_get(id, quality=quality, attributes=attributes)
+        api_response = api_instance.get_notation_status_get(identifier, identifier_type, quality=quality, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2210,13 +2638,14 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of a notation. |
- **quality** | **str**| Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). | [optional] if omitted the server will use the default value of "DLY"
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
+ **quality** | **str**|  | [optional] if omitted the server will use the default value of "DLY"
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20078**](InlineResponse20078.md)
+[**InlineResponse20081**](InlineResponse20081.md)
 
 ### Authorization
 
@@ -2237,7 +2666,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier**
-> InlineResponse20070 post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier(body)
+> InlineResponse20072 post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier()
 
 Retrieve a list of notations for a given FactSet identifier.
 
@@ -2283,22 +2712,23 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    body = InlineObject19(
-        data=NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData(
+    post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request = PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest(
+        data=PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData(
             symbology_identifier="Q6ZGCKEC0L3O4GI7XHK0JCY075UA-TI",
         ),
-        meta=InstrumentBackgroundTextTypeListMeta(
+        meta=PostInstrumentBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # InlineObject19 | 
+    ) # PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest |  (optional)
 
     try:
         # Retrieve a list of notations for a given FactSet identifier.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier(body)
+        # and optional values
+        api_response = api_instance.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier(post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request=post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2310,11 +2740,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject19**](InlineObject19.md)|  |
+ **post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request** | [**PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest**](PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20070**](InlineResponse20070.md)
+[**InlineResponse20072**](InlineResponse20072.md)
 
 ### Authorization
 
@@ -2335,7 +2765,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_cross_reference_fact_set_identifier_list_by_instrument**
-> InlineResponse20071 post_notation_cross_reference_fact_set_identifier_list_by_instrument(body)
+> InlineResponse20073 post_notation_cross_reference_fact_set_identifier_list_by_instrument()
 
 Retrieve a list of FactSet identifiers for a given instrument.
 
@@ -2381,22 +2811,26 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    body = InlineObject20(
-        data=NotationCrossReferenceFactSetIdentifierListByInstrumentData(
-            id="id_example",
+    post_notation_cross_reference_fact_set_identifier_list_by_instrument_request = PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest(
+        data=PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequestData(
+            identifier=PostNotationCrossReferenceListByInstrumentRequestDataIdentifier(
+                value="PQ6ZGC",
+                type="idInstrument",
+            ),
         ),
-        meta=InstrumentBackgroundTextTypeListMeta(
+        meta=PostInstrumentBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # InlineObject20 | 
+    ) # PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest |  (optional)
 
     try:
         # Retrieve a list of FactSet identifiers for a given instrument.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_notation_cross_reference_fact_set_identifier_list_by_instrument(body)
+        # and optional values
+        api_response = api_instance.post_notation_cross_reference_fact_set_identifier_list_by_instrument(post_notation_cross_reference_fact_set_identifier_list_by_instrument_request=post_notation_cross_reference_fact_set_identifier_list_by_instrument_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2408,11 +2842,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject20**](InlineObject20.md)|  |
+ **post_notation_cross_reference_fact_set_identifier_list_by_instrument_request** | [**PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest**](PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20071**](InlineResponse20071.md)
+[**InlineResponse20073**](InlineResponse20073.md)
 
 ### Authorization
 
@@ -2433,7 +2867,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_cross_reference_list_by_instrument**
-> InlineResponse20067 post_notation_cross_reference_list_by_instrument()
+> InlineResponse20068 post_notation_cross_reference_list_by_instrument()
 
 List of entitled notations.
 
@@ -2479,16 +2913,19 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    body = InlineObject16(
-        data=NotationCrossReferenceListByInstrumentData(
-            id="id_example",
-            filter=NotationCrossReferenceListByInstrumentDataFilter(
-                markets=NotationCrossReferenceListByInstrumentDataFilterMarkets(
+    post_notation_cross_reference_list_by_instrument_request = PostNotationCrossReferenceListByInstrumentRequest(
+        data=PostNotationCrossReferenceListByInstrumentRequestData(
+            identifier=PostNotationCrossReferenceListByInstrumentRequestDataIdentifier(
+                value="PQ6ZGC",
+                type="idInstrument",
+            ),
+            filter=PostNotationCrossReferenceListByInstrumentRequestDataFilter(
+                markets=PostNotationCrossReferenceListByInstrumentRequestDataFilterMarkets(
                     ids=[
                         3.14,
                     ],
                 ),
-                value_units=NotationCrossReferenceListByInstrumentDataFilterValueUnits(
+                value_units=PostNotationCrossReferenceListByInstrumentRequestDataFilterValueUnits(
                     ids=[
                         3.14,
                     ],
@@ -2496,19 +2933,19 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 only_active=False,
             ),
         ),
-        meta=InstrumentBackgroundTextTypeListMeta(
+        meta=PostInstrumentBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # InlineObject16 |  (optional)
+    ) # PostNotationCrossReferenceListByInstrumentRequest |  (optional)
 
     try:
         # List of entitled notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_notation_cross_reference_list_by_instrument(body=body)
+        api_response = api_instance.post_notation_cross_reference_list_by_instrument(post_notation_cross_reference_list_by_instrument_request=post_notation_cross_reference_list_by_instrument_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2520,11 +2957,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject16**](InlineObject16.md)|  | [optional]
+ **post_notation_cross_reference_list_by_instrument_request** | [**PostNotationCrossReferenceListByInstrumentRequest**](PostNotationCrossReferenceListByInstrumentRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20067**](InlineResponse20067.md)
+[**InlineResponse20068**](InlineResponse20068.md)
 
 ### Authorization
 
@@ -2545,7 +2982,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_cross_reference_list_by_isin**
-> InlineResponse20067 post_notation_cross_reference_list_by_isin()
+> InlineResponse20069 post_notation_cross_reference_list_by_isin()
 
 List of entitled notations.
 
@@ -2591,16 +3028,16 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    body = InlineObject17(
-        data=NotationCrossReferenceListByISINData(
+    post_notation_cross_reference_list_by_isin_request = PostNotationCrossReferenceListByISINRequest(
+        data=PostNotationCrossReferenceListByISINRequestData(
             isin="isin_example",
-            filter=NotationCrossReferenceListByInstrumentDataFilter(
-                markets=NotationCrossReferenceListByInstrumentDataFilterMarkets(
+            filter=PostNotationCrossReferenceListByInstrumentRequestDataFilter(
+                markets=PostNotationCrossReferenceListByInstrumentRequestDataFilterMarkets(
                     ids=[
                         3.14,
                     ],
                 ),
-                value_units=NotationCrossReferenceListByInstrumentDataFilterValueUnits(
+                value_units=PostNotationCrossReferenceListByInstrumentRequestDataFilterValueUnits(
                     ids=[
                         3.14,
                     ],
@@ -2608,19 +3045,19 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 only_active=False,
             ),
         ),
-        meta=InstrumentBackgroundTextTypeListMeta(
+        meta=PostInstrumentBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # InlineObject17 |  (optional)
+    ) # PostNotationCrossReferenceListByISINRequest |  (optional)
 
     try:
         # List of entitled notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_notation_cross_reference_list_by_isin(body=body)
+        api_response = api_instance.post_notation_cross_reference_list_by_isin(post_notation_cross_reference_list_by_isin_request=post_notation_cross_reference_list_by_isin_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2632,11 +3069,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject17**](InlineObject17.md)|  | [optional]
+ **post_notation_cross_reference_list_by_isin_request** | [**PostNotationCrossReferenceListByISINRequest**](PostNotationCrossReferenceListByISINRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20067**](InlineResponse20067.md)
+[**InlineResponse20069**](InlineResponse20069.md)
 
 ### Authorization
 
@@ -2657,7 +3094,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_cross_reference_list_by_symbol**
-> InlineResponse20068 post_notation_cross_reference_list_by_symbol()
+> InlineResponse20070 post_notation_cross_reference_list_by_symbol()
 
 List of entitled notations.
 
@@ -2703,16 +3140,16 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    body = InlineObject18(
-        data=NotationCrossReferenceListBySymbolData(
+    post_notation_cross_reference_list_by_symbol_request = PostNotationCrossReferenceListBySymbolRequest(
+        data=PostNotationCrossReferenceListBySymbolRequestData(
             symbol="symbol_example",
-            filter=NotationCrossReferenceListByInstrumentDataFilter(
-                markets=NotationCrossReferenceListByInstrumentDataFilterMarkets(
+            filter=PostNotationCrossReferenceListByInstrumentRequestDataFilter(
+                markets=PostNotationCrossReferenceListByInstrumentRequestDataFilterMarkets(
                     ids=[
                         3.14,
                     ],
                 ),
-                value_units=NotationCrossReferenceListByInstrumentDataFilterValueUnits(
+                value_units=PostNotationCrossReferenceListByInstrumentRequestDataFilterValueUnits(
                     ids=[
                         3.14,
                     ],
@@ -2720,19 +3157,19 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 only_active=False,
             ),
         ),
-        meta=InstrumentBackgroundTextTypeListMeta(
+        meta=PostInstrumentBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # InlineObject18 |  (optional)
+    ) # PostNotationCrossReferenceListBySymbolRequest |  (optional)
 
     try:
         # List of entitled notations.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_notation_cross_reference_list_by_symbol(body=body)
+        api_response = api_instance.post_notation_cross_reference_list_by_symbol(post_notation_cross_reference_list_by_symbol_request=post_notation_cross_reference_list_by_symbol_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2744,11 +3181,136 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject18**](InlineObject18.md)|  | [optional]
+ **post_notation_cross_reference_list_by_symbol_request** | [**PostNotationCrossReferenceListBySymbolRequest**](PostNotationCrossReferenceListBySymbolRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20068**](InlineResponse20068.md)
+[**InlineResponse20070**](InlineResponse20070.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_notation_market_list**
+> InlineResponse20080 post_notation_market_list()
+
+List of markets with entitled notations.
+
+List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.QuotesAPIforDigitalPortals
+from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = notation_api.NotationApi(api_client)
+
+    post_notation_market_list_request = PostNotationMarketListRequest(
+        data=PostNotationMarketListRequestData(
+            filter=PostNotationMarketListRequestDataFilter(
+                asset_class=PostNotationMarketListRequestDataFilterAssetClass(
+                    ids=[
+                        3.14,
+                    ],
+                ),
+                country=PostNotationMarketListRequestDataFilterCountry(
+                    ids=[
+                        3.14,
+                    ],
+                ),
+                group=PostNotationMarketListRequestDataFilterGroup(
+                    ids=[
+                        3.14,
+                    ],
+                ),
+                type=PostNotationMarketListRequestDataFilterType(
+                    ids=[
+                        3.14,
+                    ],
+                ),
+            ),
+        ),
+        meta=PostNotationMarketListRequestMeta(
+            attributes=AttributesMember([
+                "attributes_example",
+            ]),
+            language=LanguageMember("language_example"),
+            sort=["name"],
+            pagination=PostBasicMarketListRequestMetaPagination(
+                offset=0,
+                limit=20,
+            ),
+        ),
+    ) # PostNotationMarketListRequest |  (optional)
+
+    try:
+        # List of markets with entitled notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_notation_market_list(post_notation_market_list_request=post_notation_market_list_request)
+        pprint(api_response)
+
+    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling NotationApi->post_notation_market_list: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **post_notation_market_list_request** | [**PostNotationMarketListRequest**](PostNotationMarketListRequest.md)|  | [optional]
+
+### Return type
+
+[**InlineResponse20080**](InlineResponse20080.md)
 
 ### Authorization
 
@@ -2769,7 +3331,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_search_by_text**
-> InlineResponse20089 post_notation_search_by_text(body)
+> InlineResponse20092 post_notation_search_by_text()
 
 Text-based search for notations.
 
@@ -2815,81 +3377,79 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notation_api.NotationApi(api_client)
 
-    body = InlineObject22(
-        data=NotationSearchByTextData(
-            text=NotationSearchByTextDataText(
-                attributes=[
-                    "allEntitled",
-                ],
+    post_notation_search_by_text_request = PostNotationSearchByTextRequest(
+        data=PostNotationSearchByTextRequestData(
+            text=PostNotationSearchByTextRequestDataText(
+                attributes=["allEntitled"],
                 value="}&%+'1+p!'!}:=86! 4"1&",
             ),
-            validation=NotationSearchByTextDataValidation(
+            validation=PostNotationSearchByTextRequestDataValidation(
                 only_active=True,
-                prices=NotationSearchByTextDataValidationPrices(
+                prices=PostNotationSearchByTextRequestDataValidationPrices(
                     quality="EOD",
-                    latest=NotationSearchByTextDataValidationPricesLatest(
+                    latest=PostNotationSearchByTextRequestDataValidationPricesLatest(
                         available_only=True,
                         minimum_date=dateutil_parser('1970-01-01').date(),
                     ),
-                    previous=NotationSearchByTextDataValidationPricesPrevious(
+                    previous=PostNotationSearchByTextRequestDataValidationPricesPrevious(
                         available_only=True,
                         minimum_date=dateutil_parser('1970-01-01').date(),
                     ),
                 ),
-                value_unit=NotationSearchByTextDataValidationValueUnit(
-                    selection=NotationSearchByTextDataValidationValueUnitSelection(
-                        restrict=NotationSearchByTextDataValidationValueUnitSelectionRestrict(
+                value_unit=PostNotationSearchByTextRequestDataValidationValueUnit(
+                    selection=PostNotationSearchByTextRequestDataValidationValueUnitSelection(
+                        restrict=PostInstrumentNotationListRequestDataFilterValueUnitSelectionRestrict(
                             ids=[
                                 3.14,
                             ],
                         ),
-                        exclude=NotationSearchByTextDataValidationValueUnitSelectionExclude(
+                        exclude=PostInstrumentNotationListRequestDataFilterValueUnitSelectionExclude(
                             ids=[
                                 3.14,
                             ],
                         ),
                     ),
                 ),
-                market=NotationSearchByTextDataValidationMarket(
-                    selection=NotationSearchByTextDataValidationMarketSelection(
-                        restrict=NotationSearchByTextDataValidationMarketSelectionRestrict(
+                market=PostNotationSearchByTextRequestDataValidationMarket(
+                    selection=PostNotationSearchByTextRequestDataValidationMarketSelection(
+                        restrict=PostInstrumentNotationListRequestDataFilterMarketSelectionRestrict(
                             ids=[
                                 3.14,
                             ],
                         ),
-                        exclude=NotationSearchByTextDataValidationMarketSelectionExclude(
+                        exclude=PostInstrumentNotationListRequestDataFilterMarketSelectionExclude(
                             ids=[
                                 3.14,
                             ],
                         ),
                     ),
-                    priority=NotationSearchByTextDataValidationMarketPriority(
+                    priority=PostNotationSearchByTextRequestDataValidationMarketPriority(
                         ids=[
                             3.14,
                         ],
                     ),
                 ),
             ),
-            asset_classes=NotationSearchByTextDataAssetClasses(
+            asset_classes=PostNotationSearchByTextRequestDataAssetClasses(
                 ids=[
                     3.14,
                 ],
             ),
-            market=NotationSearchByTextDataMarket(
-                order=NotationSearchByTextDataMarketOrder(
+            market=PostNotationSearchByTextRequestDataMarket(
+                order=PostNotationSearchByTextRequestDataMarketOrder(
                     ids=[
                         3.14,
                     ],
                 ),
             ),
-            trading_value=NotationSearchByTextDataTradingValue(
-                average=NotationSearchByTextDataTradingValueAverage(
-                    days30=NotationSearchByTextDataTradingValueAverageDays30(
-                        minimum=NotationSearchByTextDataTradingValueAverageDays30Minimum(
+            trading_value=PostNotationSearchByTextRequestDataTradingValue(
+                average=PostNotationSearchByTextRequestDataTradingValueAverage(
+                    days30=PostNotationSearchByTextRequestDataTradingValueAverageDays30(
+                        minimum=PostNotationSearchByTextRequestDataTradingValueAverageDays30Minimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=NotationSearchByTextDataTradingValueAverageDays30Maximum(
+                        maximum=PostNotationSearchByTextRequestDataTradingValueAverageDays30Maximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -2897,25 +3457,24 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 ),
             ),
         ),
-        meta=NotationSearchByTextMeta(
+        meta=PostNotationSearchByTextRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "instrument.name.default.long",
-            ],
-            pagination=BasicMarketListMetaPagination(
+            sort=["instrument.name.default.long"],
+            pagination=PostBasicMarketListRequestMetaPagination(
                 offset=0,
-                limit=0,
+                limit=20,
             ),
         ),
-    ) # InlineObject22 | 
+    ) # PostNotationSearchByTextRequest |  (optional)
 
     try:
         # Text-based search for notations.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_notation_search_by_text(body)
+        # and optional values
+        api_response = api_instance.post_notation_search_by_text(post_notation_search_by_text_request=post_notation_search_by_text_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2927,11 +3486,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject22**](InlineObject22.md)|  |
+ **post_notation_search_by_text_request** | [**PostNotationSearchByTextRequest**](PostNotationSearchByTextRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20089**](InlineResponse20089.md)
+[**InlineResponse20092**](InlineResponse20092.md)
 
 ### Authorization
 

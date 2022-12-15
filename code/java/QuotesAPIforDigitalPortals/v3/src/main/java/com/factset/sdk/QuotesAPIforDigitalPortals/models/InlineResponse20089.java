@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20036Meta;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20089Data;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,7 +46,7 @@ public class InlineResponse20089 implements Serializable {
   private java.util.List<InlineResponse20089Data> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private InlineResponse20036Meta meta;
+  private InlineResponse200Meta meta;
 
   public InlineResponse20089() { 
   }
@@ -65,11 +65,11 @@ public class InlineResponse20089 implements Serializable {
   }
 
    /**
-   * List of matching and selected notations.
+   * List of trading schedule event types.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of matching and selected notations.")
+  @ApiModelProperty(value = "List of trading schedule event types.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,7 +85,7 @@ public class InlineResponse20089 implements Serializable {
   }
 
 
-  public InlineResponse20089 meta(InlineResponse20036Meta meta) {
+  public InlineResponse20089 meta(InlineResponse200Meta meta) {
     this.meta = meta;
     return this;
   }
@@ -99,14 +99,14 @@ public class InlineResponse20089 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20036Meta getMeta() {
+  public InlineResponse200Meta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(InlineResponse20036Meta meta) {
+  public void setMeta(InlineResponse200Meta meta) {
     this.meta = meta;
   }
 

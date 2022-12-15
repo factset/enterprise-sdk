@@ -1,6 +1,6 @@
 /*
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,12 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Accumulated;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Currency;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Fsym;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Instrument;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Market;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Trade;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Functions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,6 +25,11 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
@@ -40,310 +40,124 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
  */
 @JsonPropertyOrder({
   InlineResponse2006Data.JSON_PROPERTY_ID,
-  InlineResponse2006Data.JSON_PROPERTY_SYMBOL,
-  InlineResponse2006Data.JSON_PROPERTY_MARKET,
-  InlineResponse2006Data.JSON_PROPERTY_CURRENCY,
-  InlineResponse2006Data.JSON_PROPERTY_IS_ALTERNATIVE,
-  InlineResponse2006Data.JSON_PROPERTY_TRADE,
-  InlineResponse2006Data.JSON_PROPERTY_QUALITY,
-  InlineResponse2006Data.JSON_PROPERTY_ACCUMULATED,
-  InlineResponse2006Data.JSON_PROPERTY_FSYM,
-  InlineResponse2006Data.JSON_PROPERTY_INSTRUMENT
+  InlineResponse2006Data.JSON_PROPERTY_NAME,
+  InlineResponse2006Data.JSON_PROPERTY_FUNCTIONS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2006Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private JsonNullable<BigDecimal> id = JsonNullable.<BigDecimal>undefined();
 
-  public static final String JSON_PROPERTY_SYMBOL = "symbol";
-  private String symbol;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse2006Market market;
-
-  public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private InlineResponse2006Currency currency;
-
-  public static final String JSON_PROPERTY_IS_ALTERNATIVE = "isAlternative";
-  private Boolean isAlternative;
-
-  public static final String JSON_PROPERTY_TRADE = "trade";
-  private InlineResponse2006Trade trade;
-
-  public static final String JSON_PROPERTY_QUALITY = "quality";
-  private String quality;
-
-  public static final String JSON_PROPERTY_ACCUMULATED = "accumulated";
-  private InlineResponse2006Accumulated accumulated;
-
-  public static final String JSON_PROPERTY_FSYM = "fsym";
-  private InlineResponse2006Fsym fsym;
-
-  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
-  private InlineResponse2006Instrument instrument;
+  public static final String JSON_PROPERTY_FUNCTIONS = "functions";
+  private java.util.List<InlineResponse2006Functions> functions = null;
 
   public InlineResponse2006Data() { 
   }
 
-  public InlineResponse2006Data id(String id) {
-    this.id = id;
+  public InlineResponse2006Data id(BigDecimal id) {
+    this.id = JsonNullable.<BigDecimal>of(id);
     return this;
   }
 
    /**
-   * Identifier of a notation.
+   * Identifier of a delivery.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a notation.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(value = "Identifier of a delivery.")
+  @JsonIgnore
 
-  public String getId() {
-    return id;
+  public BigDecimal getId() {
+        return id.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
+
+  public JsonNullable<BigDecimal> getId_JsonNullable() {
+    return id;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<BigDecimal> id) {
     this.id = id;
   }
 
+  public void setId(BigDecimal id) {
+    this.id = JsonNullable.<BigDecimal>of(id);
+  }
 
-  public InlineResponse2006Data symbol(String symbol) {
-    this.symbol = symbol;
+
+  public InlineResponse2006Data name(String name) {
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
    /**
-   * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
-   * @return symbol
+   * Name of the delivery.
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.")
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
+  @ApiModelProperty(value = "Name of the delivery.")
+  @JsonIgnore
+
+  public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getSymbol() {
-    return symbol;
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
+  public InlineResponse2006Data functions(java.util.List<InlineResponse2006Functions> functions) {
+    this.functions = functions;
+    return this;
   }
 
-
-  public InlineResponse2006Data market(InlineResponse2006Market market) {
-    this.market = market;
+  public InlineResponse2006Data addFunctionsItem(InlineResponse2006Functions functionsItem) {
+    if (this.functions == null) {
+      this.functions = new java.util.ArrayList<>();
+    }
+    this.functions.add(functionsItem);
     return this;
   }
 
    /**
-   * Get market
-   * @return market
+   * List of officer functions.
+   * @return functions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  @ApiModelProperty(value = "List of officer functions.")
+  @JsonProperty(JSON_PROPERTY_FUNCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2006Market getMarket() {
-    return market;
+  public java.util.List<InlineResponse2006Functions> getFunctions() {
+    return functions;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonProperty(JSON_PROPERTY_FUNCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse2006Market market) {
-    this.market = market;
-  }
-
-
-  public InlineResponse2006Data currency(InlineResponse2006Currency currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * Get currency
-   * @return currency
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2006Currency getCurrency() {
-    return currency;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(InlineResponse2006Currency currency) {
-    this.currency = currency;
-  }
-
-
-  public InlineResponse2006Data isAlternative(Boolean isAlternative) {
-    this.isAlternative = isAlternative;
-    return this;
-  }
-
-   /**
-   * Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.
-   * @return isAlternative
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.")
-  @JsonProperty(JSON_PROPERTY_IS_ALTERNATIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsAlternative() {
-    return isAlternative;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_ALTERNATIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsAlternative(Boolean isAlternative) {
-    this.isAlternative = isAlternative;
-  }
-
-
-  public InlineResponse2006Data trade(InlineResponse2006Trade trade) {
-    this.trade = trade;
-    return this;
-  }
-
-   /**
-   * Get trade
-   * @return trade
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TRADE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2006Trade getTrade() {
-    return trade;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TRADE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTrade(InlineResponse2006Trade trade) {
-    this.trade = trade;
-  }
-
-
-  public InlineResponse2006Data quality(String quality) {
-    this.quality = quality;
-    return this;
-  }
-
-   /**
-   * Quality of the trade-related attributes, see attributes &#x60;trade&#x60; and &#x60;accumulated&#x60;.
-   * @return quality
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Quality of the trade-related attributes, see attributes `trade` and `accumulated`.")
-  @JsonProperty(JSON_PROPERTY_QUALITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getQuality() {
-    return quality;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_QUALITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQuality(String quality) {
-    this.quality = quality;
-  }
-
-
-  public InlineResponse2006Data accumulated(InlineResponse2006Accumulated accumulated) {
-    this.accumulated = accumulated;
-    return this;
-  }
-
-   /**
-   * Get accumulated
-   * @return accumulated
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ACCUMULATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2006Accumulated getAccumulated() {
-    return accumulated;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ACCUMULATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccumulated(InlineResponse2006Accumulated accumulated) {
-    this.accumulated = accumulated;
-  }
-
-
-  public InlineResponse2006Data fsym(InlineResponse2006Fsym fsym) {
-    this.fsym = fsym;
-    return this;
-  }
-
-   /**
-   * Get fsym
-   * @return fsym
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FSYM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2006Fsym getFsym() {
-    return fsym;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FSYM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsym(InlineResponse2006Fsym fsym) {
-    this.fsym = fsym;
-  }
-
-
-  public InlineResponse2006Data instrument(InlineResponse2006Instrument instrument) {
-    this.instrument = instrument;
-    return this;
-  }
-
-   /**
-   * Get instrument
-   * @return instrument
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2006Instrument getInstrument() {
-    return instrument;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstrument(InlineResponse2006Instrument instrument) {
-    this.instrument = instrument;
+  public void setFunctions(java.util.List<InlineResponse2006Functions> functions) {
+    this.functions = functions;
   }
 
 
@@ -359,21 +173,25 @@ public class InlineResponse2006Data implements Serializable {
       return false;
     }
     InlineResponse2006Data inlineResponse2006Data = (InlineResponse2006Data) o;
-    return Objects.equals(this.id, inlineResponse2006Data.id) &&
-        Objects.equals(this.symbol, inlineResponse2006Data.symbol) &&
-        Objects.equals(this.market, inlineResponse2006Data.market) &&
-        Objects.equals(this.currency, inlineResponse2006Data.currency) &&
-        Objects.equals(this.isAlternative, inlineResponse2006Data.isAlternative) &&
-        Objects.equals(this.trade, inlineResponse2006Data.trade) &&
-        Objects.equals(this.quality, inlineResponse2006Data.quality) &&
-        Objects.equals(this.accumulated, inlineResponse2006Data.accumulated) &&
-        Objects.equals(this.fsym, inlineResponse2006Data.fsym) &&
-        Objects.equals(this.instrument, inlineResponse2006Data.instrument);
+    return equalsNullable(this.id, inlineResponse2006Data.id) &&
+        equalsNullable(this.name, inlineResponse2006Data.name) &&
+        Objects.equals(this.functions, inlineResponse2006Data.functions);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, symbol, market, currency, isAlternative, trade, quality, accumulated, fsym, instrument);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(name), functions);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -381,15 +199,8 @@ public class InlineResponse2006Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2006Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
-    sb.append("    market: ").append(toIndentedString(market)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    isAlternative: ").append(toIndentedString(isAlternative)).append("\n");
-    sb.append("    trade: ").append(toIndentedString(trade)).append("\n");
-    sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
-    sb.append("    accumulated: ").append(toIndentedString(accumulated)).append("\n");
-    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
-    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    functions: ").append(toIndentedString(functions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

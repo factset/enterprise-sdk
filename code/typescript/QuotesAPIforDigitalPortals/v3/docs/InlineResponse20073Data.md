@@ -4,15 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Identifier of the notation. | [optional] 
-**referenceDate** | **Date** | Reference date of the time range. | [optional] 
-**performance** | [**InlineResponse20072DataPerformance**](InlineResponse20072DataPerformance.md) |  | [optional] 
-**high** | [**InlineResponse20072DataHigh**](InlineResponse20072DataHigh.md) |  | [optional] 
-**low** | [**InlineResponse20072DataLow**](InlineResponse20072DataLow.md) |  | [optional] 
-**averagePrice** | **Number** | Arithmetic mean of the notation&#39;s EOD closing prices for the given time range. | [optional] 
-**tradingVolume** | [**InlineResponse20072DataTradingVolume**](InlineResponse20072DataTradingVolume.md) |  | [optional] 
-**tradingValue** | **Number** | Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price. | [optional] 
-**volatility** | **Number** | Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year. | [optional] 
-**status** | [**InlineResponse20073Status**](InlineResponse20073Status.md) |  | [optional] 
+**idInstrument** | **String** | MDG identifier of the instrument. | [optional] 
+**sourceIdentifier** | **String** | Identifier used in the request. | [optional] 
+**permanentIdentifier** | **String** | FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S). | [optional] 
+**regional** | [**[InlineResponse20072DataRegional]**](InlineResponse20072DataRegional.md) | Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array. | [optional] 
 
 

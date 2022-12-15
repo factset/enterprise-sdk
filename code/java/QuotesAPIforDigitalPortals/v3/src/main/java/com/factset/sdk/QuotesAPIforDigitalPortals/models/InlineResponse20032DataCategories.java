@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -27,6 +27,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -49,19 +53,19 @@ public class InlineResponse20032DataCategories implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private BigDecimal id;
+  private JsonNullable<BigDecimal> id = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_CODE = "code";
-  private String code;
+  private JsonNullable<String> code = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ACTIVE = "active";
-  private Boolean active;
+  private JsonNullable<Boolean> active = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_LEVEL = "level";
   private InlineResponse20031DataLevel level;
@@ -73,7 +77,7 @@ public class InlineResponse20032DataCategories implements Serializable {
   }
 
   public InlineResponse20032DataCategories id(BigDecimal id) {
-    this.id = id;
+    this.id = JsonNullable.<BigDecimal>of(id);
     return this;
   }
 
@@ -83,23 +87,31 @@ public class InlineResponse20032DataCategories implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the category.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getId() {
-    return id;
+        return id.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(BigDecimal id) {
+
+  public JsonNullable<BigDecimal> getId_JsonNullable() {
+    return id;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<BigDecimal> id) {
     this.id = id;
+  }
+
+  public void setId(BigDecimal id) {
+    this.id = JsonNullable.<BigDecimal>of(id);
   }
 
 
   public InlineResponse20032DataCategories code(String code) {
-    this.code = code;
+    this.code = JsonNullable.<String>of(code);
     return this;
   }
 
@@ -109,23 +121,31 @@ public class InlineResponse20032DataCategories implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Code commonly used for this category.")
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCode() {
-    return code;
+        return code.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCode(String code) {
+
+  public JsonNullable<String> getCode_JsonNullable() {
+    return code;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CODE)
+  public void setCode_JsonNullable(JsonNullable<String> code) {
     this.code = code;
+  }
+
+  public void setCode(String code) {
+    this.code = JsonNullable.<String>of(code);
   }
 
 
   public InlineResponse20032DataCategories name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -135,23 +155,31 @@ public class InlineResponse20032DataCategories implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the category.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public InlineResponse20032DataCategories description(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -161,23 +189,31 @@ public class InlineResponse20032DataCategories implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the category.")
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getDescription() {
-    return description;
+        return description.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
   }
 
 
   public InlineResponse20032DataCategories active(Boolean active) {
-    this.active = active;
+    this.active = JsonNullable.<Boolean>of(active);
     return this;
   }
 
@@ -187,18 +223,26 @@ public class InlineResponse20032DataCategories implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether this category is active.")
-  @JsonProperty(JSON_PROPERTY_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getActive() {
-    return active;
+        return active.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setActive(Boolean active) {
+
+  public JsonNullable<Boolean> getActive_JsonNullable() {
+    return active;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ACTIVE)
+  public void setActive_JsonNullable(JsonNullable<Boolean> active) {
     this.active = active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = JsonNullable.<Boolean>of(active);
   }
 
 
@@ -266,18 +310,29 @@ public class InlineResponse20032DataCategories implements Serializable {
       return false;
     }
     InlineResponse20032DataCategories inlineResponse20032DataCategories = (InlineResponse20032DataCategories) o;
-    return Objects.equals(this.id, inlineResponse20032DataCategories.id) &&
-        Objects.equals(this.code, inlineResponse20032DataCategories.code) &&
-        Objects.equals(this.name, inlineResponse20032DataCategories.name) &&
-        Objects.equals(this.description, inlineResponse20032DataCategories.description) &&
-        Objects.equals(this.active, inlineResponse20032DataCategories.active) &&
+    return equalsNullable(this.id, inlineResponse20032DataCategories.id) &&
+        equalsNullable(this.code, inlineResponse20032DataCategories.code) &&
+        equalsNullable(this.name, inlineResponse20032DataCategories.name) &&
+        equalsNullable(this.description, inlineResponse20032DataCategories.description) &&
+        equalsNullable(this.active, inlineResponse20032DataCategories.active) &&
         Objects.equals(this.level, inlineResponse20032DataCategories.level) &&
         Objects.equals(this.parent, inlineResponse20032DataCategories.parent);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(id, code, name, description, active, level, parent);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(code), hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(active), level, parent);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

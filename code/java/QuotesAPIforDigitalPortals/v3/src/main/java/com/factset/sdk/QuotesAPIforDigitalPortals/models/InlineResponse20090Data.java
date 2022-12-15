@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,9 +17,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20066DataMarket;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20088Nsin;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20090Instrument;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20036Fsym;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20038DataCategories;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20042DataNsin;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,122 +27,159 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse20090Data
+ * The data member contains a list of the matching instruments
  */
+@ApiModel(description = "The data member contains a list of the matching instruments")
 @JsonPropertyOrder({
   InlineResponse20090Data.JSON_PROPERTY_ID,
-  InlineResponse20090Data.JSON_PROPERTY_MARKET,
-  InlineResponse20090Data.JSON_PROPERTY_SYMBOL,
+  InlineResponse20090Data.JSON_PROPERTY_NAME,
+  InlineResponse20090Data.JSON_PROPERTY_ISIN,
   InlineResponse20090Data.JSON_PROPERTY_NSIN,
-  InlineResponse20090Data.JSON_PROPERTY_INSTRUMENT
+  InlineResponse20090Data.JSON_PROPERTY_FSYM,
+  InlineResponse20090Data.JSON_PROPERTY_ASSET_CLASS,
+  InlineResponse20090Data.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20090Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private JsonNullable<String> id = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse20066DataMarket market;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_SYMBOL = "symbol";
-  private String symbol;
+  public static final String JSON_PROPERTY_ISIN = "isin";
+  private JsonNullable<String> isin = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NSIN = "nsin";
-  private InlineResponse20088Nsin nsin;
+  private InlineResponse20042DataNsin nsin;
 
-  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
-  private InlineResponse20090Instrument instrument;
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse20036Fsym fsym;
+
+  public static final String JSON_PROPERTY_ASSET_CLASS = "assetClass";
+  private JsonNullable<String> assetClass = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private java.util.List<InlineResponse20038DataCategories> type = null;
 
   public InlineResponse20090Data() { 
   }
 
   public InlineResponse20090Data id(String id) {
-    this.id = id;
+    this.id = JsonNullable.<String>of(id);
     return this;
   }
 
    /**
-   * Identifier of a notation.
+   * Identifier of the instrument.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a notation.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(value = "Identifier of the instrument.")
+  @JsonIgnore
 
   public String getId() {
-    return id;
+        return id.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
+
+  public JsonNullable<String> getId_JsonNullable() {
+    return id;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<String> id) {
     this.id = id;
   }
 
+  public void setId(String id) {
+    this.id = JsonNullable.<String>of(id);
+  }
 
-  public InlineResponse20090Data market(InlineResponse20066DataMarket market) {
-    this.market = market;
+
+  public InlineResponse20090Data name(String name) {
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
    /**
-   * Get market
-   * @return market
+   * Asset class-unspecific name in English.
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  @ApiModelProperty(value = "Asset class-unspecific name in English.")
+  @JsonIgnore
+
+  public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20066DataMarket getMarket() {
-    return market;
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse20066DataMarket market) {
-    this.market = market;
-  }
-
-
-  public InlineResponse20090Data symbol(String symbol) {
-    this.symbol = symbol;
+  public InlineResponse20090Data isin(String isin) {
+    this.isin = JsonNullable.<String>of(isin);
     return this;
   }
 
    /**
-   * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
-   * @return symbol
+   * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
+   * @return isin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.")
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
+  @ApiModelProperty(value = "The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.")
+  @JsonIgnore
+
+  public String getIsin() {
+        return isin.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ISIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getSymbol() {
-    return symbol;
+  public JsonNullable<String> getIsin_JsonNullable() {
+    return isin;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ISIN)
+  public void setIsin_JsonNullable(JsonNullable<String> isin) {
+    this.isin = isin;
+  }
+
+  public void setIsin(String isin) {
+    this.isin = JsonNullable.<String>of(isin);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
-  }
-
-
-  public InlineResponse20090Data nsin(InlineResponse20088Nsin nsin) {
+  public InlineResponse20090Data nsin(InlineResponse20042DataNsin nsin) {
     this.nsin = nsin;
     return this;
   }
@@ -156,41 +193,109 @@ public class InlineResponse20090Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20088Nsin getNsin() {
+  public InlineResponse20042DataNsin getNsin() {
     return nsin;
   }
 
 
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNsin(InlineResponse20088Nsin nsin) {
+  public void setNsin(InlineResponse20042DataNsin nsin) {
     this.nsin = nsin;
   }
 
 
-  public InlineResponse20090Data instrument(InlineResponse20090Instrument instrument) {
-    this.instrument = instrument;
+  public InlineResponse20090Data fsym(InlineResponse20036Fsym fsym) {
+    this.fsym = fsym;
     return this;
   }
 
    /**
-   * Get instrument
-   * @return instrument
+   * Get fsym
+   * @return fsym
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
+  @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20090Instrument getInstrument() {
-    return instrument;
+  public InlineResponse20036Fsym getFsym() {
+    return fsym;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
+  @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstrument(InlineResponse20090Instrument instrument) {
-    this.instrument = instrument;
+  public void setFsym(InlineResponse20036Fsym fsym) {
+    this.fsym = fsym;
+  }
+
+
+  public InlineResponse20090Data assetClass(String assetClass) {
+    this.assetClass = JsonNullable.<String>of(assetClass);
+    return this;
+  }
+
+   /**
+   * Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.
+   * @return assetClass
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.")
+  @JsonIgnore
+
+  public String getAssetClass() {
+        return assetClass.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ASSET_CLASS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getAssetClass_JsonNullable() {
+    return assetClass;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ASSET_CLASS)
+  public void setAssetClass_JsonNullable(JsonNullable<String> assetClass) {
+    this.assetClass = assetClass;
+  }
+
+  public void setAssetClass(String assetClass) {
+    this.assetClass = JsonNullable.<String>of(assetClass);
+  }
+
+
+  public InlineResponse20090Data type(java.util.List<InlineResponse20038DataCategories> type) {
+    this.type = type;
+    return this;
+  }
+
+  public InlineResponse20090Data addTypeItem(InlineResponse20038DataCategories typeItem) {
+    if (this.type == null) {
+      this.type = new java.util.ArrayList<>();
+    }
+    this.type.add(typeItem);
+    return this;
+  }
+
+   /**
+   * Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<InlineResponse20038DataCategories> getType() {
+    return type;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(java.util.List<InlineResponse20038DataCategories> type) {
+    this.type = type;
   }
 
 
@@ -206,16 +311,29 @@ public class InlineResponse20090Data implements Serializable {
       return false;
     }
     InlineResponse20090Data inlineResponse20090Data = (InlineResponse20090Data) o;
-    return Objects.equals(this.id, inlineResponse20090Data.id) &&
-        Objects.equals(this.market, inlineResponse20090Data.market) &&
-        Objects.equals(this.symbol, inlineResponse20090Data.symbol) &&
+    return equalsNullable(this.id, inlineResponse20090Data.id) &&
+        equalsNullable(this.name, inlineResponse20090Data.name) &&
+        equalsNullable(this.isin, inlineResponse20090Data.isin) &&
         Objects.equals(this.nsin, inlineResponse20090Data.nsin) &&
-        Objects.equals(this.instrument, inlineResponse20090Data.instrument);
+        Objects.equals(this.fsym, inlineResponse20090Data.fsym) &&
+        equalsNullable(this.assetClass, inlineResponse20090Data.assetClass) &&
+        Objects.equals(this.type, inlineResponse20090Data.type);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, market, symbol, nsin, instrument);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(name), hashCodeNullable(isin), nsin, fsym, hashCodeNullable(assetClass), type);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -223,10 +341,12 @@ public class InlineResponse20090Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20090Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    market: ").append(toIndentedString(market)).append("\n");
-    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    isin: ").append(toIndentedString(isin)).append("\n");
     sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
-    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
+    sb.append("    assetClass: ").append(toIndentedString(assetClass)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

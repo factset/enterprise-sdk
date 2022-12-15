@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a role. | [optional] 
+**Id** | **decimal?** | Identifier of a role. | [optional] 
 **Name** | **string** | Name of the role. | [optional] 
 **LegalEntities** | [**InlineResponse20060LegalEntities**](InlineResponse20060LegalEntities.md) |  | [optional] 
 

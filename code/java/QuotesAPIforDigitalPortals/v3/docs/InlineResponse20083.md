@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**InlineResponse20083Data**](InlineResponse20083Data.md) |  |  [optional]
+**data** | [**java.util.List&lt;InlineResponse20083Data&gt;**](InlineResponse20083Data.md) | Set of price related data for a list of notations. |  [optional]
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
 
 

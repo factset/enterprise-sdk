@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,7 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20084DataAsks from './InlineResponse20084DataAsks';
+import InlineResponse20082DataCurrency from './InlineResponse20082DataCurrency';
+import InlineResponse20082DataValueUnit from './InlineResponse20082DataValueUnit';
+import InlineResponse20083Market from './InlineResponse20083Market';
+import InlineResponse20084DataAsk from './InlineResponse20084DataAsk';
+import InlineResponse20084DataBid from './InlineResponse20084DataBid';
 
 /**
  * The InlineResponse20084Data model module.
@@ -21,7 +25,7 @@ import InlineResponse20084DataAsks from './InlineResponse20084DataAsks';
 class InlineResponse20084Data {
     /**
      * Constructs a new <code>InlineResponse20084Data</code>.
-     * Orderbook.
+     * Bid and ask prices for the notation.
      * @alias module:model/InlineResponse20084Data
      */
     constructor() { 
@@ -48,14 +52,29 @@ class InlineResponse20084Data {
         if (data) {
             obj = obj || new InlineResponse20084Data();
 
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
+            }
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
+            }
+            if (data.hasOwnProperty('valueUnit')) {
+                obj['valueUnit'] = InlineResponse20082DataValueUnit.constructFromObject(data['valueUnit']);
+            }
+            if (data.hasOwnProperty('currency')) {
+                obj['currency'] = InlineResponse20082DataCurrency.constructFromObject(data['currency']);
+            }
+            if (data.hasOwnProperty('market')) {
+                obj['market'] = InlineResponse20083Market.constructFromObject(data['market']);
+            }
             if (data.hasOwnProperty('quality')) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('asks')) {
-                obj['asks'] = ApiClient.convertToType(data['asks'], [InlineResponse20084DataAsks]);
+            if (data.hasOwnProperty('bid')) {
+                obj['bid'] = InlineResponse20084DataBid.constructFromObject(data['bid']);
             }
-            if (data.hasOwnProperty('bids')) {
-                obj['bids'] = ApiClient.convertToType(data['bids'], [InlineResponse20084DataAsks]);
+            if (data.hasOwnProperty('ask')) {
+                obj['ask'] = InlineResponse20084DataAsk.constructFromObject(data['ask']);
             }
         }
         return obj;
@@ -65,22 +84,47 @@ class InlineResponse20084Data {
 }
 
 /**
+ * MDG identifier of the listing.
+ * @member {String} idNotation
+ */
+InlineResponse20084Data.prototype['idNotation'] = undefined;
+
+/**
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
+ */
+InlineResponse20084Data.prototype['sourceIdentifier'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20082DataValueUnit} valueUnit
+ */
+InlineResponse20084Data.prototype['valueUnit'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20082DataCurrency} currency
+ */
+InlineResponse20084Data.prototype['currency'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20083Market} market
+ */
+InlineResponse20084Data.prototype['market'] = undefined;
+
+/**
  * Quality of the price.
  * @member {module:model/InlineResponse20084Data.QualityEnum} quality
  */
 InlineResponse20084Data.prototype['quality'] = undefined;
 
 /**
- * Ask entries of the full orderbook.
- * @member {Array.<module:model/InlineResponse20084DataAsks>} asks
+ * @member {module:model/InlineResponse20084DataBid} bid
  */
-InlineResponse20084Data.prototype['asks'] = undefined;
+InlineResponse20084Data.prototype['bid'] = undefined;
 
 /**
- * Bid entries of the full orderbook.
- * @member {Array.<module:model/InlineResponse20084DataAsks>} bids
+ * @member {module:model/InlineResponse20084DataAsk} ask
  */
-InlineResponse20084Data.prototype['bids'] = undefined;
+InlineResponse20084Data.prototype['ask'] = undefined;
 
 
 
@@ -103,7 +147,13 @@ InlineResponse20084Data['QualityEnum'] = {
      * value: "DLY"
      * @const
      */
-    "DLY": "DLY"
+    "DLY": "DLY",
+
+    /**
+     * value: "EOD"
+     * @const
+     */
+    "EOD": "EOD"
 };
 
 

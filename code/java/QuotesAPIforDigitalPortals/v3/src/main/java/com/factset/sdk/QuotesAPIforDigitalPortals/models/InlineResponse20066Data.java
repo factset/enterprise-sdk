@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,9 +17,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20066DataInstrument;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20066DataMarket;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20066DataValueUnit;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20065DataInstrument;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20065DataMarket;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20065DataValueUnit;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20066Status;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,93 +28,196 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * Notation identified by the FactSet market symbol.
+ * InlineResponse20066Data
  */
-@ApiModel(description = "Notation identified by the FactSet market symbol.")
 @JsonPropertyOrder({
-  InlineResponse20066Data.JSON_PROPERTY_ID,
-  InlineResponse20066Data.JSON_PROPERTY_MARKET,
+  InlineResponse20066Data.JSON_PROPERTY_ID_NOTATION,
+  InlineResponse20066Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse20066Data.JSON_PROPERTY_SYMBOL,
+  InlineResponse20066Data.JSON_PROPERTY_FACT_SET_MARKET_SYMBOL,
   InlineResponse20066Data.JSON_PROPERTY_VALUE_UNIT,
-  InlineResponse20066Data.JSON_PROPERTY_INSTRUMENT
+  InlineResponse20066Data.JSON_PROPERTY_MARKET,
+  InlineResponse20066Data.JSON_PROPERTY_INSTRUMENT,
+  InlineResponse20066Data.JSON_PROPERTY_STATUS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20066Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_ID_NOTATION = "idNotation";
+  private JsonNullable<String> idNotation = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse20066DataMarket market;
+  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
+  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SYMBOL = "symbol";
+  private JsonNullable<String> symbol = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_FACT_SET_MARKET_SYMBOL = "factSetMarketSymbol";
+  private JsonNullable<String> factSetMarketSymbol = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
-  private InlineResponse20066DataValueUnit valueUnit;
+  private InlineResponse20065DataValueUnit valueUnit;
+
+  public static final String JSON_PROPERTY_MARKET = "market";
+  private InlineResponse20065DataMarket market;
 
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
-  private InlineResponse20066DataInstrument instrument;
+  private InlineResponse20065DataInstrument instrument;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private InlineResponse20066Status status;
 
   public InlineResponse20066Data() { 
   }
 
-  public InlineResponse20066Data id(String id) {
-    this.id = id;
+  public InlineResponse20066Data idNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
     return this;
   }
 
    /**
-   * Identifier of the notation.
-   * @return id
+   * MDG identifier of the listing.
+   * @return idNotation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the notation.")
-  @JsonProperty(JSON_PROPERTY_ID)
+  @ApiModelProperty(value = "MDG identifier of the listing.")
+  @JsonIgnore
+
+  public String getIdNotation() {
+        return idNotation.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getId() {
-    return id;
+  public JsonNullable<String> getIdNotation_JsonNullable() {
+    return idNotation;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
+  public void setIdNotation_JsonNullable(JsonNullable<String> idNotation) {
+    this.idNotation = idNotation;
+  }
+
+  public void setIdNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public InlineResponse20066Data market(InlineResponse20066DataMarket market) {
-    this.market = market;
+  public InlineResponse20066Data sourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
     return this;
   }
 
    /**
-   * Get market
-   * @return market
+   * Identifier used in the request.
+   * @return sourceIdentifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  @ApiModelProperty(value = "Identifier used in the request.")
+  @JsonIgnore
+
+  public String getSourceIdentifier() {
+        return sourceIdentifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20066DataMarket getMarket() {
-    return market;
+  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
+    return sourceIdentifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
+  }
+
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  public InlineResponse20066Data symbol(String symbol) {
+    this.symbol = JsonNullable.<String>of(symbol);
+    return this;
+  }
+
+   /**
+   * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify notations, no symbol will be set for the notations of that market.
+   * @return symbol
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify notations, no symbol will be set for the notations of that market.")
+  @JsonIgnore
+
+  public String getSymbol() {
+        return symbol.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse20066DataMarket market) {
-    this.market = market;
+
+  public JsonNullable<String> getSymbol_JsonNullable() {
+    return symbol;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SYMBOL)
+  public void setSymbol_JsonNullable(JsonNullable<String> symbol) {
+    this.symbol = symbol;
+  }
+
+  public void setSymbol(String symbol) {
+    this.symbol = JsonNullable.<String>of(symbol);
   }
 
 
-  public InlineResponse20066Data valueUnit(InlineResponse20066DataValueUnit valueUnit) {
+  public InlineResponse20066Data factSetMarketSymbol(String factSetMarketSymbol) {
+    this.factSetMarketSymbol = JsonNullable.<String>of(factSetMarketSymbol);
+    return this;
+  }
+
+   /**
+   * The FactSet market symbol of the notation (i.e. TICKER_EXCHANGE).
+   * @return factSetMarketSymbol
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The FactSet market symbol of the notation (i.e. TICKER_EXCHANGE).")
+  @JsonIgnore
+
+  public String getFactSetMarketSymbol() {
+        return factSetMarketSymbol.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FACT_SET_MARKET_SYMBOL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getFactSetMarketSymbol_JsonNullable() {
+    return factSetMarketSymbol;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FACT_SET_MARKET_SYMBOL)
+  public void setFactSetMarketSymbol_JsonNullable(JsonNullable<String> factSetMarketSymbol) {
+    this.factSetMarketSymbol = factSetMarketSymbol;
+  }
+
+  public void setFactSetMarketSymbol(String factSetMarketSymbol) {
+    this.factSetMarketSymbol = JsonNullable.<String>of(factSetMarketSymbol);
+  }
+
+
+  public InlineResponse20066Data valueUnit(InlineResponse20065DataValueUnit valueUnit) {
     this.valueUnit = valueUnit;
     return this;
   }
@@ -127,19 +231,45 @@ public class InlineResponse20066Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20066DataValueUnit getValueUnit() {
+  public InlineResponse20065DataValueUnit getValueUnit() {
     return valueUnit;
   }
 
 
   @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValueUnit(InlineResponse20066DataValueUnit valueUnit) {
+  public void setValueUnit(InlineResponse20065DataValueUnit valueUnit) {
     this.valueUnit = valueUnit;
   }
 
 
-  public InlineResponse20066Data instrument(InlineResponse20066DataInstrument instrument) {
+  public InlineResponse20066Data market(InlineResponse20065DataMarket market) {
+    this.market = market;
+    return this;
+  }
+
+   /**
+   * Get market
+   * @return market
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20065DataMarket getMarket() {
+    return market;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMarket(InlineResponse20065DataMarket market) {
+    this.market = market;
+  }
+
+
+  public InlineResponse20066Data instrument(InlineResponse20065DataInstrument instrument) {
     this.instrument = instrument;
     return this;
   }
@@ -153,15 +283,41 @@ public class InlineResponse20066Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20066DataInstrument getInstrument() {
+  public InlineResponse20065DataInstrument getInstrument() {
     return instrument;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstrument(InlineResponse20066DataInstrument instrument) {
+  public void setInstrument(InlineResponse20065DataInstrument instrument) {
     this.instrument = instrument;
+  }
+
+
+  public InlineResponse20066Data status(InlineResponse20066Status status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20066Status getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(InlineResponse20066Status status) {
+    this.status = status;
   }
 
 
@@ -177,25 +333,44 @@ public class InlineResponse20066Data implements Serializable {
       return false;
     }
     InlineResponse20066Data inlineResponse20066Data = (InlineResponse20066Data) o;
-    return Objects.equals(this.id, inlineResponse20066Data.id) &&
-        Objects.equals(this.market, inlineResponse20066Data.market) &&
+    return equalsNullable(this.idNotation, inlineResponse20066Data.idNotation) &&
+        equalsNullable(this.sourceIdentifier, inlineResponse20066Data.sourceIdentifier) &&
+        equalsNullable(this.symbol, inlineResponse20066Data.symbol) &&
+        equalsNullable(this.factSetMarketSymbol, inlineResponse20066Data.factSetMarketSymbol) &&
         Objects.equals(this.valueUnit, inlineResponse20066Data.valueUnit) &&
-        Objects.equals(this.instrument, inlineResponse20066Data.instrument);
+        Objects.equals(this.market, inlineResponse20066Data.market) &&
+        Objects.equals(this.instrument, inlineResponse20066Data.instrument) &&
+        Objects.equals(this.status, inlineResponse20066Data.status);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, market, valueUnit, instrument);
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(symbol), hashCodeNullable(factSetMarketSymbol), valueUnit, market, instrument, status);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20066Data {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    market: ").append(toIndentedString(market)).append("\n");
+    sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
+    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
+    sb.append("    factSetMarketSymbol: ").append(toIndentedString(factSetMarketSymbol)).append("\n");
     sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
+    sb.append("    market: ").append(toIndentedString(market)).append("\n");
     sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

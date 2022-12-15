@@ -1,6 +1,6 @@
 /*
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,8 +17,11 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataRecommendation;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataTargetPrice;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataCompany;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataCompanyKeyFigures;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataFsym;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataNsin;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataShareInstrumentKeyFigures;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,81 +29,366 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 
 
 /**
- * Target price and aggregated recommendations for a stock.
+ * Fundamentals of a share instrument and of the company it belongs to.
  */
-@ApiModel(description = "Target price and aggregated recommendations for a stock.")
+@ApiModel(description = "Fundamentals of a share instrument and of the company it belongs to.")
 @JsonPropertyOrder({
-  InlineResponse200Data.JSON_PROPERTY_TARGET_PRICE,
-  InlineResponse200Data.JSON_PROPERTY_RECOMMENDATION
+  InlineResponse200Data.JSON_PROPERTY_NAME,
+  InlineResponse200Data.JSON_PROPERTY_SHORT_NAME,
+  InlineResponse200Data.JSON_PROPERTY_ISIN,
+  InlineResponse200Data.JSON_PROPERTY_NSIN,
+  InlineResponse200Data.JSON_PROPERTY_FSYM,
+  InlineResponse200Data.JSON_PROPERTY_STOCK_TYPE,
+  InlineResponse200Data.JSON_PROPERTY_COMPANY,
+  InlineResponse200Data.JSON_PROPERTY_COMPANY_KEY_FIGURES,
+  InlineResponse200Data.JSON_PROPERTY_SHARE_INSTRUMENT_KEY_FIGURES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse200Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_TARGET_PRICE = "targetPrice";
-  private InlineResponse200DataTargetPrice targetPrice;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_RECOMMENDATION = "recommendation";
-  private InlineResponse200DataRecommendation recommendation;
+  public static final String JSON_PROPERTY_SHORT_NAME = "shortName";
+  private JsonNullable<String> shortName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_ISIN = "isin";
+  private JsonNullable<String> isin = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_NSIN = "nsin";
+  private InlineResponse200DataNsin nsin;
+
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse200DataFsym fsym;
+
+  /**
+   * Type of stock.
+   */
+  public enum StockTypeEnum {
+    COMMON("common"),
+    
+    PREFERRED("preferred"),
+    
+    DEPOSITORYRECEIPT("depositoryReceipt"),
+    
+    OTHER("other");
+
+    private String value;
+
+    StockTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StockTypeEnum fromValue(String value) {
+      for (StockTypeEnum b : StockTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_STOCK_TYPE = "stockType";
+  private JsonNullable<StockTypeEnum> stockType = JsonNullable.<StockTypeEnum>undefined();
+
+  public static final String JSON_PROPERTY_COMPANY = "company";
+  private InlineResponse200DataCompany company;
+
+  public static final String JSON_PROPERTY_COMPANY_KEY_FIGURES = "companyKeyFigures";
+  private InlineResponse200DataCompanyKeyFigures companyKeyFigures;
+
+  public static final String JSON_PROPERTY_SHARE_INSTRUMENT_KEY_FIGURES = "shareInstrumentKeyFigures";
+  private InlineResponse200DataShareInstrumentKeyFigures shareInstrumentKeyFigures;
 
   public InlineResponse200Data() { 
   }
 
-  public InlineResponse200Data targetPrice(InlineResponse200DataTargetPrice targetPrice) {
-    this.targetPrice = targetPrice;
+  public InlineResponse200Data name(String name) {
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
    /**
-   * Get targetPrice
-   * @return targetPrice
+   * Name of the instrument.
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
+  @ApiModelProperty(value = "Name of the instrument.")
+  @JsonIgnore
+
+  public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse200DataTargetPrice getTargetPrice() {
-    return targetPrice;
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTargetPrice(InlineResponse200DataTargetPrice targetPrice) {
-    this.targetPrice = targetPrice;
-  }
-
-
-  public InlineResponse200Data recommendation(InlineResponse200DataRecommendation recommendation) {
-    this.recommendation = recommendation;
+  public InlineResponse200Data shortName(String shortName) {
+    this.shortName = JsonNullable.<String>of(shortName);
     return this;
   }
 
    /**
-   * Get recommendation
-   * @return recommendation
+   * Short name of the instrument.
+   * @return shortName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
+  @ApiModelProperty(value = "Short name of the instrument.")
+  @JsonIgnore
+
+  public String getShortName() {
+        return shortName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse200DataRecommendation getRecommendation() {
-    return recommendation;
+  public JsonNullable<String> getShortName_JsonNullable() {
+    return shortName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
+  public void setShortName_JsonNullable(JsonNullable<String> shortName) {
+    this.shortName = shortName;
+  }
+
+  public void setShortName(String shortName) {
+    this.shortName = JsonNullable.<String>of(shortName);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
+  public InlineResponse200Data isin(String isin) {
+    this.isin = JsonNullable.<String>of(isin);
+    return this;
+  }
+
+   /**
+   * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
+   * @return isin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.")
+  @JsonIgnore
+
+  public String getIsin() {
+        return isin.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ISIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRecommendation(InlineResponse200DataRecommendation recommendation) {
-    this.recommendation = recommendation;
+
+  public JsonNullable<String> getIsin_JsonNullable() {
+    return isin;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ISIN)
+  public void setIsin_JsonNullable(JsonNullable<String> isin) {
+    this.isin = isin;
+  }
+
+  public void setIsin(String isin) {
+    this.isin = JsonNullable.<String>of(isin);
+  }
+
+
+  public InlineResponse200Data nsin(InlineResponse200DataNsin nsin) {
+    this.nsin = nsin;
+    return this;
+  }
+
+   /**
+   * Get nsin
+   * @return nsin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NSIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse200DataNsin getNsin() {
+    return nsin;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NSIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNsin(InlineResponse200DataNsin nsin) {
+    this.nsin = nsin;
+  }
+
+
+  public InlineResponse200Data fsym(InlineResponse200DataFsym fsym) {
+    this.fsym = fsym;
+    return this;
+  }
+
+   /**
+   * Get fsym
+   * @return fsym
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse200DataFsym getFsym() {
+    return fsym;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFsym(InlineResponse200DataFsym fsym) {
+    this.fsym = fsym;
+  }
+
+
+  public InlineResponse200Data stockType(StockTypeEnum stockType) {
+    this.stockType = JsonNullable.<StockTypeEnum>of(stockType);
+    return this;
+  }
+
+   /**
+   * Type of stock.
+   * @return stockType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Type of stock.")
+  @JsonIgnore
+
+  public StockTypeEnum getStockType() {
+        return stockType.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STOCK_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<StockTypeEnum> getStockType_JsonNullable() {
+    return stockType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STOCK_TYPE)
+  public void setStockType_JsonNullable(JsonNullable<StockTypeEnum> stockType) {
+    this.stockType = stockType;
+  }
+
+  public void setStockType(StockTypeEnum stockType) {
+    this.stockType = JsonNullable.<StockTypeEnum>of(stockType);
+  }
+
+
+  public InlineResponse200Data company(InlineResponse200DataCompany company) {
+    this.company = company;
+    return this;
+  }
+
+   /**
+   * Get company
+   * @return company
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse200DataCompany getCompany() {
+    return company;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCompany(InlineResponse200DataCompany company) {
+    this.company = company;
+  }
+
+
+  public InlineResponse200Data companyKeyFigures(InlineResponse200DataCompanyKeyFigures companyKeyFigures) {
+    this.companyKeyFigures = companyKeyFigures;
+    return this;
+  }
+
+   /**
+   * Get companyKeyFigures
+   * @return companyKeyFigures
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_COMPANY_KEY_FIGURES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse200DataCompanyKeyFigures getCompanyKeyFigures() {
+    return companyKeyFigures;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COMPANY_KEY_FIGURES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCompanyKeyFigures(InlineResponse200DataCompanyKeyFigures companyKeyFigures) {
+    this.companyKeyFigures = companyKeyFigures;
+  }
+
+
+  public InlineResponse200Data shareInstrumentKeyFigures(InlineResponse200DataShareInstrumentKeyFigures shareInstrumentKeyFigures) {
+    this.shareInstrumentKeyFigures = shareInstrumentKeyFigures;
+    return this;
+  }
+
+   /**
+   * Get shareInstrumentKeyFigures
+   * @return shareInstrumentKeyFigures
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SHARE_INSTRUMENT_KEY_FIGURES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse200DataShareInstrumentKeyFigures getShareInstrumentKeyFigures() {
+    return shareInstrumentKeyFigures;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SHARE_INSTRUMENT_KEY_FIGURES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShareInstrumentKeyFigures(InlineResponse200DataShareInstrumentKeyFigures shareInstrumentKeyFigures) {
+    this.shareInstrumentKeyFigures = shareInstrumentKeyFigures;
   }
 
 
@@ -116,21 +404,46 @@ public class InlineResponse200Data implements Serializable {
       return false;
     }
     InlineResponse200Data inlineResponse200Data = (InlineResponse200Data) o;
-    return Objects.equals(this.targetPrice, inlineResponse200Data.targetPrice) &&
-        Objects.equals(this.recommendation, inlineResponse200Data.recommendation);
+    return equalsNullable(this.name, inlineResponse200Data.name) &&
+        equalsNullable(this.shortName, inlineResponse200Data.shortName) &&
+        equalsNullable(this.isin, inlineResponse200Data.isin) &&
+        Objects.equals(this.nsin, inlineResponse200Data.nsin) &&
+        Objects.equals(this.fsym, inlineResponse200Data.fsym) &&
+        equalsNullable(this.stockType, inlineResponse200Data.stockType) &&
+        Objects.equals(this.company, inlineResponse200Data.company) &&
+        Objects.equals(this.companyKeyFigures, inlineResponse200Data.companyKeyFigures) &&
+        Objects.equals(this.shareInstrumentKeyFigures, inlineResponse200Data.shareInstrumentKeyFigures);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(targetPrice, recommendation);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(shortName), hashCodeNullable(isin), nsin, fsym, hashCodeNullable(stockType), company, companyKeyFigures, shareInstrumentKeyFigures);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse200Data {\n");
-    sb.append("    targetPrice: ").append(toIndentedString(targetPrice)).append("\n");
-    sb.append("    recommendation: ").append(toIndentedString(recommendation)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    shortName: ").append(toIndentedString(shortName)).append("\n");
+    sb.append("    isin: ").append(toIndentedString(isin)).append("\n");
+    sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
+    sb.append("    stockType: ").append(toIndentedString(stockType)).append("\n");
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
+    sb.append("    companyKeyFigures: ").append(toIndentedString(companyKeyFigures)).append("\n");
+    sb.append("    shareInstrumentKeyFigures: ").append(toIndentedString(shareInstrumentKeyFigures)).append("\n");
     sb.append("}");
     return sb.toString();
   }

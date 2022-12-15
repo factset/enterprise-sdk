@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -80,12 +84,12 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_NO_CAPITAL_LOSS = "noCapitalLoss";
-  private NoCapitalLossEnum noCapitalLoss;
+  private JsonNullable<NoCapitalLossEnum> noCapitalLoss = JsonNullable.<NoCapitalLossEnum>undefined();
 
   /**
    * Indicates whether the investment product is suitable for investors able to bear limited capital loss.
@@ -122,12 +126,12 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_LIMITED_CAPITAL_LOSS = "limitedCapitalLoss";
-  private LimitedCapitalLossEnum limitedCapitalLoss;
+  private JsonNullable<LimitedCapitalLossEnum> limitedCapitalLoss = JsonNullable.<LimitedCapitalLossEnum>undefined();
 
   /**
    * Indicates whether the investment product is suitable for investors able to bear total capital loss.
@@ -164,12 +168,12 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_NO_CAPITAL_GUARANTEE = "noCapitalGuarantee";
-  private NoCapitalGuaranteeEnum noCapitalGuarantee;
+  private JsonNullable<NoCapitalGuaranteeEnum> noCapitalGuarantee = JsonNullable.<NoCapitalGuaranteeEnum>undefined();
 
   /**
    * Indicates whether the investment product is suitable for investors able to bear loss beyond the invested capital.
@@ -206,21 +210,21 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_LOSS_BEYOND_CAPITAL = "lossBeyondCapital";
-  private LossBeyondCapitalEnum lossBeyondCapital;
+  private JsonNullable<LossBeyondCapitalEnum> lossBeyondCapital = JsonNullable.<LossBeyondCapitalEnum>undefined();
 
   public static final String JSON_PROPERTY_MAXIMUM_CAPITAL_LOSS = "maximumCapitalLoss";
-  private BigDecimal maximumCapitalLoss;
+  private JsonNullable<BigDecimal> maximumCapitalLoss = JsonNullable.<BigDecimal>undefined();
 
   public InlineResponse20062DataTargetMarketAbilityToBearLosses() { 
   }
 
   public InlineResponse20062DataTargetMarketAbilityToBearLosses noCapitalLoss(NoCapitalLossEnum noCapitalLoss) {
-    this.noCapitalLoss = noCapitalLoss;
+    this.noCapitalLoss = JsonNullable.<NoCapitalLossEnum>of(noCapitalLoss);
     return this;
   }
 
@@ -230,23 +234,31 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors not able to bear capital loss. Minor loss e.g. due to costs is possible.")
-  @JsonProperty(JSON_PROPERTY_NO_CAPITAL_LOSS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public NoCapitalLossEnum getNoCapitalLoss() {
-    return noCapitalLoss;
+        return noCapitalLoss.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NO_CAPITAL_LOSS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNoCapitalLoss(NoCapitalLossEnum noCapitalLoss) {
+
+  public JsonNullable<NoCapitalLossEnum> getNoCapitalLoss_JsonNullable() {
+    return noCapitalLoss;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NO_CAPITAL_LOSS)
+  public void setNoCapitalLoss_JsonNullable(JsonNullable<NoCapitalLossEnum> noCapitalLoss) {
     this.noCapitalLoss = noCapitalLoss;
+  }
+
+  public void setNoCapitalLoss(NoCapitalLossEnum noCapitalLoss) {
+    this.noCapitalLoss = JsonNullable.<NoCapitalLossEnum>of(noCapitalLoss);
   }
 
 
   public InlineResponse20062DataTargetMarketAbilityToBearLosses limitedCapitalLoss(LimitedCapitalLossEnum limitedCapitalLoss) {
-    this.limitedCapitalLoss = limitedCapitalLoss;
+    this.limitedCapitalLoss = JsonNullable.<LimitedCapitalLossEnum>of(limitedCapitalLoss);
     return this;
   }
 
@@ -256,23 +268,31 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors able to bear limited capital loss.")
-  @JsonProperty(JSON_PROPERTY_LIMITED_CAPITAL_LOSS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LimitedCapitalLossEnum getLimitedCapitalLoss() {
-    return limitedCapitalLoss;
+        return limitedCapitalLoss.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LIMITED_CAPITAL_LOSS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLimitedCapitalLoss(LimitedCapitalLossEnum limitedCapitalLoss) {
+
+  public JsonNullable<LimitedCapitalLossEnum> getLimitedCapitalLoss_JsonNullable() {
+    return limitedCapitalLoss;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LIMITED_CAPITAL_LOSS)
+  public void setLimitedCapitalLoss_JsonNullable(JsonNullable<LimitedCapitalLossEnum> limitedCapitalLoss) {
     this.limitedCapitalLoss = limitedCapitalLoss;
+  }
+
+  public void setLimitedCapitalLoss(LimitedCapitalLossEnum limitedCapitalLoss) {
+    this.limitedCapitalLoss = JsonNullable.<LimitedCapitalLossEnum>of(limitedCapitalLoss);
   }
 
 
   public InlineResponse20062DataTargetMarketAbilityToBearLosses noCapitalGuarantee(NoCapitalGuaranteeEnum noCapitalGuarantee) {
-    this.noCapitalGuarantee = noCapitalGuarantee;
+    this.noCapitalGuarantee = JsonNullable.<NoCapitalGuaranteeEnum>of(noCapitalGuarantee);
     return this;
   }
 
@@ -282,23 +302,31 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors able to bear total capital loss.")
-  @JsonProperty(JSON_PROPERTY_NO_CAPITAL_GUARANTEE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public NoCapitalGuaranteeEnum getNoCapitalGuarantee() {
-    return noCapitalGuarantee;
+        return noCapitalGuarantee.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NO_CAPITAL_GUARANTEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNoCapitalGuarantee(NoCapitalGuaranteeEnum noCapitalGuarantee) {
+
+  public JsonNullable<NoCapitalGuaranteeEnum> getNoCapitalGuarantee_JsonNullable() {
+    return noCapitalGuarantee;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NO_CAPITAL_GUARANTEE)
+  public void setNoCapitalGuarantee_JsonNullable(JsonNullable<NoCapitalGuaranteeEnum> noCapitalGuarantee) {
     this.noCapitalGuarantee = noCapitalGuarantee;
+  }
+
+  public void setNoCapitalGuarantee(NoCapitalGuaranteeEnum noCapitalGuarantee) {
+    this.noCapitalGuarantee = JsonNullable.<NoCapitalGuaranteeEnum>of(noCapitalGuarantee);
   }
 
 
   public InlineResponse20062DataTargetMarketAbilityToBearLosses lossBeyondCapital(LossBeyondCapitalEnum lossBeyondCapital) {
-    this.lossBeyondCapital = lossBeyondCapital;
+    this.lossBeyondCapital = JsonNullable.<LossBeyondCapitalEnum>of(lossBeyondCapital);
     return this;
   }
 
@@ -308,23 +336,31 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors able to bear loss beyond the invested capital.")
-  @JsonProperty(JSON_PROPERTY_LOSS_BEYOND_CAPITAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LossBeyondCapitalEnum getLossBeyondCapital() {
-    return lossBeyondCapital;
+        return lossBeyondCapital.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LOSS_BEYOND_CAPITAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLossBeyondCapital(LossBeyondCapitalEnum lossBeyondCapital) {
+
+  public JsonNullable<LossBeyondCapitalEnum> getLossBeyondCapital_JsonNullable() {
+    return lossBeyondCapital;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LOSS_BEYOND_CAPITAL)
+  public void setLossBeyondCapital_JsonNullable(JsonNullable<LossBeyondCapitalEnum> lossBeyondCapital) {
     this.lossBeyondCapital = lossBeyondCapital;
+  }
+
+  public void setLossBeyondCapital(LossBeyondCapitalEnum lossBeyondCapital) {
+    this.lossBeyondCapital = JsonNullable.<LossBeyondCapitalEnum>of(lossBeyondCapital);
   }
 
 
   public InlineResponse20062DataTargetMarketAbilityToBearLosses maximumCapitalLoss(BigDecimal maximumCapitalLoss) {
-    this.maximumCapitalLoss = maximumCapitalLoss;
+    this.maximumCapitalLoss = JsonNullable.<BigDecimal>of(maximumCapitalLoss);
     return this;
   }
 
@@ -334,18 +370,26 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Maximum loss of the invested capital assumed the investment product is held until maturity.")
-  @JsonProperty(JSON_PROPERTY_MAXIMUM_CAPITAL_LOSS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getMaximumCapitalLoss() {
-    return maximumCapitalLoss;
+        return maximumCapitalLoss.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MAXIMUM_CAPITAL_LOSS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaximumCapitalLoss(BigDecimal maximumCapitalLoss) {
+
+  public JsonNullable<BigDecimal> getMaximumCapitalLoss_JsonNullable() {
+    return maximumCapitalLoss;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAXIMUM_CAPITAL_LOSS)
+  public void setMaximumCapitalLoss_JsonNullable(JsonNullable<BigDecimal> maximumCapitalLoss) {
     this.maximumCapitalLoss = maximumCapitalLoss;
+  }
+
+  public void setMaximumCapitalLoss(BigDecimal maximumCapitalLoss) {
+    this.maximumCapitalLoss = JsonNullable.<BigDecimal>of(maximumCapitalLoss);
   }
 
 
@@ -361,16 +405,27 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
       return false;
     }
     InlineResponse20062DataTargetMarketAbilityToBearLosses inlineResponse20062DataTargetMarketAbilityToBearLosses = (InlineResponse20062DataTargetMarketAbilityToBearLosses) o;
-    return Objects.equals(this.noCapitalLoss, inlineResponse20062DataTargetMarketAbilityToBearLosses.noCapitalLoss) &&
-        Objects.equals(this.limitedCapitalLoss, inlineResponse20062DataTargetMarketAbilityToBearLosses.limitedCapitalLoss) &&
-        Objects.equals(this.noCapitalGuarantee, inlineResponse20062DataTargetMarketAbilityToBearLosses.noCapitalGuarantee) &&
-        Objects.equals(this.lossBeyondCapital, inlineResponse20062DataTargetMarketAbilityToBearLosses.lossBeyondCapital) &&
-        Objects.equals(this.maximumCapitalLoss, inlineResponse20062DataTargetMarketAbilityToBearLosses.maximumCapitalLoss);
+    return equalsNullable(this.noCapitalLoss, inlineResponse20062DataTargetMarketAbilityToBearLosses.noCapitalLoss) &&
+        equalsNullable(this.limitedCapitalLoss, inlineResponse20062DataTargetMarketAbilityToBearLosses.limitedCapitalLoss) &&
+        equalsNullable(this.noCapitalGuarantee, inlineResponse20062DataTargetMarketAbilityToBearLosses.noCapitalGuarantee) &&
+        equalsNullable(this.lossBeyondCapital, inlineResponse20062DataTargetMarketAbilityToBearLosses.lossBeyondCapital) &&
+        equalsNullable(this.maximumCapitalLoss, inlineResponse20062DataTargetMarketAbilityToBearLosses.maximumCapitalLoss);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(noCapitalLoss, limitedCapitalLoss, noCapitalGuarantee, lossBeyondCapital, maximumCapitalLoss);
+    return Objects.hash(hashCodeNullable(noCapitalLoss), hashCodeNullable(limitedCapitalLoss), hashCodeNullable(noCapitalGuarantee), hashCodeNullable(lossBeyondCapital), hashCodeNullable(maximumCapitalLoss));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **str** | Identifier of the news article. | [optional] 
-**time** | **str** | Date and time of the news article. | [optional] 
-**headline** | **str** | Headline of the news article represented as text with HTML entity encoding but without HTML tags. | [optional] 
-**summary** | **str** | Textual summary of the body of the news article or &#x60;null&#x60; if no summary was provided by the news article distributor. | [optional] 
+**code** | **str, none_type** | Identifier of the news article. | [optional] 
+**time** | **str, none_type** | Date and time of the news article. | [optional] 
+**headline** | **str, none_type** | Headline of the news article represented as text with HTML entity encoding but without HTML tags. | [optional] 
+**summary** | **str, none_type** | Textual summary of the body of the news article or &#x60;null&#x60; if no summary was provided by the news article distributor. | [optional] 
 **types** | [**[InlineResponse2001Types]**](InlineResponse2001Types.md) | Types of news article. See endpoint &#x60;/news/article/type/list&#x60; for possible values. | [optional] 
 **language** | [**InlineResponse2001Language**](InlineResponse2001Language.md) |  | [optional] 
 **distributor** | [**InlineResponse2001Distributor**](InlineResponse2001Distributor.md) |  | [optional] 

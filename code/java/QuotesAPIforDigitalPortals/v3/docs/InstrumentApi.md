@@ -1,6 +1,6 @@
 # InstrumentApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**postInstrumentCompliancePropertyList**](InstrumentApi.md#postInstrumentCompliancePropertyList) | **POST** /instrument/complianceProperty/list | List of compliance properties for instruments.
 [**postInstrumentCrossReferenceListByISIN**](InstrumentApi.md#postInstrumentCrossReferenceListByISIN) | **POST** /instrument/crossReference/listByISIN | Translate a list of ISINs to instruments.
 [**postInstrumentCrossReferenceListByWKN**](InstrumentApi.md#postInstrumentCrossReferenceListByWKN) | **POST** /instrument/crossReference/listByWKN | Translate a list of WKNs to instruments.
+[**postInstrumentNotationList**](InstrumentApi.md#postInstrumentNotationList) | **POST** /instrument/notation/list | List of active, entitled notations for a set of instruments.
 [**postInstrumentRatingGradeList**](InstrumentApi.md#postInstrumentRatingGradeList) | **POST** /instrument/rating/grade/list | List of rating grades for a list of instruments.
 
 
@@ -75,9 +76,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of an instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20044 result = apiInstance.getInstrumentBackgroundTextListByInstrument(id, attributes, language);
             System.out.println(result);
@@ -98,9 +99,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -163,9 +164,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of an instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20049 result = apiInstance.getInstrumentCompliancePropertyListByInstrument(id, attributes, language);
             System.out.println(result);
@@ -186,9 +187,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -251,9 +252,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of a composite instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20050 result = apiInstance.getInstrumentCompositeGet(id, attributes, language);
             System.out.println(result);
@@ -274,9 +275,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a composite instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -340,7 +341,7 @@ public class Example {
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20052 result = apiInstance.getInstrumentCouponDayCountConventionTypeList(attributes, language);
             System.out.println(result);
@@ -362,7 +363,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -426,7 +427,7 @@ public class Example {
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20053 result = apiInstance.getInstrumentCouponInterestRateTypeList(attributes, language);
             System.out.println(result);
@@ -448,7 +449,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -511,9 +512,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of an instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20054 result = apiInstance.getInstrumentCouponKeyDataGet(id, attributes, language);
             System.out.println(result);
@@ -534,9 +535,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -601,9 +602,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of an instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20051 result = apiInstance.getInstrumentCouponList(id, attributes, language);
             System.out.println(result);
@@ -624,9 +625,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -689,7 +690,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String isin = "isin_example"; // String | Source ISIN to be translated.
+        String isin = "isin_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse20055 result = apiInstance.getInstrumentCrossReferenceGetByISIN(isin, attributes);
@@ -711,7 +712,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **isin** | **String**| Source ISIN to be translated. |
+ **isin** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -775,7 +776,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String wkn = "wkn_example"; // String | Source WKN to be translated.
+        String wkn = "wkn_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse20055 result = apiInstance.getInstrumentCrossReferenceGetByWKN(wkn, attributes);
@@ -797,7 +798,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wkn** | **String**| Source WKN to be translated. |
+ **wkn** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -862,10 +863,10 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String isin = "isin_example"; // String | Source ISIN to be translated.
+        String isin = "isin_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("10.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
+        BigDecimal paginationLimit = new BigDecimal("10"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
             InlineResponse20058 result = apiInstance.getInstrumentCrossReferenceHistoryGetByISIN(isin, attributes, paginationOffset, paginationLimit);
             System.out.println(result);
@@ -886,10 +887,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **isin** | **String**| Source ISIN to be translated. |
+ **isin** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 10.0]
+ **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 10]
 
 ### Return type
 
@@ -953,10 +954,10 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String wkn = "wkn_example"; // String | Source WKN to be translated.
+        String wkn = "wkn_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("10.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
+        BigDecimal paginationLimit = new BigDecimal("10"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
             InlineResponse20058 result = apiInstance.getInstrumentCrossReferenceHistoryGetByWKN(wkn, attributes, paginationOffset, paginationLimit);
             System.out.println(result);
@@ -977,10 +978,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wkn** | **String**| Source WKN to be translated. |
+ **wkn** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 10.0]
+ **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 10]
 
 ### Return type
 
@@ -1046,10 +1047,10 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        BigDecimal target = new BigDecimal(78); // BigDecimal | Identifier of the target main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
-        BigDecimal source = new BigDecimal(78); // BigDecimal | Identifier of the source main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
+        BigDecimal target = new BigDecimal(78); // BigDecimal | 
+        BigDecimal source = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20059 result = apiInstance.getInstrumentExchangeRateGet(target, source, attributes, language);
             System.out.println(result);
@@ -1070,10 +1071,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **target** | **BigDecimal**| Identifier of the target main currency. See endpoint &#x60;/basic/valueUnit/currency/main/list&#x60; for valid values. |
- **source** | **BigDecimal**| Identifier of the source main currency. See endpoint &#x60;/basic/valueUnit/currency/main/list&#x60; for valid values. |
+ **target** | **BigDecimal**|  |
+ **source** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1138,10 +1139,10 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String target = "target_example"; // String | ISO 4217 code of the target main currency.
-        String source = "source_example"; // String | ISO 4217 code of the source main currency.
+        String target = "target_example"; // String | 
+        String source = "source_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20059 result = apiInstance.getInstrumentExchangeRateGetByISOCode(target, source, attributes, language);
             System.out.println(result);
@@ -1162,10 +1163,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **target** | **String**| ISO 4217 code of the target main currency. |
- **source** | **String**| ISO 4217 code of the source main currency. |
+ **target** | **String**|  |
+ **source** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1228,9 +1229,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of an instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20042 result = apiInstance.getInstrumentGet(id, attributes, language);
             System.out.println(result);
@@ -1251,9 +1252,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1316,9 +1317,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of a notation.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20043 result = apiInstance.getInstrumentGetByNotation(id, attributes, language);
             System.out.println(result);
@@ -1339,9 +1340,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1404,9 +1405,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of an instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20060 result = apiInstance.getInstrumentLegalEntityBackgroundTextListByInstrument(id, attributes, language);
             System.out.println(result);
@@ -1427,9 +1428,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1492,9 +1493,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of an instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20061 result = apiInstance.getInstrumentLegalEntityCompliancePropertyListByInstrument(id, attributes, language);
             System.out.println(result);
@@ -1515,9 +1516,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1580,9 +1581,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20062 result = apiInstance.getInstrumentMifidGet(id, attributes, language);
             System.out.println(result);
@@ -1603,9 +1604,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1628,7 +1629,7 @@ Name | Type | Description  | Notes
 
 ## getInstrumentSearchBasic
 
-> InlineResponse20087 getInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit)
+> InlineResponse20090 getInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit)
 
 Basic search for instruments.
 
@@ -1669,16 +1670,16 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        String searchValue = "searchValue_example"; // String | The search value of the instruments searching for. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
-        java.util.Set<String> nsins = Arrays.asList(); // java.util.Set<String> | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-        String assetClass = "index"; // String | A parameter to limit the output to a particular asset class.
-        Boolean onlyActive = true; // Boolean | If true, restricts the result to active instruments.
+        String searchValue = "searchValue_example"; // String | 
+        java.util.Set<String> nsins = Arrays.asList(); // java.util.Set<String> | 
+        String assetClass = "index"; // String | 
+        Boolean onlyActive = true; // Boolean | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("20.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        String language = "language_example"; // String | 
+        BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
+        BigDecimal paginationLimit = new BigDecimal("20"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
-            InlineResponse20087 result = apiInstance.getInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
+            InlineResponse20090 result = apiInstance.getInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1697,18 +1698,18 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchValue** | **String**| The search value of the instruments searching for. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. |
- **nsins** | **List&lt;String&gt;**| A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. | [optional] [enum: wkn, valor, cusip, sedol]
- **assetClass** | **String**| A parameter to limit the output to a particular asset class. | [optional] [enum: index, stock, fund, etf, debt, investmentProduct, leveragedProduct, currency, commodity, option, future, interestRate]
- **onlyActive** | **Boolean**| If true, restricts the result to active instruments. | [optional] [default to true]
+ **searchValue** | **String**|  |
+ **nsins** | **List&lt;String&gt;**|  | [optional] [enum: wkn, valor, cusip, sedol]
+ **assetClass** | **String**|  | [optional] [enum: index, stock, fund, etf, debt, investmentProduct, leveragedProduct, currency, commodity, option, future, interestRate, right]
+ **onlyActive** | **Boolean**|  | [optional] [default to true]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **language** | **String**|  | [optional]
+ **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
-[**InlineResponse20087**](InlineResponse20087.md)
+[**InlineResponse20090**](InlineResponse20090.md)
 
 ### Authorization
 
@@ -1727,7 +1728,7 @@ Name | Type | Description  | Notes
 
 ## postInstrumentBackgroundTextTypeList
 
-> InlineResponse20045 postInstrumentBackgroundTextTypeList(body)
+> InlineResponse20045 postInstrumentBackgroundTextTypeList(postInstrumentBackgroundTextTypeListRequest)
 
 List of background text types for instruments.
 
@@ -1767,9 +1768,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        InlineObject9 body = new InlineObject9(); // InlineObject9 | 
+        PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = new PostInstrumentBackgroundTextTypeListRequest(); // PostInstrumentBackgroundTextTypeListRequest | 
         try {
-            InlineResponse20045 result = apiInstance.postInstrumentBackgroundTextTypeList(body);
+            InlineResponse20045 result = apiInstance.postInstrumentBackgroundTextTypeList(postInstrumentBackgroundTextTypeListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1788,7 +1789,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject9**](InlineObject9.md)|  | [optional]
+ **postInstrumentBackgroundTextTypeListRequest** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1811,7 +1812,7 @@ Name | Type | Description  | Notes
 
 ## postInstrumentBenchmarkList
 
-> InlineResponse20046 postInstrumentBenchmarkList(body)
+> InlineResponse20046 postInstrumentBenchmarkList(postInstrumentBenchmarkListRequest)
 
 List of benchmarks of a financial instrument.
 
@@ -1851,9 +1852,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        InlineObject10 body = new InlineObject10(); // InlineObject10 | 
+        PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = new PostInstrumentBenchmarkListRequest(); // PostInstrumentBenchmarkListRequest | 
         try {
-            InlineResponse20046 result = apiInstance.postInstrumentBenchmarkList(body);
+            InlineResponse20046 result = apiInstance.postInstrumentBenchmarkList(postInstrumentBenchmarkListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1872,7 +1873,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject10**](InlineObject10.md)|  | [optional]
+ **postInstrumentBenchmarkListRequest** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1895,7 +1896,7 @@ Name | Type | Description  | Notes
 
 ## postInstrumentCategoryList
 
-> InlineResponse20047 postInstrumentCategoryList(body)
+> InlineResponse20047 postInstrumentCategoryList(postInstrumentCategoryListRequest)
 
 List of categories assigned to a specific instrument the application is entitled to see.
 
@@ -1935,9 +1936,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        InlineObject11 body = new InlineObject11(); // InlineObject11 | 
+        PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = new PostInstrumentCategoryListRequest(); // PostInstrumentCategoryListRequest | 
         try {
-            InlineResponse20047 result = apiInstance.postInstrumentCategoryList(body);
+            InlineResponse20047 result = apiInstance.postInstrumentCategoryList(postInstrumentCategoryListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1956,7 +1957,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject11**](InlineObject11.md)|  | [optional]
+ **postInstrumentCategoryListRequest** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1979,7 +1980,7 @@ Name | Type | Description  | Notes
 
 ## postInstrumentCompliancePropertyList
 
-> InlineResponse20048 postInstrumentCompliancePropertyList(body)
+> InlineResponse20048 postInstrumentCompliancePropertyList(postInstrumentCompliancePropertyListRequest)
 
 List of compliance properties for instruments.
 
@@ -2019,9 +2020,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        InlineObject12 body = new InlineObject12(); // InlineObject12 | 
+        PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = new PostInstrumentCompliancePropertyListRequest(); // PostInstrumentCompliancePropertyListRequest | 
         try {
-            InlineResponse20048 result = apiInstance.postInstrumentCompliancePropertyList(body);
+            InlineResponse20048 result = apiInstance.postInstrumentCompliancePropertyList(postInstrumentCompliancePropertyListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2040,7 +2041,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject12**](InlineObject12.md)|  | [optional]
+ **postInstrumentCompliancePropertyListRequest** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2063,7 +2064,7 @@ Name | Type | Description  | Notes
 
 ## postInstrumentCrossReferenceListByISIN
 
-> InlineResponse20056 postInstrumentCrossReferenceListByISIN(body)
+> InlineResponse20056 postInstrumentCrossReferenceListByISIN(postInstrumentCrossReferenceListByISINRequest)
 
 Translate a list of ISINs to instruments.
 
@@ -2103,9 +2104,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        InlineObject13 body = new InlineObject13(); // InlineObject13 | 
+        PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = new PostInstrumentCrossReferenceListByISINRequest(); // PostInstrumentCrossReferenceListByISINRequest | 
         try {
-            InlineResponse20056 result = apiInstance.postInstrumentCrossReferenceListByISIN(body);
+            InlineResponse20056 result = apiInstance.postInstrumentCrossReferenceListByISIN(postInstrumentCrossReferenceListByISINRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2124,7 +2125,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject13**](InlineObject13.md)|  |
+ **postInstrumentCrossReferenceListByISINRequest** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2147,7 +2148,7 @@ Name | Type | Description  | Notes
 
 ## postInstrumentCrossReferenceListByWKN
 
-> InlineResponse20057 postInstrumentCrossReferenceListByWKN(body)
+> InlineResponse20057 postInstrumentCrossReferenceListByWKN(postInstrumentCrossReferenceListByWKNRequest)
 
 Translate a list of WKNs to instruments.
 
@@ -2187,9 +2188,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        InlineObject14 body = new InlineObject14(); // InlineObject14 | 
+        PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = new PostInstrumentCrossReferenceListByWKNRequest(); // PostInstrumentCrossReferenceListByWKNRequest | 
         try {
-            InlineResponse20057 result = apiInstance.postInstrumentCrossReferenceListByWKN(body);
+            InlineResponse20057 result = apiInstance.postInstrumentCrossReferenceListByWKN(postInstrumentCrossReferenceListByWKNRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2208,7 +2209,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject14**](InlineObject14.md)|  |
+ **postInstrumentCrossReferenceListByWKNRequest** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2229,9 +2230,93 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 
+## postInstrumentNotationList
+
+> InlineResponse20063 postInstrumentNotationList(postInstrumentNotationListRequest)
+
+List of active, entitled notations for a set of instruments.
+
+List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
+import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
+import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.api.InstrumentApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        InstrumentApi apiInstance = new InstrumentApi(defaultClient);
+        PostInstrumentNotationListRequest postInstrumentNotationListRequest = new PostInstrumentNotationListRequest(); // PostInstrumentNotationListRequest | 
+        try {
+            InlineResponse20063 result = apiInstance.postInstrumentNotationList(postInstrumentNotationListRequest);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling InstrumentApi#postInstrumentNotationList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postInstrumentNotationListRequest** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)|  | [optional]
+
+### Return type
+
+[**InlineResponse20063**](InlineResponse20063.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+
 ## postInstrumentRatingGradeList
 
-> InlineResponse20063 postInstrumentRatingGradeList(body)
+> InlineResponse20064 postInstrumentRatingGradeList(postInstrumentRatingGradeListRequest)
 
 List of rating grades for a list of instruments.
 
@@ -2271,9 +2356,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        InlineObject15 body = new InlineObject15(); // InlineObject15 | 
+        PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = new PostInstrumentRatingGradeListRequest(); // PostInstrumentRatingGradeListRequest | 
         try {
-            InlineResponse20063 result = apiInstance.postInstrumentRatingGradeList(body);
+            InlineResponse20064 result = apiInstance.postInstrumentRatingGradeList(postInstrumentRatingGradeListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2292,11 +2377,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject15**](InlineObject15.md)|  | [optional]
+ **postInstrumentRatingGradeListRequest** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20063**](InlineResponse20063.md)
+[**InlineResponse20064**](InlineResponse20064.md)
 
 ### Authorization
 

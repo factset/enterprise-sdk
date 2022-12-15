@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -45,22 +49,22 @@ public class InlineResponse20035System implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private BigDecimal id;
+  private JsonNullable<BigDecimal> id = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NUMBER_OF_LEVELS = "numberOfLevels";
-  private BigDecimal numberOfLevels;
+  private JsonNullable<BigDecimal> numberOfLevels = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_FIRST_LEVEL_WITH_LEAF_CATEGORIES = "firstLevelWithLeafCategories";
-  private BigDecimal firstLevelWithLeafCategories;
+  private JsonNullable<BigDecimal> firstLevelWithLeafCategories = JsonNullable.<BigDecimal>undefined();
 
   public InlineResponse20035System() { 
   }
 
   public InlineResponse20035System id(BigDecimal id) {
-    this.id = id;
+    this.id = JsonNullable.<BigDecimal>of(id);
     return this;
   }
 
@@ -70,23 +74,31 @@ public class InlineResponse20035System implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the category system.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getId() {
-    return id;
+        return id.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(BigDecimal id) {
+
+  public JsonNullable<BigDecimal> getId_JsonNullable() {
+    return id;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<BigDecimal> id) {
     this.id = id;
+  }
+
+  public void setId(BigDecimal id) {
+    this.id = JsonNullable.<BigDecimal>of(id);
   }
 
 
   public InlineResponse20035System name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -96,23 +108,31 @@ public class InlineResponse20035System implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the category system.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public InlineResponse20035System numberOfLevels(BigDecimal numberOfLevels) {
-    this.numberOfLevels = numberOfLevels;
+    this.numberOfLevels = JsonNullable.<BigDecimal>of(numberOfLevels);
     return this;
   }
 
@@ -122,23 +142,31 @@ public class InlineResponse20035System implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of levels of the category system.")
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_LEVELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getNumberOfLevels() {
-    return numberOfLevels;
+        return numberOfLevels.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_LEVELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumberOfLevels(BigDecimal numberOfLevels) {
+
+  public JsonNullable<BigDecimal> getNumberOfLevels_JsonNullable() {
+    return numberOfLevels;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_LEVELS)
+  public void setNumberOfLevels_JsonNullable(JsonNullable<BigDecimal> numberOfLevels) {
     this.numberOfLevels = numberOfLevels;
+  }
+
+  public void setNumberOfLevels(BigDecimal numberOfLevels) {
+    this.numberOfLevels = JsonNullable.<BigDecimal>of(numberOfLevels);
   }
 
 
   public InlineResponse20035System firstLevelWithLeafCategories(BigDecimal firstLevelWithLeafCategories) {
-    this.firstLevelWithLeafCategories = firstLevelWithLeafCategories;
+    this.firstLevelWithLeafCategories = JsonNullable.<BigDecimal>of(firstLevelWithLeafCategories);
     return this;
   }
 
@@ -148,18 +176,26 @@ public class InlineResponse20035System implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of the least detailed level of the category system that has leaf categories.")
-  @JsonProperty(JSON_PROPERTY_FIRST_LEVEL_WITH_LEAF_CATEGORIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getFirstLevelWithLeafCategories() {
-    return firstLevelWithLeafCategories;
+        return firstLevelWithLeafCategories.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FIRST_LEVEL_WITH_LEAF_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstLevelWithLeafCategories(BigDecimal firstLevelWithLeafCategories) {
+
+  public JsonNullable<BigDecimal> getFirstLevelWithLeafCategories_JsonNullable() {
+    return firstLevelWithLeafCategories;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIRST_LEVEL_WITH_LEAF_CATEGORIES)
+  public void setFirstLevelWithLeafCategories_JsonNullable(JsonNullable<BigDecimal> firstLevelWithLeafCategories) {
     this.firstLevelWithLeafCategories = firstLevelWithLeafCategories;
+  }
+
+  public void setFirstLevelWithLeafCategories(BigDecimal firstLevelWithLeafCategories) {
+    this.firstLevelWithLeafCategories = JsonNullable.<BigDecimal>of(firstLevelWithLeafCategories);
   }
 
 
@@ -175,15 +211,26 @@ public class InlineResponse20035System implements Serializable {
       return false;
     }
     InlineResponse20035System inlineResponse20035System = (InlineResponse20035System) o;
-    return Objects.equals(this.id, inlineResponse20035System.id) &&
-        Objects.equals(this.name, inlineResponse20035System.name) &&
-        Objects.equals(this.numberOfLevels, inlineResponse20035System.numberOfLevels) &&
-        Objects.equals(this.firstLevelWithLeafCategories, inlineResponse20035System.firstLevelWithLeafCategories);
+    return equalsNullable(this.id, inlineResponse20035System.id) &&
+        equalsNullable(this.name, inlineResponse20035System.name) &&
+        equalsNullable(this.numberOfLevels, inlineResponse20035System.numberOfLevels) &&
+        equalsNullable(this.firstLevelWithLeafCategories, inlineResponse20035System.firstLevelWithLeafCategories);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, numberOfLevels, firstLevelWithLeafCategories);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(name), hashCodeNullable(numberOfLevels), hashCodeNullable(firstLevelWithLeafCategories));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

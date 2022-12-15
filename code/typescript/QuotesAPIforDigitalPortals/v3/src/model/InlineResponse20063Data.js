@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,7 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20063Ratings from './InlineResponse20063Ratings';
+import InlineResponse20063Notations from './InlineResponse20063Notations';
+import InlineResponse20063Status from './InlineResponse20063Status';
 
 /**
  * The InlineResponse20063Data model module.
@@ -50,8 +51,11 @@ class InlineResponse20063Data {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('ratings')) {
-                obj['ratings'] = ApiClient.convertToType(data['ratings'], [InlineResponse20063Ratings]);
+            if (data.hasOwnProperty('notations')) {
+                obj['notations'] = ApiClient.convertToType(data['notations'], [InlineResponse20063Notations]);
+            }
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = InlineResponse20063Status.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -67,10 +71,15 @@ class InlineResponse20063Data {
 InlineResponse20063Data.prototype['id'] = undefined;
 
 /**
- * Rating details. See endpoint `/rating/system/get` for details regarding a rating system, endpoint `/rating/grade/listBySystem` for all rating grades of a rating system, and endpoint `/rating/grade/get` for details regarding a rating grade.
- * @member {Array.<module:model/InlineResponse20063Ratings>} ratings
+ * List of entitled notations.
+ * @member {Array.<module:model/InlineResponse20063Notations>} notations
  */
-InlineResponse20063Data.prototype['ratings'] = undefined;
+InlineResponse20063Data.prototype['notations'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20063Status} status
+ */
+InlineResponse20063Data.prototype['status'] = undefined;
 
 
 

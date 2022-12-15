@@ -2,17 +2,13 @@
 
 # InlineResponse20064Data
 
-Set of basic data for the notation.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol** | **String** | The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify notations, no symbol will be set for the notations of that market. |  [optional]
-**factSetMarketSymbol** | **String** | The FactSet market symbol of the notation (i.e. TICKER_EXCHANGE). |  [optional]
-**valueUnit** | [**InlineResponse20064DataValueUnit**](InlineResponse20064DataValueUnit.md) |  |  [optional]
-**market** | [**InlineResponse20064DataMarket**](InlineResponse20064DataMarket.md) |  |  [optional]
-**instrument** | [**InlineResponse20064DataInstrument**](InlineResponse20064DataInstrument.md) |  |  [optional]
+**id** | **String** | Identifier of an instrument. |  [optional]
+**ratings** | [**java.util.List&lt;InlineResponse20064Ratings&gt;**](InlineResponse20064Ratings.md) | Rating details. See endpoint &#x60;/rating/system/get&#x60; for details regarding a rating system, endpoint &#x60;/rating/grade/listBySystem&#x60; for all rating grades of a rating system, and endpoint &#x60;/rating/grade/get&#x60; for details regarding a rating grade. |  [optional]
 
 
 ## Implemented Interfaces

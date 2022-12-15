@@ -1,0 +1,19 @@
+
+
+# PostStockNotationScreenerSearchRequestDataReturnOnAssets1Mean
+
+Value range for the mean value.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**minimum** | [**PostStockNotationScreenerSearchRequestDataEbitMarginMinimum**](PostStockNotationScreenerSearchRequestDataEbitMarginMinimum.md) |  |  [optional]
+**maximum** | [**PostStockNotationScreenerSearchRequestDataEbitMarginMaximum**](PostStockNotationScreenerSearchRequestDataEbitMarginMaximum.md) |  |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

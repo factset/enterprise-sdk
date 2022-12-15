@@ -1,6 +1,6 @@
 # quotesapifordigitalportals.CategoryApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -54,7 +54,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new CategoryApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -78,7 +78,7 @@ apiInstance.getCategoryDatasetList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -128,10 +128,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CategoryApi();
-const id = 3.4; // Number | Identifier of a category.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -154,9 +154,9 @@ apiInstance.getCategoryGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a category. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -206,12 +206,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CategoryApi();
-const idCategory = 3.4; // Number | Identifier of a category.
-const idCategoryDataset = 3.4; // Number | Identifier of a category dataset.
+const idCategory = 3.4; // Number | 
+const idCategoryDataset = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'paginationOffset': 0.0, // Number | Non-negative number of entries to skip, or 0 (default).
-  'paginationLimit': 20.0 // Number | Non-negative maximum number of entries to return.
+  'paginationOffset': 0, // Number | Non-negative number of entries to skip, or 0 (default).
+  'paginationLimit': 20 // Number | Non-negative maximum number of entries to return.
 };
 
 // Call api endpoint
@@ -234,11 +234,11 @@ apiInstance.getCategoryInstrumentList(idCategory, idCategoryDataset, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idCategory** | **Number**| Identifier of a category. | 
- **idCategoryDataset** | **Number**| Identifier of a category dataset. | 
+ **idCategory** | **Number**|  | 
+ **idCategoryDataset** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
@@ -288,10 +288,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CategoryApi();
-const id = 3.4; // Number | Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -314,9 +314,9 @@ apiInstance.getCategoryLevelGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -366,10 +366,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CategoryApi();
-const ids = [null]; // [Number] | List of categories belonging to the same category system.
+const ids = [null]; // [Number] | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -392,9 +392,9 @@ apiInstance.getCategoryList(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[Number]**](Number.md)| List of categories belonging to the same category system. | 
+ **ids** | [**[Number]**](Number.md)|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -444,12 +444,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CategoryApi();
-const id = 3.4; // Number | Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
-  'paginationOffset': 0.0, // Number | Non-negative number of entries to skip, or 0 (default).
-  'paginationLimit': 20.0 // Number | Non-negative maximum number of entries to return.
+  'language': "language_example", // String | 
+  'paginationOffset': 0, // Number | Non-negative number of entries to skip, or 0 (default).
+  'paginationLimit': 20 // Number | Non-negative maximum number of entries to return.
 };
 
 // Call api endpoint
@@ -472,11 +472,11 @@ apiInstance.getCategoryListByLevel(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **language** | **String**|  | [optional] 
+ **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
@@ -526,12 +526,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CategoryApi();
-const id = 3.4; // Number | Identifier of a category system. See endpoint `/category/system/list` for valid values.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
-  'paginationOffset': 0.0, // Number | Non-negative number of entries to skip, or 0 (default).
-  'paginationLimit': 20.0 // Number | Non-negative maximum number of entries to return.
+  'language': "language_example", // String | 
+  'paginationOffset': 0, // Number | Non-negative number of entries to skip, or 0 (default).
+  'paginationLimit': 20 // Number | Non-negative maximum number of entries to return.
 };
 
 // Call api endpoint
@@ -554,11 +554,11 @@ apiInstance.getCategoryListBySystem(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **language** | **String**|  | [optional] 
+ **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
@@ -608,10 +608,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CategoryApi();
-const id = 3.4; // Number | Identifier of a category.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -634,9 +634,9 @@ apiInstance.getCategoryPathGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a category. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -686,10 +686,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new CategoryApi();
-const id = 3.4; // Number | Identifier of a category system. See endpoint `/category/system/list` for valid values.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -712,9 +712,9 @@ apiInstance.getCategorySystemGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -765,9 +765,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new CategoryApi();
 const opts = {
-  'idType': 3.4, // Number | Filter for a specific category system type. See endpoint `/category/system/type/list` for valid values.
+  'idType': 3.4, // Number | 
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -790,9 +790,9 @@ apiInstance.getCategorySystemList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idType** | **Number**| Filter for a specific category system type. See endpoint &#x60;/category/system/type/list&#x60; for valid values. | [optional] 
+ **idType** | **Number**|  | [optional] 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -844,7 +844,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new CategoryApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -868,7 +868,7 @@ apiInstance.getCategorySystemTypeList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 

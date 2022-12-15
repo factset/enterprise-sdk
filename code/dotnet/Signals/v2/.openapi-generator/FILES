@@ -6,7 +6,6 @@ README.md
 appveyor.yml
 docs/Contract.md
 docs/ContractFields.md
-docs/ContractFieldsEventDate.md
 docs/ContractFieldsSummary.md
 docs/ContractProperty.md
 docs/ContractPropertyItems.md
@@ -27,6 +26,7 @@ docs/EventMeta.md
 docs/EventRequestBody.md
 docs/EventsApi.md
 docs/EventsEntities.md
+docs/EventsEntitiesPost.md
 docs/EventsMeta.md
 docs/EventsMetaDateRange.md
 docs/EventsMetaPagination.md
@@ -61,7 +61,6 @@ src/FactSet.SDK.Signals/FactSet.SDK.Signals.csproj
 src/FactSet.SDK.Signals/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.Signals/Model/Contract.cs
 src/FactSet.SDK.Signals/Model/ContractFields.cs
-src/FactSet.SDK.Signals/Model/ContractFieldsEventDate.cs
 src/FactSet.SDK.Signals/Model/ContractFieldsSummary.cs
 src/FactSet.SDK.Signals/Model/ContractProperty.cs
 src/FactSet.SDK.Signals/Model/ContractPropertyItems.cs
@@ -81,6 +80,7 @@ src/FactSet.SDK.Signals/Model/EventHeadlines.cs
 src/FactSet.SDK.Signals/Model/EventMeta.cs
 src/FactSet.SDK.Signals/Model/EventRequestBody.cs
 src/FactSet.SDK.Signals/Model/EventsEntities.cs
+src/FactSet.SDK.Signals/Model/EventsEntitiesPost.cs
 src/FactSet.SDK.Signals/Model/EventsMeta.cs
 src/FactSet.SDK.Signals/Model/EventsMetaDateRange.cs
 src/FactSet.SDK.Signals/Model/EventsMetaPagination.cs

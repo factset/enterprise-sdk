@@ -5,7 +5,7 @@ For an instrument that represents a share class of an investment fund, the juris
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of the juristic person in the role of a fund. | [optional] 
+**Id** | **decimal?** | Identifier of the juristic person in the role of a fund. | [optional] 
 **Name** | **string** | Name of the juristic person in the role of a fund. | [optional] 
 **Domicile** | [**InlineResponse20062DataGeneralFundDomicile**](InlineResponse20062DataGeneralFundDomicile.md) |  | [optional] 
 

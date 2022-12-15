@@ -106,7 +106,7 @@ public class CategoryApi {
    * List of entitled category datasets.
    * List of entitled category datasets.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20035
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -123,7 +123,7 @@ public class CategoryApi {
    * List of entitled category datasets.
    * List of entitled category datasets.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20035&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -177,9 +177,9 @@ public class CategoryApi {
   /**
    * Details of a category.
    * Details of a category.
-   * @param id Identifier of a category. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20031
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -195,9 +195,9 @@ public class CategoryApi {
   /**
    * Details of a category.
    * Details of a category.
-   * @param id Identifier of a category. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20031&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -257,11 +257,11 @@ public class CategoryApi {
   /**
    * List of instruments where a specific dataset has assigned a given category.
    * List of instruments where a specific dataset has assigned a given category.
-   * @param idCategory Identifier of a category. (required)
-   * @param idCategoryDataset Identifier of a category dataset. (required)
+   * @param idCategory  (required)
+   * @param idCategoryDataset  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return InlineResponse20036
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -277,11 +277,11 @@ public class CategoryApi {
   /**
    * List of instruments where a specific dataset has assigned a given category.
    * List of instruments where a specific dataset has assigned a given category.
-   * @param idCategory Identifier of a category. (required)
-   * @param idCategoryDataset Identifier of a category dataset. (required)
+   * @param idCategory  (required)
+   * @param idCategoryDataset  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return ApiResponse&lt;InlineResponse20036&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -348,9 +348,9 @@ public class CategoryApi {
   /**
    * Details of a category level.
    * Details of a category level.
-   * @param id Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20037
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -366,9 +366,9 @@ public class CategoryApi {
   /**
    * Details of a category level.
    * Details of a category level.
-   * @param id Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20037&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -428,9 +428,9 @@ public class CategoryApi {
   /**
    * List of categories.
    * List of categories.
-   * @param ids List of categories belonging to the same category system. (required)
+   * @param ids  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20032
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -446,9 +446,9 @@ public class CategoryApi {
   /**
    * List of categories.
    * List of categories.
-   * @param ids List of categories belonging to the same category system. (required)
+   * @param ids  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20032&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -508,11 +508,11 @@ public class CategoryApi {
   /**
    * List of categories assigned to a category level.
    * List of categories assigned to a category level.
-   * @param id Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
+   * @param language  (optional)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return InlineResponse20033
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -528,11 +528,11 @@ public class CategoryApi {
   /**
    * List of categories assigned to a category level.
    * List of categories assigned to a category level.
-   * @param id Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
+   * @param language  (optional)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return ApiResponse&lt;InlineResponse20033&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -594,11 +594,11 @@ public class CategoryApi {
   /**
    * List of categories assigned to a category system.
    * List of categories assigned to a category system.
-   * @param id Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
+   * @param language  (optional)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return InlineResponse20034
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -614,11 +614,11 @@ public class CategoryApi {
   /**
    * List of categories assigned to a category system.
    * List of categories assigned to a category system.
-   * @param id Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
+   * @param language  (optional)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return ApiResponse&lt;InlineResponse20034&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -680,9 +680,9 @@ public class CategoryApi {
   /**
    * Path from the first level to the level of a specific category.
    * Path from the first level to the level of a specific category.
-   * @param id Identifier of a category. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20038
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -698,9 +698,9 @@ public class CategoryApi {
   /**
    * Path from the first level to the level of a specific category.
    * Path from the first level to the level of a specific category.
-   * @param id Identifier of a category. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20038&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -760,9 +760,9 @@ public class CategoryApi {
   /**
    * Details of an entitled category system.
    * Details of an entitled category system.
-   * @param id Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20039
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -778,9 +778,9 @@ public class CategoryApi {
   /**
    * Details of an entitled category system.
    * Details of an entitled category system.
-   * @param id Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20039&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -840,9 +840,9 @@ public class CategoryApi {
   /**
    * List of entitled category systems.
    * List of entitled category systems.
-   * @param idType Filter for a specific category system type. See endpoint &#x60;/category/system/type/list&#x60; for valid values. (optional)
+   * @param idType  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20040
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -858,9 +858,9 @@ public class CategoryApi {
   /**
    * List of entitled category systems.
    * List of entitled category systems.
-   * @param idType Filter for a specific category system type. See endpoint &#x60;/category/system/type/list&#x60; for valid values. (optional)
+   * @param idType  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20040&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -916,7 +916,7 @@ public class CategoryApi {
    * List of category system types.
    * List of category system types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20041
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -933,7 +933,7 @@ public class CategoryApi {
    * List of category system types.
    * List of category system types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20041&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

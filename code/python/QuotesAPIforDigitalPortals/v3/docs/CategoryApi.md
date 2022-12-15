@@ -1,6 +1,6 @@
 # fds.sdk.QuotesAPIforDigitalPortals.CategoryApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -67,7 +67,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of entitled category datasets.
@@ -86,7 +86,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -157,11 +157,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = category_api.CategoryApi(api_client)
 
-    id = 3.14 # float | Identifier of a category.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details of a category.
@@ -179,9 +179,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a category. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -252,13 +252,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = category_api.CategoryApi(api_client)
 
-    id_category = 3.14 # float | Identifier of a category.
-    id_category_dataset = 3.14 # float | Identifier of a category dataset.
+    id_category = 3.14 # float | 
+    id_category_dataset = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
+    pagination_offset = 0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0
+    pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
         # List of instruments where a specific dataset has assigned a given category.
@@ -276,11 +276,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id_category** | **float**| Identifier of a category. |
- **id_category_dataset** | **float**| Identifier of a category dataset. |
+ **id_category** | **float**|  |
+ **id_category_dataset** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20.0
+ **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0
+ **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20
 
 ### Return type
 
@@ -351,11 +351,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = category_api.CategoryApi(api_client)
 
-    id = 3.14 # float | Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details of a category level.
@@ -373,9 +373,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -448,11 +448,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     ids = [
         3.14,
-    ] # [float] | List of categories belonging to the same category system.
+    ] # [float] | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of categories.
@@ -470,9 +470,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[float]**| List of categories belonging to the same category system. |
+ **ids** | **[float]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -543,13 +543,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = category_api.CategoryApi(api_client)
 
-    id = 3.14 # float | Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
+    language = "_language_example" # str |  (optional)
+    pagination_offset = 0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0
+    pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
         # List of categories assigned to a category level.
@@ -567,11 +567,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20.0
+ **language** | **str**|  | [optional]
+ **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0
+ **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20
 
 ### Return type
 
@@ -642,13 +642,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = category_api.CategoryApi(api_client)
 
-    id = 3.14 # float | Identifier of a category system. See endpoint `/category/system/list` for valid values.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
+    language = "_language_example" # str |  (optional)
+    pagination_offset = 0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0
+    pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
         # List of categories assigned to a category system.
@@ -666,11 +666,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20.0
+ **language** | **str**|  | [optional]
+ **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0
+ **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20
 
 ### Return type
 
@@ -741,11 +741,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = category_api.CategoryApi(api_client)
 
-    id = 3.14 # float | Identifier of a category.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Path from the first level to the level of a specific category.
@@ -763,9 +763,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a category. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -836,11 +836,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = category_api.CategoryApi(api_client)
 
-    id = 3.14 # float | Identifier of a category system. See endpoint `/category/system/list` for valid values.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details of an entitled category system.
@@ -858,9 +858,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -931,11 +931,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = category_api.CategoryApi(api_client)
 
-    id_type = 3.14 # float | Filter for a specific category system type. See endpoint `/category/system/type/list` for valid values. (optional)
+    id_type = 3.14 # float |  (optional)
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of entitled category systems.
@@ -953,9 +953,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id_type** | **float**| Filter for a specific category system type. See endpoint &#x60;/category/system/type/list&#x60; for valid values. | [optional]
+ **id_type** | **float**|  | [optional]
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1029,7 +1029,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of category system types.
@@ -1048,7 +1048,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 

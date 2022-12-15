@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**InlineResponse20069Data**](InlineResponse20069Data.md) |  | [optional] 
+**Data** | [**List&lt;InlineResponse20068DataNotations&gt;**](InlineResponse20068DataNotations.md) | List of notations. | [optional] 
 **Meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

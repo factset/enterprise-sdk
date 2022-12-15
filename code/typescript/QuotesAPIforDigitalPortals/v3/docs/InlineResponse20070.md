@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**InlineResponse20070Data**](InlineResponse20070Data.md) |  | [optional] 
+**data** | [**[InlineResponse20070Data]**](InlineResponse20070Data.md) | List of notations. | [optional] 
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 

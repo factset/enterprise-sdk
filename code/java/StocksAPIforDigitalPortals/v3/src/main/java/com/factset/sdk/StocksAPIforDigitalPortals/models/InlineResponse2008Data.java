@@ -1,6 +1,6 @@
 /*
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,20 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataCompany;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataCompliance;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataEstimates;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataIndustryClassification;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataMarket;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataPerformance;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataRecommendation;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataReportedKeyFigures;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataRsiWilder;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataSimpleMovingAverage;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataStockType;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataTradingValue;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataValueUnit;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataVolatility;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2008DataOwners;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,504 +25,139 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 
 
 /**
- * Possible values and value ranges of the parameters. 
+ * List of owners with their respective share sorted descending by the fraction owned.
  */
-@ApiModel(description = "Possible values and value ranges of the parameters. ")
+@ApiModel(description = "List of owners with their respective share sorted descending by the fraction owned.")
 @JsonPropertyOrder({
-  InlineResponse2008Data.JSON_PROPERTY_TOTAL_COUNT,
-  InlineResponse2008Data.JSON_PROPERTY_VALUE_UNIT,
-  InlineResponse2008Data.JSON_PROPERTY_MARKET,
-  InlineResponse2008Data.JSON_PROPERTY_STOCK_TYPE,
-  InlineResponse2008Data.JSON_PROPERTY_INDUSTRY_CLASSIFICATION,
-  InlineResponse2008Data.JSON_PROPERTY_COMPANY,
-  InlineResponse2008Data.JSON_PROPERTY_COMPLIANCE,
-  InlineResponse2008Data.JSON_PROPERTY_REPORTED_KEY_FIGURES,
-  InlineResponse2008Data.JSON_PROPERTY_PERFORMANCE,
-  InlineResponse2008Data.JSON_PROPERTY_VOLATILITY,
-  InlineResponse2008Data.JSON_PROPERTY_TRADING_VALUE,
-  InlineResponse2008Data.JSON_PROPERTY_SIMPLE_MOVING_AVERAGE,
-  InlineResponse2008Data.JSON_PROPERTY_RSI_WILDER,
-  InlineResponse2008Data.JSON_PROPERTY_RECOMMENDATION,
-  InlineResponse2008Data.JSON_PROPERTY_ESTIMATES
+  InlineResponse2008Data.JSON_PROPERTY_ID_INSTRUMENT,
+  InlineResponse2008Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse2008Data.JSON_PROPERTY_OWNERS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2008Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
-  private BigDecimal totalCount;
+  public static final String JSON_PROPERTY_ID_INSTRUMENT = "idInstrument";
+  private JsonNullable<String> idInstrument = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
-  private java.util.List<InlineResponse2008DataValueUnit> valueUnit = null;
+  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
+  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MARKET = "market";
-  private java.util.List<InlineResponse2008DataMarket> market = null;
-
-  public static final String JSON_PROPERTY_STOCK_TYPE = "stockType";
-  private java.util.List<InlineResponse2008DataStockType> stockType = null;
-
-  public static final String JSON_PROPERTY_INDUSTRY_CLASSIFICATION = "industryClassification";
-  private java.util.List<InlineResponse2008DataIndustryClassification> industryClassification = null;
-
-  public static final String JSON_PROPERTY_COMPANY = "company";
-  private InlineResponse2008DataCompany company;
-
-  public static final String JSON_PROPERTY_COMPLIANCE = "compliance";
-  private InlineResponse2008DataCompliance compliance;
-
-  public static final String JSON_PROPERTY_REPORTED_KEY_FIGURES = "reportedKeyFigures";
-  private InlineResponse2008DataReportedKeyFigures reportedKeyFigures;
-
-  public static final String JSON_PROPERTY_PERFORMANCE = "performance";
-  private InlineResponse2008DataPerformance performance;
-
-  public static final String JSON_PROPERTY_VOLATILITY = "volatility";
-  private InlineResponse2008DataVolatility volatility;
-
-  public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
-  private InlineResponse2008DataTradingValue tradingValue;
-
-  public static final String JSON_PROPERTY_SIMPLE_MOVING_AVERAGE = "simpleMovingAverage";
-  private InlineResponse2008DataSimpleMovingAverage simpleMovingAverage;
-
-  public static final String JSON_PROPERTY_RSI_WILDER = "rsiWilder";
-  private InlineResponse2008DataRsiWilder rsiWilder;
-
-  public static final String JSON_PROPERTY_RECOMMENDATION = "recommendation";
-  private InlineResponse2008DataRecommendation recommendation;
-
-  public static final String JSON_PROPERTY_ESTIMATES = "estimates";
-  private InlineResponse2008DataEstimates estimates;
+  public static final String JSON_PROPERTY_OWNERS = "owners";
+  private java.util.List<InlineResponse2008DataOwners> owners = null;
 
   public InlineResponse2008Data() { 
   }
 
-  public InlineResponse2008Data totalCount(BigDecimal totalCount) {
-    this.totalCount = totalCount;
+  public InlineResponse2008Data idInstrument(String idInstrument) {
+    this.idInstrument = JsonNullable.<String>of(idInstrument);
     return this;
   }
 
    /**
-   * Number of notations that satisfy the request parameters, hence have been used to retrieve the possible values and value ranges.
-   * @return totalCount
+   * MDG identifier of the instrument.
+   * @return idInstrument
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of notations that satisfy the request parameters, hence have been used to retrieve the possible values and value ranges.")
-  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+  @ApiModelProperty(value = "MDG identifier of the instrument.")
+  @JsonIgnore
+
+  public String getIdInstrument() {
+        return idInstrument.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ID_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getTotalCount() {
-    return totalCount;
+  public JsonNullable<String> getIdInstrument_JsonNullable() {
+    return idInstrument;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID_INSTRUMENT)
+  public void setIdInstrument_JsonNullable(JsonNullable<String> idInstrument) {
+    this.idInstrument = idInstrument;
+  }
+
+  public void setIdInstrument(String idInstrument) {
+    this.idInstrument = JsonNullable.<String>of(idInstrument);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalCount(BigDecimal totalCount) {
-    this.totalCount = totalCount;
-  }
-
-
-  public InlineResponse2008Data valueUnit(java.util.List<InlineResponse2008DataValueUnit> valueUnit) {
-    this.valueUnit = valueUnit;
+  public InlineResponse2008Data sourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
     return this;
   }
 
-  public InlineResponse2008Data addValueUnitItem(InlineResponse2008DataValueUnit valueUnitItem) {
-    if (this.valueUnit == null) {
-      this.valueUnit = new java.util.ArrayList<>();
+   /**
+   * Identifier used in the request.
+   * @return sourceIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Identifier used in the request.")
+  @JsonIgnore
+
+  public String getSourceIdentifier() {
+        return sourceIdentifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
+    return sourceIdentifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
+  }
+
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
+  }
+
+
+  public InlineResponse2008Data owners(java.util.List<InlineResponse2008DataOwners> owners) {
+    this.owners = owners;
+    return this;
+  }
+
+  public InlineResponse2008Data addOwnersItem(InlineResponse2008DataOwners ownersItem) {
+    if (this.owners == null) {
+      this.owners = new java.util.ArrayList<>();
     }
-    this.valueUnit.add(valueUnitItem);
+    this.owners.add(ownersItem);
     return this;
   }
 
    /**
-   * List of value unit identifiers. See endpoint &#x60;/basic/valueUnit/list&#x60; for possible values.
-   * @return valueUnit
+   * List of owners.
+   * @return owners
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of value unit identifiers. See endpoint `/basic/valueUnit/list` for possible values.")
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @ApiModelProperty(value = "List of owners.")
+  @JsonProperty(JSON_PROPERTY_OWNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse2008DataValueUnit> getValueUnit() {
-    return valueUnit;
+  public java.util.List<InlineResponse2008DataOwners> getOwners() {
+    return owners;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @JsonProperty(JSON_PROPERTY_OWNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValueUnit(java.util.List<InlineResponse2008DataValueUnit> valueUnit) {
-    this.valueUnit = valueUnit;
-  }
-
-
-  public InlineResponse2008Data market(java.util.List<InlineResponse2008DataMarket> market) {
-    this.market = market;
-    return this;
-  }
-
-  public InlineResponse2008Data addMarketItem(InlineResponse2008DataMarket marketItem) {
-    if (this.market == null) {
-      this.market = new java.util.ArrayList<>();
-    }
-    this.market.add(marketItem);
-    return this;
-  }
-
-   /**
-   * List of market identifiers. See endpoint &#x60;/basic/market/list&#x60; for possible values.
-   * @return market
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of market identifiers. See endpoint `/basic/market/list` for possible values.")
-  @JsonProperty(JSON_PROPERTY_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public java.util.List<InlineResponse2008DataMarket> getMarket() {
-    return market;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(java.util.List<InlineResponse2008DataMarket> market) {
-    this.market = market;
-  }
-
-
-  public InlineResponse2008Data stockType(java.util.List<InlineResponse2008DataStockType> stockType) {
-    this.stockType = stockType;
-    return this;
-  }
-
-  public InlineResponse2008Data addStockTypeItem(InlineResponse2008DataStockType stockTypeItem) {
-    if (this.stockType == null) {
-      this.stockType = new java.util.ArrayList<>();
-    }
-    this.stockType.add(stockTypeItem);
-    return this;
-  }
-
-   /**
-   * List of stock types.
-   * @return stockType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of stock types.")
-  @JsonProperty(JSON_PROPERTY_STOCK_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public java.util.List<InlineResponse2008DataStockType> getStockType() {
-    return stockType;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STOCK_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStockType(java.util.List<InlineResponse2008DataStockType> stockType) {
-    this.stockType = stockType;
-  }
-
-
-  public InlineResponse2008Data industryClassification(java.util.List<InlineResponse2008DataIndustryClassification> industryClassification) {
-    this.industryClassification = industryClassification;
-    return this;
-  }
-
-  public InlineResponse2008Data addIndustryClassificationItem(InlineResponse2008DataIndustryClassification industryClassificationItem) {
-    if (this.industryClassification == null) {
-      this.industryClassification = new java.util.ArrayList<>();
-    }
-    this.industryClassification.add(industryClassificationItem);
-    return this;
-  }
-
-   /**
-   * Lists of categories of the industry classification. Here, an industry is a category from any level of category system FactSet Revere Business Industry Classification System (RBICS). Starting with the most coarse level (one), for each level of the category system, the list of categories of the stocks, matching the parameters, is returned. See endpoint &#x60;/category/listBySystem&#x60; with &#x60;id&#x3D;48&#x60; for possible values.
-   * @return industryClassification
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Lists of categories of the industry classification. Here, an industry is a category from any level of category system FactSet Revere Business Industry Classification System (RBICS). Starting with the most coarse level (one), for each level of the category system, the list of categories of the stocks, matching the parameters, is returned. See endpoint `/category/listBySystem` with `id=48` for possible values.")
-  @JsonProperty(JSON_PROPERTY_INDUSTRY_CLASSIFICATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public java.util.List<InlineResponse2008DataIndustryClassification> getIndustryClassification() {
-    return industryClassification;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INDUSTRY_CLASSIFICATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIndustryClassification(java.util.List<InlineResponse2008DataIndustryClassification> industryClassification) {
-    this.industryClassification = industryClassification;
-  }
-
-
-  public InlineResponse2008Data company(InlineResponse2008DataCompany company) {
-    this.company = company;
-    return this;
-  }
-
-   /**
-   * Get company
-   * @return company
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_COMPANY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2008DataCompany getCompany() {
-    return company;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_COMPANY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompany(InlineResponse2008DataCompany company) {
-    this.company = company;
-  }
-
-
-  public InlineResponse2008Data compliance(InlineResponse2008DataCompliance compliance) {
-    this.compliance = compliance;
-    return this;
-  }
-
-   /**
-   * Get compliance
-   * @return compliance
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_COMPLIANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2008DataCompliance getCompliance() {
-    return compliance;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_COMPLIANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompliance(InlineResponse2008DataCompliance compliance) {
-    this.compliance = compliance;
-  }
-
-
-  public InlineResponse2008Data reportedKeyFigures(InlineResponse2008DataReportedKeyFigures reportedKeyFigures) {
-    this.reportedKeyFigures = reportedKeyFigures;
-    return this;
-  }
-
-   /**
-   * Get reportedKeyFigures
-   * @return reportedKeyFigures
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_REPORTED_KEY_FIGURES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2008DataReportedKeyFigures getReportedKeyFigures() {
-    return reportedKeyFigures;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_REPORTED_KEY_FIGURES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReportedKeyFigures(InlineResponse2008DataReportedKeyFigures reportedKeyFigures) {
-    this.reportedKeyFigures = reportedKeyFigures;
-  }
-
-
-  public InlineResponse2008Data performance(InlineResponse2008DataPerformance performance) {
-    this.performance = performance;
-    return this;
-  }
-
-   /**
-   * Get performance
-   * @return performance
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2008DataPerformance getPerformance() {
-    return performance;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPerformance(InlineResponse2008DataPerformance performance) {
-    this.performance = performance;
-  }
-
-
-  public InlineResponse2008Data volatility(InlineResponse2008DataVolatility volatility) {
-    this.volatility = volatility;
-    return this;
-  }
-
-   /**
-   * Get volatility
-   * @return volatility
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VOLATILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2008DataVolatility getVolatility() {
-    return volatility;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VOLATILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVolatility(InlineResponse2008DataVolatility volatility) {
-    this.volatility = volatility;
-  }
-
-
-  public InlineResponse2008Data tradingValue(InlineResponse2008DataTradingValue tradingValue) {
-    this.tradingValue = tradingValue;
-    return this;
-  }
-
-   /**
-   * Get tradingValue
-   * @return tradingValue
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2008DataTradingValue getTradingValue() {
-    return tradingValue;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTradingValue(InlineResponse2008DataTradingValue tradingValue) {
-    this.tradingValue = tradingValue;
-  }
-
-
-  public InlineResponse2008Data simpleMovingAverage(InlineResponse2008DataSimpleMovingAverage simpleMovingAverage) {
-    this.simpleMovingAverage = simpleMovingAverage;
-    return this;
-  }
-
-   /**
-   * Get simpleMovingAverage
-   * @return simpleMovingAverage
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SIMPLE_MOVING_AVERAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2008DataSimpleMovingAverage getSimpleMovingAverage() {
-    return simpleMovingAverage;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIMPLE_MOVING_AVERAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSimpleMovingAverage(InlineResponse2008DataSimpleMovingAverage simpleMovingAverage) {
-    this.simpleMovingAverage = simpleMovingAverage;
-  }
-
-
-  public InlineResponse2008Data rsiWilder(InlineResponse2008DataRsiWilder rsiWilder) {
-    this.rsiWilder = rsiWilder;
-    return this;
-  }
-
-   /**
-   * Get rsiWilder
-   * @return rsiWilder
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RSI_WILDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2008DataRsiWilder getRsiWilder() {
-    return rsiWilder;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RSI_WILDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRsiWilder(InlineResponse2008DataRsiWilder rsiWilder) {
-    this.rsiWilder = rsiWilder;
-  }
-
-
-  public InlineResponse2008Data recommendation(InlineResponse2008DataRecommendation recommendation) {
-    this.recommendation = recommendation;
-    return this;
-  }
-
-   /**
-   * Get recommendation
-   * @return recommendation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2008DataRecommendation getRecommendation() {
-    return recommendation;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRecommendation(InlineResponse2008DataRecommendation recommendation) {
-    this.recommendation = recommendation;
-  }
-
-
-  public InlineResponse2008Data estimates(InlineResponse2008DataEstimates estimates) {
-    this.estimates = estimates;
-    return this;
-  }
-
-   /**
-   * Get estimates
-   * @return estimates
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ESTIMATES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2008DataEstimates getEstimates() {
-    return estimates;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ESTIMATES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEstimates(InlineResponse2008DataEstimates estimates) {
-    this.estimates = estimates;
+  public void setOwners(java.util.List<InlineResponse2008DataOwners> owners) {
+    this.owners = owners;
   }
 
 
@@ -551,47 +173,34 @@ public class InlineResponse2008Data implements Serializable {
       return false;
     }
     InlineResponse2008Data inlineResponse2008Data = (InlineResponse2008Data) o;
-    return Objects.equals(this.totalCount, inlineResponse2008Data.totalCount) &&
-        Objects.equals(this.valueUnit, inlineResponse2008Data.valueUnit) &&
-        Objects.equals(this.market, inlineResponse2008Data.market) &&
-        Objects.equals(this.stockType, inlineResponse2008Data.stockType) &&
-        Objects.equals(this.industryClassification, inlineResponse2008Data.industryClassification) &&
-        Objects.equals(this.company, inlineResponse2008Data.company) &&
-        Objects.equals(this.compliance, inlineResponse2008Data.compliance) &&
-        Objects.equals(this.reportedKeyFigures, inlineResponse2008Data.reportedKeyFigures) &&
-        Objects.equals(this.performance, inlineResponse2008Data.performance) &&
-        Objects.equals(this.volatility, inlineResponse2008Data.volatility) &&
-        Objects.equals(this.tradingValue, inlineResponse2008Data.tradingValue) &&
-        Objects.equals(this.simpleMovingAverage, inlineResponse2008Data.simpleMovingAverage) &&
-        Objects.equals(this.rsiWilder, inlineResponse2008Data.rsiWilder) &&
-        Objects.equals(this.recommendation, inlineResponse2008Data.recommendation) &&
-        Objects.equals(this.estimates, inlineResponse2008Data.estimates);
+    return equalsNullable(this.idInstrument, inlineResponse2008Data.idInstrument) &&
+        equalsNullable(this.sourceIdentifier, inlineResponse2008Data.sourceIdentifier) &&
+        Objects.equals(this.owners, inlineResponse2008Data.owners);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, valueUnit, market, stockType, industryClassification, company, compliance, reportedKeyFigures, performance, volatility, tradingValue, simpleMovingAverage, rsiWilder, recommendation, estimates);
+    return Objects.hash(hashCodeNullable(idInstrument), hashCodeNullable(sourceIdentifier), owners);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2008Data {\n");
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
-    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
-    sb.append("    market: ").append(toIndentedString(market)).append("\n");
-    sb.append("    stockType: ").append(toIndentedString(stockType)).append("\n");
-    sb.append("    industryClassification: ").append(toIndentedString(industryClassification)).append("\n");
-    sb.append("    company: ").append(toIndentedString(company)).append("\n");
-    sb.append("    compliance: ").append(toIndentedString(compliance)).append("\n");
-    sb.append("    reportedKeyFigures: ").append(toIndentedString(reportedKeyFigures)).append("\n");
-    sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
-    sb.append("    volatility: ").append(toIndentedString(volatility)).append("\n");
-    sb.append("    tradingValue: ").append(toIndentedString(tradingValue)).append("\n");
-    sb.append("    simpleMovingAverage: ").append(toIndentedString(simpleMovingAverage)).append("\n");
-    sb.append("    rsiWilder: ").append(toIndentedString(rsiWilder)).append("\n");
-    sb.append("    recommendation: ").append(toIndentedString(recommendation)).append("\n");
-    sb.append("    estimates: ").append(toIndentedString(estimates)).append("\n");
+    sb.append("    idInstrument: ").append(toIndentedString(idInstrument)).append("\n");
+    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    owners: ").append(toIndentedString(owners)).append("\n");
     sb.append("}");
     return sb.toString();
   }

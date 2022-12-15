@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of the dataset. | [optional] 
+**Id** | **decimal?** | Identifier of the dataset. | [optional] 
 **Name** | **string** | Name of the dataset. | [optional] 
-**Depth** | **decimal** | Number of levels covered by this dataset for the category system. | [optional] 
+**Depth** | **decimal?** | Number of levels covered by this dataset for the category system. | [optional] 
 **System** | [**InlineResponse20035System**](InlineResponse20035System.md) |  | [optional] 
 **Delivery** | [**InlineResponse20035Delivery**](InlineResponse20035Delivery.md) |  | [optional] 
 

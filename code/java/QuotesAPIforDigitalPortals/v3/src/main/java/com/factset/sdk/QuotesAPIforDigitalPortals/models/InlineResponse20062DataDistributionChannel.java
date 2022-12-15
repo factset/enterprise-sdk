@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -78,12 +82,12 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_EXECUTION_ONLY = "executionOnly";
-  private ExecutionOnlyEnum executionOnly;
+  private JsonNullable<ExecutionOnlyEnum> executionOnly = JsonNullable.<ExecutionOnlyEnum>undefined();
 
   /**
    * Indicates the client type(s) for which the investment product is suitable through the distribution channel \&quot;execution only / reception and transmission of orders (RTO) with appropriateness assessment\&quot;.
@@ -120,12 +124,12 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_EXECUTION_APPROPRIATENESS = "executionAppropriateness";
-  private ExecutionAppropriatenessEnum executionAppropriateness;
+  private JsonNullable<ExecutionAppropriatenessEnum> executionAppropriateness = JsonNullable.<ExecutionAppropriatenessEnum>undefined();
 
   /**
    * Indicates the client type(s) for which the investment product is suitable through the distribution channel \&quot;investment advice with suitability assessment\&quot;.
@@ -162,12 +166,12 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_INVESTMENT_ADVICE = "investmentAdvice";
-  private InvestmentAdviceEnum investmentAdvice;
+  private JsonNullable<InvestmentAdviceEnum> investmentAdvice = JsonNullable.<InvestmentAdviceEnum>undefined();
 
   /**
    * Indicates the client type for which the investment product is suitable through the distribution channel \&quot;discretionary/portfolio management with suitability assessment\&quot;.
@@ -204,18 +208,18 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_PORTFOLIO_MANAGEMENT = "portfolioManagement";
-  private PortfolioManagementEnum portfolioManagement;
+  private JsonNullable<PortfolioManagementEnum> portfolioManagement = JsonNullable.<PortfolioManagementEnum>undefined();
 
   public InlineResponse20062DataDistributionChannel() { 
   }
 
   public InlineResponse20062DataDistributionChannel executionOnly(ExecutionOnlyEnum executionOnly) {
-    this.executionOnly = executionOnly;
+    this.executionOnly = JsonNullable.<ExecutionOnlyEnum>of(executionOnly);
     return this;
   }
 
@@ -225,23 +229,31 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates the client type(s) for which the investment product is suitable through the distribution channel \"execution only / reception and transmission of orders (RTO) without appropriateness assessment\".")
-  @JsonProperty(JSON_PROPERTY_EXECUTION_ONLY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public ExecutionOnlyEnum getExecutionOnly() {
-    return executionOnly;
+        return executionOnly.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXECUTION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExecutionOnly(ExecutionOnlyEnum executionOnly) {
+
+  public JsonNullable<ExecutionOnlyEnum> getExecutionOnly_JsonNullable() {
+    return executionOnly;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXECUTION_ONLY)
+  public void setExecutionOnly_JsonNullable(JsonNullable<ExecutionOnlyEnum> executionOnly) {
     this.executionOnly = executionOnly;
+  }
+
+  public void setExecutionOnly(ExecutionOnlyEnum executionOnly) {
+    this.executionOnly = JsonNullable.<ExecutionOnlyEnum>of(executionOnly);
   }
 
 
   public InlineResponse20062DataDistributionChannel executionAppropriateness(ExecutionAppropriatenessEnum executionAppropriateness) {
-    this.executionAppropriateness = executionAppropriateness;
+    this.executionAppropriateness = JsonNullable.<ExecutionAppropriatenessEnum>of(executionAppropriateness);
     return this;
   }
 
@@ -251,23 +263,31 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates the client type(s) for which the investment product is suitable through the distribution channel \"execution only / reception and transmission of orders (RTO) with appropriateness assessment\".")
-  @JsonProperty(JSON_PROPERTY_EXECUTION_APPROPRIATENESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public ExecutionAppropriatenessEnum getExecutionAppropriateness() {
-    return executionAppropriateness;
+        return executionAppropriateness.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXECUTION_APPROPRIATENESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExecutionAppropriateness(ExecutionAppropriatenessEnum executionAppropriateness) {
+
+  public JsonNullable<ExecutionAppropriatenessEnum> getExecutionAppropriateness_JsonNullable() {
+    return executionAppropriateness;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXECUTION_APPROPRIATENESS)
+  public void setExecutionAppropriateness_JsonNullable(JsonNullable<ExecutionAppropriatenessEnum> executionAppropriateness) {
     this.executionAppropriateness = executionAppropriateness;
+  }
+
+  public void setExecutionAppropriateness(ExecutionAppropriatenessEnum executionAppropriateness) {
+    this.executionAppropriateness = JsonNullable.<ExecutionAppropriatenessEnum>of(executionAppropriateness);
   }
 
 
   public InlineResponse20062DataDistributionChannel investmentAdvice(InvestmentAdviceEnum investmentAdvice) {
-    this.investmentAdvice = investmentAdvice;
+    this.investmentAdvice = JsonNullable.<InvestmentAdviceEnum>of(investmentAdvice);
     return this;
   }
 
@@ -277,23 +297,31 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates the client type(s) for which the investment product is suitable through the distribution channel \"investment advice with suitability assessment\".")
-  @JsonProperty(JSON_PROPERTY_INVESTMENT_ADVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public InvestmentAdviceEnum getInvestmentAdvice() {
-    return investmentAdvice;
+        return investmentAdvice.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_INVESTMENT_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInvestmentAdvice(InvestmentAdviceEnum investmentAdvice) {
+
+  public JsonNullable<InvestmentAdviceEnum> getInvestmentAdvice_JsonNullable() {
+    return investmentAdvice;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INVESTMENT_ADVICE)
+  public void setInvestmentAdvice_JsonNullable(JsonNullable<InvestmentAdviceEnum> investmentAdvice) {
     this.investmentAdvice = investmentAdvice;
+  }
+
+  public void setInvestmentAdvice(InvestmentAdviceEnum investmentAdvice) {
+    this.investmentAdvice = JsonNullable.<InvestmentAdviceEnum>of(investmentAdvice);
   }
 
 
   public InlineResponse20062DataDistributionChannel portfolioManagement(PortfolioManagementEnum portfolioManagement) {
-    this.portfolioManagement = portfolioManagement;
+    this.portfolioManagement = JsonNullable.<PortfolioManagementEnum>of(portfolioManagement);
     return this;
   }
 
@@ -303,18 +331,26 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates the client type for which the investment product is suitable through the distribution channel \"discretionary/portfolio management with suitability assessment\".")
-  @JsonProperty(JSON_PROPERTY_PORTFOLIO_MANAGEMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public PortfolioManagementEnum getPortfolioManagement() {
-    return portfolioManagement;
+        return portfolioManagement.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PORTFOLIO_MANAGEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPortfolioManagement(PortfolioManagementEnum portfolioManagement) {
+
+  public JsonNullable<PortfolioManagementEnum> getPortfolioManagement_JsonNullable() {
+    return portfolioManagement;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PORTFOLIO_MANAGEMENT)
+  public void setPortfolioManagement_JsonNullable(JsonNullable<PortfolioManagementEnum> portfolioManagement) {
     this.portfolioManagement = portfolioManagement;
+  }
+
+  public void setPortfolioManagement(PortfolioManagementEnum portfolioManagement) {
+    this.portfolioManagement = JsonNullable.<PortfolioManagementEnum>of(portfolioManagement);
   }
 
 
@@ -330,15 +366,26 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
       return false;
     }
     InlineResponse20062DataDistributionChannel inlineResponse20062DataDistributionChannel = (InlineResponse20062DataDistributionChannel) o;
-    return Objects.equals(this.executionOnly, inlineResponse20062DataDistributionChannel.executionOnly) &&
-        Objects.equals(this.executionAppropriateness, inlineResponse20062DataDistributionChannel.executionAppropriateness) &&
-        Objects.equals(this.investmentAdvice, inlineResponse20062DataDistributionChannel.investmentAdvice) &&
-        Objects.equals(this.portfolioManagement, inlineResponse20062DataDistributionChannel.portfolioManagement);
+    return equalsNullable(this.executionOnly, inlineResponse20062DataDistributionChannel.executionOnly) &&
+        equalsNullable(this.executionAppropriateness, inlineResponse20062DataDistributionChannel.executionAppropriateness) &&
+        equalsNullable(this.investmentAdvice, inlineResponse20062DataDistributionChannel.investmentAdvice) &&
+        equalsNullable(this.portfolioManagement, inlineResponse20062DataDistributionChannel.portfolioManagement);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(executionOnly, executionAppropriateness, investmentAdvice, portfolioManagement);
+    return Objects.hash(hashCodeNullable(executionOnly), hashCodeNullable(executionAppropriateness), hashCodeNullable(investmentAdvice), hashCodeNullable(portfolioManagement));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

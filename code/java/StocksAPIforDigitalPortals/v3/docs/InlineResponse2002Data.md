@@ -7,10 +7,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values. |  [optional]
-**name** | **String** | Name of the owner. |  [optional]
-**type** | [**InlineResponse2002Type**](InlineResponse2002Type.md) |  |  [optional]
-**ownership** | [**InlineResponse2002Ownership**](InlineResponse2002Ownership.md) |  |  [optional]
+**fiscalYear** | [**InlineResponse2002FiscalYear**](InlineResponse2002FiscalYear.md) |  |  [optional]
+**reportDate** | **LocalDate** | Publication date of the financial report. |  [optional]
+**currency** | [**InlineResponse2002Currency**](InlineResponse2002Currency.md) |  |  [optional]
+**incomeStatement** | [**InlineResponse2002IncomeStatement**](InlineResponse2002IncomeStatement.md) |  |  [optional]
+**balanceSheet** | [**InlineResponse2002BalanceSheet**](InlineResponse2002BalanceSheet.md) |  |  [optional]
+**ratios** | [**InlineResponse2002Ratios**](InlineResponse2002Ratios.md) |  |  [optional]
+**perShare** | [**InlineResponse2002PerShare**](InlineResponse2002PerShare.md) |  |  [optional]
 
 
 ## Implemented Interfaces

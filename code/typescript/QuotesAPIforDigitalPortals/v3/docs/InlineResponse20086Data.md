@@ -4,8 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Identifier of the type. | [optional] 
-**code** | **String** | Code of the type. | [optional] 
-**description** | **String** | Description of the type in english language. | [optional] 
+**idNotation** | **String** | MDG identifier of the listing. | [optional] 
+**sourceIdentifier** | **String** | Identifier used in the request. | [optional] 
+**quality** | **String** | Quality of the price. | [optional] 
+**asks** | [**[InlineResponse20086DataAsks]**](InlineResponse20086DataAsks.md) | List of sell orders aggregated by price. | [optional] 
+**bids** | [**[InlineResponse20086DataAsks]**](InlineResponse20086DataAsks.md) | List of buy orders aggregated by price. | [optional] 
+
+
+
+## Enum: QualityEnum
+
+
+* `RLT` (value: `"RLT"`)
+
+* `DLY` (value: `"DLY"`)
+
+
 
 

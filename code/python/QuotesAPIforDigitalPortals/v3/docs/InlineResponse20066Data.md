@@ -1,14 +1,17 @@
 # InlineResponse20066Data
 
-Notation identified by the FactSet market symbol.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Identifier of the notation. | [optional] 
-**market** | [**InlineResponse20066DataMarket**](InlineResponse20066DataMarket.md) |  | [optional] 
-**value_unit** | [**InlineResponse20066DataValueUnit**](InlineResponse20066DataValueUnit.md) |  | [optional] 
-**instrument** | [**InlineResponse20066DataInstrument**](InlineResponse20066DataInstrument.md) |  | [optional] 
+**id_notation** | **str, none_type** | MDG identifier of the listing. | [optional] 
+**source_identifier** | **str, none_type** | Identifier used in the request. | [optional] 
+**symbol** | **str, none_type** | The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify notations, no symbol will be set for the notations of that market. | [optional] 
+**fact_set_market_symbol** | **str, none_type** | The FactSet market symbol of the notation (i.e. TICKER_EXCHANGE). | [optional] 
+**value_unit** | [**InlineResponse20065DataValueUnit**](InlineResponse20065DataValueUnit.md) |  | [optional] 
+**market** | [**InlineResponse20065DataMarket**](InlineResponse20065DataMarket.md) |  | [optional] 
+**instrument** | [**InlineResponse20065DataInstrument**](InlineResponse20065DataInstrument.md) |  | [optional] 
+**status** | [**InlineResponse20066Status**](InlineResponse20066Status.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

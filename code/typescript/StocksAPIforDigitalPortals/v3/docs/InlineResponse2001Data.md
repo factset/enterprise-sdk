@@ -4,27 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**snapshot** | **String** | Identification of the historic snapshot for aggregated recommendations. | [optional] 
-**targetPrice** | [**InlineResponse200DataTargetPrice**](InlineResponse200DataTargetPrice.md) |  | [optional] 
-**recommendation** | [**InlineResponse2001Recommendation**](InlineResponse2001Recommendation.md) |  | [optional] 
-
-
-
-## Enum: SnapshotEnum
-
-
-* `latest` (value: `"latest"`)
-
-* `1w` (value: `"1w"`)
-
-* `1m` (value: `"1m"`)
-
-* `3m` (value: `"3m"`)
-
-* `6m` (value: `"6m"`)
-
-* `1y` (value: `"1y"`)
-
-
+**isin** | **String** | The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument. | [optional] 
+**nsin** | [**InlineResponse2001DataNsin**](InlineResponse2001DataNsin.md) |  | [optional] 
+**name** | **String** | Name of the instrument. | [optional] 
+**shortName** | **String** | Short name of the instrument. | [optional] 
+**type** | [**[InlineResponse2001DataType]**](InlineResponse2001DataType.md) | Instrument type as defined by FactSet Digital Solutions. Instrument types are arranged in a hierarchy, with the first level representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18). See endpoint &#x60;/category/get&#x60; for possible values. | [optional] 
+**company** | [**InlineResponse2001DataCompany**](InlineResponse2001DataCompany.md) |  | [optional] 
+**fiscalYearData** | [**[InlineResponse2001DataFiscalYearData]**](InlineResponse2001DataFiscalYearData.md) | Values as of the end of a fiscal year for the set of selected figures. The figures are clustered based on their specifics but do not exhaust all potentially available data from that cluster. The default sorting is from the most recent fiscal year requested to the most distant in time. | [optional] 
 
 

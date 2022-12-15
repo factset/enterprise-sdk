@@ -1,6 +1,6 @@
 /*
  * News API For Digital Portals
- * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with quotes, time series, watchlists, and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the Quotes API for Digital Portals for access to detailed price and performance information, plus basic support for security identifier cross-reference.
+ * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with [quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals), [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals), [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals), and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price and performance information, plus basic support for security identifier cross-reference. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,6 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2001Data;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2003DataIdentifiers;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,45 +32,91 @@ import com.factset.sdk.NewsAPIforDigitalPortals.JSON;
 
 
 /**
- * Details of a news article type.
+ * News articles for instruments that are constituents of the given indices.
  */
-@ApiModel(description = "Details of a news article type.")
+@ApiModel(description = "News articles for instruments that are constituents of the given indices.")
 @JsonPropertyOrder({
-  InlineResponse2003Data.JSON_PROPERTY_NAME
+  InlineResponse2003Data.JSON_PROPERTY_IDENTIFIERS,
+  InlineResponse2003Data.JSON_PROPERTY_ARTICLES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2003Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_IDENTIFIERS = "identifiers";
+  private java.util.List<InlineResponse2003DataIdentifiers> identifiers = null;
+
+  public static final String JSON_PROPERTY_ARTICLES = "articles";
+  private java.util.List<InlineResponse2001Data> articles = null;
 
   public InlineResponse2003Data() { 
   }
 
-  public InlineResponse2003Data name(String name) {
-    this.name = name;
+  public InlineResponse2003Data identifiers(java.util.List<InlineResponse2003DataIdentifiers> identifiers) {
+    this.identifiers = identifiers;
+    return this;
+  }
+
+  public InlineResponse2003Data addIdentifiersItem(InlineResponse2003DataIdentifiers identifiersItem) {
+    if (this.identifiers == null) {
+      this.identifiers = new java.util.ArrayList<>();
+    }
+    this.identifiers.add(identifiersItem);
     return this;
   }
 
    /**
-   * Name of the news article type.
-   * @return name
+   * List of identifiers that resolve to index notations, and their type.
+   * @return identifiers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the news article type.")
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @ApiModelProperty(value = "List of identifiers that resolve to index notations, and their type.")
+  @JsonProperty(JSON_PROPERTY_IDENTIFIERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
-    return name;
+  public java.util.List<InlineResponse2003DataIdentifiers> getIdentifiers() {
+    return identifiers;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_IDENTIFIERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
+  public void setIdentifiers(java.util.List<InlineResponse2003DataIdentifiers> identifiers) {
+    this.identifiers = identifiers;
+  }
+
+
+  public InlineResponse2003Data articles(java.util.List<InlineResponse2001Data> articles) {
+    this.articles = articles;
+    return this;
+  }
+
+  public InlineResponse2003Data addArticlesItem(InlineResponse2001Data articlesItem) {
+    if (this.articles == null) {
+      this.articles = new java.util.ArrayList<>();
+    }
+    this.articles.add(articlesItem);
+    return this;
+  }
+
+   /**
+   * News articles that match the filter criteria ordered by descending article time.
+   * @return articles
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "News articles that match the filter criteria ordered by descending article time.")
+  @JsonProperty(JSON_PROPERTY_ARTICLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<InlineResponse2001Data> getArticles() {
+    return articles;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ARTICLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setArticles(java.util.List<InlineResponse2001Data> articles) {
+    this.articles = articles;
   }
 
 
@@ -84,19 +132,21 @@ public class InlineResponse2003Data implements Serializable {
       return false;
     }
     InlineResponse2003Data inlineResponse2003Data = (InlineResponse2003Data) o;
-    return Objects.equals(this.name, inlineResponse2003Data.name);
+    return Objects.equals(this.identifiers, inlineResponse2003Data.identifiers) &&
+        Objects.equals(this.articles, inlineResponse2003Data.articles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(identifiers, articles);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2003Data {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
+    sb.append("    articles: ").append(toIndentedString(articles)).append("\n");
     sb.append("}");
     return sb.toString();
   }

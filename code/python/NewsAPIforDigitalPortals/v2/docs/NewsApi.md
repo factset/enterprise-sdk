@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_news_article_type_get**
-> InlineResponse2003 get_news_article_type_get(id)
+> InlineResponse2005 get_news_article_type_get(id)
 
 Details for a news article type.
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_news_article_type_list**
-> InlineResponse2004 get_news_article_type_list()
+> InlineResponse2006 get_news_article_type_list()
 
 List of news article types.
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_news_distributor_get**
-> InlineResponse2005 get_news_distributor_get(id)
+> InlineResponse2007 get_news_distributor_get(id)
 
 Details of a distributor.
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_news_distributor_list**
-> InlineResponse2006 get_news_distributor_list()
+> InlineResponse2008 get_news_distributor_list()
 
 List of distributors.
 
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_news_publisher_get**
-> InlineResponse2007 get_news_publisher_get(id)
+> InlineResponse2009 get_news_publisher_get(id)
 
 Details of a publisher.
 
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -590,7 +590,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_news_publisher_list**
-> InlineResponse2008 get_news_publisher_list()
+> InlineResponse20010 get_news_publisher_list()
 
 List of publishers.
 
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -691,7 +691,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_news_publisher_list_by_distributor**
-> InlineResponse2009 get_news_publisher_list_by_distributor(id)
+> InlineResponse20011 get_news_publisher_list_by_distributor(id)
 
 List of publishers provided by the given distributor.
 
@@ -765,7 +765,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -832,64 +832,64 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    inline_object = InlineObject(
-        data=NewsArticleListData(
-            filter=NewsArticleListDataFilter(
-                range=NewsArticleListDataFilterRange(
+    post_news_article_list_request = PostNewsArticleListRequest(
+        data=PostNewsArticleListRequestData(
+            filter=PostNewsArticleListRequestDataFilter(
+                range=PostNewsArticleListRequestDataFilterRange(
                     start="start_example",
                     end="end_example",
                 ),
-                categories=NewsArticleListDataFilterCategories(
+                categories=PostNewsArticleListRequestDataFilterCategories(
                     ids=[
                         3.14,
                     ],
                 ),
-                regions=NewsArticleListDataFilterRegions(
+                regions=PostNewsArticleListRequestDataFilterRegions(
                     ids=[
                         3.14,
                     ],
                 ),
-                distributor=NewsArticleListDataFilterDistributor(
+                distributor=PostNewsArticleListRequestDataFilterDistributor(
                     ids=[
                         3.14,
                     ],
                 ),
-                publisher=NewsArticleListDataFilterPublisher(
+                publisher=PostNewsArticleListRequestDataFilterPublisher(
                     ids=[
                         3.14,
                     ],
                 ),
-                language=NewsArticleListDataFilterLanguage(
+                language=PostNewsArticleListRequestDataFilterLanguage(
                     ids=[
                         3.14,
                     ],
                 ),
-                types=NewsArticleListDataFilterTypes(
+                types=PostNewsArticleListRequestDataFilterTypes(
                     ids=[
                         3.14,
                     ],
                 ),
             ),
         ),
-        meta=NewsArticleListMeta(
+        meta=PostNewsArticleListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
-            subscription=NewsArticleListMetaSubscription(
+            subscription=PostNewsArticleListRequestMetaSubscription(
                 minimum_interval=0,
             ),
-            pagination=NewsArticleListMetaPagination(
+            pagination=PostNewsArticleListRequestMetaPagination(
                 cursor="cursor_example",
                 limit=20,
             ),
         ),
-    ) # InlineObject |  (optional)
+    ) # PostNewsArticleListRequest |  (optional)
 
     try:
         # List of news articles.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_news_article_list(inline_object=inline_object)
+        api_response = api_instance.post_news_article_list(post_news_article_list_request=post_news_article_list_request)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -901,7 +901,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **post_news_article_list_request** | [**PostNewsArticleListRequest**](PostNewsArticleListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -926,7 +926,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_news_article_list_by_chain**
-> InlineResponse2002 post_news_article_list_by_chain(inline_object1)
+> InlineResponse2002 post_news_article_list_by_chain()
 
 List news articles of an article chain.
 
@@ -972,34 +972,35 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    inline_object1 = InlineObject1(
-        data=NewsArticleListByChainData(
+    post_news_article_list_by_chain_request = PostNewsArticleListByChainRequest(
+        data=PostNewsArticleListByChainRequestData(
             id="id_example",
-            filter=NewsArticleListByChainDataFilter(
-                range=NewsArticleListDataFilterRange(
+            filter=PostNewsArticleListByChainRequestDataFilter(
+                range=PostNewsArticleListRequestDataFilterRange(
                     start="start_example",
                     end="end_example",
                 ),
             ),
         ),
-        meta=NewsArticleListMeta(
+        meta=PostNewsArticleListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
-            subscription=NewsArticleListMetaSubscription(
+            subscription=PostNewsArticleListRequestMetaSubscription(
                 minimum_interval=0,
             ),
-            pagination=NewsArticleListMetaPagination(
+            pagination=PostNewsArticleListRequestMetaPagination(
                 cursor="cursor_example",
                 limit=20,
             ),
         ),
-    ) # InlineObject1 | 
+    ) # PostNewsArticleListByChainRequest |  (optional)
 
     try:
         # List news articles of an article chain.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_news_article_list_by_chain(inline_object1)
+        # and optional values
+        api_response = api_instance.post_news_article_list_by_chain(post_news_article_list_by_chain_request=post_news_article_list_by_chain_request)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1011,7 +1012,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  |
+ **post_news_article_list_by_chain_request** | [**PostNewsArticleListByChainRequest**](PostNewsArticleListByChainRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1036,7 +1037,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_news_article_list_by_index**
-> InlineResponse2001 post_news_article_list_by_index(inline_object2)
+> InlineResponse2003 post_news_article_list_by_index()
 
 News articles for instruments that are constituents of the given indices.
 
@@ -1082,66 +1083,70 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    inline_object2 = InlineObject2(
-        data=NewsArticleListByIndexData(
-            ids=[
-                "ids_example",
-            ],
-            filter=NewsArticleListDataFilter(
-                range=NewsArticleListDataFilterRange(
+    post_news_article_list_by_index_request = PostNewsArticleListByIndexRequest(
+        data=PostNewsArticleListByIndexRequestData(
+            identifier=PostNewsArticleListByIndexRequestDataIdentifier(
+                values=[
+                    "80728880015",
+                ],
+                type="idNotation",
+            ),
+            filter=PostNewsArticleListRequestDataFilter(
+                range=PostNewsArticleListRequestDataFilterRange(
                     start="start_example",
                     end="end_example",
                 ),
-                categories=NewsArticleListDataFilterCategories(
+                categories=PostNewsArticleListRequestDataFilterCategories(
                     ids=[
                         3.14,
                     ],
                 ),
-                regions=NewsArticleListDataFilterRegions(
+                regions=PostNewsArticleListRequestDataFilterRegions(
                     ids=[
                         3.14,
                     ],
                 ),
-                distributor=NewsArticleListDataFilterDistributor(
+                distributor=PostNewsArticleListRequestDataFilterDistributor(
                     ids=[
                         3.14,
                     ],
                 ),
-                publisher=NewsArticleListDataFilterPublisher(
+                publisher=PostNewsArticleListRequestDataFilterPublisher(
                     ids=[
                         3.14,
                     ],
                 ),
-                language=NewsArticleListDataFilterLanguage(
+                language=PostNewsArticleListRequestDataFilterLanguage(
                     ids=[
                         3.14,
                     ],
                 ),
-                types=NewsArticleListDataFilterTypes(
+                types=PostNewsArticleListRequestDataFilterTypes(
                     ids=[
                         3.14,
                     ],
                 ),
             ),
         ),
-        meta=NewsArticleListMeta(
+        meta=PostNewsArticleListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
-            subscription=NewsArticleListMetaSubscription(
+            subscription=PostNewsArticleListRequestMetaSubscription(
                 minimum_interval=0,
             ),
-            pagination=NewsArticleListMetaPagination(
+            pagination=PostNewsArticleListRequestMetaPagination(
                 cursor="cursor_example",
                 limit=20,
             ),
         ),
-    ) # InlineObject2 | 
+    ) # PostNewsArticleListByIndexRequest |  (optional)
 
     try:
         # News articles for instruments that are constituents of the given indices.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_news_article_list_by_index(inline_object2)
+        # and optional values
+        api_response = api_instance.post_news_article_list_by_index(post_news_article_list_by_index_request=post_news_article_list_by_index_request)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1153,11 +1158,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object2** | [**InlineObject2**](InlineObject2.md)|  |
+ **post_news_article_list_by_index_request** | [**PostNewsArticleListByIndexRequest**](PostNewsArticleListByIndexRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -1178,7 +1183,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_news_article_list_by_instrument**
-> InlineResponse2001 post_news_article_list_by_instrument(inline_object3)
+> InlineResponse2004 post_news_article_list_by_instrument()
 
 News articles for instruments.
 
@@ -1224,66 +1229,70 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    inline_object3 = InlineObject3(
-        data=NewsArticleListByInstrumentData(
-            ids=[
-                "ids_example",
-            ],
-            filter=NewsArticleListDataFilter(
-                range=NewsArticleListDataFilterRange(
+    post_news_article_list_by_instrument_request = PostNewsArticleListByInstrumentRequest(
+        data=PostNewsArticleListByInstrumentRequestData(
+            identifier=PostNewsArticleListByInstrumentRequestDataIdentifier(
+                values=[
+                    "PQ6ZGC",
+                ],
+                type="idInstrument",
+            ),
+            filter=PostNewsArticleListRequestDataFilter(
+                range=PostNewsArticleListRequestDataFilterRange(
                     start="start_example",
                     end="end_example",
                 ),
-                categories=NewsArticleListDataFilterCategories(
+                categories=PostNewsArticleListRequestDataFilterCategories(
                     ids=[
                         3.14,
                     ],
                 ),
-                regions=NewsArticleListDataFilterRegions(
+                regions=PostNewsArticleListRequestDataFilterRegions(
                     ids=[
                         3.14,
                     ],
                 ),
-                distributor=NewsArticleListDataFilterDistributor(
+                distributor=PostNewsArticleListRequestDataFilterDistributor(
                     ids=[
                         3.14,
                     ],
                 ),
-                publisher=NewsArticleListDataFilterPublisher(
+                publisher=PostNewsArticleListRequestDataFilterPublisher(
                     ids=[
                         3.14,
                     ],
                 ),
-                language=NewsArticleListDataFilterLanguage(
+                language=PostNewsArticleListRequestDataFilterLanguage(
                     ids=[
                         3.14,
                     ],
                 ),
-                types=NewsArticleListDataFilterTypes(
+                types=PostNewsArticleListRequestDataFilterTypes(
                     ids=[
                         3.14,
                     ],
                 ),
             ),
         ),
-        meta=NewsArticleListMeta(
+        meta=PostNewsArticleListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
-            subscription=NewsArticleListMetaSubscription(
+            subscription=PostNewsArticleListRequestMetaSubscription(
                 minimum_interval=0,
             ),
-            pagination=NewsArticleListMetaPagination(
+            pagination=PostNewsArticleListRequestMetaPagination(
                 cursor="cursor_example",
                 limit=20,
             ),
         ),
-    ) # InlineObject3 | 
+    ) # PostNewsArticleListByInstrumentRequest |  (optional)
 
     try:
         # News articles for instruments.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_news_article_list_by_instrument(inline_object3)
+        # and optional values
+        api_response = api_instance.post_news_article_list_by_instrument(post_news_article_list_by_instrument_request=post_news_article_list_by_instrument_request)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1295,11 +1304,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object3** | [**InlineObject3**](InlineObject3.md)|  |
+ **post_news_article_list_by_instrument_request** | [**PostNewsArticleListByInstrumentRequest**](PostNewsArticleListByInstrumentRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -1320,7 +1329,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_news_article_list_by_media_kind**
-> InlineResponse2001 post_news_article_list_by_media_kind(inline_object4)
+> InlineResponse2001 post_news_article_list_by_media_kind()
 
 List news articles which contain media of specific media kinds.
 
@@ -1366,66 +1375,67 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    inline_object4 = InlineObject4(
-        data=NewsArticleListByMediaKindData(
+    post_news_article_list_by_media_kind_request = PostNewsArticleListByMediaKindRequest(
+        data=PostNewsArticleListByMediaKindRequestData(
             ids=[
                 3.14,
             ],
-            filter=NewsArticleListDataFilter(
-                range=NewsArticleListDataFilterRange(
+            filter=PostNewsArticleListRequestDataFilter(
+                range=PostNewsArticleListRequestDataFilterRange(
                     start="start_example",
                     end="end_example",
                 ),
-                categories=NewsArticleListDataFilterCategories(
+                categories=PostNewsArticleListRequestDataFilterCategories(
                     ids=[
                         3.14,
                     ],
                 ),
-                regions=NewsArticleListDataFilterRegions(
+                regions=PostNewsArticleListRequestDataFilterRegions(
                     ids=[
                         3.14,
                     ],
                 ),
-                distributor=NewsArticleListDataFilterDistributor(
+                distributor=PostNewsArticleListRequestDataFilterDistributor(
                     ids=[
                         3.14,
                     ],
                 ),
-                publisher=NewsArticleListDataFilterPublisher(
+                publisher=PostNewsArticleListRequestDataFilterPublisher(
                     ids=[
                         3.14,
                     ],
                 ),
-                language=NewsArticleListDataFilterLanguage(
+                language=PostNewsArticleListRequestDataFilterLanguage(
                     ids=[
                         3.14,
                     ],
                 ),
-                types=NewsArticleListDataFilterTypes(
+                types=PostNewsArticleListRequestDataFilterTypes(
                     ids=[
                         3.14,
                     ],
                 ),
             ),
         ),
-        meta=NewsArticleListMeta(
+        meta=PostNewsArticleListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
-            subscription=NewsArticleListMetaSubscription(
+            subscription=PostNewsArticleListRequestMetaSubscription(
                 minimum_interval=0,
             ),
-            pagination=NewsArticleListMetaPagination(
+            pagination=PostNewsArticleListRequestMetaPagination(
                 cursor="cursor_example",
                 limit=20,
             ),
         ),
-    ) # InlineObject4 | 
+    ) # PostNewsArticleListByMediaKindRequest |  (optional)
 
     try:
         # List news articles which contain media of specific media kinds.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_news_article_list_by_media_kind(inline_object4)
+        # and optional values
+        api_response = api_instance.post_news_article_list_by_media_kind(post_news_article_list_by_media_kind_request=post_news_article_list_by_media_kind_request)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1437,7 +1447,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object4** | [**InlineObject4**](InlineObject4.md)|  |
+ **post_news_article_list_by_media_kind_request** | [**PostNewsArticleListByMediaKindRequest**](PostNewsArticleListByMediaKindRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1508,10 +1518,10 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    inline_object5 = InlineObject5(
-        data=NewsArticleSearchByTextData(
-            text=NewsArticleSearchByTextDataText(
-                criteria=NewsArticleSearchByTextDataTextCriteria(
+    post_news_article_search_by_text_request = PostNewsArticleSearchByTextRequest(
+        data=PostNewsArticleSearchByTextRequestData(
+            text=PostNewsArticleSearchByTextRequestDataText(
+                criteria=PostNewsArticleSearchByTextRequestDataTextCriteria(
                     selection_type="include",
                     phrases=[
                         "phrases_example",
@@ -1521,48 +1531,48 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 ),
             ),
             criteria=[
-                NewsArticleSearchByTextDataCriteria(
+                PostNewsArticleSearchByTextRequestDataCriteria(
                     selection_type="include",
-                    range=NewsArticleListDataFilterRange(
+                    range=PostNewsArticleListRequestDataFilterRange(
                         start="start_example",
                         end="end_example",
                     ),
-                    indices=NewsArticleSearchByTextDataIndices(
+                    indices=PostNewsArticleSearchByTextRequestDataIndices(
                         ids=[
                             "ids_example",
                         ],
                     ),
-                    instruments=NewsArticleSearchByTextDataInstruments(
+                    instruments=PostNewsArticleSearchByTextRequestDataInstruments(
                         ids=[
                             "ids_example",
                         ],
                     ),
-                    types=NewsArticleSearchByTextDataTypes(
+                    types=PostNewsArticleSearchByTextRequestDataTypes(
                         ids=[
                             3.14,
                         ],
                     ),
-                    categories=NewsArticleSearchByTextDataCategories(
+                    categories=PostNewsArticleSearchByTextRequestDataCategories(
                         ids=[
                             3.14,
                         ],
                     ),
-                    regions=NewsArticleSearchByTextDataRegions(
+                    regions=PostNewsArticleSearchByTextRequestDataRegions(
                         ids=[
                             3.14,
                         ],
                     ),
-                    distributor=NewsArticleSearchByTextDataDistributor(
+                    distributor=PostNewsArticleSearchByTextRequestDataDistributor(
                         ids=[
                             3.14,
                         ],
                     ),
-                    publisher=NewsArticleSearchByTextDataPublisher(
+                    publisher=PostNewsArticleSearchByTextRequestDataPublisher(
                         ids=[
                             3.14,
                         ],
                     ),
-                    language=NewsArticleSearchByTextDataLanguage(
+                    language=PostNewsArticleSearchByTextRequestDataLanguage(
                         ids=[
                             3.14,
                         ],
@@ -1570,25 +1580,25 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 ),
             ],
         ),
-        meta=NewsArticleListMeta(
+        meta=PostNewsArticleListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
-            subscription=NewsArticleListMetaSubscription(
+            subscription=PostNewsArticleListRequestMetaSubscription(
                 minimum_interval=0,
             ),
-            pagination=NewsArticleListMetaPagination(
+            pagination=PostNewsArticleListRequestMetaPagination(
                 cursor="cursor_example",
                 limit=20,
             ),
         ),
-    ) # InlineObject5 |  (optional)
+    ) # PostNewsArticleSearchByTextRequest |  (optional)
 
     try:
         # Search for news articles using a fulltext search.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_news_article_search_by_text(inline_object5=inline_object5)
+        api_response = api_instance.post_news_article_search_by_text(post_news_article_search_by_text_request=post_news_article_search_by_text_request)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1600,7 +1610,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object5** | [**InlineObject5**](InlineObject5.md)|  | [optional]
+ **post_news_article_search_by_text_request** | [**PostNewsArticleSearchByTextRequest**](PostNewsArticleSearchByTextRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1625,7 +1635,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_news_publisher_search_by_name**
-> InlineResponse2009 post_news_publisher_search_by_name(inline_object6)
+> InlineResponse20011 post_news_publisher_search_by_name()
 
 Search for publishers.
 
@@ -1671,31 +1681,32 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    inline_object6 = InlineObject6(
-        data=NewsPublisherSearchByNameData(
+    post_news_publisher_search_by_name_request = PostNewsPublisherSearchByNameRequest(
+        data=PostNewsPublisherSearchByNameRequestData(
             search_value="search_value_example",
             match_type="begins",
-            filter=NewsPublisherSearchByNameDataFilter(
-                distributor=NewsPublisherSearchByNameDataFilterDistributor(
+            filter=PostNewsPublisherSearchByNameRequestDataFilter(
+                distributor=PostNewsPublisherSearchByNameRequestDataFilterDistributor(
                     id=3.14,
                 ),
-                delivery=NewsPublisherSearchByNameDataFilterDelivery(
+                delivery=PostNewsPublisherSearchByNameRequestDataFilterDelivery(
                     id=3.14,
                 ),
             ),
         ),
-        meta=NewsPublisherSearchByNameMeta(
+        meta=PostNewsPublisherSearchByNameRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             sort=["name"],
         ),
-    ) # InlineObject6 | 
+    ) # PostNewsPublisherSearchByNameRequest |  (optional)
 
     try:
         # Search for publishers.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_news_publisher_search_by_name(inline_object6)
+        # and optional values
+        api_response = api_instance.post_news_publisher_search_by_name(post_news_publisher_search_by_name_request=post_news_publisher_search_by_name_request)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1707,11 +1718,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object6** | [**InlineObject6**](InlineObject6.md)|  |
+ **post_news_publisher_search_by_name_request** | [**PostNewsPublisherSearchByNameRequest**](PostNewsPublisherSearchByNameRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

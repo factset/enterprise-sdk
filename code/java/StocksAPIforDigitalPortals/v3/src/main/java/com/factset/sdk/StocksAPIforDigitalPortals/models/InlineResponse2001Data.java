@@ -1,6 +1,6 @@
 /*
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,8 +17,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2001Recommendation;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataTargetPrice;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2001DataCompany;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2001DataFiscalYearData;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2001DataNsin;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2001DataType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,153 +28,275 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse2001Data
+ * Selected fundamentals for a stock with values as of the end of a fiscal year.
  */
+@ApiModel(description = "Selected fundamentals for a stock with values as of the end of a fiscal year.")
 @JsonPropertyOrder({
-  InlineResponse2001Data.JSON_PROPERTY_SNAPSHOT,
-  InlineResponse2001Data.JSON_PROPERTY_TARGET_PRICE,
-  InlineResponse2001Data.JSON_PROPERTY_RECOMMENDATION
+  InlineResponse2001Data.JSON_PROPERTY_ISIN,
+  InlineResponse2001Data.JSON_PROPERTY_NSIN,
+  InlineResponse2001Data.JSON_PROPERTY_NAME,
+  InlineResponse2001Data.JSON_PROPERTY_SHORT_NAME,
+  InlineResponse2001Data.JSON_PROPERTY_TYPE,
+  InlineResponse2001Data.JSON_PROPERTY_COMPANY,
+  InlineResponse2001Data.JSON_PROPERTY_FISCAL_YEAR_DATA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2001Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  /**
-   * Identification of the historic snapshot for aggregated recommendations.
-   */
-  public enum SnapshotEnum {
-    LATEST("latest"),
-    
-    _1W("1w"),
-    
-    _1M("1m"),
-    
-    _3M("3m"),
-    
-    _6M("6m"),
-    
-    _1Y("1y");
+  public static final String JSON_PROPERTY_ISIN = "isin";
+  private JsonNullable<String> isin = JsonNullable.<String>undefined();
 
-    private String value;
+  public static final String JSON_PROPERTY_NSIN = "nsin";
+  private InlineResponse2001DataNsin nsin;
 
-    SnapshotEnum(String value) {
-      this.value = value;
-    }
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
+  public static final String JSON_PROPERTY_SHORT_NAME = "shortName";
+  private JsonNullable<String> shortName = JsonNullable.<String>undefined();
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private java.util.List<InlineResponse2001DataType> type = null;
 
-    @JsonCreator
-    public static SnapshotEnum fromValue(String value) {
-      for (SnapshotEnum b : SnapshotEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  public static final String JSON_PROPERTY_COMPANY = "company";
+  private InlineResponse2001DataCompany company;
 
-  public static final String JSON_PROPERTY_SNAPSHOT = "snapshot";
-  private SnapshotEnum snapshot;
-
-  public static final String JSON_PROPERTY_TARGET_PRICE = "targetPrice";
-  private InlineResponse200DataTargetPrice targetPrice;
-
-  public static final String JSON_PROPERTY_RECOMMENDATION = "recommendation";
-  private InlineResponse2001Recommendation recommendation;
+  public static final String JSON_PROPERTY_FISCAL_YEAR_DATA = "fiscalYearData";
+  private java.util.List<InlineResponse2001DataFiscalYearData> fiscalYearData = null;
 
   public InlineResponse2001Data() { 
   }
 
-  public InlineResponse2001Data snapshot(SnapshotEnum snapshot) {
-    this.snapshot = snapshot;
+  public InlineResponse2001Data isin(String isin) {
+    this.isin = JsonNullable.<String>of(isin);
     return this;
   }
 
    /**
-   * Identification of the historic snapshot for aggregated recommendations.
-   * @return snapshot
+   * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
+   * @return isin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identification of the historic snapshot for aggregated recommendations.")
-  @JsonProperty(JSON_PROPERTY_SNAPSHOT)
+  @ApiModelProperty(value = "The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.")
+  @JsonIgnore
+
+  public String getIsin() {
+        return isin.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ISIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SnapshotEnum getSnapshot() {
-    return snapshot;
+  public JsonNullable<String> getIsin_JsonNullable() {
+    return isin;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ISIN)
+  public void setIsin_JsonNullable(JsonNullable<String> isin) {
+    this.isin = isin;
+  }
+
+  public void setIsin(String isin) {
+    this.isin = JsonNullable.<String>of(isin);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SNAPSHOT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSnapshot(SnapshotEnum snapshot) {
-    this.snapshot = snapshot;
-  }
-
-
-  public InlineResponse2001Data targetPrice(InlineResponse200DataTargetPrice targetPrice) {
-    this.targetPrice = targetPrice;
+  public InlineResponse2001Data nsin(InlineResponse2001DataNsin nsin) {
+    this.nsin = nsin;
     return this;
   }
 
    /**
-   * Get targetPrice
-   * @return targetPrice
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse200DataTargetPrice getTargetPrice() {
-    return targetPrice;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTargetPrice(InlineResponse200DataTargetPrice targetPrice) {
-    this.targetPrice = targetPrice;
-  }
-
-
-  public InlineResponse2001Data recommendation(InlineResponse2001Recommendation recommendation) {
-    this.recommendation = recommendation;
-    return this;
-  }
-
-   /**
-   * Get recommendation
-   * @return recommendation
+   * Get nsin
+   * @return nsin
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
+  @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2001Recommendation getRecommendation() {
-    return recommendation;
+  public InlineResponse2001DataNsin getNsin() {
+    return nsin;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
+  @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRecommendation(InlineResponse2001Recommendation recommendation) {
-    this.recommendation = recommendation;
+  public void setNsin(InlineResponse2001DataNsin nsin) {
+    this.nsin = nsin;
+  }
+
+
+  public InlineResponse2001Data name(String name) {
+    this.name = JsonNullable.<String>of(name);
+    return this;
+  }
+
+   /**
+   * Name of the instrument.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the instrument.")
+  @JsonIgnore
+
+  public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
+  }
+
+
+  public InlineResponse2001Data shortName(String shortName) {
+    this.shortName = JsonNullable.<String>of(shortName);
+    return this;
+  }
+
+   /**
+   * Short name of the instrument.
+   * @return shortName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Short name of the instrument.")
+  @JsonIgnore
+
+  public String getShortName() {
+        return shortName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getShortName_JsonNullable() {
+    return shortName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
+  public void setShortName_JsonNullable(JsonNullable<String> shortName) {
+    this.shortName = shortName;
+  }
+
+  public void setShortName(String shortName) {
+    this.shortName = JsonNullable.<String>of(shortName);
+  }
+
+
+  public InlineResponse2001Data type(java.util.List<InlineResponse2001DataType> type) {
+    this.type = type;
+    return this;
+  }
+
+  public InlineResponse2001Data addTypeItem(InlineResponse2001DataType typeItem) {
+    if (this.type == null) {
+      this.type = new java.util.ArrayList<>();
+    }
+    this.type.add(typeItem);
+    return this;
+  }
+
+   /**
+   * Instrument type as defined by FactSet Digital Solutions. Instrument types are arranged in a hierarchy, with the first level representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18). See endpoint &#x60;/category/get&#x60; for possible values.
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Instrument type as defined by FactSet Digital Solutions. Instrument types are arranged in a hierarchy, with the first level representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18). See endpoint `/category/get` for possible values.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<InlineResponse2001DataType> getType() {
+    return type;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(java.util.List<InlineResponse2001DataType> type) {
+    this.type = type;
+  }
+
+
+  public InlineResponse2001Data company(InlineResponse2001DataCompany company) {
+    this.company = company;
+    return this;
+  }
+
+   /**
+   * Get company
+   * @return company
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2001DataCompany getCompany() {
+    return company;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCompany(InlineResponse2001DataCompany company) {
+    this.company = company;
+  }
+
+
+  public InlineResponse2001Data fiscalYearData(java.util.List<InlineResponse2001DataFiscalYearData> fiscalYearData) {
+    this.fiscalYearData = fiscalYearData;
+    return this;
+  }
+
+  public InlineResponse2001Data addFiscalYearDataItem(InlineResponse2001DataFiscalYearData fiscalYearDataItem) {
+    if (this.fiscalYearData == null) {
+      this.fiscalYearData = new java.util.ArrayList<>();
+    }
+    this.fiscalYearData.add(fiscalYearDataItem);
+    return this;
+  }
+
+   /**
+   * Values as of the end of a fiscal year for the set of selected figures. The figures are clustered based on their specifics but do not exhaust all potentially available data from that cluster. The default sorting is from the most recent fiscal year requested to the most distant in time.
+   * @return fiscalYearData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Values as of the end of a fiscal year for the set of selected figures. The figures are clustered based on their specifics but do not exhaust all potentially available data from that cluster. The default sorting is from the most recent fiscal year requested to the most distant in time.")
+  @JsonProperty(JSON_PROPERTY_FISCAL_YEAR_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<InlineResponse2001DataFiscalYearData> getFiscalYearData() {
+    return fiscalYearData;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FISCAL_YEAR_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFiscalYearData(java.util.List<InlineResponse2001DataFiscalYearData> fiscalYearData) {
+    this.fiscalYearData = fiscalYearData;
   }
 
 
@@ -188,23 +312,42 @@ public class InlineResponse2001Data implements Serializable {
       return false;
     }
     InlineResponse2001Data inlineResponse2001Data = (InlineResponse2001Data) o;
-    return Objects.equals(this.snapshot, inlineResponse2001Data.snapshot) &&
-        Objects.equals(this.targetPrice, inlineResponse2001Data.targetPrice) &&
-        Objects.equals(this.recommendation, inlineResponse2001Data.recommendation);
+    return equalsNullable(this.isin, inlineResponse2001Data.isin) &&
+        Objects.equals(this.nsin, inlineResponse2001Data.nsin) &&
+        equalsNullable(this.name, inlineResponse2001Data.name) &&
+        equalsNullable(this.shortName, inlineResponse2001Data.shortName) &&
+        Objects.equals(this.type, inlineResponse2001Data.type) &&
+        Objects.equals(this.company, inlineResponse2001Data.company) &&
+        Objects.equals(this.fiscalYearData, inlineResponse2001Data.fiscalYearData);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(snapshot, targetPrice, recommendation);
+    return Objects.hash(hashCodeNullable(isin), nsin, hashCodeNullable(name), hashCodeNullable(shortName), type, company, fiscalYearData);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2001Data {\n");
-    sb.append("    snapshot: ").append(toIndentedString(snapshot)).append("\n");
-    sb.append("    targetPrice: ").append(toIndentedString(targetPrice)).append("\n");
-    sb.append("    recommendation: ").append(toIndentedString(recommendation)).append("\n");
+    sb.append("    isin: ").append(toIndentedString(isin)).append("\n");
+    sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    shortName: ").append(toIndentedString(shortName)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
+    sb.append("    fiscalYearData: ").append(toIndentedString(fiscalYearData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

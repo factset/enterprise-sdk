@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -26,6 +26,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -45,19 +49,19 @@ public class InlineResponse20054DataInterestRateInitial implements Serializable 
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private BigDecimal value;
+  private JsonNullable<BigDecimal> value = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_START_ACCRUAL = "startAccrual";
-  private LocalDate startAccrual;
+  private JsonNullable<LocalDate> startAccrual = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_PERIOD_END = "periodEnd";
-  private LocalDate periodEnd;
+  private JsonNullable<LocalDate> periodEnd = JsonNullable.<LocalDate>undefined();
 
   public InlineResponse20054DataInterestRateInitial() { 
   }
 
   public InlineResponse20054DataInterestRateInitial value(BigDecimal value) {
-    this.value = value;
+    this.value = JsonNullable.<BigDecimal>of(value);
     return this;
   }
 
@@ -67,23 +71,31 @@ public class InlineResponse20054DataInterestRateInitial implements Serializable 
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Value of the interest rate.")
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getValue() {
-    return value;
+        return value.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(BigDecimal value) {
+
+  public JsonNullable<BigDecimal> getValue_JsonNullable() {
+    return value;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<BigDecimal> value) {
     this.value = value;
+  }
+
+  public void setValue(BigDecimal value) {
+    this.value = JsonNullable.<BigDecimal>of(value);
   }
 
 
   public InlineResponse20054DataInterestRateInitial startAccrual(LocalDate startAccrual) {
-    this.startAccrual = startAccrual;
+    this.startAccrual = JsonNullable.<LocalDate>of(startAccrual);
     return this;
   }
 
@@ -93,23 +105,31 @@ public class InlineResponse20054DataInterestRateInitial implements Serializable 
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date as of which interest starts accruing.")
-  @JsonProperty(JSON_PROPERTY_START_ACCRUAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getStartAccrual() {
-    return startAccrual;
+        return startAccrual.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_START_ACCRUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStartAccrual(LocalDate startAccrual) {
+
+  public JsonNullable<LocalDate> getStartAccrual_JsonNullable() {
+    return startAccrual;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_START_ACCRUAL)
+  public void setStartAccrual_JsonNullable(JsonNullable<LocalDate> startAccrual) {
     this.startAccrual = startAccrual;
+  }
+
+  public void setStartAccrual(LocalDate startAccrual) {
+    this.startAccrual = JsonNullable.<LocalDate>of(startAccrual);
   }
 
 
   public InlineResponse20054DataInterestRateInitial periodEnd(LocalDate periodEnd) {
-    this.periodEnd = periodEnd;
+    this.periodEnd = JsonNullable.<LocalDate>of(periodEnd);
     return this;
   }
 
@@ -119,18 +139,26 @@ public class InlineResponse20054DataInterestRateInitial implements Serializable 
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Ending date (inclusive).")
-  @JsonProperty(JSON_PROPERTY_PERIOD_END)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getPeriodEnd() {
-    return periodEnd;
+        return periodEnd.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PERIOD_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriodEnd(LocalDate periodEnd) {
+
+  public JsonNullable<LocalDate> getPeriodEnd_JsonNullable() {
+    return periodEnd;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PERIOD_END)
+  public void setPeriodEnd_JsonNullable(JsonNullable<LocalDate> periodEnd) {
     this.periodEnd = periodEnd;
+  }
+
+  public void setPeriodEnd(LocalDate periodEnd) {
+    this.periodEnd = JsonNullable.<LocalDate>of(periodEnd);
   }
 
 
@@ -146,14 +174,25 @@ public class InlineResponse20054DataInterestRateInitial implements Serializable 
       return false;
     }
     InlineResponse20054DataInterestRateInitial inlineResponse20054DataInterestRateInitial = (InlineResponse20054DataInterestRateInitial) o;
-    return Objects.equals(this.value, inlineResponse20054DataInterestRateInitial.value) &&
-        Objects.equals(this.startAccrual, inlineResponse20054DataInterestRateInitial.startAccrual) &&
-        Objects.equals(this.periodEnd, inlineResponse20054DataInterestRateInitial.periodEnd);
+    return equalsNullable(this.value, inlineResponse20054DataInterestRateInitial.value) &&
+        equalsNullable(this.startAccrual, inlineResponse20054DataInterestRateInitial.startAccrual) &&
+        equalsNullable(this.periodEnd, inlineResponse20054DataInterestRateInitial.periodEnd);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, startAccrual, periodEnd);
+    return Objects.hash(hashCodeNullable(value), hashCodeNullable(startAccrual), hashCodeNullable(periodEnd));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

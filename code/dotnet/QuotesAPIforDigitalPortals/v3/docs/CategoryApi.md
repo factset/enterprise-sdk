@@ -1,6 +1,6 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Api.CategoryApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -62,7 +62,7 @@ namespace Example
             var apiInstance = new CategoryApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -86,7 +86,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20035**](InlineResponse20035.md)
@@ -152,9 +152,9 @@ namespace Example
 
             var apiInstance = new CategoryApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a category.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -177,9 +177,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a category. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20031**](InlineResponse20031.md)
@@ -245,11 +245,11 @@ namespace Example
 
             var apiInstance = new CategoryApi(config);
 
-            var idCategory = 8.14D;  // decimal | Identifier of a category.
-            var idCategoryDataset = 8.14D;  // decimal | Identifier of a category dataset.
+            var idCategory = 8.14D;  // decimal | 
+            var idCategoryDataset = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
-            var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
+            var paginationOffset = 0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0M)
+            var paginationLimit = 20MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20M)
 
             try
             {
@@ -272,11 +272,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idCategory** | **decimal**| Identifier of a category. | 
- **idCategoryDataset** | **decimal**| Identifier of a category dataset. | 
+ **idCategory** | **decimal**|  | 
+ **idCategoryDataset** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0M]
- **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20.0M]
+ **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0M]
+ **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
 ### Return type
 [**InlineResponse20036**](InlineResponse20036.md)
@@ -342,9 +342,9 @@ namespace Example
 
             var apiInstance = new CategoryApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -367,9 +367,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20037**](InlineResponse20037.md)
@@ -435,9 +435,9 @@ namespace Example
 
             var apiInstance = new CategoryApi(config);
 
-            var ids = new List<decimal>(); // List<decimal> | List of categories belonging to the same category system.
+            var ids = new List<decimal>(); // List<decimal> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -460,9 +460,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;decimal&gt;**](decimal.md)| List of categories belonging to the same category system. | 
+ **ids** | [**List&lt;decimal&gt;**](decimal.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20032**](InlineResponse20032.md)
@@ -528,11 +528,11 @@ namespace Example
 
             var apiInstance = new CategoryApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
-            var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
-            var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
+            var language = "language_example";  // string |  (optional) 
+            var paginationOffset = 0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0M)
+            var paginationLimit = 20MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20M)
 
             try
             {
@@ -555,11 +555,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
- **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0M]
- **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20.0M]
+ **language** | **string**|  | [optional] 
+ **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0M]
+ **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
 ### Return type
 [**InlineResponse20033**](InlineResponse20033.md)
@@ -625,11 +625,11 @@ namespace Example
 
             var apiInstance = new CategoryApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a category system. See endpoint `/category/system/list` for valid values.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
-            var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
-            var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
+            var language = "language_example";  // string |  (optional) 
+            var paginationOffset = 0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0M)
+            var paginationLimit = 20MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20M)
 
             try
             {
@@ -652,11 +652,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
- **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0M]
- **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20.0M]
+ **language** | **string**|  | [optional] 
+ **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0M]
+ **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
 ### Return type
 [**InlineResponse20034**](InlineResponse20034.md)
@@ -722,9 +722,9 @@ namespace Example
 
             var apiInstance = new CategoryApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a category.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -747,9 +747,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a category. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20038**](InlineResponse20038.md)
@@ -815,9 +815,9 @@ namespace Example
 
             var apiInstance = new CategoryApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a category system. See endpoint `/category/system/list` for valid values.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -840,9 +840,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20039**](InlineResponse20039.md)
@@ -908,9 +908,9 @@ namespace Example
 
             var apiInstance = new CategoryApi(config);
 
-            var idType = 8.14D;  // decimal? | Filter for a specific category system type. See endpoint `/category/system/type/list` for valid values. (optional) 
+            var idType = 8.14D;  // decimal? |  (optional) 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -933,9 +933,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idType** | **decimal?**| Filter for a specific category system type. See endpoint &#x60;/category/system/type/list&#x60; for valid values. | [optional] 
+ **idType** | **decimal?**|  | [optional] 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20040**](InlineResponse20040.md)
@@ -1002,7 +1002,7 @@ namespace Example
             var apiInstance = new CategoryApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1026,7 +1026,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20041**](InlineResponse20041.md)

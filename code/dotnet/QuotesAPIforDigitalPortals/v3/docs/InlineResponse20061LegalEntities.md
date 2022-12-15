@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a legal entity. | [optional] 
+**Id** | **decimal?** | Identifier of a legal entity. | [optional] 
 **Name** | **string** | Name of the legal entity. | [optional] 
 **ComplianceProperties** | [**List&lt;InlineResponse20048Data&gt;**](InlineResponse20048Data.md) | List of compliance properties. | [optional] 
 

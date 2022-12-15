@@ -1,6 +1,6 @@
 /**
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,12 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2006Accumulated from './InlineResponse2006Accumulated';
-import InlineResponse2006Currency from './InlineResponse2006Currency';
-import InlineResponse2006Fsym from './InlineResponse2006Fsym';
-import InlineResponse2006Instrument from './InlineResponse2006Instrument';
-import InlineResponse2006Market from './InlineResponse2006Market';
-import InlineResponse2006Trade from './InlineResponse2006Trade';
+import InlineResponse2006Functions from './InlineResponse2006Functions';
 
 /**
  * The InlineResponse2006Data model module.
@@ -53,34 +48,13 @@ class InlineResponse2006Data {
             obj = obj || new InlineResponse2006Data();
 
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('symbol')) {
-                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('market')) {
-                obj['market'] = InlineResponse2006Market.constructFromObject(data['market']);
-            }
-            if (data.hasOwnProperty('currency')) {
-                obj['currency'] = InlineResponse2006Currency.constructFromObject(data['currency']);
-            }
-            if (data.hasOwnProperty('isAlternative')) {
-                obj['isAlternative'] = ApiClient.convertToType(data['isAlternative'], 'Boolean');
-            }
-            if (data.hasOwnProperty('trade')) {
-                obj['trade'] = InlineResponse2006Trade.constructFromObject(data['trade']);
-            }
-            if (data.hasOwnProperty('quality')) {
-                obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
-            }
-            if (data.hasOwnProperty('accumulated')) {
-                obj['accumulated'] = InlineResponse2006Accumulated.constructFromObject(data['accumulated']);
-            }
-            if (data.hasOwnProperty('fsym')) {
-                obj['fsym'] = InlineResponse2006Fsym.constructFromObject(data['fsym']);
-            }
-            if (data.hasOwnProperty('instrument')) {
-                obj['instrument'] = InlineResponse2006Instrument.constructFromObject(data['instrument']);
+            if (data.hasOwnProperty('functions')) {
+                obj['functions'] = ApiClient.convertToType(data['functions'], [InlineResponse2006Functions]);
             }
         }
         return obj;
@@ -90,58 +64,22 @@ class InlineResponse2006Data {
 }
 
 /**
- * Identifier of a notation.
- * @member {String} id
+ * Identifier of a delivery.
+ * @member {Number} id
  */
 InlineResponse2006Data.prototype['id'] = undefined;
 
 /**
- * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
- * @member {String} symbol
+ * Name of the delivery.
+ * @member {String} name
  */
-InlineResponse2006Data.prototype['symbol'] = undefined;
+InlineResponse2006Data.prototype['name'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2006Market} market
+ * List of officer functions.
+ * @member {Array.<module:model/InlineResponse2006Functions>} functions
  */
-InlineResponse2006Data.prototype['market'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2006Currency} currency
- */
-InlineResponse2006Data.prototype['currency'] = undefined;
-
-/**
- * Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.
- * @member {Boolean} isAlternative
- */
-InlineResponse2006Data.prototype['isAlternative'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2006Trade} trade
- */
-InlineResponse2006Data.prototype['trade'] = undefined;
-
-/**
- * Quality of the trade-related attributes, see attributes `trade` and `accumulated`.
- * @member {String} quality
- */
-InlineResponse2006Data.prototype['quality'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2006Accumulated} accumulated
- */
-InlineResponse2006Data.prototype['accumulated'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2006Fsym} fsym
- */
-InlineResponse2006Data.prototype['fsym'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2006Instrument} instrument
- */
-InlineResponse2006Data.prototype['instrument'] = undefined;
+InlineResponse2006Data.prototype['functions'] = undefined;
 
 
 

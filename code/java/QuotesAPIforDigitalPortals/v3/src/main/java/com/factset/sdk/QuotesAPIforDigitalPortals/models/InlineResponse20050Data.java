@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -26,6 +26,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -80,18 +84,18 @@ public class InlineResponse20050Data implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_TYPE_COMPOSITE = "typeComposite";
-  private TypeCompositeEnum typeComposite;
+  private JsonNullable<TypeCompositeEnum> typeComposite = JsonNullable.<TypeCompositeEnum>undefined();
 
   public static final String JSON_PROPERTY_ACTIVE_MANAGEMENT = "activeManagement";
-  private Boolean activeManagement;
+  private JsonNullable<Boolean> activeManagement = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_MANAGEMENT_FEE = "managementFee";
-  private BigDecimal managementFee;
+  private JsonNullable<BigDecimal> managementFee = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_COMPONENTS = "components";
   private java.util.List<InlineResponse20050DataComponents> components = null;
@@ -100,7 +104,7 @@ public class InlineResponse20050Data implements Serializable {
   }
 
   public InlineResponse20050Data typeComposite(TypeCompositeEnum typeComposite) {
-    this.typeComposite = typeComposite;
+    this.typeComposite = JsonNullable.<TypeCompositeEnum>of(typeComposite);
     return this;
   }
 
@@ -110,23 +114,31 @@ public class InlineResponse20050Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Type of the composite instrument.")
-  @JsonProperty(JSON_PROPERTY_TYPE_COMPOSITE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public TypeCompositeEnum getTypeComposite() {
-    return typeComposite;
+        return typeComposite.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TYPE_COMPOSITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTypeComposite(TypeCompositeEnum typeComposite) {
+
+  public JsonNullable<TypeCompositeEnum> getTypeComposite_JsonNullable() {
+    return typeComposite;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE_COMPOSITE)
+  public void setTypeComposite_JsonNullable(JsonNullable<TypeCompositeEnum> typeComposite) {
     this.typeComposite = typeComposite;
+  }
+
+  public void setTypeComposite(TypeCompositeEnum typeComposite) {
+    this.typeComposite = JsonNullable.<TypeCompositeEnum>of(typeComposite);
   }
 
 
   public InlineResponse20050Data activeManagement(Boolean activeManagement) {
-    this.activeManagement = activeManagement;
+    this.activeManagement = JsonNullable.<Boolean>of(activeManagement);
     return this;
   }
 
@@ -136,23 +148,31 @@ public class InlineResponse20050Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "If set to true, the composite instrument is actively managed.")
-  @JsonProperty(JSON_PROPERTY_ACTIVE_MANAGEMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getActiveManagement() {
-    return activeManagement;
+        return activeManagement.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ACTIVE_MANAGEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setActiveManagement(Boolean activeManagement) {
+
+  public JsonNullable<Boolean> getActiveManagement_JsonNullable() {
+    return activeManagement;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ACTIVE_MANAGEMENT)
+  public void setActiveManagement_JsonNullable(JsonNullable<Boolean> activeManagement) {
     this.activeManagement = activeManagement;
+  }
+
+  public void setActiveManagement(Boolean activeManagement) {
+    this.activeManagement = JsonNullable.<Boolean>of(activeManagement);
   }
 
 
   public InlineResponse20050Data managementFee(BigDecimal managementFee) {
-    this.managementFee = managementFee;
+    this.managementFee = JsonNullable.<BigDecimal>of(managementFee);
     return this;
   }
 
@@ -162,18 +182,26 @@ public class InlineResponse20050Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Management fee p.a. of the composite instrument.")
-  @JsonProperty(JSON_PROPERTY_MANAGEMENT_FEE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getManagementFee() {
-    return managementFee;
+        return managementFee.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MANAGEMENT_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setManagementFee(BigDecimal managementFee) {
+
+  public JsonNullable<BigDecimal> getManagementFee_JsonNullable() {
+    return managementFee;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MANAGEMENT_FEE)
+  public void setManagementFee_JsonNullable(JsonNullable<BigDecimal> managementFee) {
     this.managementFee = managementFee;
+  }
+
+  public void setManagementFee(BigDecimal managementFee) {
+    this.managementFee = JsonNullable.<BigDecimal>of(managementFee);
   }
 
 
@@ -223,15 +251,26 @@ public class InlineResponse20050Data implements Serializable {
       return false;
     }
     InlineResponse20050Data inlineResponse20050Data = (InlineResponse20050Data) o;
-    return Objects.equals(this.typeComposite, inlineResponse20050Data.typeComposite) &&
-        Objects.equals(this.activeManagement, inlineResponse20050Data.activeManagement) &&
-        Objects.equals(this.managementFee, inlineResponse20050Data.managementFee) &&
+    return equalsNullable(this.typeComposite, inlineResponse20050Data.typeComposite) &&
+        equalsNullable(this.activeManagement, inlineResponse20050Data.activeManagement) &&
+        equalsNullable(this.managementFee, inlineResponse20050Data.managementFee) &&
         Objects.equals(this.components, inlineResponse20050Data.components);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(typeComposite, activeManagement, managementFee, components);
+    return Objects.hash(hashCodeNullable(typeComposite), hashCodeNullable(activeManagement), hashCodeNullable(managementFee), components);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -4,10 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values. | [optional] 
-**Name** | **string** | Name of the owner. | [optional] 
-**Type** | [**InlineResponse2002Type**](InlineResponse2002Type.md) |  | [optional] 
-**Ownership** | [**InlineResponse2002Ownership**](InlineResponse2002Ownership.md) |  | [optional] 
+**FiscalYear** | [**InlineResponse2002FiscalYear**](InlineResponse2002FiscalYear.md) |  | [optional] 
+**ReportDate** | **DateTime?** | Publication date of the financial report. | [optional] 
+**Currency** | [**InlineResponse2002Currency**](InlineResponse2002Currency.md) |  | [optional] 
+**IncomeStatement** | [**InlineResponse2002IncomeStatement**](InlineResponse2002IncomeStatement.md) |  | [optional] 
+**BalanceSheet** | [**InlineResponse2002BalanceSheet**](InlineResponse2002BalanceSheet.md) |  | [optional] 
+**Ratios** | [**InlineResponse2002Ratios**](InlineResponse2002Ratios.md) |  | [optional] 
+**PerShare** | [**InlineResponse2002PerShare**](InlineResponse2002PerShare.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

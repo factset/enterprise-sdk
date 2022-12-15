@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,7 +17,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20078DataMarket;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20074DataHigh;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20074DataLow;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20074DataPerformance;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,111 +27,269 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * 
+ * EOD key figures.
  */
-@ApiModel(description = "")
+@ApiModel(description = "EOD key figures.")
 @JsonPropertyOrder({
-  InlineResponse20078Data.JSON_PROPERTY_SUSPENDED,
-  InlineResponse20078Data.JSON_PROPERTY_TRADING_STATUS,
-  InlineResponse20078Data.JSON_PROPERTY_MARKET
+  InlineResponse20078Data.JSON_PROPERTY_ID_NOTATION,
+  InlineResponse20078Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse20078Data.JSON_PROPERTY_REFERENCE_DATE,
+  InlineResponse20078Data.JSON_PROPERTY_PERFORMANCE,
+  InlineResponse20078Data.JSON_PROPERTY_HIGH,
+  InlineResponse20078Data.JSON_PROPERTY_LOW,
+  InlineResponse20078Data.JSON_PROPERTY_VOLATILITY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20078Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_SUSPENDED = "suspended";
-  private Boolean suspended;
+  public static final String JSON_PROPERTY_ID_NOTATION = "idNotation";
+  private JsonNullable<String> idNotation = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TRADING_STATUS = "tradingStatus";
-  private String tradingStatus;
+  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
+  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse20078DataMarket market;
+  public static final String JSON_PROPERTY_REFERENCE_DATE = "referenceDate";
+  private JsonNullable<LocalDate> referenceDate = JsonNullable.<LocalDate>undefined();
+
+  public static final String JSON_PROPERTY_PERFORMANCE = "performance";
+  private InlineResponse20074DataPerformance performance;
+
+  public static final String JSON_PROPERTY_HIGH = "high";
+  private InlineResponse20074DataHigh high;
+
+  public static final String JSON_PROPERTY_LOW = "low";
+  private InlineResponse20074DataLow low;
+
+  public static final String JSON_PROPERTY_VOLATILITY = "volatility";
+  private JsonNullable<BigDecimal> volatility = JsonNullable.<BigDecimal>undefined();
 
   public InlineResponse20078Data() { 
   }
 
-  public InlineResponse20078Data suspended(Boolean suspended) {
-    this.suspended = suspended;
+  public InlineResponse20078Data idNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
     return this;
   }
 
    /**
-   * Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute &#x60;market.isOpen&#x60;.
-   * @return suspended
+   * MDG identifier of the listing.
+   * @return idNotation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute `market.isOpen`.")
-  @JsonProperty(JSON_PROPERTY_SUSPENDED)
+  @ApiModelProperty(value = "MDG identifier of the listing.")
+  @JsonIgnore
+
+  public String getIdNotation() {
+        return idNotation.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getSuspended() {
-    return suspended;
+  public JsonNullable<String> getIdNotation_JsonNullable() {
+    return idNotation;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
+  public void setIdNotation_JsonNullable(JsonNullable<String> idNotation) {
+    this.idNotation = idNotation;
+  }
+
+  public void setIdNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUSPENDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSuspended(Boolean suspended) {
-    this.suspended = suspended;
-  }
-
-
-  public InlineResponse20078Data tradingStatus(String tradingStatus) {
-    this.tradingStatus = tradingStatus;
+  public InlineResponse20078Data sourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
     return this;
   }
 
    /**
-   * Market-specific code of the trading status and/or the suspension of the notation.
-   * @return tradingStatus
+   * Identifier used in the request.
+   * @return sourceIdentifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Market-specific code of the trading status and/or the suspension of the notation.")
-  @JsonProperty(JSON_PROPERTY_TRADING_STATUS)
+  @ApiModelProperty(value = "Identifier used in the request.")
+  @JsonIgnore
+
+  public String getSourceIdentifier() {
+        return sourceIdentifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getTradingStatus() {
-    return tradingStatus;
+  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
+    return sourceIdentifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
+  }
+
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRADING_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTradingStatus(String tradingStatus) {
-    this.tradingStatus = tradingStatus;
-  }
-
-
-  public InlineResponse20078Data market(InlineResponse20078DataMarket market) {
-    this.market = market;
+  public InlineResponse20078Data referenceDate(LocalDate referenceDate) {
+    this.referenceDate = JsonNullable.<LocalDate>of(referenceDate);
     return this;
   }
 
    /**
-   * Get market
-   * @return market
+   * Reference date of the time range.
+   * @return referenceDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Reference date of the time range.")
+  @JsonIgnore
+
+  public LocalDate getReferenceDate() {
+        return referenceDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_REFERENCE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<LocalDate> getReferenceDate_JsonNullable() {
+    return referenceDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REFERENCE_DATE)
+  public void setReferenceDate_JsonNullable(JsonNullable<LocalDate> referenceDate) {
+    this.referenceDate = referenceDate;
+  }
+
+  public void setReferenceDate(LocalDate referenceDate) {
+    this.referenceDate = JsonNullable.<LocalDate>of(referenceDate);
+  }
+
+
+  public InlineResponse20078Data performance(InlineResponse20074DataPerformance performance) {
+    this.performance = performance;
+    return this;
+  }
+
+   /**
+   * Get performance
+   * @return performance
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20078DataMarket getMarket() {
-    return market;
+  public InlineResponse20074DataPerformance getPerformance() {
+    return performance;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse20078DataMarket market) {
-    this.market = market;
+  public void setPerformance(InlineResponse20074DataPerformance performance) {
+    this.performance = performance;
+  }
+
+
+  public InlineResponse20078Data high(InlineResponse20074DataHigh high) {
+    this.high = high;
+    return this;
+  }
+
+   /**
+   * Get high
+   * @return high
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_HIGH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20074DataHigh getHigh() {
+    return high;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_HIGH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHigh(InlineResponse20074DataHigh high) {
+    this.high = high;
+  }
+
+
+  public InlineResponse20078Data low(InlineResponse20074DataLow low) {
+    this.low = low;
+    return this;
+  }
+
+   /**
+   * Get low
+   * @return low
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20074DataLow getLow() {
+    return low;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLow(InlineResponse20074DataLow low) {
+    this.low = low;
+  }
+
+
+  public InlineResponse20078Data volatility(BigDecimal volatility) {
+    this.volatility = JsonNullable.<BigDecimal>of(volatility);
+    return this;
+  }
+
+   /**
+   * Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
+   * @return volatility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.")
+  @JsonIgnore
+
+  public BigDecimal getVolatility() {
+        return volatility.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_VOLATILITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<BigDecimal> getVolatility_JsonNullable() {
+    return volatility;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VOLATILITY)
+  public void setVolatility_JsonNullable(JsonNullable<BigDecimal> volatility) {
+    this.volatility = volatility;
+  }
+
+  public void setVolatility(BigDecimal volatility) {
+    this.volatility = JsonNullable.<BigDecimal>of(volatility);
   }
 
 
@@ -145,23 +305,42 @@ public class InlineResponse20078Data implements Serializable {
       return false;
     }
     InlineResponse20078Data inlineResponse20078Data = (InlineResponse20078Data) o;
-    return Objects.equals(this.suspended, inlineResponse20078Data.suspended) &&
-        Objects.equals(this.tradingStatus, inlineResponse20078Data.tradingStatus) &&
-        Objects.equals(this.market, inlineResponse20078Data.market);
+    return equalsNullable(this.idNotation, inlineResponse20078Data.idNotation) &&
+        equalsNullable(this.sourceIdentifier, inlineResponse20078Data.sourceIdentifier) &&
+        equalsNullable(this.referenceDate, inlineResponse20078Data.referenceDate) &&
+        Objects.equals(this.performance, inlineResponse20078Data.performance) &&
+        Objects.equals(this.high, inlineResponse20078Data.high) &&
+        Objects.equals(this.low, inlineResponse20078Data.low) &&
+        equalsNullable(this.volatility, inlineResponse20078Data.volatility);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(suspended, tradingStatus, market);
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(referenceDate), performance, high, low, hashCodeNullable(volatility));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20078Data {\n");
-    sb.append("    suspended: ").append(toIndentedString(suspended)).append("\n");
-    sb.append("    tradingStatus: ").append(toIndentedString(tradingStatus)).append("\n");
-    sb.append("    market: ").append(toIndentedString(market)).append("\n");
+    sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
+    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    referenceDate: ").append(toIndentedString(referenceDate)).append("\n");
+    sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
+    sb.append("    high: ").append(toIndentedString(high)).append("\n");
+    sb.append("    low: ").append(toIndentedString(low)).append("\n");
+    sb.append("    volatility: ").append(toIndentedString(volatility)).append("\n");
     sb.append("}");
     return sb.toString();
   }

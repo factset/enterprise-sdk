@@ -5,8 +5,8 @@ Details of a country.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **float** | Identifier of a country. | [optional] 
-**name** | **str** | Name of the country. | [optional] 
+**id** | **float, none_type** | Identifier of a country. | [optional] 
+**name** | **str, none_type** | Name of the country. | [optional] 
 **subdivisions** | [**[InlineResponse20020DataSubdivisions]**](InlineResponse20020DataSubdivisions.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

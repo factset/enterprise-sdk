@@ -6,7 +6,6 @@ LICENSE
 README.md
 docs/Contract.md
 docs/ContractFields.md
-docs/ContractFieldsEventDate.md
 docs/ContractFieldsSummary.md
 docs/ContractProperty.md
 docs/ContractPropertyItems.md
@@ -27,6 +26,7 @@ docs/EventMeta.md
 docs/EventRequestBody.md
 docs/EventsApi.md
 docs/EventsEntities.md
+docs/EventsEntitiesPost.md
 docs/EventsMeta.md
 docs/EventsMetaDateRange.md
 docs/EventsMetaPagination.md
@@ -47,7 +47,6 @@ src/api/MetadataApi.js
 src/index.js
 src/model/Contract.js
 src/model/ContractFields.js
-src/model/ContractFieldsEventDate.js
 src/model/ContractFieldsSummary.js
 src/model/ContractProperty.js
 src/model/ContractPropertyItems.js
@@ -67,6 +66,7 @@ src/model/EventHeadlines.js
 src/model/EventMeta.js
 src/model/EventRequestBody.js
 src/model/EventsEntities.js
+src/model/EventsEntitiesPost.js
 src/model/EventsMeta.js
 src/model/EventsMetaDateRange.js
 src/model/EventsMetaPagination.js

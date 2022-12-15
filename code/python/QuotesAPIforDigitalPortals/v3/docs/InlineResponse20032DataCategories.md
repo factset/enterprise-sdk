@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **float** | Identifier of the category. | [optional] 
-**code** | **str** | Code commonly used for this category. | [optional] 
-**name** | **str** | Name of the category. | [optional] 
-**description** | **str** | Description of the category. | [optional] 
-**active** | **bool** | Indicates whether this category is active. | [optional] 
+**id** | **float, none_type** | Identifier of the category. | [optional] 
+**code** | **str, none_type** | Code commonly used for this category. | [optional] 
+**name** | **str, none_type** | Name of the category. | [optional] 
+**description** | **str, none_type** | Description of the category. | [optional] 
+**active** | **bool, none_type** | Indicates whether this category is active. | [optional] 
 **level** | [**InlineResponse20031DataLevel**](InlineResponse20031DataLevel.md) |  | [optional] 
 **parent** | [**InlineResponse20031DataParent**](InlineResponse20031DataParent.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,9 +17,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataHigh;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataLow;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataPerformance;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20074DataHigh;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20074DataLow;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20074DataPerformance;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20076DataTradingVolume;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,6 +30,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -39,36 +44,124 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
  */
 @ApiModel(description = "EOD key figures.")
 @JsonPropertyOrder({
+  InlineResponse20076Data.JSON_PROPERTY_ID_NOTATION,
+  InlineResponse20076Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
   InlineResponse20076Data.JSON_PROPERTY_REFERENCE_DATE,
   InlineResponse20076Data.JSON_PROPERTY_PERFORMANCE,
   InlineResponse20076Data.JSON_PROPERTY_HIGH,
   InlineResponse20076Data.JSON_PROPERTY_LOW,
+  InlineResponse20076Data.JSON_PROPERTY_AVERAGE_PRICE,
+  InlineResponse20076Data.JSON_PROPERTY_TRADING_VOLUME,
+  InlineResponse20076Data.JSON_PROPERTY_TRADING_VALUE,
   InlineResponse20076Data.JSON_PROPERTY_VOLATILITY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20076Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  public static final String JSON_PROPERTY_ID_NOTATION = "idNotation";
+  private JsonNullable<String> idNotation = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
+  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_REFERENCE_DATE = "referenceDate";
-  private LocalDate referenceDate;
+  private JsonNullable<LocalDate> referenceDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_PERFORMANCE = "performance";
-  private InlineResponse20072DataPerformance performance;
+  private InlineResponse20074DataPerformance performance;
 
   public static final String JSON_PROPERTY_HIGH = "high";
-  private InlineResponse20072DataHigh high;
+  private InlineResponse20074DataHigh high;
 
   public static final String JSON_PROPERTY_LOW = "low";
-  private InlineResponse20072DataLow low;
+  private InlineResponse20074DataLow low;
+
+  public static final String JSON_PROPERTY_AVERAGE_PRICE = "averagePrice";
+  private JsonNullable<BigDecimal> averagePrice = JsonNullable.<BigDecimal>undefined();
+
+  public static final String JSON_PROPERTY_TRADING_VOLUME = "tradingVolume";
+  private InlineResponse20076DataTradingVolume tradingVolume;
+
+  public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
+  private JsonNullable<BigDecimal> tradingValue = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_VOLATILITY = "volatility";
-  private BigDecimal volatility;
+  private JsonNullable<BigDecimal> volatility = JsonNullable.<BigDecimal>undefined();
 
   public InlineResponse20076Data() { 
   }
 
+  public InlineResponse20076Data idNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
+    return this;
+  }
+
+   /**
+   * MDG identifier of the listing.
+   * @return idNotation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MDG identifier of the listing.")
+  @JsonIgnore
+
+  public String getIdNotation() {
+        return idNotation.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getIdNotation_JsonNullable() {
+    return idNotation;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
+  public void setIdNotation_JsonNullable(JsonNullable<String> idNotation) {
+    this.idNotation = idNotation;
+  }
+
+  public void setIdNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
+  }
+
+
+  public InlineResponse20076Data sourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
+    return this;
+  }
+
+   /**
+   * Identifier used in the request.
+   * @return sourceIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Identifier used in the request.")
+  @JsonIgnore
+
+  public String getSourceIdentifier() {
+        return sourceIdentifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
+    return sourceIdentifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
+  }
+
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
+  }
+
+
   public InlineResponse20076Data referenceDate(LocalDate referenceDate) {
-    this.referenceDate = referenceDate;
+    this.referenceDate = JsonNullable.<LocalDate>of(referenceDate);
     return this;
   }
 
@@ -78,22 +171,30 @@ public class InlineResponse20076Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Reference date of the time range.")
-  @JsonProperty(JSON_PROPERTY_REFERENCE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getReferenceDate() {
-    return referenceDate;
+        return referenceDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REFERENCE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReferenceDate(LocalDate referenceDate) {
+
+  public JsonNullable<LocalDate> getReferenceDate_JsonNullable() {
+    return referenceDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REFERENCE_DATE)
+  public void setReferenceDate_JsonNullable(JsonNullable<LocalDate> referenceDate) {
     this.referenceDate = referenceDate;
   }
 
+  public void setReferenceDate(LocalDate referenceDate) {
+    this.referenceDate = JsonNullable.<LocalDate>of(referenceDate);
+  }
 
-  public InlineResponse20076Data performance(InlineResponse20072DataPerformance performance) {
+
+  public InlineResponse20076Data performance(InlineResponse20074DataPerformance performance) {
     this.performance = performance;
     return this;
   }
@@ -107,19 +208,19 @@ public class InlineResponse20076Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20072DataPerformance getPerformance() {
+  public InlineResponse20074DataPerformance getPerformance() {
     return performance;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPerformance(InlineResponse20072DataPerformance performance) {
+  public void setPerformance(InlineResponse20074DataPerformance performance) {
     this.performance = performance;
   }
 
 
-  public InlineResponse20076Data high(InlineResponse20072DataHigh high) {
+  public InlineResponse20076Data high(InlineResponse20074DataHigh high) {
     this.high = high;
     return this;
   }
@@ -133,19 +234,19 @@ public class InlineResponse20076Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_HIGH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20072DataHigh getHigh() {
+  public InlineResponse20074DataHigh getHigh() {
     return high;
   }
 
 
   @JsonProperty(JSON_PROPERTY_HIGH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHigh(InlineResponse20072DataHigh high) {
+  public void setHigh(InlineResponse20074DataHigh high) {
     this.high = high;
   }
 
 
-  public InlineResponse20076Data low(InlineResponse20072DataLow low) {
+  public InlineResponse20076Data low(InlineResponse20074DataLow low) {
     this.low = low;
     return this;
   }
@@ -159,20 +260,114 @@ public class InlineResponse20076Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_LOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20072DataLow getLow() {
+  public InlineResponse20074DataLow getLow() {
     return low;
   }
 
 
   @JsonProperty(JSON_PROPERTY_LOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLow(InlineResponse20072DataLow low) {
+  public void setLow(InlineResponse20074DataLow low) {
     this.low = low;
   }
 
 
+  public InlineResponse20076Data averagePrice(BigDecimal averagePrice) {
+    this.averagePrice = JsonNullable.<BigDecimal>of(averagePrice);
+    return this;
+  }
+
+   /**
+   * Arithmetic mean of the notation&#39;s EOD closing prices for the given time range.
+   * @return averagePrice
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Arithmetic mean of the notation's EOD closing prices for the given time range.")
+  @JsonIgnore
+
+  public BigDecimal getAveragePrice() {
+        return averagePrice.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AVERAGE_PRICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<BigDecimal> getAveragePrice_JsonNullable() {
+    return averagePrice;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AVERAGE_PRICE)
+  public void setAveragePrice_JsonNullable(JsonNullable<BigDecimal> averagePrice) {
+    this.averagePrice = averagePrice;
+  }
+
+  public void setAveragePrice(BigDecimal averagePrice) {
+    this.averagePrice = JsonNullable.<BigDecimal>of(averagePrice);
+  }
+
+
+  public InlineResponse20076Data tradingVolume(InlineResponse20076DataTradingVolume tradingVolume) {
+    this.tradingVolume = tradingVolume;
+    return this;
+  }
+
+   /**
+   * Get tradingVolume
+   * @return tradingVolume
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRADING_VOLUME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20076DataTradingVolume getTradingVolume() {
+    return tradingVolume;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRADING_VOLUME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTradingVolume(InlineResponse20076DataTradingVolume tradingVolume) {
+    this.tradingVolume = tradingVolume;
+  }
+
+
+  public InlineResponse20076Data tradingValue(BigDecimal tradingValue) {
+    this.tradingValue = JsonNullable.<BigDecimal>of(tradingValue);
+    return this;
+  }
+
+   /**
+   * Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price.
+   * @return tradingValue
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price.")
+  @JsonIgnore
+
+  public BigDecimal getTradingValue() {
+        return tradingValue.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<BigDecimal> getTradingValue_JsonNullable() {
+    return tradingValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
+  public void setTradingValue_JsonNullable(JsonNullable<BigDecimal> tradingValue) {
+    this.tradingValue = tradingValue;
+  }
+
+  public void setTradingValue(BigDecimal tradingValue) {
+    this.tradingValue = JsonNullable.<BigDecimal>of(tradingValue);
+  }
+
+
   public InlineResponse20076Data volatility(BigDecimal volatility) {
-    this.volatility = volatility;
+    this.volatility = JsonNullable.<BigDecimal>of(volatility);
     return this;
   }
 
@@ -182,18 +377,26 @@ public class InlineResponse20076Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.")
-  @JsonProperty(JSON_PROPERTY_VOLATILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getVolatility() {
-    return volatility;
+        return volatility.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_VOLATILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVolatility(BigDecimal volatility) {
+
+  public JsonNullable<BigDecimal> getVolatility_JsonNullable() {
+    return volatility;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VOLATILITY)
+  public void setVolatility_JsonNullable(JsonNullable<BigDecimal> volatility) {
     this.volatility = volatility;
+  }
+
+  public void setVolatility(BigDecimal volatility) {
+    this.volatility = JsonNullable.<BigDecimal>of(volatility);
   }
 
 
@@ -209,26 +412,47 @@ public class InlineResponse20076Data implements Serializable {
       return false;
     }
     InlineResponse20076Data inlineResponse20076Data = (InlineResponse20076Data) o;
-    return Objects.equals(this.referenceDate, inlineResponse20076Data.referenceDate) &&
+    return equalsNullable(this.idNotation, inlineResponse20076Data.idNotation) &&
+        equalsNullable(this.sourceIdentifier, inlineResponse20076Data.sourceIdentifier) &&
+        equalsNullable(this.referenceDate, inlineResponse20076Data.referenceDate) &&
         Objects.equals(this.performance, inlineResponse20076Data.performance) &&
         Objects.equals(this.high, inlineResponse20076Data.high) &&
         Objects.equals(this.low, inlineResponse20076Data.low) &&
-        Objects.equals(this.volatility, inlineResponse20076Data.volatility);
+        equalsNullable(this.averagePrice, inlineResponse20076Data.averagePrice) &&
+        Objects.equals(this.tradingVolume, inlineResponse20076Data.tradingVolume) &&
+        equalsNullable(this.tradingValue, inlineResponse20076Data.tradingValue) &&
+        equalsNullable(this.volatility, inlineResponse20076Data.volatility);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(referenceDate, performance, high, low, volatility);
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(referenceDate), performance, high, low, hashCodeNullable(averagePrice), tradingVolume, hashCodeNullable(tradingValue), hashCodeNullable(volatility));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20076Data {\n");
+    sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
+    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
     sb.append("    referenceDate: ").append(toIndentedString(referenceDate)).append("\n");
     sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
     sb.append("    high: ").append(toIndentedString(high)).append("\n");
     sb.append("    low: ").append(toIndentedString(low)).append("\n");
+    sb.append("    averagePrice: ").append(toIndentedString(averagePrice)).append("\n");
+    sb.append("    tradingVolume: ").append(toIndentedString(tradingVolume)).append("\n");
+    sb.append("    tradingValue: ").append(toIndentedString(tradingValue)).append("\n");
     sb.append("    volatility: ").append(toIndentedString(volatility)).append("\n");
     sb.append("}");
     return sb.toString();

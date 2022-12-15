@@ -5,8 +5,8 @@ Legal entities and their respective background texts with regard to the role.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **float** | Identifier of a legal entity. | [optional] 
-**name** | **str** | Name of the legal entity. | [optional] 
+**id** | **float, none_type** | Identifier of a legal entity. | [optional] 
+**name** | **str, none_type** | Name of the legal entity. | [optional] 
 **background_texts** | [**InlineResponse20060LegalEntitiesBackgroundTexts**](InlineResponse20060LegalEntitiesBackgroundTexts.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

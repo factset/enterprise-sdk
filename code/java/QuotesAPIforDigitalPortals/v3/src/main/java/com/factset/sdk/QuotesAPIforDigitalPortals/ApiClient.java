@@ -72,13 +72,13 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.FactSetOAuth2ClientAuth;
 public class ApiClient extends JavaTimeFormatter {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
-  protected String basePath = "http://api.factset.com/wealth/v1";
+  protected String basePath = "https://api.factset.com/wealth/v1";
   protected String userAgent;
   private static final Logger log = Logger.getLogger(ApiClient.class.getName());
 
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "//api.factset.com/wealth/v1",
+      "https://api.factset.com/wealth/v1",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -122,7 +122,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/QuotesAPIforDigitalPortals/0.10.1");
+    setUserAgent("fds-sdk/java/QuotesAPIforDigitalPortals/0.10.4");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

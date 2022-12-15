@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a benchmark type. | [optional] 
+**Id** | **decimal?** | Identifier of a benchmark type. | [optional] 
 **Name** | **string** | Name of the benchmark type. | [optional] 
 **Description** | **string** | Description of the benchmark type. | [optional] 
 

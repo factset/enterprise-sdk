@@ -2,20 +2,15 @@
 
 # InlineResponse20072Data
 
-EOD key figures.
+Instrument data with a list of regional-level data and assigned listing-level data.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**referenceDate** | **LocalDate** | Reference date of the time range. |  [optional]
-**performance** | [**InlineResponse20072DataPerformance**](InlineResponse20072DataPerformance.md) |  |  [optional]
-**high** | [**InlineResponse20072DataHigh**](InlineResponse20072DataHigh.md) |  |  [optional]
-**low** | [**InlineResponse20072DataLow**](InlineResponse20072DataLow.md) |  |  [optional]
-**averagePrice** | **BigDecimal** | Arithmetic mean of the notation&#39;s EOD closing prices for the given time range. |  [optional]
-**tradingVolume** | [**InlineResponse20072DataTradingVolume**](InlineResponse20072DataTradingVolume.md) |  |  [optional]
-**tradingValue** | **BigDecimal** | Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price. |  [optional]
-**volatility** | **BigDecimal** | Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year. |  [optional]
+**instrument** | [**InlineResponse20072DataInstrument**](InlineResponse20072DataInstrument.md) |  |  [optional]
+**permanentIdentifier** | **String** | FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S). |  [optional]
+**regional** | [**java.util.List&lt;InlineResponse20072DataRegional&gt;**](InlineResponse20072DataRegional.md) | Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array. |  [optional]
 
 
 ## Implemented Interfaces

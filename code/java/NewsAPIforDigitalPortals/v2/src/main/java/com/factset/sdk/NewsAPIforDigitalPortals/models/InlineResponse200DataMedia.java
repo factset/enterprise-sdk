@@ -1,6 +1,6 @@
 /*
  * News API For Digital Portals
- * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with quotes, time series, watchlists, and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the Quotes API for Digital Portals for access to detailed price and performance information, plus basic support for security identifier cross-reference.
+ * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with [quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals), [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals), [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals), and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price and performance information, plus basic support for security identifier cross-reference. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.NewsAPIforDigitalPortals.JSON;
@@ -46,28 +50,28 @@ public class InlineResponse200DataMedia implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_URL = "url";
-  private String url;
+  private JsonNullable<String> url = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MIME_TYPE = "mimeType";
-  private String mimeType;
+  private JsonNullable<String> mimeType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CAPTION = "caption";
-  private String caption;
+  private JsonNullable<String> caption = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ALTERNATIVE_TEXT = "alternativeText";
-  private String alternativeText;
+  private JsonNullable<String> alternativeText = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_WIDTH = "width";
-  private BigDecimal width;
+  private JsonNullable<BigDecimal> width = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_HEIGHT = "height";
-  private BigDecimal height;
+  private JsonNullable<BigDecimal> height = JsonNullable.<BigDecimal>undefined();
 
   public InlineResponse200DataMedia() { 
   }
 
   public InlineResponse200DataMedia url(String url) {
-    this.url = url;
+    this.url = JsonNullable.<String>of(url);
     return this;
   }
 
@@ -77,23 +81,31 @@ public class InlineResponse200DataMedia implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "URL of the media element. The URL is publicly available and hosted by either the publisher, the distributor, or FactSet.")
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUrl() {
-    return url;
+        return url.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUrl(String url) {
+
+  public JsonNullable<String> getUrl_JsonNullable() {
+    return url;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_URL)
+  public void setUrl_JsonNullable(JsonNullable<String> url) {
     this.url = url;
+  }
+
+  public void setUrl(String url) {
+    this.url = JsonNullable.<String>of(url);
   }
 
 
   public InlineResponse200DataMedia mimeType(String mimeType) {
-    this.mimeType = mimeType;
+    this.mimeType = JsonNullable.<String>of(mimeType);
     return this;
   }
 
@@ -103,23 +115,31 @@ public class InlineResponse200DataMedia implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "MIME type of the data of the media element.")
-  @JsonProperty(JSON_PROPERTY_MIME_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getMimeType() {
-    return mimeType;
+        return mimeType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MIME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMimeType(String mimeType) {
+
+  public JsonNullable<String> getMimeType_JsonNullable() {
+    return mimeType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MIME_TYPE)
+  public void setMimeType_JsonNullable(JsonNullable<String> mimeType) {
     this.mimeType = mimeType;
+  }
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = JsonNullable.<String>of(mimeType);
   }
 
 
   public InlineResponse200DataMedia caption(String caption) {
-    this.caption = caption;
+    this.caption = JsonNullable.<String>of(caption);
     return this;
   }
 
@@ -129,23 +149,31 @@ public class InlineResponse200DataMedia implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Caption text that can be displayed with the media element. Empty if no caption is available for this media element.")
-  @JsonProperty(JSON_PROPERTY_CAPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCaption() {
-    return caption;
+        return caption.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CAPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCaption(String caption) {
+
+  public JsonNullable<String> getCaption_JsonNullable() {
+    return caption;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CAPTION)
+  public void setCaption_JsonNullable(JsonNullable<String> caption) {
     this.caption = caption;
+  }
+
+  public void setCaption(String caption) {
+    this.caption = JsonNullable.<String>of(caption);
   }
 
 
   public InlineResponse200DataMedia alternativeText(String alternativeText) {
-    this.alternativeText = alternativeText;
+    this.alternativeText = JsonNullable.<String>of(alternativeText);
     return this;
   }
 
@@ -155,23 +183,31 @@ public class InlineResponse200DataMedia implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A short description of the media element that can be shown instead of the media element itself.")
-  @JsonProperty(JSON_PROPERTY_ALTERNATIVE_TEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getAlternativeText() {
-    return alternativeText;
+        return alternativeText.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ALTERNATIVE_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAlternativeText(String alternativeText) {
+
+  public JsonNullable<String> getAlternativeText_JsonNullable() {
+    return alternativeText;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ALTERNATIVE_TEXT)
+  public void setAlternativeText_JsonNullable(JsonNullable<String> alternativeText) {
     this.alternativeText = alternativeText;
+  }
+
+  public void setAlternativeText(String alternativeText) {
+    this.alternativeText = JsonNullable.<String>of(alternativeText);
   }
 
 
   public InlineResponse200DataMedia width(BigDecimal width) {
-    this.width = width;
+    this.width = JsonNullable.<BigDecimal>of(width);
     return this;
   }
 
@@ -181,23 +217,31 @@ public class InlineResponse200DataMedia implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Width of the media element in pixels if applicable.")
-  @JsonProperty(JSON_PROPERTY_WIDTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getWidth() {
-    return width;
+        return width.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWidth(BigDecimal width) {
+
+  public JsonNullable<BigDecimal> getWidth_JsonNullable() {
+    return width;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WIDTH)
+  public void setWidth_JsonNullable(JsonNullable<BigDecimal> width) {
     this.width = width;
+  }
+
+  public void setWidth(BigDecimal width) {
+    this.width = JsonNullable.<BigDecimal>of(width);
   }
 
 
   public InlineResponse200DataMedia height(BigDecimal height) {
-    this.height = height;
+    this.height = JsonNullable.<BigDecimal>of(height);
     return this;
   }
 
@@ -207,18 +251,26 @@ public class InlineResponse200DataMedia implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Height of the media element in pixels if applicable.")
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getHeight() {
-    return height;
+        return height.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeight(BigDecimal height) {
+
+  public JsonNullable<BigDecimal> getHeight_JsonNullable() {
+    return height;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  public void setHeight_JsonNullable(JsonNullable<BigDecimal> height) {
     this.height = height;
+  }
+
+  public void setHeight(BigDecimal height) {
+    this.height = JsonNullable.<BigDecimal>of(height);
   }
 
 
@@ -234,17 +286,28 @@ public class InlineResponse200DataMedia implements Serializable {
       return false;
     }
     InlineResponse200DataMedia inlineResponse200DataMedia = (InlineResponse200DataMedia) o;
-    return Objects.equals(this.url, inlineResponse200DataMedia.url) &&
-        Objects.equals(this.mimeType, inlineResponse200DataMedia.mimeType) &&
-        Objects.equals(this.caption, inlineResponse200DataMedia.caption) &&
-        Objects.equals(this.alternativeText, inlineResponse200DataMedia.alternativeText) &&
-        Objects.equals(this.width, inlineResponse200DataMedia.width) &&
-        Objects.equals(this.height, inlineResponse200DataMedia.height);
+    return equalsNullable(this.url, inlineResponse200DataMedia.url) &&
+        equalsNullable(this.mimeType, inlineResponse200DataMedia.mimeType) &&
+        equalsNullable(this.caption, inlineResponse200DataMedia.caption) &&
+        equalsNullable(this.alternativeText, inlineResponse200DataMedia.alternativeText) &&
+        equalsNullable(this.width, inlineResponse200DataMedia.width) &&
+        equalsNullable(this.height, inlineResponse200DataMedia.height);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, mimeType, caption, alternativeText, width, height);
+    return Objects.hash(hashCodeNullable(url), hashCodeNullable(mimeType), hashCodeNullable(caption), hashCodeNullable(alternativeText), hashCodeNullable(width), hashCodeNullable(height));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

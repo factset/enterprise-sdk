@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of the publisher. | [optional] 
-**distributor** | [**InlineResponse2007DataDistributor**](InlineResponse2007DataDistributor.md) |  | [optional] 
+**name** | **String** | Name of the distributor. | [optional] 
+**delivery** | [**InlineResponse2007DataDelivery**](InlineResponse2007DataDelivery.md) |  | [optional] 
 
 

@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,12 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20046NotationFsym;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20066DataMarket;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20088Nsin;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20089Instrument;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20089TradingValue;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20089ValueUnit;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,6 +24,11 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -40,250 +39,124 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
  */
 @JsonPropertyOrder({
   InlineResponse20089Data.JSON_PROPERTY_ID,
-  InlineResponse20089Data.JSON_PROPERTY_VALUE_UNIT,
-  InlineResponse20089Data.JSON_PROPERTY_MARKET,
-  InlineResponse20089Data.JSON_PROPERTY_SYMBOL,
-  InlineResponse20089Data.JSON_PROPERTY_NSIN,
-  InlineResponse20089Data.JSON_PROPERTY_FSYM,
-  InlineResponse20089Data.JSON_PROPERTY_INSTRUMENT,
-  InlineResponse20089Data.JSON_PROPERTY_TRADING_VALUE
+  InlineResponse20089Data.JSON_PROPERTY_CODE,
+  InlineResponse20089Data.JSON_PROPERTY_DESCRIPTION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20089Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private JsonNullable<BigDecimal> id = JsonNullable.<BigDecimal>undefined();
 
-  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
-  private InlineResponse20089ValueUnit valueUnit;
+  public static final String JSON_PROPERTY_CODE = "code";
+  private JsonNullable<String> code = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse20066DataMarket market;
-
-  public static final String JSON_PROPERTY_SYMBOL = "symbol";
-  private String symbol;
-
-  public static final String JSON_PROPERTY_NSIN = "nsin";
-  private InlineResponse20088Nsin nsin;
-
-  public static final String JSON_PROPERTY_FSYM = "fsym";
-  private InlineResponse20046NotationFsym fsym;
-
-  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
-  private InlineResponse20089Instrument instrument;
-
-  public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
-  private InlineResponse20089TradingValue tradingValue;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public InlineResponse20089Data() { 
   }
 
-  public InlineResponse20089Data id(String id) {
-    this.id = id;
+  public InlineResponse20089Data id(BigDecimal id) {
+    this.id = JsonNullable.<BigDecimal>of(id);
     return this;
   }
 
    /**
-   * Identifier of a notation.
+   * Identifier of the type.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a notation.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(value = "Identifier of the type.")
+  @JsonIgnore
 
-  public String getId() {
-    return id;
+  public BigDecimal getId() {
+        return id.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
+
+  public JsonNullable<BigDecimal> getId_JsonNullable() {
+    return id;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<BigDecimal> id) {
     this.id = id;
   }
 
+  public void setId(BigDecimal id) {
+    this.id = JsonNullable.<BigDecimal>of(id);
+  }
 
-  public InlineResponse20089Data valueUnit(InlineResponse20089ValueUnit valueUnit) {
-    this.valueUnit = valueUnit;
+
+  public InlineResponse20089Data code(String code) {
+    this.code = JsonNullable.<String>of(code);
     return this;
   }
 
    /**
-   * Get valueUnit
-   * @return valueUnit
+   * Code of the type.
+   * @return code
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @ApiModelProperty(value = "Code of the type.")
+  @JsonIgnore
+
+  public String getCode() {
+        return code.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20089ValueUnit getValueUnit() {
-    return valueUnit;
+  public JsonNullable<String> getCode_JsonNullable() {
+    return code;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CODE)
+  public void setCode_JsonNullable(JsonNullable<String> code) {
+    this.code = code;
+  }
+
+  public void setCode(String code) {
+    this.code = JsonNullable.<String>of(code);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValueUnit(InlineResponse20089ValueUnit valueUnit) {
-    this.valueUnit = valueUnit;
-  }
-
-
-  public InlineResponse20089Data market(InlineResponse20066DataMarket market) {
-    this.market = market;
+  public InlineResponse20089Data description(String description) {
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
    /**
-   * Get market
-   * @return market
+   * Description of the type in english language.
+   * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  @ApiModelProperty(value = "Description of the type in english language.")
+  @JsonIgnore
+
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20066DataMarket getMarket() {
-    return market;
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
   }
 
-
-  @JsonProperty(JSON_PROPERTY_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse20066DataMarket market) {
-    this.market = market;
-  }
-
-
-  public InlineResponse20089Data symbol(String symbol) {
-    this.symbol = symbol;
-    return this;
-  }
-
-   /**
-   * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
-   * @return symbol
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.")
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSymbol() {
-    return symbol;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
-  }
-
-
-  public InlineResponse20089Data nsin(InlineResponse20088Nsin nsin) {
-    this.nsin = nsin;
-    return this;
-  }
-
-   /**
-   * Get nsin
-   * @return nsin
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NSIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20088Nsin getNsin() {
-    return nsin;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NSIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNsin(InlineResponse20088Nsin nsin) {
-    this.nsin = nsin;
-  }
-
-
-  public InlineResponse20089Data fsym(InlineResponse20046NotationFsym fsym) {
-    this.fsym = fsym;
-    return this;
-  }
-
-   /**
-   * Get fsym
-   * @return fsym
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FSYM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20046NotationFsym getFsym() {
-    return fsym;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FSYM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsym(InlineResponse20046NotationFsym fsym) {
-    this.fsym = fsym;
-  }
-
-
-  public InlineResponse20089Data instrument(InlineResponse20089Instrument instrument) {
-    this.instrument = instrument;
-    return this;
-  }
-
-   /**
-   * Get instrument
-   * @return instrument
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20089Instrument getInstrument() {
-    return instrument;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstrument(InlineResponse20089Instrument instrument) {
-    this.instrument = instrument;
-  }
-
-
-  public InlineResponse20089Data tradingValue(InlineResponse20089TradingValue tradingValue) {
-    this.tradingValue = tradingValue;
-    return this;
-  }
-
-   /**
-   * Get tradingValue
-   * @return tradingValue
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20089TradingValue getTradingValue() {
-    return tradingValue;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTradingValue(InlineResponse20089TradingValue tradingValue) {
-    this.tradingValue = tradingValue;
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
   }
 
 
@@ -299,19 +172,25 @@ public class InlineResponse20089Data implements Serializable {
       return false;
     }
     InlineResponse20089Data inlineResponse20089Data = (InlineResponse20089Data) o;
-    return Objects.equals(this.id, inlineResponse20089Data.id) &&
-        Objects.equals(this.valueUnit, inlineResponse20089Data.valueUnit) &&
-        Objects.equals(this.market, inlineResponse20089Data.market) &&
-        Objects.equals(this.symbol, inlineResponse20089Data.symbol) &&
-        Objects.equals(this.nsin, inlineResponse20089Data.nsin) &&
-        Objects.equals(this.fsym, inlineResponse20089Data.fsym) &&
-        Objects.equals(this.instrument, inlineResponse20089Data.instrument) &&
-        Objects.equals(this.tradingValue, inlineResponse20089Data.tradingValue);
+    return equalsNullable(this.id, inlineResponse20089Data.id) &&
+        equalsNullable(this.code, inlineResponse20089Data.code) &&
+        equalsNullable(this.description, inlineResponse20089Data.description);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, valueUnit, market, symbol, nsin, fsym, instrument, tradingValue);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(code), hashCodeNullable(description));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -319,13 +198,8 @@ public class InlineResponse20089Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20089Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
-    sb.append("    market: ").append(toIndentedString(market)).append("\n");
-    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
-    sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
-    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
-    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
-    sb.append("    tradingValue: ").append(toIndentedString(tradingValue)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }

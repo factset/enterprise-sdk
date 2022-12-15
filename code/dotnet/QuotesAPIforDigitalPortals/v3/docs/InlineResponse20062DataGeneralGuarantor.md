@@ -5,7 +5,7 @@ Guarantor of the investment product.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of the guarantor. | [optional] 
+**Id** | **decimal?** | Identifier of the guarantor. | [optional] 
 **Name** | **string** | Name of the guarantor. | [optional] 
 **Lei** | **string** | Legal entity identifier (LEI) of the guarantor. | [optional] 
 

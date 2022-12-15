@@ -7,11 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**notation** | [**InlineResponse2005Notation**](InlineResponse2005Notation.md) |  |  [optional]
-**beta** | **BigDecimal** | Beta of the notation. |  [optional]
-**correlation** | **BigDecimal** | Correlation of the notation. |  [optional]
-**outperformance** | **BigDecimal** | Outperformance of the notation. |  [optional]
-**status** | [**InlineResponse2005Status**](InlineResponse2005Status.md) |  |  [optional]
+**type** | [**InlineResponse2005Type**](InlineResponse2005Type.md) |  |  [optional]
+**officers** | [**java.util.List&lt;InlineResponse2005Officers&gt;**](InlineResponse2005Officers.md) | List of officers that are members of the board. |  [optional]
 
 
 ## Implemented Interfaces

@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -44,22 +48,22 @@ public class InlineResponse20042DataNsin implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_WKN = "wkn";
-  private String wkn;
+  private JsonNullable<String> wkn = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VALOR = "valor";
-  private String valor;
+  private JsonNullable<String> valor = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CUSIP = "cusip";
-  private String cusip;
+  private JsonNullable<String> cusip = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SEDOL = "sedol";
-  private String sedol;
+  private JsonNullable<String> sedol = JsonNullable.<String>undefined();
 
   public InlineResponse20042DataNsin() { 
   }
 
   public InlineResponse20042DataNsin wkn(String wkn) {
-    this.wkn = wkn;
+    this.wkn = JsonNullable.<String>of(wkn);
     return this;
   }
 
@@ -69,23 +73,31 @@ public class InlineResponse20042DataNsin implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The WKN (Wertpapierkennnummer, German for Securities Identification Number) of the instrument. The WKN is a 6-character code of digits and upper-case letters that uniquely identifies an instrument.")
-  @JsonProperty(JSON_PROPERTY_WKN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getWkn() {
-    return wkn;
+        return wkn.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_WKN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWkn(String wkn) {
+
+  public JsonNullable<String> getWkn_JsonNullable() {
+    return wkn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WKN)
+  public void setWkn_JsonNullable(JsonNullable<String> wkn) {
     this.wkn = wkn;
+  }
+
+  public void setWkn(String wkn) {
+    this.wkn = JsonNullable.<String>of(wkn);
   }
 
 
   public InlineResponse20042DataNsin valor(String valor) {
-    this.valor = valor;
+    this.valor = JsonNullable.<String>of(valor);
     return this;
   }
 
@@ -95,23 +107,31 @@ public class InlineResponse20042DataNsin implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The Valor number (German: Valorennummer) of the instrument. The Valor number is an integer number that uniquely identifies an instrument.")
-  @JsonProperty(JSON_PROPERTY_VALOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getValor() {
-    return valor;
+        return valor.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_VALOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValor(String valor) {
+
+  public JsonNullable<String> getValor_JsonNullable() {
+    return valor;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALOR)
+  public void setValor_JsonNullable(JsonNullable<String> valor) {
     this.valor = valor;
+  }
+
+  public void setValor(String valor) {
+    this.valor = JsonNullable.<String>of(valor);
   }
 
 
   public InlineResponse20042DataNsin cusip(String cusip) {
-    this.cusip = cusip;
+    this.cusip = JsonNullable.<String>of(cusip);
     return this;
   }
 
@@ -121,23 +141,31 @@ public class InlineResponse20042DataNsin implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The CUSIP (Committee on Uniform Security Identification Procedures) or CINS (CUSIP International Numbering System) identifier of the instrument. These numbers are 9-character codes of digits and upper-case letters that uniquely identify an instrument.")
-  @JsonProperty(JSON_PROPERTY_CUSIP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCusip() {
-    return cusip;
+        return cusip.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CUSIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCusip(String cusip) {
+
+  public JsonNullable<String> getCusip_JsonNullable() {
+    return cusip;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSIP)
+  public void setCusip_JsonNullable(JsonNullable<String> cusip) {
     this.cusip = cusip;
+  }
+
+  public void setCusip(String cusip) {
+    this.cusip = JsonNullable.<String>of(cusip);
   }
 
 
   public InlineResponse20042DataNsin sedol(String sedol) {
-    this.sedol = sedol;
+    this.sedol = JsonNullable.<String>of(sedol);
     return this;
   }
 
@@ -147,18 +175,26 @@ public class InlineResponse20042DataNsin implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The SEDOL or IDII for the instrument.")
-  @JsonProperty(JSON_PROPERTY_SEDOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSedol() {
-    return sedol;
+        return sedol.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SEDOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSedol(String sedol) {
+
+  public JsonNullable<String> getSedol_JsonNullable() {
+    return sedol;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SEDOL)
+  public void setSedol_JsonNullable(JsonNullable<String> sedol) {
     this.sedol = sedol;
+  }
+
+  public void setSedol(String sedol) {
+    this.sedol = JsonNullable.<String>of(sedol);
   }
 
 
@@ -174,15 +210,26 @@ public class InlineResponse20042DataNsin implements Serializable {
       return false;
     }
     InlineResponse20042DataNsin inlineResponse20042DataNsin = (InlineResponse20042DataNsin) o;
-    return Objects.equals(this.wkn, inlineResponse20042DataNsin.wkn) &&
-        Objects.equals(this.valor, inlineResponse20042DataNsin.valor) &&
-        Objects.equals(this.cusip, inlineResponse20042DataNsin.cusip) &&
-        Objects.equals(this.sedol, inlineResponse20042DataNsin.sedol);
+    return equalsNullable(this.wkn, inlineResponse20042DataNsin.wkn) &&
+        equalsNullable(this.valor, inlineResponse20042DataNsin.valor) &&
+        equalsNullable(this.cusip, inlineResponse20042DataNsin.cusip) &&
+        equalsNullable(this.sedol, inlineResponse20042DataNsin.sedol);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(wkn, valor, cusip, sedol);
+    return Objects.hash(hashCodeNullable(wkn), hashCodeNullable(valor), hashCodeNullable(cusip), hashCodeNullable(sedol));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ## getNewsArticleTypeGet
 
-> InlineResponse2003 getNewsArticleTypeGet(id, opts)
+> InlineResponse2005 getNewsArticleTypeGet(id, opts)
 
 Details for a news article type.
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ## getNewsArticleTypeList
 
-> InlineResponse2004 getNewsArticleTypeList(opts)
+> InlineResponse2006 getNewsArticleTypeList(opts)
 
 List of news article types.
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ## getNewsDistributorGet
 
-> InlineResponse2005 getNewsDistributorGet(id, opts)
+> InlineResponse2007 getNewsDistributorGet(id, opts)
 
 Details of a distributor.
 
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 
 ## getNewsDistributorList
 
-> InlineResponse2006 getNewsDistributorList(opts)
+> InlineResponse2008 getNewsDistributorList(opts)
 
 List of distributors.
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 ## getNewsPublisherGet
 
-> InlineResponse2007 getNewsPublisherGet(id, opts)
+> InlineResponse2009 getNewsPublisherGet(id, opts)
 
 Details of a publisher.
 
@@ -474,7 +474,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -488,7 +488,7 @@ Name | Type | Description  | Notes
 
 ## getNewsPublisherList
 
-> InlineResponse2008 getNewsPublisherList(opts)
+> InlineResponse20010 getNewsPublisherList(opts)
 
 List of publishers.
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 ## getNewsPublisherListByDistributor
 
-> InlineResponse2009 getNewsPublisherListByDistributor(id, opts)
+> InlineResponse20011 getNewsPublisherListByDistributor(id, opts)
 
 List of publishers provided by the given distributor.
 
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -681,7 +681,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NewsApi();
 const opts = {
-  'inlineObject': new newsapifordigitalportals.InlineObject() // InlineObject | 
+  'postNewsArticleListRequest': new newsapifordigitalportals.PostNewsArticleListRequest() // PostNewsArticleListRequest | 
 };
 
 // Call api endpoint
@@ -704,7 +704,7 @@ apiInstance.postNewsArticleList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **postNewsArticleListRequest** | [**PostNewsArticleListRequest**](PostNewsArticleListRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -722,7 +722,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByChain
 
-> InlineResponse2002 postNewsArticleListByChain(inlineObject1)
+> InlineResponse2002 postNewsArticleListByChain(opts)
 
 List news articles of an article chain.
 
@@ -754,10 +754,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const inlineObject1 = new newsapifordigitalportals.InlineObject1(); // InlineObject1 | 
+const opts = {
+  'postNewsArticleListByChainRequest': new newsapifordigitalportals.PostNewsArticleListByChainRequest() // PostNewsArticleListByChainRequest | 
+};
 
 // Call api endpoint
-apiInstance.postNewsArticleListByChain(inlineObject1).then(
+apiInstance.postNewsArticleListByChain(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -776,7 +778,7 @@ apiInstance.postNewsArticleListByChain(inlineObject1).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **postNewsArticleListByChainRequest** | [**PostNewsArticleListByChainRequest**](PostNewsArticleListByChainRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -794,7 +796,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByIndex
 
-> InlineResponse2001 postNewsArticleListByIndex(inlineObject2)
+> InlineResponse2003 postNewsArticleListByIndex(opts)
 
 News articles for instruments that are constituents of the given indices.
 
@@ -826,10 +828,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const inlineObject2 = new newsapifordigitalportals.InlineObject2(); // InlineObject2 | 
+const opts = {
+  'postNewsArticleListByIndexRequest': new newsapifordigitalportals.PostNewsArticleListByIndexRequest() // PostNewsArticleListByIndexRequest | 
+};
 
 // Call api endpoint
-apiInstance.postNewsArticleListByIndex(inlineObject2).then(
+apiInstance.postNewsArticleListByIndex(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -848,11 +852,11 @@ apiInstance.postNewsArticleListByIndex(inlineObject2).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
+ **postNewsArticleListByIndexRequest** | [**PostNewsArticleListByIndexRequest**](PostNewsArticleListByIndexRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -866,7 +870,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByInstrument
 
-> InlineResponse2001 postNewsArticleListByInstrument(inlineObject3)
+> InlineResponse2004 postNewsArticleListByInstrument(opts)
 
 News articles for instruments.
 
@@ -898,10 +902,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const inlineObject3 = new newsapifordigitalportals.InlineObject3(); // InlineObject3 | 
+const opts = {
+  'postNewsArticleListByInstrumentRequest': new newsapifordigitalportals.PostNewsArticleListByInstrumentRequest() // PostNewsArticleListByInstrumentRequest | 
+};
 
 // Call api endpoint
-apiInstance.postNewsArticleListByInstrument(inlineObject3).then(
+apiInstance.postNewsArticleListByInstrument(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -920,11 +926,11 @@ apiInstance.postNewsArticleListByInstrument(inlineObject3).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
+ **postNewsArticleListByInstrumentRequest** | [**PostNewsArticleListByInstrumentRequest**](PostNewsArticleListByInstrumentRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -938,7 +944,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByMediaKind
 
-> InlineResponse2001 postNewsArticleListByMediaKind(inlineObject4)
+> InlineResponse2001 postNewsArticleListByMediaKind(opts)
 
 List news articles which contain media of specific media kinds.
 
@@ -970,10 +976,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const inlineObject4 = new newsapifordigitalportals.InlineObject4(); // InlineObject4 | 
+const opts = {
+  'postNewsArticleListByMediaKindRequest': new newsapifordigitalportals.PostNewsArticleListByMediaKindRequest() // PostNewsArticleListByMediaKindRequest | 
+};
 
 // Call api endpoint
-apiInstance.postNewsArticleListByMediaKind(inlineObject4).then(
+apiInstance.postNewsArticleListByMediaKind(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -992,7 +1000,7 @@ apiInstance.postNewsArticleListByMediaKind(inlineObject4).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
+ **postNewsArticleListByMediaKindRequest** | [**PostNewsArticleListByMediaKindRequest**](PostNewsArticleListByMediaKindRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1043,7 +1051,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NewsApi();
 const opts = {
-  'inlineObject5': new newsapifordigitalportals.InlineObject5() // InlineObject5 | 
+  'postNewsArticleSearchByTextRequest': new newsapifordigitalportals.PostNewsArticleSearchByTextRequest() // PostNewsArticleSearchByTextRequest | 
 };
 
 // Call api endpoint
@@ -1066,7 +1074,7 @@ apiInstance.postNewsArticleSearchByText(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+ **postNewsArticleSearchByTextRequest** | [**PostNewsArticleSearchByTextRequest**](PostNewsArticleSearchByTextRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1084,7 +1092,7 @@ Name | Type | Description  | Notes
 
 ## postNewsPublisherSearchByName
 
-> InlineResponse2009 postNewsPublisherSearchByName(inlineObject6)
+> InlineResponse20011 postNewsPublisherSearchByName(opts)
 
 Search for publishers.
 
@@ -1116,10 +1124,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const inlineObject6 = new newsapifordigitalportals.InlineObject6(); // InlineObject6 | 
+const opts = {
+  'postNewsPublisherSearchByNameRequest': new newsapifordigitalportals.PostNewsPublisherSearchByNameRequest() // PostNewsPublisherSearchByNameRequest | 
+};
 
 // Call api endpoint
-apiInstance.postNewsPublisherSearchByName(inlineObject6).then(
+apiInstance.postNewsPublisherSearchByName(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1138,11 +1148,11 @@ apiInstance.postNewsPublisherSearchByName(inlineObject6).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+ **postNewsPublisherSearchByNameRequest** | [**PostNewsPublisherSearchByNameRequest**](PostNewsPublisherSearchByNameRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

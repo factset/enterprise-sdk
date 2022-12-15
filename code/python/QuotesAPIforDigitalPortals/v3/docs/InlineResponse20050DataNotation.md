@@ -5,7 +5,7 @@ Notation of the component. If there is no notation for the component, the object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Identifier of the notation. | [optional] 
+**id** | **str, none_type** | Identifier of the notation. | [optional] 
 **fsym** | [**InlineResponse20046NotationFsym**](InlineResponse20046NotationFsym.md) |  | [optional] 
 **instrument** | [**InlineResponse20050DataNotationInstrument**](InlineResponse20050DataNotationInstrument.md) |  | [optional] 
 **operating_mic** | [**InlineResponse20050DataNotationOperatingMIC**](InlineResponse20050DataNotationOperatingMIC.md) |  | [optional] 

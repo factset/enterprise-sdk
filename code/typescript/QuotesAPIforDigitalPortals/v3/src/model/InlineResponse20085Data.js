@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,8 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20085DataEvents from './InlineResponse20085DataEvents';
-import InlineResponse20085DataRange from './InlineResponse20085DataRange';
+import InlineResponse20082DataCurrency from './InlineResponse20082DataCurrency';
+import InlineResponse20082DataValueUnit from './InlineResponse20082DataValueUnit';
+import InlineResponse20083Market from './InlineResponse20083Market';
+import InlineResponse20083Status from './InlineResponse20083Status';
+import InlineResponse20085Ask from './InlineResponse20085Ask';
+import InlineResponse20085Bid from './InlineResponse20085Bid';
 
 /**
  * The InlineResponse20085Data model module.
@@ -22,7 +26,6 @@ import InlineResponse20085DataRange from './InlineResponse20085DataRange';
 class InlineResponse20085Data {
     /**
      * Constructs a new <code>InlineResponse20085Data</code>.
-     * List of trading schedule events for a notation.
      * @alias module:model/InlineResponse20085Data
      */
     constructor() { 
@@ -49,11 +52,32 @@ class InlineResponse20085Data {
         if (data) {
             obj = obj || new InlineResponse20085Data();
 
-            if (data.hasOwnProperty('range')) {
-                obj['range'] = InlineResponse20085DataRange.constructFromObject(data['range']);
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('events')) {
-                obj['events'] = ApiClient.convertToType(data['events'], [InlineResponse20085DataEvents]);
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
+            }
+            if (data.hasOwnProperty('valueUnit')) {
+                obj['valueUnit'] = InlineResponse20082DataValueUnit.constructFromObject(data['valueUnit']);
+            }
+            if (data.hasOwnProperty('currency')) {
+                obj['currency'] = InlineResponse20082DataCurrency.constructFromObject(data['currency']);
+            }
+            if (data.hasOwnProperty('market')) {
+                obj['market'] = InlineResponse20083Market.constructFromObject(data['market']);
+            }
+            if (data.hasOwnProperty('quality')) {
+                obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
+            }
+            if (data.hasOwnProperty('bid')) {
+                obj['bid'] = InlineResponse20085Bid.constructFromObject(data['bid']);
+            }
+            if (data.hasOwnProperty('ask')) {
+                obj['ask'] = InlineResponse20085Ask.constructFromObject(data['ask']);
+            }
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = InlineResponse20083Status.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -63,18 +87,82 @@ class InlineResponse20085Data {
 }
 
 /**
- * @member {module:model/InlineResponse20085DataRange} range
+ * MDG identifier of the listing.
+ * @member {String} idNotation
  */
-InlineResponse20085Data.prototype['range'] = undefined;
+InlineResponse20085Data.prototype['idNotation'] = undefined;
 
 /**
- * List of trading schedule events.
- * @member {Array.<module:model/InlineResponse20085DataEvents>} events
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
  */
-InlineResponse20085Data.prototype['events'] = undefined;
+InlineResponse20085Data.prototype['sourceIdentifier'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20082DataValueUnit} valueUnit
+ */
+InlineResponse20085Data.prototype['valueUnit'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20082DataCurrency} currency
+ */
+InlineResponse20085Data.prototype['currency'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20083Market} market
+ */
+InlineResponse20085Data.prototype['market'] = undefined;
+
+/**
+ * Quality of the price.
+ * @member {module:model/InlineResponse20085Data.QualityEnum} quality
+ */
+InlineResponse20085Data.prototype['quality'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20085Bid} bid
+ */
+InlineResponse20085Data.prototype['bid'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20085Ask} ask
+ */
+InlineResponse20085Data.prototype['ask'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20083Status} status
+ */
+InlineResponse20085Data.prototype['status'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>quality</code> property.
+ * @enum {String}
+ * @readonly
+ */
+InlineResponse20085Data['QualityEnum'] = {
+
+    /**
+     * value: "RLT"
+     * @const
+     */
+    "RLT": "RLT",
+
+    /**
+     * value: "DLY"
+     * @const
+     */
+    "DLY": "DLY",
+
+    /**
+     * value: "EOD"
+     * @const
+     */
+    "EOD": "EOD"
+};
 
 
 

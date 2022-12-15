@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Categories** | **string** | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional] 
 **UserRelevanceScore** | [**RelevanceScoreRange**](RelevanceScoreRange.md) | A range for filtering signal events based on their relevancy score. | [optional] 
 **Sort** | **string** | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. | [optional] 
+**ResolveIdentifiers** | **bool** | The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

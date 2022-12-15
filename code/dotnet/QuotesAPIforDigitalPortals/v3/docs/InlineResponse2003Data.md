@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a delivery. | [optional] 
+**Id** | **decimal?** | Identifier of a delivery. | [optional] 
 **Name** | **string** | English name of the delivery. | [optional] 
 **Description** | **string** | English description of the delivery. | [optional] 
 

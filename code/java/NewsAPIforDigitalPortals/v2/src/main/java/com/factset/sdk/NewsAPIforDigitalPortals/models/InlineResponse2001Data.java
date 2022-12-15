@@ -1,6 +1,6 @@
 /*
  * News API For Digital Portals
- * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with quotes, time series, watchlists, and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the Quotes API for Digital Portals for access to detailed price and performance information, plus basic support for security identifier cross-reference.
+ * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with [quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals), [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals), [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals), and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price and performance information, plus basic support for security identifier cross-reference. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -31,6 +31,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.NewsAPIforDigitalPortals.JSON;
@@ -57,16 +61,16 @@ public class InlineResponse2001Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_CODE = "code";
-  private String code;
+  private JsonNullable<String> code = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TIME = "time";
-  private String time;
+  private JsonNullable<String> time = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
-  private String headline;
+  private JsonNullable<String> headline = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SUMMARY = "summary";
-  private String summary;
+  private JsonNullable<String> summary = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TYPES = "types";
   private java.util.List<InlineResponse2001Types> types = null;
@@ -93,7 +97,7 @@ public class InlineResponse2001Data implements Serializable {
   }
 
   public InlineResponse2001Data code(String code) {
-    this.code = code;
+    this.code = JsonNullable.<String>of(code);
     return this;
   }
 
@@ -103,23 +107,31 @@ public class InlineResponse2001Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the news article.")
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCode() {
-    return code;
+        return code.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCode(String code) {
+
+  public JsonNullable<String> getCode_JsonNullable() {
+    return code;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CODE)
+  public void setCode_JsonNullable(JsonNullable<String> code) {
     this.code = code;
+  }
+
+  public void setCode(String code) {
+    this.code = JsonNullable.<String>of(code);
   }
 
 
   public InlineResponse2001Data time(String time) {
-    this.time = time;
+    this.time = JsonNullable.<String>of(time);
     return this;
   }
 
@@ -129,23 +141,31 @@ public class InlineResponse2001Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the news article.")
-  @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getTime() {
-    return time;
+        return time.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTime(String time) {
+
+  public JsonNullable<String> getTime_JsonNullable() {
+    return time;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TIME)
+  public void setTime_JsonNullable(JsonNullable<String> time) {
     this.time = time;
+  }
+
+  public void setTime(String time) {
+    this.time = JsonNullable.<String>of(time);
   }
 
 
   public InlineResponse2001Data headline(String headline) {
-    this.headline = headline;
+    this.headline = JsonNullable.<String>of(headline);
     return this;
   }
 
@@ -155,23 +175,31 @@ public class InlineResponse2001Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Headline of the news article represented as text with HTML entity encoding but without HTML tags.")
-  @JsonProperty(JSON_PROPERTY_HEADLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getHeadline() {
-    return headline;
+        return headline.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_HEADLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeadline(String headline) {
+
+  public JsonNullable<String> getHeadline_JsonNullable() {
+    return headline;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HEADLINE)
+  public void setHeadline_JsonNullable(JsonNullable<String> headline) {
     this.headline = headline;
+  }
+
+  public void setHeadline(String headline) {
+    this.headline = JsonNullable.<String>of(headline);
   }
 
 
   public InlineResponse2001Data summary(String summary) {
-    this.summary = summary;
+    this.summary = JsonNullable.<String>of(summary);
     return this;
   }
 
@@ -181,18 +209,26 @@ public class InlineResponse2001Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.")
-  @JsonProperty(JSON_PROPERTY_SUMMARY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSummary() {
-    return summary;
+        return summary.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSummary(String summary) {
+
+  public JsonNullable<String> getSummary_JsonNullable() {
+    return summary;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SUMMARY)
+  public void setSummary_JsonNullable(JsonNullable<String> summary) {
     this.summary = summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = JsonNullable.<String>of(summary);
   }
 
 
@@ -414,10 +450,10 @@ public class InlineResponse2001Data implements Serializable {
       return false;
     }
     InlineResponse2001Data inlineResponse2001Data = (InlineResponse2001Data) o;
-    return Objects.equals(this.code, inlineResponse2001Data.code) &&
-        Objects.equals(this.time, inlineResponse2001Data.time) &&
-        Objects.equals(this.headline, inlineResponse2001Data.headline) &&
-        Objects.equals(this.summary, inlineResponse2001Data.summary) &&
+    return equalsNullable(this.code, inlineResponse2001Data.code) &&
+        equalsNullable(this.time, inlineResponse2001Data.time) &&
+        equalsNullable(this.headline, inlineResponse2001Data.headline) &&
+        equalsNullable(this.summary, inlineResponse2001Data.summary) &&
         Objects.equals(this.types, inlineResponse2001Data.types) &&
         Objects.equals(this.language, inlineResponse2001Data.language) &&
         Objects.equals(this.distributor, inlineResponse2001Data.distributor) &&
@@ -427,9 +463,20 @@ public class InlineResponse2001Data implements Serializable {
         Objects.equals(this.instruments, inlineResponse2001Data.instruments);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(code, time, headline, summary, types, language, distributor, publisher, categories, chain, instruments);
+    return Objects.hash(hashCodeNullable(code), hashCodeNullable(time), hashCodeNullable(headline), hashCodeNullable(summary), types, language, distributor, publisher, categories, chain, instruments);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

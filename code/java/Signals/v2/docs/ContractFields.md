@@ -8,7 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **summary** | [**ContractFieldsSummary**](ContractFieldsSummary.md) |  | 
-**eventDate** | [**ContractFieldsEventDate**](ContractFieldsEventDate.md) |  | 
+**eventDate** | [**ContractFieldsSummary**](ContractFieldsSummary.md) |  | 
 **additionalProperties** | [**ContractProperty**](ContractProperty.md) |  |  [optional]
 
 

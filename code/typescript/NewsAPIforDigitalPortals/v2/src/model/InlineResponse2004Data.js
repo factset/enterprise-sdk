@@ -1,6 +1,6 @@
 /**
  * News API For Digital Portals
- * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with quotes, time series, watchlists, and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the Quotes API for Digital Portals for access to detailed price and performance information, plus basic support for security identifier cross-reference.
+ * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with [quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals), [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals), [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals), and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price and performance information, plus basic support for security identifier cross-reference. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2001Data from './InlineResponse2001Data';
+import InlineResponse2004DataIdentifiers from './InlineResponse2004DataIdentifiers';
 
 /**
  * The InlineResponse2004Data model module.
@@ -20,6 +22,7 @@ import ApiClient from '../ApiClient';
 class InlineResponse2004Data {
     /**
      * Constructs a new <code>InlineResponse2004Data</code>.
+     * News articles for instruments.
      * @alias module:model/InlineResponse2004Data
      */
     constructor() { 
@@ -46,11 +49,11 @@ class InlineResponse2004Data {
         if (data) {
             obj = obj || new InlineResponse2004Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('identifiers')) {
+                obj['identifiers'] = ApiClient.convertToType(data['identifiers'], [InlineResponse2004DataIdentifiers]);
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('articles')) {
+                obj['articles'] = ApiClient.convertToType(data['articles'], [InlineResponse2001Data]);
             }
         }
         return obj;
@@ -60,16 +63,16 @@ class InlineResponse2004Data {
 }
 
 /**
- * Identifier of the news article type.
- * @member {Number} id
+ * List of identifiers.
+ * @member {Array.<module:model/InlineResponse2004DataIdentifiers>} identifiers
  */
-InlineResponse2004Data.prototype['id'] = undefined;
+InlineResponse2004Data.prototype['identifiers'] = undefined;
 
 /**
- * Name of the news article type.
- * @member {String} name
+ * News articles that match the filter criteria ordered by descending article time.
+ * @member {Array.<module:model/InlineResponse2001Data>} articles
  */
-InlineResponse2004Data.prototype['name'] = undefined;
+InlineResponse2004Data.prototype['articles'] = undefined;
 
 
 

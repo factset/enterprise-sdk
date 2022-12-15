@@ -1,12 +1,17 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.InlineResponse20078Data
+EOD key figures.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Suspended** | **bool** | Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute &#x60;market.isOpen&#x60;. | [optional] 
-**TradingStatus** | **string** | Market-specific code of the trading status and/or the suspension of the notation. | [optional] 
-**Market** | [**InlineResponse20078DataMarket**](InlineResponse20078DataMarket.md) |  | [optional] 
+**IdNotation** | **string** | MDG identifier of the listing. | [optional] 
+**SourceIdentifier** | **string** | Identifier used in the request. | [optional] 
+**ReferenceDate** | **DateTime?** | Reference date of the time range. | [optional] 
+**Performance** | [**InlineResponse20074DataPerformance**](InlineResponse20074DataPerformance.md) |  | [optional] 
+**High** | [**InlineResponse20074DataHigh**](InlineResponse20074DataHigh.md) |  | [optional] 
+**Low** | [**InlineResponse20074DataLow**](InlineResponse20074DataLow.md) |  | [optional] 
+**Volatility** | **decimal?** | Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

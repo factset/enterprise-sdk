@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.Signals",
-  "packageVersion": "0.21.1",
+  "packageVersion": "0.21.2",
   "packageGuid": "{eeaa5466-aede-5e6e-b463-2791301c75e8}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/Signals/0.21.1",
+  "httpUserAgent": "fds-sdk/dotnet/Signals/0.21.2",
   "files": {
     "LICENSE": {}
   },

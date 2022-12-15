@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -13,13 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import InlineObject10 from '../model/InlineObject10';
-import InlineObject11 from '../model/InlineObject11';
-import InlineObject12 from '../model/InlineObject12';
-import InlineObject13 from '../model/InlineObject13';
-import InlineObject14 from '../model/InlineObject14';
-import InlineObject15 from '../model/InlineObject15';
-import InlineObject9 from '../model/InlineObject9';
 import InlineResponse20042 from '../model/InlineResponse20042';
 import InlineResponse20043 from '../model/InlineResponse20043';
 import InlineResponse20044 from '../model/InlineResponse20044';
@@ -42,7 +35,16 @@ import InlineResponse20060 from '../model/InlineResponse20060';
 import InlineResponse20061 from '../model/InlineResponse20061';
 import InlineResponse20062 from '../model/InlineResponse20062';
 import InlineResponse20063 from '../model/InlineResponse20063';
-import InlineResponse20087 from '../model/InlineResponse20087';
+import InlineResponse20064 from '../model/InlineResponse20064';
+import InlineResponse20090 from '../model/InlineResponse20090';
+import PostInstrumentBackgroundTextTypeListRequest from '../model/PostInstrumentBackgroundTextTypeListRequest';
+import PostInstrumentBenchmarkListRequest from '../model/PostInstrumentBenchmarkListRequest';
+import PostInstrumentCategoryListRequest from '../model/PostInstrumentCategoryListRequest';
+import PostInstrumentCompliancePropertyListRequest from '../model/PostInstrumentCompliancePropertyListRequest';
+import PostInstrumentCrossReferenceListByISINRequest from '../model/PostInstrumentCrossReferenceListByISINRequest';
+import PostInstrumentCrossReferenceListByWKNRequest from '../model/PostInstrumentCrossReferenceListByWKNRequest';
+import PostInstrumentNotationListRequest from '../model/PostInstrumentNotationListRequest';
+import PostInstrumentRatingGradeListRequest from '../model/PostInstrumentRatingGradeListRequest';
 
 /**
 * Instrument service.
@@ -66,10 +68,10 @@ export default class InstrumentApi {
     /**
      * Background texts of an instrument.
      * Background texts of an instrument.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20044} and HTTP response
      */
     getInstrumentBackgroundTextListByInstrumentWithHttpInfo(id, opts) {
@@ -109,10 +111,10 @@ export default class InstrumentApi {
     /**
      * Background texts of an instrument.
      * Background texts of an instrument.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20044 > } a Promise, with data of type {@link module:model/InlineResponse20044 }
      */
     getInstrumentBackgroundTextListByInstrument(id, opts) {
@@ -126,10 +128,10 @@ export default class InstrumentApi {
     /**
      * Compliance properties of an instrument.
      * Compliance properties of an instrument.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20049} and HTTP response
      */
     getInstrumentCompliancePropertyListByInstrumentWithHttpInfo(id, opts) {
@@ -169,10 +171,10 @@ export default class InstrumentApi {
     /**
      * Compliance properties of an instrument.
      * Compliance properties of an instrument.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20049 > } a Promise, with data of type {@link module:model/InlineResponse20049 }
      */
     getInstrumentCompliancePropertyListByInstrument(id, opts) {
@@ -186,10 +188,10 @@ export default class InstrumentApi {
     /**
      * Composite instrument and its components.
      * Composite instrument and its components.
-     * @param {String} id Identifier of a composite instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20050} and HTTP response
      */
     getInstrumentCompositeGetWithHttpInfo(id, opts) {
@@ -229,10 +231,10 @@ export default class InstrumentApi {
     /**
      * Composite instrument and its components.
      * Composite instrument and its components.
-     * @param {String} id Identifier of a composite instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20050 > } a Promise, with data of type {@link module:model/InlineResponse20050 }
      */
     getInstrumentCompositeGet(id, opts) {
@@ -248,7 +250,7 @@ export default class InstrumentApi {
      * List of day count convention types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20052} and HTTP response
      */
     getInstrumentCouponDayCountConventionTypeListWithHttpInfo(opts) {
@@ -285,7 +287,7 @@ export default class InstrumentApi {
      * List of day count convention types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20052 > } a Promise, with data of type {@link module:model/InlineResponse20052 }
      */
     getInstrumentCouponDayCountConventionTypeList(opts) {
@@ -301,7 +303,7 @@ export default class InstrumentApi {
      * List of interest rate types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20053} and HTTP response
      */
     getInstrumentCouponInterestRateTypeListWithHttpInfo(opts) {
@@ -338,7 +340,7 @@ export default class InstrumentApi {
      * List of interest rate types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20053 > } a Promise, with data of type {@link module:model/InlineResponse20053 }
      */
     getInstrumentCouponInterestRateTypeList(opts) {
@@ -352,10 +354,10 @@ export default class InstrumentApi {
     /**
      * Interest rate details for selected periods of an interest-bearing instrument.
      * Interest rate details for selected periods of an interest-bearing instrument; any other instrument yields empty values.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20054} and HTTP response
      */
     getInstrumentCouponKeyDataGetWithHttpInfo(id, opts) {
@@ -395,10 +397,10 @@ export default class InstrumentApi {
     /**
      * Interest rate details for selected periods of an interest-bearing instrument.
      * Interest rate details for selected periods of an interest-bearing instrument; any other instrument yields empty values.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20054 > } a Promise, with data of type {@link module:model/InlineResponse20054 }
      */
     getInstrumentCouponKeyDataGet(id, opts) {
@@ -412,10 +414,10 @@ export default class InstrumentApi {
     /**
      * List of coupons for an interest-bearing instrument.
      * List of coupons for an interest-bearing instrument; any other instrument yields empty values. The endpoint provides details regarding the coupon period, the respective interest rate, and payable amount (the latter only for instruments with a fixed nominal value). The list of coupons is generally not available for a perpetual, i.e. without a predefined maturity date, interst-bearing instrument.   If there is no entitled provider supplying a full list of coupons, the list will be synthesized from summary data available from entitled suppliers (if any). Since the exact product terms are not known, e.g. the handling of holidays and weekends, the list may be imprecise.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20051} and HTTP response
      */
     getInstrumentCouponListWithHttpInfo(id, opts) {
@@ -455,10 +457,10 @@ export default class InstrumentApi {
     /**
      * List of coupons for an interest-bearing instrument.
      * List of coupons for an interest-bearing instrument; any other instrument yields empty values. The endpoint provides details regarding the coupon period, the respective interest rate, and payable amount (the latter only for instruments with a fixed nominal value). The list of coupons is generally not available for a perpetual, i.e. without a predefined maturity date, interst-bearing instrument.   If there is no entitled provider supplying a full list of coupons, the list will be synthesized from summary data available from entitled suppliers (if any). Since the exact product terms are not known, e.g. the handling of holidays and weekends, the list may be imprecise.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20051 > } a Promise, with data of type {@link module:model/InlineResponse20051 }
      */
     getInstrumentCouponList(id, opts) {
@@ -472,7 +474,7 @@ export default class InstrumentApi {
     /**
      * Translate ISIN to instrument.
      * Translate a given ISIN to the respective most recent instrument identifier, retrieved from the Cross Reference Service.
-     * @param {String} isin Source ISIN to be translated.
+     * @param {String} isin 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20055} and HTTP response
@@ -513,7 +515,7 @@ export default class InstrumentApi {
     /**
      * Translate ISIN to instrument.
      * Translate a given ISIN to the respective most recent instrument identifier, retrieved from the Cross Reference Service.
-     * @param {String} isin Source ISIN to be translated.
+     * @param {String} isin 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20055 > } a Promise, with data of type {@link module:model/InlineResponse20055 }
@@ -529,7 +531,7 @@ export default class InstrumentApi {
     /**
      * Translate WKN to instrument.
      * Translate a given WKN to the respective most recent instrument identifier, retrieved from the Cross Reference Service.
-     * @param {String} wkn Source WKN to be translated.
+     * @param {String} wkn 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20055} and HTTP response
@@ -570,7 +572,7 @@ export default class InstrumentApi {
     /**
      * Translate WKN to instrument.
      * Translate a given WKN to the respective most recent instrument identifier, retrieved from the Cross Reference Service.
-     * @param {String} wkn Source WKN to be translated.
+     * @param {String} wkn 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20055 > } a Promise, with data of type {@link module:model/InlineResponse20055 }
@@ -586,11 +588,11 @@ export default class InstrumentApi {
     /**
      * ISIN to instrument translation history.
      * Retrieve the complete translation history of a given ISIN to the respective instrument association from the Cross Reference Service. The results are sorted in descending order, starting with the most recent.
-     * @param {String} isin Source ISIN to be translated.
+     * @param {String} isin 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 10.0)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 10)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20058} and HTTP response
      */
     getInstrumentCrossReferenceHistoryGetByISINWithHttpInfo(isin, opts) {
@@ -631,11 +633,11 @@ export default class InstrumentApi {
     /**
      * ISIN to instrument translation history.
      * Retrieve the complete translation history of a given ISIN to the respective instrument association from the Cross Reference Service. The results are sorted in descending order, starting with the most recent.
-     * @param {String} isin Source ISIN to be translated.
+     * @param {String} isin 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 10.0)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 10)
      * @return { Promise.< module:model/InlineResponse20058 > } a Promise, with data of type {@link module:model/InlineResponse20058 }
      */
     getInstrumentCrossReferenceHistoryGetByISIN(isin, opts) {
@@ -649,11 +651,11 @@ export default class InstrumentApi {
     /**
      * WKN to instrument translation history.
      * Retrieve the complete translation history of a given WKN to the respective instrument association from the Cross Reference Service. The results are sorted in descending order, starting with the most recent.
-     * @param {String} wkn Source WKN to be translated.
+     * @param {String} wkn 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 10.0)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 10)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20058} and HTTP response
      */
     getInstrumentCrossReferenceHistoryGetByWKNWithHttpInfo(wkn, opts) {
@@ -694,11 +696,11 @@ export default class InstrumentApi {
     /**
      * WKN to instrument translation history.
      * Retrieve the complete translation history of a given WKN to the respective instrument association from the Cross Reference Service. The results are sorted in descending order, starting with the most recent.
-     * @param {String} wkn Source WKN to be translated.
+     * @param {String} wkn 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 10.0)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 10)
      * @return { Promise.< module:model/InlineResponse20058 > } a Promise, with data of type {@link module:model/InlineResponse20058 }
      */
     getInstrumentCrossReferenceHistoryGetByWKN(wkn, opts) {
@@ -712,11 +714,11 @@ export default class InstrumentApi {
     /**
      * Retrieve an exchange rate instrument identifier.
      * Retrieve an exchange rate instrument identifier using the identifier of the main currencies represented by that exchange rate.    An error is returned if one of the provided parameters is invalid or if no instrument is associated with the given combination of parameters.
-     * @param {Number} target Identifier of the target main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
-     * @param {Number} source Identifier of the source main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
+     * @param {Number} target 
+     * @param {Number} source 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20059} and HTTP response
      */
     getInstrumentExchangeRateGetWithHttpInfo(target, source, opts) {
@@ -761,11 +763,11 @@ export default class InstrumentApi {
     /**
      * Retrieve an exchange rate instrument identifier.
      * Retrieve an exchange rate instrument identifier using the identifier of the main currencies represented by that exchange rate.    An error is returned if one of the provided parameters is invalid or if no instrument is associated with the given combination of parameters.
-     * @param {Number} target Identifier of the target main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
-     * @param {Number} source Identifier of the source main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
+     * @param {Number} target 
+     * @param {Number} source 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20059 > } a Promise, with data of type {@link module:model/InlineResponse20059 }
      */
     getInstrumentExchangeRateGet(target, source, opts) {
@@ -779,11 +781,11 @@ export default class InstrumentApi {
     /**
      * Retrieve an exchange rate instrument identifier.
      * Retrieve an exchange rate instrument identifier using the ISO 4217 code of the main currencies represented by that exchange rate.   An error is returned if one of the provided parameters is invalid or if no instrument is associated with the given combination of parameters.
-     * @param {String} target ISO 4217 code of the target main currency.
-     * @param {String} source ISO 4217 code of the source main currency.
+     * @param {String} target 
+     * @param {String} source 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20059} and HTTP response
      */
     getInstrumentExchangeRateGetByISOCodeWithHttpInfo(target, source, opts) {
@@ -828,11 +830,11 @@ export default class InstrumentApi {
     /**
      * Retrieve an exchange rate instrument identifier.
      * Retrieve an exchange rate instrument identifier using the ISO 4217 code of the main currencies represented by that exchange rate.   An error is returned if one of the provided parameters is invalid or if no instrument is associated with the given combination of parameters.
-     * @param {String} target ISO 4217 code of the target main currency.
-     * @param {String} source ISO 4217 code of the source main currency.
+     * @param {String} target 
+     * @param {String} source 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20059 > } a Promise, with data of type {@link module:model/InlineResponse20059 }
      */
     getInstrumentExchangeRateGetByISOCode(target, source, opts) {
@@ -846,10 +848,10 @@ export default class InstrumentApi {
     /**
      * Basic data for an instrument.
      * Basic data for an instrument.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20042} and HTTP response
      */
     getInstrumentGetWithHttpInfo(id, opts) {
@@ -889,10 +891,10 @@ export default class InstrumentApi {
     /**
      * Basic data for an instrument.
      * Basic data for an instrument.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20042 > } a Promise, with data of type {@link module:model/InlineResponse20042 }
      */
     getInstrumentGet(id, opts) {
@@ -906,10 +908,10 @@ export default class InstrumentApi {
     /**
      * Basic data for an instrument.
      * Basic data for an instrument.
-     * @param {String} id Identifier of a notation.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20043} and HTTP response
      */
     getInstrumentGetByNotationWithHttpInfo(id, opts) {
@@ -949,10 +951,10 @@ export default class InstrumentApi {
     /**
      * Basic data for an instrument.
      * Basic data for an instrument.
-     * @param {String} id Identifier of a notation.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20043 > } a Promise, with data of type {@link module:model/InlineResponse20043 }
      */
     getInstrumentGetByNotation(id, opts) {
@@ -966,10 +968,10 @@ export default class InstrumentApi {
     /**
      * Role-specific background texts of legal entities related to an instrument.
      * Role-specific background texts of legal entities related to an instrument.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20060} and HTTP response
      */
     getInstrumentLegalEntityBackgroundTextListByInstrumentWithHttpInfo(id, opts) {
@@ -1009,10 +1011,10 @@ export default class InstrumentApi {
     /**
      * Role-specific background texts of legal entities related to an instrument.
      * Role-specific background texts of legal entities related to an instrument.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20060 > } a Promise, with data of type {@link module:model/InlineResponse20060 }
      */
     getInstrumentLegalEntityBackgroundTextListByInstrument(id, opts) {
@@ -1026,10 +1028,10 @@ export default class InstrumentApi {
     /**
      * Role-specific compliance properties of legal entities related to an instrument.
      * Role-specic compliance properties of legal entities related to an instrument.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20061} and HTTP response
      */
     getInstrumentLegalEntityCompliancePropertyListByInstrumentWithHttpInfo(id, opts) {
@@ -1069,10 +1071,10 @@ export default class InstrumentApi {
     /**
      * Role-specific compliance properties of legal entities related to an instrument.
      * Role-specic compliance properties of legal entities related to an instrument.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20061 > } a Promise, with data of type {@link module:model/InlineResponse20061 }
      */
     getInstrumentLegalEntityCompliancePropertyListByInstrument(id, opts) {
@@ -1086,10 +1088,10 @@ export default class InstrumentApi {
     /**
      * MiFID II data for a financial instrument.
      * MiFID II data for a specified financial instrument. The instruments governed by MiFID II are called \"investment products\".
-     * @param {String} id Identifier of the instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20062} and HTTP response
      */
     getInstrumentMifidGetWithHttpInfo(id, opts) {
@@ -1129,10 +1131,10 @@ export default class InstrumentApi {
     /**
      * MiFID II data for a financial instrument.
      * MiFID II data for a specified financial instrument. The instruments governed by MiFID II are called \"investment products\".
-     * @param {String} id Identifier of the instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20062 > } a Promise, with data of type {@link module:model/InlineResponse20062 }
      */
     getInstrumentMifidGet(id, opts) {
@@ -1146,16 +1148,16 @@ export default class InstrumentApi {
     /**
      * Basic search for instruments.
      * Search for instruments whose ISIN, specified NSINs, or name match the search value according to a tolerant full-text match algorithm. Better matching results appear in the response before less relevant matches.
-     * @param {String} searchValue The search value of the instruments searching for. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+     * @param {String} searchValue 
      * @param {Object} opts Optional parameters
-     * @param {Array.<module:model/String>} opts.nsins A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-     * @param {module:model/String} opts.assetClass A parameter to limit the output to a particular asset class.
-     * @param {Boolean} opts.onlyActive If true, restricts the result to active instruments. (default to true)
+     * @param {Array.<module:model/String>} opts.nsins 
+     * @param {module:model/String} opts.assetClass 
+     * @param {Boolean} opts.onlyActive  (default to true)
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20087} and HTTP response
+     * @param {String} opts.language 
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20090} and HTTP response
      */
     getInstrumentSearchBasicWithHttpInfo(searchValue, opts) {
       opts = opts || {};
@@ -1187,7 +1189,7 @@ export default class InstrumentApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20087;
+      let returnType = InlineResponse20090;
 
       return this.apiClient.callApi(
         '/instrument/search/basic', 'GET',
@@ -1199,16 +1201,16 @@ export default class InstrumentApi {
     /**
      * Basic search for instruments.
      * Search for instruments whose ISIN, specified NSINs, or name match the search value according to a tolerant full-text match algorithm. Better matching results appear in the response before less relevant matches.
-     * @param {String} searchValue The search value of the instruments searching for. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+     * @param {String} searchValue 
      * @param {Object} opts Optional parameters
-     * @param {Array.<module:model/String>} opts.nsins A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-     * @param {module:model/String} opts.assetClass A parameter to limit the output to a particular asset class.
-     * @param {Boolean} opts.onlyActive If true, restricts the result to active instruments. (default to true)
+     * @param {Array.<module:model/String>} opts.nsins 
+     * @param {module:model/String} opts.assetClass 
+     * @param {Boolean} opts.onlyActive  (default to true)
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return { Promise.< module:model/InlineResponse20087 > } a Promise, with data of type {@link module:model/InlineResponse20087 }
+     * @param {String} opts.language 
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
+     * @return { Promise.< module:model/InlineResponse20090 > } a Promise, with data of type {@link module:model/InlineResponse20090 }
      */
     getInstrumentSearchBasic(searchValue, opts) {
       return this.getInstrumentSearchBasicWithHttpInfo(searchValue, opts)
@@ -1222,12 +1224,12 @@ export default class InstrumentApi {
      * List of background text types for instruments.
      * List of background text types for instruments.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject9} opts.body 
+     * @param {module:model/PostInstrumentBackgroundTextTypeListRequest} opts.postInstrumentBackgroundTextTypeListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20045} and HTTP response
      */
     postInstrumentBackgroundTextTypeListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postInstrumentBackgroundTextTypeListRequest'];
 
       let pathParams = {
       };
@@ -1256,7 +1258,7 @@ export default class InstrumentApi {
      * List of background text types for instruments.
      * List of background text types for instruments.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject9} opts.body 
+     * @param {module:model/PostInstrumentBackgroundTextTypeListRequest} opts.postInstrumentBackgroundTextTypeListRequest 
      * @return { Promise.< module:model/InlineResponse20045 > } a Promise, with data of type {@link module:model/InlineResponse20045 }
      */
     postInstrumentBackgroundTextTypeList(opts) {
@@ -1271,12 +1273,12 @@ export default class InstrumentApi {
      * List of benchmarks of a financial instrument.
      * Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject10} opts.body 
+     * @param {module:model/PostInstrumentBenchmarkListRequest} opts.postInstrumentBenchmarkListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20046} and HTTP response
      */
     postInstrumentBenchmarkListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postInstrumentBenchmarkListRequest'];
 
       let pathParams = {
       };
@@ -1305,7 +1307,7 @@ export default class InstrumentApi {
      * List of benchmarks of a financial instrument.
      * Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject10} opts.body 
+     * @param {module:model/PostInstrumentBenchmarkListRequest} opts.postInstrumentBenchmarkListRequest 
      * @return { Promise.< module:model/InlineResponse20046 > } a Promise, with data of type {@link module:model/InlineResponse20046 }
      */
     postInstrumentBenchmarkList(opts) {
@@ -1320,12 +1322,12 @@ export default class InstrumentApi {
      * List of categories assigned to a specific instrument the application is entitled to see.
      * List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject11} opts.body 
+     * @param {module:model/PostInstrumentCategoryListRequest} opts.postInstrumentCategoryListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20047} and HTTP response
      */
     postInstrumentCategoryListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postInstrumentCategoryListRequest'];
 
       let pathParams = {
       };
@@ -1354,7 +1356,7 @@ export default class InstrumentApi {
      * List of categories assigned to a specific instrument the application is entitled to see.
      * List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject11} opts.body 
+     * @param {module:model/PostInstrumentCategoryListRequest} opts.postInstrumentCategoryListRequest 
      * @return { Promise.< module:model/InlineResponse20047 > } a Promise, with data of type {@link module:model/InlineResponse20047 }
      */
     postInstrumentCategoryList(opts) {
@@ -1369,12 +1371,12 @@ export default class InstrumentApi {
      * List of compliance properties for instruments.
      * List of compliance properties for instruments.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject12} opts.body 
+     * @param {module:model/PostInstrumentCompliancePropertyListRequest} opts.postInstrumentCompliancePropertyListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20048} and HTTP response
      */
     postInstrumentCompliancePropertyListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postInstrumentCompliancePropertyListRequest'];
 
       let pathParams = {
       };
@@ -1403,7 +1405,7 @@ export default class InstrumentApi {
      * List of compliance properties for instruments.
      * List of compliance properties for instruments.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject12} opts.body 
+     * @param {module:model/PostInstrumentCompliancePropertyListRequest} opts.postInstrumentCompliancePropertyListRequest 
      * @return { Promise.< module:model/InlineResponse20048 > } a Promise, with data of type {@link module:model/InlineResponse20048 }
      */
     postInstrumentCompliancePropertyList(opts) {
@@ -1417,15 +1419,13 @@ export default class InstrumentApi {
     /**
      * Translate a list of ISINs to instruments.
      * Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
-     * @param {module:model/InlineObject13} body 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostInstrumentCrossReferenceListByISINRequest} opts.postInstrumentCrossReferenceListByISINRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20056} and HTTP response
      */
-    postInstrumentCrossReferenceListByISINWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postInstrumentCrossReferenceListByISIN");
-      }
+    postInstrumentCrossReferenceListByISINWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postInstrumentCrossReferenceListByISINRequest'];
 
       let pathParams = {
       };
@@ -1453,11 +1453,12 @@ export default class InstrumentApi {
     /**
      * Translate a list of ISINs to instruments.
      * Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
-     * @param {module:model/InlineObject13} body 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostInstrumentCrossReferenceListByISINRequest} opts.postInstrumentCrossReferenceListByISINRequest 
      * @return { Promise.< module:model/InlineResponse20056 > } a Promise, with data of type {@link module:model/InlineResponse20056 }
      */
-    postInstrumentCrossReferenceListByISIN(body) {
-      return this.postInstrumentCrossReferenceListByISINWithHttpInfo(body)
+    postInstrumentCrossReferenceListByISIN(opts) {
+      return this.postInstrumentCrossReferenceListByISINWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1467,15 +1468,13 @@ export default class InstrumentApi {
     /**
      * Translate a list of WKNs to instruments.
      * Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
-     * @param {module:model/InlineObject14} body 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostInstrumentCrossReferenceListByWKNRequest} opts.postInstrumentCrossReferenceListByWKNRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20057} and HTTP response
      */
-    postInstrumentCrossReferenceListByWKNWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postInstrumentCrossReferenceListByWKN");
-      }
+    postInstrumentCrossReferenceListByWKNWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postInstrumentCrossReferenceListByWKNRequest'];
 
       let pathParams = {
       };
@@ -1503,11 +1502,12 @@ export default class InstrumentApi {
     /**
      * Translate a list of WKNs to instruments.
      * Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
-     * @param {module:model/InlineObject14} body 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostInstrumentCrossReferenceListByWKNRequest} opts.postInstrumentCrossReferenceListByWKNRequest 
      * @return { Promise.< module:model/InlineResponse20057 > } a Promise, with data of type {@link module:model/InlineResponse20057 }
      */
-    postInstrumentCrossReferenceListByWKN(body) {
-      return this.postInstrumentCrossReferenceListByWKNWithHttpInfo(body)
+    postInstrumentCrossReferenceListByWKN(opts) {
+      return this.postInstrumentCrossReferenceListByWKNWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1515,15 +1515,15 @@ export default class InstrumentApi {
 
 
     /**
-     * List of rating grades for a list of instruments.
-     * List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
+     * List of active, entitled notations for a set of instruments.
+     * List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject15} opts.body 
+     * @param {module:model/PostInstrumentNotationListRequest} opts.postInstrumentNotationListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20063} and HTTP response
      */
-    postInstrumentRatingGradeListWithHttpInfo(opts) {
+    postInstrumentNotationListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postInstrumentNotationListRequest'];
 
       let pathParams = {
       };
@@ -1542,6 +1542,55 @@ export default class InstrumentApi {
       let returnType = InlineResponse20063;
 
       return this.apiClient.callApi(
+        '/instrument/notation/list', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List of active, entitled notations for a set of instruments.
+     * List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostInstrumentNotationListRequest} opts.postInstrumentNotationListRequest 
+     * @return { Promise.< module:model/InlineResponse20063 > } a Promise, with data of type {@link module:model/InlineResponse20063 }
+     */
+    postInstrumentNotationList(opts) {
+      return this.postInstrumentNotationListWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List of rating grades for a list of instruments.
+     * List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostInstrumentRatingGradeListRequest} opts.postInstrumentRatingGradeListRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20064} and HTTP response
+     */
+    postInstrumentRatingGradeListWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postInstrumentRatingGradeListRequest'];
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20064;
+
+      return this.apiClient.callApi(
         '/instrument/rating/grade/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
@@ -1552,8 +1601,8 @@ export default class InstrumentApi {
      * List of rating grades for a list of instruments.
      * List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject15} opts.body 
-     * @return { Promise.< module:model/InlineResponse20063 > } a Promise, with data of type {@link module:model/InlineResponse20063 }
+     * @param {module:model/PostInstrumentRatingGradeListRequest} opts.postInstrumentRatingGradeListRequest 
+     * @return { Promise.< module:model/InlineResponse20064 > } a Promise, with data of type {@link module:model/InlineResponse20064 }
      */
     postInstrumentRatingGradeList(opts) {
       return this.postInstrumentRatingGradeListWithHttpInfo(opts)

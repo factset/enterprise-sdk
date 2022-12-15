@@ -1,12 +1,18 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.InlineResponse20085Data
-List of trading schedule events for a notation.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Range** | [**InlineResponse20085DataRange**](InlineResponse20085DataRange.md) |  | [optional] 
-**Events** | [**List&lt;InlineResponse20085DataEvents&gt;**](InlineResponse20085DataEvents.md) | List of trading schedule events. | [optional] 
+**IdNotation** | **string** | MDG identifier of the listing. | [optional] 
+**SourceIdentifier** | **string** | Identifier used in the request. | [optional] 
+**ValueUnit** | [**InlineResponse20082DataValueUnit**](InlineResponse20082DataValueUnit.md) |  | [optional] 
+**Currency** | [**InlineResponse20082DataCurrency**](InlineResponse20082DataCurrency.md) |  | [optional] 
+**Market** | [**InlineResponse20083Market**](InlineResponse20083Market.md) |  | [optional] 
+**Quality** | **string** | Quality of the price. | [optional] 
+**Bid** | [**InlineResponse20085Bid**](InlineResponse20085Bid.md) |  | [optional] 
+**Ask** | [**InlineResponse20085Ask**](InlineResponse20085Ask.md) |  | [optional] 
+**Status** | [**InlineResponse20083Status**](InlineResponse20083Status.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

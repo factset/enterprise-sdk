@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Identifier of the instrument. | [optional] 
+**id** | **str, none_type** | Identifier of the instrument. | [optional] 
 **fsym** | [**InlineResponse20036Fsym**](InlineResponse20036Fsym.md) |  | [optional] 
 **validity** | [**InlineResponse20055DataValidity**](InlineResponse20055DataValidity.md) |  | [optional] 
-**source_isin** | **str** | The source ISIN that the instrument is translated for. | [optional] 
+**source_isin** | **str, none_type** | The source ISIN that the instrument is translated for. | [optional] 
 **status** | [**InlineResponse20056Status**](InlineResponse20056Status.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

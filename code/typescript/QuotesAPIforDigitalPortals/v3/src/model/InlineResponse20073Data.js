@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,11 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20072DataHigh from './InlineResponse20072DataHigh';
-import InlineResponse20072DataLow from './InlineResponse20072DataLow';
-import InlineResponse20072DataPerformance from './InlineResponse20072DataPerformance';
-import InlineResponse20072DataTradingVolume from './InlineResponse20072DataTradingVolume';
-import InlineResponse20073Status from './InlineResponse20073Status';
+import InlineResponse20072DataRegional from './InlineResponse20072DataRegional';
 
 /**
  * The InlineResponse20073Data model module.
@@ -25,6 +21,7 @@ import InlineResponse20073Status from './InlineResponse20073Status';
 class InlineResponse20073Data {
     /**
      * Constructs a new <code>InlineResponse20073Data</code>.
+     * Instrument data with a list of regional-level data and assigned listing-level data.
      * @alias module:model/InlineResponse20073Data
      */
     constructor() { 
@@ -51,35 +48,17 @@ class InlineResponse20073Data {
         if (data) {
             obj = obj || new InlineResponse20073Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('idInstrument')) {
+                obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
             }
-            if (data.hasOwnProperty('referenceDate')) {
-                obj['referenceDate'] = ApiClient.convertToType(data['referenceDate'], 'Date');
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('performance')) {
-                obj['performance'] = InlineResponse20072DataPerformance.constructFromObject(data['performance']);
+            if (data.hasOwnProperty('permanentIdentifier')) {
+                obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('high')) {
-                obj['high'] = InlineResponse20072DataHigh.constructFromObject(data['high']);
-            }
-            if (data.hasOwnProperty('low')) {
-                obj['low'] = InlineResponse20072DataLow.constructFromObject(data['low']);
-            }
-            if (data.hasOwnProperty('averagePrice')) {
-                obj['averagePrice'] = ApiClient.convertToType(data['averagePrice'], 'Number');
-            }
-            if (data.hasOwnProperty('tradingVolume')) {
-                obj['tradingVolume'] = InlineResponse20072DataTradingVolume.constructFromObject(data['tradingVolume']);
-            }
-            if (data.hasOwnProperty('tradingValue')) {
-                obj['tradingValue'] = ApiClient.convertToType(data['tradingValue'], 'Number');
-            }
-            if (data.hasOwnProperty('volatility')) {
-                obj['volatility'] = ApiClient.convertToType(data['volatility'], 'Number');
-            }
-            if (data.hasOwnProperty('status')) {
-                obj['status'] = InlineResponse20073Status.constructFromObject(data['status']);
+            if (data.hasOwnProperty('regional')) {
+                obj['regional'] = ApiClient.convertToType(data['regional'], [InlineResponse20072DataRegional]);
             }
         }
         return obj;
@@ -89,59 +68,28 @@ class InlineResponse20073Data {
 }
 
 /**
- * Identifier of the notation.
- * @member {String} id
+ * MDG identifier of the instrument.
+ * @member {String} idInstrument
  */
-InlineResponse20073Data.prototype['id'] = undefined;
+InlineResponse20073Data.prototype['idInstrument'] = undefined;
 
 /**
- * Reference date of the time range.
- * @member {Date} referenceDate
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
  */
-InlineResponse20073Data.prototype['referenceDate'] = undefined;
+InlineResponse20073Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20072DataPerformance} performance
+ * FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
+ * @member {String} permanentIdentifier
  */
-InlineResponse20073Data.prototype['performance'] = undefined;
+InlineResponse20073Data.prototype['permanentIdentifier'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20072DataHigh} high
+ * Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.
+ * @member {Array.<module:model/InlineResponse20072DataRegional>} regional
  */
-InlineResponse20073Data.prototype['high'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20072DataLow} low
- */
-InlineResponse20073Data.prototype['low'] = undefined;
-
-/**
- * Arithmetic mean of the notation's EOD closing prices for the given time range.
- * @member {Number} averagePrice
- */
-InlineResponse20073Data.prototype['averagePrice'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20072DataTradingVolume} tradingVolume
- */
-InlineResponse20073Data.prototype['tradingVolume'] = undefined;
-
-/**
- * Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price.
- * @member {Number} tradingValue
- */
-InlineResponse20073Data.prototype['tradingValue'] = undefined;
-
-/**
- * Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
- * @member {Number} volatility
- */
-InlineResponse20073Data.prototype['volatility'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20073Status} status
- */
-InlineResponse20073Data.prototype['status'] = undefined;
+InlineResponse20073Data.prototype['regional'] = undefined;
 
 
 

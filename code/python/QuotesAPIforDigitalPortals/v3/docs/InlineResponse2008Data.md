@@ -5,9 +5,9 @@ Details of a market
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | Name of the market. | [optional] 
-**short_name** | **str** | Short name of the market. | [optional] 
-**active** | **bool** | Indicates whether the market exists. | [optional] 
+**name** | **str, none_type** | Name of the market. | [optional] 
+**short_name** | **str, none_type** | Short name of the market. | [optional] 
+**active** | **bool, none_type** | Indicates whether the market exists. | [optional] 
 **country** | [**InlineResponse2008DataCountry**](InlineResponse2008DataCountry.md) |  | [optional] 
 **type** | [**InlineResponse2008DataType**](InlineResponse2008DataType.md) |  | [optional] 
 **group** | [**InlineResponse2008DataGroup**](InlineResponse2008DataGroup.md) |  | [optional] 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of the market group. | [optional] 
+**Id** | **decimal?** | Identifier of the market group. | [optional] 
 **Name** | **string** | Name of the market group. | [optional] 
 **ShortName** | **string** | Short name of the market group. | [optional] 
 

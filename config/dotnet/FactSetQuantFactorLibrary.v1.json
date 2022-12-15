@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetQuantFactorLibrary",
-  "packageVersion": "1.0.0",
+  "packageVersion": "1.0.1",
   "packageGuid": "{529e07ba-4e38-5a42-84c7-0378f46f00a4}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetQuantFactorLibrary/1.0.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetQuantFactorLibrary/1.0.1",
   "files": {
     "LICENSE": {}
   },

@@ -1,6 +1,6 @@
 /*
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,11 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Currency;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Dates;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Gross;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Occurrence;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Type;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003DataRecommendation;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003DataTargetPrice;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,200 +26,161 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse2003Data
+ * Target price and aggregated recommendations for a stock.
  */
+@ApiModel(description = "Target price and aggregated recommendations for a stock.")
 @JsonPropertyOrder({
-  InlineResponse2003Data.JSON_PROPERTY_ID,
-  InlineResponse2003Data.JSON_PROPERTY_TYPE,
-  InlineResponse2003Data.JSON_PROPERTY_OCCURRENCE,
-  InlineResponse2003Data.JSON_PROPERTY_DATES,
-  InlineResponse2003Data.JSON_PROPERTY_CURRENCY,
-  InlineResponse2003Data.JSON_PROPERTY_GROSS
+  InlineResponse2003Data.JSON_PROPERTY_ID_INSTRUMENT,
+  InlineResponse2003Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse2003Data.JSON_PROPERTY_TARGET_PRICE,
+  InlineResponse2003Data.JSON_PROPERTY_RECOMMENDATION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2003Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_ID_INSTRUMENT = "idInstrument";
+  private JsonNullable<String> idInstrument = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private InlineResponse2003Type type;
+  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
+  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_OCCURRENCE = "occurrence";
-  private InlineResponse2003Occurrence occurrence;
+  public static final String JSON_PROPERTY_TARGET_PRICE = "targetPrice";
+  private InlineResponse2003DataTargetPrice targetPrice;
 
-  public static final String JSON_PROPERTY_DATES = "dates";
-  private InlineResponse2003Dates dates;
-
-  public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private InlineResponse2003Currency currency;
-
-  public static final String JSON_PROPERTY_GROSS = "gross";
-  private InlineResponse2003Gross gross;
+  public static final String JSON_PROPERTY_RECOMMENDATION = "recommendation";
+  private InlineResponse2003DataRecommendation recommendation;
 
   public InlineResponse2003Data() { 
   }
 
-  public InlineResponse2003Data id(String id) {
-    this.id = id;
+  public InlineResponse2003Data idInstrument(String idInstrument) {
+    this.idInstrument = JsonNullable.<String>of(idInstrument);
     return this;
   }
 
    /**
-   * Identifier of a dividend.
-   * @return id
+   * MDG identifier of the instrument.
+   * @return idInstrument
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a dividend.")
-  @JsonProperty(JSON_PROPERTY_ID)
+  @ApiModelProperty(value = "MDG identifier of the instrument.")
+  @JsonIgnore
+
+  public String getIdInstrument() {
+        return idInstrument.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ID_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getId() {
-    return id;
+  public JsonNullable<String> getIdInstrument_JsonNullable() {
+    return idInstrument;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID_INSTRUMENT)
+  public void setIdInstrument_JsonNullable(JsonNullable<String> idInstrument) {
+    this.idInstrument = idInstrument;
+  }
+
+  public void setIdInstrument(String idInstrument) {
+    this.idInstrument = JsonNullable.<String>of(idInstrument);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public InlineResponse2003Data type(InlineResponse2003Type type) {
-    this.type = type;
+  public InlineResponse2003Data sourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Identifier used in the request.
+   * @return sourceIdentifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @ApiModelProperty(value = "Identifier used in the request.")
+  @JsonIgnore
+
+  public String getSourceIdentifier() {
+        return sourceIdentifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2003Type getType() {
-    return type;
+  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
+    return sourceIdentifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
+  }
+
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(InlineResponse2003Type type) {
-    this.type = type;
-  }
-
-
-  public InlineResponse2003Data occurrence(InlineResponse2003Occurrence occurrence) {
-    this.occurrence = occurrence;
+  public InlineResponse2003Data targetPrice(InlineResponse2003DataTargetPrice targetPrice) {
+    this.targetPrice = targetPrice;
     return this;
   }
 
    /**
-   * Get occurrence
-   * @return occurrence
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OCCURRENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2003Occurrence getOccurrence() {
-    return occurrence;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_OCCURRENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOccurrence(InlineResponse2003Occurrence occurrence) {
-    this.occurrence = occurrence;
-  }
-
-
-  public InlineResponse2003Data dates(InlineResponse2003Dates dates) {
-    this.dates = dates;
-    return this;
-  }
-
-   /**
-   * Get dates
-   * @return dates
+   * Get targetPrice
+   * @return targetPrice
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_DATES)
+  @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2003Dates getDates() {
-    return dates;
+  public InlineResponse2003DataTargetPrice getTargetPrice() {
+    return targetPrice;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATES)
+  @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDates(InlineResponse2003Dates dates) {
-    this.dates = dates;
+  public void setTargetPrice(InlineResponse2003DataTargetPrice targetPrice) {
+    this.targetPrice = targetPrice;
   }
 
 
-  public InlineResponse2003Data currency(InlineResponse2003Currency currency) {
-    this.currency = currency;
+  public InlineResponse2003Data recommendation(InlineResponse2003DataRecommendation recommendation) {
+    this.recommendation = recommendation;
     return this;
   }
 
    /**
-   * Get currency
-   * @return currency
+   * Get recommendation
+   * @return recommendation
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2003Currency getCurrency() {
-    return currency;
+  public InlineResponse2003DataRecommendation getRecommendation() {
+    return recommendation;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(InlineResponse2003Currency currency) {
-    this.currency = currency;
-  }
-
-
-  public InlineResponse2003Data gross(InlineResponse2003Gross gross) {
-    this.gross = gross;
-    return this;
-  }
-
-   /**
-   * Get gross
-   * @return gross
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_GROSS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2003Gross getGross() {
-    return gross;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_GROSS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGross(InlineResponse2003Gross gross) {
-    this.gross = gross;
+  public void setRecommendation(InlineResponse2003DataRecommendation recommendation) {
+    this.recommendation = recommendation;
   }
 
 
@@ -238,29 +196,36 @@ public class InlineResponse2003Data implements Serializable {
       return false;
     }
     InlineResponse2003Data inlineResponse2003Data = (InlineResponse2003Data) o;
-    return Objects.equals(this.id, inlineResponse2003Data.id) &&
-        Objects.equals(this.type, inlineResponse2003Data.type) &&
-        Objects.equals(this.occurrence, inlineResponse2003Data.occurrence) &&
-        Objects.equals(this.dates, inlineResponse2003Data.dates) &&
-        Objects.equals(this.currency, inlineResponse2003Data.currency) &&
-        Objects.equals(this.gross, inlineResponse2003Data.gross);
+    return equalsNullable(this.idInstrument, inlineResponse2003Data.idInstrument) &&
+        equalsNullable(this.sourceIdentifier, inlineResponse2003Data.sourceIdentifier) &&
+        Objects.equals(this.targetPrice, inlineResponse2003Data.targetPrice) &&
+        Objects.equals(this.recommendation, inlineResponse2003Data.recommendation);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, occurrence, dates, currency, gross);
+    return Objects.hash(hashCodeNullable(idInstrument), hashCodeNullable(sourceIdentifier), targetPrice, recommendation);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2003Data {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    occurrence: ").append(toIndentedString(occurrence)).append("\n");
-    sb.append("    dates: ").append(toIndentedString(dates)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    gross: ").append(toIndentedString(gross)).append("\n");
+    sb.append("    idInstrument: ").append(toIndentedString(idInstrument)).append("\n");
+    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    targetPrice: ").append(toIndentedString(targetPrice)).append("\n");
+    sb.append("    recommendation: ").append(toIndentedString(recommendation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

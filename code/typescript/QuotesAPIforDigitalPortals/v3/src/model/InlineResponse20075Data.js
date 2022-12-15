@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,10 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20072DataHigh from './InlineResponse20072DataHigh';
-import InlineResponse20072DataLow from './InlineResponse20072DataLow';
-import InlineResponse20072DataPerformance from './InlineResponse20072DataPerformance';
-import InlineResponse20073Status from './InlineResponse20073Status';
+import InlineResponse20074DataHigh from './InlineResponse20074DataHigh';
+import InlineResponse20074DataLow from './InlineResponse20074DataLow';
+import InlineResponse20074DataPerformance from './InlineResponse20074DataPerformance';
+import InlineResponse20075Status from './InlineResponse20075Status';
 
 /**
  * The InlineResponse20075Data model module.
@@ -50,20 +50,23 @@ class InlineResponse20075Data {
         if (data) {
             obj = obj || new InlineResponse20075Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
+            }
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
             if (data.hasOwnProperty('referenceDate')) {
                 obj['referenceDate'] = ApiClient.convertToType(data['referenceDate'], 'Date');
             }
             if (data.hasOwnProperty('performance')) {
-                obj['performance'] = InlineResponse20072DataPerformance.constructFromObject(data['performance']);
+                obj['performance'] = InlineResponse20074DataPerformance.constructFromObject(data['performance']);
             }
             if (data.hasOwnProperty('high')) {
-                obj['high'] = InlineResponse20072DataHigh.constructFromObject(data['high']);
+                obj['high'] = InlineResponse20074DataHigh.constructFromObject(data['high']);
             }
             if (data.hasOwnProperty('low')) {
-                obj['low'] = InlineResponse20072DataLow.constructFromObject(data['low']);
+                obj['low'] = InlineResponse20074DataLow.constructFromObject(data['low']);
             }
             if (data.hasOwnProperty('tradingVolume')) {
                 obj['tradingVolume'] = ApiClient.convertToType(data['tradingVolume'], 'Number');
@@ -72,7 +75,7 @@ class InlineResponse20075Data {
                 obj['volatility'] = ApiClient.convertToType(data['volatility'], 'Number');
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = InlineResponse20073Status.constructFromObject(data['status']);
+                obj['status'] = InlineResponse20075Status.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -82,10 +85,16 @@ class InlineResponse20075Data {
 }
 
 /**
- * Identifier of the notation.
- * @member {String} id
+ * MDG identifier of the listing.
+ * @member {String} idNotation
  */
-InlineResponse20075Data.prototype['id'] = undefined;
+InlineResponse20075Data.prototype['idNotation'] = undefined;
+
+/**
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
+ */
+InlineResponse20075Data.prototype['sourceIdentifier'] = undefined;
 
 /**
  * Reference date of the time range.
@@ -94,17 +103,17 @@ InlineResponse20075Data.prototype['id'] = undefined;
 InlineResponse20075Data.prototype['referenceDate'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20072DataPerformance} performance
+ * @member {module:model/InlineResponse20074DataPerformance} performance
  */
 InlineResponse20075Data.prototype['performance'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20072DataHigh} high
+ * @member {module:model/InlineResponse20074DataHigh} high
  */
 InlineResponse20075Data.prototype['high'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20072DataLow} low
+ * @member {module:model/InlineResponse20074DataLow} low
  */
 InlineResponse20075Data.prototype['low'] = undefined;
 
@@ -121,7 +130,7 @@ InlineResponse20075Data.prototype['tradingVolume'] = undefined;
 InlineResponse20075Data.prototype['volatility'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20073Status} status
+ * @member {module:model/InlineResponse20075Status} status
  */
 InlineResponse20075Data.prototype['status'] = undefined;
 

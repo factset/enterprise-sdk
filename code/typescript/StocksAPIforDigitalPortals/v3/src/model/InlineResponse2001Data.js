@@ -1,6 +1,6 @@
 /**
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,8 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2001Recommendation from './InlineResponse2001Recommendation';
-import InlineResponse200DataTargetPrice from './InlineResponse200DataTargetPrice';
+import InlineResponse2001DataCompany from './InlineResponse2001DataCompany';
+import InlineResponse2001DataFiscalYearData from './InlineResponse2001DataFiscalYearData';
+import InlineResponse2001DataNsin from './InlineResponse2001DataNsin';
+import InlineResponse2001DataType from './InlineResponse2001DataType';
 
 /**
  * The InlineResponse2001Data model module.
@@ -22,6 +24,7 @@ import InlineResponse200DataTargetPrice from './InlineResponse200DataTargetPrice
 class InlineResponse2001Data {
     /**
      * Constructs a new <code>InlineResponse2001Data</code>.
+     * Selected fundamentals for a stock with values as of the end of a fiscal year.
      * @alias module:model/InlineResponse2001Data
      */
     constructor() { 
@@ -48,14 +51,26 @@ class InlineResponse2001Data {
         if (data) {
             obj = obj || new InlineResponse2001Data();
 
-            if (data.hasOwnProperty('snapshot')) {
-                obj['snapshot'] = ApiClient.convertToType(data['snapshot'], 'String');
+            if (data.hasOwnProperty('isin')) {
+                obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('targetPrice')) {
-                obj['targetPrice'] = InlineResponse200DataTargetPrice.constructFromObject(data['targetPrice']);
+            if (data.hasOwnProperty('nsin')) {
+                obj['nsin'] = InlineResponse2001DataNsin.constructFromObject(data['nsin']);
             }
-            if (data.hasOwnProperty('recommendation')) {
-                obj['recommendation'] = InlineResponse2001Recommendation.constructFromObject(data['recommendation']);
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('shortName')) {
+                obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
+            }
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], [InlineResponse2001DataType]);
+            }
+            if (data.hasOwnProperty('company')) {
+                obj['company'] = InlineResponse2001DataCompany.constructFromObject(data['company']);
+            }
+            if (data.hasOwnProperty('fiscalYearData')) {
+                obj['fiscalYearData'] = ApiClient.convertToType(data['fiscalYearData'], [InlineResponse2001DataFiscalYearData]);
             }
         }
         return obj;
@@ -65,68 +80,47 @@ class InlineResponse2001Data {
 }
 
 /**
- * Identification of the historic snapshot for aggregated recommendations.
- * @member {module:model/InlineResponse2001Data.SnapshotEnum} snapshot
+ * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
+ * @member {String} isin
  */
-InlineResponse2001Data.prototype['snapshot'] = undefined;
+InlineResponse2001Data.prototype['isin'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200DataTargetPrice} targetPrice
+ * @member {module:model/InlineResponse2001DataNsin} nsin
  */
-InlineResponse2001Data.prototype['targetPrice'] = undefined;
+InlineResponse2001Data.prototype['nsin'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2001Recommendation} recommendation
+ * Name of the instrument.
+ * @member {String} name
  */
-InlineResponse2001Data.prototype['recommendation'] = undefined;
-
-
-
-
+InlineResponse2001Data.prototype['name'] = undefined;
 
 /**
- * Allowed values for the <code>snapshot</code> property.
- * @enum {String}
- * @readonly
+ * Short name of the instrument.
+ * @member {String} shortName
  */
-InlineResponse2001Data['SnapshotEnum'] = {
+InlineResponse2001Data.prototype['shortName'] = undefined;
 
-    /**
-     * value: "latest"
-     * @const
-     */
-    "latest": "latest",
+/**
+ * Instrument type as defined by FactSet Digital Solutions. Instrument types are arranged in a hierarchy, with the first level representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18). See endpoint `/category/get` for possible values.
+ * @member {Array.<module:model/InlineResponse2001DataType>} type
+ */
+InlineResponse2001Data.prototype['type'] = undefined;
 
-    /**
-     * value: "1w"
-     * @const
-     */
-    "1w": "1w",
+/**
+ * @member {module:model/InlineResponse2001DataCompany} company
+ */
+InlineResponse2001Data.prototype['company'] = undefined;
 
-    /**
-     * value: "1m"
-     * @const
-     */
-    "1m": "1m",
+/**
+ * Values as of the end of a fiscal year for the set of selected figures. The figures are clustered based on their specifics but do not exhaust all potentially available data from that cluster. The default sorting is from the most recent fiscal year requested to the most distant in time.
+ * @member {Array.<module:model/InlineResponse2001DataFiscalYearData>} fiscalYearData
+ */
+InlineResponse2001Data.prototype['fiscalYearData'] = undefined;
 
-    /**
-     * value: "3m"
-     * @const
-     */
-    "3m": "3m",
 
-    /**
-     * value: "6m"
-     * @const
-     */
-    "6m": "6m",
 
-    /**
-     * value: "1y"
-     * @const
-     */
-    "1y": "1y"
-};
 
 
 

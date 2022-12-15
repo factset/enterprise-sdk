@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a compliance property. | [optional] 
+**Id** | **decimal?** | Identifier of a compliance property. | [optional] 
 **Name** | **string** | Name of the compliance property. | [optional] 
 **Description** | **string** | Description of the compliance property. | [optional] 
 

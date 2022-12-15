@@ -1,6 +1,6 @@
 /**
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,20 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2008DataCompany from './InlineResponse2008DataCompany';
-import InlineResponse2008DataCompliance from './InlineResponse2008DataCompliance';
-import InlineResponse2008DataEstimates from './InlineResponse2008DataEstimates';
-import InlineResponse2008DataIndustryClassification from './InlineResponse2008DataIndustryClassification';
-import InlineResponse2008DataMarket from './InlineResponse2008DataMarket';
-import InlineResponse2008DataPerformance from './InlineResponse2008DataPerformance';
-import InlineResponse2008DataRecommendation from './InlineResponse2008DataRecommendation';
-import InlineResponse2008DataReportedKeyFigures from './InlineResponse2008DataReportedKeyFigures';
-import InlineResponse2008DataRsiWilder from './InlineResponse2008DataRsiWilder';
-import InlineResponse2008DataSimpleMovingAverage from './InlineResponse2008DataSimpleMovingAverage';
-import InlineResponse2008DataStockType from './InlineResponse2008DataStockType';
-import InlineResponse2008DataTradingValue from './InlineResponse2008DataTradingValue';
-import InlineResponse2008DataValueUnit from './InlineResponse2008DataValueUnit';
-import InlineResponse2008DataVolatility from './InlineResponse2008DataVolatility';
+import InlineResponse2008DataOwners from './InlineResponse2008DataOwners';
 
 /**
  * The InlineResponse2008Data model module.
@@ -34,7 +21,7 @@ import InlineResponse2008DataVolatility from './InlineResponse2008DataVolatility
 class InlineResponse2008Data {
     /**
      * Constructs a new <code>InlineResponse2008Data</code>.
-     * Possible values and value ranges of the parameters. 
+     * List of owners with their respective share sorted descending by the fraction owned.
      * @alias module:model/InlineResponse2008Data
      */
     constructor() { 
@@ -61,50 +48,14 @@ class InlineResponse2008Data {
         if (data) {
             obj = obj || new InlineResponse2008Data();
 
-            if (data.hasOwnProperty('totalCount')) {
-                obj['totalCount'] = ApiClient.convertToType(data['totalCount'], 'Number');
+            if (data.hasOwnProperty('idInstrument')) {
+                obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
             }
-            if (data.hasOwnProperty('valueUnit')) {
-                obj['valueUnit'] = ApiClient.convertToType(data['valueUnit'], [InlineResponse2008DataValueUnit]);
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('market')) {
-                obj['market'] = ApiClient.convertToType(data['market'], [InlineResponse2008DataMarket]);
-            }
-            if (data.hasOwnProperty('stockType')) {
-                obj['stockType'] = ApiClient.convertToType(data['stockType'], [InlineResponse2008DataStockType]);
-            }
-            if (data.hasOwnProperty('industryClassification')) {
-                obj['industryClassification'] = ApiClient.convertToType(data['industryClassification'], [InlineResponse2008DataIndustryClassification]);
-            }
-            if (data.hasOwnProperty('company')) {
-                obj['company'] = InlineResponse2008DataCompany.constructFromObject(data['company']);
-            }
-            if (data.hasOwnProperty('compliance')) {
-                obj['compliance'] = InlineResponse2008DataCompliance.constructFromObject(data['compliance']);
-            }
-            if (data.hasOwnProperty('reportedKeyFigures')) {
-                obj['reportedKeyFigures'] = InlineResponse2008DataReportedKeyFigures.constructFromObject(data['reportedKeyFigures']);
-            }
-            if (data.hasOwnProperty('performance')) {
-                obj['performance'] = InlineResponse2008DataPerformance.constructFromObject(data['performance']);
-            }
-            if (data.hasOwnProperty('volatility')) {
-                obj['volatility'] = InlineResponse2008DataVolatility.constructFromObject(data['volatility']);
-            }
-            if (data.hasOwnProperty('tradingValue')) {
-                obj['tradingValue'] = InlineResponse2008DataTradingValue.constructFromObject(data['tradingValue']);
-            }
-            if (data.hasOwnProperty('simpleMovingAverage')) {
-                obj['simpleMovingAverage'] = InlineResponse2008DataSimpleMovingAverage.constructFromObject(data['simpleMovingAverage']);
-            }
-            if (data.hasOwnProperty('rsiWilder')) {
-                obj['rsiWilder'] = InlineResponse2008DataRsiWilder.constructFromObject(data['rsiWilder']);
-            }
-            if (data.hasOwnProperty('recommendation')) {
-                obj['recommendation'] = InlineResponse2008DataRecommendation.constructFromObject(data['recommendation']);
-            }
-            if (data.hasOwnProperty('estimates')) {
-                obj['estimates'] = InlineResponse2008DataEstimates.constructFromObject(data['estimates']);
+            if (data.hasOwnProperty('owners')) {
+                obj['owners'] = ApiClient.convertToType(data['owners'], [InlineResponse2008DataOwners]);
             }
         }
         return obj;
@@ -114,84 +65,22 @@ class InlineResponse2008Data {
 }
 
 /**
- * Number of notations that satisfy the request parameters, hence have been used to retrieve the possible values and value ranges.
- * @member {Number} totalCount
+ * MDG identifier of the instrument.
+ * @member {String} idInstrument
  */
-InlineResponse2008Data.prototype['totalCount'] = undefined;
+InlineResponse2008Data.prototype['idInstrument'] = undefined;
 
 /**
- * List of value unit identifiers. See endpoint `/basic/valueUnit/list` for possible values.
- * @member {Array.<module:model/InlineResponse2008DataValueUnit>} valueUnit
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
  */
-InlineResponse2008Data.prototype['valueUnit'] = undefined;
+InlineResponse2008Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * List of market identifiers. See endpoint `/basic/market/list` for possible values.
- * @member {Array.<module:model/InlineResponse2008DataMarket>} market
+ * List of owners.
+ * @member {Array.<module:model/InlineResponse2008DataOwners>} owners
  */
-InlineResponse2008Data.prototype['market'] = undefined;
-
-/**
- * List of stock types.
- * @member {Array.<module:model/InlineResponse2008DataStockType>} stockType
- */
-InlineResponse2008Data.prototype['stockType'] = undefined;
-
-/**
- * Lists of categories of the industry classification. Here, an industry is a category from any level of category system FactSet Revere Business Industry Classification System (RBICS). Starting with the most coarse level (one), for each level of the category system, the list of categories of the stocks, matching the parameters, is returned. See endpoint `/category/listBySystem` with `id=48` for possible values.
- * @member {Array.<module:model/InlineResponse2008DataIndustryClassification>} industryClassification
- */
-InlineResponse2008Data.prototype['industryClassification'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2008DataCompany} company
- */
-InlineResponse2008Data.prototype['company'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2008DataCompliance} compliance
- */
-InlineResponse2008Data.prototype['compliance'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2008DataReportedKeyFigures} reportedKeyFigures
- */
-InlineResponse2008Data.prototype['reportedKeyFigures'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2008DataPerformance} performance
- */
-InlineResponse2008Data.prototype['performance'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2008DataVolatility} volatility
- */
-InlineResponse2008Data.prototype['volatility'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2008DataTradingValue} tradingValue
- */
-InlineResponse2008Data.prototype['tradingValue'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2008DataSimpleMovingAverage} simpleMovingAverage
- */
-InlineResponse2008Data.prototype['simpleMovingAverage'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2008DataRsiWilder} rsiWilder
- */
-InlineResponse2008Data.prototype['rsiWilder'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2008DataRecommendation} recommendation
- */
-InlineResponse2008Data.prototype['recommendation'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2008DataEstimates} estimates
- */
-InlineResponse2008Data.prototype['estimates'] = undefined;
+InlineResponse2008Data.prototype['owners'] = undefined;
 
 
 

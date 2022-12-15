@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,11 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20079DataCurrency from './InlineResponse20079DataCurrency';
-import InlineResponse20079DataValueUnit from './InlineResponse20079DataValueUnit';
-import InlineResponse20080Market from './InlineResponse20080Market';
-import InlineResponse20081DataAsk from './InlineResponse20081DataAsk';
-import InlineResponse20081DataBid from './InlineResponse20081DataBid';
+import InlineResponse20081DataMarket from './InlineResponse20081DataMarket';
 
 /**
  * The InlineResponse20081Data model module.
@@ -25,7 +21,6 @@ import InlineResponse20081DataBid from './InlineResponse20081DataBid';
 class InlineResponse20081Data {
     /**
      * Constructs a new <code>InlineResponse20081Data</code>.
-     * Bid and ask prices for the notation.
      * @alias module:model/InlineResponse20081Data
      */
     constructor() { 
@@ -52,23 +47,29 @@ class InlineResponse20081Data {
         if (data) {
             obj = obj || new InlineResponse20081Data();
 
-            if (data.hasOwnProperty('valueUnit')) {
-                obj['valueUnit'] = InlineResponse20079DataValueUnit.constructFromObject(data['valueUnit']);
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
-                obj['currency'] = InlineResponse20079DataCurrency.constructFromObject(data['currency']);
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
+            }
+            if (data.hasOwnProperty('suspended')) {
+                obj['suspended'] = ApiClient.convertToType(data['suspended'], 'Boolean');
+            }
+            if (data.hasOwnProperty('tradingStatus')) {
+                obj['tradingStatus'] = ApiClient.convertToType(data['tradingStatus'], 'String');
+            }
+            if (data.hasOwnProperty('priceDelay')) {
+                obj['priceDelay'] = ApiClient.convertToType(data['priceDelay'], 'Number');
+            }
+            if (data.hasOwnProperty('tickSize')) {
+                obj['tickSize'] = ApiClient.convertToType(data['tickSize'], 'Number');
+            }
+            if (data.hasOwnProperty('lotSize')) {
+                obj['lotSize'] = ApiClient.convertToType(data['lotSize'], 'Number');
             }
             if (data.hasOwnProperty('market')) {
-                obj['market'] = InlineResponse20080Market.constructFromObject(data['market']);
-            }
-            if (data.hasOwnProperty('quality')) {
-                obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
-            }
-            if (data.hasOwnProperty('bid')) {
-                obj['bid'] = InlineResponse20081DataBid.constructFromObject(data['bid']);
-            }
-            if (data.hasOwnProperty('ask')) {
-                obj['ask'] = InlineResponse20081DataAsk.constructFromObject(data['ask']);
+                obj['market'] = InlineResponse20081DataMarket.constructFromObject(data['market']);
             }
         }
         return obj;
@@ -78,65 +79,54 @@ class InlineResponse20081Data {
 }
 
 /**
- * @member {module:model/InlineResponse20079DataValueUnit} valueUnit
+ * MDG identifier of the listing.
+ * @member {String} idNotation
  */
-InlineResponse20081Data.prototype['valueUnit'] = undefined;
+InlineResponse20081Data.prototype['idNotation'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20079DataCurrency} currency
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
  */
-InlineResponse20081Data.prototype['currency'] = undefined;
+InlineResponse20081Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20080Market} market
+ * Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute `market.isOpen`.
+ * @member {Boolean} suspended
+ */
+InlineResponse20081Data.prototype['suspended'] = undefined;
+
+/**
+ * Market-specific code of the trading status and/or the suspension of the notation.
+ * @member {String} tradingStatus
+ */
+InlineResponse20081Data.prototype['tradingStatus'] = undefined;
+
+/**
+ * Exchange-imposed delay in seconds for delayed-quality tick data.
+ * @member {Number} priceDelay
+ */
+InlineResponse20081Data.prototype['priceDelay'] = undefined;
+
+/**
+ * The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint `/notation/get` for the value unit of the `tickSize` for this notation.
+ * @member {Number} tickSize
+ */
+InlineResponse20081Data.prototype['tickSize'] = undefined;
+
+/**
+ * he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.
+ * @member {Number} lotSize
+ */
+InlineResponse20081Data.prototype['lotSize'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20081DataMarket} market
  */
 InlineResponse20081Data.prototype['market'] = undefined;
 
-/**
- * Quality of the price.
- * @member {module:model/InlineResponse20081Data.QualityEnum} quality
- */
-InlineResponse20081Data.prototype['quality'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20081DataBid} bid
- */
-InlineResponse20081Data.prototype['bid'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20081DataAsk} ask
- */
-InlineResponse20081Data.prototype['ask'] = undefined;
 
 
-
-
-
-/**
- * Allowed values for the <code>quality</code> property.
- * @enum {String}
- * @readonly
- */
-InlineResponse20081Data['QualityEnum'] = {
-
-    /**
-     * value: "RLT"
-     * @const
-     */
-    "RLT": "RLT",
-
-    /**
-     * value: "DLY"
-     * @const
-     */
-    "DLY": "DLY",
-
-    /**
-     * value: "EOD"
-     * @const
-     */
-    "EOD": "EOD"
-};
 
 
 

@@ -1,6 +1,6 @@
 /**
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,11 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2003Currency from './InlineResponse2003Currency';
-import InlineResponse2003Dates from './InlineResponse2003Dates';
-import InlineResponse2003Gross from './InlineResponse2003Gross';
-import InlineResponse2003Occurrence from './InlineResponse2003Occurrence';
-import InlineResponse2003Type from './InlineResponse2003Type';
+import InlineResponse2003DataRecommendation from './InlineResponse2003DataRecommendation';
+import InlineResponse2003DataTargetPrice from './InlineResponse2003DataTargetPrice';
 
 /**
  * The InlineResponse2003Data model module.
@@ -25,6 +22,7 @@ import InlineResponse2003Type from './InlineResponse2003Type';
 class InlineResponse2003Data {
     /**
      * Constructs a new <code>InlineResponse2003Data</code>.
+     * Target price and aggregated recommendations for a stock.
      * @alias module:model/InlineResponse2003Data
      */
     constructor() { 
@@ -51,23 +49,17 @@ class InlineResponse2003Data {
         if (data) {
             obj = obj || new InlineResponse2003Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('idInstrument')) {
+                obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = InlineResponse2003Type.constructFromObject(data['type']);
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('occurrence')) {
-                obj['occurrence'] = InlineResponse2003Occurrence.constructFromObject(data['occurrence']);
+            if (data.hasOwnProperty('targetPrice')) {
+                obj['targetPrice'] = InlineResponse2003DataTargetPrice.constructFromObject(data['targetPrice']);
             }
-            if (data.hasOwnProperty('dates')) {
-                obj['dates'] = InlineResponse2003Dates.constructFromObject(data['dates']);
-            }
-            if (data.hasOwnProperty('currency')) {
-                obj['currency'] = InlineResponse2003Currency.constructFromObject(data['currency']);
-            }
-            if (data.hasOwnProperty('gross')) {
-                obj['gross'] = InlineResponse2003Gross.constructFromObject(data['gross']);
+            if (data.hasOwnProperty('recommendation')) {
+                obj['recommendation'] = InlineResponse2003DataRecommendation.constructFromObject(data['recommendation']);
             }
         }
         return obj;
@@ -77,35 +69,26 @@ class InlineResponse2003Data {
 }
 
 /**
- * Identifier of a dividend.
- * @member {String} id
+ * MDG identifier of the instrument.
+ * @member {String} idInstrument
  */
-InlineResponse2003Data.prototype['id'] = undefined;
+InlineResponse2003Data.prototype['idInstrument'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2003Type} type
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
  */
-InlineResponse2003Data.prototype['type'] = undefined;
+InlineResponse2003Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2003Occurrence} occurrence
+ * @member {module:model/InlineResponse2003DataTargetPrice} targetPrice
  */
-InlineResponse2003Data.prototype['occurrence'] = undefined;
+InlineResponse2003Data.prototype['targetPrice'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2003Dates} dates
+ * @member {module:model/InlineResponse2003DataRecommendation} recommendation
  */
-InlineResponse2003Data.prototype['dates'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2003Currency} currency
- */
-InlineResponse2003Data.prototype['currency'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2003Gross} gross
- */
-InlineResponse2003Data.prototype['gross'] = undefined;
+InlineResponse2003Data.prototype['recommendation'] = undefined;
 
 
 

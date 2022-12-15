@@ -4,9 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**idNotation** | **String** | MDG identifier of the listing. | [optional] 
+**sourceIdentifier** | **String** | Identifier used in the request. | [optional] 
+**valueUnit** | [**InlineResponse20082DataValueUnit**](InlineResponse20082DataValueUnit.md) |  | [optional] 
+**currency** | [**InlineResponse20082DataCurrency**](InlineResponse20082DataCurrency.md) |  | [optional] 
+**market** | [**InlineResponse20083Market**](InlineResponse20083Market.md) |  | [optional] 
 **quality** | **String** | Quality of the price. | [optional] 
-**asks** | [**[InlineResponse20084DataAsks]**](InlineResponse20084DataAsks.md) | Ask entries of the full orderbook. | [optional] 
-**bids** | [**[InlineResponse20084DataAsks]**](InlineResponse20084DataAsks.md) | Bid entries of the full orderbook. | [optional] 
+**bid** | [**InlineResponse20084DataBid**](InlineResponse20084DataBid.md) |  | [optional] 
+**ask** | [**InlineResponse20084DataAsk**](InlineResponse20084DataAsk.md) |  | [optional] 
 
 
 
@@ -16,6 +21,8 @@ Name | Type | Description | Notes
 * `RLT` (value: `"RLT"`)
 
 * `DLY` (value: `"DLY"`)
+
+* `EOD` (value: `"EOD"`)
 
 
 

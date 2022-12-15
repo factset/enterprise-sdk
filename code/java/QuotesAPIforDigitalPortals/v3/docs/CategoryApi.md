@@ -1,6 +1,6 @@
 # CategoryApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -61,7 +61,7 @@ public class Example {
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20035 result = apiInstance.getCategoryDatasetList(attributes, language);
             System.out.println(result);
@@ -83,7 +83,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -147,9 +147,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a category.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20031 result = apiInstance.getCategoryGet(id, attributes, language);
             System.out.println(result);
@@ -170,9 +170,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a category. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -236,11 +236,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
-        BigDecimal idCategory = new BigDecimal(78); // BigDecimal | Identifier of a category.
-        BigDecimal idCategoryDataset = new BigDecimal(78); // BigDecimal | Identifier of a category dataset.
+        BigDecimal idCategory = new BigDecimal(78); // BigDecimal | 
+        BigDecimal idCategoryDataset = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("20.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
+        BigDecimal paginationLimit = new BigDecimal("20"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
             InlineResponse20036 result = apiInstance.getCategoryInstrumentList(idCategory, idCategoryDataset, attributes, paginationOffset, paginationLimit);
             System.out.println(result);
@@ -261,11 +261,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idCategory** | **BigDecimal**| Identifier of a category. |
- **idCategoryDataset** | **BigDecimal**| Identifier of a category dataset. |
+ **idCategory** | **BigDecimal**|  |
+ **idCategoryDataset** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
@@ -329,9 +329,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20037 result = apiInstance.getCategoryLevelGet(id, attributes, language);
             System.out.println(result);
@@ -352,9 +352,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -417,9 +417,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
-        java.util.Set<BigDecimal> ids = Arrays.asList(); // java.util.Set<BigDecimal> | List of categories belonging to the same category system.
+        java.util.Set<BigDecimal> ids = Arrays.asList(); // java.util.Set<BigDecimal> | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20032 result = apiInstance.getCategoryList(ids, attributes, language);
             System.out.println(result);
@@ -440,9 +440,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;BigDecimal&gt;**| List of categories belonging to the same category system. |
+ **ids** | **List&lt;BigDecimal&gt;**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -506,11 +506,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("20.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        String language = "language_example"; // String | 
+        BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
+        BigDecimal paginationLimit = new BigDecimal("20"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
             InlineResponse20033 result = apiInstance.getCategoryListByLevel(id, attributes, language, paginationOffset, paginationLimit);
             System.out.println(result);
@@ -531,11 +531,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a category level. See attribute &#x60;levels&#x60; in endpoint &#x60;/category/system/get&#x60; for valid values. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **language** | **String**|  | [optional]
+ **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
@@ -599,11 +599,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a category system. See endpoint `/category/system/list` for valid values.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("20.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        String language = "language_example"; // String | 
+        BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
+        BigDecimal paginationLimit = new BigDecimal("20"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
             InlineResponse20034 result = apiInstance.getCategoryListBySystem(id, attributes, language, paginationOffset, paginationLimit);
             System.out.println(result);
@@ -624,11 +624,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **language** | **String**|  | [optional]
+ **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
@@ -692,9 +692,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a category.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20038 result = apiInstance.getCategoryPathGet(id, attributes, language);
             System.out.println(result);
@@ -715,9 +715,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a category. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -781,9 +781,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a category system. See endpoint `/category/system/list` for valid values.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20039 result = apiInstance.getCategorySystemGet(id, attributes, language);
             System.out.println(result);
@@ -804,9 +804,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a category system. See endpoint &#x60;/category/system/list&#x60; for valid values. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -870,9 +870,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
-        BigDecimal idType = new BigDecimal(78); // BigDecimal | Filter for a specific category system type. See endpoint `/category/system/type/list` for valid values.
+        BigDecimal idType = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20040 result = apiInstance.getCategorySystemList(idType, attributes, language);
             System.out.println(result);
@@ -893,9 +893,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idType** | **BigDecimal**| Filter for a specific category system type. See endpoint &#x60;/category/system/type/list&#x60; for valid values. | [optional]
+ **idType** | **BigDecimal**|  | [optional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -959,7 +959,7 @@ public class Example {
 
         CategoryApi apiInstance = new CategoryApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20041 result = apiInstance.getCategorySystemTypeList(attributes, language);
             System.out.println(result);
@@ -981,7 +981,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 

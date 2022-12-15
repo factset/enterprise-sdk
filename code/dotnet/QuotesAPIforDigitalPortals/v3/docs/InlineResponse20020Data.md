@@ -5,7 +5,7 @@ Details of a country.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a country. | [optional] 
+**Id** | **decimal?** | Identifier of a country. | [optional] 
 **Name** | **string** | Name of the country. | [optional] 
 **Subdivisions** | [**List&lt;InlineResponse20020DataSubdivisions&gt;**](InlineResponse20020DataSubdivisions.md) |  | [optional] 
 

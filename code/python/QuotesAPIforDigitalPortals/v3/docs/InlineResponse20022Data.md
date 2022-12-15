@@ -5,8 +5,8 @@ Details of a timezone.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **float** | Identifier of a timezone. | [optional] 
-**name** | **str** | Name according to the Internet Assigned Numbers Authority. | [optional] 
+**id** | **float, none_type** | Identifier of a timezone. | [optional] 
+**name** | **str, none_type** | Name according to the Internet Assigned Numbers Authority. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

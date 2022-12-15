@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -83,12 +87,12 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_PRESERVATION = "preservation";
-  private PreservationEnum preservation;
+  private JsonNullable<PreservationEnum> preservation = JsonNullable.<PreservationEnum>undefined();
 
   /**
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;growth\&quot;.
@@ -125,12 +129,12 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_GROWTH = "growth";
-  private GrowthEnum growth;
+  private JsonNullable<GrowthEnum> growth = JsonNullable.<GrowthEnum>undefined();
 
   /**
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;income\&quot;.
@@ -167,12 +171,12 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_INCOME = "income";
-  private IncomeEnum income;
+  private JsonNullable<IncomeEnum> income = JsonNullable.<IncomeEnum>undefined();
 
   /**
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;financing\&quot;.
@@ -209,12 +213,12 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_FINANCING = "financing";
-  private FinancingEnum financing;
+  private JsonNullable<FinancingEnum> financing = JsonNullable.<FinancingEnum>undefined();
 
   /**
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;hedging\&quot;.
@@ -251,12 +255,12 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_HEDGING = "hedging";
-  private HedgingEnum hedging;
+  private JsonNullable<HedgingEnum> hedging = JsonNullable.<HedgingEnum>undefined();
 
   /**
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;leverage\&quot;.
@@ -293,12 +297,12 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_OPTION_OR_LEVERAGED = "optionOrLeveraged";
-  private OptionOrLeveragedEnum optionOrLeveraged;
+  private JsonNullable<OptionOrLeveragedEnum> optionOrLeveraged = JsonNullable.<OptionOrLeveragedEnum>undefined();
 
   /**
    * Indicates whether the investment product is suitable for investors with the return profile \&quot;other\&quot;.
@@ -335,12 +339,12 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_OTHER = "other";
-  private OtherEnum other;
+  private JsonNullable<OtherEnum> other = JsonNullable.<OtherEnum>undefined();
 
   public static final String JSON_PROPERTY_GERMANY = "germany";
   private InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany germany;
@@ -349,7 +353,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
   }
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile preservation(PreservationEnum preservation) {
-    this.preservation = preservation;
+    this.preservation = JsonNullable.<PreservationEnum>of(preservation);
     return this;
   }
 
@@ -359,23 +363,31 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"preservation\".")
-  @JsonProperty(JSON_PROPERTY_PRESERVATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public PreservationEnum getPreservation() {
-    return preservation;
+        return preservation.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRESERVATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPreservation(PreservationEnum preservation) {
+
+  public JsonNullable<PreservationEnum> getPreservation_JsonNullable() {
+    return preservation;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRESERVATION)
+  public void setPreservation_JsonNullable(JsonNullable<PreservationEnum> preservation) {
     this.preservation = preservation;
+  }
+
+  public void setPreservation(PreservationEnum preservation) {
+    this.preservation = JsonNullable.<PreservationEnum>of(preservation);
   }
 
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile growth(GrowthEnum growth) {
-    this.growth = growth;
+    this.growth = JsonNullable.<GrowthEnum>of(growth);
     return this;
   }
 
@@ -385,23 +397,31 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"growth\".")
-  @JsonProperty(JSON_PROPERTY_GROWTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public GrowthEnum getGrowth() {
-    return growth;
+        return growth.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_GROWTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGrowth(GrowthEnum growth) {
+
+  public JsonNullable<GrowthEnum> getGrowth_JsonNullable() {
+    return growth;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GROWTH)
+  public void setGrowth_JsonNullable(JsonNullable<GrowthEnum> growth) {
     this.growth = growth;
+  }
+
+  public void setGrowth(GrowthEnum growth) {
+    this.growth = JsonNullable.<GrowthEnum>of(growth);
   }
 
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile income(IncomeEnum income) {
-    this.income = income;
+    this.income = JsonNullable.<IncomeEnum>of(income);
     return this;
   }
 
@@ -411,23 +431,31 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"income\".")
-  @JsonProperty(JSON_PROPERTY_INCOME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public IncomeEnum getIncome() {
-    return income;
+        return income.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIncome(IncomeEnum income) {
+
+  public JsonNullable<IncomeEnum> getIncome_JsonNullable() {
+    return income;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INCOME)
+  public void setIncome_JsonNullable(JsonNullable<IncomeEnum> income) {
     this.income = income;
+  }
+
+  public void setIncome(IncomeEnum income) {
+    this.income = JsonNullable.<IncomeEnum>of(income);
   }
 
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile financing(FinancingEnum financing) {
-    this.financing = financing;
+    this.financing = JsonNullable.<FinancingEnum>of(financing);
     return this;
   }
 
@@ -437,23 +465,31 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"financing\".")
-  @JsonProperty(JSON_PROPERTY_FINANCING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public FinancingEnum getFinancing() {
-    return financing;
+        return financing.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FINANCING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFinancing(FinancingEnum financing) {
+
+  public JsonNullable<FinancingEnum> getFinancing_JsonNullable() {
+    return financing;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FINANCING)
+  public void setFinancing_JsonNullable(JsonNullable<FinancingEnum> financing) {
     this.financing = financing;
+  }
+
+  public void setFinancing(FinancingEnum financing) {
+    this.financing = JsonNullable.<FinancingEnum>of(financing);
   }
 
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile hedging(HedgingEnum hedging) {
-    this.hedging = hedging;
+    this.hedging = JsonNullable.<HedgingEnum>of(hedging);
     return this;
   }
 
@@ -463,23 +499,31 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"hedging\".")
-  @JsonProperty(JSON_PROPERTY_HEDGING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public HedgingEnum getHedging() {
-    return hedging;
+        return hedging.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_HEDGING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHedging(HedgingEnum hedging) {
+
+  public JsonNullable<HedgingEnum> getHedging_JsonNullable() {
+    return hedging;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HEDGING)
+  public void setHedging_JsonNullable(JsonNullable<HedgingEnum> hedging) {
     this.hedging = hedging;
+  }
+
+  public void setHedging(HedgingEnum hedging) {
+    this.hedging = JsonNullable.<HedgingEnum>of(hedging);
   }
 
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile optionOrLeveraged(OptionOrLeveragedEnum optionOrLeveraged) {
-    this.optionOrLeveraged = optionOrLeveraged;
+    this.optionOrLeveraged = JsonNullable.<OptionOrLeveragedEnum>of(optionOrLeveraged);
     return this;
   }
 
@@ -489,23 +533,31 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"leverage\".")
-  @JsonProperty(JSON_PROPERTY_OPTION_OR_LEVERAGED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public OptionOrLeveragedEnum getOptionOrLeveraged() {
-    return optionOrLeveraged;
+        return optionOrLeveraged.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_OPTION_OR_LEVERAGED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOptionOrLeveraged(OptionOrLeveragedEnum optionOrLeveraged) {
+
+  public JsonNullable<OptionOrLeveragedEnum> getOptionOrLeveraged_JsonNullable() {
+    return optionOrLeveraged;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OPTION_OR_LEVERAGED)
+  public void setOptionOrLeveraged_JsonNullable(JsonNullable<OptionOrLeveragedEnum> optionOrLeveraged) {
     this.optionOrLeveraged = optionOrLeveraged;
+  }
+
+  public void setOptionOrLeveraged(OptionOrLeveragedEnum optionOrLeveraged) {
+    this.optionOrLeveraged = JsonNullable.<OptionOrLeveragedEnum>of(optionOrLeveraged);
   }
 
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile other(OtherEnum other) {
-    this.other = other;
+    this.other = JsonNullable.<OtherEnum>of(other);
     return this;
   }
 
@@ -515,18 +567,26 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is suitable for investors with the return profile \"other\".")
-  @JsonProperty(JSON_PROPERTY_OTHER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public OtherEnum getOther() {
-    return other;
+        return other.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_OTHER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOther(OtherEnum other) {
+
+  public JsonNullable<OtherEnum> getOther_JsonNullable() {
+    return other;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OTHER)
+  public void setOther_JsonNullable(JsonNullable<OtherEnum> other) {
     this.other = other;
+  }
+
+  public void setOther(OtherEnum other) {
+    this.other = JsonNullable.<OtherEnum>of(other);
   }
 
 
@@ -568,19 +628,30 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
       return false;
     }
     InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile = (InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile) o;
-    return Objects.equals(this.preservation, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.preservation) &&
-        Objects.equals(this.growth, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.growth) &&
-        Objects.equals(this.income, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.income) &&
-        Objects.equals(this.financing, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.financing) &&
-        Objects.equals(this.hedging, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.hedging) &&
-        Objects.equals(this.optionOrLeveraged, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.optionOrLeveraged) &&
-        Objects.equals(this.other, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.other) &&
+    return equalsNullable(this.preservation, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.preservation) &&
+        equalsNullable(this.growth, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.growth) &&
+        equalsNullable(this.income, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.income) &&
+        equalsNullable(this.financing, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.financing) &&
+        equalsNullable(this.hedging, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.hedging) &&
+        equalsNullable(this.optionOrLeveraged, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.optionOrLeveraged) &&
+        equalsNullable(this.other, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.other) &&
         Objects.equals(this.germany, inlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile.germany);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(preservation, growth, income, financing, hedging, optionOrLeveraged, other, germany);
+    return Objects.hash(hashCodeNullable(preservation), hashCodeNullable(growth), hashCodeNullable(income), hashCodeNullable(financing), hashCodeNullable(hedging), hashCodeNullable(optionOrLeveraged), hashCodeNullable(other), germany);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

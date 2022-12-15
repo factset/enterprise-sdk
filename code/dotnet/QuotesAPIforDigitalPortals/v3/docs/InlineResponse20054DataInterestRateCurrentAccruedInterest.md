@@ -5,8 +5,8 @@ Accrued interest, i.e. interest earned but not yet received (realized). The inte
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Absolute** | **decimal** | Monetary value of the accrued interest. The attribute is available only for instruments with a declared nominal value, e.g. securitized derivatives. | [optional] 
-**Relative** | **decimal** | Accrued interest. | [optional] 
+**Absolute** | **decimal?** | Monetary value of the accrued interest. The attribute is available only for instruments with a declared nominal value, e.g. securitized derivatives. | [optional] 
+**Relative** | **decimal?** | Accrued interest. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

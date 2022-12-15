@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,11 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataHigh;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataLow;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataPerformance;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataTradingVolume;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20073Status;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataRegional;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,322 +25,177 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
-import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse20073Data
+ * Instrument data with a list of regional-level data and assigned listing-level data.
  */
+@ApiModel(description = "Instrument data with a list of regional-level data and assigned listing-level data.")
 @JsonPropertyOrder({
-  InlineResponse20073Data.JSON_PROPERTY_ID,
-  InlineResponse20073Data.JSON_PROPERTY_REFERENCE_DATE,
-  InlineResponse20073Data.JSON_PROPERTY_PERFORMANCE,
-  InlineResponse20073Data.JSON_PROPERTY_HIGH,
-  InlineResponse20073Data.JSON_PROPERTY_LOW,
-  InlineResponse20073Data.JSON_PROPERTY_AVERAGE_PRICE,
-  InlineResponse20073Data.JSON_PROPERTY_TRADING_VOLUME,
-  InlineResponse20073Data.JSON_PROPERTY_TRADING_VALUE,
-  InlineResponse20073Data.JSON_PROPERTY_VOLATILITY,
-  InlineResponse20073Data.JSON_PROPERTY_STATUS
+  InlineResponse20073Data.JSON_PROPERTY_ID_INSTRUMENT,
+  InlineResponse20073Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse20073Data.JSON_PROPERTY_PERMANENT_IDENTIFIER,
+  InlineResponse20073Data.JSON_PROPERTY_REGIONAL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20073Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_ID_INSTRUMENT = "idInstrument";
+  private JsonNullable<String> idInstrument = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_REFERENCE_DATE = "referenceDate";
-  private LocalDate referenceDate;
+  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
+  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_PERFORMANCE = "performance";
-  private InlineResponse20072DataPerformance performance;
+  public static final String JSON_PROPERTY_PERMANENT_IDENTIFIER = "permanentIdentifier";
+  private JsonNullable<String> permanentIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_HIGH = "high";
-  private InlineResponse20072DataHigh high;
-
-  public static final String JSON_PROPERTY_LOW = "low";
-  private InlineResponse20072DataLow low;
-
-  public static final String JSON_PROPERTY_AVERAGE_PRICE = "averagePrice";
-  private BigDecimal averagePrice;
-
-  public static final String JSON_PROPERTY_TRADING_VOLUME = "tradingVolume";
-  private InlineResponse20072DataTradingVolume tradingVolume;
-
-  public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
-  private BigDecimal tradingValue;
-
-  public static final String JSON_PROPERTY_VOLATILITY = "volatility";
-  private BigDecimal volatility;
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private InlineResponse20073Status status;
+  public static final String JSON_PROPERTY_REGIONAL = "regional";
+  private java.util.List<InlineResponse20072DataRegional> regional = null;
 
   public InlineResponse20073Data() { 
   }
 
-  public InlineResponse20073Data id(String id) {
-    this.id = id;
+  public InlineResponse20073Data idInstrument(String idInstrument) {
+    this.idInstrument = JsonNullable.<String>of(idInstrument);
     return this;
   }
 
    /**
-   * Identifier of the notation.
-   * @return id
+   * MDG identifier of the instrument.
+   * @return idInstrument
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the notation.")
-  @JsonProperty(JSON_PROPERTY_ID)
+  @ApiModelProperty(value = "MDG identifier of the instrument.")
+  @JsonIgnore
+
+  public String getIdInstrument() {
+        return idInstrument.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ID_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getId() {
-    return id;
+  public JsonNullable<String> getIdInstrument_JsonNullable() {
+    return idInstrument;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID_INSTRUMENT)
+  public void setIdInstrument_JsonNullable(JsonNullable<String> idInstrument) {
+    this.idInstrument = idInstrument;
+  }
+
+  public void setIdInstrument(String idInstrument) {
+    this.idInstrument = JsonNullable.<String>of(idInstrument);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public InlineResponse20073Data referenceDate(LocalDate referenceDate) {
-    this.referenceDate = referenceDate;
+  public InlineResponse20073Data sourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
     return this;
   }
 
    /**
-   * Reference date of the time range.
-   * @return referenceDate
+   * Identifier used in the request.
+   * @return sourceIdentifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Reference date of the time range.")
-  @JsonProperty(JSON_PROPERTY_REFERENCE_DATE)
+  @ApiModelProperty(value = "Identifier used in the request.")
+  @JsonIgnore
+
+  public String getSourceIdentifier() {
+        return sourceIdentifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public LocalDate getReferenceDate() {
-    return referenceDate;
+  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
+    return sourceIdentifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
+  }
+
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REFERENCE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReferenceDate(LocalDate referenceDate) {
-    this.referenceDate = referenceDate;
-  }
-
-
-  public InlineResponse20073Data performance(InlineResponse20072DataPerformance performance) {
-    this.performance = performance;
+  public InlineResponse20073Data permanentIdentifier(String permanentIdentifier) {
+    this.permanentIdentifier = JsonNullable.<String>of(permanentIdentifier);
     return this;
   }
 
    /**
-   * Get performance
-   * @return performance
+   * FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
+   * @return permanentIdentifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
+  @ApiModelProperty(value = "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).")
+  @JsonIgnore
+
+  public String getPermanentIdentifier() {
+        return permanentIdentifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PERMANENT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20072DataPerformance getPerformance() {
-    return performance;
+  public JsonNullable<String> getPermanentIdentifier_JsonNullable() {
+    return permanentIdentifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PERMANENT_IDENTIFIER)
+  public void setPermanentIdentifier_JsonNullable(JsonNullable<String> permanentIdentifier) {
+    this.permanentIdentifier = permanentIdentifier;
+  }
+
+  public void setPermanentIdentifier(String permanentIdentifier) {
+    this.permanentIdentifier = JsonNullable.<String>of(permanentIdentifier);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPerformance(InlineResponse20072DataPerformance performance) {
-    this.performance = performance;
+  public InlineResponse20073Data regional(java.util.List<InlineResponse20072DataRegional> regional) {
+    this.regional = regional;
+    return this;
   }
 
-
-  public InlineResponse20073Data high(InlineResponse20072DataHigh high) {
-    this.high = high;
+  public InlineResponse20073Data addRegionalItem(InlineResponse20072DataRegional regionalItem) {
+    if (this.regional == null) {
+      this.regional = new java.util.ArrayList<>();
+    }
+    this.regional.add(regionalItem);
     return this;
   }
 
    /**
-   * Get high
-   * @return high
+   * Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.
+   * @return regional
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_HIGH)
+  @ApiModelProperty(value = "Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.")
+  @JsonProperty(JSON_PROPERTY_REGIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20072DataHigh getHigh() {
-    return high;
+  public java.util.List<InlineResponse20072DataRegional> getRegional() {
+    return regional;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIGH)
+  @JsonProperty(JSON_PROPERTY_REGIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHigh(InlineResponse20072DataHigh high) {
-    this.high = high;
-  }
-
-
-  public InlineResponse20073Data low(InlineResponse20072DataLow low) {
-    this.low = low;
-    return this;
-  }
-
-   /**
-   * Get low
-   * @return low
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_LOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20072DataLow getLow() {
-    return low;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLow(InlineResponse20072DataLow low) {
-    this.low = low;
-  }
-
-
-  public InlineResponse20073Data averagePrice(BigDecimal averagePrice) {
-    this.averagePrice = averagePrice;
-    return this;
-  }
-
-   /**
-   * Arithmetic mean of the notation&#39;s EOD closing prices for the given time range.
-   * @return averagePrice
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Arithmetic mean of the notation's EOD closing prices for the given time range.")
-  @JsonProperty(JSON_PROPERTY_AVERAGE_PRICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getAveragePrice() {
-    return averagePrice;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_AVERAGE_PRICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAveragePrice(BigDecimal averagePrice) {
-    this.averagePrice = averagePrice;
-  }
-
-
-  public InlineResponse20073Data tradingVolume(InlineResponse20072DataTradingVolume tradingVolume) {
-    this.tradingVolume = tradingVolume;
-    return this;
-  }
-
-   /**
-   * Get tradingVolume
-   * @return tradingVolume
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TRADING_VOLUME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20072DataTradingVolume getTradingVolume() {
-    return tradingVolume;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TRADING_VOLUME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTradingVolume(InlineResponse20072DataTradingVolume tradingVolume) {
-    this.tradingVolume = tradingVolume;
-  }
-
-
-  public InlineResponse20073Data tradingValue(BigDecimal tradingValue) {
-    this.tradingValue = tradingValue;
-    return this;
-  }
-
-   /**
-   * Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price.
-   * @return tradingValue
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price.")
-  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getTradingValue() {
-    return tradingValue;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTradingValue(BigDecimal tradingValue) {
-    this.tradingValue = tradingValue;
-  }
-
-
-  public InlineResponse20073Data volatility(BigDecimal volatility) {
-    this.volatility = volatility;
-    return this;
-  }
-
-   /**
-   * Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
-   * @return volatility
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.")
-  @JsonProperty(JSON_PROPERTY_VOLATILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getVolatility() {
-    return volatility;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VOLATILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVolatility(BigDecimal volatility) {
-    this.volatility = volatility;
-  }
-
-
-  public InlineResponse20073Data status(InlineResponse20073Status status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20073Status getStatus() {
-    return status;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(InlineResponse20073Status status) {
-    this.status = status;
+  public void setRegional(java.util.List<InlineResponse20072DataRegional> regional) {
+    this.regional = regional;
   }
 
 
@@ -360,37 +211,36 @@ public class InlineResponse20073Data implements Serializable {
       return false;
     }
     InlineResponse20073Data inlineResponse20073Data = (InlineResponse20073Data) o;
-    return Objects.equals(this.id, inlineResponse20073Data.id) &&
-        Objects.equals(this.referenceDate, inlineResponse20073Data.referenceDate) &&
-        Objects.equals(this.performance, inlineResponse20073Data.performance) &&
-        Objects.equals(this.high, inlineResponse20073Data.high) &&
-        Objects.equals(this.low, inlineResponse20073Data.low) &&
-        Objects.equals(this.averagePrice, inlineResponse20073Data.averagePrice) &&
-        Objects.equals(this.tradingVolume, inlineResponse20073Data.tradingVolume) &&
-        Objects.equals(this.tradingValue, inlineResponse20073Data.tradingValue) &&
-        Objects.equals(this.volatility, inlineResponse20073Data.volatility) &&
-        Objects.equals(this.status, inlineResponse20073Data.status);
+    return equalsNullable(this.idInstrument, inlineResponse20073Data.idInstrument) &&
+        equalsNullable(this.sourceIdentifier, inlineResponse20073Data.sourceIdentifier) &&
+        equalsNullable(this.permanentIdentifier, inlineResponse20073Data.permanentIdentifier) &&
+        Objects.equals(this.regional, inlineResponse20073Data.regional);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, referenceDate, performance, high, low, averagePrice, tradingVolume, tradingValue, volatility, status);
+    return Objects.hash(hashCodeNullable(idInstrument), hashCodeNullable(sourceIdentifier), hashCodeNullable(permanentIdentifier), regional);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20073Data {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    referenceDate: ").append(toIndentedString(referenceDate)).append("\n");
-    sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
-    sb.append("    high: ").append(toIndentedString(high)).append("\n");
-    sb.append("    low: ").append(toIndentedString(low)).append("\n");
-    sb.append("    averagePrice: ").append(toIndentedString(averagePrice)).append("\n");
-    sb.append("    tradingVolume: ").append(toIndentedString(tradingVolume)).append("\n");
-    sb.append("    tradingValue: ").append(toIndentedString(tradingValue)).append("\n");
-    sb.append("    volatility: ").append(toIndentedString(volatility)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    idInstrument: ").append(toIndentedString(idInstrument)).append("\n");
+    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    permanentIdentifier: ").append(toIndentedString(permanentIdentifier)).append("\n");
+    sb.append("    regional: ").append(toIndentedString(regional)).append("\n");
     sb.append("}");
     return sb.toString();
   }

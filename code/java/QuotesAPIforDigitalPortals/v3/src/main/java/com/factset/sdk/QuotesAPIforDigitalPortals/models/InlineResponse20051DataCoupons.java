@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -27,6 +27,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -45,10 +49,10 @@ public class InlineResponse20051DataCoupons implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_PERIOD = "period";
-  private InlineResponse20051DataPeriod period;
+  private JsonNullable<InlineResponse20051DataPeriod> period = JsonNullable.<InlineResponse20051DataPeriod>undefined();
 
   public static final String JSON_PROPERTY_PAYMENT_DATE = "paymentDate";
-  private LocalDate paymentDate;
+  private JsonNullable<LocalDate> paymentDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_INTEREST_RATE = "interestRate";
   private InlineResponse20051DataInterestRate interestRate;
@@ -57,7 +61,7 @@ public class InlineResponse20051DataCoupons implements Serializable {
   }
 
   public InlineResponse20051DataCoupons period(InlineResponse20051DataPeriod period) {
-    this.period = period;
+    this.period = JsonNullable.<InlineResponse20051DataPeriod>of(period);
     return this;
   }
 
@@ -67,23 +71,31 @@ public class InlineResponse20051DataCoupons implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PERIOD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public InlineResponse20051DataPeriod getPeriod() {
-    return period;
+        return period.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriod(InlineResponse20051DataPeriod period) {
+
+  public JsonNullable<InlineResponse20051DataPeriod> getPeriod_JsonNullable() {
+    return period;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PERIOD)
+  public void setPeriod_JsonNullable(JsonNullable<InlineResponse20051DataPeriod> period) {
     this.period = period;
+  }
+
+  public void setPeriod(InlineResponse20051DataPeriod period) {
+    this.period = JsonNullable.<InlineResponse20051DataPeriod>of(period);
   }
 
 
   public InlineResponse20051DataCoupons paymentDate(LocalDate paymentDate) {
-    this.paymentDate = paymentDate;
+    this.paymentDate = JsonNullable.<LocalDate>of(paymentDate);
     return this;
   }
 
@@ -93,18 +105,26 @@ public class InlineResponse20051DataCoupons implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Payment date of the coupon, usually 2 days after the ending date of the coupon period. For the latter, see attribute `coupons.period.end`.")
-  @JsonProperty(JSON_PROPERTY_PAYMENT_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getPaymentDate() {
-    return paymentDate;
+        return paymentDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentDate(LocalDate paymentDate) {
+
+  public JsonNullable<LocalDate> getPaymentDate_JsonNullable() {
+    return paymentDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PAYMENT_DATE)
+  public void setPaymentDate_JsonNullable(JsonNullable<LocalDate> paymentDate) {
     this.paymentDate = paymentDate;
+  }
+
+  public void setPaymentDate(LocalDate paymentDate) {
+    this.paymentDate = JsonNullable.<LocalDate>of(paymentDate);
   }
 
 
@@ -146,14 +166,25 @@ public class InlineResponse20051DataCoupons implements Serializable {
       return false;
     }
     InlineResponse20051DataCoupons inlineResponse20051DataCoupons = (InlineResponse20051DataCoupons) o;
-    return Objects.equals(this.period, inlineResponse20051DataCoupons.period) &&
-        Objects.equals(this.paymentDate, inlineResponse20051DataCoupons.paymentDate) &&
+    return equalsNullable(this.period, inlineResponse20051DataCoupons.period) &&
+        equalsNullable(this.paymentDate, inlineResponse20051DataCoupons.paymentDate) &&
         Objects.equals(this.interestRate, inlineResponse20051DataCoupons.interestRate);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(period, paymentDate, interestRate);
+    return Objects.hash(hashCodeNullable(period), hashCodeNullable(paymentDate), interestRate);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

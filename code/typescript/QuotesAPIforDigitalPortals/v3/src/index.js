@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,56 +12,9 @@
  */
 
 import ApiClient from './ApiClient';
-import BasicBackgroundTextTypeListData from './model/BasicBackgroundTextTypeListData';
-import BasicBackgroundTextTypeListDataFilter from './model/BasicBackgroundTextTypeListDataFilter';
-import BasicBackgroundTextTypeListMeta from './model/BasicBackgroundTextTypeListMeta';
-import BasicDeliveryListData from './model/BasicDeliveryListData';
-import BasicDeliveryListDataFilter from './model/BasicDeliveryListDataFilter';
-import BasicDeliveryListMeta from './model/BasicDeliveryListMeta';
-import BasicMarketListData from './model/BasicMarketListData';
-import BasicMarketListDataFilter from './model/BasicMarketListDataFilter';
-import BasicMarketListDataFilterMarkets from './model/BasicMarketListDataFilterMarkets';
-import BasicMarketListMeta from './model/BasicMarketListMeta';
-import BasicMarketListMetaPagination from './model/BasicMarketListMetaPagination';
-import BasicMediaTypeListData from './model/BasicMediaTypeListData';
-import BasicMediaTypeListDataFilter from './model/BasicMediaTypeListDataFilter';
-import BasicMediaTypeListMeta from './model/BasicMediaTypeListMeta';
-import BasicMicOperatingListData from './model/BasicMicOperatingListData';
-import BasicMicOperatingListDataFilter from './model/BasicMicOperatingListDataFilter';
-import BasicMicOperatingListMeta from './model/BasicMicOperatingListMeta';
-import BasicTimezoneListData from './model/BasicTimezoneListData';
-import BasicTimezoneListDataFilter from './model/BasicTimezoneListDataFilter';
-import BasicValueUnitCurrencyMainListData from './model/BasicValueUnitCurrencyMainListData';
-import BasicValueUnitCurrencyMainListDataFilter from './model/BasicValueUnitCurrencyMainListDataFilter';
-import BasicValueUnitListData from './model/BasicValueUnitListData';
-import BasicValueUnitListDataFilter from './model/BasicValueUnitListDataFilter';
-import BasicValueUnitListMeta from './model/BasicValueUnitListMeta';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
 import ErrorMetaObject from './model/ErrorMetaObject';
-import InlineObject from './model/InlineObject';
-import InlineObject1 from './model/InlineObject1';
-import InlineObject10 from './model/InlineObject10';
-import InlineObject11 from './model/InlineObject11';
-import InlineObject12 from './model/InlineObject12';
-import InlineObject13 from './model/InlineObject13';
-import InlineObject14 from './model/InlineObject14';
-import InlineObject15 from './model/InlineObject15';
-import InlineObject16 from './model/InlineObject16';
-import InlineObject17 from './model/InlineObject17';
-import InlineObject18 from './model/InlineObject18';
-import InlineObject19 from './model/InlineObject19';
-import InlineObject2 from './model/InlineObject2';
-import InlineObject20 from './model/InlineObject20';
-import InlineObject21 from './model/InlineObject21';
-import InlineObject22 from './model/InlineObject22';
-import InlineObject3 from './model/InlineObject3';
-import InlineObject4 from './model/InlineObject4';
-import InlineObject5 from './model/InlineObject5';
-import InlineObject6 from './model/InlineObject6';
-import InlineObject7 from './model/InlineObject7';
-import InlineObject8 from './model/InlineObject8';
-import InlineObject9 from './model/InlineObject9';
 import InlineResponse200 from './model/InlineResponse200';
 import InlineResponse2001 from './model/InlineResponse2001';
 import InlineResponse20010 from './model/InlineResponse20010';
@@ -298,129 +251,129 @@ import InlineResponse20062DataTargetMarketRiskToleranceSpain from './model/Inlin
 import InlineResponse20062DataTargetMarketRiskToleranceSri from './model/InlineResponse20062DataTargetMarketRiskToleranceSri';
 import InlineResponse20062DataTargetMarketRiskToleranceSrri from './model/InlineResponse20062DataTargetMarketRiskToleranceSrri';
 import InlineResponse20063 from './model/InlineResponse20063';
-import InlineResponse20063Current from './model/InlineResponse20063Current';
 import InlineResponse20063Data from './model/InlineResponse20063Data';
-import InlineResponse20063Previous from './model/InlineResponse20063Previous';
-import InlineResponse20063Ratings from './model/InlineResponse20063Ratings';
-import InlineResponse20063System from './model/InlineResponse20063System';
+import InlineResponse20063Market from './model/InlineResponse20063Market';
+import InlineResponse20063Notations from './model/InlineResponse20063Notations';
+import InlineResponse20063Status from './model/InlineResponse20063Status';
+import InlineResponse20063TradingVolume from './model/InlineResponse20063TradingVolume';
+import InlineResponse20063TradingVolumeMonth1 from './model/InlineResponse20063TradingVolumeMonth1';
+import InlineResponse20063ValueUnit from './model/InlineResponse20063ValueUnit';
 import InlineResponse20064 from './model/InlineResponse20064';
+import InlineResponse20064Current from './model/InlineResponse20064Current';
 import InlineResponse20064Data from './model/InlineResponse20064Data';
-import InlineResponse20064DataInstrument from './model/InlineResponse20064DataInstrument';
-import InlineResponse20064DataMarket from './model/InlineResponse20064DataMarket';
-import InlineResponse20064DataValueUnit from './model/InlineResponse20064DataValueUnit';
+import InlineResponse20064Previous from './model/InlineResponse20064Previous';
+import InlineResponse20064Ratings from './model/InlineResponse20064Ratings';
+import InlineResponse20064System from './model/InlineResponse20064System';
 import InlineResponse20065 from './model/InlineResponse20065';
 import InlineResponse20065Data from './model/InlineResponse20065Data';
-import InlineResponse20065Status from './model/InlineResponse20065Status';
+import InlineResponse20065DataInstrument from './model/InlineResponse20065DataInstrument';
+import InlineResponse20065DataMarket from './model/InlineResponse20065DataMarket';
+import InlineResponse20065DataValueUnit from './model/InlineResponse20065DataValueUnit';
 import InlineResponse20066 from './model/InlineResponse20066';
 import InlineResponse20066Data from './model/InlineResponse20066Data';
-import InlineResponse20066DataInstrument from './model/InlineResponse20066DataInstrument';
-import InlineResponse20066DataMarket from './model/InlineResponse20066DataMarket';
-import InlineResponse20066DataValueUnit from './model/InlineResponse20066DataValueUnit';
+import InlineResponse20066Status from './model/InlineResponse20066Status';
 import InlineResponse20067 from './model/InlineResponse20067';
 import InlineResponse20067Data from './model/InlineResponse20067Data';
+import InlineResponse20067DataInstrument from './model/InlineResponse20067DataInstrument';
+import InlineResponse20067DataMarket from './model/InlineResponse20067DataMarket';
+import InlineResponse20067DataValueUnit from './model/InlineResponse20067DataValueUnit';
 import InlineResponse20068 from './model/InlineResponse20068';
 import InlineResponse20068Data from './model/InlineResponse20068Data';
-import InlineResponse20068Instrument from './model/InlineResponse20068Instrument';
+import InlineResponse20068DataNotations from './model/InlineResponse20068DataNotations';
 import InlineResponse20069 from './model/InlineResponse20069';
-import InlineResponse20069Data from './model/InlineResponse20069Data';
-import InlineResponse20069DataInstrument from './model/InlineResponse20069DataInstrument';
-import InlineResponse20069DataRegional from './model/InlineResponse20069DataRegional';
-import InlineResponse20069DataRegionalListing from './model/InlineResponse20069DataRegionalListing';
 import InlineResponse2006Data from './model/InlineResponse2006Data';
 import InlineResponse2007 from './model/InlineResponse2007';
 import InlineResponse20070 from './model/InlineResponse20070';
 import InlineResponse20070Data from './model/InlineResponse20070Data';
-import InlineResponse20070DataInstrument from './model/InlineResponse20070DataInstrument';
-import InlineResponse20070DataListing from './model/InlineResponse20070DataListing';
-import InlineResponse20070DataNotation from './model/InlineResponse20070DataNotation';
-import InlineResponse20070DataRegional from './model/InlineResponse20070DataRegional';
+import InlineResponse20070Instrument from './model/InlineResponse20070Instrument';
 import InlineResponse20071 from './model/InlineResponse20071';
 import InlineResponse20071Data from './model/InlineResponse20071Data';
+import InlineResponse20071DataInstrument from './model/InlineResponse20071DataInstrument';
+import InlineResponse20071DataRegional from './model/InlineResponse20071DataRegional';
+import InlineResponse20071DataRegionalListing from './model/InlineResponse20071DataRegionalListing';
 import InlineResponse20072 from './model/InlineResponse20072';
 import InlineResponse20072Data from './model/InlineResponse20072Data';
-import InlineResponse20072DataHigh from './model/InlineResponse20072DataHigh';
-import InlineResponse20072DataLow from './model/InlineResponse20072DataLow';
-import InlineResponse20072DataPerformance from './model/InlineResponse20072DataPerformance';
-import InlineResponse20072DataTradingVolume from './model/InlineResponse20072DataTradingVolume';
+import InlineResponse20072DataInstrument from './model/InlineResponse20072DataInstrument';
+import InlineResponse20072DataListing from './model/InlineResponse20072DataListing';
+import InlineResponse20072DataNotation from './model/InlineResponse20072DataNotation';
+import InlineResponse20072DataRegional from './model/InlineResponse20072DataRegional';
 import InlineResponse20073 from './model/InlineResponse20073';
 import InlineResponse20073Data from './model/InlineResponse20073Data';
-import InlineResponse20073Status from './model/InlineResponse20073Status';
 import InlineResponse20074 from './model/InlineResponse20074';
 import InlineResponse20074Data from './model/InlineResponse20074Data';
+import InlineResponse20074DataHigh from './model/InlineResponse20074DataHigh';
+import InlineResponse20074DataLow from './model/InlineResponse20074DataLow';
+import InlineResponse20074DataPerformance from './model/InlineResponse20074DataPerformance';
 import InlineResponse20075 from './model/InlineResponse20075';
 import InlineResponse20075Data from './model/InlineResponse20075Data';
+import InlineResponse20075Status from './model/InlineResponse20075Status';
 import InlineResponse20076 from './model/InlineResponse20076';
 import InlineResponse20076Data from './model/InlineResponse20076Data';
+import InlineResponse20076DataTradingVolume from './model/InlineResponse20076DataTradingVolume';
 import InlineResponse20077 from './model/InlineResponse20077';
 import InlineResponse20077Data from './model/InlineResponse20077Data';
 import InlineResponse20078 from './model/InlineResponse20078';
 import InlineResponse20078Data from './model/InlineResponse20078Data';
-import InlineResponse20078DataMarket from './model/InlineResponse20078DataMarket';
 import InlineResponse20079 from './model/InlineResponse20079';
 import InlineResponse20079Data from './model/InlineResponse20079Data';
-import InlineResponse20079DataAccumulated from './model/InlineResponse20079DataAccumulated';
-import InlineResponse20079DataCurrency from './model/InlineResponse20079DataCurrency';
-import InlineResponse20079DataFirst from './model/InlineResponse20079DataFirst';
-import InlineResponse20079DataHigh from './model/InlineResponse20079DataHigh';
-import InlineResponse20079DataLatest from './model/InlineResponse20079DataLatest';
-import InlineResponse20079DataLatestPerformance from './model/InlineResponse20079DataLatestPerformance';
-import InlineResponse20079DataLatestPerformanceIntraday from './model/InlineResponse20079DataLatestPerformanceIntraday';
-import InlineResponse20079DataLow from './model/InlineResponse20079DataLow';
-import InlineResponse20079DataMarket from './model/InlineResponse20079DataMarket';
-import InlineResponse20079DataPreviousClose from './model/InlineResponse20079DataPreviousClose';
-import InlineResponse20079DataValueUnit from './model/InlineResponse20079DataValueUnit';
 import InlineResponse2007Data from './model/InlineResponse2007Data';
 import InlineResponse2008 from './model/InlineResponse2008';
 import InlineResponse20080 from './model/InlineResponse20080';
-import InlineResponse20080Accumulated from './model/InlineResponse20080Accumulated';
+import InlineResponse20080Country from './model/InlineResponse20080Country';
 import InlineResponse20080Data from './model/InlineResponse20080Data';
-import InlineResponse20080First from './model/InlineResponse20080First';
-import InlineResponse20080High from './model/InlineResponse20080High';
-import InlineResponse20080Latest from './model/InlineResponse20080Latest';
-import InlineResponse20080LatestPerformance from './model/InlineResponse20080LatestPerformance';
-import InlineResponse20080LatestPerformanceIntraday from './model/InlineResponse20080LatestPerformanceIntraday';
-import InlineResponse20080Low from './model/InlineResponse20080Low';
-import InlineResponse20080Market from './model/InlineResponse20080Market';
-import InlineResponse20080PreviousClose from './model/InlineResponse20080PreviousClose';
+import InlineResponse20080Group from './model/InlineResponse20080Group';
+import InlineResponse20080Timezone from './model/InlineResponse20080Timezone';
+import InlineResponse20080Type from './model/InlineResponse20080Type';
 import InlineResponse20081 from './model/InlineResponse20081';
 import InlineResponse20081Data from './model/InlineResponse20081Data';
-import InlineResponse20081DataAsk from './model/InlineResponse20081DataAsk';
-import InlineResponse20081DataBid from './model/InlineResponse20081DataBid';
+import InlineResponse20081DataMarket from './model/InlineResponse20081DataMarket';
 import InlineResponse20082 from './model/InlineResponse20082';
-import InlineResponse20082Ask from './model/InlineResponse20082Ask';
-import InlineResponse20082Bid from './model/InlineResponse20082Bid';
 import InlineResponse20082Data from './model/InlineResponse20082Data';
+import InlineResponse20082DataAccumulated from './model/InlineResponse20082DataAccumulated';
+import InlineResponse20082DataCurrency from './model/InlineResponse20082DataCurrency';
+import InlineResponse20082DataFirst from './model/InlineResponse20082DataFirst';
+import InlineResponse20082DataHigh from './model/InlineResponse20082DataHigh';
+import InlineResponse20082DataLatest from './model/InlineResponse20082DataLatest';
+import InlineResponse20082DataLatestPerformance from './model/InlineResponse20082DataLatestPerformance';
+import InlineResponse20082DataLatestPerformanceIntraday from './model/InlineResponse20082DataLatestPerformanceIntraday';
+import InlineResponse20082DataLow from './model/InlineResponse20082DataLow';
+import InlineResponse20082DataMarket from './model/InlineResponse20082DataMarket';
+import InlineResponse20082DataPreviousClose from './model/InlineResponse20082DataPreviousClose';
+import InlineResponse20082DataValueUnit from './model/InlineResponse20082DataValueUnit';
 import InlineResponse20083 from './model/InlineResponse20083';
+import InlineResponse20083Accumulated from './model/InlineResponse20083Accumulated';
 import InlineResponse20083Data from './model/InlineResponse20083Data';
-import InlineResponse20083DataAsks from './model/InlineResponse20083DataAsks';
+import InlineResponse20083First from './model/InlineResponse20083First';
+import InlineResponse20083High from './model/InlineResponse20083High';
+import InlineResponse20083Latest from './model/InlineResponse20083Latest';
+import InlineResponse20083LatestPerformance from './model/InlineResponse20083LatestPerformance';
+import InlineResponse20083LatestPerformanceIntraday from './model/InlineResponse20083LatestPerformanceIntraday';
+import InlineResponse20083Low from './model/InlineResponse20083Low';
+import InlineResponse20083Market from './model/InlineResponse20083Market';
+import InlineResponse20083PreviousClose from './model/InlineResponse20083PreviousClose';
+import InlineResponse20083Status from './model/InlineResponse20083Status';
 import InlineResponse20084 from './model/InlineResponse20084';
 import InlineResponse20084Data from './model/InlineResponse20084Data';
-import InlineResponse20084DataAsks from './model/InlineResponse20084DataAsks';
+import InlineResponse20084DataAsk from './model/InlineResponse20084DataAsk';
+import InlineResponse20084DataBid from './model/InlineResponse20084DataBid';
 import InlineResponse20085 from './model/InlineResponse20085';
+import InlineResponse20085Ask from './model/InlineResponse20085Ask';
+import InlineResponse20085Bid from './model/InlineResponse20085Bid';
 import InlineResponse20085Data from './model/InlineResponse20085Data';
-import InlineResponse20085DataEvents from './model/InlineResponse20085DataEvents';
-import InlineResponse20085DataRange from './model/InlineResponse20085DataRange';
-import InlineResponse20085DataType from './model/InlineResponse20085DataType';
-import InlineResponse20085Meta from './model/InlineResponse20085Meta';
 import InlineResponse20086 from './model/InlineResponse20086';
 import InlineResponse20086Data from './model/InlineResponse20086Data';
+import InlineResponse20086DataAsks from './model/InlineResponse20086DataAsks';
 import InlineResponse20087 from './model/InlineResponse20087';
 import InlineResponse20087Data from './model/InlineResponse20087Data';
+import InlineResponse20087DataAsks from './model/InlineResponse20087DataAsks';
 import InlineResponse20088 from './model/InlineResponse20088';
 import InlineResponse20088Data from './model/InlineResponse20088Data';
-import InlineResponse20088Instrument from './model/InlineResponse20088Instrument';
-import InlineResponse20088InstrumentNsin from './model/InlineResponse20088InstrumentNsin';
-import InlineResponse20088Nsin from './model/InlineResponse20088Nsin';
-import InlineResponse20088Price from './model/InlineResponse20088Price';
+import InlineResponse20088DataEvents from './model/InlineResponse20088DataEvents';
+import InlineResponse20088DataRange from './model/InlineResponse20088DataRange';
+import InlineResponse20088DataType from './model/InlineResponse20088DataType';
+import InlineResponse20088Meta from './model/InlineResponse20088Meta';
 import InlineResponse20089 from './model/InlineResponse20089';
 import InlineResponse20089Data from './model/InlineResponse20089Data';
-import InlineResponse20089Instrument from './model/InlineResponse20089Instrument';
-import InlineResponse20089InstrumentAssetClass from './model/InlineResponse20089InstrumentAssetClass';
-import InlineResponse20089InstrumentName from './model/InlineResponse20089InstrumentName';
-import InlineResponse20089InstrumentNameDefault from './model/InlineResponse20089InstrumentNameDefault';
-import InlineResponse20089TradingValue from './model/InlineResponse20089TradingValue';
-import InlineResponse20089TradingValueAverage from './model/InlineResponse20089TradingValueAverage';
-import InlineResponse20089ValueUnit from './model/InlineResponse20089ValueUnit';
 import InlineResponse2008Data from './model/InlineResponse2008Data';
 import InlineResponse2008DataCountry from './model/InlineResponse2008DataCountry';
 import InlineResponse2008DataGroup from './model/InlineResponse2008DataGroup';
@@ -429,7 +382,24 @@ import InlineResponse2008DataType from './model/InlineResponse2008DataType';
 import InlineResponse2009 from './model/InlineResponse2009';
 import InlineResponse20090 from './model/InlineResponse20090';
 import InlineResponse20090Data from './model/InlineResponse20090Data';
-import InlineResponse20090Instrument from './model/InlineResponse20090Instrument';
+import InlineResponse20091 from './model/InlineResponse20091';
+import InlineResponse20091Data from './model/InlineResponse20091Data';
+import InlineResponse20091Instrument from './model/InlineResponse20091Instrument';
+import InlineResponse20091InstrumentNsin from './model/InlineResponse20091InstrumentNsin';
+import InlineResponse20091Nsin from './model/InlineResponse20091Nsin';
+import InlineResponse20091Price from './model/InlineResponse20091Price';
+import InlineResponse20092 from './model/InlineResponse20092';
+import InlineResponse20092Data from './model/InlineResponse20092Data';
+import InlineResponse20092Instrument from './model/InlineResponse20092Instrument';
+import InlineResponse20092InstrumentAssetClass from './model/InlineResponse20092InstrumentAssetClass';
+import InlineResponse20092InstrumentName from './model/InlineResponse20092InstrumentName';
+import InlineResponse20092InstrumentNameDefault from './model/InlineResponse20092InstrumentNameDefault';
+import InlineResponse20092TradingValue from './model/InlineResponse20092TradingValue';
+import InlineResponse20092TradingValueAverage from './model/InlineResponse20092TradingValueAverage';
+import InlineResponse20092ValueUnit from './model/InlineResponse20092ValueUnit';
+import InlineResponse20093 from './model/InlineResponse20093';
+import InlineResponse20093Data from './model/InlineResponse20093Data';
+import InlineResponse20093Instrument from './model/InlineResponse20093Instrument';
 import InlineResponse2009Country from './model/InlineResponse2009Country';
 import InlineResponse2009Data from './model/InlineResponse2009Data';
 import InlineResponse2009Group from './model/InlineResponse2009Group';
@@ -437,62 +407,130 @@ import InlineResponse2009Meta from './model/InlineResponse2009Meta';
 import InlineResponse2009Type from './model/InlineResponse2009Type';
 import InlineResponse200Data from './model/InlineResponse200Data';
 import InlineResponse200Meta from './model/InlineResponse200Meta';
-import InstrumentBackgroundTextTypeListData from './model/InstrumentBackgroundTextTypeListData';
-import InstrumentBackgroundTextTypeListDataFilter from './model/InstrumentBackgroundTextTypeListDataFilter';
-import InstrumentBackgroundTextTypeListMeta from './model/InstrumentBackgroundTextTypeListMeta';
-import InstrumentBenchmarkListData from './model/InstrumentBenchmarkListData';
-import InstrumentBenchmarkListDataFilter from './model/InstrumentBenchmarkListDataFilter';
-import InstrumentCategoryListData from './model/InstrumentCategoryListData';
-import InstrumentCategoryListDataFilter from './model/InstrumentCategoryListDataFilter';
-import InstrumentCategoryListDataFilterDataset from './model/InstrumentCategoryListDataFilterDataset';
-import InstrumentCategoryListMeta from './model/InstrumentCategoryListMeta';
-import InstrumentCompliancePropertyListData from './model/InstrumentCompliancePropertyListData';
-import InstrumentCompliancePropertyListDataFilter from './model/InstrumentCompliancePropertyListDataFilter';
-import InstrumentCrossReferenceListByISINData from './model/InstrumentCrossReferenceListByISINData';
-import InstrumentCrossReferenceListByWKNData from './model/InstrumentCrossReferenceListByWKNData';
-import InstrumentRatingGradeListData from './model/InstrumentRatingGradeListData';
-import InstrumentRatingGradeListDataFilter from './model/InstrumentRatingGradeListDataFilter';
-import InstrumentRatingGradeListDataFilterRatingSystem from './model/InstrumentRatingGradeListDataFilterRatingSystem';
-import NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData from './model/NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData';
-import NotationCrossReferenceFactSetIdentifierListByInstrumentData from './model/NotationCrossReferenceFactSetIdentifierListByInstrumentData';
-import NotationCrossReferenceListByISINData from './model/NotationCrossReferenceListByISINData';
-import NotationCrossReferenceListByInstrumentData from './model/NotationCrossReferenceListByInstrumentData';
-import NotationCrossReferenceListByInstrumentDataFilter from './model/NotationCrossReferenceListByInstrumentDataFilter';
-import NotationCrossReferenceListByInstrumentDataFilterMarkets from './model/NotationCrossReferenceListByInstrumentDataFilterMarkets';
-import NotationCrossReferenceListByInstrumentDataFilterValueUnits from './model/NotationCrossReferenceListByInstrumentDataFilterValueUnits';
-import NotationCrossReferenceListBySymbolData from './model/NotationCrossReferenceListBySymbolData';
-import NotationSearchByTextData from './model/NotationSearchByTextData';
-import NotationSearchByTextDataAssetClasses from './model/NotationSearchByTextDataAssetClasses';
-import NotationSearchByTextDataMarket from './model/NotationSearchByTextDataMarket';
-import NotationSearchByTextDataMarketOrder from './model/NotationSearchByTextDataMarketOrder';
-import NotationSearchByTextDataText from './model/NotationSearchByTextDataText';
-import NotationSearchByTextDataTradingValue from './model/NotationSearchByTextDataTradingValue';
-import NotationSearchByTextDataTradingValueAverage from './model/NotationSearchByTextDataTradingValueAverage';
-import NotationSearchByTextDataTradingValueAverageDays30 from './model/NotationSearchByTextDataTradingValueAverageDays30';
-import NotationSearchByTextDataTradingValueAverageDays30Maximum from './model/NotationSearchByTextDataTradingValueAverageDays30Maximum';
-import NotationSearchByTextDataTradingValueAverageDays30Minimum from './model/NotationSearchByTextDataTradingValueAverageDays30Minimum';
-import NotationSearchByTextDataValidation from './model/NotationSearchByTextDataValidation';
-import NotationSearchByTextDataValidationMarket from './model/NotationSearchByTextDataValidationMarket';
-import NotationSearchByTextDataValidationMarketPriority from './model/NotationSearchByTextDataValidationMarketPriority';
-import NotationSearchByTextDataValidationMarketSelection from './model/NotationSearchByTextDataValidationMarketSelection';
-import NotationSearchByTextDataValidationMarketSelectionExclude from './model/NotationSearchByTextDataValidationMarketSelectionExclude';
-import NotationSearchByTextDataValidationMarketSelectionRestrict from './model/NotationSearchByTextDataValidationMarketSelectionRestrict';
-import NotationSearchByTextDataValidationPrices from './model/NotationSearchByTextDataValidationPrices';
-import NotationSearchByTextDataValidationPricesLatest from './model/NotationSearchByTextDataValidationPricesLatest';
-import NotationSearchByTextDataValidationPricesPrevious from './model/NotationSearchByTextDataValidationPricesPrevious';
-import NotationSearchByTextDataValidationValueUnit from './model/NotationSearchByTextDataValidationValueUnit';
-import NotationSearchByTextDataValidationValueUnitSelection from './model/NotationSearchByTextDataValidationValueUnitSelection';
-import NotationSearchByTextDataValidationValueUnitSelectionExclude from './model/NotationSearchByTextDataValidationValueUnitSelectionExclude';
-import NotationSearchByTextDataValidationValueUnitSelectionRestrict from './model/NotationSearchByTextDataValidationValueUnitSelectionRestrict';
-import NotationSearchByTextMeta from './model/NotationSearchByTextMeta';
 import OffsetBasedPaginationOutputObject from './model/OffsetBasedPaginationOutputObject';
 import OffsetBasedPaginationOutputObjectWithoutTotal from './model/OffsetBasedPaginationOutputObjectWithoutTotal';
 import PartialOutputObject from './model/PartialOutputObject';
-import PricesTradingScheduleEventListData from './model/PricesTradingScheduleEventListData';
-import PricesTradingScheduleEventListDataFilter from './model/PricesTradingScheduleEventListDataFilter';
-import PricesTradingScheduleEventListDataFilterRange from './model/PricesTradingScheduleEventListDataFilterRange';
-import PricesTradingScheduleEventListMeta from './model/PricesTradingScheduleEventListMeta';
-import PricesTradingScheduleEventListMetaPagination from './model/PricesTradingScheduleEventListMetaPagination';
+import PostBasicBackgroundTextTypeListRequest from './model/PostBasicBackgroundTextTypeListRequest';
+import PostBasicBackgroundTextTypeListRequestData from './model/PostBasicBackgroundTextTypeListRequestData';
+import PostBasicBackgroundTextTypeListRequestDataFilter from './model/PostBasicBackgroundTextTypeListRequestDataFilter';
+import PostBasicBackgroundTextTypeListRequestMeta from './model/PostBasicBackgroundTextTypeListRequestMeta';
+import PostBasicDeliveryListRequest from './model/PostBasicDeliveryListRequest';
+import PostBasicDeliveryListRequestData from './model/PostBasicDeliveryListRequestData';
+import PostBasicDeliveryListRequestDataFilter from './model/PostBasicDeliveryListRequestDataFilter';
+import PostBasicDeliveryListRequestMeta from './model/PostBasicDeliveryListRequestMeta';
+import PostBasicMarketListRequest from './model/PostBasicMarketListRequest';
+import PostBasicMarketListRequestData from './model/PostBasicMarketListRequestData';
+import PostBasicMarketListRequestDataFilter from './model/PostBasicMarketListRequestDataFilter';
+import PostBasicMarketListRequestDataFilterMarkets from './model/PostBasicMarketListRequestDataFilterMarkets';
+import PostBasicMarketListRequestMeta from './model/PostBasicMarketListRequestMeta';
+import PostBasicMarketListRequestMetaPagination from './model/PostBasicMarketListRequestMetaPagination';
+import PostBasicMediaTypeListRequest from './model/PostBasicMediaTypeListRequest';
+import PostBasicMediaTypeListRequestData from './model/PostBasicMediaTypeListRequestData';
+import PostBasicMediaTypeListRequestDataFilter from './model/PostBasicMediaTypeListRequestDataFilter';
+import PostBasicMediaTypeListRequestMeta from './model/PostBasicMediaTypeListRequestMeta';
+import PostBasicMicOperatingListRequest from './model/PostBasicMicOperatingListRequest';
+import PostBasicMicOperatingListRequestData from './model/PostBasicMicOperatingListRequestData';
+import PostBasicMicOperatingListRequestDataFilter from './model/PostBasicMicOperatingListRequestDataFilter';
+import PostBasicMicOperatingListRequestMeta from './model/PostBasicMicOperatingListRequestMeta';
+import PostBasicTimezoneListRequest from './model/PostBasicTimezoneListRequest';
+import PostBasicTimezoneListRequestData from './model/PostBasicTimezoneListRequestData';
+import PostBasicTimezoneListRequestDataFilter from './model/PostBasicTimezoneListRequestDataFilter';
+import PostBasicValueUnitCurrencyListRequest from './model/PostBasicValueUnitCurrencyListRequest';
+import PostBasicValueUnitCurrencyMainListRequest from './model/PostBasicValueUnitCurrencyMainListRequest';
+import PostBasicValueUnitCurrencyMainListRequestData from './model/PostBasicValueUnitCurrencyMainListRequestData';
+import PostBasicValueUnitCurrencyMainListRequestDataFilter from './model/PostBasicValueUnitCurrencyMainListRequestDataFilter';
+import PostBasicValueUnitListRequest from './model/PostBasicValueUnitListRequest';
+import PostBasicValueUnitListRequestData from './model/PostBasicValueUnitListRequestData';
+import PostBasicValueUnitListRequestDataFilter from './model/PostBasicValueUnitListRequestDataFilter';
+import PostBasicValueUnitListRequestMeta from './model/PostBasicValueUnitListRequestMeta';
+import PostInstrumentBackgroundTextTypeListRequest from './model/PostInstrumentBackgroundTextTypeListRequest';
+import PostInstrumentBackgroundTextTypeListRequestData from './model/PostInstrumentBackgroundTextTypeListRequestData';
+import PostInstrumentBackgroundTextTypeListRequestDataFilter from './model/PostInstrumentBackgroundTextTypeListRequestDataFilter';
+import PostInstrumentBackgroundTextTypeListRequestMeta from './model/PostInstrumentBackgroundTextTypeListRequestMeta';
+import PostInstrumentBenchmarkListRequest from './model/PostInstrumentBenchmarkListRequest';
+import PostInstrumentBenchmarkListRequestData from './model/PostInstrumentBenchmarkListRequestData';
+import PostInstrumentBenchmarkListRequestDataFilter from './model/PostInstrumentBenchmarkListRequestDataFilter';
+import PostInstrumentCategoryListRequest from './model/PostInstrumentCategoryListRequest';
+import PostInstrumentCategoryListRequestData from './model/PostInstrumentCategoryListRequestData';
+import PostInstrumentCategoryListRequestDataFilter from './model/PostInstrumentCategoryListRequestDataFilter';
+import PostInstrumentCategoryListRequestDataFilterDataset from './model/PostInstrumentCategoryListRequestDataFilterDataset';
+import PostInstrumentCategoryListRequestMeta from './model/PostInstrumentCategoryListRequestMeta';
+import PostInstrumentCompliancePropertyListRequest from './model/PostInstrumentCompliancePropertyListRequest';
+import PostInstrumentCompliancePropertyListRequestData from './model/PostInstrumentCompliancePropertyListRequestData';
+import PostInstrumentCompliancePropertyListRequestDataFilter from './model/PostInstrumentCompliancePropertyListRequestDataFilter';
+import PostInstrumentCrossReferenceListByISINRequest from './model/PostInstrumentCrossReferenceListByISINRequest';
+import PostInstrumentCrossReferenceListByISINRequestData from './model/PostInstrumentCrossReferenceListByISINRequestData';
+import PostInstrumentCrossReferenceListByWKNRequest from './model/PostInstrumentCrossReferenceListByWKNRequest';
+import PostInstrumentCrossReferenceListByWKNRequestData from './model/PostInstrumentCrossReferenceListByWKNRequestData';
+import PostInstrumentNotationListRequest from './model/PostInstrumentNotationListRequest';
+import PostInstrumentNotationListRequestData from './model/PostInstrumentNotationListRequestData';
+import PostInstrumentNotationListRequestDataFilter from './model/PostInstrumentNotationListRequestDataFilter';
+import PostInstrumentNotationListRequestDataFilterMarket from './model/PostInstrumentNotationListRequestDataFilterMarket';
+import PostInstrumentNotationListRequestDataFilterMarketOrder from './model/PostInstrumentNotationListRequestDataFilterMarketOrder';
+import PostInstrumentNotationListRequestDataFilterMarketSelection from './model/PostInstrumentNotationListRequestDataFilterMarketSelection';
+import PostInstrumentNotationListRequestDataFilterMarketSelectionExclude from './model/PostInstrumentNotationListRequestDataFilterMarketSelectionExclude';
+import PostInstrumentNotationListRequestDataFilterMarketSelectionRestrict from './model/PostInstrumentNotationListRequestDataFilterMarketSelectionRestrict';
+import PostInstrumentNotationListRequestDataFilterValueUnit from './model/PostInstrumentNotationListRequestDataFilterValueUnit';
+import PostInstrumentNotationListRequestDataFilterValueUnitOrder from './model/PostInstrumentNotationListRequestDataFilterValueUnitOrder';
+import PostInstrumentNotationListRequestDataFilterValueUnitSelection from './model/PostInstrumentNotationListRequestDataFilterValueUnitSelection';
+import PostInstrumentNotationListRequestDataFilterValueUnitSelectionExclude from './model/PostInstrumentNotationListRequestDataFilterValueUnitSelectionExclude';
+import PostInstrumentNotationListRequestDataFilterValueUnitSelectionRestrict from './model/PostInstrumentNotationListRequestDataFilterValueUnitSelectionRestrict';
+import PostInstrumentNotationListRequestDataIdentifier from './model/PostInstrumentNotationListRequestDataIdentifier';
+import PostInstrumentNotationListRequestMeta from './model/PostInstrumentNotationListRequestMeta';
+import PostInstrumentRatingGradeListRequest from './model/PostInstrumentRatingGradeListRequest';
+import PostInstrumentRatingGradeListRequestData from './model/PostInstrumentRatingGradeListRequestData';
+import PostInstrumentRatingGradeListRequestDataFilter from './model/PostInstrumentRatingGradeListRequestDataFilter';
+import PostInstrumentRatingGradeListRequestDataFilterRatingSystem from './model/PostInstrumentRatingGradeListRequestDataFilterRatingSystem';
+import PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest from './model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest';
+import PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData from './model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData';
+import PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest from './model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest';
+import PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequestData from './model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequestData';
+import PostNotationCrossReferenceListByISINRequest from './model/PostNotationCrossReferenceListByISINRequest';
+import PostNotationCrossReferenceListByISINRequestData from './model/PostNotationCrossReferenceListByISINRequestData';
+import PostNotationCrossReferenceListByInstrumentRequest from './model/PostNotationCrossReferenceListByInstrumentRequest';
+import PostNotationCrossReferenceListByInstrumentRequestData from './model/PostNotationCrossReferenceListByInstrumentRequestData';
+import PostNotationCrossReferenceListByInstrumentRequestDataFilter from './model/PostNotationCrossReferenceListByInstrumentRequestDataFilter';
+import PostNotationCrossReferenceListByInstrumentRequestDataFilterMarkets from './model/PostNotationCrossReferenceListByInstrumentRequestDataFilterMarkets';
+import PostNotationCrossReferenceListByInstrumentRequestDataFilterValueUnits from './model/PostNotationCrossReferenceListByInstrumentRequestDataFilterValueUnits';
+import PostNotationCrossReferenceListByInstrumentRequestDataIdentifier from './model/PostNotationCrossReferenceListByInstrumentRequestDataIdentifier';
+import PostNotationCrossReferenceListBySymbolRequest from './model/PostNotationCrossReferenceListBySymbolRequest';
+import PostNotationCrossReferenceListBySymbolRequestData from './model/PostNotationCrossReferenceListBySymbolRequestData';
+import PostNotationMarketListRequest from './model/PostNotationMarketListRequest';
+import PostNotationMarketListRequestData from './model/PostNotationMarketListRequestData';
+import PostNotationMarketListRequestDataFilter from './model/PostNotationMarketListRequestDataFilter';
+import PostNotationMarketListRequestDataFilterAssetClass from './model/PostNotationMarketListRequestDataFilterAssetClass';
+import PostNotationMarketListRequestDataFilterCountry from './model/PostNotationMarketListRequestDataFilterCountry';
+import PostNotationMarketListRequestDataFilterGroup from './model/PostNotationMarketListRequestDataFilterGroup';
+import PostNotationMarketListRequestDataFilterType from './model/PostNotationMarketListRequestDataFilterType';
+import PostNotationMarketListRequestMeta from './model/PostNotationMarketListRequestMeta';
+import PostNotationSearchByTextRequest from './model/PostNotationSearchByTextRequest';
+import PostNotationSearchByTextRequestData from './model/PostNotationSearchByTextRequestData';
+import PostNotationSearchByTextRequestDataAssetClasses from './model/PostNotationSearchByTextRequestDataAssetClasses';
+import PostNotationSearchByTextRequestDataMarket from './model/PostNotationSearchByTextRequestDataMarket';
+import PostNotationSearchByTextRequestDataMarketOrder from './model/PostNotationSearchByTextRequestDataMarketOrder';
+import PostNotationSearchByTextRequestDataText from './model/PostNotationSearchByTextRequestDataText';
+import PostNotationSearchByTextRequestDataTradingValue from './model/PostNotationSearchByTextRequestDataTradingValue';
+import PostNotationSearchByTextRequestDataTradingValueAverage from './model/PostNotationSearchByTextRequestDataTradingValueAverage';
+import PostNotationSearchByTextRequestDataTradingValueAverageDays30 from './model/PostNotationSearchByTextRequestDataTradingValueAverageDays30';
+import PostNotationSearchByTextRequestDataTradingValueAverageDays30Maximum from './model/PostNotationSearchByTextRequestDataTradingValueAverageDays30Maximum';
+import PostNotationSearchByTextRequestDataTradingValueAverageDays30Minimum from './model/PostNotationSearchByTextRequestDataTradingValueAverageDays30Minimum';
+import PostNotationSearchByTextRequestDataValidation from './model/PostNotationSearchByTextRequestDataValidation';
+import PostNotationSearchByTextRequestDataValidationMarket from './model/PostNotationSearchByTextRequestDataValidationMarket';
+import PostNotationSearchByTextRequestDataValidationMarketPriority from './model/PostNotationSearchByTextRequestDataValidationMarketPriority';
+import PostNotationSearchByTextRequestDataValidationMarketSelection from './model/PostNotationSearchByTextRequestDataValidationMarketSelection';
+import PostNotationSearchByTextRequestDataValidationPrices from './model/PostNotationSearchByTextRequestDataValidationPrices';
+import PostNotationSearchByTextRequestDataValidationPricesLatest from './model/PostNotationSearchByTextRequestDataValidationPricesLatest';
+import PostNotationSearchByTextRequestDataValidationPricesPrevious from './model/PostNotationSearchByTextRequestDataValidationPricesPrevious';
+import PostNotationSearchByTextRequestDataValidationValueUnit from './model/PostNotationSearchByTextRequestDataValidationValueUnit';
+import PostNotationSearchByTextRequestDataValidationValueUnitSelection from './model/PostNotationSearchByTextRequestDataValidationValueUnitSelection';
+import PostNotationSearchByTextRequestMeta from './model/PostNotationSearchByTextRequestMeta';
+import PostPricesTradingScheduleEventListRequest from './model/PostPricesTradingScheduleEventListRequest';
+import PostPricesTradingScheduleEventListRequestData from './model/PostPricesTradingScheduleEventListRequestData';
+import PostPricesTradingScheduleEventListRequestDataFilter from './model/PostPricesTradingScheduleEventListRequestDataFilter';
+import PostPricesTradingScheduleEventListRequestDataFilterRange from './model/PostPricesTradingScheduleEventListRequestDataFilterRange';
+import PostPricesTradingScheduleEventListRequestDataIdentifier from './model/PostPricesTradingScheduleEventListRequestDataIdentifier';
+import PostPricesTradingScheduleEventListRequestMeta from './model/PostPricesTradingScheduleEventListRequestMeta';
+import PostPricesTradingScheduleEventListRequestMetaPagination from './model/PostPricesTradingScheduleEventListRequestMetaPagination';
 import StatusObject from './model/StatusObject';
 
 import BasicApi from './api/BasicApi';
@@ -540,150 +578,6 @@ export {
     ApiClient,
 
     /**
-     * The BasicBackgroundTextTypeListData model constructor.
-     * @property {module:model/BasicBackgroundTextTypeListData}
-     */
-    BasicBackgroundTextTypeListData,
-
-    /**
-     * The BasicBackgroundTextTypeListDataFilter model constructor.
-     * @property {module:model/BasicBackgroundTextTypeListDataFilter}
-     */
-    BasicBackgroundTextTypeListDataFilter,
-
-    /**
-     * The BasicBackgroundTextTypeListMeta model constructor.
-     * @property {module:model/BasicBackgroundTextTypeListMeta}
-     */
-    BasicBackgroundTextTypeListMeta,
-
-    /**
-     * The BasicDeliveryListData model constructor.
-     * @property {module:model/BasicDeliveryListData}
-     */
-    BasicDeliveryListData,
-
-    /**
-     * The BasicDeliveryListDataFilter model constructor.
-     * @property {module:model/BasicDeliveryListDataFilter}
-     */
-    BasicDeliveryListDataFilter,
-
-    /**
-     * The BasicDeliveryListMeta model constructor.
-     * @property {module:model/BasicDeliveryListMeta}
-     */
-    BasicDeliveryListMeta,
-
-    /**
-     * The BasicMarketListData model constructor.
-     * @property {module:model/BasicMarketListData}
-     */
-    BasicMarketListData,
-
-    /**
-     * The BasicMarketListDataFilter model constructor.
-     * @property {module:model/BasicMarketListDataFilter}
-     */
-    BasicMarketListDataFilter,
-
-    /**
-     * The BasicMarketListDataFilterMarkets model constructor.
-     * @property {module:model/BasicMarketListDataFilterMarkets}
-     */
-    BasicMarketListDataFilterMarkets,
-
-    /**
-     * The BasicMarketListMeta model constructor.
-     * @property {module:model/BasicMarketListMeta}
-     */
-    BasicMarketListMeta,
-
-    /**
-     * The BasicMarketListMetaPagination model constructor.
-     * @property {module:model/BasicMarketListMetaPagination}
-     */
-    BasicMarketListMetaPagination,
-
-    /**
-     * The BasicMediaTypeListData model constructor.
-     * @property {module:model/BasicMediaTypeListData}
-     */
-    BasicMediaTypeListData,
-
-    /**
-     * The BasicMediaTypeListDataFilter model constructor.
-     * @property {module:model/BasicMediaTypeListDataFilter}
-     */
-    BasicMediaTypeListDataFilter,
-
-    /**
-     * The BasicMediaTypeListMeta model constructor.
-     * @property {module:model/BasicMediaTypeListMeta}
-     */
-    BasicMediaTypeListMeta,
-
-    /**
-     * The BasicMicOperatingListData model constructor.
-     * @property {module:model/BasicMicOperatingListData}
-     */
-    BasicMicOperatingListData,
-
-    /**
-     * The BasicMicOperatingListDataFilter model constructor.
-     * @property {module:model/BasicMicOperatingListDataFilter}
-     */
-    BasicMicOperatingListDataFilter,
-
-    /**
-     * The BasicMicOperatingListMeta model constructor.
-     * @property {module:model/BasicMicOperatingListMeta}
-     */
-    BasicMicOperatingListMeta,
-
-    /**
-     * The BasicTimezoneListData model constructor.
-     * @property {module:model/BasicTimezoneListData}
-     */
-    BasicTimezoneListData,
-
-    /**
-     * The BasicTimezoneListDataFilter model constructor.
-     * @property {module:model/BasicTimezoneListDataFilter}
-     */
-    BasicTimezoneListDataFilter,
-
-    /**
-     * The BasicValueUnitCurrencyMainListData model constructor.
-     * @property {module:model/BasicValueUnitCurrencyMainListData}
-     */
-    BasicValueUnitCurrencyMainListData,
-
-    /**
-     * The BasicValueUnitCurrencyMainListDataFilter model constructor.
-     * @property {module:model/BasicValueUnitCurrencyMainListDataFilter}
-     */
-    BasicValueUnitCurrencyMainListDataFilter,
-
-    /**
-     * The BasicValueUnitListData model constructor.
-     * @property {module:model/BasicValueUnitListData}
-     */
-    BasicValueUnitListData,
-
-    /**
-     * The BasicValueUnitListDataFilter model constructor.
-     * @property {module:model/BasicValueUnitListDataFilter}
-     */
-    BasicValueUnitListDataFilter,
-
-    /**
-     * The BasicValueUnitListMeta model constructor.
-     * @property {module:model/BasicValueUnitListMeta}
-     */
-    BasicValueUnitListMeta,
-
-    /**
      * The CursorBasedPaginationOutputObject model constructor.
      * @property {module:model/CursorBasedPaginationOutputObject}
      */
@@ -700,144 +594,6 @@ export {
      * @property {module:model/ErrorMetaObject}
      */
     ErrorMetaObject,
-
-    /**
-     * The InlineObject model constructor.
-     * @property {module:model/InlineObject}
-     */
-    InlineObject,
-
-    /**
-     * The InlineObject1 model constructor.
-     * @property {module:model/InlineObject1}
-     */
-    InlineObject1,
-
-    /**
-     * The InlineObject10 model constructor.
-     * @property {module:model/InlineObject10}
-     */
-    InlineObject10,
-
-    /**
-     * The InlineObject11 model constructor.
-     * @property {module:model/InlineObject11}
-     */
-    InlineObject11,
-
-    /**
-     * The InlineObject12 model constructor.
-     * @property {module:model/InlineObject12}
-     */
-    InlineObject12,
-
-    /**
-     * The InlineObject13 model constructor.
-     * @property {module:model/InlineObject13}
-     */
-    InlineObject13,
-
-    /**
-     * The InlineObject14 model constructor.
-     * @property {module:model/InlineObject14}
-     */
-    InlineObject14,
-
-    /**
-     * The InlineObject15 model constructor.
-     * @property {module:model/InlineObject15}
-     */
-    InlineObject15,
-
-    /**
-     * The InlineObject16 model constructor.
-     * @property {module:model/InlineObject16}
-     */
-    InlineObject16,
-
-    /**
-     * The InlineObject17 model constructor.
-     * @property {module:model/InlineObject17}
-     */
-    InlineObject17,
-
-    /**
-     * The InlineObject18 model constructor.
-     * @property {module:model/InlineObject18}
-     */
-    InlineObject18,
-
-    /**
-     * The InlineObject19 model constructor.
-     * @property {module:model/InlineObject19}
-     */
-    InlineObject19,
-
-    /**
-     * The InlineObject2 model constructor.
-     * @property {module:model/InlineObject2}
-     */
-    InlineObject2,
-
-    /**
-     * The InlineObject20 model constructor.
-     * @property {module:model/InlineObject20}
-     */
-    InlineObject20,
-
-    /**
-     * The InlineObject21 model constructor.
-     * @property {module:model/InlineObject21}
-     */
-    InlineObject21,
-
-    /**
-     * The InlineObject22 model constructor.
-     * @property {module:model/InlineObject22}
-     */
-    InlineObject22,
-
-    /**
-     * The InlineObject3 model constructor.
-     * @property {module:model/InlineObject3}
-     */
-    InlineObject3,
-
-    /**
-     * The InlineObject4 model constructor.
-     * @property {module:model/InlineObject4}
-     */
-    InlineObject4,
-
-    /**
-     * The InlineObject5 model constructor.
-     * @property {module:model/InlineObject5}
-     */
-    InlineObject5,
-
-    /**
-     * The InlineObject6 model constructor.
-     * @property {module:model/InlineObject6}
-     */
-    InlineObject6,
-
-    /**
-     * The InlineObject7 model constructor.
-     * @property {module:model/InlineObject7}
-     */
-    InlineObject7,
-
-    /**
-     * The InlineObject8 model constructor.
-     * @property {module:model/InlineObject8}
-     */
-    InlineObject8,
-
-    /**
-     * The InlineObject9 model constructor.
-     * @property {module:model/InlineObject9}
-     */
-    InlineObject9,
 
     /**
      * The InlineResponse200 model constructor.
@@ -2256,34 +2012,46 @@ export {
     InlineResponse20063,
 
     /**
-     * The InlineResponse20063Current model constructor.
-     * @property {module:model/InlineResponse20063Current}
-     */
-    InlineResponse20063Current,
-
-    /**
      * The InlineResponse20063Data model constructor.
      * @property {module:model/InlineResponse20063Data}
      */
     InlineResponse20063Data,
 
     /**
-     * The InlineResponse20063Previous model constructor.
-     * @property {module:model/InlineResponse20063Previous}
+     * The InlineResponse20063Market model constructor.
+     * @property {module:model/InlineResponse20063Market}
      */
-    InlineResponse20063Previous,
+    InlineResponse20063Market,
 
     /**
-     * The InlineResponse20063Ratings model constructor.
-     * @property {module:model/InlineResponse20063Ratings}
+     * The InlineResponse20063Notations model constructor.
+     * @property {module:model/InlineResponse20063Notations}
      */
-    InlineResponse20063Ratings,
+    InlineResponse20063Notations,
 
     /**
-     * The InlineResponse20063System model constructor.
-     * @property {module:model/InlineResponse20063System}
+     * The InlineResponse20063Status model constructor.
+     * @property {module:model/InlineResponse20063Status}
      */
-    InlineResponse20063System,
+    InlineResponse20063Status,
+
+    /**
+     * The InlineResponse20063TradingVolume model constructor.
+     * @property {module:model/InlineResponse20063TradingVolume}
+     */
+    InlineResponse20063TradingVolume,
+
+    /**
+     * The InlineResponse20063TradingVolumeMonth1 model constructor.
+     * @property {module:model/InlineResponse20063TradingVolumeMonth1}
+     */
+    InlineResponse20063TradingVolumeMonth1,
+
+    /**
+     * The InlineResponse20063ValueUnit model constructor.
+     * @property {module:model/InlineResponse20063ValueUnit}
+     */
+    InlineResponse20063ValueUnit,
 
     /**
      * The InlineResponse20064 model constructor.
@@ -2292,28 +2060,34 @@ export {
     InlineResponse20064,
 
     /**
+     * The InlineResponse20064Current model constructor.
+     * @property {module:model/InlineResponse20064Current}
+     */
+    InlineResponse20064Current,
+
+    /**
      * The InlineResponse20064Data model constructor.
      * @property {module:model/InlineResponse20064Data}
      */
     InlineResponse20064Data,
 
     /**
-     * The InlineResponse20064DataInstrument model constructor.
-     * @property {module:model/InlineResponse20064DataInstrument}
+     * The InlineResponse20064Previous model constructor.
+     * @property {module:model/InlineResponse20064Previous}
      */
-    InlineResponse20064DataInstrument,
+    InlineResponse20064Previous,
 
     /**
-     * The InlineResponse20064DataMarket model constructor.
-     * @property {module:model/InlineResponse20064DataMarket}
+     * The InlineResponse20064Ratings model constructor.
+     * @property {module:model/InlineResponse20064Ratings}
      */
-    InlineResponse20064DataMarket,
+    InlineResponse20064Ratings,
 
     /**
-     * The InlineResponse20064DataValueUnit model constructor.
-     * @property {module:model/InlineResponse20064DataValueUnit}
+     * The InlineResponse20064System model constructor.
+     * @property {module:model/InlineResponse20064System}
      */
-    InlineResponse20064DataValueUnit,
+    InlineResponse20064System,
 
     /**
      * The InlineResponse20065 model constructor.
@@ -2328,10 +2102,22 @@ export {
     InlineResponse20065Data,
 
     /**
-     * The InlineResponse20065Status model constructor.
-     * @property {module:model/InlineResponse20065Status}
+     * The InlineResponse20065DataInstrument model constructor.
+     * @property {module:model/InlineResponse20065DataInstrument}
      */
-    InlineResponse20065Status,
+    InlineResponse20065DataInstrument,
+
+    /**
+     * The InlineResponse20065DataMarket model constructor.
+     * @property {module:model/InlineResponse20065DataMarket}
+     */
+    InlineResponse20065DataMarket,
+
+    /**
+     * The InlineResponse20065DataValueUnit model constructor.
+     * @property {module:model/InlineResponse20065DataValueUnit}
+     */
+    InlineResponse20065DataValueUnit,
 
     /**
      * The InlineResponse20066 model constructor.
@@ -2346,22 +2132,10 @@ export {
     InlineResponse20066Data,
 
     /**
-     * The InlineResponse20066DataInstrument model constructor.
-     * @property {module:model/InlineResponse20066DataInstrument}
+     * The InlineResponse20066Status model constructor.
+     * @property {module:model/InlineResponse20066Status}
      */
-    InlineResponse20066DataInstrument,
-
-    /**
-     * The InlineResponse20066DataMarket model constructor.
-     * @property {module:model/InlineResponse20066DataMarket}
-     */
-    InlineResponse20066DataMarket,
-
-    /**
-     * The InlineResponse20066DataValueUnit model constructor.
-     * @property {module:model/InlineResponse20066DataValueUnit}
-     */
-    InlineResponse20066DataValueUnit,
+    InlineResponse20066Status,
 
     /**
      * The InlineResponse20067 model constructor.
@@ -2376,6 +2150,24 @@ export {
     InlineResponse20067Data,
 
     /**
+     * The InlineResponse20067DataInstrument model constructor.
+     * @property {module:model/InlineResponse20067DataInstrument}
+     */
+    InlineResponse20067DataInstrument,
+
+    /**
+     * The InlineResponse20067DataMarket model constructor.
+     * @property {module:model/InlineResponse20067DataMarket}
+     */
+    InlineResponse20067DataMarket,
+
+    /**
+     * The InlineResponse20067DataValueUnit model constructor.
+     * @property {module:model/InlineResponse20067DataValueUnit}
+     */
+    InlineResponse20067DataValueUnit,
+
+    /**
      * The InlineResponse20068 model constructor.
      * @property {module:model/InlineResponse20068}
      */
@@ -2388,40 +2180,16 @@ export {
     InlineResponse20068Data,
 
     /**
-     * The InlineResponse20068Instrument model constructor.
-     * @property {module:model/InlineResponse20068Instrument}
+     * The InlineResponse20068DataNotations model constructor.
+     * @property {module:model/InlineResponse20068DataNotations}
      */
-    InlineResponse20068Instrument,
+    InlineResponse20068DataNotations,
 
     /**
      * The InlineResponse20069 model constructor.
      * @property {module:model/InlineResponse20069}
      */
     InlineResponse20069,
-
-    /**
-     * The InlineResponse20069Data model constructor.
-     * @property {module:model/InlineResponse20069Data}
-     */
-    InlineResponse20069Data,
-
-    /**
-     * The InlineResponse20069DataInstrument model constructor.
-     * @property {module:model/InlineResponse20069DataInstrument}
-     */
-    InlineResponse20069DataInstrument,
-
-    /**
-     * The InlineResponse20069DataRegional model constructor.
-     * @property {module:model/InlineResponse20069DataRegional}
-     */
-    InlineResponse20069DataRegional,
-
-    /**
-     * The InlineResponse20069DataRegionalListing model constructor.
-     * @property {module:model/InlineResponse20069DataRegionalListing}
-     */
-    InlineResponse20069DataRegionalListing,
 
     /**
      * The InlineResponse2006Data model constructor.
@@ -2448,28 +2216,10 @@ export {
     InlineResponse20070Data,
 
     /**
-     * The InlineResponse20070DataInstrument model constructor.
-     * @property {module:model/InlineResponse20070DataInstrument}
+     * The InlineResponse20070Instrument model constructor.
+     * @property {module:model/InlineResponse20070Instrument}
      */
-    InlineResponse20070DataInstrument,
-
-    /**
-     * The InlineResponse20070DataListing model constructor.
-     * @property {module:model/InlineResponse20070DataListing}
-     */
-    InlineResponse20070DataListing,
-
-    /**
-     * The InlineResponse20070DataNotation model constructor.
-     * @property {module:model/InlineResponse20070DataNotation}
-     */
-    InlineResponse20070DataNotation,
-
-    /**
-     * The InlineResponse20070DataRegional model constructor.
-     * @property {module:model/InlineResponse20070DataRegional}
-     */
-    InlineResponse20070DataRegional,
+    InlineResponse20070Instrument,
 
     /**
      * The InlineResponse20071 model constructor.
@@ -2484,6 +2234,24 @@ export {
     InlineResponse20071Data,
 
     /**
+     * The InlineResponse20071DataInstrument model constructor.
+     * @property {module:model/InlineResponse20071DataInstrument}
+     */
+    InlineResponse20071DataInstrument,
+
+    /**
+     * The InlineResponse20071DataRegional model constructor.
+     * @property {module:model/InlineResponse20071DataRegional}
+     */
+    InlineResponse20071DataRegional,
+
+    /**
+     * The InlineResponse20071DataRegionalListing model constructor.
+     * @property {module:model/InlineResponse20071DataRegionalListing}
+     */
+    InlineResponse20071DataRegionalListing,
+
+    /**
      * The InlineResponse20072 model constructor.
      * @property {module:model/InlineResponse20072}
      */
@@ -2496,28 +2264,28 @@ export {
     InlineResponse20072Data,
 
     /**
-     * The InlineResponse20072DataHigh model constructor.
-     * @property {module:model/InlineResponse20072DataHigh}
+     * The InlineResponse20072DataInstrument model constructor.
+     * @property {module:model/InlineResponse20072DataInstrument}
      */
-    InlineResponse20072DataHigh,
+    InlineResponse20072DataInstrument,
 
     /**
-     * The InlineResponse20072DataLow model constructor.
-     * @property {module:model/InlineResponse20072DataLow}
+     * The InlineResponse20072DataListing model constructor.
+     * @property {module:model/InlineResponse20072DataListing}
      */
-    InlineResponse20072DataLow,
+    InlineResponse20072DataListing,
 
     /**
-     * The InlineResponse20072DataPerformance model constructor.
-     * @property {module:model/InlineResponse20072DataPerformance}
+     * The InlineResponse20072DataNotation model constructor.
+     * @property {module:model/InlineResponse20072DataNotation}
      */
-    InlineResponse20072DataPerformance,
+    InlineResponse20072DataNotation,
 
     /**
-     * The InlineResponse20072DataTradingVolume model constructor.
-     * @property {module:model/InlineResponse20072DataTradingVolume}
+     * The InlineResponse20072DataRegional model constructor.
+     * @property {module:model/InlineResponse20072DataRegional}
      */
-    InlineResponse20072DataTradingVolume,
+    InlineResponse20072DataRegional,
 
     /**
      * The InlineResponse20073 model constructor.
@@ -2532,12 +2300,6 @@ export {
     InlineResponse20073Data,
 
     /**
-     * The InlineResponse20073Status model constructor.
-     * @property {module:model/InlineResponse20073Status}
-     */
-    InlineResponse20073Status,
-
-    /**
      * The InlineResponse20074 model constructor.
      * @property {module:model/InlineResponse20074}
      */
@@ -2548,6 +2310,24 @@ export {
      * @property {module:model/InlineResponse20074Data}
      */
     InlineResponse20074Data,
+
+    /**
+     * The InlineResponse20074DataHigh model constructor.
+     * @property {module:model/InlineResponse20074DataHigh}
+     */
+    InlineResponse20074DataHigh,
+
+    /**
+     * The InlineResponse20074DataLow model constructor.
+     * @property {module:model/InlineResponse20074DataLow}
+     */
+    InlineResponse20074DataLow,
+
+    /**
+     * The InlineResponse20074DataPerformance model constructor.
+     * @property {module:model/InlineResponse20074DataPerformance}
+     */
+    InlineResponse20074DataPerformance,
 
     /**
      * The InlineResponse20075 model constructor.
@@ -2562,6 +2342,12 @@ export {
     InlineResponse20075Data,
 
     /**
+     * The InlineResponse20075Status model constructor.
+     * @property {module:model/InlineResponse20075Status}
+     */
+    InlineResponse20075Status,
+
+    /**
      * The InlineResponse20076 model constructor.
      * @property {module:model/InlineResponse20076}
      */
@@ -2572,6 +2358,12 @@ export {
      * @property {module:model/InlineResponse20076Data}
      */
     InlineResponse20076Data,
+
+    /**
+     * The InlineResponse20076DataTradingVolume model constructor.
+     * @property {module:model/InlineResponse20076DataTradingVolume}
+     */
+    InlineResponse20076DataTradingVolume,
 
     /**
      * The InlineResponse20077 model constructor.
@@ -2598,12 +2390,6 @@ export {
     InlineResponse20078Data,
 
     /**
-     * The InlineResponse20078DataMarket model constructor.
-     * @property {module:model/InlineResponse20078DataMarket}
-     */
-    InlineResponse20078DataMarket,
-
-    /**
      * The InlineResponse20079 model constructor.
      * @property {module:model/InlineResponse20079}
      */
@@ -2614,72 +2400,6 @@ export {
      * @property {module:model/InlineResponse20079Data}
      */
     InlineResponse20079Data,
-
-    /**
-     * The InlineResponse20079DataAccumulated model constructor.
-     * @property {module:model/InlineResponse20079DataAccumulated}
-     */
-    InlineResponse20079DataAccumulated,
-
-    /**
-     * The InlineResponse20079DataCurrency model constructor.
-     * @property {module:model/InlineResponse20079DataCurrency}
-     */
-    InlineResponse20079DataCurrency,
-
-    /**
-     * The InlineResponse20079DataFirst model constructor.
-     * @property {module:model/InlineResponse20079DataFirst}
-     */
-    InlineResponse20079DataFirst,
-
-    /**
-     * The InlineResponse20079DataHigh model constructor.
-     * @property {module:model/InlineResponse20079DataHigh}
-     */
-    InlineResponse20079DataHigh,
-
-    /**
-     * The InlineResponse20079DataLatest model constructor.
-     * @property {module:model/InlineResponse20079DataLatest}
-     */
-    InlineResponse20079DataLatest,
-
-    /**
-     * The InlineResponse20079DataLatestPerformance model constructor.
-     * @property {module:model/InlineResponse20079DataLatestPerformance}
-     */
-    InlineResponse20079DataLatestPerformance,
-
-    /**
-     * The InlineResponse20079DataLatestPerformanceIntraday model constructor.
-     * @property {module:model/InlineResponse20079DataLatestPerformanceIntraday}
-     */
-    InlineResponse20079DataLatestPerformanceIntraday,
-
-    /**
-     * The InlineResponse20079DataLow model constructor.
-     * @property {module:model/InlineResponse20079DataLow}
-     */
-    InlineResponse20079DataLow,
-
-    /**
-     * The InlineResponse20079DataMarket model constructor.
-     * @property {module:model/InlineResponse20079DataMarket}
-     */
-    InlineResponse20079DataMarket,
-
-    /**
-     * The InlineResponse20079DataPreviousClose model constructor.
-     * @property {module:model/InlineResponse20079DataPreviousClose}
-     */
-    InlineResponse20079DataPreviousClose,
-
-    /**
-     * The InlineResponse20079DataValueUnit model constructor.
-     * @property {module:model/InlineResponse20079DataValueUnit}
-     */
-    InlineResponse20079DataValueUnit,
 
     /**
      * The InlineResponse2007Data model constructor.
@@ -2700,10 +2420,10 @@ export {
     InlineResponse20080,
 
     /**
-     * The InlineResponse20080Accumulated model constructor.
-     * @property {module:model/InlineResponse20080Accumulated}
+     * The InlineResponse20080Country model constructor.
+     * @property {module:model/InlineResponse20080Country}
      */
-    InlineResponse20080Accumulated,
+    InlineResponse20080Country,
 
     /**
      * The InlineResponse20080Data model constructor.
@@ -2712,52 +2432,22 @@ export {
     InlineResponse20080Data,
 
     /**
-     * The InlineResponse20080First model constructor.
-     * @property {module:model/InlineResponse20080First}
+     * The InlineResponse20080Group model constructor.
+     * @property {module:model/InlineResponse20080Group}
      */
-    InlineResponse20080First,
+    InlineResponse20080Group,
 
     /**
-     * The InlineResponse20080High model constructor.
-     * @property {module:model/InlineResponse20080High}
+     * The InlineResponse20080Timezone model constructor.
+     * @property {module:model/InlineResponse20080Timezone}
      */
-    InlineResponse20080High,
+    InlineResponse20080Timezone,
 
     /**
-     * The InlineResponse20080Latest model constructor.
-     * @property {module:model/InlineResponse20080Latest}
+     * The InlineResponse20080Type model constructor.
+     * @property {module:model/InlineResponse20080Type}
      */
-    InlineResponse20080Latest,
-
-    /**
-     * The InlineResponse20080LatestPerformance model constructor.
-     * @property {module:model/InlineResponse20080LatestPerformance}
-     */
-    InlineResponse20080LatestPerformance,
-
-    /**
-     * The InlineResponse20080LatestPerformanceIntraday model constructor.
-     * @property {module:model/InlineResponse20080LatestPerformanceIntraday}
-     */
-    InlineResponse20080LatestPerformanceIntraday,
-
-    /**
-     * The InlineResponse20080Low model constructor.
-     * @property {module:model/InlineResponse20080Low}
-     */
-    InlineResponse20080Low,
-
-    /**
-     * The InlineResponse20080Market model constructor.
-     * @property {module:model/InlineResponse20080Market}
-     */
-    InlineResponse20080Market,
-
-    /**
-     * The InlineResponse20080PreviousClose model constructor.
-     * @property {module:model/InlineResponse20080PreviousClose}
-     */
-    InlineResponse20080PreviousClose,
+    InlineResponse20080Type,
 
     /**
      * The InlineResponse20081 model constructor.
@@ -2772,16 +2462,10 @@ export {
     InlineResponse20081Data,
 
     /**
-     * The InlineResponse20081DataAsk model constructor.
-     * @property {module:model/InlineResponse20081DataAsk}
+     * The InlineResponse20081DataMarket model constructor.
+     * @property {module:model/InlineResponse20081DataMarket}
      */
-    InlineResponse20081DataAsk,
-
-    /**
-     * The InlineResponse20081DataBid model constructor.
-     * @property {module:model/InlineResponse20081DataBid}
-     */
-    InlineResponse20081DataBid,
+    InlineResponse20081DataMarket,
 
     /**
      * The InlineResponse20082 model constructor.
@@ -2790,22 +2474,76 @@ export {
     InlineResponse20082,
 
     /**
-     * The InlineResponse20082Ask model constructor.
-     * @property {module:model/InlineResponse20082Ask}
-     */
-    InlineResponse20082Ask,
-
-    /**
-     * The InlineResponse20082Bid model constructor.
-     * @property {module:model/InlineResponse20082Bid}
-     */
-    InlineResponse20082Bid,
-
-    /**
      * The InlineResponse20082Data model constructor.
      * @property {module:model/InlineResponse20082Data}
      */
     InlineResponse20082Data,
+
+    /**
+     * The InlineResponse20082DataAccumulated model constructor.
+     * @property {module:model/InlineResponse20082DataAccumulated}
+     */
+    InlineResponse20082DataAccumulated,
+
+    /**
+     * The InlineResponse20082DataCurrency model constructor.
+     * @property {module:model/InlineResponse20082DataCurrency}
+     */
+    InlineResponse20082DataCurrency,
+
+    /**
+     * The InlineResponse20082DataFirst model constructor.
+     * @property {module:model/InlineResponse20082DataFirst}
+     */
+    InlineResponse20082DataFirst,
+
+    /**
+     * The InlineResponse20082DataHigh model constructor.
+     * @property {module:model/InlineResponse20082DataHigh}
+     */
+    InlineResponse20082DataHigh,
+
+    /**
+     * The InlineResponse20082DataLatest model constructor.
+     * @property {module:model/InlineResponse20082DataLatest}
+     */
+    InlineResponse20082DataLatest,
+
+    /**
+     * The InlineResponse20082DataLatestPerformance model constructor.
+     * @property {module:model/InlineResponse20082DataLatestPerformance}
+     */
+    InlineResponse20082DataLatestPerformance,
+
+    /**
+     * The InlineResponse20082DataLatestPerformanceIntraday model constructor.
+     * @property {module:model/InlineResponse20082DataLatestPerformanceIntraday}
+     */
+    InlineResponse20082DataLatestPerformanceIntraday,
+
+    /**
+     * The InlineResponse20082DataLow model constructor.
+     * @property {module:model/InlineResponse20082DataLow}
+     */
+    InlineResponse20082DataLow,
+
+    /**
+     * The InlineResponse20082DataMarket model constructor.
+     * @property {module:model/InlineResponse20082DataMarket}
+     */
+    InlineResponse20082DataMarket,
+
+    /**
+     * The InlineResponse20082DataPreviousClose model constructor.
+     * @property {module:model/InlineResponse20082DataPreviousClose}
+     */
+    InlineResponse20082DataPreviousClose,
+
+    /**
+     * The InlineResponse20082DataValueUnit model constructor.
+     * @property {module:model/InlineResponse20082DataValueUnit}
+     */
+    InlineResponse20082DataValueUnit,
 
     /**
      * The InlineResponse20083 model constructor.
@@ -2814,16 +2552,70 @@ export {
     InlineResponse20083,
 
     /**
+     * The InlineResponse20083Accumulated model constructor.
+     * @property {module:model/InlineResponse20083Accumulated}
+     */
+    InlineResponse20083Accumulated,
+
+    /**
      * The InlineResponse20083Data model constructor.
      * @property {module:model/InlineResponse20083Data}
      */
     InlineResponse20083Data,
 
     /**
-     * The InlineResponse20083DataAsks model constructor.
-     * @property {module:model/InlineResponse20083DataAsks}
+     * The InlineResponse20083First model constructor.
+     * @property {module:model/InlineResponse20083First}
      */
-    InlineResponse20083DataAsks,
+    InlineResponse20083First,
+
+    /**
+     * The InlineResponse20083High model constructor.
+     * @property {module:model/InlineResponse20083High}
+     */
+    InlineResponse20083High,
+
+    /**
+     * The InlineResponse20083Latest model constructor.
+     * @property {module:model/InlineResponse20083Latest}
+     */
+    InlineResponse20083Latest,
+
+    /**
+     * The InlineResponse20083LatestPerformance model constructor.
+     * @property {module:model/InlineResponse20083LatestPerformance}
+     */
+    InlineResponse20083LatestPerformance,
+
+    /**
+     * The InlineResponse20083LatestPerformanceIntraday model constructor.
+     * @property {module:model/InlineResponse20083LatestPerformanceIntraday}
+     */
+    InlineResponse20083LatestPerformanceIntraday,
+
+    /**
+     * The InlineResponse20083Low model constructor.
+     * @property {module:model/InlineResponse20083Low}
+     */
+    InlineResponse20083Low,
+
+    /**
+     * The InlineResponse20083Market model constructor.
+     * @property {module:model/InlineResponse20083Market}
+     */
+    InlineResponse20083Market,
+
+    /**
+     * The InlineResponse20083PreviousClose model constructor.
+     * @property {module:model/InlineResponse20083PreviousClose}
+     */
+    InlineResponse20083PreviousClose,
+
+    /**
+     * The InlineResponse20083Status model constructor.
+     * @property {module:model/InlineResponse20083Status}
+     */
+    InlineResponse20083Status,
 
     /**
      * The InlineResponse20084 model constructor.
@@ -2838,10 +2630,16 @@ export {
     InlineResponse20084Data,
 
     /**
-     * The InlineResponse20084DataAsks model constructor.
-     * @property {module:model/InlineResponse20084DataAsks}
+     * The InlineResponse20084DataAsk model constructor.
+     * @property {module:model/InlineResponse20084DataAsk}
      */
-    InlineResponse20084DataAsks,
+    InlineResponse20084DataAsk,
+
+    /**
+     * The InlineResponse20084DataBid model constructor.
+     * @property {module:model/InlineResponse20084DataBid}
+     */
+    InlineResponse20084DataBid,
 
     /**
      * The InlineResponse20085 model constructor.
@@ -2850,34 +2648,22 @@ export {
     InlineResponse20085,
 
     /**
+     * The InlineResponse20085Ask model constructor.
+     * @property {module:model/InlineResponse20085Ask}
+     */
+    InlineResponse20085Ask,
+
+    /**
+     * The InlineResponse20085Bid model constructor.
+     * @property {module:model/InlineResponse20085Bid}
+     */
+    InlineResponse20085Bid,
+
+    /**
      * The InlineResponse20085Data model constructor.
      * @property {module:model/InlineResponse20085Data}
      */
     InlineResponse20085Data,
-
-    /**
-     * The InlineResponse20085DataEvents model constructor.
-     * @property {module:model/InlineResponse20085DataEvents}
-     */
-    InlineResponse20085DataEvents,
-
-    /**
-     * The InlineResponse20085DataRange model constructor.
-     * @property {module:model/InlineResponse20085DataRange}
-     */
-    InlineResponse20085DataRange,
-
-    /**
-     * The InlineResponse20085DataType model constructor.
-     * @property {module:model/InlineResponse20085DataType}
-     */
-    InlineResponse20085DataType,
-
-    /**
-     * The InlineResponse20085Meta model constructor.
-     * @property {module:model/InlineResponse20085Meta}
-     */
-    InlineResponse20085Meta,
 
     /**
      * The InlineResponse20086 model constructor.
@@ -2892,6 +2678,12 @@ export {
     InlineResponse20086Data,
 
     /**
+     * The InlineResponse20086DataAsks model constructor.
+     * @property {module:model/InlineResponse20086DataAsks}
+     */
+    InlineResponse20086DataAsks,
+
+    /**
      * The InlineResponse20087 model constructor.
      * @property {module:model/InlineResponse20087}
      */
@@ -2902,6 +2694,12 @@ export {
      * @property {module:model/InlineResponse20087Data}
      */
     InlineResponse20087Data,
+
+    /**
+     * The InlineResponse20087DataAsks model constructor.
+     * @property {module:model/InlineResponse20087DataAsks}
+     */
+    InlineResponse20087DataAsks,
 
     /**
      * The InlineResponse20088 model constructor.
@@ -2916,28 +2714,28 @@ export {
     InlineResponse20088Data,
 
     /**
-     * The InlineResponse20088Instrument model constructor.
-     * @property {module:model/InlineResponse20088Instrument}
+     * The InlineResponse20088DataEvents model constructor.
+     * @property {module:model/InlineResponse20088DataEvents}
      */
-    InlineResponse20088Instrument,
+    InlineResponse20088DataEvents,
 
     /**
-     * The InlineResponse20088InstrumentNsin model constructor.
-     * @property {module:model/InlineResponse20088InstrumentNsin}
+     * The InlineResponse20088DataRange model constructor.
+     * @property {module:model/InlineResponse20088DataRange}
      */
-    InlineResponse20088InstrumentNsin,
+    InlineResponse20088DataRange,
 
     /**
-     * The InlineResponse20088Nsin model constructor.
-     * @property {module:model/InlineResponse20088Nsin}
+     * The InlineResponse20088DataType model constructor.
+     * @property {module:model/InlineResponse20088DataType}
      */
-    InlineResponse20088Nsin,
+    InlineResponse20088DataType,
 
     /**
-     * The InlineResponse20088Price model constructor.
-     * @property {module:model/InlineResponse20088Price}
+     * The InlineResponse20088Meta model constructor.
+     * @property {module:model/InlineResponse20088Meta}
      */
-    InlineResponse20088Price,
+    InlineResponse20088Meta,
 
     /**
      * The InlineResponse20089 model constructor.
@@ -2950,48 +2748,6 @@ export {
      * @property {module:model/InlineResponse20089Data}
      */
     InlineResponse20089Data,
-
-    /**
-     * The InlineResponse20089Instrument model constructor.
-     * @property {module:model/InlineResponse20089Instrument}
-     */
-    InlineResponse20089Instrument,
-
-    /**
-     * The InlineResponse20089InstrumentAssetClass model constructor.
-     * @property {module:model/InlineResponse20089InstrumentAssetClass}
-     */
-    InlineResponse20089InstrumentAssetClass,
-
-    /**
-     * The InlineResponse20089InstrumentName model constructor.
-     * @property {module:model/InlineResponse20089InstrumentName}
-     */
-    InlineResponse20089InstrumentName,
-
-    /**
-     * The InlineResponse20089InstrumentNameDefault model constructor.
-     * @property {module:model/InlineResponse20089InstrumentNameDefault}
-     */
-    InlineResponse20089InstrumentNameDefault,
-
-    /**
-     * The InlineResponse20089TradingValue model constructor.
-     * @property {module:model/InlineResponse20089TradingValue}
-     */
-    InlineResponse20089TradingValue,
-
-    /**
-     * The InlineResponse20089TradingValueAverage model constructor.
-     * @property {module:model/InlineResponse20089TradingValueAverage}
-     */
-    InlineResponse20089TradingValueAverage,
-
-    /**
-     * The InlineResponse20089ValueUnit model constructor.
-     * @property {module:model/InlineResponse20089ValueUnit}
-     */
-    InlineResponse20089ValueUnit,
 
     /**
      * The InlineResponse2008Data model constructor.
@@ -3042,10 +2798,112 @@ export {
     InlineResponse20090Data,
 
     /**
-     * The InlineResponse20090Instrument model constructor.
-     * @property {module:model/InlineResponse20090Instrument}
+     * The InlineResponse20091 model constructor.
+     * @property {module:model/InlineResponse20091}
      */
-    InlineResponse20090Instrument,
+    InlineResponse20091,
+
+    /**
+     * The InlineResponse20091Data model constructor.
+     * @property {module:model/InlineResponse20091Data}
+     */
+    InlineResponse20091Data,
+
+    /**
+     * The InlineResponse20091Instrument model constructor.
+     * @property {module:model/InlineResponse20091Instrument}
+     */
+    InlineResponse20091Instrument,
+
+    /**
+     * The InlineResponse20091InstrumentNsin model constructor.
+     * @property {module:model/InlineResponse20091InstrumentNsin}
+     */
+    InlineResponse20091InstrumentNsin,
+
+    /**
+     * The InlineResponse20091Nsin model constructor.
+     * @property {module:model/InlineResponse20091Nsin}
+     */
+    InlineResponse20091Nsin,
+
+    /**
+     * The InlineResponse20091Price model constructor.
+     * @property {module:model/InlineResponse20091Price}
+     */
+    InlineResponse20091Price,
+
+    /**
+     * The InlineResponse20092 model constructor.
+     * @property {module:model/InlineResponse20092}
+     */
+    InlineResponse20092,
+
+    /**
+     * The InlineResponse20092Data model constructor.
+     * @property {module:model/InlineResponse20092Data}
+     */
+    InlineResponse20092Data,
+
+    /**
+     * The InlineResponse20092Instrument model constructor.
+     * @property {module:model/InlineResponse20092Instrument}
+     */
+    InlineResponse20092Instrument,
+
+    /**
+     * The InlineResponse20092InstrumentAssetClass model constructor.
+     * @property {module:model/InlineResponse20092InstrumentAssetClass}
+     */
+    InlineResponse20092InstrumentAssetClass,
+
+    /**
+     * The InlineResponse20092InstrumentName model constructor.
+     * @property {module:model/InlineResponse20092InstrumentName}
+     */
+    InlineResponse20092InstrumentName,
+
+    /**
+     * The InlineResponse20092InstrumentNameDefault model constructor.
+     * @property {module:model/InlineResponse20092InstrumentNameDefault}
+     */
+    InlineResponse20092InstrumentNameDefault,
+
+    /**
+     * The InlineResponse20092TradingValue model constructor.
+     * @property {module:model/InlineResponse20092TradingValue}
+     */
+    InlineResponse20092TradingValue,
+
+    /**
+     * The InlineResponse20092TradingValueAverage model constructor.
+     * @property {module:model/InlineResponse20092TradingValueAverage}
+     */
+    InlineResponse20092TradingValueAverage,
+
+    /**
+     * The InlineResponse20092ValueUnit model constructor.
+     * @property {module:model/InlineResponse20092ValueUnit}
+     */
+    InlineResponse20092ValueUnit,
+
+    /**
+     * The InlineResponse20093 model constructor.
+     * @property {module:model/InlineResponse20093}
+     */
+    InlineResponse20093,
+
+    /**
+     * The InlineResponse20093Data model constructor.
+     * @property {module:model/InlineResponse20093Data}
+     */
+    InlineResponse20093Data,
+
+    /**
+     * The InlineResponse20093Instrument model constructor.
+     * @property {module:model/InlineResponse20093Instrument}
+     */
+    InlineResponse20093Instrument,
 
     /**
      * The InlineResponse2009Country model constructor.
@@ -3090,294 +2948,6 @@ export {
     InlineResponse200Meta,
 
     /**
-     * The InstrumentBackgroundTextTypeListData model constructor.
-     * @property {module:model/InstrumentBackgroundTextTypeListData}
-     */
-    InstrumentBackgroundTextTypeListData,
-
-    /**
-     * The InstrumentBackgroundTextTypeListDataFilter model constructor.
-     * @property {module:model/InstrumentBackgroundTextTypeListDataFilter}
-     */
-    InstrumentBackgroundTextTypeListDataFilter,
-
-    /**
-     * The InstrumentBackgroundTextTypeListMeta model constructor.
-     * @property {module:model/InstrumentBackgroundTextTypeListMeta}
-     */
-    InstrumentBackgroundTextTypeListMeta,
-
-    /**
-     * The InstrumentBenchmarkListData model constructor.
-     * @property {module:model/InstrumentBenchmarkListData}
-     */
-    InstrumentBenchmarkListData,
-
-    /**
-     * The InstrumentBenchmarkListDataFilter model constructor.
-     * @property {module:model/InstrumentBenchmarkListDataFilter}
-     */
-    InstrumentBenchmarkListDataFilter,
-
-    /**
-     * The InstrumentCategoryListData model constructor.
-     * @property {module:model/InstrumentCategoryListData}
-     */
-    InstrumentCategoryListData,
-
-    /**
-     * The InstrumentCategoryListDataFilter model constructor.
-     * @property {module:model/InstrumentCategoryListDataFilter}
-     */
-    InstrumentCategoryListDataFilter,
-
-    /**
-     * The InstrumentCategoryListDataFilterDataset model constructor.
-     * @property {module:model/InstrumentCategoryListDataFilterDataset}
-     */
-    InstrumentCategoryListDataFilterDataset,
-
-    /**
-     * The InstrumentCategoryListMeta model constructor.
-     * @property {module:model/InstrumentCategoryListMeta}
-     */
-    InstrumentCategoryListMeta,
-
-    /**
-     * The InstrumentCompliancePropertyListData model constructor.
-     * @property {module:model/InstrumentCompliancePropertyListData}
-     */
-    InstrumentCompliancePropertyListData,
-
-    /**
-     * The InstrumentCompliancePropertyListDataFilter model constructor.
-     * @property {module:model/InstrumentCompliancePropertyListDataFilter}
-     */
-    InstrumentCompliancePropertyListDataFilter,
-
-    /**
-     * The InstrumentCrossReferenceListByISINData model constructor.
-     * @property {module:model/InstrumentCrossReferenceListByISINData}
-     */
-    InstrumentCrossReferenceListByISINData,
-
-    /**
-     * The InstrumentCrossReferenceListByWKNData model constructor.
-     * @property {module:model/InstrumentCrossReferenceListByWKNData}
-     */
-    InstrumentCrossReferenceListByWKNData,
-
-    /**
-     * The InstrumentRatingGradeListData model constructor.
-     * @property {module:model/InstrumentRatingGradeListData}
-     */
-    InstrumentRatingGradeListData,
-
-    /**
-     * The InstrumentRatingGradeListDataFilter model constructor.
-     * @property {module:model/InstrumentRatingGradeListDataFilter}
-     */
-    InstrumentRatingGradeListDataFilter,
-
-    /**
-     * The InstrumentRatingGradeListDataFilterRatingSystem model constructor.
-     * @property {module:model/InstrumentRatingGradeListDataFilterRatingSystem}
-     */
-    InstrumentRatingGradeListDataFilterRatingSystem,
-
-    /**
-     * The NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData model constructor.
-     * @property {module:model/NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData}
-     */
-    NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData,
-
-    /**
-     * The NotationCrossReferenceFactSetIdentifierListByInstrumentData model constructor.
-     * @property {module:model/NotationCrossReferenceFactSetIdentifierListByInstrumentData}
-     */
-    NotationCrossReferenceFactSetIdentifierListByInstrumentData,
-
-    /**
-     * The NotationCrossReferenceListByISINData model constructor.
-     * @property {module:model/NotationCrossReferenceListByISINData}
-     */
-    NotationCrossReferenceListByISINData,
-
-    /**
-     * The NotationCrossReferenceListByInstrumentData model constructor.
-     * @property {module:model/NotationCrossReferenceListByInstrumentData}
-     */
-    NotationCrossReferenceListByInstrumentData,
-
-    /**
-     * The NotationCrossReferenceListByInstrumentDataFilter model constructor.
-     * @property {module:model/NotationCrossReferenceListByInstrumentDataFilter}
-     */
-    NotationCrossReferenceListByInstrumentDataFilter,
-
-    /**
-     * The NotationCrossReferenceListByInstrumentDataFilterMarkets model constructor.
-     * @property {module:model/NotationCrossReferenceListByInstrumentDataFilterMarkets}
-     */
-    NotationCrossReferenceListByInstrumentDataFilterMarkets,
-
-    /**
-     * The NotationCrossReferenceListByInstrumentDataFilterValueUnits model constructor.
-     * @property {module:model/NotationCrossReferenceListByInstrumentDataFilterValueUnits}
-     */
-    NotationCrossReferenceListByInstrumentDataFilterValueUnits,
-
-    /**
-     * The NotationCrossReferenceListBySymbolData model constructor.
-     * @property {module:model/NotationCrossReferenceListBySymbolData}
-     */
-    NotationCrossReferenceListBySymbolData,
-
-    /**
-     * The NotationSearchByTextData model constructor.
-     * @property {module:model/NotationSearchByTextData}
-     */
-    NotationSearchByTextData,
-
-    /**
-     * The NotationSearchByTextDataAssetClasses model constructor.
-     * @property {module:model/NotationSearchByTextDataAssetClasses}
-     */
-    NotationSearchByTextDataAssetClasses,
-
-    /**
-     * The NotationSearchByTextDataMarket model constructor.
-     * @property {module:model/NotationSearchByTextDataMarket}
-     */
-    NotationSearchByTextDataMarket,
-
-    /**
-     * The NotationSearchByTextDataMarketOrder model constructor.
-     * @property {module:model/NotationSearchByTextDataMarketOrder}
-     */
-    NotationSearchByTextDataMarketOrder,
-
-    /**
-     * The NotationSearchByTextDataText model constructor.
-     * @property {module:model/NotationSearchByTextDataText}
-     */
-    NotationSearchByTextDataText,
-
-    /**
-     * The NotationSearchByTextDataTradingValue model constructor.
-     * @property {module:model/NotationSearchByTextDataTradingValue}
-     */
-    NotationSearchByTextDataTradingValue,
-
-    /**
-     * The NotationSearchByTextDataTradingValueAverage model constructor.
-     * @property {module:model/NotationSearchByTextDataTradingValueAverage}
-     */
-    NotationSearchByTextDataTradingValueAverage,
-
-    /**
-     * The NotationSearchByTextDataTradingValueAverageDays30 model constructor.
-     * @property {module:model/NotationSearchByTextDataTradingValueAverageDays30}
-     */
-    NotationSearchByTextDataTradingValueAverageDays30,
-
-    /**
-     * The NotationSearchByTextDataTradingValueAverageDays30Maximum model constructor.
-     * @property {module:model/NotationSearchByTextDataTradingValueAverageDays30Maximum}
-     */
-    NotationSearchByTextDataTradingValueAverageDays30Maximum,
-
-    /**
-     * The NotationSearchByTextDataTradingValueAverageDays30Minimum model constructor.
-     * @property {module:model/NotationSearchByTextDataTradingValueAverageDays30Minimum}
-     */
-    NotationSearchByTextDataTradingValueAverageDays30Minimum,
-
-    /**
-     * The NotationSearchByTextDataValidation model constructor.
-     * @property {module:model/NotationSearchByTextDataValidation}
-     */
-    NotationSearchByTextDataValidation,
-
-    /**
-     * The NotationSearchByTextDataValidationMarket model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationMarket}
-     */
-    NotationSearchByTextDataValidationMarket,
-
-    /**
-     * The NotationSearchByTextDataValidationMarketPriority model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationMarketPriority}
-     */
-    NotationSearchByTextDataValidationMarketPriority,
-
-    /**
-     * The NotationSearchByTextDataValidationMarketSelection model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationMarketSelection}
-     */
-    NotationSearchByTextDataValidationMarketSelection,
-
-    /**
-     * The NotationSearchByTextDataValidationMarketSelectionExclude model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationMarketSelectionExclude}
-     */
-    NotationSearchByTextDataValidationMarketSelectionExclude,
-
-    /**
-     * The NotationSearchByTextDataValidationMarketSelectionRestrict model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationMarketSelectionRestrict}
-     */
-    NotationSearchByTextDataValidationMarketSelectionRestrict,
-
-    /**
-     * The NotationSearchByTextDataValidationPrices model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationPrices}
-     */
-    NotationSearchByTextDataValidationPrices,
-
-    /**
-     * The NotationSearchByTextDataValidationPricesLatest model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationPricesLatest}
-     */
-    NotationSearchByTextDataValidationPricesLatest,
-
-    /**
-     * The NotationSearchByTextDataValidationPricesPrevious model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationPricesPrevious}
-     */
-    NotationSearchByTextDataValidationPricesPrevious,
-
-    /**
-     * The NotationSearchByTextDataValidationValueUnit model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationValueUnit}
-     */
-    NotationSearchByTextDataValidationValueUnit,
-
-    /**
-     * The NotationSearchByTextDataValidationValueUnitSelection model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationValueUnitSelection}
-     */
-    NotationSearchByTextDataValidationValueUnitSelection,
-
-    /**
-     * The NotationSearchByTextDataValidationValueUnitSelectionExclude model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationValueUnitSelectionExclude}
-     */
-    NotationSearchByTextDataValidationValueUnitSelectionExclude,
-
-    /**
-     * The NotationSearchByTextDataValidationValueUnitSelectionRestrict model constructor.
-     * @property {module:model/NotationSearchByTextDataValidationValueUnitSelectionRestrict}
-     */
-    NotationSearchByTextDataValidationValueUnitSelectionRestrict,
-
-    /**
-     * The NotationSearchByTextMeta model constructor.
-     * @property {module:model/NotationSearchByTextMeta}
-     */
-    NotationSearchByTextMeta,
-
-    /**
      * The OffsetBasedPaginationOutputObject model constructor.
      * @property {module:model/OffsetBasedPaginationOutputObject}
      */
@@ -3396,34 +2966,730 @@ export {
     PartialOutputObject,
 
     /**
-     * The PricesTradingScheduleEventListData model constructor.
-     * @property {module:model/PricesTradingScheduleEventListData}
+     * The PostBasicBackgroundTextTypeListRequest model constructor.
+     * @property {module:model/PostBasicBackgroundTextTypeListRequest}
      */
-    PricesTradingScheduleEventListData,
+    PostBasicBackgroundTextTypeListRequest,
 
     /**
-     * The PricesTradingScheduleEventListDataFilter model constructor.
-     * @property {module:model/PricesTradingScheduleEventListDataFilter}
+     * The PostBasicBackgroundTextTypeListRequestData model constructor.
+     * @property {module:model/PostBasicBackgroundTextTypeListRequestData}
      */
-    PricesTradingScheduleEventListDataFilter,
+    PostBasicBackgroundTextTypeListRequestData,
 
     /**
-     * The PricesTradingScheduleEventListDataFilterRange model constructor.
-     * @property {module:model/PricesTradingScheduleEventListDataFilterRange}
+     * The PostBasicBackgroundTextTypeListRequestDataFilter model constructor.
+     * @property {module:model/PostBasicBackgroundTextTypeListRequestDataFilter}
      */
-    PricesTradingScheduleEventListDataFilterRange,
+    PostBasicBackgroundTextTypeListRequestDataFilter,
 
     /**
-     * The PricesTradingScheduleEventListMeta model constructor.
-     * @property {module:model/PricesTradingScheduleEventListMeta}
+     * The PostBasicBackgroundTextTypeListRequestMeta model constructor.
+     * @property {module:model/PostBasicBackgroundTextTypeListRequestMeta}
      */
-    PricesTradingScheduleEventListMeta,
+    PostBasicBackgroundTextTypeListRequestMeta,
 
     /**
-     * The PricesTradingScheduleEventListMetaPagination model constructor.
-     * @property {module:model/PricesTradingScheduleEventListMetaPagination}
+     * The PostBasicDeliveryListRequest model constructor.
+     * @property {module:model/PostBasicDeliveryListRequest}
      */
-    PricesTradingScheduleEventListMetaPagination,
+    PostBasicDeliveryListRequest,
+
+    /**
+     * The PostBasicDeliveryListRequestData model constructor.
+     * @property {module:model/PostBasicDeliveryListRequestData}
+     */
+    PostBasicDeliveryListRequestData,
+
+    /**
+     * The PostBasicDeliveryListRequestDataFilter model constructor.
+     * @property {module:model/PostBasicDeliveryListRequestDataFilter}
+     */
+    PostBasicDeliveryListRequestDataFilter,
+
+    /**
+     * The PostBasicDeliveryListRequestMeta model constructor.
+     * @property {module:model/PostBasicDeliveryListRequestMeta}
+     */
+    PostBasicDeliveryListRequestMeta,
+
+    /**
+     * The PostBasicMarketListRequest model constructor.
+     * @property {module:model/PostBasicMarketListRequest}
+     */
+    PostBasicMarketListRequest,
+
+    /**
+     * The PostBasicMarketListRequestData model constructor.
+     * @property {module:model/PostBasicMarketListRequestData}
+     */
+    PostBasicMarketListRequestData,
+
+    /**
+     * The PostBasicMarketListRequestDataFilter model constructor.
+     * @property {module:model/PostBasicMarketListRequestDataFilter}
+     */
+    PostBasicMarketListRequestDataFilter,
+
+    /**
+     * The PostBasicMarketListRequestDataFilterMarkets model constructor.
+     * @property {module:model/PostBasicMarketListRequestDataFilterMarkets}
+     */
+    PostBasicMarketListRequestDataFilterMarkets,
+
+    /**
+     * The PostBasicMarketListRequestMeta model constructor.
+     * @property {module:model/PostBasicMarketListRequestMeta}
+     */
+    PostBasicMarketListRequestMeta,
+
+    /**
+     * The PostBasicMarketListRequestMetaPagination model constructor.
+     * @property {module:model/PostBasicMarketListRequestMetaPagination}
+     */
+    PostBasicMarketListRequestMetaPagination,
+
+    /**
+     * The PostBasicMediaTypeListRequest model constructor.
+     * @property {module:model/PostBasicMediaTypeListRequest}
+     */
+    PostBasicMediaTypeListRequest,
+
+    /**
+     * The PostBasicMediaTypeListRequestData model constructor.
+     * @property {module:model/PostBasicMediaTypeListRequestData}
+     */
+    PostBasicMediaTypeListRequestData,
+
+    /**
+     * The PostBasicMediaTypeListRequestDataFilter model constructor.
+     * @property {module:model/PostBasicMediaTypeListRequestDataFilter}
+     */
+    PostBasicMediaTypeListRequestDataFilter,
+
+    /**
+     * The PostBasicMediaTypeListRequestMeta model constructor.
+     * @property {module:model/PostBasicMediaTypeListRequestMeta}
+     */
+    PostBasicMediaTypeListRequestMeta,
+
+    /**
+     * The PostBasicMicOperatingListRequest model constructor.
+     * @property {module:model/PostBasicMicOperatingListRequest}
+     */
+    PostBasicMicOperatingListRequest,
+
+    /**
+     * The PostBasicMicOperatingListRequestData model constructor.
+     * @property {module:model/PostBasicMicOperatingListRequestData}
+     */
+    PostBasicMicOperatingListRequestData,
+
+    /**
+     * The PostBasicMicOperatingListRequestDataFilter model constructor.
+     * @property {module:model/PostBasicMicOperatingListRequestDataFilter}
+     */
+    PostBasicMicOperatingListRequestDataFilter,
+
+    /**
+     * The PostBasicMicOperatingListRequestMeta model constructor.
+     * @property {module:model/PostBasicMicOperatingListRequestMeta}
+     */
+    PostBasicMicOperatingListRequestMeta,
+
+    /**
+     * The PostBasicTimezoneListRequest model constructor.
+     * @property {module:model/PostBasicTimezoneListRequest}
+     */
+    PostBasicTimezoneListRequest,
+
+    /**
+     * The PostBasicTimezoneListRequestData model constructor.
+     * @property {module:model/PostBasicTimezoneListRequestData}
+     */
+    PostBasicTimezoneListRequestData,
+
+    /**
+     * The PostBasicTimezoneListRequestDataFilter model constructor.
+     * @property {module:model/PostBasicTimezoneListRequestDataFilter}
+     */
+    PostBasicTimezoneListRequestDataFilter,
+
+    /**
+     * The PostBasicValueUnitCurrencyListRequest model constructor.
+     * @property {module:model/PostBasicValueUnitCurrencyListRequest}
+     */
+    PostBasicValueUnitCurrencyListRequest,
+
+    /**
+     * The PostBasicValueUnitCurrencyMainListRequest model constructor.
+     * @property {module:model/PostBasicValueUnitCurrencyMainListRequest}
+     */
+    PostBasicValueUnitCurrencyMainListRequest,
+
+    /**
+     * The PostBasicValueUnitCurrencyMainListRequestData model constructor.
+     * @property {module:model/PostBasicValueUnitCurrencyMainListRequestData}
+     */
+    PostBasicValueUnitCurrencyMainListRequestData,
+
+    /**
+     * The PostBasicValueUnitCurrencyMainListRequestDataFilter model constructor.
+     * @property {module:model/PostBasicValueUnitCurrencyMainListRequestDataFilter}
+     */
+    PostBasicValueUnitCurrencyMainListRequestDataFilter,
+
+    /**
+     * The PostBasicValueUnitListRequest model constructor.
+     * @property {module:model/PostBasicValueUnitListRequest}
+     */
+    PostBasicValueUnitListRequest,
+
+    /**
+     * The PostBasicValueUnitListRequestData model constructor.
+     * @property {module:model/PostBasicValueUnitListRequestData}
+     */
+    PostBasicValueUnitListRequestData,
+
+    /**
+     * The PostBasicValueUnitListRequestDataFilter model constructor.
+     * @property {module:model/PostBasicValueUnitListRequestDataFilter}
+     */
+    PostBasicValueUnitListRequestDataFilter,
+
+    /**
+     * The PostBasicValueUnitListRequestMeta model constructor.
+     * @property {module:model/PostBasicValueUnitListRequestMeta}
+     */
+    PostBasicValueUnitListRequestMeta,
+
+    /**
+     * The PostInstrumentBackgroundTextTypeListRequest model constructor.
+     * @property {module:model/PostInstrumentBackgroundTextTypeListRequest}
+     */
+    PostInstrumentBackgroundTextTypeListRequest,
+
+    /**
+     * The PostInstrumentBackgroundTextTypeListRequestData model constructor.
+     * @property {module:model/PostInstrumentBackgroundTextTypeListRequestData}
+     */
+    PostInstrumentBackgroundTextTypeListRequestData,
+
+    /**
+     * The PostInstrumentBackgroundTextTypeListRequestDataFilter model constructor.
+     * @property {module:model/PostInstrumentBackgroundTextTypeListRequestDataFilter}
+     */
+    PostInstrumentBackgroundTextTypeListRequestDataFilter,
+
+    /**
+     * The PostInstrumentBackgroundTextTypeListRequestMeta model constructor.
+     * @property {module:model/PostInstrumentBackgroundTextTypeListRequestMeta}
+     */
+    PostInstrumentBackgroundTextTypeListRequestMeta,
+
+    /**
+     * The PostInstrumentBenchmarkListRequest model constructor.
+     * @property {module:model/PostInstrumentBenchmarkListRequest}
+     */
+    PostInstrumentBenchmarkListRequest,
+
+    /**
+     * The PostInstrumentBenchmarkListRequestData model constructor.
+     * @property {module:model/PostInstrumentBenchmarkListRequestData}
+     */
+    PostInstrumentBenchmarkListRequestData,
+
+    /**
+     * The PostInstrumentBenchmarkListRequestDataFilter model constructor.
+     * @property {module:model/PostInstrumentBenchmarkListRequestDataFilter}
+     */
+    PostInstrumentBenchmarkListRequestDataFilter,
+
+    /**
+     * The PostInstrumentCategoryListRequest model constructor.
+     * @property {module:model/PostInstrumentCategoryListRequest}
+     */
+    PostInstrumentCategoryListRequest,
+
+    /**
+     * The PostInstrumentCategoryListRequestData model constructor.
+     * @property {module:model/PostInstrumentCategoryListRequestData}
+     */
+    PostInstrumentCategoryListRequestData,
+
+    /**
+     * The PostInstrumentCategoryListRequestDataFilter model constructor.
+     * @property {module:model/PostInstrumentCategoryListRequestDataFilter}
+     */
+    PostInstrumentCategoryListRequestDataFilter,
+
+    /**
+     * The PostInstrumentCategoryListRequestDataFilterDataset model constructor.
+     * @property {module:model/PostInstrumentCategoryListRequestDataFilterDataset}
+     */
+    PostInstrumentCategoryListRequestDataFilterDataset,
+
+    /**
+     * The PostInstrumentCategoryListRequestMeta model constructor.
+     * @property {module:model/PostInstrumentCategoryListRequestMeta}
+     */
+    PostInstrumentCategoryListRequestMeta,
+
+    /**
+     * The PostInstrumentCompliancePropertyListRequest model constructor.
+     * @property {module:model/PostInstrumentCompliancePropertyListRequest}
+     */
+    PostInstrumentCompliancePropertyListRequest,
+
+    /**
+     * The PostInstrumentCompliancePropertyListRequestData model constructor.
+     * @property {module:model/PostInstrumentCompliancePropertyListRequestData}
+     */
+    PostInstrumentCompliancePropertyListRequestData,
+
+    /**
+     * The PostInstrumentCompliancePropertyListRequestDataFilter model constructor.
+     * @property {module:model/PostInstrumentCompliancePropertyListRequestDataFilter}
+     */
+    PostInstrumentCompliancePropertyListRequestDataFilter,
+
+    /**
+     * The PostInstrumentCrossReferenceListByISINRequest model constructor.
+     * @property {module:model/PostInstrumentCrossReferenceListByISINRequest}
+     */
+    PostInstrumentCrossReferenceListByISINRequest,
+
+    /**
+     * The PostInstrumentCrossReferenceListByISINRequestData model constructor.
+     * @property {module:model/PostInstrumentCrossReferenceListByISINRequestData}
+     */
+    PostInstrumentCrossReferenceListByISINRequestData,
+
+    /**
+     * The PostInstrumentCrossReferenceListByWKNRequest model constructor.
+     * @property {module:model/PostInstrumentCrossReferenceListByWKNRequest}
+     */
+    PostInstrumentCrossReferenceListByWKNRequest,
+
+    /**
+     * The PostInstrumentCrossReferenceListByWKNRequestData model constructor.
+     * @property {module:model/PostInstrumentCrossReferenceListByWKNRequestData}
+     */
+    PostInstrumentCrossReferenceListByWKNRequestData,
+
+    /**
+     * The PostInstrumentNotationListRequest model constructor.
+     * @property {module:model/PostInstrumentNotationListRequest}
+     */
+    PostInstrumentNotationListRequest,
+
+    /**
+     * The PostInstrumentNotationListRequestData model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestData}
+     */
+    PostInstrumentNotationListRequestData,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilter model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilter}
+     */
+    PostInstrumentNotationListRequestDataFilter,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilterMarket model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilterMarket}
+     */
+    PostInstrumentNotationListRequestDataFilterMarket,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilterMarketOrder model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilterMarketOrder}
+     */
+    PostInstrumentNotationListRequestDataFilterMarketOrder,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilterMarketSelection model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilterMarketSelection}
+     */
+    PostInstrumentNotationListRequestDataFilterMarketSelection,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilterMarketSelectionExclude model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilterMarketSelectionExclude}
+     */
+    PostInstrumentNotationListRequestDataFilterMarketSelectionExclude,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilterMarketSelectionRestrict model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilterMarketSelectionRestrict}
+     */
+    PostInstrumentNotationListRequestDataFilterMarketSelectionRestrict,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilterValueUnit model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilterValueUnit}
+     */
+    PostInstrumentNotationListRequestDataFilterValueUnit,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilterValueUnitOrder model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilterValueUnitOrder}
+     */
+    PostInstrumentNotationListRequestDataFilterValueUnitOrder,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilterValueUnitSelection model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilterValueUnitSelection}
+     */
+    PostInstrumentNotationListRequestDataFilterValueUnitSelection,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilterValueUnitSelectionExclude model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilterValueUnitSelectionExclude}
+     */
+    PostInstrumentNotationListRequestDataFilterValueUnitSelectionExclude,
+
+    /**
+     * The PostInstrumentNotationListRequestDataFilterValueUnitSelectionRestrict model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataFilterValueUnitSelectionRestrict}
+     */
+    PostInstrumentNotationListRequestDataFilterValueUnitSelectionRestrict,
+
+    /**
+     * The PostInstrumentNotationListRequestDataIdentifier model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestDataIdentifier}
+     */
+    PostInstrumentNotationListRequestDataIdentifier,
+
+    /**
+     * The PostInstrumentNotationListRequestMeta model constructor.
+     * @property {module:model/PostInstrumentNotationListRequestMeta}
+     */
+    PostInstrumentNotationListRequestMeta,
+
+    /**
+     * The PostInstrumentRatingGradeListRequest model constructor.
+     * @property {module:model/PostInstrumentRatingGradeListRequest}
+     */
+    PostInstrumentRatingGradeListRequest,
+
+    /**
+     * The PostInstrumentRatingGradeListRequestData model constructor.
+     * @property {module:model/PostInstrumentRatingGradeListRequestData}
+     */
+    PostInstrumentRatingGradeListRequestData,
+
+    /**
+     * The PostInstrumentRatingGradeListRequestDataFilter model constructor.
+     * @property {module:model/PostInstrumentRatingGradeListRequestDataFilter}
+     */
+    PostInstrumentRatingGradeListRequestDataFilter,
+
+    /**
+     * The PostInstrumentRatingGradeListRequestDataFilterRatingSystem model constructor.
+     * @property {module:model/PostInstrumentRatingGradeListRequestDataFilterRatingSystem}
+     */
+    PostInstrumentRatingGradeListRequestDataFilterRatingSystem,
+
+    /**
+     * The PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest model constructor.
+     * @property {module:model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest}
+     */
+    PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest,
+
+    /**
+     * The PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData model constructor.
+     * @property {module:model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData}
+     */
+    PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData,
+
+    /**
+     * The PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest model constructor.
+     * @property {module:model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest}
+     */
+    PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest,
+
+    /**
+     * The PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequestData model constructor.
+     * @property {module:model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequestData}
+     */
+    PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequestData,
+
+    /**
+     * The PostNotationCrossReferenceListByISINRequest model constructor.
+     * @property {module:model/PostNotationCrossReferenceListByISINRequest}
+     */
+    PostNotationCrossReferenceListByISINRequest,
+
+    /**
+     * The PostNotationCrossReferenceListByISINRequestData model constructor.
+     * @property {module:model/PostNotationCrossReferenceListByISINRequestData}
+     */
+    PostNotationCrossReferenceListByISINRequestData,
+
+    /**
+     * The PostNotationCrossReferenceListByInstrumentRequest model constructor.
+     * @property {module:model/PostNotationCrossReferenceListByInstrumentRequest}
+     */
+    PostNotationCrossReferenceListByInstrumentRequest,
+
+    /**
+     * The PostNotationCrossReferenceListByInstrumentRequestData model constructor.
+     * @property {module:model/PostNotationCrossReferenceListByInstrumentRequestData}
+     */
+    PostNotationCrossReferenceListByInstrumentRequestData,
+
+    /**
+     * The PostNotationCrossReferenceListByInstrumentRequestDataFilter model constructor.
+     * @property {module:model/PostNotationCrossReferenceListByInstrumentRequestDataFilter}
+     */
+    PostNotationCrossReferenceListByInstrumentRequestDataFilter,
+
+    /**
+     * The PostNotationCrossReferenceListByInstrumentRequestDataFilterMarkets model constructor.
+     * @property {module:model/PostNotationCrossReferenceListByInstrumentRequestDataFilterMarkets}
+     */
+    PostNotationCrossReferenceListByInstrumentRequestDataFilterMarkets,
+
+    /**
+     * The PostNotationCrossReferenceListByInstrumentRequestDataFilterValueUnits model constructor.
+     * @property {module:model/PostNotationCrossReferenceListByInstrumentRequestDataFilterValueUnits}
+     */
+    PostNotationCrossReferenceListByInstrumentRequestDataFilterValueUnits,
+
+    /**
+     * The PostNotationCrossReferenceListByInstrumentRequestDataIdentifier model constructor.
+     * @property {module:model/PostNotationCrossReferenceListByInstrumentRequestDataIdentifier}
+     */
+    PostNotationCrossReferenceListByInstrumentRequestDataIdentifier,
+
+    /**
+     * The PostNotationCrossReferenceListBySymbolRequest model constructor.
+     * @property {module:model/PostNotationCrossReferenceListBySymbolRequest}
+     */
+    PostNotationCrossReferenceListBySymbolRequest,
+
+    /**
+     * The PostNotationCrossReferenceListBySymbolRequestData model constructor.
+     * @property {module:model/PostNotationCrossReferenceListBySymbolRequestData}
+     */
+    PostNotationCrossReferenceListBySymbolRequestData,
+
+    /**
+     * The PostNotationMarketListRequest model constructor.
+     * @property {module:model/PostNotationMarketListRequest}
+     */
+    PostNotationMarketListRequest,
+
+    /**
+     * The PostNotationMarketListRequestData model constructor.
+     * @property {module:model/PostNotationMarketListRequestData}
+     */
+    PostNotationMarketListRequestData,
+
+    /**
+     * The PostNotationMarketListRequestDataFilter model constructor.
+     * @property {module:model/PostNotationMarketListRequestDataFilter}
+     */
+    PostNotationMarketListRequestDataFilter,
+
+    /**
+     * The PostNotationMarketListRequestDataFilterAssetClass model constructor.
+     * @property {module:model/PostNotationMarketListRequestDataFilterAssetClass}
+     */
+    PostNotationMarketListRequestDataFilterAssetClass,
+
+    /**
+     * The PostNotationMarketListRequestDataFilterCountry model constructor.
+     * @property {module:model/PostNotationMarketListRequestDataFilterCountry}
+     */
+    PostNotationMarketListRequestDataFilterCountry,
+
+    /**
+     * The PostNotationMarketListRequestDataFilterGroup model constructor.
+     * @property {module:model/PostNotationMarketListRequestDataFilterGroup}
+     */
+    PostNotationMarketListRequestDataFilterGroup,
+
+    /**
+     * The PostNotationMarketListRequestDataFilterType model constructor.
+     * @property {module:model/PostNotationMarketListRequestDataFilterType}
+     */
+    PostNotationMarketListRequestDataFilterType,
+
+    /**
+     * The PostNotationMarketListRequestMeta model constructor.
+     * @property {module:model/PostNotationMarketListRequestMeta}
+     */
+    PostNotationMarketListRequestMeta,
+
+    /**
+     * The PostNotationSearchByTextRequest model constructor.
+     * @property {module:model/PostNotationSearchByTextRequest}
+     */
+    PostNotationSearchByTextRequest,
+
+    /**
+     * The PostNotationSearchByTextRequestData model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestData}
+     */
+    PostNotationSearchByTextRequestData,
+
+    /**
+     * The PostNotationSearchByTextRequestDataAssetClasses model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataAssetClasses}
+     */
+    PostNotationSearchByTextRequestDataAssetClasses,
+
+    /**
+     * The PostNotationSearchByTextRequestDataMarket model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataMarket}
+     */
+    PostNotationSearchByTextRequestDataMarket,
+
+    /**
+     * The PostNotationSearchByTextRequestDataMarketOrder model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataMarketOrder}
+     */
+    PostNotationSearchByTextRequestDataMarketOrder,
+
+    /**
+     * The PostNotationSearchByTextRequestDataText model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataText}
+     */
+    PostNotationSearchByTextRequestDataText,
+
+    /**
+     * The PostNotationSearchByTextRequestDataTradingValue model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataTradingValue}
+     */
+    PostNotationSearchByTextRequestDataTradingValue,
+
+    /**
+     * The PostNotationSearchByTextRequestDataTradingValueAverage model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataTradingValueAverage}
+     */
+    PostNotationSearchByTextRequestDataTradingValueAverage,
+
+    /**
+     * The PostNotationSearchByTextRequestDataTradingValueAverageDays30 model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataTradingValueAverageDays30}
+     */
+    PostNotationSearchByTextRequestDataTradingValueAverageDays30,
+
+    /**
+     * The PostNotationSearchByTextRequestDataTradingValueAverageDays30Maximum model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataTradingValueAverageDays30Maximum}
+     */
+    PostNotationSearchByTextRequestDataTradingValueAverageDays30Maximum,
+
+    /**
+     * The PostNotationSearchByTextRequestDataTradingValueAverageDays30Minimum model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataTradingValueAverageDays30Minimum}
+     */
+    PostNotationSearchByTextRequestDataTradingValueAverageDays30Minimum,
+
+    /**
+     * The PostNotationSearchByTextRequestDataValidation model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataValidation}
+     */
+    PostNotationSearchByTextRequestDataValidation,
+
+    /**
+     * The PostNotationSearchByTextRequestDataValidationMarket model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataValidationMarket}
+     */
+    PostNotationSearchByTextRequestDataValidationMarket,
+
+    /**
+     * The PostNotationSearchByTextRequestDataValidationMarketPriority model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataValidationMarketPriority}
+     */
+    PostNotationSearchByTextRequestDataValidationMarketPriority,
+
+    /**
+     * The PostNotationSearchByTextRequestDataValidationMarketSelection model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataValidationMarketSelection}
+     */
+    PostNotationSearchByTextRequestDataValidationMarketSelection,
+
+    /**
+     * The PostNotationSearchByTextRequestDataValidationPrices model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataValidationPrices}
+     */
+    PostNotationSearchByTextRequestDataValidationPrices,
+
+    /**
+     * The PostNotationSearchByTextRequestDataValidationPricesLatest model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataValidationPricesLatest}
+     */
+    PostNotationSearchByTextRequestDataValidationPricesLatest,
+
+    /**
+     * The PostNotationSearchByTextRequestDataValidationPricesPrevious model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataValidationPricesPrevious}
+     */
+    PostNotationSearchByTextRequestDataValidationPricesPrevious,
+
+    /**
+     * The PostNotationSearchByTextRequestDataValidationValueUnit model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataValidationValueUnit}
+     */
+    PostNotationSearchByTextRequestDataValidationValueUnit,
+
+    /**
+     * The PostNotationSearchByTextRequestDataValidationValueUnitSelection model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestDataValidationValueUnitSelection}
+     */
+    PostNotationSearchByTextRequestDataValidationValueUnitSelection,
+
+    /**
+     * The PostNotationSearchByTextRequestMeta model constructor.
+     * @property {module:model/PostNotationSearchByTextRequestMeta}
+     */
+    PostNotationSearchByTextRequestMeta,
+
+    /**
+     * The PostPricesTradingScheduleEventListRequest model constructor.
+     * @property {module:model/PostPricesTradingScheduleEventListRequest}
+     */
+    PostPricesTradingScheduleEventListRequest,
+
+    /**
+     * The PostPricesTradingScheduleEventListRequestData model constructor.
+     * @property {module:model/PostPricesTradingScheduleEventListRequestData}
+     */
+    PostPricesTradingScheduleEventListRequestData,
+
+    /**
+     * The PostPricesTradingScheduleEventListRequestDataFilter model constructor.
+     * @property {module:model/PostPricesTradingScheduleEventListRequestDataFilter}
+     */
+    PostPricesTradingScheduleEventListRequestDataFilter,
+
+    /**
+     * The PostPricesTradingScheduleEventListRequestDataFilterRange model constructor.
+     * @property {module:model/PostPricesTradingScheduleEventListRequestDataFilterRange}
+     */
+    PostPricesTradingScheduleEventListRequestDataFilterRange,
+
+    /**
+     * The PostPricesTradingScheduleEventListRequestDataIdentifier model constructor.
+     * @property {module:model/PostPricesTradingScheduleEventListRequestDataIdentifier}
+     */
+    PostPricesTradingScheduleEventListRequestDataIdentifier,
+
+    /**
+     * The PostPricesTradingScheduleEventListRequestMeta model constructor.
+     * @property {module:model/PostPricesTradingScheduleEventListRequestMeta}
+     */
+    PostPricesTradingScheduleEventListRequestMeta,
+
+    /**
+     * The PostPricesTradingScheduleEventListRequestMetaPagination model constructor.
+     * @property {module:model/PostPricesTradingScheduleEventListRequestMetaPagination}
+     */
+    PostPricesTradingScheduleEventListRequestMetaPagination,
 
     /**
      * The StatusObject model constructor.

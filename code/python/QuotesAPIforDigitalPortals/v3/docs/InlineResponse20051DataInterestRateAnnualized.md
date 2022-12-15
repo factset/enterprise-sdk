@@ -5,9 +5,9 @@ Interest rate on an annual basis. Minimum/maximum interest rates and a fixed int
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fixed** | **float** | Fixed interest rate. | [optional] 
-**minimum** | **float** | Minimum interest rate. | [optional] 
-**maximum** | **float** | Maximum interest rate. | [optional] 
+**fixed** | **float, none_type** | Fixed interest rate. | [optional] 
+**minimum** | **float, none_type** | Minimum interest rate. | [optional] 
+**maximum** | **float, none_type** | Maximum interest rate. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

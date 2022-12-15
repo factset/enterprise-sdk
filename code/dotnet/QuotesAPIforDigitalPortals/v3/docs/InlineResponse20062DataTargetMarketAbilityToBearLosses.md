@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **LimitedCapitalLoss** | **string** | Indicates whether the investment product is suitable for investors able to bear limited capital loss. | [optional] 
 **NoCapitalGuarantee** | **string** | Indicates whether the investment product is suitable for investors able to bear total capital loss. | [optional] 
 **LossBeyondCapital** | **string** | Indicates whether the investment product is suitable for investors able to bear loss beyond the invested capital. | [optional] 
-**MaximumCapitalLoss** | **decimal** | Maximum loss of the invested capital assumed the investment product is held until maturity. | [optional] 
+**MaximumCapitalLoss** | **decimal?** | Maximum loss of the invested capital assumed the investment product is held until maturity. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -32,6 +32,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -61,16 +65,16 @@ public class InlineResponse20062DataGeneral implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ISIN = "isin";
-  private String isin;
+  private JsonNullable<String> isin = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private InlineResponse20062DataGeneralCurrency currency;
 
   public static final String JSON_PROPERTY_REPORTING_DATE = "reportingDate";
-  private LocalDate reportingDate;
+  private JsonNullable<LocalDate> reportingDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_LEGAL_STRUCTURE = "legalStructure";
   private InlineResponse20062DataGeneralLegalStructure legalStructure;
@@ -88,7 +92,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
   private InlineResponse20062DataGeneralType type;
 
   public static final String JSON_PROPERTY_LEVERAGED_OR_CONTINGENT = "leveragedOrContingent";
-  private Boolean leveragedOrContingent;
+  private JsonNullable<Boolean> leveragedOrContingent = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_MANUFACTURER = "manufacturer";
   private InlineResponse20062DataGeneralManufacturer manufacturer;
@@ -130,12 +134,12 @@ public class InlineResponse20062DataGeneral implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_APPROVAL_PROCEDURE = "approvalProcedure";
-  private ApprovalProcedureEnum approvalProcedure;
+  private JsonNullable<ApprovalProcedureEnum> approvalProcedure = JsonNullable.<ApprovalProcedureEnum>undefined();
 
   /**
    * Indicates whether the investment product is considered a complex one.
@@ -172,18 +176,18 @@ public class InlineResponse20062DataGeneral implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_COMPLEX_PRODUCT = "complexProduct";
-  private ComplexProductEnum complexProduct;
+  private JsonNullable<ComplexProductEnum> complexProduct = JsonNullable.<ComplexProductEnum>undefined();
 
   public InlineResponse20062DataGeneral() { 
   }
 
   public InlineResponse20062DataGeneral isin(String isin) {
-    this.isin = isin;
+    this.isin = JsonNullable.<String>of(isin);
     return this;
   }
 
@@ -193,23 +197,31 @@ public class InlineResponse20062DataGeneral implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "International Securities Identification Number (ISIN).")
-  @JsonProperty(JSON_PROPERTY_ISIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getIsin() {
-    return isin;
+        return isin.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ISIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsin(String isin) {
+
+  public JsonNullable<String> getIsin_JsonNullable() {
+    return isin;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ISIN)
+  public void setIsin_JsonNullable(JsonNullable<String> isin) {
     this.isin = isin;
+  }
+
+  public void setIsin(String isin) {
+    this.isin = JsonNullable.<String>of(isin);
   }
 
 
   public InlineResponse20062DataGeneral name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -219,18 +231,26 @@ public class InlineResponse20062DataGeneral implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the investment product.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
@@ -261,7 +281,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
 
 
   public InlineResponse20062DataGeneral reportingDate(LocalDate reportingDate) {
-    this.reportingDate = reportingDate;
+    this.reportingDate = JsonNullable.<LocalDate>of(reportingDate);
     return this;
   }
 
@@ -271,18 +291,26 @@ public class InlineResponse20062DataGeneral implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date to which the MiFID II data refers.")
-  @JsonProperty(JSON_PROPERTY_REPORTING_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getReportingDate() {
-    return reportingDate;
+        return reportingDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REPORTING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReportingDate(LocalDate reportingDate) {
+
+  public JsonNullable<LocalDate> getReportingDate_JsonNullable() {
+    return reportingDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REPORTING_DATE)
+  public void setReportingDate_JsonNullable(JsonNullable<LocalDate> reportingDate) {
     this.reportingDate = reportingDate;
+  }
+
+  public void setReportingDate(LocalDate reportingDate) {
+    this.reportingDate = JsonNullable.<LocalDate>of(reportingDate);
   }
 
 
@@ -417,7 +445,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
 
 
   public InlineResponse20062DataGeneral leveragedOrContingent(Boolean leveragedOrContingent) {
-    this.leveragedOrContingent = leveragedOrContingent;
+    this.leveragedOrContingent = JsonNullable.<Boolean>of(leveragedOrContingent);
     return this;
   }
 
@@ -427,18 +455,26 @@ public class InlineResponse20062DataGeneral implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product has leverage or implies a contingent liability.")
-  @JsonProperty(JSON_PROPERTY_LEVERAGED_OR_CONTINGENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getLeveragedOrContingent() {
-    return leveragedOrContingent;
+        return leveragedOrContingent.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LEVERAGED_OR_CONTINGENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLeveragedOrContingent(Boolean leveragedOrContingent) {
+
+  public JsonNullable<Boolean> getLeveragedOrContingent_JsonNullable() {
+    return leveragedOrContingent;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LEVERAGED_OR_CONTINGENT)
+  public void setLeveragedOrContingent_JsonNullable(JsonNullable<Boolean> leveragedOrContingent) {
     this.leveragedOrContingent = leveragedOrContingent;
+  }
+
+  public void setLeveragedOrContingent(Boolean leveragedOrContingent) {
+    this.leveragedOrContingent = JsonNullable.<Boolean>of(leveragedOrContingent);
   }
 
 
@@ -469,7 +505,7 @@ public class InlineResponse20062DataGeneral implements Serializable {
 
 
   public InlineResponse20062DataGeneral approvalProcedure(ApprovalProcedureEnum approvalProcedure) {
-    this.approvalProcedure = approvalProcedure;
+    this.approvalProcedure = JsonNullable.<ApprovalProcedureEnum>of(approvalProcedure);
     return this;
   }
 
@@ -479,23 +515,31 @@ public class InlineResponse20062DataGeneral implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Information on the approval procedure undergone by the investment product.")
-  @JsonProperty(JSON_PROPERTY_APPROVAL_PROCEDURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public ApprovalProcedureEnum getApprovalProcedure() {
-    return approvalProcedure;
+        return approvalProcedure.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_APPROVAL_PROCEDURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setApprovalProcedure(ApprovalProcedureEnum approvalProcedure) {
+
+  public JsonNullable<ApprovalProcedureEnum> getApprovalProcedure_JsonNullable() {
+    return approvalProcedure;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_APPROVAL_PROCEDURE)
+  public void setApprovalProcedure_JsonNullable(JsonNullable<ApprovalProcedureEnum> approvalProcedure) {
     this.approvalProcedure = approvalProcedure;
+  }
+
+  public void setApprovalProcedure(ApprovalProcedureEnum approvalProcedure) {
+    this.approvalProcedure = JsonNullable.<ApprovalProcedureEnum>of(approvalProcedure);
   }
 
 
   public InlineResponse20062DataGeneral complexProduct(ComplexProductEnum complexProduct) {
-    this.complexProduct = complexProduct;
+    this.complexProduct = JsonNullable.<ComplexProductEnum>of(complexProduct);
     return this;
   }
 
@@ -505,18 +549,26 @@ public class InlineResponse20062DataGeneral implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is considered a complex one.")
-  @JsonProperty(JSON_PROPERTY_COMPLEX_PRODUCT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public ComplexProductEnum getComplexProduct() {
-    return complexProduct;
+        return complexProduct.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_COMPLEX_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComplexProduct(ComplexProductEnum complexProduct) {
+
+  public JsonNullable<ComplexProductEnum> getComplexProduct_JsonNullable() {
+    return complexProduct;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COMPLEX_PRODUCT)
+  public void setComplexProduct_JsonNullable(JsonNullable<ComplexProductEnum> complexProduct) {
     this.complexProduct = complexProduct;
+  }
+
+  public void setComplexProduct(ComplexProductEnum complexProduct) {
+    this.complexProduct = JsonNullable.<ComplexProductEnum>of(complexProduct);
   }
 
 
@@ -532,24 +584,35 @@ public class InlineResponse20062DataGeneral implements Serializable {
       return false;
     }
     InlineResponse20062DataGeneral inlineResponse20062DataGeneral = (InlineResponse20062DataGeneral) o;
-    return Objects.equals(this.isin, inlineResponse20062DataGeneral.isin) &&
-        Objects.equals(this.name, inlineResponse20062DataGeneral.name) &&
+    return equalsNullable(this.isin, inlineResponse20062DataGeneral.isin) &&
+        equalsNullable(this.name, inlineResponse20062DataGeneral.name) &&
         Objects.equals(this.currency, inlineResponse20062DataGeneral.currency) &&
-        Objects.equals(this.reportingDate, inlineResponse20062DataGeneral.reportingDate) &&
+        equalsNullable(this.reportingDate, inlineResponse20062DataGeneral.reportingDate) &&
         Objects.equals(this.legalStructure, inlineResponse20062DataGeneral.legalStructure) &&
         Objects.equals(this.fund, inlineResponse20062DataGeneral.fund) &&
         Objects.equals(this.issuer, inlineResponse20062DataGeneral.issuer) &&
         Objects.equals(this.guarantor, inlineResponse20062DataGeneral.guarantor) &&
         Objects.equals(this.type, inlineResponse20062DataGeneral.type) &&
-        Objects.equals(this.leveragedOrContingent, inlineResponse20062DataGeneral.leveragedOrContingent) &&
+        equalsNullable(this.leveragedOrContingent, inlineResponse20062DataGeneral.leveragedOrContingent) &&
         Objects.equals(this.manufacturer, inlineResponse20062DataGeneral.manufacturer) &&
-        Objects.equals(this.approvalProcedure, inlineResponse20062DataGeneral.approvalProcedure) &&
-        Objects.equals(this.complexProduct, inlineResponse20062DataGeneral.complexProduct);
+        equalsNullable(this.approvalProcedure, inlineResponse20062DataGeneral.approvalProcedure) &&
+        equalsNullable(this.complexProduct, inlineResponse20062DataGeneral.complexProduct);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isin, name, currency, reportingDate, legalStructure, fund, issuer, guarantor, type, leveragedOrContingent, manufacturer, approvalProcedure, complexProduct);
+    return Objects.hash(hashCodeNullable(isin), hashCodeNullable(name), currency, hashCodeNullable(reportingDate), legalStructure, fund, issuer, guarantor, type, hashCodeNullable(leveragedOrContingent), manufacturer, hashCodeNullable(approvalProcedure), hashCodeNullable(complexProduct));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -1,6 +1,6 @@
 /**
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse2006Data from './InlineResponse2006Data';
-import InlineResponse2006Meta from './InlineResponse2006Meta';
+import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse2006 model module.
@@ -52,7 +52,7 @@ class InlineResponse2006 {
                 obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse2006Data]);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse2006Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -62,13 +62,13 @@ class InlineResponse2006 {
 }
 
 /**
- * List of notations.
+ * List of deliveries, with their officer functions,sorted by name of the delivery and identifier of the function, both ascending.
  * @member {Array.<module:model/InlineResponse2006Data>} data
  */
 InlineResponse2006.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2006Meta} meta
+ * @member {module:model/InlineResponse200Meta} meta
  */
 InlineResponse2006.prototype['meta'] = undefined;
 

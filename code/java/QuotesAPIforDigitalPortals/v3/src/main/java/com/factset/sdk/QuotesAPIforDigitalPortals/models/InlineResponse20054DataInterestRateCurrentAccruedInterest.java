@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -43,16 +47,16 @@ public class InlineResponse20054DataInterestRateCurrentAccruedInterest implement
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ABSOLUTE = "absolute";
-  private BigDecimal absolute;
+  private JsonNullable<BigDecimal> absolute = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_RELATIVE = "relative";
-  private BigDecimal relative;
+  private JsonNullable<BigDecimal> relative = JsonNullable.<BigDecimal>undefined();
 
   public InlineResponse20054DataInterestRateCurrentAccruedInterest() { 
   }
 
   public InlineResponse20054DataInterestRateCurrentAccruedInterest absolute(BigDecimal absolute) {
-    this.absolute = absolute;
+    this.absolute = JsonNullable.<BigDecimal>of(absolute);
     return this;
   }
 
@@ -62,23 +66,31 @@ public class InlineResponse20054DataInterestRateCurrentAccruedInterest implement
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Monetary value of the accrued interest. The attribute is available only for instruments with a declared nominal value, e.g. securitized derivatives.")
-  @JsonProperty(JSON_PROPERTY_ABSOLUTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getAbsolute() {
-    return absolute;
+        return absolute.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ABSOLUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAbsolute(BigDecimal absolute) {
+
+  public JsonNullable<BigDecimal> getAbsolute_JsonNullable() {
+    return absolute;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ABSOLUTE)
+  public void setAbsolute_JsonNullable(JsonNullable<BigDecimal> absolute) {
     this.absolute = absolute;
+  }
+
+  public void setAbsolute(BigDecimal absolute) {
+    this.absolute = JsonNullable.<BigDecimal>of(absolute);
   }
 
 
   public InlineResponse20054DataInterestRateCurrentAccruedInterest relative(BigDecimal relative) {
-    this.relative = relative;
+    this.relative = JsonNullable.<BigDecimal>of(relative);
     return this;
   }
 
@@ -88,18 +100,26 @@ public class InlineResponse20054DataInterestRateCurrentAccruedInterest implement
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Accrued interest.")
-  @JsonProperty(JSON_PROPERTY_RELATIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getRelative() {
-    return relative;
+        return relative.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_RELATIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelative(BigDecimal relative) {
+
+  public JsonNullable<BigDecimal> getRelative_JsonNullable() {
+    return relative;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RELATIVE)
+  public void setRelative_JsonNullable(JsonNullable<BigDecimal> relative) {
     this.relative = relative;
+  }
+
+  public void setRelative(BigDecimal relative) {
+    this.relative = JsonNullable.<BigDecimal>of(relative);
   }
 
 
@@ -115,13 +135,24 @@ public class InlineResponse20054DataInterestRateCurrentAccruedInterest implement
       return false;
     }
     InlineResponse20054DataInterestRateCurrentAccruedInterest inlineResponse20054DataInterestRateCurrentAccruedInterest = (InlineResponse20054DataInterestRateCurrentAccruedInterest) o;
-    return Objects.equals(this.absolute, inlineResponse20054DataInterestRateCurrentAccruedInterest.absolute) &&
-        Objects.equals(this.relative, inlineResponse20054DataInterestRateCurrentAccruedInterest.relative);
+    return equalsNullable(this.absolute, inlineResponse20054DataInterestRateCurrentAccruedInterest.absolute) &&
+        equalsNullable(this.relative, inlineResponse20054DataInterestRateCurrentAccruedInterest.relative);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(absolute, relative);
+    return Objects.hash(hashCodeNullable(absolute), hashCodeNullable(relative));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

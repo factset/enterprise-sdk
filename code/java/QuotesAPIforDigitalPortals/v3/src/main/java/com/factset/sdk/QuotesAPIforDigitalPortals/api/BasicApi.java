@@ -12,15 +12,6 @@ import java.util.Map;
 import java.util.Objects;
 
 import java.math.BigDecimal;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject1;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject2;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject3;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject4;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject5;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject6;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject7;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject8;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse200;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse2001;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20010;
@@ -52,6 +43,15 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse2006;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse2007;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse2008;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse2009;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostBasicBackgroundTextTypeListRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostBasicDeliveryListRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostBasicMarketListRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostBasicMediaTypeListRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostBasicMicOperatingListRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostBasicTimezoneListRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostBasicValueUnitCurrencyListRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostBasicValueUnitCurrencyMainListRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostBasicValueUnitListRequest;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BasicApi {
@@ -288,7 +288,7 @@ public class BasicApi {
    * List of benchmark types.
    * List of benchmark types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -305,7 +305,7 @@ public class BasicApi {
    * List of benchmark types.
    * List of benchmark types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -360,7 +360,7 @@ public class BasicApi {
    * List of frequency types.
    * List of frequency types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -377,7 +377,7 @@ public class BasicApi {
    * List of frequency types.
    * List of frequency types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -431,9 +431,9 @@ public class BasicApi {
   /**
    * Details for a language.
    * Details for a language.
-   * @param id Identifier of a language. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2005
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -449,9 +449,9 @@ public class BasicApi {
   /**
    * Details for a language.
    * Details for a language.
-   * @param id Identifier of a language. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2005&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -511,9 +511,9 @@ public class BasicApi {
   /**
    * Details for a language identified by code.
    * Details for a language identified by code.
-   * @param code ISO 639-1 code of the language. (required)
+   * @param code  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2006
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -529,9 +529,9 @@ public class BasicApi {
   /**
    * Details for a language identified by code.
    * Details for a language identified by code.
-   * @param code ISO 639-1 code of the language. (required)
+   * @param code  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2006&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -592,7 +592,7 @@ public class BasicApi {
    * List of languages.
    * List of languages.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return InlineResponse2007
    * @throws ApiException if fails to make API call
@@ -610,7 +610,7 @@ public class BasicApi {
    * List of languages.
    * List of languages.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return ApiResponse&lt;InlineResponse2007&gt;
    * @throws ApiException if fails to make API call
@@ -666,9 +666,9 @@ public class BasicApi {
   /**
    * Details of a market.
    * Details of a market.
-   * @param id Identifier of a market. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2008
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -684,9 +684,9 @@ public class BasicApi {
   /**
    * Details of a market.
    * Details of a market.
-   * @param id Identifier of a market. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2008&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -747,7 +747,7 @@ public class BasicApi {
    * List of market groups.
    * List of market groups.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return InlineResponse20010
    * @throws ApiException if fails to make API call
@@ -765,7 +765,7 @@ public class BasicApi {
    * List of market groups.
    * List of market groups.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return ApiResponse&lt;InlineResponse20010&gt;
    * @throws ApiException if fails to make API call
@@ -822,7 +822,7 @@ public class BasicApi {
    * List of market types.
    * List of market types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return InlineResponse20011
    * @throws ApiException if fails to make API call
@@ -840,7 +840,7 @@ public class BasicApi {
    * List of market types.
    * List of market types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return ApiResponse&lt;InlineResponse20011&gt;
    * @throws ApiException if fails to make API call
@@ -965,9 +965,9 @@ public class BasicApi {
   /**
    * Details for a continent.
    * Details for a continent.
-   * @param id Identifier of a continent. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20017
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -983,9 +983,9 @@ public class BasicApi {
   /**
    * Details for a continent.
    * Details for a continent.
-   * @param id Identifier of a continent. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20017&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1046,7 +1046,7 @@ public class BasicApi {
    * List of continents.
    * List of continents.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return InlineResponse20018
    * @throws ApiException if fails to make API call
@@ -1064,7 +1064,7 @@ public class BasicApi {
    * List of continents.
    * List of continents.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return ApiResponse&lt;InlineResponse20018&gt;
    * @throws ApiException if fails to make API call
@@ -1120,9 +1120,9 @@ public class BasicApi {
   /**
    * Details for a country.
    * Details for a country.
-   * @param id Identifier of a country. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20019
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1138,9 +1138,9 @@ public class BasicApi {
   /**
    * Details for a country.
    * Details for a country.
-   * @param id Identifier of a country. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20019&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1200,9 +1200,9 @@ public class BasicApi {
   /**
    * Details for a country identified by code.
    * Details for a country identified by code.
-   * @param code ISO 3166-1 alpha-2 code of a country. (required)
+   * @param code  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20020
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1218,9 +1218,9 @@ public class BasicApi {
   /**
    * Details for a country identified by code.
    * Details for a country identified by code.
-   * @param code ISO 3166-1 alpha-2 code of a country. (required)
+   * @param code  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20020&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1281,7 +1281,7 @@ public class BasicApi {
    * List of countries.
    * List of countries.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return InlineResponse20021
    * @throws ApiException if fails to make API call
@@ -1299,7 +1299,7 @@ public class BasicApi {
    * List of countries.
    * List of countries.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return ApiResponse&lt;InlineResponse20021&gt;
    * @throws ApiException if fails to make API call
@@ -1355,9 +1355,9 @@ public class BasicApi {
   /**
    * Details for a region.
    * Details for a geographic, political, or economic region.
-   * @param id Identifier of a region. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20015
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1373,9 +1373,9 @@ public class BasicApi {
   /**
    * Details for a region.
    * Details for a geographic, political, or economic region.
-   * @param id Identifier of a region. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20015&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1436,7 +1436,7 @@ public class BasicApi {
    * List of regions.
    * List of geographic, political, and economic regions.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return InlineResponse20016
    * @throws ApiException if fails to make API call
@@ -1454,7 +1454,7 @@ public class BasicApi {
    * List of regions.
    * List of geographic, political, and economic regions.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return ApiResponse&lt;InlineResponse20016&gt;
    * @throws ApiException if fails to make API call
@@ -1510,7 +1510,7 @@ public class BasicApi {
   /**
    * Details of a timezone.
    * Details of a timezone identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-   * @param id Identifier of a timezone. An invalid or unsupported identifier will result in an error. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse20022
    * @throws ApiException if fails to make API call
@@ -1527,7 +1527,7 @@ public class BasicApi {
   /**
    * Details of a timezone.
    * Details of a timezone identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-   * @param id Identifier of a timezone. An invalid or unsupported identifier will result in an error. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse20022&gt;
    * @throws ApiException if fails to make API call
@@ -1587,7 +1587,7 @@ public class BasicApi {
   /**
    * Details of a timezone identified by name.
    * Details of a timezone identified by name, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-   * @param name Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error. (required)
+   * @param name  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse20022
    * @throws ApiException if fails to make API call
@@ -1604,7 +1604,7 @@ public class BasicApi {
   /**
    * Details of a timezone identified by name.
    * Details of a timezone identified by name, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-   * @param name Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error. (required)
+   * @param name  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse20022&gt;
    * @throws ApiException if fails to make API call
@@ -1665,7 +1665,7 @@ public class BasicApi {
    * List of alternative units.
    * List of alternative units.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return InlineResponse20026
    * @throws ApiException if fails to make API call
@@ -1683,7 +1683,7 @@ public class BasicApi {
    * List of alternative units.
    * List of alternative units.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return ApiResponse&lt;InlineResponse20026&gt;
    * @throws ApiException if fails to make API call
@@ -1739,9 +1739,9 @@ public class BasicApi {
   /**
    * Details of a fractional currency.
    * Details of a fractional currency.
-   * @param id Identifier of a fractional currency. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20028
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1757,9 +1757,9 @@ public class BasicApi {
   /**
    * Details of a fractional currency.
    * Details of a fractional currency.
-   * @param id Identifier of a fractional currency. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20028&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1820,7 +1820,7 @@ public class BasicApi {
    * List of fractional currencies.
    * List of fractional currencies.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return InlineResponse20029
    * @throws ApiException if fails to make API call
@@ -1838,7 +1838,7 @@ public class BasicApi {
    * List of fractional currencies.
    * List of fractional currencies.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return ApiResponse&lt;InlineResponse20029&gt;
    * @throws ApiException if fails to make API call
@@ -1894,9 +1894,9 @@ public class BasicApi {
   /**
    * Details of a value unit.
    * Details of a value unit.
-   * @param id Identifier of a value unit. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse20024
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1912,9 +1912,9 @@ public class BasicApi {
   /**
    * Details of a value unit.
    * Details of a value unit.
-   * @param id Identifier of a value unit. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse20024&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1974,7 +1974,7 @@ public class BasicApi {
   /**
    * List of background text types.
    * List of background text types.
-   * @param body  (optional)
+   * @param postBasicBackgroundTextTypeListRequest  (optional)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1983,14 +1983,14 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postBasicBackgroundTextTypeList(InlineObject body) throws ApiException {
-    return postBasicBackgroundTextTypeListWithHttpInfo(body).getData();
+  public InlineResponse2001 postBasicBackgroundTextTypeList(PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest) throws ApiException {
+    return postBasicBackgroundTextTypeListWithHttpInfo(postBasicBackgroundTextTypeListRequest).getData();
   }
 
   /**
    * List of background text types.
    * List of background text types.
-   * @param body  (optional)
+   * @param postBasicBackgroundTextTypeListRequest  (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1999,8 +1999,8 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postBasicBackgroundTextTypeListWithHttpInfo(InlineObject body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2001> postBasicBackgroundTextTypeListWithHttpInfo(PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest) throws ApiException {
+    Object localVarPostBody = postBasicBackgroundTextTypeListRequest;
     
     // create path and map variables
     String localVarPath = "/basic/backgroundText/type/list";
@@ -2042,7 +2042,7 @@ public class BasicApi {
   /**
    * List of deliveries.
    * List of deliveries.
-   * @param body  (optional)
+   * @param postBasicDeliveryListRequest  (optional)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2051,14 +2051,14 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2003 postBasicDeliveryList(InlineObject1 body) throws ApiException {
-    return postBasicDeliveryListWithHttpInfo(body).getData();
+  public InlineResponse2003 postBasicDeliveryList(PostBasicDeliveryListRequest postBasicDeliveryListRequest) throws ApiException {
+    return postBasicDeliveryListWithHttpInfo(postBasicDeliveryListRequest).getData();
   }
 
   /**
    * List of deliveries.
    * List of deliveries.
-   * @param body  (optional)
+   * @param postBasicDeliveryListRequest  (optional)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2067,8 +2067,8 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> postBasicDeliveryListWithHttpInfo(InlineObject1 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2003> postBasicDeliveryListWithHttpInfo(PostBasicDeliveryListRequest postBasicDeliveryListRequest) throws ApiException {
+    Object localVarPostBody = postBasicDeliveryListRequest;
     
     // create path and map variables
     String localVarPath = "/basic/delivery/list";
@@ -2110,7 +2110,7 @@ public class BasicApi {
   /**
    * List of markets.
    * List of markets.
-   * @param body  (optional)
+   * @param postBasicMarketListRequest  (optional)
    * @return InlineResponse2009
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2119,14 +2119,14 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2009 postBasicMarketList(InlineObject2 body) throws ApiException {
-    return postBasicMarketListWithHttpInfo(body).getData();
+  public InlineResponse2009 postBasicMarketList(PostBasicMarketListRequest postBasicMarketListRequest) throws ApiException {
+    return postBasicMarketListWithHttpInfo(postBasicMarketListRequest).getData();
   }
 
   /**
    * List of markets.
    * List of markets.
-   * @param body  (optional)
+   * @param postBasicMarketListRequest  (optional)
    * @return ApiResponse&lt;InlineResponse2009&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2135,8 +2135,8 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2009> postBasicMarketListWithHttpInfo(InlineObject2 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2009> postBasicMarketListWithHttpInfo(PostBasicMarketListRequest postBasicMarketListRequest) throws ApiException {
+    Object localVarPostBody = postBasicMarketListRequest;
     
     // create path and map variables
     String localVarPath = "/basic/market/list";
@@ -2178,7 +2178,7 @@ public class BasicApi {
   /**
    * List of Internet media types.
    * List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
-   * @param body  (optional)
+   * @param postBasicMediaTypeListRequest  (optional)
    * @return InlineResponse20013
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2187,14 +2187,14 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20013 postBasicMediaTypeList(InlineObject3 body) throws ApiException {
-    return postBasicMediaTypeListWithHttpInfo(body).getData();
+  public InlineResponse20013 postBasicMediaTypeList(PostBasicMediaTypeListRequest postBasicMediaTypeListRequest) throws ApiException {
+    return postBasicMediaTypeListWithHttpInfo(postBasicMediaTypeListRequest).getData();
   }
 
   /**
    * List of Internet media types.
    * List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
-   * @param body  (optional)
+   * @param postBasicMediaTypeListRequest  (optional)
    * @return ApiResponse&lt;InlineResponse20013&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2203,8 +2203,8 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20013> postBasicMediaTypeListWithHttpInfo(InlineObject3 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse20013> postBasicMediaTypeListWithHttpInfo(PostBasicMediaTypeListRequest postBasicMediaTypeListRequest) throws ApiException {
+    Object localVarPostBody = postBasicMediaTypeListRequest;
     
     // create path and map variables
     String localVarPath = "/basic/media/type/list";
@@ -2246,7 +2246,7 @@ public class BasicApi {
   /**
    * List of operating market identifier codes (MIC).
    * List of operating market identifier codes (MIC).
-   * @param body  (optional)
+   * @param postBasicMicOperatingListRequest  (optional)
    * @return InlineResponse20014
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2255,14 +2255,14 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20014 postBasicMicOperatingList(InlineObject4 body) throws ApiException {
-    return postBasicMicOperatingListWithHttpInfo(body).getData();
+  public InlineResponse20014 postBasicMicOperatingList(PostBasicMicOperatingListRequest postBasicMicOperatingListRequest) throws ApiException {
+    return postBasicMicOperatingListWithHttpInfo(postBasicMicOperatingListRequest).getData();
   }
 
   /**
    * List of operating market identifier codes (MIC).
    * List of operating market identifier codes (MIC).
-   * @param body  (optional)
+   * @param postBasicMicOperatingListRequest  (optional)
    * @return ApiResponse&lt;InlineResponse20014&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2271,8 +2271,8 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20014> postBasicMicOperatingListWithHttpInfo(InlineObject4 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse20014> postBasicMicOperatingListWithHttpInfo(PostBasicMicOperatingListRequest postBasicMicOperatingListRequest) throws ApiException {
+    Object localVarPostBody = postBasicMicOperatingListRequest;
     
     // create path and map variables
     String localVarPath = "/basic/mic/operating/list";
@@ -2314,7 +2314,7 @@ public class BasicApi {
   /**
    * List of timezones.
    * List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-   * @param body  (optional)
+   * @param postBasicTimezoneListRequest  (optional)
    * @return InlineResponse20023
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2323,14 +2323,14 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20023 postBasicTimezoneList(InlineObject5 body) throws ApiException {
-    return postBasicTimezoneListWithHttpInfo(body).getData();
+  public InlineResponse20023 postBasicTimezoneList(PostBasicTimezoneListRequest postBasicTimezoneListRequest) throws ApiException {
+    return postBasicTimezoneListWithHttpInfo(postBasicTimezoneListRequest).getData();
   }
 
   /**
    * List of timezones.
    * List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-   * @param body  (optional)
+   * @param postBasicTimezoneListRequest  (optional)
    * @return ApiResponse&lt;InlineResponse20023&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2339,8 +2339,8 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20023> postBasicTimezoneListWithHttpInfo(InlineObject5 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse20023> postBasicTimezoneListWithHttpInfo(PostBasicTimezoneListRequest postBasicTimezoneListRequest) throws ApiException {
+    Object localVarPostBody = postBasicTimezoneListRequest;
     
     // create path and map variables
     String localVarPath = "/basic/timezone/list";
@@ -2382,7 +2382,7 @@ public class BasicApi {
   /**
    * List of currencies.
    * List of currencies.
-   * @param body  (optional)
+   * @param postBasicValueUnitCurrencyListRequest  (optional)
    * @return InlineResponse20027
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2391,14 +2391,14 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20027 postBasicValueUnitCurrencyList(InlineObject7 body) throws ApiException {
-    return postBasicValueUnitCurrencyListWithHttpInfo(body).getData();
+  public InlineResponse20027 postBasicValueUnitCurrencyList(PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest) throws ApiException {
+    return postBasicValueUnitCurrencyListWithHttpInfo(postBasicValueUnitCurrencyListRequest).getData();
   }
 
   /**
    * List of currencies.
    * List of currencies.
-   * @param body  (optional)
+   * @param postBasicValueUnitCurrencyListRequest  (optional)
    * @return ApiResponse&lt;InlineResponse20027&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2407,8 +2407,8 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20027> postBasicValueUnitCurrencyListWithHttpInfo(InlineObject7 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse20027> postBasicValueUnitCurrencyListWithHttpInfo(PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest) throws ApiException {
+    Object localVarPostBody = postBasicValueUnitCurrencyListRequest;
     
     // create path and map variables
     String localVarPath = "/basic/valueUnit/currency/list";
@@ -2450,7 +2450,7 @@ public class BasicApi {
   /**
    * List of main currencies.
    * List of main currencies.
-   * @param body  (optional)
+   * @param postBasicValueUnitCurrencyMainListRequest  (optional)
    * @return InlineResponse20030
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2459,14 +2459,14 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20030 postBasicValueUnitCurrencyMainList(InlineObject8 body) throws ApiException {
-    return postBasicValueUnitCurrencyMainListWithHttpInfo(body).getData();
+  public InlineResponse20030 postBasicValueUnitCurrencyMainList(PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest) throws ApiException {
+    return postBasicValueUnitCurrencyMainListWithHttpInfo(postBasicValueUnitCurrencyMainListRequest).getData();
   }
 
   /**
    * List of main currencies.
    * List of main currencies.
-   * @param body  (optional)
+   * @param postBasicValueUnitCurrencyMainListRequest  (optional)
    * @return ApiResponse&lt;InlineResponse20030&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2475,8 +2475,8 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20030> postBasicValueUnitCurrencyMainListWithHttpInfo(InlineObject8 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse20030> postBasicValueUnitCurrencyMainListWithHttpInfo(PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest) throws ApiException {
+    Object localVarPostBody = postBasicValueUnitCurrencyMainListRequest;
     
     // create path and map variables
     String localVarPath = "/basic/valueUnit/currency/main/list";
@@ -2518,7 +2518,7 @@ public class BasicApi {
   /**
    * List of value units.
    * List of value units.
-   * @param body  (optional)
+   * @param postBasicValueUnitListRequest  (optional)
    * @return InlineResponse20025
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2527,14 +2527,14 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20025 postBasicValueUnitList(InlineObject6 body) throws ApiException {
-    return postBasicValueUnitListWithHttpInfo(body).getData();
+  public InlineResponse20025 postBasicValueUnitList(PostBasicValueUnitListRequest postBasicValueUnitListRequest) throws ApiException {
+    return postBasicValueUnitListWithHttpInfo(postBasicValueUnitListRequest).getData();
   }
 
   /**
    * List of value units.
    * List of value units.
-   * @param body  (optional)
+   * @param postBasicValueUnitListRequest  (optional)
    * @return ApiResponse&lt;InlineResponse20025&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2543,8 +2543,8 @@ public class BasicApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20025> postBasicValueUnitListWithHttpInfo(InlineObject6 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse20025> postBasicValueUnitListWithHttpInfo(PostBasicValueUnitListRequest postBasicValueUnitListRequest) throws ApiException {
+    Object localVarPostBody = postBasicValueUnitListRequest;
     
     // create path and map variables
     String localVarPath = "/basic/valueUnit/list";

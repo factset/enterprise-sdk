@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,7 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20070DataRegional from './InlineResponse20070DataRegional';
+import InlineResponse20071DataInstrument from './InlineResponse20071DataInstrument';
+import InlineResponse20071DataRegional from './InlineResponse20071DataRegional';
 
 /**
  * The InlineResponse20071Data model module.
@@ -48,11 +49,20 @@ class InlineResponse20071Data {
         if (data) {
             obj = obj || new InlineResponse20071Data();
 
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
+            }
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
+            }
+            if (data.hasOwnProperty('instrument')) {
+                obj['instrument'] = InlineResponse20071DataInstrument.constructFromObject(data['instrument']);
+            }
             if (data.hasOwnProperty('permanentIdentifier')) {
                 obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
             }
             if (data.hasOwnProperty('regional')) {
-                obj['regional'] = ApiClient.convertToType(data['regional'], [InlineResponse20070DataRegional]);
+                obj['regional'] = InlineResponse20071DataRegional.constructFromObject(data['regional']);
             }
         }
         return obj;
@@ -62,14 +72,30 @@ class InlineResponse20071Data {
 }
 
 /**
+ * MDG identifier of the listing.
+ * @member {String} idNotation
+ */
+InlineResponse20071Data.prototype['idNotation'] = undefined;
+
+/**
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
+ */
+InlineResponse20071Data.prototype['sourceIdentifier'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20071DataInstrument} instrument
+ */
+InlineResponse20071Data.prototype['instrument'] = undefined;
+
+/**
  * FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
  * @member {String} permanentIdentifier
  */
 InlineResponse20071Data.prototype['permanentIdentifier'] = undefined;
 
 /**
- * Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.
- * @member {Array.<module:model/InlineResponse20070DataRegional>} regional
+ * @member {module:model/InlineResponse20071DataRegional} regional
  */
 InlineResponse20071Data.prototype['regional'] = undefined;
 

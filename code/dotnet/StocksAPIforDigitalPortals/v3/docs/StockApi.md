@@ -4,9 +4,11 @@ All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**GetStockCompositeProfileGetByNotation**](StockApi.md#getstockcompositeprofilegetbynotation) | **GET** /stock/composite/profile/getByNotation | Provides key elements of a stock profile together with the profile of the issuing company.
 [**GetStockDividendTypeList**](StockApi.md#getstockdividendtypelist) | **GET** /stock/dividend/type/list | List of dividend types.
 [**GetStockNotationKeyFiguresBenchmarkMonth1Get**](StockApi.md#getstocknotationkeyfiguresbenchmarkmonth1get) | **GET** /stock/notation/keyFigures/benchmark/month/1/get | End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
 [**GetStockNotationKeyFiguresBenchmarkMonth3Get**](StockApi.md#getstocknotationkeyfiguresbenchmarkmonth3get) | **GET** /stock/notation/keyFigures/benchmark/month/3/get | End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
+[**GetStockNotationKeyFiguresBenchmarkMonth6Get**](StockApi.md#getstocknotationkeyfiguresbenchmarkmonth6get) | **GET** /stock/notation/keyFigures/benchmark/month/6/get | End-of-day (EOD) benchmark key figures of a stock for the time range of six months.
 [**GetStockNotationKeyFiguresBenchmarkWeek1Get**](StockApi.md#getstocknotationkeyfiguresbenchmarkweek1get) | **GET** /stock/notation/keyFigures/benchmark/week/1/get | End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
 [**GetStockNotationKeyFiguresBenchmarkYear1Get**](StockApi.md#getstocknotationkeyfiguresbenchmarkyear1get) | **GET** /stock/notation/keyFigures/benchmark/year/1/get | End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
 [**GetStockNotationKeyFiguresBenchmarkYear3Get**](StockApi.md#getstocknotationkeyfiguresbenchmarkyear3get) | **GET** /stock/notation/keyFigures/benchmark/year/3/get | End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
@@ -20,9 +22,104 @@ Method | HTTP request | Description
 [**PostStockNotationScreenerValueRangesGet**](StockApi.md#poststocknotationscreenervaluerangesget) | **POST** /stock/notation/screener/valueRanges/get | Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
 
 
+<a name="getstockcompositeprofilegetbynotation"></a>
+# **GetStockCompositeProfileGetByNotation**
+> InlineResponse2009 GetStockCompositeProfileGetByNotation (string identifier, string identifierType, List<string> attributes = null, string language = null)
+
+Provides key elements of a stock profile together with the profile of the issuing company.
+
+Provides key elements of a stock profile together with the profile of the issuing company.
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.StocksAPIforDigitalPortals.Api;
+using FactSet.SDK.StocksAPIforDigitalPortals.Client;
+using FactSet.SDK.StocksAPIforDigitalPortals.Model;
+
+namespace Example
+{
+    public class GetStockCompositeProfileGetByNotationExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.StocksAPIforDigitalPortals.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new StockApi(config);
+
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idNotation";  // string | 
+            var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
+            var language = "language_example";  // string |  (optional) 
+
+            try
+            {
+                // Provides key elements of a stock profile together with the profile of the issuing company.
+                InlineResponse2009 result = apiInstance.GetStockCompositeProfileGetByNotation(identifier, identifierType, attributes, language);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling StockApi.GetStockCompositeProfileGetByNotation: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+ **language** | **string**|  | [optional] 
+
+### Return type
+[**InlineResponse2009**](InlineResponse2009.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getstockdividendtypelist"></a>
 # **GetStockDividendTypeList**
-> InlineResponse2004 GetStockDividendTypeList (List<string> attributes = null, string language = null)
+> InlineResponse20011 GetStockDividendTypeList (List<string> attributes = null, string language = null)
 
 List of dividend types.
 
@@ -70,7 +167,7 @@ namespace Example
             try
             {
                 // List of dividend types.
-                InlineResponse2004 result = apiInstance.GetStockDividendTypeList(attributes, language);
+                InlineResponse20011 result = apiInstance.GetStockDividendTypeList(attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -92,7 +189,7 @@ Name | Type | Description  | Notes
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -113,7 +210,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkmonth1get"></a>
 # **GetStockNotationKeyFiguresBenchmarkMonth1Get**
-> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkMonth1Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse20012 GetStockNotationKeyFiguresBenchmarkMonth1Get (string identifier, string identifierType, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
 
@@ -155,7 +252,8 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | 
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idNotation";  // string | 
             var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string |  (optional) 
@@ -163,7 +261,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
-                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse20012 result = apiInstance.GetStockNotationKeyFiguresBenchmarkMonth1Get(identifier, identifierType, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -181,13 +279,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
  **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -208,7 +307,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkmonth3get"></a>
 # **GetStockNotationKeyFiguresBenchmarkMonth3Get**
-> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkMonth3Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse20012 GetStockNotationKeyFiguresBenchmarkMonth3Get (string identifier, string identifierType, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
 
@@ -250,7 +349,8 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | 
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idNotation";  // string | 
             var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string |  (optional) 
@@ -258,7 +358,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
-                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse20012 result = apiInstance.GetStockNotationKeyFiguresBenchmarkMonth3Get(identifier, identifierType, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -276,13 +376,111 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
  **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getstocknotationkeyfiguresbenchmarkmonth6get"></a>
+# **GetStockNotationKeyFiguresBenchmarkMonth6Get**
+> InlineResponse20012 GetStockNotationKeyFiguresBenchmarkMonth6Get (string identifier, string identifierType, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+
+End-of-day (EOD) benchmark key figures of a stock for the time range of six months.
+
+End-of-day (EOD) benchmark key figures of a stock for the time range of six months.
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.StocksAPIforDigitalPortals.Api;
+using FactSet.SDK.StocksAPIforDigitalPortals.Client;
+using FactSet.SDK.StocksAPIforDigitalPortals.Model;
+
+namespace Example
+{
+    public class GetStockNotationKeyFiguresBenchmarkMonth6GetExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.StocksAPIforDigitalPortals.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new StockApi(config);
+
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idNotation";  // string | 
+            var idNotationBenchmark = new List<string>(); // List<string> | 
+            var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
+            var language = "language_example";  // string |  (optional) 
+
+            try
+            {
+                // End-of-day (EOD) benchmark key figures of a stock for the time range of six months.
+                InlineResponse20012 result = apiInstance.GetStockNotationKeyFiguresBenchmarkMonth6Get(identifier, identifierType, idNotationBenchmark, attributes, language);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling StockApi.GetStockNotationKeyFiguresBenchmarkMonth6Get: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
+ **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+ **language** | **string**|  | [optional] 
+
+### Return type
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -303,7 +501,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkweek1get"></a>
 # **GetStockNotationKeyFiguresBenchmarkWeek1Get**
-> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkWeek1Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse20012 GetStockNotationKeyFiguresBenchmarkWeek1Get (string identifier, string identifierType, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
 
@@ -345,7 +543,8 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | 
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idNotation";  // string | 
             var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string |  (optional) 
@@ -353,7 +552,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
-                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse20012 result = apiInstance.GetStockNotationKeyFiguresBenchmarkWeek1Get(identifier, identifierType, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -371,13 +570,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
  **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -398,7 +598,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkyear1get"></a>
 # **GetStockNotationKeyFiguresBenchmarkYear1Get**
-> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear1Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse20012 GetStockNotationKeyFiguresBenchmarkYear1Get (string identifier, string identifierType, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
 
@@ -440,7 +640,8 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | 
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idNotation";  // string | 
             var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string |  (optional) 
@@ -448,7 +649,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
-                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse20012 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear1Get(identifier, identifierType, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -466,13 +667,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
  **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -493,7 +695,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkyear3get"></a>
 # **GetStockNotationKeyFiguresBenchmarkYear3Get**
-> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear3Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse20012 GetStockNotationKeyFiguresBenchmarkYear3Get (string identifier, string identifierType, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
 
@@ -535,7 +737,8 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | 
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idNotation";  // string | 
             var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string |  (optional) 
@@ -543,7 +746,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
-                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse20012 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear3Get(identifier, identifierType, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -561,13 +764,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
  **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -588,7 +792,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkyear5get"></a>
 # **GetStockNotationKeyFiguresBenchmarkYear5Get**
-> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear5Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse20012 GetStockNotationKeyFiguresBenchmarkYear5Get (string identifier, string identifierType, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
 
@@ -630,7 +834,8 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | 
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idNotation";  // string | 
             var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string |  (optional) 
@@ -638,7 +843,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
-                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse20012 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear5Get(identifier, identifierType, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -656,13 +861,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
  **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -683,7 +889,7 @@ Name | Type | Description  | Notes
 
 <a name="getstockownerlist"></a>
 # **GetStockOwnerList**
-> InlineResponse2002 GetStockOwnerList (string id, List<string> attributes = null, string language = null)
+> InlineResponse2008 GetStockOwnerList (string identifier, string identifierType, List<string> attributes = null, string language = null)
 
 List of owners for a specific type of a company's shares.
 
@@ -725,14 +931,15 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | 
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idInstrument";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string |  (optional) 
 
             try
             {
                 // List of owners for a specific type of a company's shares.
-                InlineResponse2002 result = apiInstance.GetStockOwnerList(id, attributes, language);
+                InlineResponse2008 result = apiInstance.GetStockOwnerList(identifier, identifierType, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -750,12 +957,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -776,7 +984,7 @@ Name | Type | Description  | Notes
 
 <a name="getstockrecommendationaggregateget"></a>
 # **GetStockRecommendationAggregateGet**
-> InlineResponse200 GetStockRecommendationAggregateGet (string id, List<string> attributes = null)
+> InlineResponse2003 GetStockRecommendationAggregateGet (string identifier, string identifierType, List<string> attributes = null)
 
 Target price and aggregated recommendations for a stock.
 
@@ -818,13 +1026,14 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | 
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idInstrument";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
             {
                 // Target price and aggregated recommendations for a stock.
-                InlineResponse200 result = apiInstance.GetStockRecommendationAggregateGet(id, attributes);
+                InlineResponse2003 result = apiInstance.GetStockRecommendationAggregateGet(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -842,11 +1051,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -867,7 +1077,7 @@ Name | Type | Description  | Notes
 
 <a name="getstockrecommendationaggregatehistorylist"></a>
 # **GetStockRecommendationAggregateHistoryList**
-> InlineResponse2001 GetStockRecommendationAggregateHistoryList (string id, List<string> snapshots, List<string> attributes = null)
+> InlineResponse2004 GetStockRecommendationAggregateHistoryList (string identifier, string identifierType, List<string> snapshots, List<string> attributes = null)
 
 Current and historical trade recommendations and target prices for a stock.
 
@@ -909,14 +1119,15 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | 
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idInstrument";  // string | 
             var snapshots = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
             {
                 // Current and historical trade recommendations and target prices for a stock.
-                InlineResponse2001 result = apiInstance.GetStockRecommendationAggregateHistoryList(id, snapshots, attributes);
+                InlineResponse2004 result = apiInstance.GetStockRecommendationAggregateHistoryList(identifier, identifierType, snapshots, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -934,12 +1145,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
  **snapshots** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -960,7 +1172,7 @@ Name | Type | Description  | Notes
 
 <a name="poststockdividendlist"></a>
 # **PostStockDividendList**
-> InlineResponse2003 PostStockDividendList (InlineObject inlineObject)
+> InlineResponse20010 PostStockDividendList (PostStockDividendListRequest postStockDividendListRequest = null)
 
 List of dividends for a stock.
 
@@ -1002,12 +1214,12 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var inlineObject = new InlineObject(); // InlineObject | 
+            var postStockDividendListRequest = new PostStockDividendListRequest(); // PostStockDividendListRequest |  (optional) 
 
             try
             {
                 // List of dividends for a stock.
-                InlineResponse2003 result = apiInstance.PostStockDividendList(inlineObject);
+                InlineResponse20010 result = apiInstance.PostStockDividendList(postStockDividendListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1025,10 +1237,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+ **postStockDividendListRequest** | [**PostStockDividendListRequest**](PostStockDividendListRequest.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -1049,7 +1261,7 @@ Name | Type | Description  | Notes
 
 <a name="poststocknotationrankingintradaylist"></a>
 # **PostStockNotationRankingIntradayList**
-> InlineResponse2006 PostStockNotationRankingIntradayList (InlineObject1 inlineObject1 = null)
+> InlineResponse20013 PostStockNotationRankingIntradayList (PostStockNotationRankingIntradayListRequest postStockNotationRankingIntradayListRequest = null)
 
 Ranking of stocks' notations using intraday figures.
 
@@ -1091,12 +1303,12 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var inlineObject1 = new InlineObject1(); // InlineObject1 |  (optional) 
+            var postStockNotationRankingIntradayListRequest = new PostStockNotationRankingIntradayListRequest(); // PostStockNotationRankingIntradayListRequest |  (optional) 
 
             try
             {
                 // Ranking of stocks' notations using intraday figures.
-                InlineResponse2006 result = apiInstance.PostStockNotationRankingIntradayList(inlineObject1);
+                InlineResponse20013 result = apiInstance.PostStockNotationRankingIntradayList(postStockNotationRankingIntradayListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1114,10 +1326,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
+ **postStockNotationRankingIntradayListRequest** | [**PostStockNotationRankingIntradayListRequest**](PostStockNotationRankingIntradayListRequest.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -1138,11 +1350,11 @@ Name | Type | Description  | Notes
 
 <a name="poststocknotationscreenersearch"></a>
 # **PostStockNotationScreenerSearch**
-> InlineResponse2007 PostStockNotationScreenerSearch (InlineObject2 inlineObject2 = null)
+> InlineResponse20014 PostStockNotationScreenerSearch (PostStockNotationScreenerSearchRequest postStockNotationScreenerSearchRequest = null)
 
 Screener for stocks' notations based on stock-specific parameters.
 
-Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
+Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Currency dependent current figures on company level (see attribute `currentKeyFigures.company.currencyDependent`) or on share instrument level (see attribute `currentKeyFigures.shareInstrument.currencyDependent`) are only returned if the currency (see parameter `currentKeyFigures.company.currencyDependent.currency.isoCode` or parameter `currentKeyFigures.shareInstrument.currencyDependent.currency.isoCode` respectively) are set.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
 
 ### Example
 ```csharp
@@ -1180,12 +1392,12 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var inlineObject2 = new InlineObject2(); // InlineObject2 |  (optional) 
+            var postStockNotationScreenerSearchRequest = new PostStockNotationScreenerSearchRequest(); // PostStockNotationScreenerSearchRequest |  (optional) 
 
             try
             {
                 // Screener for stocks' notations based on stock-specific parameters.
-                InlineResponse2007 result = apiInstance.PostStockNotationScreenerSearch(inlineObject2);
+                InlineResponse20014 result = apiInstance.PostStockNotationScreenerSearch(postStockNotationScreenerSearchRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1203,10 +1415,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **postStockNotationScreenerSearchRequest** | [**PostStockNotationScreenerSearchRequest**](PostStockNotationScreenerSearchRequest.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -1227,7 +1439,7 @@ Name | Type | Description  | Notes
 
 <a name="poststocknotationscreenervaluerangesget"></a>
 # **PostStockNotationScreenerValueRangesGet**
-> InlineResponse2008 PostStockNotationScreenerValueRangesGet (InlineObject3 inlineObject3 = null)
+> InlineResponse20015 PostStockNotationScreenerValueRangesGet (PostStockNotationScreenerValueRangesGetRequest postStockNotationScreenerValueRangesGetRequest = null)
 
 Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
 
@@ -1269,12 +1481,12 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var inlineObject3 = new InlineObject3(); // InlineObject3 |  (optional) 
+            var postStockNotationScreenerValueRangesGetRequest = new PostStockNotationScreenerValueRangesGetRequest(); // PostStockNotationScreenerValueRangesGetRequest |  (optional) 
 
             try
             {
                 // Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
-                InlineResponse2008 result = apiInstance.PostStockNotationScreenerValueRangesGet(inlineObject3);
+                InlineResponse20015 result = apiInstance.PostStockNotationScreenerValueRangesGet(postStockNotationScreenerValueRangesGetRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1292,10 +1504,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
+ **postStockNotationScreenerValueRangesGetRequest** | [**PostStockNotationScreenerValueRangesGetRequest**](PostStockNotationScreenerValueRangesGetRequest.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 

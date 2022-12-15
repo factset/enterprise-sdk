@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse20089Data]**](InlineResponse20089Data.md) | List of matching and selected notations. | [optional] 
-**meta** | [**InlineResponse20036Meta**](InlineResponse20036Meta.md) |  | [optional] 
+**data** | [**[InlineResponse20089Data]**](InlineResponse20089Data.md) | List of trading schedule event types. | [optional] 
+**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 

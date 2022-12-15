@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -13,15 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import InlineObject from '../model/InlineObject';
-import InlineObject1 from '../model/InlineObject1';
-import InlineObject2 from '../model/InlineObject2';
-import InlineObject3 from '../model/InlineObject3';
-import InlineObject4 from '../model/InlineObject4';
-import InlineObject5 from '../model/InlineObject5';
-import InlineObject6 from '../model/InlineObject6';
-import InlineObject7 from '../model/InlineObject7';
-import InlineObject8 from '../model/InlineObject8';
 import InlineResponse200 from '../model/InlineResponse200';
 import InlineResponse2001 from '../model/InlineResponse2001';
 import InlineResponse20010 from '../model/InlineResponse20010';
@@ -53,6 +44,15 @@ import InlineResponse2006 from '../model/InlineResponse2006';
 import InlineResponse2007 from '../model/InlineResponse2007';
 import InlineResponse2008 from '../model/InlineResponse2008';
 import InlineResponse2009 from '../model/InlineResponse2009';
+import PostBasicBackgroundTextTypeListRequest from '../model/PostBasicBackgroundTextTypeListRequest';
+import PostBasicDeliveryListRequest from '../model/PostBasicDeliveryListRequest';
+import PostBasicMarketListRequest from '../model/PostBasicMarketListRequest';
+import PostBasicMediaTypeListRequest from '../model/PostBasicMediaTypeListRequest';
+import PostBasicMicOperatingListRequest from '../model/PostBasicMicOperatingListRequest';
+import PostBasicTimezoneListRequest from '../model/PostBasicTimezoneListRequest';
+import PostBasicValueUnitCurrencyListRequest from '../model/PostBasicValueUnitCurrencyListRequest';
+import PostBasicValueUnitCurrencyMainListRequest from '../model/PostBasicValueUnitCurrencyMainListRequest';
+import PostBasicValueUnitListRequest from '../model/PostBasicValueUnitListRequest';
 
 /**
 * Basic service.
@@ -128,7 +128,7 @@ export default class BasicApi {
      * List of benchmark types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
      */
     getBasicBenchmarkTypeListWithHttpInfo(opts) {
@@ -165,7 +165,7 @@ export default class BasicApi {
      * List of benchmark types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     getBasicBenchmarkTypeList(opts) {
@@ -181,7 +181,7 @@ export default class BasicApi {
      * List of frequency types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
     getBasicFrequencyTypeListWithHttpInfo(opts) {
@@ -218,7 +218,7 @@ export default class BasicApi {
      * List of frequency types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     getBasicFrequencyTypeList(opts) {
@@ -232,10 +232,10 @@ export default class BasicApi {
     /**
      * Details for a language.
      * Details for a language.
-     * @param {Number} id Identifier of a language.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
      */
     getBasicLanguageGetWithHttpInfo(id, opts) {
@@ -275,10 +275,10 @@ export default class BasicApi {
     /**
      * Details for a language.
      * Details for a language.
-     * @param {Number} id Identifier of a language.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getBasicLanguageGet(id, opts) {
@@ -292,10 +292,10 @@ export default class BasicApi {
     /**
      * Details for a language identified by code.
      * Details for a language identified by code.
-     * @param {String} code ISO 639-1 code of the language.
+     * @param {String} code 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2006} and HTTP response
      */
     getBasicLanguageGetByCodeWithHttpInfo(code, opts) {
@@ -335,10 +335,10 @@ export default class BasicApi {
     /**
      * Details for a language identified by code.
      * Details for a language identified by code.
-     * @param {String} code ISO 639-1 code of the language.
+     * @param {String} code 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
      */
     getBasicLanguageGetByCode(code, opts) {
@@ -354,7 +354,7 @@ export default class BasicApi {
      * List of languages.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2007} and HTTP response
      */
@@ -393,7 +393,7 @@ export default class BasicApi {
      * List of languages.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
      * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
      */
@@ -408,10 +408,10 @@ export default class BasicApi {
     /**
      * Details of a market.
      * Details of a market.
-     * @param {Number} id Identifier of a market.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2008} and HTTP response
      */
     getBasicMarketGetWithHttpInfo(id, opts) {
@@ -451,10 +451,10 @@ export default class BasicApi {
     /**
      * Details of a market.
      * Details of a market.
-     * @param {Number} id Identifier of a market.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse2008 > } a Promise, with data of type {@link module:model/InlineResponse2008 }
      */
     getBasicMarketGet(id, opts) {
@@ -470,7 +470,7 @@ export default class BasicApi {
      * List of market groups.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20010} and HTTP response
      */
@@ -509,7 +509,7 @@ export default class BasicApi {
      * List of market groups.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
      * @return { Promise.< module:model/InlineResponse20010 > } a Promise, with data of type {@link module:model/InlineResponse20010 }
      */
@@ -526,7 +526,7 @@ export default class BasicApi {
      * List of market types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20011} and HTTP response
      */
@@ -565,7 +565,7 @@ export default class BasicApi {
      * List of market types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
      * @return { Promise.< module:model/InlineResponse20011 > } a Promise, with data of type {@link module:model/InlineResponse20011 }
      */
@@ -630,10 +630,10 @@ export default class BasicApi {
     /**
      * Details for a continent.
      * Details for a continent.
-     * @param {Number} id Identifier of a continent.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20017} and HTTP response
      */
     getBasicRegionContinentGetWithHttpInfo(id, opts) {
@@ -673,10 +673,10 @@ export default class BasicApi {
     /**
      * Details for a continent.
      * Details for a continent.
-     * @param {Number} id Identifier of a continent.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20017 > } a Promise, with data of type {@link module:model/InlineResponse20017 }
      */
     getBasicRegionContinentGet(id, opts) {
@@ -692,7 +692,7 @@ export default class BasicApi {
      * List of continents.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20018} and HTTP response
      */
@@ -731,7 +731,7 @@ export default class BasicApi {
      * List of continents.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
      * @return { Promise.< module:model/InlineResponse20018 > } a Promise, with data of type {@link module:model/InlineResponse20018 }
      */
@@ -746,10 +746,10 @@ export default class BasicApi {
     /**
      * Details for a country.
      * Details for a country.
-     * @param {Number} id Identifier of a country.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20019} and HTTP response
      */
     getBasicRegionCountryGetWithHttpInfo(id, opts) {
@@ -789,10 +789,10 @@ export default class BasicApi {
     /**
      * Details for a country.
      * Details for a country.
-     * @param {Number} id Identifier of a country.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20019 > } a Promise, with data of type {@link module:model/InlineResponse20019 }
      */
     getBasicRegionCountryGet(id, opts) {
@@ -806,10 +806,10 @@ export default class BasicApi {
     /**
      * Details for a country identified by code.
      * Details for a country identified by code.
-     * @param {String} code ISO 3166-1 alpha-2 code of a country.
+     * @param {String} code 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20020} and HTTP response
      */
     getBasicRegionCountryGetByCodeWithHttpInfo(code, opts) {
@@ -849,10 +849,10 @@ export default class BasicApi {
     /**
      * Details for a country identified by code.
      * Details for a country identified by code.
-     * @param {String} code ISO 3166-1 alpha-2 code of a country.
+     * @param {String} code 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20020 > } a Promise, with data of type {@link module:model/InlineResponse20020 }
      */
     getBasicRegionCountryGetByCode(code, opts) {
@@ -868,7 +868,7 @@ export default class BasicApi {
      * List of countries.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20021} and HTTP response
      */
@@ -907,7 +907,7 @@ export default class BasicApi {
      * List of countries.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
      * @return { Promise.< module:model/InlineResponse20021 > } a Promise, with data of type {@link module:model/InlineResponse20021 }
      */
@@ -922,10 +922,10 @@ export default class BasicApi {
     /**
      * Details for a region.
      * Details for a geographic, political, or economic region.
-     * @param {Number} id Identifier of a region.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20015} and HTTP response
      */
     getBasicRegionGetWithHttpInfo(id, opts) {
@@ -965,10 +965,10 @@ export default class BasicApi {
     /**
      * Details for a region.
      * Details for a geographic, political, or economic region.
-     * @param {Number} id Identifier of a region.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20015 > } a Promise, with data of type {@link module:model/InlineResponse20015 }
      */
     getBasicRegionGet(id, opts) {
@@ -984,7 +984,7 @@ export default class BasicApi {
      * List of geographic, political, and economic regions.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20016} and HTTP response
      */
@@ -1023,7 +1023,7 @@ export default class BasicApi {
      * List of geographic, political, and economic regions.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
      * @return { Promise.< module:model/InlineResponse20016 > } a Promise, with data of type {@link module:model/InlineResponse20016 }
      */
@@ -1038,7 +1038,7 @@ export default class BasicApi {
     /**
      * Details of a timezone.
      * Details of a timezone identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-     * @param {Number} id Identifier of a timezone. An invalid or unsupported identifier will result in an error.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20022} and HTTP response
@@ -1079,7 +1079,7 @@ export default class BasicApi {
     /**
      * Details of a timezone.
      * Details of a timezone identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-     * @param {Number} id Identifier of a timezone. An invalid or unsupported identifier will result in an error.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20022 > } a Promise, with data of type {@link module:model/InlineResponse20022 }
@@ -1095,7 +1095,7 @@ export default class BasicApi {
     /**
      * Details of a timezone identified by name.
      * Details of a timezone identified by name, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-     * @param {String} name Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error.
+     * @param {String} name 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20022} and HTTP response
@@ -1136,7 +1136,7 @@ export default class BasicApi {
     /**
      * Details of a timezone identified by name.
      * Details of a timezone identified by name, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-     * @param {String} name Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error.
+     * @param {String} name 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20022 > } a Promise, with data of type {@link module:model/InlineResponse20022 }
@@ -1154,7 +1154,7 @@ export default class BasicApi {
      * List of alternative units.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20026} and HTTP response
      */
@@ -1193,7 +1193,7 @@ export default class BasicApi {
      * List of alternative units.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
      * @return { Promise.< module:model/InlineResponse20026 > } a Promise, with data of type {@link module:model/InlineResponse20026 }
      */
@@ -1208,10 +1208,10 @@ export default class BasicApi {
     /**
      * Details of a fractional currency.
      * Details of a fractional currency.
-     * @param {Number} id Identifier of a fractional currency.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20028} and HTTP response
      */
     getBasicValueUnitCurrencyFractionalGetWithHttpInfo(id, opts) {
@@ -1251,10 +1251,10 @@ export default class BasicApi {
     /**
      * Details of a fractional currency.
      * Details of a fractional currency.
-     * @param {Number} id Identifier of a fractional currency.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20028 > } a Promise, with data of type {@link module:model/InlineResponse20028 }
      */
     getBasicValueUnitCurrencyFractionalGet(id, opts) {
@@ -1270,7 +1270,7 @@ export default class BasicApi {
      * List of fractional currencies.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20029} and HTTP response
      */
@@ -1309,7 +1309,7 @@ export default class BasicApi {
      * List of fractional currencies.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
      * @return { Promise.< module:model/InlineResponse20029 > } a Promise, with data of type {@link module:model/InlineResponse20029 }
      */
@@ -1324,10 +1324,10 @@ export default class BasicApi {
     /**
      * Details of a value unit.
      * Details of a value unit.
-     * @param {Number} id Identifier of a value unit.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20024} and HTTP response
      */
     getBasicValueUnitGetWithHttpInfo(id, opts) {
@@ -1367,10 +1367,10 @@ export default class BasicApi {
     /**
      * Details of a value unit.
      * Details of a value unit.
-     * @param {Number} id Identifier of a value unit.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20024 > } a Promise, with data of type {@link module:model/InlineResponse20024 }
      */
     getBasicValueUnitGet(id, opts) {
@@ -1385,12 +1385,12 @@ export default class BasicApi {
      * List of background text types.
      * List of background text types.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject} opts.body 
+     * @param {module:model/PostBasicBackgroundTextTypeListRequest} opts.postBasicBackgroundTextTypeListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
     postBasicBackgroundTextTypeListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postBasicBackgroundTextTypeListRequest'];
 
       let pathParams = {
       };
@@ -1419,7 +1419,7 @@ export default class BasicApi {
      * List of background text types.
      * List of background text types.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject} opts.body 
+     * @param {module:model/PostBasicBackgroundTextTypeListRequest} opts.postBasicBackgroundTextTypeListRequest 
      * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     postBasicBackgroundTextTypeList(opts) {
@@ -1434,12 +1434,12 @@ export default class BasicApi {
      * List of deliveries.
      * List of deliveries.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject1} opts.body 
+     * @param {module:model/PostBasicDeliveryListRequest} opts.postBasicDeliveryListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
     postBasicDeliveryListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postBasicDeliveryListRequest'];
 
       let pathParams = {
       };
@@ -1468,7 +1468,7 @@ export default class BasicApi {
      * List of deliveries.
      * List of deliveries.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject1} opts.body 
+     * @param {module:model/PostBasicDeliveryListRequest} opts.postBasicDeliveryListRequest 
      * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     postBasicDeliveryList(opts) {
@@ -1483,12 +1483,12 @@ export default class BasicApi {
      * List of markets.
      * List of markets.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject2} opts.body 
+     * @param {module:model/PostBasicMarketListRequest} opts.postBasicMarketListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
      */
     postBasicMarketListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postBasicMarketListRequest'];
 
       let pathParams = {
       };
@@ -1517,7 +1517,7 @@ export default class BasicApi {
      * List of markets.
      * List of markets.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject2} opts.body 
+     * @param {module:model/PostBasicMarketListRequest} opts.postBasicMarketListRequest 
      * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
      */
     postBasicMarketList(opts) {
@@ -1532,12 +1532,12 @@ export default class BasicApi {
      * List of Internet media types.
      * List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject3} opts.body 
+     * @param {module:model/PostBasicMediaTypeListRequest} opts.postBasicMediaTypeListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20013} and HTTP response
      */
     postBasicMediaTypeListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postBasicMediaTypeListRequest'];
 
       let pathParams = {
       };
@@ -1566,7 +1566,7 @@ export default class BasicApi {
      * List of Internet media types.
      * List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject3} opts.body 
+     * @param {module:model/PostBasicMediaTypeListRequest} opts.postBasicMediaTypeListRequest 
      * @return { Promise.< module:model/InlineResponse20013 > } a Promise, with data of type {@link module:model/InlineResponse20013 }
      */
     postBasicMediaTypeList(opts) {
@@ -1581,12 +1581,12 @@ export default class BasicApi {
      * List of operating market identifier codes (MIC).
      * List of operating market identifier codes (MIC).
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject4} opts.body 
+     * @param {module:model/PostBasicMicOperatingListRequest} opts.postBasicMicOperatingListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20014} and HTTP response
      */
     postBasicMicOperatingListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postBasicMicOperatingListRequest'];
 
       let pathParams = {
       };
@@ -1615,7 +1615,7 @@ export default class BasicApi {
      * List of operating market identifier codes (MIC).
      * List of operating market identifier codes (MIC).
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject4} opts.body 
+     * @param {module:model/PostBasicMicOperatingListRequest} opts.postBasicMicOperatingListRequest 
      * @return { Promise.< module:model/InlineResponse20014 > } a Promise, with data of type {@link module:model/InlineResponse20014 }
      */
     postBasicMicOperatingList(opts) {
@@ -1630,12 +1630,12 @@ export default class BasicApi {
      * List of timezones.
      * List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject5} opts.body 
+     * @param {module:model/PostBasicTimezoneListRequest} opts.postBasicTimezoneListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20023} and HTTP response
      */
     postBasicTimezoneListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postBasicTimezoneListRequest'];
 
       let pathParams = {
       };
@@ -1664,7 +1664,7 @@ export default class BasicApi {
      * List of timezones.
      * List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject5} opts.body 
+     * @param {module:model/PostBasicTimezoneListRequest} opts.postBasicTimezoneListRequest 
      * @return { Promise.< module:model/InlineResponse20023 > } a Promise, with data of type {@link module:model/InlineResponse20023 }
      */
     postBasicTimezoneList(opts) {
@@ -1679,12 +1679,12 @@ export default class BasicApi {
      * List of currencies.
      * List of currencies.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject7} opts.body 
+     * @param {module:model/PostBasicValueUnitCurrencyListRequest} opts.postBasicValueUnitCurrencyListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20027} and HTTP response
      */
     postBasicValueUnitCurrencyListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postBasicValueUnitCurrencyListRequest'];
 
       let pathParams = {
       };
@@ -1713,7 +1713,7 @@ export default class BasicApi {
      * List of currencies.
      * List of currencies.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject7} opts.body 
+     * @param {module:model/PostBasicValueUnitCurrencyListRequest} opts.postBasicValueUnitCurrencyListRequest 
      * @return { Promise.< module:model/InlineResponse20027 > } a Promise, with data of type {@link module:model/InlineResponse20027 }
      */
     postBasicValueUnitCurrencyList(opts) {
@@ -1728,12 +1728,12 @@ export default class BasicApi {
      * List of main currencies.
      * List of main currencies.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject8} opts.body 
+     * @param {module:model/PostBasicValueUnitCurrencyMainListRequest} opts.postBasicValueUnitCurrencyMainListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20030} and HTTP response
      */
     postBasicValueUnitCurrencyMainListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postBasicValueUnitCurrencyMainListRequest'];
 
       let pathParams = {
       };
@@ -1762,7 +1762,7 @@ export default class BasicApi {
      * List of main currencies.
      * List of main currencies.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject8} opts.body 
+     * @param {module:model/PostBasicValueUnitCurrencyMainListRequest} opts.postBasicValueUnitCurrencyMainListRequest 
      * @return { Promise.< module:model/InlineResponse20030 > } a Promise, with data of type {@link module:model/InlineResponse20030 }
      */
     postBasicValueUnitCurrencyMainList(opts) {
@@ -1777,12 +1777,12 @@ export default class BasicApi {
      * List of value units.
      * List of value units.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject6} opts.body 
+     * @param {module:model/PostBasicValueUnitListRequest} opts.postBasicValueUnitListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20025} and HTTP response
      */
     postBasicValueUnitListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postBasicValueUnitListRequest'];
 
       let pathParams = {
       };
@@ -1811,7 +1811,7 @@ export default class BasicApi {
      * List of value units.
      * List of value units.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject6} opts.body 
+     * @param {module:model/PostBasicValueUnitListRequest} opts.postBasicValueUnitListRequest 
      * @return { Promise.< module:model/InlineResponse20025 > } a Promise, with data of type {@link module:model/InlineResponse20025 }
      */
     postBasicValueUnitList(opts) {

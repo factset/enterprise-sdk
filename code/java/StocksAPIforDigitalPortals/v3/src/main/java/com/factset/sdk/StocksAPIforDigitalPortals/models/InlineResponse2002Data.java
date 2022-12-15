@@ -1,6 +1,6 @@
 /*
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,8 +17,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002Ownership;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002Type;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002BalanceSheet;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002Currency;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002FiscalYear;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002IncomeStatement;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002PerShare;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002Ratios;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,6 +30,11 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
@@ -35,131 +44,229 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
  * InlineResponse2002Data
  */
 @JsonPropertyOrder({
-  InlineResponse2002Data.JSON_PROPERTY_ID,
-  InlineResponse2002Data.JSON_PROPERTY_NAME,
-  InlineResponse2002Data.JSON_PROPERTY_TYPE,
-  InlineResponse2002Data.JSON_PROPERTY_OWNERSHIP
+  InlineResponse2002Data.JSON_PROPERTY_FISCAL_YEAR,
+  InlineResponse2002Data.JSON_PROPERTY_REPORT_DATE,
+  InlineResponse2002Data.JSON_PROPERTY_CURRENCY,
+  InlineResponse2002Data.JSON_PROPERTY_INCOME_STATEMENT,
+  InlineResponse2002Data.JSON_PROPERTY_BALANCE_SHEET,
+  InlineResponse2002Data.JSON_PROPERTY_RATIOS,
+  InlineResponse2002Data.JSON_PROPERTY_PER_SHARE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2002Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_FISCAL_YEAR = "fiscalYear";
+  private InlineResponse2002FiscalYear fiscalYear;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
+  private JsonNullable<LocalDate> reportDate = JsonNullable.<LocalDate>undefined();
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private InlineResponse2002Type type;
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private InlineResponse2002Currency currency;
 
-  public static final String JSON_PROPERTY_OWNERSHIP = "ownership";
-  private InlineResponse2002Ownership ownership;
+  public static final String JSON_PROPERTY_INCOME_STATEMENT = "incomeStatement";
+  private InlineResponse2002IncomeStatement incomeStatement;
+
+  public static final String JSON_PROPERTY_BALANCE_SHEET = "balanceSheet";
+  private InlineResponse2002BalanceSheet balanceSheet;
+
+  public static final String JSON_PROPERTY_RATIOS = "ratios";
+  private InlineResponse2002Ratios ratios;
+
+  public static final String JSON_PROPERTY_PER_SHARE = "perShare";
+  private InlineResponse2002PerShare perShare;
 
   public InlineResponse2002Data() { 
   }
 
-  public InlineResponse2002Data id(String id) {
-    this.id = id;
+  public InlineResponse2002Data fiscalYear(InlineResponse2002FiscalYear fiscalYear) {
+    this.fiscalYear = fiscalYear;
     return this;
   }
 
    /**
-   * Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the owner. See endpoint `/legalEntity/list` for possible values.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public InlineResponse2002Data name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the owner.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the owner.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public InlineResponse2002Data type(InlineResponse2002Type type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
+   * Get fiscalYear
+   * @return fiscalYear
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2002Type getType() {
-    return type;
+  public InlineResponse2002FiscalYear getFiscalYear() {
+    return fiscalYear;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(InlineResponse2002Type type) {
-    this.type = type;
+  public void setFiscalYear(InlineResponse2002FiscalYear fiscalYear) {
+    this.fiscalYear = fiscalYear;
   }
 
 
-  public InlineResponse2002Data ownership(InlineResponse2002Ownership ownership) {
-    this.ownership = ownership;
+  public InlineResponse2002Data reportDate(LocalDate reportDate) {
+    this.reportDate = JsonNullable.<LocalDate>of(reportDate);
     return this;
   }
 
    /**
-   * Get ownership
-   * @return ownership
+   * Publication date of the financial report.
+   * @return reportDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OWNERSHIP)
+  @ApiModelProperty(value = "Publication date of the financial report.")
+  @JsonIgnore
+
+  public LocalDate getReportDate() {
+        return reportDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2002Ownership getOwnership() {
-    return ownership;
+  public JsonNullable<LocalDate> getReportDate_JsonNullable() {
+    return reportDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
+  public void setReportDate_JsonNullable(JsonNullable<LocalDate> reportDate) {
+    this.reportDate = reportDate;
+  }
+
+  public void setReportDate(LocalDate reportDate) {
+    this.reportDate = JsonNullable.<LocalDate>of(reportDate);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OWNERSHIP)
+  public InlineResponse2002Data currency(InlineResponse2002Currency currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOwnership(InlineResponse2002Ownership ownership) {
-    this.ownership = ownership;
+
+  public InlineResponse2002Currency getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(InlineResponse2002Currency currency) {
+    this.currency = currency;
+  }
+
+
+  public InlineResponse2002Data incomeStatement(InlineResponse2002IncomeStatement incomeStatement) {
+    this.incomeStatement = incomeStatement;
+    return this;
+  }
+
+   /**
+   * Get incomeStatement
+   * @return incomeStatement
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INCOME_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2002IncomeStatement getIncomeStatement() {
+    return incomeStatement;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INCOME_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIncomeStatement(InlineResponse2002IncomeStatement incomeStatement) {
+    this.incomeStatement = incomeStatement;
+  }
+
+
+  public InlineResponse2002Data balanceSheet(InlineResponse2002BalanceSheet balanceSheet) {
+    this.balanceSheet = balanceSheet;
+    return this;
+  }
+
+   /**
+   * Get balanceSheet
+   * @return balanceSheet
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BALANCE_SHEET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2002BalanceSheet getBalanceSheet() {
+    return balanceSheet;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BALANCE_SHEET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBalanceSheet(InlineResponse2002BalanceSheet balanceSheet) {
+    this.balanceSheet = balanceSheet;
+  }
+
+
+  public InlineResponse2002Data ratios(InlineResponse2002Ratios ratios) {
+    this.ratios = ratios;
+    return this;
+  }
+
+   /**
+   * Get ratios
+   * @return ratios
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RATIOS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2002Ratios getRatios() {
+    return ratios;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RATIOS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRatios(InlineResponse2002Ratios ratios) {
+    this.ratios = ratios;
+  }
+
+
+  public InlineResponse2002Data perShare(InlineResponse2002PerShare perShare) {
+    this.perShare = perShare;
+    return this;
+  }
+
+   /**
+   * Get perShare
+   * @return perShare
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PER_SHARE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2002PerShare getPerShare() {
+    return perShare;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PER_SHARE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPerShare(InlineResponse2002PerShare perShare) {
+    this.perShare = perShare;
   }
 
 
@@ -175,25 +282,42 @@ public class InlineResponse2002Data implements Serializable {
       return false;
     }
     InlineResponse2002Data inlineResponse2002Data = (InlineResponse2002Data) o;
-    return Objects.equals(this.id, inlineResponse2002Data.id) &&
-        Objects.equals(this.name, inlineResponse2002Data.name) &&
-        Objects.equals(this.type, inlineResponse2002Data.type) &&
-        Objects.equals(this.ownership, inlineResponse2002Data.ownership);
+    return Objects.equals(this.fiscalYear, inlineResponse2002Data.fiscalYear) &&
+        equalsNullable(this.reportDate, inlineResponse2002Data.reportDate) &&
+        Objects.equals(this.currency, inlineResponse2002Data.currency) &&
+        Objects.equals(this.incomeStatement, inlineResponse2002Data.incomeStatement) &&
+        Objects.equals(this.balanceSheet, inlineResponse2002Data.balanceSheet) &&
+        Objects.equals(this.ratios, inlineResponse2002Data.ratios) &&
+        Objects.equals(this.perShare, inlineResponse2002Data.perShare);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, ownership);
+    return Objects.hash(fiscalYear, hashCodeNullable(reportDate), currency, incomeStatement, balanceSheet, ratios, perShare);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2002Data {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    ownership: ").append(toIndentedString(ownership)).append("\n");
+    sb.append("    fiscalYear: ").append(toIndentedString(fiscalYear)).append("\n");
+    sb.append("    reportDate: ").append(toIndentedString(reportDate)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    incomeStatement: ").append(toIndentedString(incomeStatement)).append("\n");
+    sb.append("    balanceSheet: ").append(toIndentedString(balanceSheet)).append("\n");
+    sb.append("    ratios: ").append(toIndentedString(ratios)).append("\n");
+    sb.append("    perShare: ").append(toIndentedString(perShare)).append("\n");
     sb.append("}");
     return sb.toString();
   }

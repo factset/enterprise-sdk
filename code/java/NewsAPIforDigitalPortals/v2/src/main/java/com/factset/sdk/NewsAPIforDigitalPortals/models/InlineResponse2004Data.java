@@ -1,6 +1,6 @@
 /*
  * News API For Digital Portals
- * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with quotes, time series, watchlists, and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the Quotes API for Digital Portals for access to detailed price and performance information, plus basic support for security identifier cross-reference.
+ * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with [quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals), [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals), [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals), and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price and performance information, plus basic support for security identifier cross-reference. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,6 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2001Data;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2004DataIdentifiers;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,81 +26,97 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.NewsAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse2004Data
+ * News articles for instruments.
  */
+@ApiModel(description = "News articles for instruments.")
 @JsonPropertyOrder({
-  InlineResponse2004Data.JSON_PROPERTY_ID,
-  InlineResponse2004Data.JSON_PROPERTY_NAME
+  InlineResponse2004Data.JSON_PROPERTY_IDENTIFIERS,
+  InlineResponse2004Data.JSON_PROPERTY_ARTICLES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2004Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private BigDecimal id;
+  public static final String JSON_PROPERTY_IDENTIFIERS = "identifiers";
+  private java.util.List<InlineResponse2004DataIdentifiers> identifiers = null;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_ARTICLES = "articles";
+  private java.util.List<InlineResponse2001Data> articles = null;
 
   public InlineResponse2004Data() { 
   }
 
-  public InlineResponse2004Data id(BigDecimal id) {
-    this.id = id;
+  public InlineResponse2004Data identifiers(java.util.List<InlineResponse2004DataIdentifiers> identifiers) {
+    this.identifiers = identifiers;
+    return this;
+  }
+
+  public InlineResponse2004Data addIdentifiersItem(InlineResponse2004DataIdentifiers identifiersItem) {
+    if (this.identifiers == null) {
+      this.identifiers = new java.util.ArrayList<>();
+    }
+    this.identifiers.add(identifiersItem);
     return this;
   }
 
    /**
-   * Identifier of the news article type.
-   * @return id
+   * List of identifiers.
+   * @return identifiers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the news article type.")
-  @JsonProperty(JSON_PROPERTY_ID)
+  @ApiModelProperty(value = "List of identifiers.")
+  @JsonProperty(JSON_PROPERTY_IDENTIFIERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getId() {
-    return id;
+  public java.util.List<InlineResponse2004DataIdentifiers> getIdentifiers() {
+    return identifiers;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_IDENTIFIERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(BigDecimal id) {
-    this.id = id;
+  public void setIdentifiers(java.util.List<InlineResponse2004DataIdentifiers> identifiers) {
+    this.identifiers = identifiers;
   }
 
 
-  public InlineResponse2004Data name(String name) {
-    this.name = name;
+  public InlineResponse2004Data articles(java.util.List<InlineResponse2001Data> articles) {
+    this.articles = articles;
+    return this;
+  }
+
+  public InlineResponse2004Data addArticlesItem(InlineResponse2001Data articlesItem) {
+    if (this.articles == null) {
+      this.articles = new java.util.ArrayList<>();
+    }
+    this.articles.add(articlesItem);
     return this;
   }
 
    /**
-   * Name of the news article type.
-   * @return name
+   * News articles that match the filter criteria ordered by descending article time.
+   * @return articles
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the news article type.")
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @ApiModelProperty(value = "News articles that match the filter criteria ordered by descending article time.")
+  @JsonProperty(JSON_PROPERTY_ARTICLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
-    return name;
+  public java.util.List<InlineResponse2001Data> getArticles() {
+    return articles;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_ARTICLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
+  public void setArticles(java.util.List<InlineResponse2001Data> articles) {
+    this.articles = articles;
   }
 
 
@@ -114,21 +132,21 @@ public class InlineResponse2004Data implements Serializable {
       return false;
     }
     InlineResponse2004Data inlineResponse2004Data = (InlineResponse2004Data) o;
-    return Objects.equals(this.id, inlineResponse2004Data.id) &&
-        Objects.equals(this.name, inlineResponse2004Data.name);
+    return Objects.equals(this.identifiers, inlineResponse2004Data.identifiers) &&
+        Objects.equals(this.articles, inlineResponse2004Data.articles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(identifiers, articles);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2004Data {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
+    sb.append("    articles: ").append(toIndentedString(articles)).append("\n");
     sb.append("}");
     return sb.toString();
   }

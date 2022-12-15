@@ -1,6 +1,6 @@
 /**
  * News API For Digital Portals
- * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with quotes, time series, watchlists, and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the Quotes API for Digital Portals for access to detailed price and performance information, plus basic support for security identifier cross-reference.
+ * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with [quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals), [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals), [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals), and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price and performance information, plus basic support for security identifier cross-reference. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2007DataDistributor from './InlineResponse2007DataDistributor';
+import InlineResponse2007DataDelivery from './InlineResponse2007DataDelivery';
 
 /**
  * The InlineResponse2007Data model module.
@@ -21,7 +21,7 @@ import InlineResponse2007DataDistributor from './InlineResponse2007DataDistribut
 class InlineResponse2007Data {
     /**
      * Constructs a new <code>InlineResponse2007Data</code>.
-     * Details of the publisher.
+     * Details of the distributor.
      * @alias module:model/InlineResponse2007Data
      */
     constructor() { 
@@ -51,8 +51,8 @@ class InlineResponse2007Data {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('distributor')) {
-                obj['distributor'] = InlineResponse2007DataDistributor.constructFromObject(data['distributor']);
+            if (data.hasOwnProperty('delivery')) {
+                obj['delivery'] = InlineResponse2007DataDelivery.constructFromObject(data['delivery']);
             }
         }
         return obj;
@@ -62,15 +62,15 @@ class InlineResponse2007Data {
 }
 
 /**
- * Name of the publisher.
+ * Name of the distributor.
  * @member {String} name
  */
 InlineResponse2007Data.prototype['name'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2007DataDistributor} distributor
+ * @member {module:model/InlineResponse2007DataDelivery} delivery
  */
-InlineResponse2007Data.prototype['distributor'] = undefined;
+InlineResponse2007Data.prototype['delivery'] = undefined;
 
 
 

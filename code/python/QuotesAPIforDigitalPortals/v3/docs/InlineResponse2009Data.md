@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **float** | Identifier of the market. | [optional] 
-**name** | **str** | Name of the market. | [optional] 
-**short_name** | **str** | Short name of the market. | [optional] 
-**active** | **bool** | Indicates whether the market exists. | [optional] 
+**id** | **float, none_type** | Identifier of the market. | [optional] 
+**name** | **str, none_type** | Name of the market. | [optional] 
+**short_name** | **str, none_type** | Short name of the market. | [optional] 
+**active** | **bool, none_type** | Indicates whether the market exists. | [optional] 
 **country** | [**InlineResponse2009Country**](InlineResponse2009Country.md) |  | [optional] 
 **type** | [**InlineResponse2009Type**](InlineResponse2009Type.md) |  | [optional] 
 **group** | [**InlineResponse2009Group**](InlineResponse2009Group.md) |  | [optional] 

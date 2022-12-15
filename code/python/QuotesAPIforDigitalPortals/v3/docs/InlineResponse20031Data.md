@@ -5,10 +5,10 @@ Details of the category.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **str** | Code commonly used for this category. | [optional] 
-**name** | **str** | Name of the category. | [optional] 
-**description** | **str** | Description of the category. | [optional] 
-**active** | **bool** | Indicates whether this category is active. | [optional] 
+**code** | **str, none_type** | Code commonly used for this category. | [optional] 
+**name** | **str, none_type** | Name of the category. | [optional] 
+**description** | **str, none_type** | Description of the category. | [optional] 
+**active** | **bool, none_type** | Indicates whether this category is active. | [optional] 
 **level** | [**InlineResponse20031DataLevel**](InlineResponse20031DataLevel.md) |  | [optional] 
 **parent** | [**InlineResponse20031DataParent**](InlineResponse20031DataParent.md) |  | [optional] 
 **system** | [**InlineResponse20031DataSystem**](InlineResponse20031DataSystem.md) |  | [optional] 

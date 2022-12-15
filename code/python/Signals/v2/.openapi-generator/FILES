@@ -6,7 +6,6 @@ LICENSE
 README.md
 docs/Contract.md
 docs/ContractFields.md
-docs/ContractFieldsEventDate.md
 docs/ContractFieldsSummary.md
 docs/ContractProperty.md
 docs/ContractPropertyItems.md
@@ -27,6 +26,7 @@ docs/EventMeta.md
 docs/EventRequestBody.md
 docs/EventsApi.md
 docs/EventsEntities.md
+docs/EventsEntitiesPost.md
 docs/EventsMeta.md
 docs/EventsMetaDateRange.md
 docs/EventsMetaPagination.md
@@ -50,7 +50,6 @@ fds/sdk/Signals/exceptions.py
 fds/sdk/Signals/model/__init__.py
 fds/sdk/Signals/model/contract.py
 fds/sdk/Signals/model/contract_fields.py
-fds/sdk/Signals/model/contract_fields_event_date.py
 fds/sdk/Signals/model/contract_fields_summary.py
 fds/sdk/Signals/model/contract_property.py
 fds/sdk/Signals/model/contract_property_items.py
@@ -70,6 +69,7 @@ fds/sdk/Signals/model/event_headlines.py
 fds/sdk/Signals/model/event_meta.py
 fds/sdk/Signals/model/event_request_body.py
 fds/sdk/Signals/model/events_entities.py
+fds/sdk/Signals/model/events_entities_post.py
 fds/sdk/Signals/model/events_meta.py
 fds/sdk/Signals/model/events_meta_date_range.py
 fds/sdk/Signals/model/events_meta_pagination.py

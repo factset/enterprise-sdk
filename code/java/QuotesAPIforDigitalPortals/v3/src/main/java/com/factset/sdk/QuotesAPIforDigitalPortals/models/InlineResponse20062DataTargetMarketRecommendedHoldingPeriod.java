@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -87,7 +91,7 @@ public class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod impleme
   private java.util.List<HoldingPeriodEnum> holdingPeriod = null;
 
   public static final String JSON_PROPERTY_HOLDING_PERIOD_YEARS = "holdingPeriodYears";
-  private BigDecimal holdingPeriodYears;
+  private JsonNullable<BigDecimal> holdingPeriodYears = JsonNullable.<BigDecimal>undefined();
 
   public InlineResponse20062DataTargetMarketRecommendedHoldingPeriod() { 
   }
@@ -127,7 +131,7 @@ public class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod impleme
 
 
   public InlineResponse20062DataTargetMarketRecommendedHoldingPeriod holdingPeriodYears(BigDecimal holdingPeriodYears) {
-    this.holdingPeriodYears = holdingPeriodYears;
+    this.holdingPeriodYears = JsonNullable.<BigDecimal>of(holdingPeriodYears);
     return this;
   }
 
@@ -137,18 +141,26 @@ public class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod impleme
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates the length of the recommended holding period (RHP) of the investment product in years, not available if the attribute `holdingPeriod` is set.")
-  @JsonProperty(JSON_PROPERTY_HOLDING_PERIOD_YEARS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getHoldingPeriodYears() {
-    return holdingPeriodYears;
+        return holdingPeriodYears.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_HOLDING_PERIOD_YEARS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHoldingPeriodYears(BigDecimal holdingPeriodYears) {
+
+  public JsonNullable<BigDecimal> getHoldingPeriodYears_JsonNullable() {
+    return holdingPeriodYears;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HOLDING_PERIOD_YEARS)
+  public void setHoldingPeriodYears_JsonNullable(JsonNullable<BigDecimal> holdingPeriodYears) {
     this.holdingPeriodYears = holdingPeriodYears;
+  }
+
+  public void setHoldingPeriodYears(BigDecimal holdingPeriodYears) {
+    this.holdingPeriodYears = JsonNullable.<BigDecimal>of(holdingPeriodYears);
   }
 
 
@@ -165,12 +177,23 @@ public class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod impleme
     }
     InlineResponse20062DataTargetMarketRecommendedHoldingPeriod inlineResponse20062DataTargetMarketRecommendedHoldingPeriod = (InlineResponse20062DataTargetMarketRecommendedHoldingPeriod) o;
     return Objects.equals(this.holdingPeriod, inlineResponse20062DataTargetMarketRecommendedHoldingPeriod.holdingPeriod) &&
-        Objects.equals(this.holdingPeriodYears, inlineResponse20062DataTargetMarketRecommendedHoldingPeriod.holdingPeriodYears);
+        equalsNullable(this.holdingPeriodYears, inlineResponse20062DataTargetMarketRecommendedHoldingPeriod.holdingPeriodYears);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(holdingPeriod, holdingPeriodYears);
+    return Objects.hash(holdingPeriod, hashCodeNullable(holdingPeriodYears));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

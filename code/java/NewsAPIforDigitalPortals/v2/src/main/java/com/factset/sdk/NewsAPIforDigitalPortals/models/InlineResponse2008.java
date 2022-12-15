@@ -1,6 +1,6 @@
 /*
  * News API For Digital Portals
- * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with quotes, time series, watchlists, and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the Quotes API for Digital Portals for access to detailed price and performance information, plus basic support for security identifier cross-reference.
+ * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with [quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals), [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals), [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals), and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price and performance information, plus basic support for security identifier cross-reference. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2008Data;
-import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2008Meta;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,7 +46,7 @@ public class InlineResponse2008 implements Serializable {
   private java.util.List<InlineResponse2008Data> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private InlineResponse2008Meta meta;
+  private InlineResponse200Meta meta;
 
   public InlineResponse2008() { 
   }
@@ -65,11 +65,11 @@ public class InlineResponse2008 implements Serializable {
   }
 
    /**
-   * List of publishers.
+   * List of distributors.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of publishers.")
+  @ApiModelProperty(value = "List of distributors.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,7 +85,7 @@ public class InlineResponse2008 implements Serializable {
   }
 
 
-  public InlineResponse2008 meta(InlineResponse2008Meta meta) {
+  public InlineResponse2008 meta(InlineResponse200Meta meta) {
     this.meta = meta;
     return this;
   }
@@ -99,14 +99,14 @@ public class InlineResponse2008 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2008Meta getMeta() {
+  public InlineResponse200Meta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(InlineResponse2008Meta meta) {
+  public void setMeta(InlineResponse200Meta meta) {
     this.meta = meta;
   }
 

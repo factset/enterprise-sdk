@@ -1,6 +1,6 @@
 /**
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,8 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse200DataRecommendation from './InlineResponse200DataRecommendation';
-import InlineResponse200DataTargetPrice from './InlineResponse200DataTargetPrice';
+import InlineResponse200DataCompany from './InlineResponse200DataCompany';
+import InlineResponse200DataCompanyKeyFigures from './InlineResponse200DataCompanyKeyFigures';
+import InlineResponse200DataFsym from './InlineResponse200DataFsym';
+import InlineResponse200DataNsin from './InlineResponse200DataNsin';
+import InlineResponse200DataShareInstrumentKeyFigures from './InlineResponse200DataShareInstrumentKeyFigures';
 
 /**
  * The InlineResponse200Data model module.
@@ -22,7 +25,7 @@ import InlineResponse200DataTargetPrice from './InlineResponse200DataTargetPrice
 class InlineResponse200Data {
     /**
      * Constructs a new <code>InlineResponse200Data</code>.
-     * Target price and aggregated recommendations for a stock.
+     * Fundamentals of a share instrument and of the company it belongs to.
      * @alias module:model/InlineResponse200Data
      */
     constructor() { 
@@ -49,11 +52,32 @@ class InlineResponse200Data {
         if (data) {
             obj = obj || new InlineResponse200Data();
 
-            if (data.hasOwnProperty('targetPrice')) {
-                obj['targetPrice'] = InlineResponse200DataTargetPrice.constructFromObject(data['targetPrice']);
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('recommendation')) {
-                obj['recommendation'] = InlineResponse200DataRecommendation.constructFromObject(data['recommendation']);
+            if (data.hasOwnProperty('shortName')) {
+                obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
+            }
+            if (data.hasOwnProperty('isin')) {
+                obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
+            }
+            if (data.hasOwnProperty('nsin')) {
+                obj['nsin'] = InlineResponse200DataNsin.constructFromObject(data['nsin']);
+            }
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse200DataFsym.constructFromObject(data['fsym']);
+            }
+            if (data.hasOwnProperty('stockType')) {
+                obj['stockType'] = ApiClient.convertToType(data['stockType'], 'String');
+            }
+            if (data.hasOwnProperty('company')) {
+                obj['company'] = InlineResponse200DataCompany.constructFromObject(data['company']);
+            }
+            if (data.hasOwnProperty('companyKeyFigures')) {
+                obj['companyKeyFigures'] = InlineResponse200DataCompanyKeyFigures.constructFromObject(data['companyKeyFigures']);
+            }
+            if (data.hasOwnProperty('shareInstrumentKeyFigures')) {
+                obj['shareInstrumentKeyFigures'] = InlineResponse200DataShareInstrumentKeyFigures.constructFromObject(data['shareInstrumentKeyFigures']);
             }
         }
         return obj;
@@ -63,17 +87,89 @@ class InlineResponse200Data {
 }
 
 /**
- * @member {module:model/InlineResponse200DataTargetPrice} targetPrice
+ * Name of the instrument.
+ * @member {String} name
  */
-InlineResponse200Data.prototype['targetPrice'] = undefined;
+InlineResponse200Data.prototype['name'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200DataRecommendation} recommendation
+ * Short name of the instrument.
+ * @member {String} shortName
  */
-InlineResponse200Data.prototype['recommendation'] = undefined;
+InlineResponse200Data.prototype['shortName'] = undefined;
+
+/**
+ * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
+ * @member {String} isin
+ */
+InlineResponse200Data.prototype['isin'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse200DataNsin} nsin
+ */
+InlineResponse200Data.prototype['nsin'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse200DataFsym} fsym
+ */
+InlineResponse200Data.prototype['fsym'] = undefined;
+
+/**
+ * Type of stock.
+ * @member {module:model/InlineResponse200Data.StockTypeEnum} stockType
+ */
+InlineResponse200Data.prototype['stockType'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse200DataCompany} company
+ */
+InlineResponse200Data.prototype['company'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse200DataCompanyKeyFigures} companyKeyFigures
+ */
+InlineResponse200Data.prototype['companyKeyFigures'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse200DataShareInstrumentKeyFigures} shareInstrumentKeyFigures
+ */
+InlineResponse200Data.prototype['shareInstrumentKeyFigures'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>stockType</code> property.
+ * @enum {String}
+ * @readonly
+ */
+InlineResponse200Data['StockTypeEnum'] = {
+
+    /**
+     * value: "common"
+     * @const
+     */
+    "common": "common",
+
+    /**
+     * value: "preferred"
+     * @const
+     */
+    "preferred": "preferred",
+
+    /**
+     * value: "depositoryReceipt"
+     * @const
+     */
+    "depositoryReceipt": "depositoryReceipt",
+
+    /**
+     * value: "other"
+     * @const
+     */
+    "other": "other"
+};
 
 
 

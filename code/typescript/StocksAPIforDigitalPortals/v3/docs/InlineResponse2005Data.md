@@ -4,10 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**notation** | [**InlineResponse2005Notation**](InlineResponse2005Notation.md) |  | [optional] 
-**beta** | **Number** | Beta of the notation. | [optional] 
-**correlation** | **Number** | Correlation of the notation. | [optional] 
-**outperformance** | **Number** | Outperformance of the notation. | [optional] 
-**status** | [**InlineResponse2005Status**](InlineResponse2005Status.md) |  | [optional] 
+**type** | [**InlineResponse2005Type**](InlineResponse2005Type.md) |  | [optional] 
+**officers** | [**[InlineResponse2005Officers]**](InlineResponse2005Officers.md) | List of officers that are members of the board. | [optional] 
 
 

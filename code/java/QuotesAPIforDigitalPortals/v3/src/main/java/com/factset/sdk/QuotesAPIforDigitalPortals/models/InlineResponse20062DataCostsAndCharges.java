@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -26,6 +26,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -75,12 +79,12 @@ public class InlineResponse20062DataCostsAndCharges implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_QUOTATION = "quotation";
-  private QuotationEnum quotation;
+  private JsonNullable<QuotationEnum> quotation = JsonNullable.<QuotationEnum>undefined();
 
   public static final String JSON_PROPERTY_EX_ANTE = "exAnte";
   private InlineResponse20062DataCostsAndChargesExAnte exAnte;
@@ -92,7 +96,7 @@ public class InlineResponse20062DataCostsAndCharges implements Serializable {
   }
 
   public InlineResponse20062DataCostsAndCharges quotation(QuotationEnum quotation) {
-    this.quotation = quotation;
+    this.quotation = JsonNullable.<QuotationEnum>of(quotation);
     return this;
   }
 
@@ -102,18 +106,26 @@ public class InlineResponse20062DataCostsAndCharges implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Quotation type originally used for providing most of the cost items of the investment product.")
-  @JsonProperty(JSON_PROPERTY_QUOTATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public QuotationEnum getQuotation() {
-    return quotation;
+        return quotation.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_QUOTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQuotation(QuotationEnum quotation) {
+
+  public JsonNullable<QuotationEnum> getQuotation_JsonNullable() {
+    return quotation;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_QUOTATION)
+  public void setQuotation_JsonNullable(JsonNullable<QuotationEnum> quotation) {
     this.quotation = quotation;
+  }
+
+  public void setQuotation(QuotationEnum quotation) {
+    this.quotation = JsonNullable.<QuotationEnum>of(quotation);
   }
 
 
@@ -181,14 +193,25 @@ public class InlineResponse20062DataCostsAndCharges implements Serializable {
       return false;
     }
     InlineResponse20062DataCostsAndCharges inlineResponse20062DataCostsAndCharges = (InlineResponse20062DataCostsAndCharges) o;
-    return Objects.equals(this.quotation, inlineResponse20062DataCostsAndCharges.quotation) &&
+    return equalsNullable(this.quotation, inlineResponse20062DataCostsAndCharges.quotation) &&
         Objects.equals(this.exAnte, inlineResponse20062DataCostsAndCharges.exAnte) &&
         Objects.equals(this.exPost, inlineResponse20062DataCostsAndCharges.exPost);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(quotation, exAnte, exPost);
+    return Objects.hash(hashCodeNullable(quotation), exAnte, exPost);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

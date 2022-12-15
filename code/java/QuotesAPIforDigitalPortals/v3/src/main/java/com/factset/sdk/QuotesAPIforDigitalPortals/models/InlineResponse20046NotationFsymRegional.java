@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -43,19 +47,19 @@ public class InlineResponse20046NotationFsymRegional implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_PERMANENT_IDENTIFIER = "permanentIdentifier";
-  private String permanentIdentifier;
+  private JsonNullable<String> permanentIdentifier = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TICKER_REGION = "tickerRegion";
-  private String tickerRegion;
+  private JsonNullable<String> tickerRegion = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IS_PRIMARY = "isPrimary";
-  private Boolean isPrimary;
+  private JsonNullable<Boolean> isPrimary = JsonNullable.<Boolean>undefined();
 
   public InlineResponse20046NotationFsymRegional() { 
   }
 
   public InlineResponse20046NotationFsymRegional permanentIdentifier(String permanentIdentifier) {
-    this.permanentIdentifier = permanentIdentifier;
+    this.permanentIdentifier = JsonNullable.<String>of(permanentIdentifier);
     return this;
   }
 
@@ -65,23 +69,31 @@ public class InlineResponse20046NotationFsymRegional implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "FactSet Permanent Identifier for a set of one or more notations of the same region with the same value unit. The format is six alpha numeric characters, excluding vowels, with an R suffix (XXXXXX-R).")
-  @JsonProperty(JSON_PROPERTY_PERMANENT_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getPermanentIdentifier() {
-    return permanentIdentifier;
+        return permanentIdentifier.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PERMANENT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPermanentIdentifier(String permanentIdentifier) {
+
+  public JsonNullable<String> getPermanentIdentifier_JsonNullable() {
+    return permanentIdentifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PERMANENT_IDENTIFIER)
+  public void setPermanentIdentifier_JsonNullable(JsonNullable<String> permanentIdentifier) {
     this.permanentIdentifier = permanentIdentifier;
+  }
+
+  public void setPermanentIdentifier(String permanentIdentifier) {
+    this.permanentIdentifier = JsonNullable.<String>of(permanentIdentifier);
   }
 
 
   public InlineResponse20046NotationFsymRegional tickerRegion(String tickerRegion) {
-    this.tickerRegion = tickerRegion;
+    this.tickerRegion = JsonNullable.<String>of(tickerRegion);
     return this;
   }
 
@@ -91,23 +103,31 @@ public class InlineResponse20046NotationFsymRegional implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "FactSet regional symbol of the notation, consisting of the ticker and the two-character code of the country or region where the listing is traded (example: DAI-DE).")
-  @JsonProperty(JSON_PROPERTY_TICKER_REGION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getTickerRegion() {
-    return tickerRegion;
+        return tickerRegion.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TICKER_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTickerRegion(String tickerRegion) {
+
+  public JsonNullable<String> getTickerRegion_JsonNullable() {
+    return tickerRegion;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TICKER_REGION)
+  public void setTickerRegion_JsonNullable(JsonNullable<String> tickerRegion) {
     this.tickerRegion = tickerRegion;
+  }
+
+  public void setTickerRegion(String tickerRegion) {
+    this.tickerRegion = JsonNullable.<String>of(tickerRegion);
   }
 
 
   public InlineResponse20046NotationFsymRegional isPrimary(Boolean isPrimary) {
-    this.isPrimary = isPrimary;
+    this.isPrimary = JsonNullable.<Boolean>of(isPrimary);
     return this;
   }
 
@@ -117,18 +137,26 @@ public class InlineResponse20046NotationFsymRegional implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the notation is in the primary region of the security (`true`) or not (`false`).")
-  @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getIsPrimary() {
-    return isPrimary;
+        return isPrimary.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsPrimary(Boolean isPrimary) {
+
+  public JsonNullable<Boolean> getIsPrimary_JsonNullable() {
+    return isPrimary;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
+  public void setIsPrimary_JsonNullable(JsonNullable<Boolean> isPrimary) {
     this.isPrimary = isPrimary;
+  }
+
+  public void setIsPrimary(Boolean isPrimary) {
+    this.isPrimary = JsonNullable.<Boolean>of(isPrimary);
   }
 
 
@@ -144,14 +172,25 @@ public class InlineResponse20046NotationFsymRegional implements Serializable {
       return false;
     }
     InlineResponse20046NotationFsymRegional inlineResponse20046NotationFsymRegional = (InlineResponse20046NotationFsymRegional) o;
-    return Objects.equals(this.permanentIdentifier, inlineResponse20046NotationFsymRegional.permanentIdentifier) &&
-        Objects.equals(this.tickerRegion, inlineResponse20046NotationFsymRegional.tickerRegion) &&
-        Objects.equals(this.isPrimary, inlineResponse20046NotationFsymRegional.isPrimary);
+    return equalsNullable(this.permanentIdentifier, inlineResponse20046NotationFsymRegional.permanentIdentifier) &&
+        equalsNullable(this.tickerRegion, inlineResponse20046NotationFsymRegional.tickerRegion) &&
+        equalsNullable(this.isPrimary, inlineResponse20046NotationFsymRegional.isPrimary);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(permanentIdentifier, tickerRegion, isPrimary);
+    return Objects.hash(hashCodeNullable(permanentIdentifier), hashCodeNullable(tickerRegion), hashCodeNullable(isPrimary));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

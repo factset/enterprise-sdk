@@ -1,6 +1,6 @@
 /**
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,20 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2006Fsym from './InlineResponse2006Fsym';
-import InlineResponse2007Compliance from './InlineResponse2007Compliance';
-import InlineResponse2007Estimates from './InlineResponse2007Estimates';
-import InlineResponse2007Instrument from './InlineResponse2007Instrument';
-import InlineResponse2007Market from './InlineResponse2007Market';
-import InlineResponse2007Nsin from './InlineResponse2007Nsin';
-import InlineResponse2007Performance from './InlineResponse2007Performance';
-import InlineResponse2007Recommendation from './InlineResponse2007Recommendation';
-import InlineResponse2007ReportedKeyFigures from './InlineResponse2007ReportedKeyFigures';
-import InlineResponse2007RsiWilder from './InlineResponse2007RsiWilder';
-import InlineResponse2007SimpleMovingAverage from './InlineResponse2007SimpleMovingAverage';
-import InlineResponse2007TradingValue from './InlineResponse2007TradingValue';
-import InlineResponse2007ValueUnit from './InlineResponse2007ValueUnit';
-import InlineResponse2007Volatility from './InlineResponse2007Volatility';
 
 /**
  * The InlineResponse2007Data model module.
@@ -61,52 +47,13 @@ class InlineResponse2007Data {
             obj = obj || new InlineResponse2007Data();
 
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('valueUnit')) {
-                obj['valueUnit'] = InlineResponse2007ValueUnit.constructFromObject(data['valueUnit']);
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('market')) {
-                obj['market'] = InlineResponse2007Market.constructFromObject(data['market']);
-            }
-            if (data.hasOwnProperty('symbol')) {
-                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
-            }
-            if (data.hasOwnProperty('nsin')) {
-                obj['nsin'] = InlineResponse2007Nsin.constructFromObject(data['nsin']);
-            }
-            if (data.hasOwnProperty('fsym')) {
-                obj['fsym'] = InlineResponse2006Fsym.constructFromObject(data['fsym']);
-            }
-            if (data.hasOwnProperty('instrument')) {
-                obj['instrument'] = InlineResponse2007Instrument.constructFromObject(data['instrument']);
-            }
-            if (data.hasOwnProperty('compliance')) {
-                obj['compliance'] = InlineResponse2007Compliance.constructFromObject(data['compliance']);
-            }
-            if (data.hasOwnProperty('reportedKeyFigures')) {
-                obj['reportedKeyFigures'] = InlineResponse2007ReportedKeyFigures.constructFromObject(data['reportedKeyFigures']);
-            }
-            if (data.hasOwnProperty('performance')) {
-                obj['performance'] = InlineResponse2007Performance.constructFromObject(data['performance']);
-            }
-            if (data.hasOwnProperty('volatility')) {
-                obj['volatility'] = InlineResponse2007Volatility.constructFromObject(data['volatility']);
-            }
-            if (data.hasOwnProperty('tradingValue')) {
-                obj['tradingValue'] = InlineResponse2007TradingValue.constructFromObject(data['tradingValue']);
-            }
-            if (data.hasOwnProperty('simpleMovingAverage')) {
-                obj['simpleMovingAverage'] = InlineResponse2007SimpleMovingAverage.constructFromObject(data['simpleMovingAverage']);
-            }
-            if (data.hasOwnProperty('rsiWilder')) {
-                obj['rsiWilder'] = InlineResponse2007RsiWilder.constructFromObject(data['rsiWilder']);
-            }
-            if (data.hasOwnProperty('recommendation')) {
-                obj['recommendation'] = InlineResponse2007Recommendation.constructFromObject(data['recommendation']);
-            }
-            if (data.hasOwnProperty('estimates')) {
-                obj['estimates'] = InlineResponse2007Estimates.constructFromObject(data['estimates']);
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
         }
         return obj;
@@ -116,86 +63,22 @@ class InlineResponse2007Data {
 }
 
 /**
- * Identifier of the notation.
- * @member {String} id
+ * Identifier of a type.
+ * @member {Number} id
  */
 InlineResponse2007Data.prototype['id'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2007ValueUnit} valueUnit
+ * Name of the type.
+ * @member {String} name
  */
-InlineResponse2007Data.prototype['valueUnit'] = undefined;
+InlineResponse2007Data.prototype['name'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2007Market} market
+ * Description of the type.
+ * @member {String} description
  */
-InlineResponse2007Data.prototype['market'] = undefined;
-
-/**
- * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
- * @member {String} symbol
- */
-InlineResponse2007Data.prototype['symbol'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007Nsin} nsin
- */
-InlineResponse2007Data.prototype['nsin'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2006Fsym} fsym
- */
-InlineResponse2007Data.prototype['fsym'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007Instrument} instrument
- */
-InlineResponse2007Data.prototype['instrument'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007Compliance} compliance
- */
-InlineResponse2007Data.prototype['compliance'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007ReportedKeyFigures} reportedKeyFigures
- */
-InlineResponse2007Data.prototype['reportedKeyFigures'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007Performance} performance
- */
-InlineResponse2007Data.prototype['performance'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007Volatility} volatility
- */
-InlineResponse2007Data.prototype['volatility'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007TradingValue} tradingValue
- */
-InlineResponse2007Data.prototype['tradingValue'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007SimpleMovingAverage} simpleMovingAverage
- */
-InlineResponse2007Data.prototype['simpleMovingAverage'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007RsiWilder} rsiWilder
- */
-InlineResponse2007Data.prototype['rsiWilder'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007Recommendation} recommendation
- */
-InlineResponse2007Data.prototype['recommendation'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007Estimates} estimates
- */
-InlineResponse2007Data.prototype['estimates'] = undefined;
+InlineResponse2007Data.prototype['description'] = undefined;
 
 
 

@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -26,6 +26,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -49,7 +53,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
   private InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile returnProfile;
 
   public static final String JSON_PROPERTY_MATURITY_DATE = "maturityDate";
-  private LocalDate maturityDate;
+  private JsonNullable<LocalDate> maturityDate = JsonNullable.<LocalDate>undefined();
 
   /**
    * Indicates whether the investment product is unsuitable for investors not accepting financial products with potential termination prior to maturity. (That means, a \&quot;yes\&quot; value indicates that the product may not last until maturity and thus conflicts with an investor profile rejecting premature redemption.) The termination could be initiated by the issuer (callable), by the investor (puttable) or automatically due to an event, e.g. barrier breach (auto-callable).
@@ -86,12 +90,12 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_MAY_BE_TERMINATED_EARLY = "mayBeTerminatedEarly";
-  private MayBeTerminatedEarlyEnum mayBeTerminatedEarly;
+  private JsonNullable<MayBeTerminatedEarlyEnum> mayBeTerminatedEarly = JsonNullable.<MayBeTerminatedEarlyEnum>undefined();
 
   /**
    * Gets or Sets specificInvestmentNeed
@@ -171,7 +175,7 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
 
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeeds maturityDate(LocalDate maturityDate) {
-    this.maturityDate = maturityDate;
+    this.maturityDate = JsonNullable.<LocalDate>of(maturityDate);
     return this;
   }
 
@@ -181,23 +185,31 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Maturity date of the investment product.")
-  @JsonProperty(JSON_PROPERTY_MATURITY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getMaturityDate() {
-    return maturityDate;
+        return maturityDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MATURITY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaturityDate(LocalDate maturityDate) {
+
+  public JsonNullable<LocalDate> getMaturityDate_JsonNullable() {
+    return maturityDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MATURITY_DATE)
+  public void setMaturityDate_JsonNullable(JsonNullable<LocalDate> maturityDate) {
     this.maturityDate = maturityDate;
+  }
+
+  public void setMaturityDate(LocalDate maturityDate) {
+    this.maturityDate = JsonNullable.<LocalDate>of(maturityDate);
   }
 
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeeds mayBeTerminatedEarly(MayBeTerminatedEarlyEnum mayBeTerminatedEarly) {
-    this.mayBeTerminatedEarly = mayBeTerminatedEarly;
+    this.mayBeTerminatedEarly = JsonNullable.<MayBeTerminatedEarlyEnum>of(mayBeTerminatedEarly);
     return this;
   }
 
@@ -207,18 +219,26 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the investment product is unsuitable for investors not accepting financial products with potential termination prior to maturity. (That means, a \"yes\" value indicates that the product may not last until maturity and thus conflicts with an investor profile rejecting premature redemption.) The termination could be initiated by the issuer (callable), by the investor (puttable) or automatically due to an event, e.g. barrier breach (auto-callable).")
-  @JsonProperty(JSON_PROPERTY_MAY_BE_TERMINATED_EARLY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public MayBeTerminatedEarlyEnum getMayBeTerminatedEarly() {
-    return mayBeTerminatedEarly;
+        return mayBeTerminatedEarly.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MAY_BE_TERMINATED_EARLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMayBeTerminatedEarly(MayBeTerminatedEarlyEnum mayBeTerminatedEarly) {
+
+  public JsonNullable<MayBeTerminatedEarlyEnum> getMayBeTerminatedEarly_JsonNullable() {
+    return mayBeTerminatedEarly;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAY_BE_TERMINATED_EARLY)
+  public void setMayBeTerminatedEarly_JsonNullable(JsonNullable<MayBeTerminatedEarlyEnum> mayBeTerminatedEarly) {
     this.mayBeTerminatedEarly = mayBeTerminatedEarly;
+  }
+
+  public void setMayBeTerminatedEarly(MayBeTerminatedEarlyEnum mayBeTerminatedEarly) {
+    this.mayBeTerminatedEarly = JsonNullable.<MayBeTerminatedEarlyEnum>of(mayBeTerminatedEarly);
   }
 
 
@@ -269,14 +289,25 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
     }
     InlineResponse20062DataTargetMarketClientObjectivesAndNeeds inlineResponse20062DataTargetMarketClientObjectivesAndNeeds = (InlineResponse20062DataTargetMarketClientObjectivesAndNeeds) o;
     return Objects.equals(this.returnProfile, inlineResponse20062DataTargetMarketClientObjectivesAndNeeds.returnProfile) &&
-        Objects.equals(this.maturityDate, inlineResponse20062DataTargetMarketClientObjectivesAndNeeds.maturityDate) &&
-        Objects.equals(this.mayBeTerminatedEarly, inlineResponse20062DataTargetMarketClientObjectivesAndNeeds.mayBeTerminatedEarly) &&
+        equalsNullable(this.maturityDate, inlineResponse20062DataTargetMarketClientObjectivesAndNeeds.maturityDate) &&
+        equalsNullable(this.mayBeTerminatedEarly, inlineResponse20062DataTargetMarketClientObjectivesAndNeeds.mayBeTerminatedEarly) &&
         Objects.equals(this.specificInvestmentNeed, inlineResponse20062DataTargetMarketClientObjectivesAndNeeds.specificInvestmentNeed);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(returnProfile, maturityDate, mayBeTerminatedEarly, specificInvestmentNeed);
+    return Objects.hash(returnProfile, hashCodeNullable(maturityDate), hashCodeNullable(mayBeTerminatedEarly), specificInvestmentNeed);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

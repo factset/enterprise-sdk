@@ -1,6 +1,6 @@
 /**
  * News API For Digital Portals
- * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with quotes, time series, watchlists, and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the Quotes API for Digital Portals for access to detailed price and performance information, plus basic support for security identifier cross-reference.
+ * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with [quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals), [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals), [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals), and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price and performance information, plus basic support for security identifier cross-reference. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2001Meta from './InlineResponse2001Meta';
 import InlineResponse2003Data from './InlineResponse2003Data';
-import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse2003 model module.
@@ -52,7 +52,7 @@ class InlineResponse2003 {
                 obj['data'] = InlineResponse2003Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse2001Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -67,7 +67,7 @@ class InlineResponse2003 {
 InlineResponse2003.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200Meta} meta
+ * @member {module:model/InlineResponse2001Meta} meta
  */
 InlineResponse2003.prototype['meta'] = undefined;
 

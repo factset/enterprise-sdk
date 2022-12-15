@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **requestId** | **String** | The id that was requested. This can be a ticker, cusip or factset entity id. | 
+**companyName** | **String** | Name of the company reported in signal. Omitted if null. |  [optional]
 **signalId** | **String** | Signal Id for this event. e.g. dilutionTrigger | 
 **signalName** | **String** | Signal Name for this event. e.g. dilutionTrigger | 
 **theme** | **String** | Theme name of the signal for this event. e.g. Debt Capital Structure | 

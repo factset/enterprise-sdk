@@ -1,8 +1,10 @@
 openapi: 3.0.0
 info:
   description: "Consume FactSet’s StreetAccount news and 3rd party content through\
-    \ an API that seamlessly integrates with quotes, time series, watchlists, and\
-    \ other Functional APIs.\n\nSearch for news articles from various news distributors\
+    \ an API that seamlessly integrates with\n[quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals),\n\
+    [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals),\n\
+    [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals),\
+    \ and other Functional APIs.\n\nSearch for news articles from various news distributors\
     \ and publishers. Incorporate a multitude of search parameters such as region,\
     \ category, source, article type and provider-specific meta data, to easily filter\
     \ out the noise.\n\nAll search and list endpoints can be subscribed to receive\
@@ -10,8 +12,9 @@ info:
     * Cercle Finance\n* Direkt News SE\n* Dow Jones News\n* dpa\n* dpa-AFX \n* EUWAX\n\
     * GlobenewsWire\n* Kauppalehti\n* Midnight Trader\n* MoneyAM\n* newsaktuell\n\
     * OMX\n* PR Newswire \n* Ritzau Finans\n* StreetAccount News\n* TDN News\n   \
-    \   \nSee the Quotes API for Digital Portals for access to detailed price and\
-    \ performance information, plus basic support for security identifier cross-reference."
+    \   \nSee the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals)\
+    \ for access to detailed\nprice and performance information, plus basic support\
+    \ for security identifier cross-reference.\n"
   title: News API For Digital Portals
   version: "2"
 externalDocs:
@@ -109,18 +112,10 @@ paths:
       operationId: post/news/article/list
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object'
         content:
           application/json:
             schema:
-              properties:
-                data:
-                  $ref: '#/components/schemas/_news_article_list_data'
-                meta:
-                  $ref: '#/components/schemas/_news_article_list_meta'
-              type: object
-        description: Request Body
-        required: false
+              $ref: '#/components/schemas/PostNewsArticleListRequest'
       responses:
         "200":
           content:
@@ -150,18 +145,10 @@ paths:
       operationId: post/news/article/listByChain
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_1'
         content:
           application/json:
             schema:
-              properties:
-                data:
-                  $ref: '#/components/schemas/_news_article_listByChain_data'
-                meta:
-                  $ref: '#/components/schemas/_news_article_list_meta'
-              type: object
-        description: Request Body
-        required: true
+              $ref: '#/components/schemas/PostNewsArticleListByChainRequest'
       responses:
         "200":
           content:
@@ -192,24 +179,16 @@ paths:
       operationId: post/news/article/listByIndex
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_2'
         content:
           application/json:
             schema:
-              properties:
-                data:
-                  $ref: '#/components/schemas/_news_article_listByIndex_data'
-                meta:
-                  $ref: '#/components/schemas/_news_article_list_meta'
-              type: object
-        description: Request Body
-        required: true
+              $ref: '#/components/schemas/PostNewsArticleListByIndexRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_1'
+                $ref: '#/components/schemas/inline_response_200_3'
           description: Successful Response
       summary: News articles for instruments that are constituents of the given indices.
       tags:
@@ -233,24 +212,16 @@ paths:
       operationId: post/news/article/listByInstrument
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_3'
         content:
           application/json:
             schema:
-              properties:
-                data:
-                  $ref: '#/components/schemas/_news_article_listByInstrument_data'
-                meta:
-                  $ref: '#/components/schemas/_news_article_list_meta'
-              type: object
-        description: Request Body
-        required: true
+              $ref: '#/components/schemas/PostNewsArticleListByInstrumentRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_1'
+                $ref: '#/components/schemas/inline_response_200_4'
           description: Successful Response
       summary: News articles for instruments.
       tags:
@@ -274,18 +245,10 @@ paths:
       operationId: post/news/article/listByMediaKind
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_4'
         content:
           application/json:
             schema:
-              properties:
-                data:
-                  $ref: '#/components/schemas/_news_article_listByMediaKind_data'
-                meta:
-                  $ref: '#/components/schemas/_news_article_list_meta'
-              type: object
-        description: Request Body
-        required: true
+              $ref: '#/components/schemas/PostNewsArticleListByMediaKindRequest'
       responses:
         "200":
           content:
@@ -319,18 +282,10 @@ paths:
       operationId: post/news/article/searchByText
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_5'
         content:
           application/json:
             schema:
-              properties:
-                data:
-                  $ref: '#/components/schemas/_news_article_searchByText_data'
-                meta:
-                  $ref: '#/components/schemas/_news_article_list_meta'
-              type: object
-        description: Request Body
-        required: false
+              $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest'
       responses:
         "200":
           content:
@@ -402,7 +357,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_3'
+                $ref: '#/components/schemas/inline_response_200_5'
           description: Successful Response
       summary: Details for a news article type.
       tags:
@@ -457,7 +412,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_4'
+                $ref: '#/components/schemas/inline_response_200_6'
           description: Successful Response
       summary: List of news article types.
       tags:
@@ -509,7 +464,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_5'
+                $ref: '#/components/schemas/inline_response_200_7'
           description: Successful Response
       summary: Details of a distributor.
       tags:
@@ -542,6 +497,7 @@ paths:
             type: number
             x-positive: true
           maxItems: 100
+          nullable: false
           type: array
           uniqueItems: true
         style: form
@@ -586,7 +542,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_6'
+                $ref: '#/components/schemas/inline_response_200_8'
           description: Successful Response
       summary: List of distributors.
       tags:
@@ -638,7 +594,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_7'
+                $ref: '#/components/schemas/inline_response_200_9'
           description: Successful Response
       summary: Details of a publisher.
       tags:
@@ -671,6 +627,7 @@ paths:
             type: number
             x-positive: true
           maxItems: 100
+          nullable: false
           type: array
           uniqueItems: true
         style: form
@@ -741,7 +698,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_8'
+                $ref: '#/components/schemas/inline_response_200_10'
           description: Successful Response
       summary: List of publishers.
       tags:
@@ -814,7 +771,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_9'
+                $ref: '#/components/schemas/inline_response_200_11'
           description: Successful Response
       summary: List of publishers provided by the given distributor.
       tags:
@@ -837,24 +794,16 @@ paths:
       operationId: post/news/publisher/searchByName
       parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_6'
         content:
           application/json:
             schema:
-              properties:
-                data:
-                  $ref: '#/components/schemas/_news_publisher_searchByName_data'
-                meta:
-                  $ref: '#/components/schemas/_news_publisher_searchByName_meta'
-              type: object
-        description: Request Body
-        required: true
+              $ref: '#/components/schemas/PostNewsPublisherSearchByNameRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_9'
+                $ref: '#/components/schemas/inline_response_200_11'
           description: Successful Response
       summary: Search for publishers.
       tags:
@@ -878,49 +827,7 @@ components:
   headers: {}
   links: {}
   parameters: {}
-  requestBodies:
-    inline_object:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object'
-      required: false
-    inline_object_1:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_1'
-      required: true
-    inline_object_2:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_2'
-      required: true
-    inline_object_3:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_3'
-      required: true
-    inline_object_4:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_4'
-      required: true
-    inline_object_5:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_5'
-      required: false
-    inline_object_6:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_6'
-      required: true
+  requestBodies: {}
   responses:
     ErrorResponse:
       content:
@@ -933,6 +840,96 @@ components:
                 $ref: '#/components/schemas/ErrorObject'
             type: object
       description: Generic error response for all errors (400 ... 599 error codes)
+    GetNewsArticleGet200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+      description: Successful Response
+    PostNewsArticleList200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_1'
+      description: Successful Response
+    PostNewsArticleListByChain200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_2'
+      description: Successful Response
+    PostNewsArticleListByIndex200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_3'
+      description: Successful Response
+    PostNewsArticleListByInstrument200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_4'
+      description: Successful Response
+    PostNewsArticleListByMediaKind200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_1'
+      description: Successful Response
+    PostNewsArticleSearchByText200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_1'
+      description: Successful Response
+    GetNewsArticleTypeGet200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_5'
+      description: Successful Response
+    GetNewsArticleTypeList200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_6'
+      description: Successful Response
+    GetNewsDistributorGet200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_7'
+      description: Successful Response
+    GetNewsDistributorList200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_8'
+      description: Successful Response
+    GetNewsPublisherGet200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_9'
+      description: Successful Response
+    GetNewsPublisherList200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_10'
+      description: Successful Response
+    GetNewsPublisherListByDistributor200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_11'
+      description: Successful Response
+    PostNewsPublisherSearchByName200Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_11'
+      description: Successful Response
   schemas:
     ErrorMetaObject:
       properties:
@@ -1114,19 +1111,706 @@ components:
       type: object
       x-property-sort:
       - isPartial
+    PostNewsArticleListRequest:
+      example:
+        data:
+          filter:
+            types:
+              ids:
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+            regions:
+              ids:
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+            range:
+              start: start
+              end: end
+            publisher:
+              ids:
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+            language:
+              ids:
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+            categories:
+              ids:
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+            distributor:
+              ids:
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+        meta:
+          pagination:
+            cursor: cursor
+            limit: 465.1420677722356
+          attributes:
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          subscription:
+            minimumInterval: 3530.7006207515547
+      properties:
+        data:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data'
+        meta:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_meta'
+      type: object
+    PostNewsArticleListByChainRequest:
+      example:
+        data:
+          filter:
+            range:
+              start: start
+              end: end
+          id: id
+        meta:
+          pagination:
+            cursor: cursor
+            limit: 465.1420677722356
+          attributes:
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          subscription:
+            minimumInterval: 3530.7006207515547
+      properties:
+        data:
+          $ref: '#/components/schemas/PostNewsArticleListByChainRequest_data'
+        meta:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_meta'
+      required:
+      - data
+      type: object
+    PostNewsArticleListByIndexRequest:
+      example:
+        data:
+          filter:
+            types:
+              ids:
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+            regions:
+              ids:
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+            range:
+              start: start
+              end: end
+            publisher:
+              ids:
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+            language:
+              ids:
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+            categories:
+              ids:
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+            distributor:
+              ids:
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+          identifier:
+            values:
+            - values
+            - values
+            - values
+            - values
+            - values
+            type: idNotation
+        meta:
+          pagination:
+            cursor: cursor
+            limit: 465.1420677722356
+          attributes:
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          subscription:
+            minimumInterval: 3530.7006207515547
+      properties:
+        data:
+          $ref: '#/components/schemas/PostNewsArticleListByIndexRequest_data'
+        meta:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_meta'
+      required:
+      - data
+      type: object
+    PostNewsArticleListByInstrumentRequest:
+      example:
+        data:
+          filter:
+            types:
+              ids:
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+            regions:
+              ids:
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+            range:
+              start: start
+              end: end
+            publisher:
+              ids:
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+            language:
+              ids:
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+            categories:
+              ids:
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+            distributor:
+              ids:
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+          identifier:
+            values:
+            - values
+            - values
+            - values
+            - values
+            - values
+            type: idInstrument
+        meta:
+          pagination:
+            cursor: cursor
+            limit: 465.1420677722356
+          attributes:
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          subscription:
+            minimumInterval: 3530.7006207515547
+      properties:
+        data:
+          $ref: '#/components/schemas/PostNewsArticleListByInstrumentRequest_data'
+        meta:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_meta'
+      required:
+      - data
+      type: object
+    PostNewsArticleListByMediaKindRequest:
+      example:
+        data:
+          filter:
+            types:
+              ids:
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+            regions:
+              ids:
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+            range:
+              start: start
+              end: end
+            publisher:
+              ids:
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+            language:
+              ids:
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+            categories:
+              ids:
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+              - 0.8008281904610115
+            distributor:
+              ids:
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+          ids:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          - 0.8008281904610115
+          - 0.8008281904610115
+          - 0.8008281904610115
+        meta:
+          pagination:
+            cursor: cursor
+            limit: 465.1420677722356
+          attributes:
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          subscription:
+            minimumInterval: 3530.7006207515547
+      properties:
+        data:
+          $ref: '#/components/schemas/PostNewsArticleListByMediaKindRequest_data'
+        meta:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_meta'
+      required:
+      - data
+      type: object
+    PostNewsArticleSearchByTextRequest:
+      example:
+        data:
+          criteria:
+          - selectionType: include
+            indices:
+              ids:
+              - ids
+              - ids
+              - ids
+              - ids
+              - ids
+            types:
+              ids:
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+            instruments:
+              ids:
+              - ids
+              - ids
+              - ids
+              - ids
+              - ids
+            regions:
+              ids:
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+            range:
+              start: start
+              end: end
+            publisher:
+              ids:
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+            language:
+              ids:
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+            categories:
+              ids:
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+            distributor:
+              ids:
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+          - selectionType: include
+            indices:
+              ids:
+              - ids
+              - ids
+              - ids
+              - ids
+              - ids
+            types:
+              ids:
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+            instruments:
+              ids:
+              - ids
+              - ids
+              - ids
+              - ids
+              - ids
+            regions:
+              ids:
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+            range:
+              start: start
+              end: end
+            publisher:
+              ids:
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+            language:
+              ids:
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+            categories:
+              ids:
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+            distributor:
+              ids:
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+          - selectionType: include
+            indices:
+              ids:
+              - ids
+              - ids
+              - ids
+              - ids
+              - ids
+            types:
+              ids:
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+            instruments:
+              ids:
+              - ids
+              - ids
+              - ids
+              - ids
+              - ids
+            regions:
+              ids:
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+            range:
+              start: start
+              end: end
+            publisher:
+              ids:
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+            language:
+              ids:
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+            categories:
+              ids:
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+            distributor:
+              ids:
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+          - selectionType: include
+            indices:
+              ids:
+              - ids
+              - ids
+              - ids
+              - ids
+              - ids
+            types:
+              ids:
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+            instruments:
+              ids:
+              - ids
+              - ids
+              - ids
+              - ids
+              - ids
+            regions:
+              ids:
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+            range:
+              start: start
+              end: end
+            publisher:
+              ids:
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+            language:
+              ids:
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+            categories:
+              ids:
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+            distributor:
+              ids:
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+          - selectionType: include
+            indices:
+              ids:
+              - ids
+              - ids
+              - ids
+              - ids
+              - ids
+            types:
+              ids:
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+              - 6.027456183070403
+            instruments:
+              ids:
+              - ids
+              - ids
+              - ids
+              - ids
+              - ids
+            regions:
+              ids:
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+              - 5.962133916683182
+            range:
+              start: start
+              end: end
+            publisher:
+              ids:
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+              - 2.3021358869347655
+            language:
+              ids:
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+              - 7.061401241503109
+            categories:
+              ids:
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+              - 1.4658129805029452
+            distributor:
+              ids:
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+              - 5.637376656633329
+          text:
+            criteria:
+              selectionType: include
+              minimumMatchScore: 0.8008281904610115
+              scope: all
+              phrases:
+              - phrases
+              - phrases
+              - phrases
+              - phrases
+              - phrases
+        meta:
+          pagination:
+            cursor: cursor
+            limit: 465.1420677722356
+          attributes:
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          subscription:
+            minimumInterval: 3530.7006207515547
+      properties:
+        data:
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data'
+        meta:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_meta'
+      type: object
+    PostNewsPublisherSearchByNameRequest:
+      example:
+        data:
+          filter:
+            delivery:
+              id: 6.027456183070403
+            distributor:
+              id: 0.8008281904610115
+          matchType: begins
+          searchValue: searchValue
+        meta:
+          attributes:
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          - attributes
+          sort:
+          - id
+      properties:
+        data:
+          $ref: '#/components/schemas/PostNewsPublisherSearchByNameRequest_data'
+        meta:
+          $ref: '#/components/schemas/PostNewsPublisherSearchByNameRequest_meta'
+      required:
+      - data
+      type: object
     inline_response_200_data_types:
       example:
         name: name
         id: 0.8008281904610115
+      nullable: false
       properties:
         id:
           description: Identifier of the type of news article.
           format: id32
+          nullable: true
           type: number
           x-positive: true
         name:
           description: Name of the news article type.
           format: localizedString
+          nullable: true
           type: string
       type: object
       x-property-sort:
@@ -1138,14 +1822,17 @@ components:
       example:
         code: code
         id: 6.027456183070403
+      nullable: false
       properties:
         id:
           description: Identifier of the language.
           format: id32
+          nullable: true
           type: number
           x-positive: true
         code:
           description: ISO 639-1 code of the language.
+          nullable: true
           type: string
       type: object
       x-property-sort:
@@ -1157,14 +1844,17 @@ components:
       example:
         name: name
         id: 1.4658129805029452
+      nullable: false
       properties:
         id:
           description: Identifier of the distributor.
           format: id32
+          nullable: true
           type: number
           x-positive: true
         name:
           description: Name of the distributor.
+          nullable: true
           type: string
       type: object
       x-property-sort:
@@ -1176,14 +1866,17 @@ components:
       example:
         name: name
         id: 5.962133916683182
+      nullable: false
       properties:
         id:
           description: Identifier of the publisher.
           format: id32
+          nullable: true
           type: number
           x-positive: true
         name:
           description: Name of the publisher.
+          nullable: true
           type: string
       type: object
       x-property-sort:
@@ -1193,15 +1886,18 @@ components:
       example:
         name: name
         id: 5.637376656633329
+      nullable: false
       properties:
         id:
           description: Identifier of the category.
           format: id32
+          nullable: true
           type: number
           x-positive: true
         name:
           description: Name of the category.
           format: localizedString
+          nullable: true
           type: string
       type: object
       x-property-sort:
@@ -1211,10 +1907,12 @@ components:
       description: Security-level identifier.
       example:
         permanentIdentifier: permanentIdentifier
+      nullable: false
       properties:
         permanentIdentifier:
           description: FactSet Permanent Identifier for an instrument. The format
             is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
+          nullable: true
           type: string
       type: object
       x-property-sort:
@@ -1225,6 +1923,7 @@ components:
       example:
         security:
           permanentIdentifier: permanentIdentifier
+      nullable: false
       properties:
         security:
           $ref: '#/components/schemas/inline_response_200_data_fsym_security'
@@ -1237,10 +1936,12 @@ components:
           security:
             permanentIdentifier: permanentIdentifier
         id: id
+      nullable: false
       properties:
         id:
           description: Identifier of the instrument.
           format: id64
+          nullable: true
           type: string
           x-positive: true
         fsym:
@@ -1257,30 +1958,37 @@ components:
         alternativeText: alternativeText
         url: http://example.com/aeiou
         height: 7.061401241503109
+      nullable: false
       properties:
         url:
           description: URL of the media element. The URL is publicly available and
             hosted by either the publisher, the distributor, or FactSet.
           format: url
+          nullable: true
           type: string
         mimeType:
           description: MIME type of the data of the media element.
+          nullable: true
           type: string
         caption:
           description: Caption text that can be displayed with the media element.
             Empty if no caption is available for this media element.
+          nullable: true
           type: string
         alternativeText:
           description: A short description of the media element that can be shown
             instead of the media element itself.
+          nullable: true
           type: string
         width:
           description: Width of the media element in pixels if applicable.
           format: int32
+          nullable: true
           type: number
         height:
           description: Height of the media element in pixels if applicable.
           format: int32
+          nullable: true
           type: number
       type: object
       x-property-sort:
@@ -1338,27 +2046,33 @@ components:
         distributor:
           name: name
           id: 1.4658129805029452
+      nullable: false
       properties:
         time:
           description: Date and time of the news article.
           format: datetime
+          nullable: true
           type: string
         headline:
           description: Headline of the news article represented as text with HTML
             entity encoding but without HTML tags.
+          nullable: true
           type: string
         summary:
           description: Textual summary of the body of the news article or `null` if
             no summary was provided by the news article distributor.
+          nullable: true
           type: string
         body:
           description: Text body of the news article.
+          nullable: true
           type: string
         types:
           description: Types of news article. See endpoint `/news/article/type/list`
             for possible values.
           items:
             $ref: '#/components/schemas/inline_response_200_data_types'
+          nullable: false
           type: array
         language:
           $ref: '#/components/schemas/inline_response_200_data_language'
@@ -1371,6 +2085,7 @@ components:
             for possible values.
           items:
             $ref: '#/components/schemas/inline_response_200_data_categories'
+          nullable: false
           type: array
         instruments:
           description: Set of stock instruments related to the article. The set is
@@ -1378,11 +2093,13 @@ components:
             company obtains a new instrument after a spin-off.
           items:
             $ref: '#/components/schemas/inline_response_200_data_instruments'
+          nullable: false
           type: array
         media:
           description: List of media elements of the news article.
           items:
             $ref: '#/components/schemas/inline_response_200_data_media'
+          nullable: false
           type: array
       type: object
       x-property-sort:
@@ -1465,244 +2182,15 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
-    _news_article_list_data_filter_range:
-      description: Time range for matching the news article's date. At most one of
-        the attributes `start` or `end` may be `null`.
-      format: timeRange
-      properties:
-        start:
-          description: The starting point of the time range (inclusive), or `null`
-            to indicate that the time range extends indefinitely into the past.
-          format: datetime
-          type: string
-          x-allowNullValue: true
-        end:
-          description: The ending point of the time range (exclusive), or `null` to
-            indicate that the time range extends indefinitely into the future.
-          format: datetime
-          type: string
-          x-allowNullValue: true
-      required:
-      - end
-      - start
-      type: object
-      x-property-sort:
-      - start
-      - end
-    _news_article_list_data_filter_categories:
-      description: Filter for specific categories of the news article. Use a category
-        system of type news with endpoint `/category/listBySystem` for valid values.
-      properties:
-        ids:
-          description: Identifiers of the categories.
-          items:
-            format: id32
-            type: number
-            x-positive: true
-          maxItems: 100
-          minItems: 1
-          type: array
-          uniqueItems: true
-      type: object
-      x-property-sort:
-      - ids
-    _news_article_list_data_filter_regions:
-      description: Filter for specific regions of the content of the news article.
-        See endpoint `/basic/region/list` for valid values.
-      properties:
-        ids:
-          description: Identifiers of the regions.
-          items:
-            format: id32
-            type: number
-            x-positive: true
-          maxItems: 100
-          minItems: 1
-          type: array
-          uniqueItems: true
-      type: object
-      x-property-sort:
-      - ids
-    _news_article_list_data_filter_distributor:
-      description: Filter for specific distributors of the news article. See endpoint
-        `/news/distributor/list` for valid values.
-      properties:
-        ids:
-          description: Identifiers of the distributors.
-          items:
-            format: id32
-            type: number
-            x-positive: true
-          maxItems: 100
-          minItems: 1
-          type: array
-          uniqueItems: true
-      type: object
-      x-property-sort:
-      - ids
-    _news_article_list_data_filter_publisher:
-      description: Filter for specific publishers of the news article. See endpoint
-        `/news/publisher/list` for valid values.
-      properties:
-        ids:
-          description: Identifiers of the publishers.
-          items:
-            format: id32
-            type: number
-            x-positive: true
-          maxItems: 100
-          minItems: 1
-          type: array
-          uniqueItems: true
-      type: object
-      x-property-sort:
-      - ids
-    _news_article_list_data_filter_language:
-      description: Filter for specific languages of the news article. See endpoint
-        `/basic/language/list` for valid values.
-      properties:
-        ids:
-          description: Identifiers of the languages.
-          items:
-            format: id32
-            type: number
-            x-positive: true
-          maxItems: 100
-          minItems: 1
-          type: array
-          uniqueItems: true
-      type: object
-      x-property-sort:
-      - ids
-    _news_article_list_data_filter_types:
-      description: Filter for specific types of the news article. See endpoint `/news/article/type/list`
-        for valid values.
-      properties:
-        ids:
-          description: Identifiers of the article types.
-          items:
-            format: id32
-            type: number
-            x-positive: true
-          maxItems: 100
-          minItems: 1
-          type: array
-          uniqueItems: true
-      type: object
-      x-property-sort:
-      - ids
-    _news_article_list_data_filter:
-      description: Criteria that filter the items in the response list; only items
-        that match all of the criteria are returned.
-      properties:
-        range:
-          $ref: '#/components/schemas/_news_article_list_data_filter_range'
-        categories:
-          $ref: '#/components/schemas/_news_article_list_data_filter_categories'
-        regions:
-          $ref: '#/components/schemas/_news_article_list_data_filter_regions'
-        distributor:
-          $ref: '#/components/schemas/_news_article_list_data_filter_distributor'
-        publisher:
-          $ref: '#/components/schemas/_news_article_list_data_filter_publisher'
-        language:
-          $ref: '#/components/schemas/_news_article_list_data_filter_language'
-        types:
-          $ref: '#/components/schemas/_news_article_list_data_filter_types'
-      type: object
-      x-property-sort:
-      - range
-      - categories
-      - regions
-      - distributor
-      - publisher
-      - language
-      - types
-    _news_article_list_data:
-      description: The data member contains the request's primary data.
-      properties:
-        filter:
-          $ref: '#/components/schemas/_news_article_list_data_filter'
-      type: object
-      x-property-sort:
-      - filter
-    _news_article_list_meta_subscription:
-      description: Object defining the subscription attributes.
-      properties:
-        minimumInterval:
-          default: 0
-          description: Non-negative number of milliseconds to throttle the update
-            rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          format: int32
-          maximum: 5000
-          minimum: 0
-          type: number
-      required:
-      - minimumInterval
-      type: object
-      x-property-sort:
-      - minimumInterval
-    _news_article_list_meta_pagination:
-      description: Pagination attributes for the cursor-based pagination strategy.
-      properties:
-        cursor:
-          description: Starting point as returned in the attributes `pagination.next`
-            or `pagination.previous` by a prior invocation of this endpoint, or undefined
-            (default).
-          exclusiveMaximum: false
-          maxLength: 50
-          type: string
-        limit:
-          default: 20
-          description: Non-negative maximum number of entries to return.
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          format: int32
-          maximum: 500
-          minimum: 1
-          type: number
-      type: object
-      x-property-sort:
-      - cursor
-      - limit
-    _news_article_list_meta:
-      description: The meta member contains the meta information of the request.
-      properties:
-        attributes:
-          description: Limit the attributes returned in the response to the specified
-            set.
-          items:
-            exclusiveMaximum: false
-            maxLength: 100
-            type: string
-          maxItems: 50
-          type: array
-          uniqueItems: true
-        subscription:
-          $ref: '#/components/schemas/_news_article_list_meta_subscription'
-        pagination:
-          $ref: '#/components/schemas/_news_article_list_meta_pagination'
-      type: object
-      x-property-sort:
-      - attributes
-      - subscription
-      - pagination
-    inline_object:
-      properties:
-        data:
-          $ref: '#/components/schemas/_news_article_list_data'
-        meta:
-          $ref: '#/components/schemas/_news_article_list_meta'
-      type: object
     inline_response_200_1_types:
       example:
         id: 0.8008281904610115
+      nullable: false
       properties:
         id:
           description: Identifier of the type of news article.
           format: id32
+          nullable: true
           type: number
           x-positive: true
       type: object
@@ -1713,10 +2201,12 @@ components:
         for possible values.
       example:
         id: 6.027456183070403
+      nullable: false
       properties:
         id:
           description: Identifier of the language.
           format: id32
+          nullable: true
           type: number
           x-positive: true
       type: object
@@ -1727,10 +2217,12 @@ components:
         for possible values.
       example:
         id: 1.4658129805029452
+      nullable: false
       properties:
         id:
           description: Identifier of the distributor.
           format: id32
+          nullable: true
           type: number
           x-positive: true
       type: object
@@ -1741,10 +2233,12 @@ components:
         for possible values.
       example:
         id: 5.962133916683182
+      nullable: false
       properties:
         id:
           description: Identifier of the publisher.
           format: id32
+          nullable: true
           type: number
           x-positive: true
       type: object
@@ -1753,10 +2247,12 @@ components:
     inline_response_200_1_categories:
       example:
         id: 5.637376656633329
+      nullable: false
       properties:
         id:
           description: Identifier of the category.
           format: id32
+          nullable: true
           type: number
           x-pushable: true
           x-positive: true
@@ -1767,10 +2263,12 @@ components:
       description: Article chain.
       example:
         id: id
+      nullable: false
       properties:
         id:
           description: Identifier of the news article chain.
           format: id64
+          nullable: true
           type: string
           x-pushable: true
           x-positive: true
@@ -1781,10 +2279,12 @@ components:
       description: Security-level identifier.
       example:
         permanentIdentifier: permanentIdentifier
+      nullable: false
       properties:
         permanentIdentifier:
           description: FactSet Permanent Identifier for an instrument. The format
             is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
+          nullable: true
           type: string
           x-pushable: true
       type: object
@@ -1796,6 +2296,7 @@ components:
       example:
         security:
           permanentIdentifier: permanentIdentifier
+      nullable: false
       properties:
         security:
           $ref: '#/components/schemas/inline_response_200_1_fsym_security'
@@ -1808,10 +2309,12 @@ components:
           security:
             permanentIdentifier: permanentIdentifier
         id: id
+      nullable: false
       properties:
         id:
           description: Identifier of the instrument.
           format: id64
+          nullable: true
           type: string
           x-pushable: true
           x-positive: true
@@ -1850,23 +2353,28 @@ components:
         headline: headline
         distributor:
           id: 1.4658129805029452
+      nullable: false
       properties:
         code:
           description: Identifier of the news article.
+          nullable: true
           type: string
         time:
           description: Date and time of the news article.
           format: datetime
+          nullable: true
           type: string
           x-pushable: true
         headline:
           description: Headline of the news article represented as text with HTML
             entity encoding but without HTML tags.
+          nullable: true
           type: string
           x-pushable: true
         summary:
           description: Textual summary of the body of the news article or `null` if
             no summary was provided by the news article distributor.
+          nullable: true
           type: string
           x-pushable: true
         types:
@@ -1874,6 +2382,7 @@ components:
             for possible values.
           items:
             $ref: '#/components/schemas/inline_response_200_1_types'
+          nullable: false
           type: array
         language:
           $ref: '#/components/schemas/inline_response_200_1_language'
@@ -1886,6 +2395,7 @@ components:
             for possible values.
           items:
             $ref: '#/components/schemas/inline_response_200_1_categories'
+          nullable: false
           type: array
         chain:
           $ref: '#/components/schemas/inline_response_200_1_chain'
@@ -1895,6 +2405,7 @@ components:
             company obtains a new instrument after a spin-off.
           items:
             $ref: '#/components/schemas/inline_response_200_1_instruments'
+          nullable: false
           type: array
       type: object
       x-property-sort:
@@ -1995,51 +2506,22 @@ components:
             article time.
           items:
             $ref: '#/components/schemas/inline_response_200_1_data'
+          nullable: false
           type: array
         meta:
           $ref: '#/components/schemas/inline_response_200_1_meta'
-      type: object
-    _news_article_listByChain_data_filter:
-      description: Criteria that filter the items in the response list; only items
-        that match all of the criteria are returned.
-      properties:
-        range:
-          $ref: '#/components/schemas/_news_article_list_data_filter_range'
-      type: object
-      x-property-sort:
-      - range
-    _news_article_listByChain_data:
-      description: The data member contains the request's primary data.
-      properties:
-        id:
-          description: Identifier of the news article chain.
-          format: id64
-          type: string
-          x-positive: true
-        filter:
-          $ref: '#/components/schemas/_news_article_listByChain_data_filter'
-      required:
-      - id
-      type: object
-      x-property-sort:
-      - id
-      - filter
-    inline_object_1:
-      properties:
-        data:
-          $ref: '#/components/schemas/_news_article_listByChain_data'
-        meta:
-          $ref: '#/components/schemas/_news_article_list_meta'
       type: object
     inline_response_200_2_data_distributor:
       description: Distributor of the news articles. See endpoint `/news/distributor/list`
         for possible values.
       example:
         id: 0.8008281904610115
+      nullable: false
       properties:
         id:
           description: Identifier of the distributor.
           format: id32
+          nullable: true
           type: number
           x-positive: true
       type: object
@@ -2068,23 +2550,28 @@ components:
         - id: 5.637376656633329
         - id: 5.637376656633329
         headline: headline
+      nullable: false
       properties:
         code:
           description: Identifier of the news article.
+          nullable: true
           type: string
         time:
           description: Date and time of the news article.
           format: datetime
+          nullable: true
           type: string
           x-pushable: true
         headline:
           description: Headline of the news article represented as text with HTML
             entity encoding but without HTML tags.
+          nullable: true
           type: string
           x-pushable: true
         summary:
           description: Textual summary of the body of the news article or `null` if
             no summary was provided by the news article distributor.
+          nullable: true
           type: string
           x-pushable: true
         types:
@@ -2092,6 +2579,7 @@ components:
             for possible values.
           items:
             $ref: '#/components/schemas/inline_response_200_1_types'
+          nullable: false
           type: array
         language:
           $ref: '#/components/schemas/inline_response_200_1_language'
@@ -2100,6 +2588,7 @@ components:
             for possible values.
           items:
             $ref: '#/components/schemas/inline_response_200_1_categories'
+          nullable: false
           type: array
         instruments:
           description: Set of stock instruments related to the article. The set is
@@ -2107,6 +2596,7 @@ components:
             company obtains a new instrument after a spin-off.
           items:
             $ref: '#/components/schemas/inline_response_200_1_instruments'
+          nullable: false
           type: array
       type: object
       x-property-sort:
@@ -2169,6 +2659,7 @@ components:
           - id: 5.637376656633329
           - id: 5.637376656633329
           headline: headline
+      nullable: false
       properties:
         distributor:
           $ref: '#/components/schemas/inline_response_200_2_data_distributor'
@@ -2179,6 +2670,7 @@ components:
             article time.
           items:
             $ref: '#/components/schemas/inline_response_200_2_data_articles'
+          nullable: false
           type: array
       type: object
       x-property-sort:
@@ -2247,64 +2739,1578 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_1_meta'
       type: object
-    _news_article_listByIndex_data:
-      description: The data member contains the request's primary data.
+    inline_response_200_3_data_status:
+      description: Error status for the requested identifier.
+      example:
+        identifier: identifier
+        code: none
+        details: details
+        encryptedDetails: encryptedDetails
+      nullable: false
+      properties:
+        code:
+          description: Code of the error condition.
+          enum:
+          - none
+          - parameter
+          - entitlement
+          - identifierMapping
+          nullable: true
+          type: string
+          x-enum-description:
+          - No error.
+          - The provided identifier does not refer to a valid listing level identifier.
+          - Not entitled to see data for the identifier.
+          - Unable to resolve the provided identifier.
+        identifier:
+          description: Provided identifier.
+          nullable: true
+          type: string
+        details:
+          description: A human-readable, unstructured explanation specific to this
+            occurrence of the problem.
+          nullable: true
+          type: string
+        encryptedDetails:
+          description: Base64-encoded internal details about the error.
+          nullable: true
+          type: string
+      type: object
+      x-property-sort:
+      - code
+      - identifier
+      - details
+      - encryptedDetails
+    inline_response_200_3_data_identifiers:
+      example:
+        sourceIdentifier: sourceIdentifier
+        idNotation: idNotation
+        status:
+          identifier: identifier
+          code: none
+          details: details
+          encryptedDetails: encryptedDetails
+      nullable: false
+      properties:
+        idNotation:
+          description: MDG identifier of the listing.
+          format: id64
+          nullable: true
+          type: string
+          x-positive: true
+        sourceIdentifier:
+          description: Identifier used in the request.
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/inline_response_200_3_data_status'
+      type: object
+      x-property-sort:
+      - idNotation
+      - sourceIdentifier
+      - status
+    inline_response_200_3_data:
+      description: News articles for instruments that are constituents of the given
+        indices.
+      example:
+        identifiers:
+        - sourceIdentifier: sourceIdentifier
+          idNotation: idNotation
+          status:
+            identifier: identifier
+            code: none
+            details: details
+            encryptedDetails: encryptedDetails
+        - sourceIdentifier: sourceIdentifier
+          idNotation: idNotation
+          status:
+            identifier: identifier
+            code: none
+            details: details
+            encryptedDetails: encryptedDetails
+        articles:
+        - summary: summary
+          types:
+          - id: 0.8008281904610115
+          - id: 0.8008281904610115
+          chain:
+            id: id
+          code: code
+          instruments:
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          publisher:
+            id: 5.962133916683182
+          language:
+            id: 6.027456183070403
+          time: time
+          categories:
+          - id: 5.637376656633329
+          - id: 5.637376656633329
+          headline: headline
+          distributor:
+            id: 1.4658129805029452
+        - summary: summary
+          types:
+          - id: 0.8008281904610115
+          - id: 0.8008281904610115
+          chain:
+            id: id
+          code: code
+          instruments:
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          publisher:
+            id: 5.962133916683182
+          language:
+            id: 6.027456183070403
+          time: time
+          categories:
+          - id: 5.637376656633329
+          - id: 5.637376656633329
+          headline: headline
+          distributor:
+            id: 1.4658129805029452
+      nullable: false
+      properties:
+        identifiers:
+          description: List of identifiers that resolve to index notations, and their
+            type.
+          items:
+            $ref: '#/components/schemas/inline_response_200_3_data_identifiers'
+          nullable: false
+          type: array
+        articles:
+          description: News articles that match the filter criteria ordered by descending
+            article time.
+          items:
+            $ref: '#/components/schemas/inline_response_200_1_data'
+          nullable: false
+          type: array
+      type: object
+      x-property-sort:
+      - identifiers
+      - articles
+    inline_response_200_3:
+      example:
+        data:
+          identifiers:
+          - sourceIdentifier: sourceIdentifier
+            idNotation: idNotation
+            status:
+              identifier: identifier
+              code: none
+              details: details
+              encryptedDetails: encryptedDetails
+          - sourceIdentifier: sourceIdentifier
+            idNotation: idNotation
+            status:
+              identifier: identifier
+              code: none
+              details: details
+              encryptedDetails: encryptedDetails
+          articles:
+          - summary: summary
+            types:
+            - id: 0.8008281904610115
+            - id: 0.8008281904610115
+            chain:
+              id: id
+            code: code
+            instruments:
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
+            publisher:
+              id: 5.962133916683182
+            language:
+              id: 6.027456183070403
+            time: time
+            categories:
+            - id: 5.637376656633329
+            - id: 5.637376656633329
+            headline: headline
+            distributor:
+              id: 1.4658129805029452
+          - summary: summary
+            types:
+            - id: 0.8008281904610115
+            - id: 0.8008281904610115
+            chain:
+              id: id
+            code: code
+            instruments:
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
+            publisher:
+              id: 5.962133916683182
+            language:
+              id: 6.027456183070403
+            time: time
+            categories:
+            - id: 5.637376656633329
+            - id: 5.637376656633329
+            headline: headline
+            distributor:
+              id: 1.4658129805029452
+        meta:
+          pagination:
+            next: next
+            previous: previous
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_3_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_4_data_status:
+      description: Error status for the requested identifier.
+      example:
+        identifier: identifier
+        code: none
+        details: details
+        encryptedDetails: encryptedDetails
+      nullable: false
+      properties:
+        code:
+          description: Code of the error condition.
+          enum:
+          - none
+          - parameter
+          - entitlement
+          - identifierMapping
+          nullable: true
+          type: string
+          x-enum-description:
+          - No error.
+          - The provided identifier does not refer to a valid instrument level identifier.
+          - Not entitled to see data for the identifier.
+          - Unable to resolve the provided identifier.
+        identifier:
+          description: Provided identifier.
+          nullable: true
+          type: string
+        details:
+          description: A human-readable, unstructured explanation specific to this
+            occurrence of the problem.
+          nullable: true
+          type: string
+        encryptedDetails:
+          description: Base64-encoded internal details about the error.
+          nullable: true
+          type: string
+      type: object
+      x-property-sort:
+      - code
+      - identifier
+      - details
+      - encryptedDetails
+    inline_response_200_4_data_identifiers:
+      example:
+        idInstrument: idInstrument
+        sourceIdentifier: sourceIdentifier
+        status:
+          identifier: identifier
+          code: none
+          details: details
+          encryptedDetails: encryptedDetails
+      nullable: false
+      properties:
+        idInstrument:
+          description: MDG identifier of the instrument.
+          format: id64
+          nullable: true
+          type: string
+          x-positive: true
+        sourceIdentifier:
+          description: Identifier used in the request.
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/inline_response_200_4_data_status'
+      type: object
+      x-property-sort:
+      - idInstrument
+      - sourceIdentifier
+      - status
+    inline_response_200_4_data:
+      description: News articles for instruments.
+      example:
+        identifiers:
+        - idInstrument: idInstrument
+          sourceIdentifier: sourceIdentifier
+          status:
+            identifier: identifier
+            code: none
+            details: details
+            encryptedDetails: encryptedDetails
+        - idInstrument: idInstrument
+          sourceIdentifier: sourceIdentifier
+          status:
+            identifier: identifier
+            code: none
+            details: details
+            encryptedDetails: encryptedDetails
+        articles:
+        - summary: summary
+          types:
+          - id: 0.8008281904610115
+          - id: 0.8008281904610115
+          chain:
+            id: id
+          code: code
+          instruments:
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          publisher:
+            id: 5.962133916683182
+          language:
+            id: 6.027456183070403
+          time: time
+          categories:
+          - id: 5.637376656633329
+          - id: 5.637376656633329
+          headline: headline
+          distributor:
+            id: 1.4658129805029452
+        - summary: summary
+          types:
+          - id: 0.8008281904610115
+          - id: 0.8008281904610115
+          chain:
+            id: id
+          code: code
+          instruments:
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          publisher:
+            id: 5.962133916683182
+          language:
+            id: 6.027456183070403
+          time: time
+          categories:
+          - id: 5.637376656633329
+          - id: 5.637376656633329
+          headline: headline
+          distributor:
+            id: 1.4658129805029452
+      nullable: false
+      properties:
+        identifiers:
+          description: List of identifiers.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_identifiers'
+          nullable: false
+          type: array
+        articles:
+          description: News articles that match the filter criteria ordered by descending
+            article time.
+          items:
+            $ref: '#/components/schemas/inline_response_200_1_data'
+          nullable: false
+          type: array
+      type: object
+      x-property-sort:
+      - identifiers
+      - articles
+    inline_response_200_4:
+      example:
+        data:
+          identifiers:
+          - idInstrument: idInstrument
+            sourceIdentifier: sourceIdentifier
+            status:
+              identifier: identifier
+              code: none
+              details: details
+              encryptedDetails: encryptedDetails
+          - idInstrument: idInstrument
+            sourceIdentifier: sourceIdentifier
+            status:
+              identifier: identifier
+              code: none
+              details: details
+              encryptedDetails: encryptedDetails
+          articles:
+          - summary: summary
+            types:
+            - id: 0.8008281904610115
+            - id: 0.8008281904610115
+            chain:
+              id: id
+            code: code
+            instruments:
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
+            publisher:
+              id: 5.962133916683182
+            language:
+              id: 6.027456183070403
+            time: time
+            categories:
+            - id: 5.637376656633329
+            - id: 5.637376656633329
+            headline: headline
+            distributor:
+              id: 1.4658129805029452
+          - summary: summary
+            types:
+            - id: 0.8008281904610115
+            - id: 0.8008281904610115
+            chain:
+              id: id
+            code: code
+            instruments:
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
+            publisher:
+              id: 5.962133916683182
+            language:
+              id: 6.027456183070403
+            time: time
+            categories:
+            - id: 5.637376656633329
+            - id: 5.637376656633329
+            headline: headline
+            distributor:
+              id: 1.4658129805029452
+        meta:
+          pagination:
+            next: next
+            previous: previous
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_4_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_5_data:
+      description: Details of a news article type.
+      example:
+        name: name
+      nullable: false
+      properties:
+        name:
+          description: Name of the news article type.
+          format: localizedString
+          nullable: true
+          type: string
+      type: object
+      x-property-sort:
+      - name
+    inline_response_200_5:
+      example:
+        data:
+          name: name
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_5_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_6_data:
+      example:
+        name: name
+        id: 0.8008281904610115
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the news article type.
+          format: id32
+          nullable: true
+          type: number
+          x-positive: true
+        name:
+          description: Name of the news article type.
+          format: localizedString
+          nullable: true
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_6:
+      example:
+        data:
+        - name: name
+          id: 0.8008281904610115
+        - name: name
+          id: 0.8008281904610115
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: List of news article types, sorted by ascending identifier
+            value.
+          items:
+            $ref: '#/components/schemas/inline_response_200_6_data'
+          nullable: false
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_7_data_delivery:
+      description: Delivery of the distributor.
+      example:
+        name: name
+        id: 0.8008281904610115
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the delivery.
+          format: id32
+          nullable: true
+          type: number
+          x-positive: true
+        name:
+          description: Name of the delivery.
+          nullable: true
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_7_data:
+      description: Details of the distributor.
+      example:
+        delivery:
+          name: name
+          id: 0.8008281904610115
+        name: name
+      nullable: false
+      properties:
+        name:
+          description: Name of the distributor.
+          nullable: true
+          type: string
+        delivery:
+          $ref: '#/components/schemas/inline_response_200_7_data_delivery'
+      type: object
+      x-property-sort:
+      - name
+      - delivery
+    inline_response_200_7:
+      example:
+        data:
+          delivery:
+            name: name
+            id: 0.8008281904610115
+          name: name
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_7_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_8_data:
+      example:
+        delivery:
+          name: name
+          id: 0.8008281904610115
+        name: name
+        id: 0.8008281904610115
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the distributor.
+          format: id32
+          nullable: true
+          type: number
+          x-sortable: true
+          x-positive: true
+        name:
+          description: Name of the distributor.
+          nullable: true
+          type: string
+          x-sortable: true
+          x-default-sort-attribute: true
+          x-default-sort-direction: 1
+        delivery:
+          $ref: '#/components/schemas/inline_response_200_7_data_delivery'
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - delivery
+    inline_response_200_8:
+      example:
+        data:
+        - delivery:
+            name: name
+            id: 0.8008281904610115
+          name: name
+          id: 0.8008281904610115
+        - delivery:
+            name: name
+            id: 0.8008281904610115
+          name: name
+          id: 0.8008281904610115
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: List of distributors.
+          items:
+            $ref: '#/components/schemas/inline_response_200_8_data'
+          nullable: false
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_9_data_distributor:
+      description: Distributor of the publisher.
+      example:
+        name: name
+        id: 0.8008281904610115
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the distributor.
+          format: id32
+          nullable: true
+          type: number
+          x-positive: true
+        name:
+          description: Name of the distributor.
+          nullable: true
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_9_data:
+      description: Details of the publisher.
+      example:
+        name: name
+        distributor:
+          name: name
+          id: 0.8008281904610115
+      nullable: false
+      properties:
+        name:
+          description: Name of the publisher.
+          nullable: true
+          type: string
+        distributor:
+          $ref: '#/components/schemas/inline_response_200_9_data_distributor'
+      type: object
+      x-property-sort:
+      - name
+      - distributor
+    inline_response_200_9:
+      example:
+        data:
+          name: name
+          distributor:
+            name: name
+            id: 0.8008281904610115
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_9_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_10_data:
+      example:
+        name: name
+        id: 0.8008281904610115
+        distributor:
+          name: name
+          id: 0.8008281904610115
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the publisher.
+          format: id32
+          nullable: true
+          type: number
+          x-sortable: true
+          x-positive: true
+        name:
+          description: Name of the publisher.
+          nullable: true
+          type: string
+          x-sortable: true
+          x-default-sort-attribute: true
+          x-default-sort-direction: 1
+        distributor:
+          $ref: '#/components/schemas/inline_response_200_9_data_distributor'
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - distributor
+    inline_response_200_10_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        pagination:
+          hasNext: true
+        status:
+          code: 9.301444243932576
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+        pagination:
+          $ref: '#/components/schemas/OffsetBasedPaginationOutputObjectWithoutTotal'
+      type: object
+      x-property-sort:
+      - status
+      - pagination
+    inline_response_200_10:
+      example:
+        data:
+        - name: name
+          id: 0.8008281904610115
+          distributor:
+            name: name
+            id: 0.8008281904610115
+        - name: name
+          id: 0.8008281904610115
+          distributor:
+            name: name
+            id: 0.8008281904610115
+        meta:
+          pagination:
+            hasNext: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: List of publishers.
+          items:
+            $ref: '#/components/schemas/inline_response_200_10_data'
+          nullable: false
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_10_meta'
+      type: object
+    inline_response_200_11_data:
+      example:
+        name: name
+        id: 0.8008281904610115
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the publisher.
+          format: id32
+          nullable: true
+          type: number
+          x-sortable: true
+          x-positive: true
+        name:
+          description: Name of the publisher.
+          nullable: true
+          type: string
+          x-sortable: true
+          x-default-sort-attribute: true
+          x-default-sort-direction: 1
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_11:
+      example:
+        data:
+        - name: name
+          id: 0.8008281904610115
+        - name: name
+          id: 0.8008281904610115
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: List of publishers.
+          items:
+            $ref: '#/components/schemas/inline_response_200_11_data'
+          nullable: false
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    PostNewsArticleListRequest_data_filter_range:
+      description: Time range for matching the news article's date. At most one of
+        the attributes `start` or `end` may be `null`.
+      example:
+        start: start
+        end: end
+      format: timeRange
+      properties:
+        start:
+          description: The starting point of the time range (inclusive), or `null`
+            to indicate that the time range extends indefinitely into the past.
+          format: datetime
+          type: string
+          x-allowNullValue: true
+        end:
+          description: The ending point of the time range (exclusive), or `null` to
+            indicate that the time range extends indefinitely into the future.
+          format: datetime
+          type: string
+          x-allowNullValue: true
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+    PostNewsArticleListRequest_data_filter_categories:
+      description: Filter for specific categories of the news article. Use a category
+        system of type news with endpoint `/category/listBySystem` for valid values.
+      example:
+        ids:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        - 0.8008281904610115
+        - 0.8008281904610115
+        - 0.8008281904610115
       properties:
         ids:
-          description: List of index notation identifiers.
+          description: Identifiers of the categories.
           items:
-            format: id64
-            type: string
+            format: id32
+            type: number
             x-positive: true
-          maxItems: 500
+          maxItems: 100
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
-        filter:
-          $ref: '#/components/schemas/_news_article_list_data_filter'
-      required:
-      - ids
       type: object
       x-property-sort:
       - ids
-      - filter
-    inline_object_2:
-      properties:
-        data:
-          $ref: '#/components/schemas/_news_article_listByIndex_data'
-        meta:
-          $ref: '#/components/schemas/_news_article_list_meta'
-      type: object
-    _news_article_listByInstrument_data:
-      description: The data member contains the request's primary data.
+    PostNewsArticleListRequest_data_filter_regions:
+      description: Filter for specific regions of the content of the news article.
+        See endpoint `/basic/region/list` for valid values.
+      example:
+        ids:
+        - 6.027456183070403
+        - 6.027456183070403
+        - 6.027456183070403
+        - 6.027456183070403
+        - 6.027456183070403
       properties:
         ids:
-          description: List of instrument identifiers.
+          description: Identifiers of the regions.
           items:
-            format: id64
-            type: string
+            format: id32
+            type: number
             x-positive: true
-          maxItems: 1000
+          maxItems: 100
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
-        filter:
-          $ref: '#/components/schemas/_news_article_list_data_filter'
-      required:
-      - ids
       type: object
       x-property-sort:
       - ids
-      - filter
-    inline_object_3:
+    PostNewsArticleListRequest_data_filter_distributor:
+      description: Filter for specific distributors of the news article. See endpoint
+        `/news/distributor/list` for valid values.
+      example:
+        ids:
+        - 1.4658129805029452
+        - 1.4658129805029452
+        - 1.4658129805029452
+        - 1.4658129805029452
+        - 1.4658129805029452
       properties:
-        data:
-          $ref: '#/components/schemas/_news_article_listByInstrument_data'
-        meta:
-          $ref: '#/components/schemas/_news_article_list_meta'
+        ids:
+          description: Identifiers of the distributors.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 100
+          minItems: 1
+          nullable: false
+          type: array
+          uniqueItems: true
       type: object
-    _news_article_listByMediaKind_data:
+      x-property-sort:
+      - ids
+    PostNewsArticleListRequest_data_filter_publisher:
+      description: Filter for specific publishers of the news article. See endpoint
+        `/news/publisher/list` for valid values.
+      example:
+        ids:
+        - 5.962133916683182
+        - 5.962133916683182
+        - 5.962133916683182
+        - 5.962133916683182
+        - 5.962133916683182
+      properties:
+        ids:
+          description: Identifiers of the publishers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 100
+          minItems: 1
+          nullable: false
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    PostNewsArticleListRequest_data_filter_language:
+      description: Filter for specific languages of the news article. See endpoint
+        `/basic/language/list` for valid values.
+      example:
+        ids:
+        - 5.637376656633329
+        - 5.637376656633329
+        - 5.637376656633329
+        - 5.637376656633329
+        - 5.637376656633329
+      properties:
+        ids:
+          description: Identifiers of the languages.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 100
+          minItems: 1
+          nullable: false
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    PostNewsArticleListRequest_data_filter_types:
+      description: Filter for specific types of the news article. See endpoint `/news/article/type/list`
+        for valid values.
+      example:
+        ids:
+        - 2.3021358869347655
+        - 2.3021358869347655
+        - 2.3021358869347655
+        - 2.3021358869347655
+        - 2.3021358869347655
+      properties:
+        ids:
+          description: Identifiers of the article types.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 100
+          minItems: 1
+          nullable: false
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    PostNewsArticleListRequest_data_filter:
+      description: Criteria that filter the items in the response list; only items
+        that match all of the criteria are returned.
+      example:
+        types:
+          ids:
+          - 2.3021358869347655
+          - 2.3021358869347655
+          - 2.3021358869347655
+          - 2.3021358869347655
+          - 2.3021358869347655
+        regions:
+          ids:
+          - 6.027456183070403
+          - 6.027456183070403
+          - 6.027456183070403
+          - 6.027456183070403
+          - 6.027456183070403
+        range:
+          start: start
+          end: end
+        publisher:
+          ids:
+          - 5.962133916683182
+          - 5.962133916683182
+          - 5.962133916683182
+          - 5.962133916683182
+          - 5.962133916683182
+        language:
+          ids:
+          - 5.637376656633329
+          - 5.637376656633329
+          - 5.637376656633329
+          - 5.637376656633329
+          - 5.637376656633329
+        categories:
+          ids:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          - 0.8008281904610115
+          - 0.8008281904610115
+          - 0.8008281904610115
+        distributor:
+          ids:
+          - 1.4658129805029452
+          - 1.4658129805029452
+          - 1.4658129805029452
+          - 1.4658129805029452
+          - 1.4658129805029452
+      properties:
+        range:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter_range'
+        categories:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter_categories'
+        regions:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter_regions'
+        distributor:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter_distributor'
+        publisher:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter_publisher'
+        language:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter_language'
+        types:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter_types'
+      type: object
+      x-property-sort:
+      - range
+      - categories
+      - regions
+      - distributor
+      - publisher
+      - language
+      - types
+    PostNewsArticleListRequest_data:
       description: The data member contains the request's primary data.
+      example:
+        filter:
+          types:
+            ids:
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+          regions:
+            ids:
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+          range:
+            start: start
+            end: end
+          publisher:
+            ids:
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+          language:
+            ids:
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+          categories:
+            ids:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+          distributor:
+            ids:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+      properties:
+        filter:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter'
+      type: object
+      x-property-sort:
+      - filter
+    PostNewsArticleListRequest_meta_subscription:
+      description: Object defining the subscription attributes.
+      example:
+        minimumInterval: 3530.7006207515547
+      properties:
+        minimumInterval:
+          default: 0
+          description: Non-negative number of milliseconds to throttle the update
+            rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 5000
+          minimum: 0
+          type: number
+      required:
+      - minimumInterval
+      type: object
+      x-property-sort:
+      - minimumInterval
+    PostNewsArticleListRequest_meta_pagination:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      example:
+        cursor: cursor
+        limit: 465.1420677722356
+      properties:
+        cursor:
+          description: Starting point as returned in the attributes `pagination.next`
+            or `pagination.previous` by a prior invocation of this endpoint, or undefined
+            (default).
+          exclusiveMaximum: false
+          maxLength: 50
+          type: string
+        limit:
+          default: 20
+          description: Non-negative maximum number of entries to return.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 1
+          type: number
+      type: object
+      x-property-sort:
+      - cursor
+      - limit
+    PostNewsArticleListRequest_meta:
+      description: The meta member contains the meta information of the request.
+      example:
+        pagination:
+          cursor: cursor
+          limit: 465.1420677722356
+        attributes:
+        - attributes
+        - attributes
+        - attributes
+        - attributes
+        - attributes
+        subscription:
+          minimumInterval: 3530.7006207515547
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            exclusiveMaximum: false
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        subscription:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_meta_subscription'
+        pagination:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_meta_pagination'
+      type: object
+      x-property-sort:
+      - attributes
+      - subscription
+      - pagination
+    PostNewsArticleListByChainRequest_data_filter:
+      description: Criteria that filter the items in the response list; only items
+        that match all of the criteria are returned.
+      example:
+        range:
+          start: start
+          end: end
+      properties:
+        range:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter_range'
+      type: object
+      x-property-sort:
+      - range
+    PostNewsArticleListByChainRequest_data:
+      description: The data member contains the request's primary data.
+      example:
+        filter:
+          range:
+            start: start
+            end: end
+        id: id
+      properties:
+        id:
+          description: Identifier of the news article chain.
+          format: id64
+          type: string
+          x-positive: true
+        filter:
+          $ref: '#/components/schemas/PostNewsArticleListByChainRequest_data_filter'
+      required:
+      - id
+      type: object
+      x-property-sort:
+      - id
+      - filter
+    PostNewsArticleListByIndexRequest_data_identifier:
+      description: Set of identifiers and their type.
+      example:
+        values:
+        - values
+        - values
+        - values
+        - values
+        - values
+        type: idNotation
+      properties:
+        values:
+          description: Set of identifiers to resolve.
+          items:
+            exclusiveMaximum: false
+            exclusiveMinimum: false
+            maxLength: 50
+            minLength: 3
+            pattern: ^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$
+            type: string
+          maxItems: 100
+          minItems: 1
+          nullable: false
+          type: array
+          uniqueItems: true
+        type:
+          description: Type of the identifier.
+          enum:
+          - idNotation
+          - tickerExchange
+          - tickerRegion
+          - fdsPermanentIdentifierListing
+          - fdsPermanentIdentifierRegional
+          type: string
+          x-enum-description:
+          - MDG identifier of a listing.
+          - FactSet market symbol of a listing.
+          - Regional FactSet ticker symbol, identifying the primary listing in the
+            region.
+          - FactSet Permanent Identifier on listing level.
+          - Regional FactSet Permanent Identifier, identifying the primary listing
+            in the region.
+      required:
+      - type
+      - values
+      type: object
+      x-property-sort:
+      - values
+      - type
+    PostNewsArticleListByIndexRequest_data:
+      description: The data member contains the request's primary data.
+      example:
+        filter:
+          types:
+            ids:
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+          regions:
+            ids:
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+          range:
+            start: start
+            end: end
+          publisher:
+            ids:
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+          language:
+            ids:
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+          categories:
+            ids:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+          distributor:
+            ids:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+        identifier:
+          values:
+          - values
+          - values
+          - values
+          - values
+          - values
+          type: idNotation
+      properties:
+        identifier:
+          $ref: '#/components/schemas/PostNewsArticleListByIndexRequest_data_identifier'
+        filter:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter'
+      required:
+      - identifier
+      type: object
+      x-property-sort:
+      - identifier
+      - filter
+    PostNewsArticleListByInstrumentRequest_data_identifier:
+      description: Set of identifiers and their type.
+      example:
+        values:
+        - values
+        - values
+        - values
+        - values
+        - values
+        type: idInstrument
+      properties:
+        values:
+          description: Set of identifiers to resolve.
+          items:
+            exclusiveMaximum: false
+            exclusiveMinimum: false
+            maxLength: 50
+            minLength: 3
+            pattern: ^([B-DF-HJ-NP-TV-Z0-9]{6}-[SLR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})|([B-DF-HJ-NP-TV-Z0-9]{6}[0-9])|([A-Z]{2}[A-Z0-9]{9}[0-9])|([A-Z1-9][A-Z0-9]{5})|(0*[0-9]{1,9})|([A-Z0-9]{8}[0-9])$
+            type: string
+          maxItems: 100
+          minItems: 1
+          nullable: false
+          type: array
+          uniqueItems: true
+        type:
+          description: Type of the identifier.
+          enum:
+          - idInstrument
+          - idNotation
+          - fdsPermanentIdentifierSecurity
+          - fdsPermanentIdentifierListing
+          - fdsPermanentIdentifierRegional
+          - tickerExchange
+          - tickerRegion
+          - sedol
+          - isin
+          - wkn
+          - valor
+          - cusip
+          type: string
+          x-enum-description:
+          - MDG identifier of an instrument.
+          - MDG identifier of a listing.
+          - FactSet Permanent Identifier on security level.
+          - FactSet Permanent Identifier on listing level.
+          - Regional FactSet Permanent Identifier.
+          - FactSet market symbol of a listing.
+          - Regional FactSet ticker symbol.
+          - SEDOL or IDII of a listing.
+          - ISIN of an instrument.
+          - WKN of an instrument.
+          - Valor number of an instrument.
+          - CUSIP or CINS identifier of an instrument
+      required:
+      - type
+      - values
+      type: object
+      x-property-sort:
+      - values
+      - type
+    PostNewsArticleListByInstrumentRequest_data:
+      description: The data member contains the request's primary data.
+      example:
+        filter:
+          types:
+            ids:
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+          regions:
+            ids:
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+          range:
+            start: start
+            end: end
+          publisher:
+            ids:
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+          language:
+            ids:
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+          categories:
+            ids:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+          distributor:
+            ids:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+        identifier:
+          values:
+          - values
+          - values
+          - values
+          - values
+          - values
+          type: idInstrument
+      properties:
+        identifier:
+          $ref: '#/components/schemas/PostNewsArticleListByInstrumentRequest_data_identifier'
+        filter:
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter'
+      required:
+      - identifier
+      type: object
+      x-property-sort:
+      - identifier
+      - filter
+    PostNewsArticleListByMediaKindRequest_data:
+      description: The data member contains the request's primary data.
+      example:
+        filter:
+          types:
+            ids:
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+          regions:
+            ids:
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+          range:
+            start: start
+            end: end
+          publisher:
+            ids:
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+          language:
+            ids:
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+          categories:
+            ids:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+            - 0.8008281904610115
+          distributor:
+            ids:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+        ids:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        - 0.8008281904610115
+        - 0.8008281904610115
+        - 0.8008281904610115
       properties:
         ids:
           description: List of media kind identifiers. See endpoint `/basic/media/kind/list`
@@ -2315,24 +4321,28 @@ components:
             x-positive: true
           maxItems: 20
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
         filter:
-          $ref: '#/components/schemas/_news_article_list_data_filter'
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter'
       required:
       - ids
       type: object
       x-property-sort:
       - ids
       - filter
-    inline_object_4:
-      properties:
-        data:
-          $ref: '#/components/schemas/_news_article_listByMediaKind_data'
-        meta:
-          $ref: '#/components/schemas/_news_article_list_meta'
-      type: object
-    _news_article_searchByText_data_text_criteria:
+    PostNewsArticleSearchByTextRequest_data_text_criteria:
+      example:
+        selectionType: include
+        minimumMatchScore: 0.8008281904610115
+        scope: all
+        phrases:
+        - phrases
+        - phrases
+        - phrases
+        - phrases
+        - phrases
       properties:
         selectionType:
           default: include
@@ -2352,6 +4362,7 @@ components:
             type: string
           maxItems: 16
           minItems: 1
+          nullable: false
           type: array
         minimumMatchScore:
           default: 0.7
@@ -2376,19 +4387,37 @@ components:
       - phrases
       - minimumMatchScore
       - scope
-    _news_article_searchByText_data_text:
+    PostNewsArticleSearchByTextRequest_data_text:
       description: Restrict the response of news articles to given include and exclude
         text criteria.
+      example:
+        criteria:
+          selectionType: include
+          minimumMatchScore: 0.8008281904610115
+          scope: all
+          phrases:
+          - phrases
+          - phrases
+          - phrases
+          - phrases
+          - phrases
       properties:
         criteria:
-          $ref: '#/components/schemas/_news_article_searchByText_data_text_criteria'
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_text_criteria'
       type: object
       x-property-sort:
       - criteria
-    _news_article_searchByText_data_indices:
+    PostNewsArticleSearchByTextRequest_data_indices:
       description: Set of index notations that each represent an index. Articles that
         cover at least one instrument contained in one of the specified indices are
         found.
+      example:
+        ids:
+        - ids
+        - ids
+        - ids
+        - ids
+        - ids
       properties:
         ids:
           description: Identifiers of the index notations.
@@ -2398,15 +4427,23 @@ components:
             x-positive: true
           maxItems: 500
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
       type: object
       x-property-sort:
       - ids
-    _news_article_searchByText_data_instruments:
+    PostNewsArticleSearchByTextRequest_data_instruments:
       description: Set of stock instruments related to the article. The set is not
         updated in the course of corporate actions, e.g. when the related company
         obtains a new instrument after a spin-off.
+      example:
+        ids:
+        - ids
+        - ids
+        - ids
+        - ids
+        - ids
       properties:
         ids:
           description: Identifiers of the instruments.
@@ -2416,15 +4453,23 @@ components:
             x-positive: true
           maxItems: 1000
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
       type: object
       x-property-sort:
       - ids
-    _news_article_searchByText_data_types:
+    PostNewsArticleSearchByTextRequest_data_types:
       description: Types of the news article. A news article is found if one or more
         of the specified news article types match. See endpoint `/news/article/type/list`
         for valid values.
+      example:
+        ids:
+        - 6.027456183070403
+        - 6.027456183070403
+        - 6.027456183070403
+        - 6.027456183070403
+        - 6.027456183070403
       properties:
         ids:
           description: Identifiers of the article types.
@@ -2434,15 +4479,23 @@ components:
             x-positive: true
           maxItems: 100
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
       type: object
       x-property-sort:
       - ids
-    _news_article_searchByText_data_categories:
+    PostNewsArticleSearchByTextRequest_data_categories:
       description: Categories of the news article. A news article is found if one
         or more of the specified categories match. Use a category system of type news
         with endpoint /category/listBySystem for valid values.
+      example:
+        ids:
+        - 1.4658129805029452
+        - 1.4658129805029452
+        - 1.4658129805029452
+        - 1.4658129805029452
+        - 1.4658129805029452
       properties:
         ids:
           description: Identifiers of the categories.
@@ -2452,15 +4505,23 @@ components:
             x-positive: true
           maxItems: 100
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
       type: object
       x-property-sort:
       - ids
-    _news_article_searchByText_data_regions:
+    PostNewsArticleSearchByTextRequest_data_regions:
       description: Regions of the content of the news article. A news article is found
         if one or more of the specified regions match. See endpoint `/basic/region/list`
         for valid values.
+      example:
+        ids:
+        - 5.962133916683182
+        - 5.962133916683182
+        - 5.962133916683182
+        - 5.962133916683182
+        - 5.962133916683182
       properties:
         ids:
           description: Identifiers of the regions.
@@ -2470,15 +4531,23 @@ components:
             x-positive: true
           maxItems: 100
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
       type: object
       x-property-sort:
       - ids
-    _news_article_searchByText_data_distributor:
+    PostNewsArticleSearchByTextRequest_data_distributor:
       description: Distributors of the news article. A news article is found if one
         of the specified distributors matches. See endpoint `/news/distributor/list`
         for valid values.
+      example:
+        ids:
+        - 5.637376656633329
+        - 5.637376656633329
+        - 5.637376656633329
+        - 5.637376656633329
+        - 5.637376656633329
       properties:
         ids:
           description: Identifiers of the distributors.
@@ -2488,15 +4557,23 @@ components:
             x-positive: true
           maxItems: 100
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
       type: object
       x-property-sort:
       - ids
-    _news_article_searchByText_data_publisher:
+    PostNewsArticleSearchByTextRequest_data_publisher:
       description: Publishers of the news article. A news article is found if one
         of the specified publishers matches. See endpoint `/news/publishers/list`
         for valid values.
+      example:
+        ids:
+        - 2.3021358869347655
+        - 2.3021358869347655
+        - 2.3021358869347655
+        - 2.3021358869347655
+        - 2.3021358869347655
       properties:
         ids:
           description: Identifiers of the publishers.
@@ -2506,15 +4583,23 @@ components:
             x-positive: true
           maxItems: 100
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
       type: object
       x-property-sort:
       - ids
-    _news_article_searchByText_data_language:
+    PostNewsArticleSearchByTextRequest_data_language:
       description: Languages of the news article. A news article is found if one of
         the specified languages matches. See endpoint `/basic/language/list` for valid
         values.
+      example:
+        ids:
+        - 7.061401241503109
+        - 7.061401241503109
+        - 7.061401241503109
+        - 7.061401241503109
+        - 7.061401241503109
       properties:
         ids:
           description: Identifiers of the languages.
@@ -2524,12 +4609,74 @@ components:
             x-positive: true
           maxItems: 100
           minItems: 1
+          nullable: false
           type: array
           uniqueItems: true
       type: object
       x-property-sort:
       - ids
-    _news_article_searchByText_data_criteria:
+    PostNewsArticleSearchByTextRequest_data_criteria:
+      example:
+        selectionType: include
+        indices:
+          ids:
+          - ids
+          - ids
+          - ids
+          - ids
+          - ids
+        types:
+          ids:
+          - 6.027456183070403
+          - 6.027456183070403
+          - 6.027456183070403
+          - 6.027456183070403
+          - 6.027456183070403
+        instruments:
+          ids:
+          - ids
+          - ids
+          - ids
+          - ids
+          - ids
+        regions:
+          ids:
+          - 5.962133916683182
+          - 5.962133916683182
+          - 5.962133916683182
+          - 5.962133916683182
+          - 5.962133916683182
+        range:
+          start: start
+          end: end
+        publisher:
+          ids:
+          - 2.3021358869347655
+          - 2.3021358869347655
+          - 2.3021358869347655
+          - 2.3021358869347655
+          - 2.3021358869347655
+        language:
+          ids:
+          - 7.061401241503109
+          - 7.061401241503109
+          - 7.061401241503109
+          - 7.061401241503109
+          - 7.061401241503109
+        categories:
+          ids:
+          - 1.4658129805029452
+          - 1.4658129805029452
+          - 1.4658129805029452
+          - 1.4658129805029452
+          - 1.4658129805029452
+        distributor:
+          ids:
+          - 5.637376656633329
+          - 5.637376656633329
+          - 5.637376656633329
+          - 5.637376656633329
+          - 5.637376656633329
       properties:
         selectionType:
           default: include
@@ -2542,23 +4689,23 @@ components:
           - Articles covering the given criteria are included in the result.
           - Articles covering the given criteria are excluded from the result.
         range:
-          $ref: '#/components/schemas/_news_article_list_data_filter_range'
+          $ref: '#/components/schemas/PostNewsArticleListRequest_data_filter_range'
         indices:
-          $ref: '#/components/schemas/_news_article_searchByText_data_indices'
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_indices'
         instruments:
-          $ref: '#/components/schemas/_news_article_searchByText_data_instruments'
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_instruments'
         types:
-          $ref: '#/components/schemas/_news_article_searchByText_data_types'
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_types'
         categories:
-          $ref: '#/components/schemas/_news_article_searchByText_data_categories'
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_categories'
         regions:
-          $ref: '#/components/schemas/_news_article_searchByText_data_regions'
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_regions'
         distributor:
-          $ref: '#/components/schemas/_news_article_searchByText_data_distributor'
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_distributor'
         publisher:
-          $ref: '#/components/schemas/_news_article_searchByText_data_publisher'
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_publisher'
         language:
-          $ref: '#/components/schemas/_news_article_searchByText_data_language'
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_language'
       type: object
       x-property-sort:
       - selectionType
@@ -2571,359 +4718,341 @@ components:
       - distributor
       - publisher
       - language
-    _news_article_searchByText_data:
+    PostNewsArticleSearchByTextRequest_data:
       description: The data member contains the request's primary data.
+      example:
+        criteria:
+        - selectionType: include
+          indices:
+            ids:
+            - ids
+            - ids
+            - ids
+            - ids
+            - ids
+          types:
+            ids:
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+          instruments:
+            ids:
+            - ids
+            - ids
+            - ids
+            - ids
+            - ids
+          regions:
+            ids:
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+          range:
+            start: start
+            end: end
+          publisher:
+            ids:
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+          language:
+            ids:
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+          categories:
+            ids:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+          distributor:
+            ids:
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+        - selectionType: include
+          indices:
+            ids:
+            - ids
+            - ids
+            - ids
+            - ids
+            - ids
+          types:
+            ids:
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+          instruments:
+            ids:
+            - ids
+            - ids
+            - ids
+            - ids
+            - ids
+          regions:
+            ids:
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+          range:
+            start: start
+            end: end
+          publisher:
+            ids:
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+          language:
+            ids:
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+          categories:
+            ids:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+          distributor:
+            ids:
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+        - selectionType: include
+          indices:
+            ids:
+            - ids
+            - ids
+            - ids
+            - ids
+            - ids
+          types:
+            ids:
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+          instruments:
+            ids:
+            - ids
+            - ids
+            - ids
+            - ids
+            - ids
+          regions:
+            ids:
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+          range:
+            start: start
+            end: end
+          publisher:
+            ids:
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+          language:
+            ids:
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+          categories:
+            ids:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+          distributor:
+            ids:
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+        - selectionType: include
+          indices:
+            ids:
+            - ids
+            - ids
+            - ids
+            - ids
+            - ids
+          types:
+            ids:
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+          instruments:
+            ids:
+            - ids
+            - ids
+            - ids
+            - ids
+            - ids
+          regions:
+            ids:
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+          range:
+            start: start
+            end: end
+          publisher:
+            ids:
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+          language:
+            ids:
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+          categories:
+            ids:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+          distributor:
+            ids:
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+        - selectionType: include
+          indices:
+            ids:
+            - ids
+            - ids
+            - ids
+            - ids
+            - ids
+          types:
+            ids:
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+            - 6.027456183070403
+          instruments:
+            ids:
+            - ids
+            - ids
+            - ids
+            - ids
+            - ids
+          regions:
+            ids:
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+            - 5.962133916683182
+          range:
+            start: start
+            end: end
+          publisher:
+            ids:
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+            - 2.3021358869347655
+          language:
+            ids:
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+            - 7.061401241503109
+          categories:
+            ids:
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+            - 1.4658129805029452
+          distributor:
+            ids:
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+            - 5.637376656633329
+        text:
+          criteria:
+            selectionType: include
+            minimumMatchScore: 0.8008281904610115
+            scope: all
+            phrases:
+            - phrases
+            - phrases
+            - phrases
+            - phrases
+            - phrases
       properties:
         text:
-          $ref: '#/components/schemas/_news_article_searchByText_data_text'
+          $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_text'
         criteria:
           description: Restrict the response of news articles to given include and
             exclude criteria.
           items:
-            $ref: '#/components/schemas/_news_article_searchByText_data_criteria'
+            $ref: '#/components/schemas/PostNewsArticleSearchByTextRequest_data_criteria'
           maxItems: 8
+          nullable: false
           type: array
       type: object
       x-property-sort:
       - text
       - criteria
-    inline_object_5:
-      properties:
-        data:
-          $ref: '#/components/schemas/_news_article_searchByText_data'
-        meta:
-          $ref: '#/components/schemas/_news_article_list_meta'
-      type: object
-    inline_response_200_3_data:
-      description: Details of a news article type.
-      example:
-        name: name
-      properties:
-        name:
-          description: Name of the news article type.
-          format: localizedString
-          type: string
-      type: object
-      x-property-sort:
-      - name
-    inline_response_200_3:
-      example:
-        data:
-          name: name
-        meta:
-          status:
-            code: 9.301444243932576
-      properties:
-        data:
-          $ref: '#/components/schemas/inline_response_200_3_data'
-        meta:
-          $ref: '#/components/schemas/inline_response_200_meta'
-      type: object
-    inline_response_200_4_data:
-      example:
-        name: name
-        id: 0.8008281904610115
-      properties:
-        id:
-          description: Identifier of the news article type.
-          format: id32
-          type: number
-          x-positive: true
-        name:
-          description: Name of the news article type.
-          format: localizedString
-          type: string
-      type: object
-      x-property-sort:
-      - id
-      - name
-    inline_response_200_4:
-      example:
-        data:
-        - name: name
-          id: 0.8008281904610115
-        - name: name
-          id: 0.8008281904610115
-        meta:
-          status:
-            code: 9.301444243932576
-      properties:
-        data:
-          description: List of news article types, sorted by ascending identifier
-            value.
-          items:
-            $ref: '#/components/schemas/inline_response_200_4_data'
-          type: array
-        meta:
-          $ref: '#/components/schemas/inline_response_200_meta'
-      type: object
-    inline_response_200_5_data_delivery:
-      description: Delivery of the distributor.
-      example:
-        name: name
-        id: 0.8008281904610115
-      properties:
-        id:
-          description: Identifier of the delivery.
-          format: id32
-          type: number
-          x-positive: true
-        name:
-          description: Name of the delivery.
-          type: string
-      type: object
-      x-property-sort:
-      - id
-      - name
-    inline_response_200_5_data:
-      description: Details of the distributor.
-      example:
-        delivery:
-          name: name
-          id: 0.8008281904610115
-        name: name
-      properties:
-        name:
-          description: Name of the distributor.
-          type: string
-        delivery:
-          $ref: '#/components/schemas/inline_response_200_5_data_delivery'
-      type: object
-      x-property-sort:
-      - name
-      - delivery
-    inline_response_200_5:
-      example:
-        data:
-          delivery:
-            name: name
-            id: 0.8008281904610115
-          name: name
-        meta:
-          status:
-            code: 9.301444243932576
-      properties:
-        data:
-          $ref: '#/components/schemas/inline_response_200_5_data'
-        meta:
-          $ref: '#/components/schemas/inline_response_200_meta'
-      type: object
-    inline_response_200_6_data:
-      example:
-        delivery:
-          name: name
-          id: 0.8008281904610115
-        name: name
-        id: 0.8008281904610115
-      properties:
-        id:
-          description: Identifier of the distributor.
-          format: id32
-          type: number
-          x-sortable: true
-          x-positive: true
-        name:
-          description: Name of the distributor.
-          type: string
-          x-sortable: true
-          x-default-sort-attribute: true
-          x-default-sort-direction: 1
-        delivery:
-          $ref: '#/components/schemas/inline_response_200_5_data_delivery'
-      type: object
-      x-property-sort:
-      - id
-      - name
-      - delivery
-    inline_response_200_6:
-      example:
-        data:
-        - delivery:
-            name: name
-            id: 0.8008281904610115
-          name: name
-          id: 0.8008281904610115
-        - delivery:
-            name: name
-            id: 0.8008281904610115
-          name: name
-          id: 0.8008281904610115
-        meta:
-          status:
-            code: 9.301444243932576
-      properties:
-        data:
-          description: List of distributors.
-          items:
-            $ref: '#/components/schemas/inline_response_200_6_data'
-          type: array
-        meta:
-          $ref: '#/components/schemas/inline_response_200_meta'
-      type: object
-    inline_response_200_7_data_distributor:
-      description: Distributor of the publisher.
-      example:
-        name: name
-        id: 0.8008281904610115
-      properties:
-        id:
-          description: Identifier of the distributor.
-          format: id32
-          type: number
-          x-positive: true
-        name:
-          description: Name of the distributor.
-          type: string
-      type: object
-      x-property-sort:
-      - id
-      - name
-    inline_response_200_7_data:
-      description: Details of the publisher.
-      example:
-        name: name
-        distributor:
-          name: name
-          id: 0.8008281904610115
-      properties:
-        name:
-          description: Name of the publisher.
-          type: string
-        distributor:
-          $ref: '#/components/schemas/inline_response_200_7_data_distributor'
-      type: object
-      x-property-sort:
-      - name
-      - distributor
-    inline_response_200_7:
-      example:
-        data:
-          name: name
-          distributor:
-            name: name
-            id: 0.8008281904610115
-        meta:
-          status:
-            code: 9.301444243932576
-      properties:
-        data:
-          $ref: '#/components/schemas/inline_response_200_7_data'
-        meta:
-          $ref: '#/components/schemas/inline_response_200_meta'
-      type: object
-    inline_response_200_8_data:
-      example:
-        name: name
-        id: 0.8008281904610115
-        distributor:
-          name: name
-          id: 0.8008281904610115
-      properties:
-        id:
-          description: Identifier of the publisher.
-          format: id32
-          type: number
-          x-sortable: true
-          x-positive: true
-        name:
-          description: Name of the publisher.
-          type: string
-          x-sortable: true
-          x-default-sort-attribute: true
-          x-default-sort-direction: 1
-        distributor:
-          $ref: '#/components/schemas/inline_response_200_7_data_distributor'
-      type: object
-      x-property-sort:
-      - id
-      - name
-      - distributor
-    inline_response_200_8_meta:
-      description: The meta member contains the meta information of the response.
-      example:
-        pagination:
-          hasNext: true
-        status:
-          code: 9.301444243932576
-      properties:
-        status:
-          $ref: '#/components/schemas/StatusObject'
-        pagination:
-          $ref: '#/components/schemas/OffsetBasedPaginationOutputObjectWithoutTotal'
-      type: object
-      x-property-sort:
-      - status
-      - pagination
-    inline_response_200_8:
-      example:
-        data:
-        - name: name
-          id: 0.8008281904610115
-          distributor:
-            name: name
-            id: 0.8008281904610115
-        - name: name
-          id: 0.8008281904610115
-          distributor:
-            name: name
-            id: 0.8008281904610115
-        meta:
-          pagination:
-            hasNext: true
-          status:
-            code: 9.301444243932576
-      properties:
-        data:
-          description: List of publishers.
-          items:
-            $ref: '#/components/schemas/inline_response_200_8_data'
-          type: array
-        meta:
-          $ref: '#/components/schemas/inline_response_200_8_meta'
-      type: object
-    inline_response_200_9_data:
-      example:
-        name: name
-        id: 0.8008281904610115
-      properties:
-        id:
-          description: Identifier of the publisher.
-          format: id32
-          type: number
-          x-sortable: true
-          x-positive: true
-        name:
-          description: Name of the publisher.
-          type: string
-          x-sortable: true
-          x-default-sort-attribute: true
-          x-default-sort-direction: 1
-      type: object
-      x-property-sort:
-      - id
-      - name
-    inline_response_200_9:
-      example:
-        data:
-        - name: name
-          id: 0.8008281904610115
-        - name: name
-          id: 0.8008281904610115
-        meta:
-          status:
-            code: 9.301444243932576
-      properties:
-        data:
-          description: List of publishers.
-          items:
-            $ref: '#/components/schemas/inline_response_200_9_data'
-          type: array
-        meta:
-          $ref: '#/components/schemas/inline_response_200_meta'
-      type: object
-    _news_publisher_searchByName_data_filter_distributor:
+    PostNewsPublisherSearchByNameRequest_data_filter_distributor:
       description: Filter for distributors. See endpoint `/news/distributor/list`
         for valid values.
+      example:
+        id: 0.8008281904610115
       properties:
         id:
           description: Identifier of distributor.
@@ -2933,9 +5062,11 @@ components:
       type: object
       x-property-sort:
       - id
-    _news_publisher_searchByName_data_filter_delivery:
+    PostNewsPublisherSearchByNameRequest_data_filter_delivery:
       description: Filter for deliveries. See endpoint `/basic/delivery/list` for
         valid values.
+      example:
+        id: 6.027456183070403
       properties:
         id:
           description: Identifier of delivery.
@@ -2945,20 +5076,33 @@ components:
       type: object
       x-property-sort:
       - id
-    _news_publisher_searchByName_data_filter:
+    PostNewsPublisherSearchByNameRequest_data_filter:
       description: Criteria that filter the items in the response list; only items
         that match all of the criteria are returned.
+      example:
+        delivery:
+          id: 6.027456183070403
+        distributor:
+          id: 0.8008281904610115
       properties:
         distributor:
-          $ref: '#/components/schemas/_news_publisher_searchByName_data_filter_distributor'
+          $ref: '#/components/schemas/PostNewsPublisherSearchByNameRequest_data_filter_distributor'
         delivery:
-          $ref: '#/components/schemas/_news_publisher_searchByName_data_filter_delivery'
+          $ref: '#/components/schemas/PostNewsPublisherSearchByNameRequest_data_filter_delivery'
       type: object
       x-property-sort:
       - distributor
       - delivery
-    _news_publisher_searchByName_data:
+    PostNewsPublisherSearchByNameRequest_data:
       description: The data member contains the request's primary data.
+      example:
+        filter:
+          delivery:
+            id: 6.027456183070403
+          distributor:
+            id: 0.8008281904610115
+        matchType: begins
+        searchValue: searchValue
       properties:
         searchValue:
           description: Restricts the search to publishers, which match the search
@@ -2980,7 +5124,7 @@ components:
           - Publisher name must end with the searchValue.
           - Publisher name must begin, end, or contain the searchValue.
         filter:
-          $ref: '#/components/schemas/_news_publisher_searchByName_data_filter'
+          $ref: '#/components/schemas/PostNewsPublisherSearchByNameRequest_data_filter'
       required:
       - matchType
       - searchValue
@@ -2989,8 +5133,17 @@ components:
       - searchValue
       - matchType
       - filter
-    _news_publisher_searchByName_meta:
+    PostNewsPublisherSearchByNameRequest_meta:
       description: The meta member contains the meta information of the request.
+      example:
+        attributes:
+        - attributes
+        - attributes
+        - attributes
+        - attributes
+        - attributes
+        sort:
+        - id
       properties:
         attributes:
           description: Limit the attributes returned in the response to the specified
@@ -3022,13 +5175,6 @@ components:
       x-property-sort:
       - attributes
       - sort
-    inline_object_6:
-      properties:
-        data:
-          $ref: '#/components/schemas/_news_publisher_searchByName_data'
-        meta:
-          $ref: '#/components/schemas/_news_publisher_searchByName_meta'
-      type: object
   securitySchemes:
     FactSetOAuth2:
       flows:
@@ -3040,6 +5186,6 @@ components:
       scheme: basic
       type: http
 x-interface-version: 2
-x-documenter-version: 6.0.1
-x-api-version: 3.3.0
+x-documenter-version: 6.3.0
+x-api-version: 4.0.2
 

@@ -1,6 +1,6 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Api.InstrumentApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**PostInstrumentCompliancePropertyList**](InstrumentApi.md#postinstrumentcompliancepropertylist) | **POST** /instrument/complianceProperty/list | List of compliance properties for instruments.
 [**PostInstrumentCrossReferenceListByISIN**](InstrumentApi.md#postinstrumentcrossreferencelistbyisin) | **POST** /instrument/crossReference/listByISIN | Translate a list of ISINs to instruments.
 [**PostInstrumentCrossReferenceListByWKN**](InstrumentApi.md#postinstrumentcrossreferencelistbywkn) | **POST** /instrument/crossReference/listByWKN | Translate a list of WKNs to instruments.
+[**PostInstrumentNotationList**](InstrumentApi.md#postinstrumentnotationlist) | **POST** /instrument/notation/list | List of active, entitled notations for a set of instruments.
 [**PostInstrumentRatingGradeList**](InstrumentApi.md#postinstrumentratinggradelist) | **POST** /instrument/rating/grade/list | List of rating grades for a list of instruments.
 
 
@@ -76,9 +77,9 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var id = "id_example";  // string | Identifier of an instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -101,9 +102,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of an instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20044**](InlineResponse20044.md)
@@ -169,9 +170,9 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var id = "id_example";  // string | Identifier of an instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -194,9 +195,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of an instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20049**](InlineResponse20049.md)
@@ -262,9 +263,9 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var id = "id_example";  // string | Identifier of a composite instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -287,9 +288,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of a composite instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20050**](InlineResponse20050.md)
@@ -356,7 +357,7 @@ namespace Example
             var apiInstance = new InstrumentApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -380,7 +381,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20052**](InlineResponse20052.md)
@@ -447,7 +448,7 @@ namespace Example
             var apiInstance = new InstrumentApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -471,7 +472,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20053**](InlineResponse20053.md)
@@ -537,9 +538,9 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var id = "id_example";  // string | Identifier of an instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -562,9 +563,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of an instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20054**](InlineResponse20054.md)
@@ -630,9 +631,9 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var id = "id_example";  // string | Identifier of an instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -655,9 +656,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of an instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20051**](InlineResponse20051.md)
@@ -723,7 +724,7 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var isin = "isin_example";  // string | Source ISIN to be translated.
+            var isin = "isin_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -747,7 +748,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **isin** | **string**| Source ISIN to be translated. | 
+ **isin** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -814,7 +815,7 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var wkn = "wkn_example";  // string | Source WKN to be translated.
+            var wkn = "wkn_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -838,7 +839,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wkn** | **string**| Source WKN to be translated. | 
+ **wkn** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -905,10 +906,10 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var isin = "isin_example";  // string | Source ISIN to be translated.
+            var isin = "isin_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
-            var paginationLimit = 10.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 10.0M)
+            var paginationOffset = 0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0M)
+            var paginationLimit = 10MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 10M)
 
             try
             {
@@ -931,10 +932,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **isin** | **string**| Source ISIN to be translated. | 
+ **isin** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0M]
- **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 10.0M]
+ **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0M]
+ **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 10M]
 
 ### Return type
 [**InlineResponse20058**](InlineResponse20058.md)
@@ -1000,10 +1001,10 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var wkn = "wkn_example";  // string | Source WKN to be translated.
+            var wkn = "wkn_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
-            var paginationLimit = 10.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 10.0M)
+            var paginationOffset = 0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0M)
+            var paginationLimit = 10MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 10M)
 
             try
             {
@@ -1026,10 +1027,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wkn** | **string**| Source WKN to be translated. | 
+ **wkn** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0M]
- **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 10.0M]
+ **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0M]
+ **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 10M]
 
 ### Return type
 [**InlineResponse20058**](InlineResponse20058.md)
@@ -1095,10 +1096,10 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var target = 8.14D;  // decimal | Identifier of the target main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
-            var source = 8.14D;  // decimal | Identifier of the source main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
+            var target = 8.14D;  // decimal | 
+            var source = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1121,10 +1122,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **target** | **decimal**| Identifier of the target main currency. See endpoint &#x60;/basic/valueUnit/currency/main/list&#x60; for valid values. | 
- **source** | **decimal**| Identifier of the source main currency. See endpoint &#x60;/basic/valueUnit/currency/main/list&#x60; for valid values. | 
+ **target** | **decimal**|  | 
+ **source** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20059**](InlineResponse20059.md)
@@ -1190,10 +1191,10 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var target = "target_example";  // string | ISO 4217 code of the target main currency.
-            var source = "source_example";  // string | ISO 4217 code of the source main currency.
+            var target = "target_example";  // string | 
+            var source = "source_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1216,10 +1217,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **target** | **string**| ISO 4217 code of the target main currency. | 
- **source** | **string**| ISO 4217 code of the source main currency. | 
+ **target** | **string**|  | 
+ **source** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20059**](InlineResponse20059.md)
@@ -1285,9 +1286,9 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var id = "id_example";  // string | Identifier of an instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1310,9 +1311,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of an instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20042**](InlineResponse20042.md)
@@ -1378,9 +1379,9 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var id = "id_example";  // string | Identifier of a notation.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1403,9 +1404,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of a notation. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20043**](InlineResponse20043.md)
@@ -1471,9 +1472,9 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var id = "id_example";  // string | Identifier of an instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1496,9 +1497,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of an instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20060**](InlineResponse20060.md)
@@ -1564,9 +1565,9 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var id = "id_example";  // string | Identifier of an instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1589,9 +1590,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of an instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20061**](InlineResponse20061.md)
@@ -1657,9 +1658,9 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var id = "id_example";  // string | Identifier of the instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1682,9 +1683,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20062**](InlineResponse20062.md)
@@ -1708,7 +1709,7 @@ Name | Type | Description  | Notes
 
 <a name="getinstrumentsearchbasic"></a>
 # **GetInstrumentSearchBasic**
-> InlineResponse20087 GetInstrumentSearchBasic (string searchValue, List<string> nsins = null, string assetClass = null, bool? onlyActive = null, List<string> attributes = null, string language = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
+> InlineResponse20090 GetInstrumentSearchBasic (string searchValue, List<string> nsins = null, string assetClass = null, bool? onlyActive = null, List<string> attributes = null, string language = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
 
 Basic search for instruments.
 
@@ -1750,19 +1751,19 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var searchValue = "searchValue_example";  // string | The search value of the instruments searching for. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
-            var nsins = new List<string>(); // List<string> | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional) 
-            var assetClass = "index";  // string | A parameter to limit the output to a particular asset class. (optional) 
-            var onlyActive = true;  // bool? | If true, restricts the result to active instruments. (optional)  (default to true)
+            var searchValue = "searchValue_example";  // string | 
+            var nsins = new List<string>(); // List<string> |  (optional) 
+            var assetClass = "index";  // string |  (optional) 
+            var onlyActive = true;  // bool? |  (optional)  (default to true)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
-            var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
-            var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
+            var language = "language_example";  // string |  (optional) 
+            var paginationOffset = 0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0M)
+            var paginationLimit = 20MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20M)
 
             try
             {
                 // Basic search for instruments.
-                InlineResponse20087 result = apiInstance.GetInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
+                InlineResponse20090 result = apiInstance.GetInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1780,17 +1781,17 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchValue** | **string**| The search value of the instruments searching for. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. | 
- **nsins** | [**List&lt;string&gt;**](string.md)| A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. | [optional] 
- **assetClass** | **string**| A parameter to limit the output to a particular asset class. | [optional] 
- **onlyActive** | **bool?**| If true, restricts the result to active instruments. | [optional] [default to true]
+ **searchValue** | **string**|  | 
+ **nsins** | [**List&lt;string&gt;**](string.md)|  | [optional] 
+ **assetClass** | **string**|  | [optional] 
+ **onlyActive** | **bool?**|  | [optional] [default to true]
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
- **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0M]
- **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20.0M]
+ **language** | **string**|  | [optional] 
+ **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0M]
+ **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
 ### Return type
-[**InlineResponse20087**](InlineResponse20087.md)
+[**InlineResponse20090**](InlineResponse20090.md)
 
 ### Authorization
 
@@ -1811,7 +1812,7 @@ Name | Type | Description  | Notes
 
 <a name="postinstrumentbackgroundtexttypelist"></a>
 # **PostInstrumentBackgroundTextTypeList**
-> InlineResponse20045 PostInstrumentBackgroundTextTypeList (InlineObject9 body = null)
+> InlineResponse20045 PostInstrumentBackgroundTextTypeList (PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = null)
 
 List of background text types for instruments.
 
@@ -1853,12 +1854,12 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var body = new InlineObject9(); // InlineObject9 |  (optional) 
+            var postInstrumentBackgroundTextTypeListRequest = new PostInstrumentBackgroundTextTypeListRequest(); // PostInstrumentBackgroundTextTypeListRequest |  (optional) 
 
             try
             {
                 // List of background text types for instruments.
-                InlineResponse20045 result = apiInstance.PostInstrumentBackgroundTextTypeList(body);
+                InlineResponse20045 result = apiInstance.PostInstrumentBackgroundTextTypeList(postInstrumentBackgroundTextTypeListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1876,7 +1877,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject9**](InlineObject9.md)|  | [optional] 
+ **postInstrumentBackgroundTextTypeListRequest** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20045**](InlineResponse20045.md)
@@ -1900,7 +1901,7 @@ Name | Type | Description  | Notes
 
 <a name="postinstrumentbenchmarklist"></a>
 # **PostInstrumentBenchmarkList**
-> InlineResponse20046 PostInstrumentBenchmarkList (InlineObject10 body = null)
+> InlineResponse20046 PostInstrumentBenchmarkList (PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = null)
 
 List of benchmarks of a financial instrument.
 
@@ -1942,12 +1943,12 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var body = new InlineObject10(); // InlineObject10 |  (optional) 
+            var postInstrumentBenchmarkListRequest = new PostInstrumentBenchmarkListRequest(); // PostInstrumentBenchmarkListRequest |  (optional) 
 
             try
             {
                 // List of benchmarks of a financial instrument.
-                InlineResponse20046 result = apiInstance.PostInstrumentBenchmarkList(body);
+                InlineResponse20046 result = apiInstance.PostInstrumentBenchmarkList(postInstrumentBenchmarkListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1965,7 +1966,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject10**](InlineObject10.md)|  | [optional] 
+ **postInstrumentBenchmarkListRequest** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20046**](InlineResponse20046.md)
@@ -1989,7 +1990,7 @@ Name | Type | Description  | Notes
 
 <a name="postinstrumentcategorylist"></a>
 # **PostInstrumentCategoryList**
-> InlineResponse20047 PostInstrumentCategoryList (InlineObject11 body = null)
+> InlineResponse20047 PostInstrumentCategoryList (PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = null)
 
 List of categories assigned to a specific instrument the application is entitled to see.
 
@@ -2031,12 +2032,12 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var body = new InlineObject11(); // InlineObject11 |  (optional) 
+            var postInstrumentCategoryListRequest = new PostInstrumentCategoryListRequest(); // PostInstrumentCategoryListRequest |  (optional) 
 
             try
             {
                 // List of categories assigned to a specific instrument the application is entitled to see.
-                InlineResponse20047 result = apiInstance.PostInstrumentCategoryList(body);
+                InlineResponse20047 result = apiInstance.PostInstrumentCategoryList(postInstrumentCategoryListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2054,7 +2055,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject11**](InlineObject11.md)|  | [optional] 
+ **postInstrumentCategoryListRequest** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20047**](InlineResponse20047.md)
@@ -2078,7 +2079,7 @@ Name | Type | Description  | Notes
 
 <a name="postinstrumentcompliancepropertylist"></a>
 # **PostInstrumentCompliancePropertyList**
-> InlineResponse20048 PostInstrumentCompliancePropertyList (InlineObject12 body = null)
+> InlineResponse20048 PostInstrumentCompliancePropertyList (PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = null)
 
 List of compliance properties for instruments.
 
@@ -2120,12 +2121,12 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var body = new InlineObject12(); // InlineObject12 |  (optional) 
+            var postInstrumentCompliancePropertyListRequest = new PostInstrumentCompliancePropertyListRequest(); // PostInstrumentCompliancePropertyListRequest |  (optional) 
 
             try
             {
                 // List of compliance properties for instruments.
-                InlineResponse20048 result = apiInstance.PostInstrumentCompliancePropertyList(body);
+                InlineResponse20048 result = apiInstance.PostInstrumentCompliancePropertyList(postInstrumentCompliancePropertyListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2143,7 +2144,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject12**](InlineObject12.md)|  | [optional] 
+ **postInstrumentCompliancePropertyListRequest** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20048**](InlineResponse20048.md)
@@ -2167,7 +2168,7 @@ Name | Type | Description  | Notes
 
 <a name="postinstrumentcrossreferencelistbyisin"></a>
 # **PostInstrumentCrossReferenceListByISIN**
-> InlineResponse20056 PostInstrumentCrossReferenceListByISIN (InlineObject13 body)
+> InlineResponse20056 PostInstrumentCrossReferenceListByISIN (PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = null)
 
 Translate a list of ISINs to instruments.
 
@@ -2209,12 +2210,12 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var body = new InlineObject13(); // InlineObject13 | 
+            var postInstrumentCrossReferenceListByISINRequest = new PostInstrumentCrossReferenceListByISINRequest(); // PostInstrumentCrossReferenceListByISINRequest |  (optional) 
 
             try
             {
                 // Translate a list of ISINs to instruments.
-                InlineResponse20056 result = apiInstance.PostInstrumentCrossReferenceListByISIN(body);
+                InlineResponse20056 result = apiInstance.PostInstrumentCrossReferenceListByISIN(postInstrumentCrossReferenceListByISINRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2232,7 +2233,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject13**](InlineObject13.md)|  | 
+ **postInstrumentCrossReferenceListByISINRequest** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20056**](InlineResponse20056.md)
@@ -2256,7 +2257,7 @@ Name | Type | Description  | Notes
 
 <a name="postinstrumentcrossreferencelistbywkn"></a>
 # **PostInstrumentCrossReferenceListByWKN**
-> InlineResponse20057 PostInstrumentCrossReferenceListByWKN (InlineObject14 body)
+> InlineResponse20057 PostInstrumentCrossReferenceListByWKN (PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = null)
 
 Translate a list of WKNs to instruments.
 
@@ -2298,12 +2299,12 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var body = new InlineObject14(); // InlineObject14 | 
+            var postInstrumentCrossReferenceListByWKNRequest = new PostInstrumentCrossReferenceListByWKNRequest(); // PostInstrumentCrossReferenceListByWKNRequest |  (optional) 
 
             try
             {
                 // Translate a list of WKNs to instruments.
-                InlineResponse20057 result = apiInstance.PostInstrumentCrossReferenceListByWKN(body);
+                InlineResponse20057 result = apiInstance.PostInstrumentCrossReferenceListByWKN(postInstrumentCrossReferenceListByWKNRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2321,7 +2322,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject14**](InlineObject14.md)|  | 
+ **postInstrumentCrossReferenceListByWKNRequest** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20057**](InlineResponse20057.md)
@@ -2343,9 +2344,98 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="postinstrumentnotationlist"></a>
+# **PostInstrumentNotationList**
+> InlineResponse20063 PostInstrumentNotationList (PostInstrumentNotationListRequest postInstrumentNotationListRequest = null)
+
+List of active, entitled notations for a set of instruments.
+
+List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
+using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
+using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
+
+namespace Example
+{
+    public class PostInstrumentNotationListExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new InstrumentApi(config);
+
+            var postInstrumentNotationListRequest = new PostInstrumentNotationListRequest(); // PostInstrumentNotationListRequest |  (optional) 
+
+            try
+            {
+                // List of active, entitled notations for a set of instruments.
+                InlineResponse20063 result = apiInstance.PostInstrumentNotationList(postInstrumentNotationListRequest);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling InstrumentApi.PostInstrumentNotationList: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postInstrumentNotationListRequest** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)|  | [optional] 
+
+### Return type
+[**InlineResponse20063**](InlineResponse20063.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="postinstrumentratinggradelist"></a>
 # **PostInstrumentRatingGradeList**
-> InlineResponse20063 PostInstrumentRatingGradeList (InlineObject15 body = null)
+> InlineResponse20064 PostInstrumentRatingGradeList (PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = null)
 
 List of rating grades for a list of instruments.
 
@@ -2387,12 +2477,12 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var body = new InlineObject15(); // InlineObject15 |  (optional) 
+            var postInstrumentRatingGradeListRequest = new PostInstrumentRatingGradeListRequest(); // PostInstrumentRatingGradeListRequest |  (optional) 
 
             try
             {
                 // List of rating grades for a list of instruments.
-                InlineResponse20063 result = apiInstance.PostInstrumentRatingGradeList(body);
+                InlineResponse20064 result = apiInstance.PostInstrumentRatingGradeList(postInstrumentRatingGradeListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2410,10 +2500,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject15**](InlineObject15.md)|  | [optional] 
+ **postInstrumentRatingGradeListRequest** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse20063**](InlineResponse20063.md)
+[**InlineResponse20064**](InlineResponse20064.md)
 
 ### Authorization
 

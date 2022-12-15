@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**GetEventDetails**](EventsApi.md#geteventdetails) | **GET** /events/details | 
 [**GetEventEntities**](EventsApi.md#getevententities) | **GET** /events/entities | 
 [**GetEventHeadlines**](EventsApi.md#geteventheadlines) | **GET** /events/headlines | 
+[**PostEventAdaptiveCards**](EventsApi.md#posteventadaptivecards) | **POST** /events/adaptive-cards | 
 [**PostEventDetails**](EventsApi.md#posteventdetails) | **POST** /events/details | 
+[**PostEventEntities**](EventsApi.md#postevententities) | **POST** /events/entities | 
 [**PostEventHeadlines**](EventsApi.md#posteventheadlines) | **POST** /events/headlines | 
 
 
@@ -106,7 +108,7 @@ Name | Type | Description  | Notes
 
 <a name="geteventadaptivecards"></a>
 # **GetEventAdaptiveCards**
-> EventAdaptiveCards GetEventAdaptiveCards (DateTimeInterval created = null, DateTimeInterval updated = null, string signalIds = null, string ids = null, string portfolios = null, string themes = null, string categories = null, RelevanceScoreRange userRelevanceScore = null, string sort = null)
+> EventAdaptiveCards GetEventAdaptiveCards (DateTimeInterval created = null, DateTimeInterval updated = null, string signalIds = null, string ids = null, string portfolios = null, string themes = null, string categories = null, RelevanceScoreRange userRelevanceScore = null, string sort = null, bool? resolveIdentifiers = null)
 
 
 
@@ -149,7 +151,7 @@ namespace Example
             var apiInstance = new EventsApi(config);
 
             var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
-            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
+            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
             var signalIds = "dilutionTrigger,freeCashFlow";  // string |  (optional) 
             var ids = "FDS-US,AMZN-US";  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
             var portfolios = "portfolios_example";  // string | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional) 
@@ -157,10 +159,11 @@ namespace Example
             var categories = "categories_example";  // string | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional) 
             var userRelevanceScore = new RelevanceScoreRange(); // RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional) 
             var sort = "-userRelevanceScore,-eventDate";  // string | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional) 
+            var resolveIdentifiers = true;  // bool? | The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional) 
 
             try
             {
-                EventAdaptiveCards result = apiInstance.GetEventAdaptiveCards(created, updated, signalIds, ids, portfolios, themes, categories, userRelevanceScore, sort);
+                EventAdaptiveCards result = apiInstance.GetEventAdaptiveCards(created, updated, signalIds, ids, portfolios, themes, categories, userRelevanceScore, sort, resolveIdentifiers);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -179,7 +182,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **string**|  | [optional] 
  **ids** | **string**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional] 
  **portfolios** | **string**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional] 
@@ -187,6 +190,7 @@ Name | Type | Description  | Notes
  **categories** | **string**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional] 
  **userRelevanceScore** | [**RelevanceScoreRange**](RelevanceScoreRange.md)| A range for filtering signal events based on their relevancy score. | [optional] 
  **sort** | **string**| Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). | [optional] 
+ **resolveIdentifiers** | **bool?**| The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. | [optional] 
 
 ### Return type
 [**EventAdaptiveCards**](EventAdaptiveCards.md)
@@ -302,7 +306,7 @@ Name | Type | Description  | Notes
 
 <a name="geteventdetails"></a>
 # **GetEventDetails**
-> EventDetails GetEventDetails (DateTimeInterval created = null, DateTimeInterval updated = null, string signalIds = null, string ids = null, string portfolios = null, string themes = null, string categories = null, RelevanceScoreRange userRelevanceScore = null, string sort = null)
+> EventDetails GetEventDetails (DateTimeInterval created = null, DateTimeInterval updated = null, string signalIds = null, string ids = null, string portfolios = null, string themes = null, string categories = null, RelevanceScoreRange userRelevanceScore = null, string sort = null, bool? resolveIdentifiers = null)
 
 
 
@@ -345,7 +349,7 @@ namespace Example
             var apiInstance = new EventsApi(config);
 
             var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
-            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
+            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
             var signalIds = "dilutionTrigger,freeCashFlow";  // string |  (optional) 
             var ids = "FDS-US,AMZN-US";  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
             var portfolios = "portfolios_example";  // string | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional) 
@@ -353,10 +357,11 @@ namespace Example
             var categories = "categories_example";  // string | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional) 
             var userRelevanceScore = new RelevanceScoreRange(); // RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional) 
             var sort = "-userRelevanceScore,-eventDate";  // string | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional) 
+            var resolveIdentifiers = true;  // bool? | The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional) 
 
             try
             {
-                EventDetails result = apiInstance.GetEventDetails(created, updated, signalIds, ids, portfolios, themes, categories, userRelevanceScore, sort);
+                EventDetails result = apiInstance.GetEventDetails(created, updated, signalIds, ids, portfolios, themes, categories, userRelevanceScore, sort, resolveIdentifiers);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -375,7 +380,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **string**|  | [optional] 
  **ids** | **string**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional] 
  **portfolios** | **string**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional] 
@@ -383,6 +388,7 @@ Name | Type | Description  | Notes
  **categories** | **string**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional] 
  **userRelevanceScore** | [**RelevanceScoreRange**](RelevanceScoreRange.md)| A range for filtering signal events based on their relevancy score. | [optional] 
  **sort** | **string**| Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). | [optional] 
+ **resolveIdentifiers** | **bool?**| The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. | [optional] 
 
 ### Return type
 [**EventDetails**](EventDetails.md)
@@ -451,7 +457,7 @@ namespace Example
             var apiInstance = new EventsApi(config);
 
             var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
-            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
+            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
             var signalIds = "dilutionTrigger,freeCashFlow";  // string |  (optional) 
             var themes = "themes_example";  // string | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional) 
             var categories = "categories_example";  // string | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional) 
@@ -478,7 +484,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **string**|  | [optional] 
  **themes** | **string**| Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. | [optional] 
  **categories** | **string**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional] 
@@ -508,7 +514,7 @@ Name | Type | Description  | Notes
 
 <a name="geteventheadlines"></a>
 # **GetEventHeadlines**
-> EventHeadlines GetEventHeadlines (DateTimeInterval created = null, DateTimeInterval updated = null, string signalIds = null, string ids = null, string portfolios = null, string themes = null, string categories = null, RelevanceScoreRange userRelevanceScore = null, string sort = null)
+> EventHeadlines GetEventHeadlines (DateTimeInterval created = null, DateTimeInterval updated = null, string signalIds = null, string ids = null, string portfolios = null, string themes = null, string categories = null, RelevanceScoreRange userRelevanceScore = null, string sort = null, bool? resolveIdentifiers = null)
 
 
 
@@ -551,7 +557,7 @@ namespace Example
             var apiInstance = new EventsApi(config);
 
             var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
-            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
+            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
             var signalIds = "dilutionTrigger,freeCashFlow";  // string |  (optional) 
             var ids = "FDS-US,AMZN-US";  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
             var portfolios = "portfolios_example";  // string | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional) 
@@ -559,10 +565,11 @@ namespace Example
             var categories = "categories_example";  // string | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional) 
             var userRelevanceScore = new RelevanceScoreRange(); // RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional) 
             var sort = "-userRelevanceScore,-eventDate";  // string | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional) 
+            var resolveIdentifiers = true;  // bool? | The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional) 
 
             try
             {
-                EventHeadlines result = apiInstance.GetEventHeadlines(created, updated, signalIds, ids, portfolios, themes, categories, userRelevanceScore, sort);
+                EventHeadlines result = apiInstance.GetEventHeadlines(created, updated, signalIds, ids, portfolios, themes, categories, userRelevanceScore, sort, resolveIdentifiers);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -581,7 +588,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **string**|  | [optional] 
  **ids** | **string**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional] 
  **portfolios** | **string**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional] 
@@ -589,6 +596,7 @@ Name | Type | Description  | Notes
  **categories** | **string**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional] 
  **userRelevanceScore** | [**RelevanceScoreRange**](RelevanceScoreRange.md)| A range for filtering signal events based on their relevancy score. | [optional] 
  **sort** | **string**| Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). | [optional] 
+ **resolveIdentifiers** | **bool?**| The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. | [optional] 
 
 ### Return type
 [**EventHeadlines**](EventHeadlines.md)
@@ -600,6 +608,96 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="posteventadaptivecards"></a>
+# **PostEventAdaptiveCards**
+> EventAdaptiveCards PostEventAdaptiveCards (EventRequestBody eventRequestBody)
+
+
+
+Fetch Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.Signals.Api;
+using FactSet.SDK.Signals.Client;
+using FactSet.SDK.Signals.Model;
+
+namespace Example
+{
+    public class PostEventAdaptiveCardsExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.Signals.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new EventsApi(config);
+
+            var eventRequestBody = new EventRequestBody(); // EventRequestBody | 
+
+            try
+            {
+                EventAdaptiveCards result = apiInstance.PostEventAdaptiveCards(eventRequestBody);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling EventsApi.PostEventAdaptiveCards: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eventRequestBody** | [**EventRequestBody**](EventRequestBody.md)|  | 
+
+### Return type
+[**EventAdaptiveCards**](EventAdaptiveCards.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -697,6 +795,96 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="postevententities"></a>
+# **PostEventEntities**
+> EventsEntities PostEventEntities (EventsEntitiesPost eventsEntitiesPost)
+
+
+
+Fetch FactSet entity IDs for events that match the filtering criteria
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.Signals.Api;
+using FactSet.SDK.Signals.Client;
+using FactSet.SDK.Signals.Model;
+
+namespace Example
+{
+    public class PostEventEntitiesExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.Signals.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new EventsApi(config);
+
+            var eventsEntitiesPost = new EventsEntitiesPost(); // EventsEntitiesPost | 
+
+            try
+            {
+                EventsEntities result = apiInstance.PostEventEntities(eventsEntitiesPost);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling EventsApi.PostEventEntities: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eventsEntitiesPost** | [**EventsEntitiesPost**](EventsEntitiesPost.md)|  | 
+
+### Return type
+[**EventsEntities**](EventsEntities.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

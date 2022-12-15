@@ -1,15 +1,14 @@
 # InlineResponse2003Data
 
+Target price and aggregated recommendations for a stock.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Identifier of a dividend. | [optional] 
-**type** | [**InlineResponse2003Type**](InlineResponse2003Type.md) |  | [optional] 
-**occurrence** | [**InlineResponse2003Occurrence**](InlineResponse2003Occurrence.md) |  | [optional] 
-**dates** | [**InlineResponse2003Dates**](InlineResponse2003Dates.md) |  | [optional] 
-**currency** | [**InlineResponse2003Currency**](InlineResponse2003Currency.md) |  | [optional] 
-**gross** | [**InlineResponse2003Gross**](InlineResponse2003Gross.md) |  | [optional] 
+**id_instrument** | **str, none_type** | MDG identifier of the instrument. | [optional] 
+**source_identifier** | **str, none_type** | Identifier used in the request. | [optional] 
+**target_price** | [**InlineResponse2003DataTargetPrice**](InlineResponse2003DataTargetPrice.md) |  | [optional] 
+**recommendation** | [**InlineResponse2003DataRecommendation**](InlineResponse2003DataRecommendation.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

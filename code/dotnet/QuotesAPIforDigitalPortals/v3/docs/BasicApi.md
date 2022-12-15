@@ -1,6 +1,6 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Api.BasicApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -172,7 +172,7 @@ namespace Example
             var apiInstance = new BasicApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -196,7 +196,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2002**](InlineResponse2002.md)
@@ -263,7 +263,7 @@ namespace Example
             var apiInstance = new BasicApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -287,7 +287,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2004**](InlineResponse2004.md)
@@ -353,9 +353,9 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a language.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -378,9 +378,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a language. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2005**](InlineResponse2005.md)
@@ -446,9 +446,9 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var code = "code_example";  // string | ISO 639-1 code of the language.
+            var code = "code_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -471,9 +471,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **string**| ISO 639-1 code of the language. | 
+ **code** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2006**](InlineResponse2006.md)
@@ -540,7 +540,7 @@ namespace Example
             var apiInstance = new BasicApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
             try
@@ -565,7 +565,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -632,9 +632,9 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a market.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -657,9 +657,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a market. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2008**](InlineResponse2008.md)
@@ -726,7 +726,7 @@ namespace Example
             var apiInstance = new BasicApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
             try
@@ -751,7 +751,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -819,7 +819,7 @@ namespace Example
             var apiInstance = new BasicApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
             try
@@ -844,7 +844,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -1000,9 +1000,9 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a continent.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1025,9 +1025,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a continent. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20017**](InlineResponse20017.md)
@@ -1094,7 +1094,7 @@ namespace Example
             var apiInstance = new BasicApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
             try
@@ -1119,7 +1119,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -1186,9 +1186,9 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a country.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1211,9 +1211,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a country. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20019**](InlineResponse20019.md)
@@ -1279,9 +1279,9 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var code = "code_example";  // string | ISO 3166-1 alpha-2 code of a country.
+            var code = "code_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1304,9 +1304,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **string**| ISO 3166-1 alpha-2 code of a country. | 
+ **code** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20020**](InlineResponse20020.md)
@@ -1373,7 +1373,7 @@ namespace Example
             var apiInstance = new BasicApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
             try
@@ -1398,7 +1398,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -1465,9 +1465,9 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a region.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1490,9 +1490,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a region. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20015**](InlineResponse20015.md)
@@ -1559,7 +1559,7 @@ namespace Example
             var apiInstance = new BasicApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
             try
@@ -1584,7 +1584,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -1651,7 +1651,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a timezone. An invalid or unsupported identifier will result in an error.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -1675,7 +1675,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a timezone. An invalid or unsupported identifier will result in an error. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -1742,7 +1742,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var name = "name_example";  // string | Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error.
+            var name = "name_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -1766,7 +1766,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error. | 
+ **name** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -1834,7 +1834,7 @@ namespace Example
             var apiInstance = new BasicApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
             try
@@ -1859,7 +1859,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -1926,9 +1926,9 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a fractional currency.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -1951,9 +1951,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a fractional currency. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20028**](InlineResponse20028.md)
@@ -2020,7 +2020,7 @@ namespace Example
             var apiInstance = new BasicApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
             try
@@ -2045,7 +2045,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -2112,9 +2112,9 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var id = 8.14D;  // decimal | Identifier of a value unit.
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -2137,9 +2137,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a value unit. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse20024**](InlineResponse20024.md)
@@ -2163,7 +2163,7 @@ Name | Type | Description  | Notes
 
 <a name="postbasicbackgroundtexttypelist"></a>
 # **PostBasicBackgroundTextTypeList**
-> InlineResponse2001 PostBasicBackgroundTextTypeList (InlineObject body = null)
+> InlineResponse2001 PostBasicBackgroundTextTypeList (PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = null)
 
 List of background text types.
 
@@ -2205,12 +2205,12 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var body = new InlineObject(); // InlineObject |  (optional) 
+            var postBasicBackgroundTextTypeListRequest = new PostBasicBackgroundTextTypeListRequest(); // PostBasicBackgroundTextTypeListRequest |  (optional) 
 
             try
             {
                 // List of background text types.
-                InlineResponse2001 result = apiInstance.PostBasicBackgroundTextTypeList(body);
+                InlineResponse2001 result = apiInstance.PostBasicBackgroundTextTypeList(postBasicBackgroundTextTypeListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2228,7 +2228,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **postBasicBackgroundTextTypeListRequest** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -2252,7 +2252,7 @@ Name | Type | Description  | Notes
 
 <a name="postbasicdeliverylist"></a>
 # **PostBasicDeliveryList**
-> InlineResponse2003 PostBasicDeliveryList (InlineObject1 body = null)
+> InlineResponse2003 PostBasicDeliveryList (PostBasicDeliveryListRequest postBasicDeliveryListRequest = null)
 
 List of deliveries.
 
@@ -2294,12 +2294,12 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var body = new InlineObject1(); // InlineObject1 |  (optional) 
+            var postBasicDeliveryListRequest = new PostBasicDeliveryListRequest(); // PostBasicDeliveryListRequest |  (optional) 
 
             try
             {
                 // List of deliveries.
-                InlineResponse2003 result = apiInstance.PostBasicDeliveryList(body);
+                InlineResponse2003 result = apiInstance.PostBasicDeliveryList(postBasicDeliveryListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2317,7 +2317,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
+ **postBasicDeliveryListRequest** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2003**](InlineResponse2003.md)
@@ -2341,7 +2341,7 @@ Name | Type | Description  | Notes
 
 <a name="postbasicmarketlist"></a>
 # **PostBasicMarketList**
-> InlineResponse2009 PostBasicMarketList (InlineObject2 body = null)
+> InlineResponse2009 PostBasicMarketList (PostBasicMarketListRequest postBasicMarketListRequest = null)
 
 List of markets.
 
@@ -2383,12 +2383,12 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var body = new InlineObject2(); // InlineObject2 |  (optional) 
+            var postBasicMarketListRequest = new PostBasicMarketListRequest(); // PostBasicMarketListRequest |  (optional) 
 
             try
             {
                 // List of markets.
-                InlineResponse2009 result = apiInstance.PostBasicMarketList(body);
+                InlineResponse2009 result = apiInstance.PostBasicMarketList(postBasicMarketListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2406,7 +2406,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **postBasicMarketListRequest** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2009**](InlineResponse2009.md)
@@ -2430,7 +2430,7 @@ Name | Type | Description  | Notes
 
 <a name="postbasicmediatypelist"></a>
 # **PostBasicMediaTypeList**
-> InlineResponse20013 PostBasicMediaTypeList (InlineObject3 body = null)
+> InlineResponse20013 PostBasicMediaTypeList (PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = null)
 
 List of Internet media types.
 
@@ -2472,12 +2472,12 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var body = new InlineObject3(); // InlineObject3 |  (optional) 
+            var postBasicMediaTypeListRequest = new PostBasicMediaTypeListRequest(); // PostBasicMediaTypeListRequest |  (optional) 
 
             try
             {
                 // List of Internet media types.
-                InlineResponse20013 result = apiInstance.PostBasicMediaTypeList(body);
+                InlineResponse20013 result = apiInstance.PostBasicMediaTypeList(postBasicMediaTypeListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2495,7 +2495,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
+ **postBasicMediaTypeListRequest** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20013**](InlineResponse20013.md)
@@ -2519,7 +2519,7 @@ Name | Type | Description  | Notes
 
 <a name="postbasicmicoperatinglist"></a>
 # **PostBasicMicOperatingList**
-> InlineResponse20014 PostBasicMicOperatingList (InlineObject4 body = null)
+> InlineResponse20014 PostBasicMicOperatingList (PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = null)
 
 List of operating market identifier codes (MIC).
 
@@ -2561,12 +2561,12 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var body = new InlineObject4(); // InlineObject4 |  (optional) 
+            var postBasicMicOperatingListRequest = new PostBasicMicOperatingListRequest(); // PostBasicMicOperatingListRequest |  (optional) 
 
             try
             {
                 // List of operating market identifier codes (MIC).
-                InlineResponse20014 result = apiInstance.PostBasicMicOperatingList(body);
+                InlineResponse20014 result = apiInstance.PostBasicMicOperatingList(postBasicMicOperatingListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2584,7 +2584,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
+ **postBasicMicOperatingListRequest** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20014**](InlineResponse20014.md)
@@ -2608,7 +2608,7 @@ Name | Type | Description  | Notes
 
 <a name="postbasictimezonelist"></a>
 # **PostBasicTimezoneList**
-> InlineResponse20023 PostBasicTimezoneList (InlineObject5 body = null)
+> InlineResponse20023 PostBasicTimezoneList (PostBasicTimezoneListRequest postBasicTimezoneListRequest = null)
 
 List of timezones.
 
@@ -2650,12 +2650,12 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var body = new InlineObject5(); // InlineObject5 |  (optional) 
+            var postBasicTimezoneListRequest = new PostBasicTimezoneListRequest(); // PostBasicTimezoneListRequest |  (optional) 
 
             try
             {
                 // List of timezones.
-                InlineResponse20023 result = apiInstance.PostBasicTimezoneList(body);
+                InlineResponse20023 result = apiInstance.PostBasicTimezoneList(postBasicTimezoneListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2673,7 +2673,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+ **postBasicTimezoneListRequest** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20023**](InlineResponse20023.md)
@@ -2697,7 +2697,7 @@ Name | Type | Description  | Notes
 
 <a name="postbasicvalueunitcurrencylist"></a>
 # **PostBasicValueUnitCurrencyList**
-> InlineResponse20027 PostBasicValueUnitCurrencyList (InlineObject7 body = null)
+> InlineResponse20027 PostBasicValueUnitCurrencyList (PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = null)
 
 List of currencies.
 
@@ -2739,12 +2739,12 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var body = new InlineObject7(); // InlineObject7 |  (optional) 
+            var postBasicValueUnitCurrencyListRequest = new PostBasicValueUnitCurrencyListRequest(); // PostBasicValueUnitCurrencyListRequest |  (optional) 
 
             try
             {
                 // List of currencies.
-                InlineResponse20027 result = apiInstance.PostBasicValueUnitCurrencyList(body);
+                InlineResponse20027 result = apiInstance.PostBasicValueUnitCurrencyList(postBasicValueUnitCurrencyListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2762,7 +2762,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject7**](InlineObject7.md)|  | [optional] 
+ **postBasicValueUnitCurrencyListRequest** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20027**](InlineResponse20027.md)
@@ -2786,7 +2786,7 @@ Name | Type | Description  | Notes
 
 <a name="postbasicvalueunitcurrencymainlist"></a>
 # **PostBasicValueUnitCurrencyMainList**
-> InlineResponse20030 PostBasicValueUnitCurrencyMainList (InlineObject8 body = null)
+> InlineResponse20030 PostBasicValueUnitCurrencyMainList (PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = null)
 
 List of main currencies.
 
@@ -2828,12 +2828,12 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var body = new InlineObject8(); // InlineObject8 |  (optional) 
+            var postBasicValueUnitCurrencyMainListRequest = new PostBasicValueUnitCurrencyMainListRequest(); // PostBasicValueUnitCurrencyMainListRequest |  (optional) 
 
             try
             {
                 // List of main currencies.
-                InlineResponse20030 result = apiInstance.PostBasicValueUnitCurrencyMainList(body);
+                InlineResponse20030 result = apiInstance.PostBasicValueUnitCurrencyMainList(postBasicValueUnitCurrencyMainListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2851,7 +2851,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject8**](InlineObject8.md)|  | [optional] 
+ **postBasicValueUnitCurrencyMainListRequest** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20030**](InlineResponse20030.md)
@@ -2875,7 +2875,7 @@ Name | Type | Description  | Notes
 
 <a name="postbasicvalueunitlist"></a>
 # **PostBasicValueUnitList**
-> InlineResponse20025 PostBasicValueUnitList (InlineObject6 body = null)
+> InlineResponse20025 PostBasicValueUnitList (PostBasicValueUnitListRequest postBasicValueUnitListRequest = null)
 
 List of value units.
 
@@ -2917,12 +2917,12 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var body = new InlineObject6(); // InlineObject6 |  (optional) 
+            var postBasicValueUnitListRequest = new PostBasicValueUnitListRequest(); // PostBasicValueUnitListRequest |  (optional) 
 
             try
             {
                 // List of value units.
-                InlineResponse20025 result = apiInstance.PostBasicValueUnitList(body);
+                InlineResponse20025 result = apiInstance.PostBasicValueUnitList(postBasicValueUnitListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2940,7 +2940,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  | [optional] 
+ **postBasicValueUnitListRequest** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse20025**](InlineResponse20025.md)

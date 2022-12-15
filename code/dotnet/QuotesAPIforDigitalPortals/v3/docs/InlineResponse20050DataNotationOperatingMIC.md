@@ -5,7 +5,7 @@ The operating MIC of the component. See endpoint `/basic/mic/operating/list` for
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of the operating MIC. | [optional] 
+**Id** | **decimal?** | Identifier of the operating MIC. | [optional] 
 **IsoCode** | **string** | ISO 10383 code of the operating MIC. | [optional] 
 **Name** | **string** | English name of the operating MIC. | [optional] 
 

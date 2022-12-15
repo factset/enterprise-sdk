@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of an alternative unit. | [optional] 
+**Id** | **decimal?** | Identifier of an alternative unit. | [optional] 
 **Code** | **string** | Code of the alternative unit. | [optional] 
 **Name** | **string** | Name of the alternative unit. | [optional] 
 

@@ -5,9 +5,9 @@ Set of basic data for the instrument.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | Name of the instrument. | [optional] 
-**short_name** | **str** | Short name of the instrument. | [optional] 
-**isin** | **str** | International Securities Identification Number of the instrument. | [optional] 
+**name** | **str, none_type** | Name of the instrument. | [optional] 
+**short_name** | **str, none_type** | Short name of the instrument. | [optional] 
+**isin** | **str, none_type** | International Securities Identification Number of the instrument. | [optional] 
 **nsin** | [**InlineResponse20042DataNsin**](InlineResponse20042DataNsin.md) |  | [optional] 
 **fsym** | [**InlineResponse20036Fsym**](InlineResponse20036Fsym.md) |  | [optional] 
 **asset_class** | [**InlineResponse20042DataAssetClass**](InlineResponse20042DataAssetClass.md) |  | [optional] 

@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ## getNewsArticleTypeGet
 
-> InlineResponse2003 getNewsArticleTypeGet(id, attributes, language)
+> InlineResponse2005 getNewsArticleTypeGet(id, attributes, language)
 
 Details for a news article type.
 
@@ -159,7 +159,7 @@ public class Example {
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         String language = "language_example"; // String | 
         try {
-            InlineResponse2003 result = apiInstance.getNewsArticleTypeGet(id, attributes, language);
+            InlineResponse2005 result = apiInstance.getNewsArticleTypeGet(id, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ## getNewsArticleTypeList
 
-> InlineResponse2004 getNewsArticleTypeList(attributes, language)
+> InlineResponse2006 getNewsArticleTypeList(attributes, language)
 
 List of news article types.
 
@@ -246,7 +246,7 @@ public class Example {
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         String language = "language_example"; // String | 
         try {
-            InlineResponse2004 result = apiInstance.getNewsArticleTypeList(attributes, language);
+            InlineResponse2006 result = apiInstance.getNewsArticleTypeList(attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 ## getNewsDistributorGet
 
-> InlineResponse2005 getNewsDistributorGet(id, attributes)
+> InlineResponse2007 getNewsDistributorGet(id, attributes)
 
 Details of a distributor.
 
@@ -333,7 +333,7 @@ public class Example {
         BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse2005 result = apiInstance.getNewsDistributorGet(id, attributes);
+            InlineResponse2007 result = apiInstance.getNewsDistributorGet(id, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 
 ## getNewsDistributorList
 
-> InlineResponse2006 getNewsDistributorList(ids, attributes, sort)
+> InlineResponse2008 getNewsDistributorList(ids, attributes, sort)
 
 List of distributors.
 
@@ -420,7 +420,7 @@ public class Example {
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
         try {
-            InlineResponse2006 result = apiInstance.getNewsDistributorList(ids, attributes, sort);
+            InlineResponse2008 result = apiInstance.getNewsDistributorList(ids, attributes, sort);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 
 ## getNewsPublisherGet
 
-> InlineResponse2007 getNewsPublisherGet(id, attributes)
+> InlineResponse2009 getNewsPublisherGet(id, attributes)
 
 Details of a publisher.
 
@@ -508,7 +508,7 @@ public class Example {
         BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse2007 result = apiInstance.getNewsPublisherGet(id, attributes);
+            InlineResponse2009 result = apiInstance.getNewsPublisherGet(id, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -551,7 +551,7 @@ Name | Type | Description  | Notes
 
 ## getNewsPublisherList
 
-> InlineResponse2008 getNewsPublisherList(ids, attributes, sort, paginationOffset, paginationLimit)
+> InlineResponse20010 getNewsPublisherList(ids, attributes, sort, paginationOffset, paginationLimit)
 
 List of publishers.
 
@@ -598,7 +598,7 @@ public class Example {
         BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
         BigDecimal paginationLimit = new BigDecimal("20"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
-            InlineResponse2008 result = apiInstance.getNewsPublisherList(ids, attributes, sort, paginationOffset, paginationLimit);
+            InlineResponse20010 result = apiInstance.getNewsPublisherList(ids, attributes, sort, paginationOffset, paginationLimit);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -644,7 +644,7 @@ Name | Type | Description  | Notes
 
 ## getNewsPublisherListByDistributor
 
-> InlineResponse2009 getNewsPublisherListByDistributor(id, attributes, sort)
+> InlineResponse20011 getNewsPublisherListByDistributor(id, attributes, sort)
 
 List of publishers provided by the given distributor.
 
@@ -689,7 +689,7 @@ public class Example {
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
         try {
-            InlineResponse2009 result = apiInstance.getNewsPublisherListByDistributor(id, attributes, sort);
+            InlineResponse20011 result = apiInstance.getNewsPublisherListByDistributor(id, attributes, sort);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -714,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -733,7 +733,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleList
 
-> InlineResponse2001 postNewsArticleList(inlineObject)
+> InlineResponse2001 postNewsArticleList(postNewsArticleListRequest)
 
 List of news articles.
 
@@ -773,9 +773,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        PostNewsArticleListRequest postNewsArticleListRequest = new PostNewsArticleListRequest(); // PostNewsArticleListRequest | 
         try {
-            InlineResponse2001 result = apiInstance.postNewsArticleList(inlineObject);
+            InlineResponse2001 result = apiInstance.postNewsArticleList(postNewsArticleListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -794,7 +794,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **postNewsArticleListRequest** | [**PostNewsArticleListRequest**](PostNewsArticleListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -817,7 +817,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByChain
 
-> InlineResponse2002 postNewsArticleListByChain(inlineObject1)
+> InlineResponse2002 postNewsArticleListByChain(postNewsArticleListByChainRequest)
 
 List news articles of an article chain.
 
@@ -857,9 +857,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
+        PostNewsArticleListByChainRequest postNewsArticleListByChainRequest = new PostNewsArticleListByChainRequest(); // PostNewsArticleListByChainRequest | 
         try {
-            InlineResponse2002 result = apiInstance.postNewsArticleListByChain(inlineObject1);
+            InlineResponse2002 result = apiInstance.postNewsArticleListByChain(postNewsArticleListByChainRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -878,7 +878,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  |
+ **postNewsArticleListByChainRequest** | [**PostNewsArticleListByChainRequest**](PostNewsArticleListByChainRequest.md)|  | [optional]
 
 ### Return type
 
@@ -901,7 +901,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByIndex
 
-> InlineResponse2001 postNewsArticleListByIndex(inlineObject2)
+> InlineResponse2003 postNewsArticleListByIndex(postNewsArticleListByIndexRequest)
 
 News articles for instruments that are constituents of the given indices.
 
@@ -941,9 +941,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
+        PostNewsArticleListByIndexRequest postNewsArticleListByIndexRequest = new PostNewsArticleListByIndexRequest(); // PostNewsArticleListByIndexRequest | 
         try {
-            InlineResponse2001 result = apiInstance.postNewsArticleListByIndex(inlineObject2);
+            InlineResponse2003 result = apiInstance.postNewsArticleListByIndex(postNewsArticleListByIndexRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -962,11 +962,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  |
+ **postNewsArticleListByIndexRequest** | [**PostNewsArticleListByIndexRequest**](PostNewsArticleListByIndexRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -985,7 +985,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByInstrument
 
-> InlineResponse2001 postNewsArticleListByInstrument(inlineObject3)
+> InlineResponse2004 postNewsArticleListByInstrument(postNewsArticleListByInstrumentRequest)
 
 News articles for instruments.
 
@@ -1025,9 +1025,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
+        PostNewsArticleListByInstrumentRequest postNewsArticleListByInstrumentRequest = new PostNewsArticleListByInstrumentRequest(); // PostNewsArticleListByInstrumentRequest | 
         try {
-            InlineResponse2001 result = apiInstance.postNewsArticleListByInstrument(inlineObject3);
+            InlineResponse2004 result = apiInstance.postNewsArticleListByInstrument(postNewsArticleListByInstrumentRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1046,11 +1046,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  |
+ **postNewsArticleListByInstrumentRequest** | [**PostNewsArticleListByInstrumentRequest**](PostNewsArticleListByInstrumentRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -1069,7 +1069,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByMediaKind
 
-> InlineResponse2001 postNewsArticleListByMediaKind(inlineObject4)
+> InlineResponse2001 postNewsArticleListByMediaKind(postNewsArticleListByMediaKindRequest)
 
 List news articles which contain media of specific media kinds.
 
@@ -1109,9 +1109,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject4 inlineObject4 = new InlineObject4(); // InlineObject4 | 
+        PostNewsArticleListByMediaKindRequest postNewsArticleListByMediaKindRequest = new PostNewsArticleListByMediaKindRequest(); // PostNewsArticleListByMediaKindRequest | 
         try {
-            InlineResponse2001 result = apiInstance.postNewsArticleListByMediaKind(inlineObject4);
+            InlineResponse2001 result = apiInstance.postNewsArticleListByMediaKind(postNewsArticleListByMediaKindRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1130,7 +1130,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  |
+ **postNewsArticleListByMediaKindRequest** | [**PostNewsArticleListByMediaKindRequest**](PostNewsArticleListByMediaKindRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1153,7 +1153,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleSearchByText
 
-> InlineResponse2001 postNewsArticleSearchByText(inlineObject5)
+> InlineResponse2001 postNewsArticleSearchByText(postNewsArticleSearchByTextRequest)
 
 Search for news articles using a fulltext search.
 
@@ -1193,9 +1193,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject5 inlineObject5 = new InlineObject5(); // InlineObject5 | 
+        PostNewsArticleSearchByTextRequest postNewsArticleSearchByTextRequest = new PostNewsArticleSearchByTextRequest(); // PostNewsArticleSearchByTextRequest | 
         try {
-            InlineResponse2001 result = apiInstance.postNewsArticleSearchByText(inlineObject5);
+            InlineResponse2001 result = apiInstance.postNewsArticleSearchByText(postNewsArticleSearchByTextRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1214,7 +1214,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional]
+ **postNewsArticleSearchByTextRequest** | [**PostNewsArticleSearchByTextRequest**](PostNewsArticleSearchByTextRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1237,7 +1237,7 @@ Name | Type | Description  | Notes
 
 ## postNewsPublisherSearchByName
 
-> InlineResponse2009 postNewsPublisherSearchByName(inlineObject6)
+> InlineResponse20011 postNewsPublisherSearchByName(postNewsPublisherSearchByNameRequest)
 
 Search for publishers.
 
@@ -1277,9 +1277,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject6 inlineObject6 = new InlineObject6(); // InlineObject6 | 
+        PostNewsPublisherSearchByNameRequest postNewsPublisherSearchByNameRequest = new PostNewsPublisherSearchByNameRequest(); // PostNewsPublisherSearchByNameRequest | 
         try {
-            InlineResponse2009 result = apiInstance.postNewsPublisherSearchByName(inlineObject6);
+            InlineResponse20011 result = apiInstance.postNewsPublisherSearchByName(postNewsPublisherSearchByNameRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1298,11 +1298,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  |
+ **postNewsPublisherSearchByNameRequest** | [**PostNewsPublisherSearchByNameRequest**](PostNewsPublisherSearchByNameRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

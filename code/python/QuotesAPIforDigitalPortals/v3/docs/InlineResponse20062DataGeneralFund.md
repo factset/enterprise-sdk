@@ -5,8 +5,8 @@ For an instrument that represents a share class of an investment fund, the juris
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **float** | Identifier of the juristic person in the role of a fund. | [optional] 
-**name** | **str** | Name of the juristic person in the role of a fund. | [optional] 
+**id** | **float, none_type** | Identifier of the juristic person in the role of a fund. | [optional] 
+**name** | **str, none_type** | Name of the juristic person in the role of a fund. | [optional] 
 **domicile** | [**InlineResponse20062DataGeneralFundDomicile**](InlineResponse20062DataGeneralFundDomicile.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

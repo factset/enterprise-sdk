@@ -2,14 +2,13 @@
 
 # InlineResponse2005Data
 
-Details of the distributor.
+Details of a news article type.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of the distributor. |  [optional]
-**delivery** | [**InlineResponse2005DataDelivery**](InlineResponse2005DataDelivery.md) |  |  [optional]
+**name** | **String** | Name of the news article type. |  [optional]
 
 
 ## Implemented Interfaces

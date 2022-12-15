@@ -5,7 +5,7 @@ Details of the final coupon period.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PeriodEnd** | **DateTime** | Ending date (inclusive). | [optional] 
+**PeriodEnd** | **DateTime?** | Ending date (inclusive). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,9 +5,9 @@ Interest rate on an annual basis. Minimum/maximum interest rates and a fixed int
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Fixed** | **decimal** | Fixed interest rate. | [optional] 
-**Minimum** | **decimal** | Minimum interest rate. | [optional] 
-**Maximum** | **decimal** | Maximum interest rate. | [optional] 
+**Fixed** | **decimal?** | Fixed interest rate. | [optional] 
+**Minimum** | **decimal?** | Minimum interest rate. | [optional] 
+**Maximum** | **decimal?** | Maximum interest rate. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

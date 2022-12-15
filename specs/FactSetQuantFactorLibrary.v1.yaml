@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: FactSet Quant Factor Library API
-  version: 1.0.0
+  version: 1.0.1
   description: >
     The FactSet FactSet Quant Factor Library (QFL) API helps to detect
     investment themes across global equity markets, incorporate ideas into your
@@ -568,9 +568,8 @@ components:
           example: HTM0LK-R
         date:
           description: The as of date of the factors in YYYY-MM-DD format.
-          type: string
-          format: date
-          example: '2021-02-04'
+          type: integer
+          example: 20210204
       additionalProperties:
         type: object
         properties:
@@ -983,7 +982,7 @@ components:
         data:
           - requestId: TSLA-US
             fsymId: HTM0LK-R
-            date: '2021-02-04'
+            date: 20210204
             velocity63D: -1.191401
             stochastic63D: 90.9372
             retMom63D: 98.78822
@@ -1019,7 +1018,7 @@ components:
             pcta52Wl: 1119.2091
           - requestId: AMZN-US
             fsymId: MCNYYL-R
-            date: '2021-02-04'
+            date: 20210204
             velocity63D: -0.072986
             stochastic63D: 70.69603
             retMom63D: 0.035024

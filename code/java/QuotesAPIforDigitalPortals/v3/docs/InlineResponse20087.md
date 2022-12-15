@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;InlineResponse20087Data&gt;**](InlineResponse20087Data.md) | List of instruments. |  [optional]
-**meta** | [**InlineResponse20036Meta**](InlineResponse20036Meta.md) |  |  [optional]
+**data** | [**InlineResponse20087Data**](InlineResponse20087Data.md) |  |  [optional]
+**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

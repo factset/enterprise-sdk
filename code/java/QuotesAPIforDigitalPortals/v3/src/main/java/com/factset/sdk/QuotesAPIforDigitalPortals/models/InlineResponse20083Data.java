@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,7 +17,16 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083DataAsks;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20082DataCurrency;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20082DataValueUnit;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Accumulated;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083First;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083High;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Latest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Low;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Market;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083PreviousClose;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Status;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +34,51 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * Orderbook.
+ * InlineResponse20083Data
  */
-@ApiModel(description = "Orderbook.")
 @JsonPropertyOrder({
+  InlineResponse20083Data.JSON_PROPERTY_ID_NOTATION,
+  InlineResponse20083Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse20083Data.JSON_PROPERTY_VALUE_UNIT,
+  InlineResponse20083Data.JSON_PROPERTY_CURRENCY,
+  InlineResponse20083Data.JSON_PROPERTY_MARKET,
   InlineResponse20083Data.JSON_PROPERTY_QUALITY,
-  InlineResponse20083Data.JSON_PROPERTY_ASKS,
-  InlineResponse20083Data.JSON_PROPERTY_BIDS
+  InlineResponse20083Data.JSON_PROPERTY_LATEST,
+  InlineResponse20083Data.JSON_PROPERTY_FIRST,
+  InlineResponse20083Data.JSON_PROPERTY_LOW,
+  InlineResponse20083Data.JSON_PROPERTY_HIGH,
+  InlineResponse20083Data.JSON_PROPERTY_PREVIOUS_CLOSE,
+  InlineResponse20083Data.JSON_PROPERTY_ACCUMULATED,
+  InlineResponse20083Data.JSON_PROPERTY_STATUS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20083Data implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_ID_NOTATION = "idNotation";
+  private JsonNullable<String> idNotation = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
+  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
+  private InlineResponse20082DataValueUnit valueUnit;
+
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private InlineResponse20082DataCurrency currency;
+
+  public static final String JSON_PROPERTY_MARKET = "market";
+  private InlineResponse20083Market market;
 
   /**
    * Quality of the price.
@@ -49,7 +86,9 @@ public class InlineResponse20083Data implements Serializable {
   public enum QualityEnum {
     RLT("RLT"),
     
-    DLY("DLY");
+    DLY("DLY"),
+    
+    EOD("EOD");
 
     private String value;
 
@@ -74,24 +113,185 @@ public class InlineResponse20083Data implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_QUALITY = "quality";
-  private QualityEnum quality;
+  private JsonNullable<QualityEnum> quality = JsonNullable.<QualityEnum>undefined();
 
-  public static final String JSON_PROPERTY_ASKS = "asks";
-  private java.util.List<InlineResponse20083DataAsks> asks = null;
+  public static final String JSON_PROPERTY_LATEST = "latest";
+  private InlineResponse20083Latest latest;
 
-  public static final String JSON_PROPERTY_BIDS = "bids";
-  private java.util.List<InlineResponse20083DataAsks> bids = null;
+  public static final String JSON_PROPERTY_FIRST = "first";
+  private InlineResponse20083First first;
+
+  public static final String JSON_PROPERTY_LOW = "low";
+  private InlineResponse20083Low low;
+
+  public static final String JSON_PROPERTY_HIGH = "high";
+  private InlineResponse20083High high;
+
+  public static final String JSON_PROPERTY_PREVIOUS_CLOSE = "previousClose";
+  private InlineResponse20083PreviousClose previousClose;
+
+  public static final String JSON_PROPERTY_ACCUMULATED = "accumulated";
+  private InlineResponse20083Accumulated accumulated;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private InlineResponse20083Status status;
 
   public InlineResponse20083Data() { 
   }
 
+  public InlineResponse20083Data idNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
+    return this;
+  }
+
+   /**
+   * MDG identifier of the listing.
+   * @return idNotation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MDG identifier of the listing.")
+  @JsonIgnore
+
+  public String getIdNotation() {
+        return idNotation.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getIdNotation_JsonNullable() {
+    return idNotation;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
+  public void setIdNotation_JsonNullable(JsonNullable<String> idNotation) {
+    this.idNotation = idNotation;
+  }
+
+  public void setIdNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
+  }
+
+
+  public InlineResponse20083Data sourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
+    return this;
+  }
+
+   /**
+   * Identifier used in the request.
+   * @return sourceIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Identifier used in the request.")
+  @JsonIgnore
+
+  public String getSourceIdentifier() {
+        return sourceIdentifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
+    return sourceIdentifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
+  }
+
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
+  }
+
+
+  public InlineResponse20083Data valueUnit(InlineResponse20082DataValueUnit valueUnit) {
+    this.valueUnit = valueUnit;
+    return this;
+  }
+
+   /**
+   * Get valueUnit
+   * @return valueUnit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20082DataValueUnit getValueUnit() {
+    return valueUnit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValueUnit(InlineResponse20082DataValueUnit valueUnit) {
+    this.valueUnit = valueUnit;
+  }
+
+
+  public InlineResponse20083Data currency(InlineResponse20082DataCurrency currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20082DataCurrency getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(InlineResponse20082DataCurrency currency) {
+    this.currency = currency;
+  }
+
+
+  public InlineResponse20083Data market(InlineResponse20083Market market) {
+    this.market = market;
+    return this;
+  }
+
+   /**
+   * Get market
+   * @return market
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20083Market getMarket() {
+    return market;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMarket(InlineResponse20083Market market) {
+    this.market = market;
+  }
+
+
   public InlineResponse20083Data quality(QualityEnum quality) {
-    this.quality = quality;
+    this.quality = JsonNullable.<QualityEnum>of(quality);
     return this;
   }
 
@@ -101,86 +301,208 @@ public class InlineResponse20083Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Quality of the price.")
-  @JsonProperty(JSON_PROPERTY_QUALITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public QualityEnum getQuality() {
-    return quality;
+        return quality.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_QUALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQuality(QualityEnum quality) {
+
+  public JsonNullable<QualityEnum> getQuality_JsonNullable() {
+    return quality;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_QUALITY)
+  public void setQuality_JsonNullable(JsonNullable<QualityEnum> quality) {
     this.quality = quality;
   }
 
-
-  public InlineResponse20083Data asks(java.util.List<InlineResponse20083DataAsks> asks) {
-    this.asks = asks;
-    return this;
+  public void setQuality(QualityEnum quality) {
+    this.quality = JsonNullable.<QualityEnum>of(quality);
   }
 
-  public InlineResponse20083Data addAsksItem(InlineResponse20083DataAsks asksItem) {
-    if (this.asks == null) {
-      this.asks = new java.util.ArrayList<>();
-    }
-    this.asks.add(asksItem);
+
+  public InlineResponse20083Data latest(InlineResponse20083Latest latest) {
+    this.latest = latest;
     return this;
   }
 
    /**
-   * List of sell orders aggregated by price.
-   * @return asks
+   * Get latest
+   * @return latest
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of sell orders aggregated by price.")
-  @JsonProperty(JSON_PROPERTY_ASKS)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LATEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20083DataAsks> getAsks() {
-    return asks;
+  public InlineResponse20083Latest getLatest() {
+    return latest;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ASKS)
+  @JsonProperty(JSON_PROPERTY_LATEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAsks(java.util.List<InlineResponse20083DataAsks> asks) {
-    this.asks = asks;
+  public void setLatest(InlineResponse20083Latest latest) {
+    this.latest = latest;
   }
 
 
-  public InlineResponse20083Data bids(java.util.List<InlineResponse20083DataAsks> bids) {
-    this.bids = bids;
-    return this;
-  }
-
-  public InlineResponse20083Data addBidsItem(InlineResponse20083DataAsks bidsItem) {
-    if (this.bids == null) {
-      this.bids = new java.util.ArrayList<>();
-    }
-    this.bids.add(bidsItem);
+  public InlineResponse20083Data first(InlineResponse20083First first) {
+    this.first = first;
     return this;
   }
 
    /**
-   * List of buy orders aggregated by price.
-   * @return bids
+   * Get first
+   * @return first
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of buy orders aggregated by price.")
-  @JsonProperty(JSON_PROPERTY_BIDS)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20083DataAsks> getBids() {
-    return bids;
+  public InlineResponse20083First getFirst() {
+    return first;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BIDS)
+  @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBids(java.util.List<InlineResponse20083DataAsks> bids) {
-    this.bids = bids;
+  public void setFirst(InlineResponse20083First first) {
+    this.first = first;
+  }
+
+
+  public InlineResponse20083Data low(InlineResponse20083Low low) {
+    this.low = low;
+    return this;
+  }
+
+   /**
+   * Get low
+   * @return low
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20083Low getLow() {
+    return low;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLow(InlineResponse20083Low low) {
+    this.low = low;
+  }
+
+
+  public InlineResponse20083Data high(InlineResponse20083High high) {
+    this.high = high;
+    return this;
+  }
+
+   /**
+   * Get high
+   * @return high
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_HIGH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20083High getHigh() {
+    return high;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_HIGH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHigh(InlineResponse20083High high) {
+    this.high = high;
+  }
+
+
+  public InlineResponse20083Data previousClose(InlineResponse20083PreviousClose previousClose) {
+    this.previousClose = previousClose;
+    return this;
+  }
+
+   /**
+   * Get previousClose
+   * @return previousClose
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PREVIOUS_CLOSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20083PreviousClose getPreviousClose() {
+    return previousClose;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PREVIOUS_CLOSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPreviousClose(InlineResponse20083PreviousClose previousClose) {
+    this.previousClose = previousClose;
+  }
+
+
+  public InlineResponse20083Data accumulated(InlineResponse20083Accumulated accumulated) {
+    this.accumulated = accumulated;
+    return this;
+  }
+
+   /**
+   * Get accumulated
+   * @return accumulated
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCUMULATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20083Accumulated getAccumulated() {
+    return accumulated;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ACCUMULATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccumulated(InlineResponse20083Accumulated accumulated) {
+    this.accumulated = accumulated;
+  }
+
+
+  public InlineResponse20083Data status(InlineResponse20083Status status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20083Status getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(InlineResponse20083Status status) {
+    this.status = status;
   }
 
 
@@ -196,23 +518,54 @@ public class InlineResponse20083Data implements Serializable {
       return false;
     }
     InlineResponse20083Data inlineResponse20083Data = (InlineResponse20083Data) o;
-    return Objects.equals(this.quality, inlineResponse20083Data.quality) &&
-        Objects.equals(this.asks, inlineResponse20083Data.asks) &&
-        Objects.equals(this.bids, inlineResponse20083Data.bids);
+    return equalsNullable(this.idNotation, inlineResponse20083Data.idNotation) &&
+        equalsNullable(this.sourceIdentifier, inlineResponse20083Data.sourceIdentifier) &&
+        Objects.equals(this.valueUnit, inlineResponse20083Data.valueUnit) &&
+        Objects.equals(this.currency, inlineResponse20083Data.currency) &&
+        Objects.equals(this.market, inlineResponse20083Data.market) &&
+        equalsNullable(this.quality, inlineResponse20083Data.quality) &&
+        Objects.equals(this.latest, inlineResponse20083Data.latest) &&
+        Objects.equals(this.first, inlineResponse20083Data.first) &&
+        Objects.equals(this.low, inlineResponse20083Data.low) &&
+        Objects.equals(this.high, inlineResponse20083Data.high) &&
+        Objects.equals(this.previousClose, inlineResponse20083Data.previousClose) &&
+        Objects.equals(this.accumulated, inlineResponse20083Data.accumulated) &&
+        Objects.equals(this.status, inlineResponse20083Data.status);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(quality, asks, bids);
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), valueUnit, currency, market, hashCodeNullable(quality), latest, first, low, high, previousClose, accumulated, status);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20083Data {\n");
+    sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
+    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    market: ").append(toIndentedString(market)).append("\n");
     sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
-    sb.append("    asks: ").append(toIndentedString(asks)).append("\n");
-    sb.append("    bids: ").append(toIndentedString(bids)).append("\n");
+    sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
+    sb.append("    first: ").append(toIndentedString(first)).append("\n");
+    sb.append("    low: ").append(toIndentedString(low)).append("\n");
+    sb.append("    high: ").append(toIndentedString(high)).append("\n");
+    sb.append("    previousClose: ").append(toIndentedString(previousClose)).append("\n");
+    sb.append("    accumulated: ").append(toIndentedString(accumulated)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

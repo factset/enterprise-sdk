@@ -1,6 +1,6 @@
 /*
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,20 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Fsym;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Compliance;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Estimates;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Instrument;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Market;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Nsin;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Performance;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Recommendation;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007ReportedKeyFigures;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007RsiWilder;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007SimpleMovingAverage;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007TradingValue;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007ValueUnit;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Volatility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,6 +24,11 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
@@ -48,490 +39,124 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
  */
 @JsonPropertyOrder({
   InlineResponse2007Data.JSON_PROPERTY_ID,
-  InlineResponse2007Data.JSON_PROPERTY_VALUE_UNIT,
-  InlineResponse2007Data.JSON_PROPERTY_MARKET,
-  InlineResponse2007Data.JSON_PROPERTY_SYMBOL,
-  InlineResponse2007Data.JSON_PROPERTY_NSIN,
-  InlineResponse2007Data.JSON_PROPERTY_FSYM,
-  InlineResponse2007Data.JSON_PROPERTY_INSTRUMENT,
-  InlineResponse2007Data.JSON_PROPERTY_COMPLIANCE,
-  InlineResponse2007Data.JSON_PROPERTY_REPORTED_KEY_FIGURES,
-  InlineResponse2007Data.JSON_PROPERTY_PERFORMANCE,
-  InlineResponse2007Data.JSON_PROPERTY_VOLATILITY,
-  InlineResponse2007Data.JSON_PROPERTY_TRADING_VALUE,
-  InlineResponse2007Data.JSON_PROPERTY_SIMPLE_MOVING_AVERAGE,
-  InlineResponse2007Data.JSON_PROPERTY_RSI_WILDER,
-  InlineResponse2007Data.JSON_PROPERTY_RECOMMENDATION,
-  InlineResponse2007Data.JSON_PROPERTY_ESTIMATES
+  InlineResponse2007Data.JSON_PROPERTY_NAME,
+  InlineResponse2007Data.JSON_PROPERTY_DESCRIPTION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2007Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private JsonNullable<BigDecimal> id = JsonNullable.<BigDecimal>undefined();
 
-  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
-  private InlineResponse2007ValueUnit valueUnit;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse2007Market market;
-
-  public static final String JSON_PROPERTY_SYMBOL = "symbol";
-  private String symbol;
-
-  public static final String JSON_PROPERTY_NSIN = "nsin";
-  private InlineResponse2007Nsin nsin;
-
-  public static final String JSON_PROPERTY_FSYM = "fsym";
-  private InlineResponse2006Fsym fsym;
-
-  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
-  private InlineResponse2007Instrument instrument;
-
-  public static final String JSON_PROPERTY_COMPLIANCE = "compliance";
-  private InlineResponse2007Compliance compliance;
-
-  public static final String JSON_PROPERTY_REPORTED_KEY_FIGURES = "reportedKeyFigures";
-  private InlineResponse2007ReportedKeyFigures reportedKeyFigures;
-
-  public static final String JSON_PROPERTY_PERFORMANCE = "performance";
-  private InlineResponse2007Performance performance;
-
-  public static final String JSON_PROPERTY_VOLATILITY = "volatility";
-  private InlineResponse2007Volatility volatility;
-
-  public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
-  private InlineResponse2007TradingValue tradingValue;
-
-  public static final String JSON_PROPERTY_SIMPLE_MOVING_AVERAGE = "simpleMovingAverage";
-  private InlineResponse2007SimpleMovingAverage simpleMovingAverage;
-
-  public static final String JSON_PROPERTY_RSI_WILDER = "rsiWilder";
-  private InlineResponse2007RsiWilder rsiWilder;
-
-  public static final String JSON_PROPERTY_RECOMMENDATION = "recommendation";
-  private InlineResponse2007Recommendation recommendation;
-
-  public static final String JSON_PROPERTY_ESTIMATES = "estimates";
-  private InlineResponse2007Estimates estimates;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public InlineResponse2007Data() { 
   }
 
-  public InlineResponse2007Data id(String id) {
-    this.id = id;
+  public InlineResponse2007Data id(BigDecimal id) {
+    this.id = JsonNullable.<BigDecimal>of(id);
     return this;
   }
 
    /**
-   * Identifier of the notation.
+   * Identifier of a type.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the notation.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(value = "Identifier of a type.")
+  @JsonIgnore
 
-  public String getId() {
-    return id;
+  public BigDecimal getId() {
+        return id.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
+
+  public JsonNullable<BigDecimal> getId_JsonNullable() {
+    return id;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<BigDecimal> id) {
     this.id = id;
   }
 
+  public void setId(BigDecimal id) {
+    this.id = JsonNullable.<BigDecimal>of(id);
+  }
 
-  public InlineResponse2007Data valueUnit(InlineResponse2007ValueUnit valueUnit) {
-    this.valueUnit = valueUnit;
+
+  public InlineResponse2007Data name(String name) {
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
    /**
-   * Get valueUnit
-   * @return valueUnit
+   * Name of the type.
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @ApiModelProperty(value = "Name of the type.")
+  @JsonIgnore
+
+  public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2007ValueUnit getValueUnit() {
-    return valueUnit;
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValueUnit(InlineResponse2007ValueUnit valueUnit) {
-    this.valueUnit = valueUnit;
-  }
-
-
-  public InlineResponse2007Data market(InlineResponse2007Market market) {
-    this.market = market;
+  public InlineResponse2007Data description(String description) {
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
    /**
-   * Get market
-   * @return market
+   * Description of the type.
+   * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  @ApiModelProperty(value = "Description of the type.")
+  @JsonIgnore
+
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2007Market getMarket() {
-    return market;
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
   }
 
-
-  @JsonProperty(JSON_PROPERTY_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse2007Market market) {
-    this.market = market;
-  }
-
-
-  public InlineResponse2007Data symbol(String symbol) {
-    this.symbol = symbol;
-    return this;
-  }
-
-   /**
-   * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
-   * @return symbol
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.")
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSymbol() {
-    return symbol;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
-  }
-
-
-  public InlineResponse2007Data nsin(InlineResponse2007Nsin nsin) {
-    this.nsin = nsin;
-    return this;
-  }
-
-   /**
-   * Get nsin
-   * @return nsin
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NSIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007Nsin getNsin() {
-    return nsin;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NSIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNsin(InlineResponse2007Nsin nsin) {
-    this.nsin = nsin;
-  }
-
-
-  public InlineResponse2007Data fsym(InlineResponse2006Fsym fsym) {
-    this.fsym = fsym;
-    return this;
-  }
-
-   /**
-   * Get fsym
-   * @return fsym
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FSYM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2006Fsym getFsym() {
-    return fsym;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FSYM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsym(InlineResponse2006Fsym fsym) {
-    this.fsym = fsym;
-  }
-
-
-  public InlineResponse2007Data instrument(InlineResponse2007Instrument instrument) {
-    this.instrument = instrument;
-    return this;
-  }
-
-   /**
-   * Get instrument
-   * @return instrument
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007Instrument getInstrument() {
-    return instrument;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstrument(InlineResponse2007Instrument instrument) {
-    this.instrument = instrument;
-  }
-
-
-  public InlineResponse2007Data compliance(InlineResponse2007Compliance compliance) {
-    this.compliance = compliance;
-    return this;
-  }
-
-   /**
-   * Get compliance
-   * @return compliance
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_COMPLIANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007Compliance getCompliance() {
-    return compliance;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_COMPLIANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompliance(InlineResponse2007Compliance compliance) {
-    this.compliance = compliance;
-  }
-
-
-  public InlineResponse2007Data reportedKeyFigures(InlineResponse2007ReportedKeyFigures reportedKeyFigures) {
-    this.reportedKeyFigures = reportedKeyFigures;
-    return this;
-  }
-
-   /**
-   * Get reportedKeyFigures
-   * @return reportedKeyFigures
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_REPORTED_KEY_FIGURES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007ReportedKeyFigures getReportedKeyFigures() {
-    return reportedKeyFigures;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_REPORTED_KEY_FIGURES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReportedKeyFigures(InlineResponse2007ReportedKeyFigures reportedKeyFigures) {
-    this.reportedKeyFigures = reportedKeyFigures;
-  }
-
-
-  public InlineResponse2007Data performance(InlineResponse2007Performance performance) {
-    this.performance = performance;
-    return this;
-  }
-
-   /**
-   * Get performance
-   * @return performance
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007Performance getPerformance() {
-    return performance;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPerformance(InlineResponse2007Performance performance) {
-    this.performance = performance;
-  }
-
-
-  public InlineResponse2007Data volatility(InlineResponse2007Volatility volatility) {
-    this.volatility = volatility;
-    return this;
-  }
-
-   /**
-   * Get volatility
-   * @return volatility
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VOLATILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007Volatility getVolatility() {
-    return volatility;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VOLATILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVolatility(InlineResponse2007Volatility volatility) {
-    this.volatility = volatility;
-  }
-
-
-  public InlineResponse2007Data tradingValue(InlineResponse2007TradingValue tradingValue) {
-    this.tradingValue = tradingValue;
-    return this;
-  }
-
-   /**
-   * Get tradingValue
-   * @return tradingValue
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007TradingValue getTradingValue() {
-    return tradingValue;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTradingValue(InlineResponse2007TradingValue tradingValue) {
-    this.tradingValue = tradingValue;
-  }
-
-
-  public InlineResponse2007Data simpleMovingAverage(InlineResponse2007SimpleMovingAverage simpleMovingAverage) {
-    this.simpleMovingAverage = simpleMovingAverage;
-    return this;
-  }
-
-   /**
-   * Get simpleMovingAverage
-   * @return simpleMovingAverage
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SIMPLE_MOVING_AVERAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007SimpleMovingAverage getSimpleMovingAverage() {
-    return simpleMovingAverage;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIMPLE_MOVING_AVERAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSimpleMovingAverage(InlineResponse2007SimpleMovingAverage simpleMovingAverage) {
-    this.simpleMovingAverage = simpleMovingAverage;
-  }
-
-
-  public InlineResponse2007Data rsiWilder(InlineResponse2007RsiWilder rsiWilder) {
-    this.rsiWilder = rsiWilder;
-    return this;
-  }
-
-   /**
-   * Get rsiWilder
-   * @return rsiWilder
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RSI_WILDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007RsiWilder getRsiWilder() {
-    return rsiWilder;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RSI_WILDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRsiWilder(InlineResponse2007RsiWilder rsiWilder) {
-    this.rsiWilder = rsiWilder;
-  }
-
-
-  public InlineResponse2007Data recommendation(InlineResponse2007Recommendation recommendation) {
-    this.recommendation = recommendation;
-    return this;
-  }
-
-   /**
-   * Get recommendation
-   * @return recommendation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007Recommendation getRecommendation() {
-    return recommendation;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRecommendation(InlineResponse2007Recommendation recommendation) {
-    this.recommendation = recommendation;
-  }
-
-
-  public InlineResponse2007Data estimates(InlineResponse2007Estimates estimates) {
-    this.estimates = estimates;
-    return this;
-  }
-
-   /**
-   * Get estimates
-   * @return estimates
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ESTIMATES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007Estimates getEstimates() {
-    return estimates;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ESTIMATES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEstimates(InlineResponse2007Estimates estimates) {
-    this.estimates = estimates;
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
   }
 
 
@@ -547,27 +172,25 @@ public class InlineResponse2007Data implements Serializable {
       return false;
     }
     InlineResponse2007Data inlineResponse2007Data = (InlineResponse2007Data) o;
-    return Objects.equals(this.id, inlineResponse2007Data.id) &&
-        Objects.equals(this.valueUnit, inlineResponse2007Data.valueUnit) &&
-        Objects.equals(this.market, inlineResponse2007Data.market) &&
-        Objects.equals(this.symbol, inlineResponse2007Data.symbol) &&
-        Objects.equals(this.nsin, inlineResponse2007Data.nsin) &&
-        Objects.equals(this.fsym, inlineResponse2007Data.fsym) &&
-        Objects.equals(this.instrument, inlineResponse2007Data.instrument) &&
-        Objects.equals(this.compliance, inlineResponse2007Data.compliance) &&
-        Objects.equals(this.reportedKeyFigures, inlineResponse2007Data.reportedKeyFigures) &&
-        Objects.equals(this.performance, inlineResponse2007Data.performance) &&
-        Objects.equals(this.volatility, inlineResponse2007Data.volatility) &&
-        Objects.equals(this.tradingValue, inlineResponse2007Data.tradingValue) &&
-        Objects.equals(this.simpleMovingAverage, inlineResponse2007Data.simpleMovingAverage) &&
-        Objects.equals(this.rsiWilder, inlineResponse2007Data.rsiWilder) &&
-        Objects.equals(this.recommendation, inlineResponse2007Data.recommendation) &&
-        Objects.equals(this.estimates, inlineResponse2007Data.estimates);
+    return equalsNullable(this.id, inlineResponse2007Data.id) &&
+        equalsNullable(this.name, inlineResponse2007Data.name) &&
+        equalsNullable(this.description, inlineResponse2007Data.description);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, valueUnit, market, symbol, nsin, fsym, instrument, compliance, reportedKeyFigures, performance, volatility, tradingValue, simpleMovingAverage, rsiWilder, recommendation, estimates);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(name), hashCodeNullable(description));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -575,21 +198,8 @@ public class InlineResponse2007Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2007Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
-    sb.append("    market: ").append(toIndentedString(market)).append("\n");
-    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
-    sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
-    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
-    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
-    sb.append("    compliance: ").append(toIndentedString(compliance)).append("\n");
-    sb.append("    reportedKeyFigures: ").append(toIndentedString(reportedKeyFigures)).append("\n");
-    sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
-    sb.append("    volatility: ").append(toIndentedString(volatility)).append("\n");
-    sb.append("    tradingValue: ").append(toIndentedString(tradingValue)).append("\n");
-    sb.append("    simpleMovingAverage: ").append(toIndentedString(simpleMovingAverage)).append("\n");
-    sb.append("    rsiWilder: ").append(toIndentedString(rsiWilder)).append("\n");
-    sb.append("    recommendation: ").append(toIndentedString(recommendation)).append("\n");
-    sb.append("    estimates: ").append(toIndentedString(estimates)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }

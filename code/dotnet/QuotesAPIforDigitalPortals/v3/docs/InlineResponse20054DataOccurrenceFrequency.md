@@ -5,7 +5,7 @@ Frequency of the coupon payments. Information about the frequency is available o
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of the frequency. | [optional] 
+**Id** | **decimal?** | Identifier of the frequency. | [optional] 
 **Name** | **string** | Name of the frequency. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

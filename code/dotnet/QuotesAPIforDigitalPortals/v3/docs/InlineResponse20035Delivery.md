@@ -5,7 +5,7 @@ Delivery which provides this category dataset. For possible values, see endpoint
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of the delivery. | [optional] 
+**Id** | **decimal?** | Identifier of the delivery. | [optional] 
 **Name** | **string** | English name of the delivery. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

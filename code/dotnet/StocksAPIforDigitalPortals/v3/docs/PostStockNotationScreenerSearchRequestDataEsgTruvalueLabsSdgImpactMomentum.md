@@ -1,0 +1,12 @@
+# FactSet.SDK.StocksAPIforDigitalPortals.Model.PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdgImpactMomentum
+Value range for the momentum score which is a measure of the trend of a company's insight score. The ESG impact of a company is scored on a 0 to 100 scale. A score of 50 represents a neutral impact. Scores above 50 indicate positive performance, and scores below reflect negative performance.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Minimum** | [**PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum**](PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum.md) |  | [optional] 
+**Maximum** | [**PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum**](PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

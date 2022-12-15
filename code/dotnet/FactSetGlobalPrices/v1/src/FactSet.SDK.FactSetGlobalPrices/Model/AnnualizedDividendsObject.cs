@@ -1,7 +1,7 @@
 /*
  * FactSet Global Prices API
  *
- * The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p> 
+ * The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>
  *
  * The version of the OpenAPI document: 1.5.0
  * Contact: api@factset.com
@@ -30,7 +30,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
     /// AnnualizedDividendsObject
     /// </summary>
     [DataContract(Name = "annualizedDividendsObject")]
-    public partial class AnnualizedDividendsObject : Dictionary<String, Object>, IEquatable<AnnualizedDividendsObject>, IValidatableObject
+    public partial class AnnualizedDividendsObject : IEquatable<AnnualizedDividendsObject>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AnnualizedDividendsObject" /> class.
@@ -150,32 +150,32 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return base.Equals(input) &&
                 (
                     this.FsymId == input.FsymId ||
                     (this.FsymId != null &&
                     this.FsymId.Equals(input.FsymId))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.EventId == input.EventId ||
                     (this.EventId != null &&
                     this.EventId.Equals(input.EventId))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.EffectiveDate == input.EffectiveDate ||
                     (this.EffectiveDate != null &&
                     this.EffectiveDate.Equals(input.EffectiveDate))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.IadDefTradingAdj == input.IadDefTradingAdj ||
                     (this.IadDefTradingAdj != null &&
                     this.IadDefTradingAdj.Equals(input.IadDefTradingAdj))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&

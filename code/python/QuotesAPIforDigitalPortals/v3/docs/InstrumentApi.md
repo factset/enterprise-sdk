@@ -1,6 +1,6 @@
 # fds.sdk.QuotesAPIforDigitalPortals.InstrumentApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**post_instrument_compliance_property_list**](InstrumentApi.md#post_instrument_compliance_property_list) | **POST** /instrument/complianceProperty/list | List of compliance properties for instruments.
 [**post_instrument_cross_reference_list_by_isin**](InstrumentApi.md#post_instrument_cross_reference_list_by_isin) | **POST** /instrument/crossReference/listByISIN | Translate a list of ISINs to instruments.
 [**post_instrument_cross_reference_list_by_wkn**](InstrumentApi.md#post_instrument_cross_reference_list_by_wkn) | **POST** /instrument/crossReference/listByWKN | Translate a list of WKNs to instruments.
+[**post_instrument_notation_list**](InstrumentApi.md#post_instrument_notation_list) | **POST** /instrument/notation/list | List of active, entitled notations for a set of instruments.
 [**post_instrument_rating_grade_list**](InstrumentApi.md#post_instrument_rating_grade_list) | **POST** /instrument/rating/grade/list | List of rating grades for a list of instruments.
 
 
@@ -79,11 +80,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of an instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Background texts of an instrument.
@@ -101,9 +102,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of an instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -174,11 +175,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of an instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Compliance properties of an instrument.
@@ -196,9 +197,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of an instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -269,11 +270,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of a composite instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Composite instrument and its components.
@@ -291,9 +292,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of a composite instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -367,7 +368,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of day count convention types.
@@ -386,7 +387,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -460,7 +461,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of interest rate types.
@@ -479,7 +480,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -550,11 +551,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of an instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Interest rate details for selected periods of an interest-bearing instrument.
@@ -572,9 +573,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of an instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -645,11 +646,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of an instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of coupons for an interest-bearing instrument.
@@ -667,9 +668,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of an instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -740,7 +741,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    isin = "isin_example" # str | Source ISIN to be translated.
+    isin = "isin_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -761,7 +762,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **isin** | **str**| Source ISIN to be translated. |
+ **isin** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -833,7 +834,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    wkn = "8Q6ZGCKEC0L3O4GI7XHK0J" # str | Source WKN to be translated.
+    wkn = "8Q6ZGCKEC0L3O4GI7XHK0J" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -854,7 +855,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wkn** | **str**| Source WKN to be translated. |
+ **wkn** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -926,12 +927,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    isin = "isin_example" # str | Source ISIN to be translated.
+    isin = "isin_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 10.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 10.0
+    pagination_offset = 0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0
+    pagination_limit = 10 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 10
 
     try:
         # ISIN to instrument translation history.
@@ -949,10 +950,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **isin** | **str**| Source ISIN to be translated. |
+ **isin** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 10.0
+ **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0
+ **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 10
 
 ### Return type
 
@@ -1023,12 +1024,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    wkn = "8Q6ZGCKEC0L3O4GI7XHK0J" # str | Source WKN to be translated.
+    wkn = "8Q6ZGCKEC0L3O4GI7XHK0J" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 10.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 10.0
+    pagination_offset = 0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0
+    pagination_limit = 10 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 10
 
     try:
         # WKN to instrument translation history.
@@ -1046,10 +1047,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wkn** | **str**| Source WKN to be translated. |
+ **wkn** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 10.0
+ **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0
+ **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 10
 
 ### Return type
 
@@ -1120,12 +1121,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    target = 3.14 # float | Identifier of the target main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
-    source = 3.14 # float | Identifier of the source main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
+    target = 3.14 # float | 
+    source = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Retrieve an exchange rate instrument identifier.
@@ -1143,10 +1144,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **target** | **float**| Identifier of the target main currency. See endpoint &#x60;/basic/valueUnit/currency/main/list&#x60; for valid values. |
- **source** | **float**| Identifier of the source main currency. See endpoint &#x60;/basic/valueUnit/currency/main/list&#x60; for valid values. |
+ **target** | **float**|  |
+ **source** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1217,12 +1218,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    target = "target_example" # str | ISO 4217 code of the target main currency.
-    source = "source_example" # str | ISO 4217 code of the source main currency.
+    target = "target_example" # str | 
+    source = "source_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Retrieve an exchange rate instrument identifier.
@@ -1240,10 +1241,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **target** | **str**| ISO 4217 code of the target main currency. |
- **source** | **str**| ISO 4217 code of the source main currency. |
+ **target** | **str**|  |
+ **source** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1314,11 +1315,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of an instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Basic data for an instrument.
@@ -1336,9 +1337,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of an instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1409,11 +1410,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of a notation.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Basic data for an instrument.
@@ -1431,9 +1432,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of a notation. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1504,11 +1505,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of an instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Role-specific background texts of legal entities related to an instrument.
@@ -1526,9 +1527,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of an instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1599,11 +1600,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of an instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Role-specific compliance properties of legal entities related to an instrument.
@@ -1621,9 +1622,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of an instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1694,11 +1695,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of the instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # MiFID II data for a financial instrument.
@@ -1716,9 +1717,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1743,7 +1744,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_instrument_search_basic**
-> InlineResponse20087 get_instrument_search_basic(search_value)
+> InlineResponse20090 get_instrument_search_basic(search_value)
 
 Basic search for instruments.
 
@@ -1789,18 +1790,18 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    search_value = "RyDnZVoeN782F) 9-xW)gz" # str | The search value of the instruments searching for. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+    search_value = "RyDnZVoeN782F) 9-xW)gz" # str | 
     nsins = [
         "wkn",
-    ] # [str] | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional)
-    asset_class = "index" # str | A parameter to limit the output to a particular asset class. (optional)
-    only_active = True # bool | If true, restricts the result to active instruments. (optional) if omitted the server will use the default value of True
+    ] # [str] |  (optional)
+    asset_class = "index" # str |  (optional)
+    only_active = True # bool |  (optional) if omitted the server will use the default value of True
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
+    language = "_language_example" # str |  (optional)
+    pagination_offset = 0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0
+    pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
         # Basic search for instruments.
@@ -1818,18 +1819,18 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search_value** | **str**| The search value of the instruments searching for. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. |
- **nsins** | **[str]**| A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. | [optional]
- **asset_class** | **str**| A parameter to limit the output to a particular asset class. | [optional]
- **only_active** | **bool**| If true, restricts the result to active instruments. | [optional] if omitted the server will use the default value of True
+ **search_value** | **str**|  |
+ **nsins** | **[str]**|  | [optional]
+ **asset_class** | **str**|  | [optional]
+ **only_active** | **bool**|  | [optional] if omitted the server will use the default value of True
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20.0
+ **language** | **str**|  | [optional]
+ **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0
+ **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20
 
 ### Return type
 
-[**InlineResponse20087**](InlineResponse20087.md)
+[**InlineResponse20090**](InlineResponse20090.md)
 
 ### Authorization
 
@@ -1896,27 +1897,27 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    body = InlineObject9(
-        data=InstrumentBackgroundTextTypeListData(
-            filter=InstrumentBackgroundTextTypeListDataFilter(
+    post_instrument_background_text_type_list_request = PostInstrumentBackgroundTextTypeListRequest(
+        data=PostInstrumentBackgroundTextTypeListRequestData(
+            filter=PostInstrumentBackgroundTextTypeListRequestDataFilter(
                 ids=[
                     3.14,
                 ],
             ),
         ),
-        meta=InstrumentBackgroundTextTypeListMeta(
+        meta=PostInstrumentBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # InlineObject9 |  (optional)
+    ) # PostInstrumentBackgroundTextTypeListRequest |  (optional)
 
     try:
         # List of background text types for instruments.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_instrument_background_text_type_list(body=body)
+        api_response = api_instance.post_instrument_background_text_type_list(post_instrument_background_text_type_list_request=post_instrument_background_text_type_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1928,7 +1929,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject9**](InlineObject9.md)|  | [optional]
+ **post_instrument_background_text_type_list_request** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1999,28 +2000,28 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    body = InlineObject10(
-        data=InstrumentBenchmarkListData(
+    post_instrument_benchmark_list_request = PostInstrumentBenchmarkListRequest(
+        data=PostInstrumentBenchmarkListRequestData(
             id="id_example",
-            filter=InstrumentBenchmarkListDataFilter(
+            filter=PostInstrumentBenchmarkListRequestDataFilter(
                 types=[
                     3.14,
                 ],
             ),
         ),
-        meta=InstrumentBackgroundTextTypeListMeta(
+        meta=PostInstrumentBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # InlineObject10 |  (optional)
+    ) # PostInstrumentBenchmarkListRequest |  (optional)
 
     try:
         # List of benchmarks of a financial instrument.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_instrument_benchmark_list(body=body)
+        api_response = api_instance.post_instrument_benchmark_list(post_instrument_benchmark_list_request=post_instrument_benchmark_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2032,7 +2033,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject10**](InlineObject10.md)|  | [optional]
+ **post_instrument_benchmark_list_request** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2103,31 +2104,29 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    body = InlineObject11(
-        data=InstrumentCategoryListData(
+    post_instrument_category_list_request = PostInstrumentCategoryListRequest(
+        data=PostInstrumentCategoryListRequestData(
             id="id_example",
-            filter=InstrumentCategoryListDataFilter(
-                dataset=InstrumentCategoryListDataFilterDataset(
+            filter=PostInstrumentCategoryListRequestDataFilter(
+                dataset=PostInstrumentCategoryListRequestDataFilterDataset(
                     id=3.14,
                 ),
             ),
         ),
-        meta=InstrumentCategoryListMeta(
+        meta=PostInstrumentCategoryListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "dataset.id",
-            ],
+            sort=["dataset.name"],
         ),
-    ) # InlineObject11 |  (optional)
+    ) # PostInstrumentCategoryListRequest |  (optional)
 
     try:
         # List of categories assigned to a specific instrument the application is entitled to see.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_instrument_category_list(body=body)
+        api_response = api_instance.post_instrument_category_list(post_instrument_category_list_request=post_instrument_category_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2139,7 +2138,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject11**](InlineObject11.md)|  | [optional]
+ **post_instrument_category_list_request** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2210,27 +2209,27 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    body = InlineObject12(
-        data=InstrumentCompliancePropertyListData(
-            filter=InstrumentCompliancePropertyListDataFilter(
+    post_instrument_compliance_property_list_request = PostInstrumentCompliancePropertyListRequest(
+        data=PostInstrumentCompliancePropertyListRequestData(
+            filter=PostInstrumentCompliancePropertyListRequestDataFilter(
                 ids=[
                     3.14,
                 ],
             ),
         ),
-        meta=InstrumentBackgroundTextTypeListMeta(
+        meta=PostInstrumentBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # InlineObject12 |  (optional)
+    ) # PostInstrumentCompliancePropertyListRequest |  (optional)
 
     try:
         # List of compliance properties for instruments.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_instrument_compliance_property_list(body=body)
+        api_response = api_instance.post_instrument_compliance_property_list(post_instrument_compliance_property_list_request=post_instrument_compliance_property_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2242,7 +2241,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject12**](InlineObject12.md)|  | [optional]
+ **post_instrument_compliance_property_list_request** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2267,7 +2266,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_instrument_cross_reference_list_by_isin**
-> InlineResponse20056 post_instrument_cross_reference_list_by_isin(body)
+> InlineResponse20056 post_instrument_cross_reference_list_by_isin()
 
 Translate a list of ISINs to instruments.
 
@@ -2313,23 +2312,24 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    body = InlineObject13(
-        data=InstrumentCrossReferenceListByISINData(
+    post_instrument_cross_reference_list_by_isin_request = PostInstrumentCrossReferenceListByISINRequest(
+        data=PostInstrumentCrossReferenceListByISINRequestData(
             isins=[
                 "isins_example",
             ],
         ),
-        meta=BasicBackgroundTextTypeListMeta(
+        meta=PostBasicBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
         ),
-    ) # InlineObject13 | 
+    ) # PostInstrumentCrossReferenceListByISINRequest |  (optional)
 
     try:
         # Translate a list of ISINs to instruments.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_instrument_cross_reference_list_by_isin(body)
+        # and optional values
+        api_response = api_instance.post_instrument_cross_reference_list_by_isin(post_instrument_cross_reference_list_by_isin_request=post_instrument_cross_reference_list_by_isin_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2341,7 +2341,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject13**](InlineObject13.md)|  |
+ **post_instrument_cross_reference_list_by_isin_request** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2366,7 +2366,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_instrument_cross_reference_list_by_wkn**
-> InlineResponse20057 post_instrument_cross_reference_list_by_wkn(body)
+> InlineResponse20057 post_instrument_cross_reference_list_by_wkn()
 
 Translate a list of WKNs to instruments.
 
@@ -2412,23 +2412,24 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    body = InlineObject14(
-        data=InstrumentCrossReferenceListByWKNData(
+    post_instrument_cross_reference_list_by_wkn_request = PostInstrumentCrossReferenceListByWKNRequest(
+        data=PostInstrumentCrossReferenceListByWKNRequestData(
             wkns=[
                 "8Q6ZGCKEC0L3O4GI7XHK0J",
             ],
         ),
-        meta=BasicBackgroundTextTypeListMeta(
+        meta=PostBasicBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
         ),
-    ) # InlineObject14 | 
+    ) # PostInstrumentCrossReferenceListByWKNRequest |  (optional)
 
     try:
         # Translate a list of WKNs to instruments.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_instrument_cross_reference_list_by_wkn(body)
+        # and optional values
+        api_response = api_instance.post_instrument_cross_reference_list_by_wkn(post_instrument_cross_reference_list_by_wkn_request=post_instrument_cross_reference_list_by_wkn_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2440,7 +2441,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject14**](InlineObject14.md)|  |
+ **post_instrument_cross_reference_list_by_wkn_request** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2464,8 +2465,153 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **post_instrument_notation_list**
+> InlineResponse20063 post_instrument_notation_list()
+
+List of active, entitled notations for a set of instruments.
+
+List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.QuotesAPIforDigitalPortals
+from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = instrument_api.InstrumentApi(api_client)
+
+    post_instrument_notation_list_request = PostInstrumentNotationListRequest(
+        data=PostInstrumentNotationListRequestData(
+            identifier=PostInstrumentNotationListRequestDataIdentifier(
+                values=[
+                    "80728",
+                ],
+                type="idInstrument",
+            ),
+            filter=PostInstrumentNotationListRequestDataFilter(
+                value_unit=PostInstrumentNotationListRequestDataFilterValueUnit(
+                    selection=PostInstrumentNotationListRequestDataFilterValueUnitSelection(
+                        restrict=PostInstrumentNotationListRequestDataFilterValueUnitSelectionRestrict(
+                            ids=[
+                                3.14,
+                            ],
+                        ),
+                        exclude=PostInstrumentNotationListRequestDataFilterValueUnitSelectionExclude(
+                            ids=[
+                                3.14,
+                            ],
+                        ),
+                    ),
+                    order=PostInstrumentNotationListRequestDataFilterValueUnitOrder(
+                        ids=[
+                            3.14,
+                        ],
+                    ),
+                ),
+                market=PostInstrumentNotationListRequestDataFilterMarket(
+                    selection=PostInstrumentNotationListRequestDataFilterMarketSelection(
+                        restrict=PostInstrumentNotationListRequestDataFilterMarketSelectionRestrict(
+                            ids=[
+                                3.14,
+                            ],
+                        ),
+                        exclude=PostInstrumentNotationListRequestDataFilterMarketSelectionExclude(
+                            ids=[
+                                3.14,
+                            ],
+                        ),
+                    ),
+                    order=PostInstrumentNotationListRequestDataFilterMarketOrder(
+                        ids=[
+                            3.14,
+                        ],
+                    ),
+                ),
+            ),
+        ),
+        meta=PostInstrumentNotationListRequestMeta(
+            attributes=AttributesMember([
+                "attributes_example",
+            ]),
+            language=LanguageMember("language_example"),
+            sort=["notations.tradingVolume.month1.average"],
+        ),
+    ) # PostInstrumentNotationListRequest |  (optional)
+
+    try:
+        # List of active, entitled notations for a set of instruments.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_instrument_notation_list(post_instrument_notation_list_request=post_instrument_notation_list_request)
+        pprint(api_response)
+
+    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling InstrumentApi->post_instrument_notation_list: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **post_instrument_notation_list_request** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)|  | [optional]
+
+### Return type
+
+[**InlineResponse20063**](InlineResponse20063.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **post_instrument_rating_grade_list**
-> InlineResponse20063 post_instrument_rating_grade_list()
+> InlineResponse20064 post_instrument_rating_grade_list()
 
 List of rating grades for a list of instruments.
 
@@ -2511,31 +2657,31 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instrument_api.InstrumentApi(api_client)
 
-    body = InlineObject15(
-        data=InstrumentRatingGradeListData(
+    post_instrument_rating_grade_list_request = PostInstrumentRatingGradeListRequest(
+        data=PostInstrumentRatingGradeListRequestData(
             ids=[
                 "ids_example",
             ],
-            filter=InstrumentRatingGradeListDataFilter(
-                rating_system=InstrumentRatingGradeListDataFilterRatingSystem(
+            filter=PostInstrumentRatingGradeListRequestDataFilter(
+                rating_system=PostInstrumentRatingGradeListRequestDataFilterRatingSystem(
                     ids=[
                         3.14,
                     ],
                 ),
             ),
         ),
-        meta=BasicBackgroundTextTypeListMeta(
+        meta=PostBasicBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
         ),
-    ) # InlineObject15 |  (optional)
+    ) # PostInstrumentRatingGradeListRequest |  (optional)
 
     try:
         # List of rating grades for a list of instruments.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_instrument_rating_grade_list(body=body)
+        api_response = api_instance.post_instrument_rating_grade_list(post_instrument_rating_grade_list_request=post_instrument_rating_grade_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2547,11 +2693,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject15**](InlineObject15.md)|  | [optional]
+ **post_instrument_rating_grade_list_request** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20063**](InlineResponse20063.md)
+[**InlineResponse20064**](InlineResponse20064.md)
 
 ### Authorization
 

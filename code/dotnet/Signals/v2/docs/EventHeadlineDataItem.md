@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RequestId** | **string** | The id that was requested. This can be a ticker, cusip or factset entity id. | 
+**CompanyName** | **string** | Name of the company reported in signal. Omitted if null. | [optional] 
 **SignalId** | **string** | Signal Id for this event. e.g. dilutionTrigger | 
 **SignalName** | **string** | Signal Name for this event. e.g. dilutionTrigger | 
 **Theme** | **string** | Theme name of the signal for this event. e.g. Debt Capital Structure | 

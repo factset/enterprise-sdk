@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 <a name="getnewsarticletypeget"></a>
 # **GetNewsArticleTypeGet**
-> InlineResponse2003 GetNewsArticleTypeGet (decimal id, List<string> attributes = null, string language = null)
+> InlineResponse2005 GetNewsArticleTypeGet (decimal id, List<string> attributes = null, string language = null)
 
 Details for a news article type.
 
@@ -167,7 +167,7 @@ namespace Example
             try
             {
                 // Details for a news article type.
-                InlineResponse2003 result = apiInstance.GetNewsArticleTypeGet(id, attributes, language);
+                InlineResponse2005 result = apiInstance.GetNewsArticleTypeGet(id, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 <a name="getnewsarticletypelist"></a>
 # **GetNewsArticleTypeList**
-> InlineResponse2004 GetNewsArticleTypeList (List<string> attributes = null, string language = null)
+> InlineResponse2006 GetNewsArticleTypeList (List<string> attributes = null, string language = null)
 
 List of news article types.
 
@@ -259,7 +259,7 @@ namespace Example
             try
             {
                 // List of news article types.
-                InlineResponse2004 result = apiInstance.GetNewsArticleTypeList(attributes, language);
+                InlineResponse2006 result = apiInstance.GetNewsArticleTypeList(attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 <a name="getnewsdistributorget"></a>
 # **GetNewsDistributorGet**
-> InlineResponse2005 GetNewsDistributorGet (decimal id, List<string> attributes = null)
+> InlineResponse2007 GetNewsDistributorGet (decimal id, List<string> attributes = null)
 
 Details of a distributor.
 
@@ -350,7 +350,7 @@ namespace Example
             try
             {
                 // Details of a distributor.
-                InlineResponse2005 result = apiInstance.GetNewsDistributorGet(id, attributes);
+                InlineResponse2007 result = apiInstance.GetNewsDistributorGet(id, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
 
 <a name="getnewsdistributorlist"></a>
 # **GetNewsDistributorList**
-> InlineResponse2006 GetNewsDistributorList (List<decimal> ids = null, List<string> attributes = null, List<string> sort = null)
+> InlineResponse2008 GetNewsDistributorList (List<decimal> ids = null, List<string> attributes = null, List<string> sort = null)
 
 List of distributors.
 
@@ -442,7 +442,7 @@ namespace Example
             try
             {
                 // List of distributors.
-                InlineResponse2006 result = apiInstance.GetNewsDistributorList(ids, attributes, sort);
+                InlineResponse2008 result = apiInstance.GetNewsDistributorList(ids, attributes, sort);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 <a name="getnewspublisherget"></a>
 # **GetNewsPublisherGet**
-> InlineResponse2007 GetNewsPublisherGet (decimal id, List<string> attributes = null)
+> InlineResponse2009 GetNewsPublisherGet (decimal id, List<string> attributes = null)
 
 Details of a publisher.
 
@@ -534,7 +534,7 @@ namespace Example
             try
             {
                 // Details of a publisher.
-                InlineResponse2007 result = apiInstance.GetNewsPublisherGet(id, attributes);
+                InlineResponse2009 result = apiInstance.GetNewsPublisherGet(id, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -577,7 +577,7 @@ Name | Type | Description  | Notes
 
 <a name="getnewspublisherlist"></a>
 # **GetNewsPublisherList**
-> InlineResponse2008 GetNewsPublisherList (List<decimal> ids = null, List<string> attributes = null, List<string> sort = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
+> InlineResponse20010 GetNewsPublisherList (List<decimal> ids = null, List<string> attributes = null, List<string> sort = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
 
 List of publishers.
 
@@ -628,7 +628,7 @@ namespace Example
             try
             {
                 // List of publishers.
-                InlineResponse2008 result = apiInstance.GetNewsPublisherList(ids, attributes, sort, paginationOffset, paginationLimit);
+                InlineResponse20010 result = apiInstance.GetNewsPublisherList(ids, attributes, sort, paginationOffset, paginationLimit);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -653,7 +653,7 @@ Name | Type | Description  | Notes
  **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
 ### Return type
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 
 <a name="getnewspublisherlistbydistributor"></a>
 # **GetNewsPublisherListByDistributor**
-> InlineResponse2009 GetNewsPublisherListByDistributor (decimal id, List<string> attributes = null, List<string> sort = null)
+> InlineResponse20011 GetNewsPublisherListByDistributor (decimal id, List<string> attributes = null, List<string> sort = null)
 
 List of publishers provided by the given distributor.
 
@@ -723,7 +723,7 @@ namespace Example
             try
             {
                 // List of publishers provided by the given distributor.
-                InlineResponse2009 result = apiInstance.GetNewsPublisherListByDistributor(id, attributes, sort);
+                InlineResponse20011 result = apiInstance.GetNewsPublisherListByDistributor(id, attributes, sort);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -746,7 +746,7 @@ Name | Type | Description  | Notes
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -767,7 +767,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlelist"></a>
 # **PostNewsArticleList**
-> InlineResponse2001 PostNewsArticleList (InlineObject inlineObject = null)
+> InlineResponse2001 PostNewsArticleList (PostNewsArticleListRequest postNewsArticleListRequest = null)
 
 List of news articles.
 
@@ -809,12 +809,12 @@ namespace Example
 
             var apiInstance = new NewsApi(config);
 
-            var inlineObject = new InlineObject(); // InlineObject |  (optional) 
+            var postNewsArticleListRequest = new PostNewsArticleListRequest(); // PostNewsArticleListRequest |  (optional) 
 
             try
             {
                 // List of news articles.
-                InlineResponse2001 result = apiInstance.PostNewsArticleList(inlineObject);
+                InlineResponse2001 result = apiInstance.PostNewsArticleList(postNewsArticleListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -832,7 +832,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **postNewsArticleListRequest** | [**PostNewsArticleListRequest**](PostNewsArticleListRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -856,7 +856,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlelistbychain"></a>
 # **PostNewsArticleListByChain**
-> InlineResponse2002 PostNewsArticleListByChain (InlineObject1 inlineObject1)
+> InlineResponse2002 PostNewsArticleListByChain (PostNewsArticleListByChainRequest postNewsArticleListByChainRequest = null)
 
 List news articles of an article chain.
 
@@ -898,12 +898,12 @@ namespace Example
 
             var apiInstance = new NewsApi(config);
 
-            var inlineObject1 = new InlineObject1(); // InlineObject1 | 
+            var postNewsArticleListByChainRequest = new PostNewsArticleListByChainRequest(); // PostNewsArticleListByChainRequest |  (optional) 
 
             try
             {
                 // List news articles of an article chain.
-                InlineResponse2002 result = apiInstance.PostNewsArticleListByChain(inlineObject1);
+                InlineResponse2002 result = apiInstance.PostNewsArticleListByChain(postNewsArticleListByChainRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -921,7 +921,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **postNewsArticleListByChainRequest** | [**PostNewsArticleListByChainRequest**](PostNewsArticleListByChainRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2002**](InlineResponse2002.md)
@@ -945,7 +945,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlelistbyindex"></a>
 # **PostNewsArticleListByIndex**
-> InlineResponse2001 PostNewsArticleListByIndex (InlineObject2 inlineObject2)
+> InlineResponse2003 PostNewsArticleListByIndex (PostNewsArticleListByIndexRequest postNewsArticleListByIndexRequest = null)
 
 News articles for instruments that are constituents of the given indices.
 
@@ -987,12 +987,12 @@ namespace Example
 
             var apiInstance = new NewsApi(config);
 
-            var inlineObject2 = new InlineObject2(); // InlineObject2 | 
+            var postNewsArticleListByIndexRequest = new PostNewsArticleListByIndexRequest(); // PostNewsArticleListByIndexRequest |  (optional) 
 
             try
             {
                 // News articles for instruments that are constituents of the given indices.
-                InlineResponse2001 result = apiInstance.PostNewsArticleListByIndex(inlineObject2);
+                InlineResponse2003 result = apiInstance.PostNewsArticleListByIndex(postNewsArticleListByIndexRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1010,10 +1010,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
+ **postNewsArticleListByIndexRequest** | [**PostNewsArticleListByIndexRequest**](PostNewsArticleListByIndexRequest.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -1034,7 +1034,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlelistbyinstrument"></a>
 # **PostNewsArticleListByInstrument**
-> InlineResponse2001 PostNewsArticleListByInstrument (InlineObject3 inlineObject3)
+> InlineResponse2004 PostNewsArticleListByInstrument (PostNewsArticleListByInstrumentRequest postNewsArticleListByInstrumentRequest = null)
 
 News articles for instruments.
 
@@ -1076,12 +1076,12 @@ namespace Example
 
             var apiInstance = new NewsApi(config);
 
-            var inlineObject3 = new InlineObject3(); // InlineObject3 | 
+            var postNewsArticleListByInstrumentRequest = new PostNewsArticleListByInstrumentRequest(); // PostNewsArticleListByInstrumentRequest |  (optional) 
 
             try
             {
                 // News articles for instruments.
-                InlineResponse2001 result = apiInstance.PostNewsArticleListByInstrument(inlineObject3);
+                InlineResponse2004 result = apiInstance.PostNewsArticleListByInstrument(postNewsArticleListByInstrumentRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1099,10 +1099,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
+ **postNewsArticleListByInstrumentRequest** | [**PostNewsArticleListByInstrumentRequest**](PostNewsArticleListByInstrumentRequest.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -1123,7 +1123,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlelistbymediakind"></a>
 # **PostNewsArticleListByMediaKind**
-> InlineResponse2001 PostNewsArticleListByMediaKind (InlineObject4 inlineObject4)
+> InlineResponse2001 PostNewsArticleListByMediaKind (PostNewsArticleListByMediaKindRequest postNewsArticleListByMediaKindRequest = null)
 
 List news articles which contain media of specific media kinds.
 
@@ -1165,12 +1165,12 @@ namespace Example
 
             var apiInstance = new NewsApi(config);
 
-            var inlineObject4 = new InlineObject4(); // InlineObject4 | 
+            var postNewsArticleListByMediaKindRequest = new PostNewsArticleListByMediaKindRequest(); // PostNewsArticleListByMediaKindRequest |  (optional) 
 
             try
             {
                 // List news articles which contain media of specific media kinds.
-                InlineResponse2001 result = apiInstance.PostNewsArticleListByMediaKind(inlineObject4);
+                InlineResponse2001 result = apiInstance.PostNewsArticleListByMediaKind(postNewsArticleListByMediaKindRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1188,7 +1188,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
+ **postNewsArticleListByMediaKindRequest** | [**PostNewsArticleListByMediaKindRequest**](PostNewsArticleListByMediaKindRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -1212,7 +1212,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlesearchbytext"></a>
 # **PostNewsArticleSearchByText**
-> InlineResponse2001 PostNewsArticleSearchByText (InlineObject5 inlineObject5 = null)
+> InlineResponse2001 PostNewsArticleSearchByText (PostNewsArticleSearchByTextRequest postNewsArticleSearchByTextRequest = null)
 
 Search for news articles using a fulltext search.
 
@@ -1254,12 +1254,12 @@ namespace Example
 
             var apiInstance = new NewsApi(config);
 
-            var inlineObject5 = new InlineObject5(); // InlineObject5 |  (optional) 
+            var postNewsArticleSearchByTextRequest = new PostNewsArticleSearchByTextRequest(); // PostNewsArticleSearchByTextRequest |  (optional) 
 
             try
             {
                 // Search for news articles using a fulltext search.
-                InlineResponse2001 result = apiInstance.PostNewsArticleSearchByText(inlineObject5);
+                InlineResponse2001 result = apiInstance.PostNewsArticleSearchByText(postNewsArticleSearchByTextRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1277,7 +1277,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+ **postNewsArticleSearchByTextRequest** | [**PostNewsArticleSearchByTextRequest**](PostNewsArticleSearchByTextRequest.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -1301,7 +1301,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewspublishersearchbyname"></a>
 # **PostNewsPublisherSearchByName**
-> InlineResponse2009 PostNewsPublisherSearchByName (InlineObject6 inlineObject6)
+> InlineResponse20011 PostNewsPublisherSearchByName (PostNewsPublisherSearchByNameRequest postNewsPublisherSearchByNameRequest = null)
 
 Search for publishers.
 
@@ -1343,12 +1343,12 @@ namespace Example
 
             var apiInstance = new NewsApi(config);
 
-            var inlineObject6 = new InlineObject6(); // InlineObject6 | 
+            var postNewsPublisherSearchByNameRequest = new PostNewsPublisherSearchByNameRequest(); // PostNewsPublisherSearchByNameRequest |  (optional) 
 
             try
             {
                 // Search for publishers.
-                InlineResponse2009 result = apiInstance.PostNewsPublisherSearchByName(inlineObject6);
+                InlineResponse20011 result = apiInstance.PostNewsPublisherSearchByName(postNewsPublisherSearchByNameRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1366,10 +1366,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+ **postNewsPublisherSearchByNameRequest** | [**PostNewsPublisherSearchByNameRequest**](PostNewsPublisherSearchByNameRequest.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

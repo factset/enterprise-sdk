@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -13,13 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import InlineObject16 from '../model/InlineObject16';
-import InlineObject17 from '../model/InlineObject17';
-import InlineObject18 from '../model/InlineObject18';
-import InlineObject19 from '../model/InlineObject19';
-import InlineObject20 from '../model/InlineObject20';
-import InlineObject22 from '../model/InlineObject22';
-import InlineResponse20064 from '../model/InlineResponse20064';
 import InlineResponse20065 from '../model/InlineResponse20065';
 import InlineResponse20066 from '../model/InlineResponse20066';
 import InlineResponse20067 from '../model/InlineResponse20067';
@@ -34,9 +27,19 @@ import InlineResponse20075 from '../model/InlineResponse20075';
 import InlineResponse20076 from '../model/InlineResponse20076';
 import InlineResponse20077 from '../model/InlineResponse20077';
 import InlineResponse20078 from '../model/InlineResponse20078';
-import InlineResponse20088 from '../model/InlineResponse20088';
-import InlineResponse20089 from '../model/InlineResponse20089';
-import InlineResponse20090 from '../model/InlineResponse20090';
+import InlineResponse20079 from '../model/InlineResponse20079';
+import InlineResponse20080 from '../model/InlineResponse20080';
+import InlineResponse20081 from '../model/InlineResponse20081';
+import InlineResponse20091 from '../model/InlineResponse20091';
+import InlineResponse20092 from '../model/InlineResponse20092';
+import InlineResponse20093 from '../model/InlineResponse20093';
+import PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest from '../model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest';
+import PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest from '../model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest';
+import PostNotationCrossReferenceListByISINRequest from '../model/PostNotationCrossReferenceListByISINRequest';
+import PostNotationCrossReferenceListByInstrumentRequest from '../model/PostNotationCrossReferenceListByInstrumentRequest';
+import PostNotationCrossReferenceListBySymbolRequest from '../model/PostNotationCrossReferenceListBySymbolRequest';
+import PostNotationMarketListRequest from '../model/PostNotationMarketListRequest';
+import PostNotationSearchByTextRequest from '../model/PostNotationSearchByTextRequest';
 
 /**
 * Notation service.
@@ -60,23 +63,29 @@ export default class NotationApi {
     /**
      * Retrieve FactSet identifiers for a given notation.
      * <p>Retrieve FactSet identifiers for a given notation. Security and listing-level identifiers are always included, regional level identifiers are included, if available.
-     * @param {String} id Identifier of a notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20069} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20071} and HTTP response
      */
-    getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(id, opts) {
+    getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationCrossReferenceFactSetIdentifierGet");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationCrossReferenceFactSetIdentifierGet");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationCrossReferenceFactSetIdentifierGet");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -89,7 +98,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20069;
+      let returnType = InlineResponse20071;
 
       return this.apiClient.callApi(
         '/notation/crossReference/factSetIdentifier/get', 'GET',
@@ -101,13 +110,14 @@ export default class NotationApi {
     /**
      * Retrieve FactSet identifiers for a given notation.
      * <p>Retrieve FactSet identifiers for a given notation. Security and listing-level identifiers are always included, regional level identifiers are included, if available.
-     * @param {String} id Identifier of a notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20069 > } a Promise, with data of type {@link module:model/InlineResponse20069 }
+     * @return { Promise.< module:model/InlineResponse20071 > } a Promise, with data of type {@link module:model/InlineResponse20071 }
      */
-    getNotationCrossReferenceFactSetIdentifierGet(id, opts) {
-      return this.getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(id, opts)
+    getNotationCrossReferenceFactSetIdentifierGet(identifier, identifierType, opts) {
+      return this.getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -117,11 +127,11 @@ export default class NotationApi {
     /**
      * Translate a FactSet market symbol to a notation.
      * Translate a FactSet market symbol to a notation. This symbol is also known as TICKER_EXCHANGE.
-     * @param {String} factSetMarketSymbol Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE).
+     * @param {String} factSetMarketSymbol 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20066} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20067} and HTTP response
      */
     getNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(factSetMarketSymbol, opts) {
       opts = opts || {};
@@ -148,7 +158,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20066;
+      let returnType = InlineResponse20067;
 
       return this.apiClient.callApi(
         '/notation/crossReference/getByFactSetMarketSymbol', 'GET',
@@ -160,11 +170,11 @@ export default class NotationApi {
     /**
      * Translate a FactSet market symbol to a notation.
      * Translate a FactSet market symbol to a notation. This symbol is also known as TICKER_EXCHANGE.
-     * @param {String} factSetMarketSymbol Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE).
+     * @param {String} factSetMarketSymbol 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse20066 > } a Promise, with data of type {@link module:model/InlineResponse20066 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse20067 > } a Promise, with data of type {@link module:model/InlineResponse20067 }
      */
     getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, opts) {
       return this.getNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(factSetMarketSymbol, opts)
@@ -177,24 +187,30 @@ export default class NotationApi {
     /**
      * Basic data for a notation.
      * Basic data for a notation.
-     * @param {String} id Identifier of a notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20064} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20065} and HTTP response
      */
-    getNotationGetWithHttpInfo(id, opts) {
+    getNotationGetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationGet");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationGet");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationGet");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv'),
         '_language': opts['language']
       };
@@ -208,7 +224,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20064;
+      let returnType = InlineResponse20065;
 
       return this.apiClient.callApi(
         '/notation/get', 'GET',
@@ -220,14 +236,15 @@ export default class NotationApi {
     /**
      * Basic data for a notation.
      * Basic data for a notation.
-     * @param {String} id Identifier of a notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse20064 > } a Promise, with data of type {@link module:model/InlineResponse20064 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse20065 > } a Promise, with data of type {@link module:model/InlineResponse20065 }
      */
-    getNotationGet(id, opts) {
-      return this.getNotationGetWithHttpInfo(id, opts)
+    getNotationGet(identifier, identifierType, opts) {
+      return this.getNotationGetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -237,23 +254,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one month.
      * End-of-day (EOD) key figures for the time range of one month.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20072} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
      */
-    getNotationKeyFiguresMonth1GetWithHttpInfo(id, opts) {
+    getNotationKeyFiguresMonth1GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationKeyFiguresMonth1Get");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresMonth1Get");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth1Get");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -266,7 +289,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20072;
+      let returnType = InlineResponse20076;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/month/1/get', 'GET',
@@ -278,13 +301,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one month.
      * End-of-day (EOD) key figures for the time range of one month.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20072 > } a Promise, with data of type {@link module:model/InlineResponse20072 }
+     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
      */
-    getNotationKeyFiguresMonth1Get(id, opts) {
-      return this.getNotationKeyFiguresMonth1GetWithHttpInfo(id, opts)
+    getNotationKeyFiguresMonth1Get(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresMonth1GetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -294,23 +318,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one month, for a list of notations.
      * End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20073} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20077} and HTTP response
      */
-    getNotationKeyFiguresMonth1ListWithHttpInfo(ids, opts) {
+    getNotationKeyFiguresMonth1ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'ids' is set
-      if (ids === undefined || ids === null) {
-        throw new Error("Missing the required parameter 'ids' when calling getNotationKeyFiguresMonth1List");
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationKeyFiguresMonth1List");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth1List");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'ids': this.apiClient.buildCollectionParam(ids, 'csv'),
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -323,7 +353,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20073;
+      let returnType = InlineResponse20077;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/month/1/list', 'GET',
@@ -335,13 +365,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one month, for a list of notations.
      * End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20073 > } a Promise, with data of type {@link module:model/InlineResponse20073 }
+     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
      */
-    getNotationKeyFiguresMonth1List(ids, opts) {
-      return this.getNotationKeyFiguresMonth1ListWithHttpInfo(ids, opts)
+    getNotationKeyFiguresMonth1List(identifiers, identifierType, opts) {
+      return this.getNotationKeyFiguresMonth1ListWithHttpInfo(identifiers, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -351,23 +382,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of three months.
      * End-of-day (EOD) key figures for the time range of three months.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
      */
-    getNotationKeyFiguresMonth3GetWithHttpInfo(id, opts) {
+    getNotationKeyFiguresMonth3GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationKeyFiguresMonth3Get");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresMonth3Get");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth3Get");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -392,13 +429,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of three months.
      * End-of-day (EOD) key figures for the time range of three months.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
      */
-    getNotationKeyFiguresMonth3Get(id, opts) {
-      return this.getNotationKeyFiguresMonth3GetWithHttpInfo(id, opts)
+    getNotationKeyFiguresMonth3Get(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresMonth3GetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -408,23 +446,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of three months, for a list of notations.
      * End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
      */
-    getNotationKeyFiguresMonth3ListWithHttpInfo(ids, opts) {
+    getNotationKeyFiguresMonth3ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'ids' is set
-      if (ids === undefined || ids === null) {
-        throw new Error("Missing the required parameter 'ids' when calling getNotationKeyFiguresMonth3List");
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationKeyFiguresMonth3List");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth3List");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'ids': this.apiClient.buildCollectionParam(ids, 'csv'),
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -449,13 +493,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of three months, for a list of notations.
      * End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
-    getNotationKeyFiguresMonth3List(ids, opts) {
-      return this.getNotationKeyFiguresMonth3ListWithHttpInfo(ids, opts)
+    getNotationKeyFiguresMonth3List(identifiers, identifierType, opts) {
+      return this.getNotationKeyFiguresMonth3ListWithHttpInfo(identifiers, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -465,23 +510,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of six months.
      * End-of-day (EOD) key figures for the time range of six months.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
      */
-    getNotationKeyFiguresMonth6GetWithHttpInfo(id, opts) {
+    getNotationKeyFiguresMonth6GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationKeyFiguresMonth6Get");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresMonth6Get");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth6Get");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -506,13 +557,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of six months.
      * End-of-day (EOD) key figures for the time range of six months.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
      */
-    getNotationKeyFiguresMonth6Get(id, opts) {
-      return this.getNotationKeyFiguresMonth6GetWithHttpInfo(id, opts)
+    getNotationKeyFiguresMonth6Get(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresMonth6GetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -522,23 +574,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of six months, for a list of notations.
      * End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
      */
-    getNotationKeyFiguresMonth6ListWithHttpInfo(ids, opts) {
+    getNotationKeyFiguresMonth6ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'ids' is set
-      if (ids === undefined || ids === null) {
-        throw new Error("Missing the required parameter 'ids' when calling getNotationKeyFiguresMonth6List");
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationKeyFiguresMonth6List");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth6List");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'ids': this.apiClient.buildCollectionParam(ids, 'csv'),
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -563,13 +621,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of six months, for a list of notations.
      * End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
-    getNotationKeyFiguresMonth6List(ids, opts) {
-      return this.getNotationKeyFiguresMonth6ListWithHttpInfo(ids, opts)
+    getNotationKeyFiguresMonth6List(identifiers, identifierType, opts) {
+      return this.getNotationKeyFiguresMonth6ListWithHttpInfo(identifiers, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -579,23 +638,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one week.
      * End-of-day (EOD) key figures for the time range of one week.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20072} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
      */
-    getNotationKeyFiguresWeek1GetWithHttpInfo(id, opts) {
+    getNotationKeyFiguresWeek1GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationKeyFiguresWeek1Get");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresWeek1Get");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresWeek1Get");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -608,7 +673,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20072;
+      let returnType = InlineResponse20076;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/week/1/get', 'GET',
@@ -620,13 +685,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one week.
      * End-of-day (EOD) key figures for the time range of one week.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20072 > } a Promise, with data of type {@link module:model/InlineResponse20072 }
+     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
      */
-    getNotationKeyFiguresWeek1Get(id, opts) {
-      return this.getNotationKeyFiguresWeek1GetWithHttpInfo(id, opts)
+    getNotationKeyFiguresWeek1Get(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresWeek1GetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -636,23 +702,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one week, for a list of notations.
      * End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20073} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20077} and HTTP response
      */
-    getNotationKeyFiguresWeek1ListWithHttpInfo(ids, opts) {
+    getNotationKeyFiguresWeek1ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'ids' is set
-      if (ids === undefined || ids === null) {
-        throw new Error("Missing the required parameter 'ids' when calling getNotationKeyFiguresWeek1List");
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationKeyFiguresWeek1List");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresWeek1List");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'ids': this.apiClient.buildCollectionParam(ids, 'csv'),
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -665,7 +737,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20073;
+      let returnType = InlineResponse20077;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/week/1/list', 'GET',
@@ -677,13 +749,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one week, for a list of notations.
      * End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20073 > } a Promise, with data of type {@link module:model/InlineResponse20073 }
+     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
      */
-    getNotationKeyFiguresWeek1List(ids, opts) {
-      return this.getNotationKeyFiguresWeek1ListWithHttpInfo(ids, opts)
+    getNotationKeyFiguresWeek1List(identifiers, identifierType, opts) {
+      return this.getNotationKeyFiguresWeek1ListWithHttpInfo(identifiers, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -691,25 +764,31 @@ export default class NotationApi {
 
 
     /**
-     * End-of-day (EOD) key figures for the time range of one year.
-     * End-of-day (EOD) key figures for the time range of one year.
-     * @param {String} id Identifier of the notation.
+     * End-of-day (EOD) key figures for the time range of ten years.
+     * End-of-day (EOD) key figures for the time range of ten years.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20072} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
      */
-    getNotationKeyFiguresYear1GetWithHttpInfo(id, opts) {
+    getNotationKeyFiguresYear10GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationKeyFiguresYear1Get");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresYear10Get");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear10Get");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -722,7 +801,135 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20072;
+      let returnType = InlineResponse20074;
+
+      return this.apiClient.callApi(
+        '/notation/keyFigures/year/10/get', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * End-of-day (EOD) key figures for the time range of ten years.
+     * End-of-day (EOD) key figures for the time range of ten years.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
+     */
+    getNotationKeyFiguresYear10Get(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresYear10GetWithHttpInfo(identifier, identifierType, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+     * End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
+     */
+    getNotationKeyFiguresYear10ListWithHttpInfo(identifiers, identifierType, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYear10List");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear10List");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20075;
+
+      return this.apiClient.callApi(
+        '/notation/keyFigures/year/10/list', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+     * End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
+     */
+    getNotationKeyFiguresYear10List(identifiers, identifierType, opts) {
+      return this.getNotationKeyFiguresYear10ListWithHttpInfo(identifiers, identifierType, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * End-of-day (EOD) key figures for the time range of one year.
+     * End-of-day (EOD) key figures for the time range of one year.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
+     */
+    getNotationKeyFiguresYear1GetWithHttpInfo(identifier, identifierType, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresYear1Get");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear1Get");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'identifier': identifier,
+        'identifierType': identifierType,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20076;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/1/get', 'GET',
@@ -734,13 +941,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one year.
      * End-of-day (EOD) key figures for the time range of one year.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20072 > } a Promise, with data of type {@link module:model/InlineResponse20072 }
+     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
      */
-    getNotationKeyFiguresYear1Get(id, opts) {
-      return this.getNotationKeyFiguresYear1GetWithHttpInfo(id, opts)
+    getNotationKeyFiguresYear1Get(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresYear1GetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -750,23 +958,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one year, for a list of notations.
      * End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20073} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20077} and HTTP response
      */
-    getNotationKeyFiguresYear1ListWithHttpInfo(ids, opts) {
+    getNotationKeyFiguresYear1ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'ids' is set
-      if (ids === undefined || ids === null) {
-        throw new Error("Missing the required parameter 'ids' when calling getNotationKeyFiguresYear1List");
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYear1List");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear1List");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'ids': this.apiClient.buildCollectionParam(ids, 'csv'),
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -779,7 +993,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20073;
+      let returnType = InlineResponse20077;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/1/list', 'GET',
@@ -791,13 +1005,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of one year, for a list of notations.
      * End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20073 > } a Promise, with data of type {@link module:model/InlineResponse20073 }
+     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
      */
-    getNotationKeyFiguresYear1List(ids, opts) {
-      return this.getNotationKeyFiguresYear1ListWithHttpInfo(ids, opts)
+    getNotationKeyFiguresYear1List(identifiers, identifierType, opts) {
+      return this.getNotationKeyFiguresYear1ListWithHttpInfo(identifiers, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -807,23 +1022,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of three years.
      * End-of-day (EOD) key figures for the time range of three years.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
      */
-    getNotationKeyFiguresYear3GetWithHttpInfo(id, opts) {
+    getNotationKeyFiguresYear3GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationKeyFiguresYear3Get");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresYear3Get");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear3Get");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -848,13 +1069,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of three years.
      * End-of-day (EOD) key figures for the time range of three years.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
      */
-    getNotationKeyFiguresYear3Get(id, opts) {
-      return this.getNotationKeyFiguresYear3GetWithHttpInfo(id, opts)
+    getNotationKeyFiguresYear3Get(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresYear3GetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -864,23 +1086,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of three years, for a list of notations.
      * End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
      */
-    getNotationKeyFiguresYear3ListWithHttpInfo(ids, opts) {
+    getNotationKeyFiguresYear3ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'ids' is set
-      if (ids === undefined || ids === null) {
-        throw new Error("Missing the required parameter 'ids' when calling getNotationKeyFiguresYear3List");
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYear3List");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear3List");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'ids': this.apiClient.buildCollectionParam(ids, 'csv'),
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -905,13 +1133,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of three years, for a list of notations.
      * End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
-    getNotationKeyFiguresYear3List(ids, opts) {
-      return this.getNotationKeyFiguresYear3ListWithHttpInfo(ids, opts)
+    getNotationKeyFiguresYear3List(identifiers, identifierType, opts) {
+      return this.getNotationKeyFiguresYear3ListWithHttpInfo(identifiers, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -921,23 +1150,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of five years.
      * End-of-day (EOD) key figures for the time range of five years.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
      */
-    getNotationKeyFiguresYear5GetWithHttpInfo(id, opts) {
+    getNotationKeyFiguresYear5GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationKeyFiguresYear5Get");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresYear5Get");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear5Get");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -962,13 +1197,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of five years.
      * End-of-day (EOD) key figures for the time range of five years.
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
      */
-    getNotationKeyFiguresYear5Get(id, opts) {
-      return this.getNotationKeyFiguresYear5GetWithHttpInfo(id, opts)
+    getNotationKeyFiguresYear5Get(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresYear5GetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -978,23 +1214,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of five years, for a list of notations.
      * End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
      */
-    getNotationKeyFiguresYear5ListWithHttpInfo(ids, opts) {
+    getNotationKeyFiguresYear5ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'ids' is set
-      if (ids === undefined || ids === null) {
-        throw new Error("Missing the required parameter 'ids' when calling getNotationKeyFiguresYear5List");
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYear5List");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear5List");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'ids': this.apiClient.buildCollectionParam(ids, 'csv'),
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -1019,13 +1261,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range of five years, for a list of notations.
      * End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
-    getNotationKeyFiguresYear5List(ids, opts) {
-      return this.getNotationKeyFiguresYear5ListWithHttpInfo(ids, opts)
+    getNotationKeyFiguresYear5List(identifiers, identifierType, opts) {
+      return this.getNotationKeyFiguresYear5ListWithHttpInfo(identifiers, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1033,25 +1276,31 @@ export default class NotationApi {
 
 
     /**
-     * End-of-day (EOD) key figures for the time range year-to-date (YTD)..
-     * End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..
-     * @param {String} id Identifier of the notation.
+     * End-of-day (EOD) key figures for the time range of seven years.
+     * End-of-day (EOD) key figures for the time range of seven years.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
      */
-    getNotationKeyFiguresYearToDateGetWithHttpInfo(id, opts) {
+    getNotationKeyFiguresYear7GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationKeyFiguresYearToDateGet");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresYear7Get");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear7Get");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -1064,7 +1313,135 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20076;
+      let returnType = InlineResponse20074;
+
+      return this.apiClient.callApi(
+        '/notation/keyFigures/year/7/get', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * End-of-day (EOD) key figures for the time range of seven years.
+     * End-of-day (EOD) key figures for the time range of seven years.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
+     */
+    getNotationKeyFiguresYear7Get(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresYear7GetWithHttpInfo(identifier, identifierType, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+     * End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
+     */
+    getNotationKeyFiguresYear7ListWithHttpInfo(identifiers, identifierType, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYear7List");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear7List");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20075;
+
+      return this.apiClient.callApi(
+        '/notation/keyFigures/year/7/list', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+     * End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
+     */
+    getNotationKeyFiguresYear7List(identifiers, identifierType, opts) {
+      return this.getNotationKeyFiguresYear7ListWithHttpInfo(identifiers, identifierType, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * End-of-day (EOD) key figures for the time range year-to-date (YTD)..
+     * End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20078} and HTTP response
+     */
+    getNotationKeyFiguresYearToDateGetWithHttpInfo(identifier, identifierType, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresYearToDateGet");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYearToDateGet");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'identifier': identifier,
+        'identifierType': identifierType,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20078;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/yearToDate/get', 'GET',
@@ -1076,13 +1453,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range year-to-date (YTD)..
      * End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..
-     * @param {String} id Identifier of the notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
+     * @return { Promise.< module:model/InlineResponse20078 > } a Promise, with data of type {@link module:model/InlineResponse20078 }
      */
-    getNotationKeyFiguresYearToDateGet(id, opts) {
-      return this.getNotationKeyFiguresYearToDateGetWithHttpInfo(id, opts)
+    getNotationKeyFiguresYearToDateGet(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresYearToDateGetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1092,23 +1470,29 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
      * End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations. The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent tradingday of the current calendar year for which EOD prices are available..
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20077} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20079} and HTTP response
      */
-    getNotationKeyFiguresYearToDateListWithHttpInfo(ids, opts) {
+    getNotationKeyFiguresYearToDateListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'ids' is set
-      if (ids === undefined || ids === null) {
-        throw new Error("Missing the required parameter 'ids' when calling getNotationKeyFiguresYearToDateList");
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYearToDateList");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYearToDateList");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'ids': this.apiClient.buildCollectionParam(ids, 'csv'),
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
       let headerParams = {
@@ -1121,7 +1505,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20077;
+      let returnType = InlineResponse20079;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/yearToDate/list', 'GET',
@@ -1133,13 +1517,14 @@ export default class NotationApi {
     /**
      * End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
      * End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations. The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent tradingday of the current calendar year for which EOD prices are available..
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
+     * @return { Promise.< module:model/InlineResponse20079 > } a Promise, with data of type {@link module:model/InlineResponse20079 }
      */
-    getNotationKeyFiguresYearToDateList(ids, opts) {
-      return this.getNotationKeyFiguresYearToDateListWithHttpInfo(ids, opts)
+    getNotationKeyFiguresYearToDateList(identifiers, identifierType, opts) {
+      return this.getNotationKeyFiguresYearToDateListWithHttpInfo(identifiers, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1149,24 +1534,30 @@ export default class NotationApi {
     /**
      * Basic data for a list of notations.
      * Basic data for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20065} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20066} and HTTP response
      */
-    getNotationListWithHttpInfo(ids, opts) {
+    getNotationListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'ids' is set
-      if (ids === undefined || ids === null) {
-        throw new Error("Missing the required parameter 'ids' when calling getNotationList");
+      // verify the required parameter 'identifiers' is set
+      if (identifiers === undefined || identifiers === null) {
+        throw new Error("Missing the required parameter 'identifiers' when calling getNotationList");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationList");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'ids': this.apiClient.buildCollectionParam(ids, 'csv'),
+        'identifiers': this.apiClient.buildCollectionParam(identifiers, 'csv'),
+        'identifierType': identifierType,
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv'),
         '_language': opts['language']
       };
@@ -1180,7 +1571,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20065;
+      let returnType = InlineResponse20066;
 
       return this.apiClient.callApi(
         '/notation/list', 'GET',
@@ -1192,14 +1583,15 @@ export default class NotationApi {
     /**
      * Basic data for a list of notations.
      * Basic data for a list of notations.
-     * @param {Array.<String>} ids List of notations.
+     * @param {Array.<String>} identifiers 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse20065 > } a Promise, with data of type {@link module:model/InlineResponse20065 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse20066 > } a Promise, with data of type {@link module:model/InlineResponse20066 }
      */
-    getNotationList(ids, opts) {
-      return this.getNotationListWithHttpInfo(ids, opts)
+    getNotationList(identifiers, identifierType, opts) {
+      return this.getNotationListWithHttpInfo(identifiers, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1209,17 +1601,17 @@ export default class NotationApi {
     /**
      * Basic search for notations.
      * Search for a notation whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered. Better matching results appear in the response before less relevant matches. If the parameter popularity is set to true, the popularity of the notation is the primary sort criterion. Popularity is affected mostly by the request frequency of the notation.
-     * @param {String} searchValue Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+     * @param {String} searchValue 
      * @param {Object} opts Optional parameters
-     * @param {Array.<module:model/String>} opts.nsins A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-     * @param {module:model/String} opts.assetClass A parameter to limit the output to a particular asset class.
-     * @param {Boolean} opts.onlyActive If true, restricts the result to active notations. (default to true)
-     * @param {Boolean} opts.popularity If true, the results are sorted by descending popularity. (default to false)
+     * @param {Array.<module:model/String>} opts.nsins 
+     * @param {module:model/String} opts.assetClass 
+     * @param {Boolean} opts.onlyActive  (default to true)
+     * @param {Boolean} opts.popularity  (default to false)
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20088} and HTTP response
+     * @param {String} opts.language 
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20091} and HTTP response
      */
     getNotationSearchBasicWithHttpInfo(searchValue, opts) {
       opts = opts || {};
@@ -1252,7 +1644,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20088;
+      let returnType = InlineResponse20091;
 
       return this.apiClient.callApi(
         '/notation/search/basic', 'GET',
@@ -1264,17 +1656,17 @@ export default class NotationApi {
     /**
      * Basic search for notations.
      * Search for a notation whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered. Better matching results appear in the response before less relevant matches. If the parameter popularity is set to true, the popularity of the notation is the primary sort criterion. Popularity is affected mostly by the request frequency of the notation.
-     * @param {String} searchValue Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+     * @param {String} searchValue 
      * @param {Object} opts Optional parameters
-     * @param {Array.<module:model/String>} opts.nsins A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-     * @param {module:model/String} opts.assetClass A parameter to limit the output to a particular asset class.
-     * @param {Boolean} opts.onlyActive If true, restricts the result to active notations. (default to true)
-     * @param {Boolean} opts.popularity If true, the results are sorted by descending popularity. (default to false)
+     * @param {Array.<module:model/String>} opts.nsins 
+     * @param {module:model/String} opts.assetClass 
+     * @param {Boolean} opts.onlyActive  (default to true)
+     * @param {Boolean} opts.popularity  (default to false)
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return { Promise.< module:model/InlineResponse20088 > } a Promise, with data of type {@link module:model/InlineResponse20088 }
+     * @param {String} opts.language 
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
+     * @return { Promise.< module:model/InlineResponse20091 > } a Promise, with data of type {@link module:model/InlineResponse20091 }
      */
     getNotationSearchBasic(searchValue, opts) {
       return this.getNotationSearchBasicWithHttpInfo(searchValue, opts)
@@ -1287,17 +1679,17 @@ export default class NotationApi {
     /**
      * Basic search for notations.
      * Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
-     * @param {String} searchValue Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+     * @param {String} searchValue 
      * @param {Object} opts Optional parameters
-     * @param {Array.<Number>} opts.idMarkets List of market identifiers. Limits the results to the given markets. For possible values, see endpoint `/basic/market/list`.
-     * @param {Array.<module:model/String>} opts.nsins A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-     * @param {Array.<module:model/String>} opts.assetClass Limits the results to a particular asset class.
-     * @param {Boolean} opts.onlyActive If true, restricts the result to active notations. (default to true)
+     * @param {Array.<Number>} opts.idMarkets 
+     * @param {Array.<module:model/String>} opts.nsins 
+     * @param {Array.<module:model/String>} opts.assetClass 
+     * @param {Boolean} opts.onlyActive  (default to true)
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20090} and HTTP response
+     * @param {String} opts.language 
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20093} and HTTP response
      */
     getNotationSearchByTextRankedByVolumeWithHttpInfo(searchValue, opts) {
       opts = opts || {};
@@ -1330,7 +1722,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20090;
+      let returnType = InlineResponse20093;
 
       return this.apiClient.callApi(
         '/notation/searchByTextRankedByVolume', 'GET',
@@ -1342,17 +1734,17 @@ export default class NotationApi {
     /**
      * Basic search for notations.
      * Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
-     * @param {String} searchValue Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+     * @param {String} searchValue 
      * @param {Object} opts Optional parameters
-     * @param {Array.<Number>} opts.idMarkets List of market identifiers. Limits the results to the given markets. For possible values, see endpoint `/basic/market/list`.
-     * @param {Array.<module:model/String>} opts.nsins A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-     * @param {Array.<module:model/String>} opts.assetClass Limits the results to a particular asset class.
-     * @param {Boolean} opts.onlyActive If true, restricts the result to active notations. (default to true)
+     * @param {Array.<Number>} opts.idMarkets 
+     * @param {Array.<module:model/String>} opts.nsins 
+     * @param {Array.<module:model/String>} opts.assetClass 
+     * @param {Boolean} opts.onlyActive  (default to true)
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return { Promise.< module:model/InlineResponse20090 > } a Promise, with data of type {@link module:model/InlineResponse20090 }
+     * @param {String} opts.language 
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
+     * @return { Promise.< module:model/InlineResponse20093 > } a Promise, with data of type {@link module:model/InlineResponse20093 }
      */
     getNotationSearchByTextRankedByVolume(searchValue, opts) {
       return this.getNotationSearchByTextRankedByVolumeWithHttpInfo(searchValue, opts)
@@ -1365,24 +1757,30 @@ export default class NotationApi {
     /**
      * Intraday trading status of a notation.
      * Intraday trading status of a notation.
-     * @param {String} id Identifier of a notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.quality Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). (default to 'DLY')
+     * @param {module:model/String} opts.quality  (default to 'DLY')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20078} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20081} and HTTP response
      */
-    getNotationStatusGetWithHttpInfo(id, opts) {
+    getNotationStatusGetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getNotationStatusGet");
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationStatusGet");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationStatusGet");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'id': id,
+        'identifier': identifier,
+        'identifierType': identifierType,
         'quality': opts['quality'],
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
       };
@@ -1396,7 +1794,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20078;
+      let returnType = InlineResponse20081;
 
       return this.apiClient.callApi(
         '/notation/status/get', 'GET',
@@ -1408,14 +1806,15 @@ export default class NotationApi {
     /**
      * Intraday trading status of a notation.
      * Intraday trading status of a notation.
-     * @param {String} id Identifier of a notation.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.quality Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). (default to 'DLY')
+     * @param {module:model/String} opts.quality  (default to 'DLY')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20078 > } a Promise, with data of type {@link module:model/InlineResponse20078 }
+     * @return { Promise.< module:model/InlineResponse20081 > } a Promise, with data of type {@link module:model/InlineResponse20081 }
      */
-    getNotationStatusGet(id, opts) {
-      return this.getNotationStatusGetWithHttpInfo(id, opts)
+    getNotationStatusGet(identifier, identifierType, opts) {
+      return this.getNotationStatusGetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1425,15 +1824,13 @@ export default class NotationApi {
     /**
      * Retrieve a list of notations for a given FactSet identifier.
      * <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>
-     * @param {module:model/InlineObject19} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20070} and HTTP response
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest} opts.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20072} and HTTP response
      */
-    postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier");
-      }
+    postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest'];
 
       let pathParams = {
       };
@@ -1449,7 +1846,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20070;
+      let returnType = InlineResponse20072;
 
       return this.apiClient.callApi(
         '/notation/crossReference/factSetIdentifier/listByFactSetIdentifier', 'POST',
@@ -1461,11 +1858,12 @@ export default class NotationApi {
     /**
      * Retrieve a list of notations for a given FactSet identifier.
      * <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>
-     * @param {module:model/InlineObject19} body 
-     * @return { Promise.< module:model/InlineResponse20070 > } a Promise, with data of type {@link module:model/InlineResponse20070 }
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest} opts.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest 
+     * @return { Promise.< module:model/InlineResponse20072 > } a Promise, with data of type {@link module:model/InlineResponse20072 }
      */
-    postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(body) {
-      return this.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(body)
+    postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(opts) {
+      return this.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1475,15 +1873,13 @@ export default class NotationApi {
     /**
      * Retrieve a list of FactSet identifiers for a given instrument.
      * <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>
-     * @param {module:model/InlineObject20} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20071} and HTTP response
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest} opts.postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20073} and HTTP response
      */
-    postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postNotationCrossReferenceFactSetIdentifierListByInstrument");
-      }
+    postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest'];
 
       let pathParams = {
       };
@@ -1499,7 +1895,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20071;
+      let returnType = InlineResponse20073;
 
       return this.apiClient.callApi(
         '/notation/crossReference/factSetIdentifier/listByInstrument', 'POST',
@@ -1511,11 +1907,12 @@ export default class NotationApi {
     /**
      * Retrieve a list of FactSet identifiers for a given instrument.
      * <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>
-     * @param {module:model/InlineObject20} body 
-     * @return { Promise.< module:model/InlineResponse20071 > } a Promise, with data of type {@link module:model/InlineResponse20071 }
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest} opts.postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest 
+     * @return { Promise.< module:model/InlineResponse20073 > } a Promise, with data of type {@link module:model/InlineResponse20073 }
      */
-    postNotationCrossReferenceFactSetIdentifierListByInstrument(body) {
-      return this.postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(body)
+    postNotationCrossReferenceFactSetIdentifierListByInstrument(opts) {
+      return this.postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1526,12 +1923,12 @@ export default class NotationApi {
      * List of entitled notations.
      * List of entitled notations.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject17} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20067} and HTTP response
+     * @param {module:model/PostNotationCrossReferenceListByISINRequest} opts.postNotationCrossReferenceListByISINRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20069} and HTTP response
      */
     postNotationCrossReferenceListByISINWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postNotationCrossReferenceListByISINRequest'];
 
       let pathParams = {
       };
@@ -1547,7 +1944,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20067;
+      let returnType = InlineResponse20069;
 
       return this.apiClient.callApi(
         '/notation/crossReference/listByISIN', 'POST',
@@ -1560,8 +1957,8 @@ export default class NotationApi {
      * List of entitled notations.
      * List of entitled notations.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject17} opts.body 
-     * @return { Promise.< module:model/InlineResponse20067 > } a Promise, with data of type {@link module:model/InlineResponse20067 }
+     * @param {module:model/PostNotationCrossReferenceListByISINRequest} opts.postNotationCrossReferenceListByISINRequest 
+     * @return { Promise.< module:model/InlineResponse20069 > } a Promise, with data of type {@link module:model/InlineResponse20069 }
      */
     postNotationCrossReferenceListByISIN(opts) {
       return this.postNotationCrossReferenceListByISINWithHttpInfo(opts)
@@ -1575,61 +1972,12 @@ export default class NotationApi {
      * List of entitled notations.
      * List of entitled notations.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject16} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20067} and HTTP response
+     * @param {module:model/PostNotationCrossReferenceListByInstrumentRequest} opts.postNotationCrossReferenceListByInstrumentRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20068} and HTTP response
      */
     postNotationCrossReferenceListByInstrumentWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-
-
-      let returnType = InlineResponse20067;
-
-      return this.apiClient.callApi(
-        '/notation/crossReference/listByInstrument', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * List of entitled notations.
-     * List of entitled notations.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject16} opts.body 
-     * @return { Promise.< module:model/InlineResponse20067 > } a Promise, with data of type {@link module:model/InlineResponse20067 }
-     */
-    postNotationCrossReferenceListByInstrument(opts) {
-      return this.postNotationCrossReferenceListByInstrumentWithHttpInfo(opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * List of entitled notations.
-     * List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject18} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20068} and HTTP response
-     */
-    postNotationCrossReferenceListBySymbolWithHttpInfo(opts) {
-      opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['postNotationCrossReferenceListByInstrumentRequest'];
 
       let pathParams = {
       };
@@ -1648,7 +1996,7 @@ export default class NotationApi {
       let returnType = InlineResponse20068;
 
       return this.apiClient.callApi(
-        '/notation/crossReference/listBySymbol', 'POST',
+        '/notation/crossReference/listByInstrument', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -1656,13 +2004,13 @@ export default class NotationApi {
 
     /**
      * List of entitled notations.
-     * List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
+     * List of entitled notations.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject18} opts.body 
+     * @param {module:model/PostNotationCrossReferenceListByInstrumentRequest} opts.postNotationCrossReferenceListByInstrumentRequest 
      * @return { Promise.< module:model/InlineResponse20068 > } a Promise, with data of type {@link module:model/InlineResponse20068 }
      */
-    postNotationCrossReferenceListBySymbol(opts) {
-      return this.postNotationCrossReferenceListBySymbolWithHttpInfo(opts)
+    postNotationCrossReferenceListByInstrument(opts) {
+      return this.postNotationCrossReferenceListByInstrumentWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1670,17 +2018,15 @@ export default class NotationApi {
 
 
     /**
-     * Text-based search for notations.
-     * Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
-     * @param {module:model/InlineObject22} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20089} and HTTP response
+     * List of entitled notations.
+     * List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNotationCrossReferenceListBySymbolRequest} opts.postNotationCrossReferenceListBySymbolRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20070} and HTTP response
      */
-    postNotationSearchByTextWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postNotationSearchByText");
-      }
+    postNotationCrossReferenceListBySymbolWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postNotationCrossReferenceListBySymbolRequest'];
 
       let pathParams = {
       };
@@ -1696,7 +2042,105 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20089;
+      let returnType = InlineResponse20070;
+
+      return this.apiClient.callApi(
+        '/notation/crossReference/listBySymbol', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List of entitled notations.
+     * List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNotationCrossReferenceListBySymbolRequest} opts.postNotationCrossReferenceListBySymbolRequest 
+     * @return { Promise.< module:model/InlineResponse20070 > } a Promise, with data of type {@link module:model/InlineResponse20070 }
+     */
+    postNotationCrossReferenceListBySymbol(opts) {
+      return this.postNotationCrossReferenceListBySymbolWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List of markets with entitled notations.
+     * List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNotationMarketListRequest} opts.postNotationMarketListRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20080} and HTTP response
+     */
+    postNotationMarketListWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postNotationMarketListRequest'];
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20080;
+
+      return this.apiClient.callApi(
+        '/notation/market/list', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List of markets with entitled notations.
+     * List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNotationMarketListRequest} opts.postNotationMarketListRequest 
+     * @return { Promise.< module:model/InlineResponse20080 > } a Promise, with data of type {@link module:model/InlineResponse20080 }
+     */
+    postNotationMarketList(opts) {
+      return this.postNotationMarketListWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Text-based search for notations.
+     * Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNotationSearchByTextRequest} opts.postNotationSearchByTextRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20092} and HTTP response
+     */
+    postNotationSearchByTextWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postNotationSearchByTextRequest'];
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20092;
 
       return this.apiClient.callApi(
         '/notation/searchByText', 'POST',
@@ -1708,11 +2152,12 @@ export default class NotationApi {
     /**
      * Text-based search for notations.
      * Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
-     * @param {module:model/InlineObject22} body 
-     * @return { Promise.< module:model/InlineResponse20089 > } a Promise, with data of type {@link module:model/InlineResponse20089 }
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNotationSearchByTextRequest} opts.postNotationSearchByTextRequest 
+     * @return { Promise.< module:model/InlineResponse20092 > } a Promise, with data of type {@link module:model/InlineResponse20092 }
      */
-    postNotationSearchByText(body) {
-      return this.postNotationSearchByTextWithHttpInfo(body)
+    postNotationSearchByText(opts) {
+      return this.postNotationSearchByTextWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

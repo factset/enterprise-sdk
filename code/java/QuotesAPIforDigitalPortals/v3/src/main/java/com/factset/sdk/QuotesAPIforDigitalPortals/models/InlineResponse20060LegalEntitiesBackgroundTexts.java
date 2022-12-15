@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -46,7 +50,7 @@ public class InlineResponse20060LegalEntitiesBackgroundTexts implements Serializ
   private InlineResponse20060LegalEntitiesBackgroundTextsType type;
 
   public static final String JSON_PROPERTY_BODY = "body";
-  private String body;
+  private JsonNullable<String> body = JsonNullable.<String>undefined();
 
   public InlineResponse20060LegalEntitiesBackgroundTexts() { 
   }
@@ -78,7 +82,7 @@ public class InlineResponse20060LegalEntitiesBackgroundTexts implements Serializ
 
 
   public InlineResponse20060LegalEntitiesBackgroundTexts body(String body) {
-    this.body = body;
+    this.body = JsonNullable.<String>of(body);
     return this;
   }
 
@@ -88,18 +92,26 @@ public class InlineResponse20060LegalEntitiesBackgroundTexts implements Serializ
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Body of the background text.")
-  @JsonProperty(JSON_PROPERTY_BODY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getBody() {
-    return body;
+        return body.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBody(String body) {
+
+  public JsonNullable<String> getBody_JsonNullable() {
+    return body;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_BODY)
+  public void setBody_JsonNullable(JsonNullable<String> body) {
     this.body = body;
+  }
+
+  public void setBody(String body) {
+    this.body = JsonNullable.<String>of(body);
   }
 
 
@@ -116,12 +128,23 @@ public class InlineResponse20060LegalEntitiesBackgroundTexts implements Serializ
     }
     InlineResponse20060LegalEntitiesBackgroundTexts inlineResponse20060LegalEntitiesBackgroundTexts = (InlineResponse20060LegalEntitiesBackgroundTexts) o;
     return Objects.equals(this.type, inlineResponse20060LegalEntitiesBackgroundTexts.type) &&
-        Objects.equals(this.body, inlineResponse20060LegalEntitiesBackgroundTexts.body);
+        equalsNullable(this.body, inlineResponse20060LegalEntitiesBackgroundTexts.body);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, body);
+    return Objects.hash(type, hashCodeNullable(body));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

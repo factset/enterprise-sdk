@@ -4,9 +4,11 @@ All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**get_stock_composite_profile_get_by_notation**](StockApi.md#get_stock_composite_profile_get_by_notation) | **GET** /stock/composite/profile/getByNotation | Provides key elements of a stock profile together with the profile of the issuing company.
 [**get_stock_dividend_type_list**](StockApi.md#get_stock_dividend_type_list) | **GET** /stock/dividend/type/list | List of dividend types.
 [**get_stock_notation_key_figures_benchmark_month_1_get**](StockApi.md#get_stock_notation_key_figures_benchmark_month_1_get) | **GET** /stock/notation/keyFigures/benchmark/month/1/get | End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
 [**get_stock_notation_key_figures_benchmark_month_3_get**](StockApi.md#get_stock_notation_key_figures_benchmark_month_3_get) | **GET** /stock/notation/keyFigures/benchmark/month/3/get | End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
+[**get_stock_notation_key_figures_benchmark_month_6_get**](StockApi.md#get_stock_notation_key_figures_benchmark_month_6_get) | **GET** /stock/notation/keyFigures/benchmark/month/6/get | End-of-day (EOD) benchmark key figures of a stock for the time range of six months.
 [**get_stock_notation_key_figures_benchmark_week_1_get**](StockApi.md#get_stock_notation_key_figures_benchmark_week_1_get) | **GET** /stock/notation/keyFigures/benchmark/week/1/get | End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
 [**get_stock_notation_key_figures_benchmark_year_1_get**](StockApi.md#get_stock_notation_key_figures_benchmark_year_1_get) | **GET** /stock/notation/keyFigures/benchmark/year/1/get | End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
 [**get_stock_notation_key_figures_benchmark_year_3_get**](StockApi.md#get_stock_notation_key_figures_benchmark_year_3_get) | **GET** /stock/notation/keyFigures/benchmark/year/3/get | End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
@@ -20,8 +22,105 @@ Method | HTTP request | Description
 [**post_stock_notation_screener_value_ranges_get**](StockApi.md#post_stock_notation_screener_value_ranges_get) | **POST** /stock/notation/screener/valueRanges/get | Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
 
 
+# **get_stock_composite_profile_get_by_notation**
+> InlineResponse2009 get_stock_composite_profile_get_by_notation(identifier, identifier_type)
+
+Provides key elements of a stock profile together with the profile of the issuing company.
+
+Provides key elements of a stock profile together with the profile of the issuing company.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.StocksAPIforDigitalPortals
+from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = stock_api.StockApi(api_client)
+
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
+    attributes = [
+        "_attributes_example",
+    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
+    language = "_language_example" # str |  (optional)
+
+    try:
+        # Provides key elements of a stock profile together with the profile of the issuing company.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_stock_composite_profile_get_by_notation(identifier, identifier_type, attributes=attributes, language=language)
+        pprint(api_response)
+
+    except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling StockApi->get_stock_composite_profile_get_by_notation: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
+ **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
+ **language** | **str**|  | [optional]
+
+### Return type
+
+[**InlineResponse2009**](InlineResponse2009.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_stock_dividend_type_list**
-> InlineResponse2004 get_stock_dividend_type_list()
+> InlineResponse20011 get_stock_dividend_type_list()
 
 List of dividend types.
 
@@ -93,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -114,7 +213,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_month_1_get**
-> InlineResponse2005 get_stock_notation_key_figures_benchmark_month_1_get(id, id_notation_benchmark)
+> InlineResponse20012 get_stock_notation_key_figures_benchmark_month_1_get(identifier, identifier_type, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
 
@@ -160,7 +259,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | 
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
     ] # [str] | 
@@ -173,7 +273,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_month_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
+        api_response = api_instance.get_stock_notation_key_figures_benchmark_month_1_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -185,14 +285,15 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
  **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -213,7 +314,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_month_3_get**
-> InlineResponse2005 get_stock_notation_key_figures_benchmark_month_3_get(id, id_notation_benchmark)
+> InlineResponse20012 get_stock_notation_key_figures_benchmark_month_3_get(identifier, identifier_type, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
 
@@ -259,7 +360,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | 
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
     ] # [str] | 
@@ -272,7 +374,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_month_3_get(id, id_notation_benchmark, attributes=attributes, language=language)
+        api_response = api_instance.get_stock_notation_key_figures_benchmark_month_3_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -284,14 +386,116 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
  **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_stock_notation_key_figures_benchmark_month_6_get**
+> InlineResponse20012 get_stock_notation_key_figures_benchmark_month_6_get(identifier, identifier_type, id_notation_benchmark)
+
+End-of-day (EOD) benchmark key figures of a stock for the time range of six months.
+
+End-of-day (EOD) benchmark key figures of a stock for the time range of six months.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.StocksAPIforDigitalPortals
+from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = stock_api.StockApi(api_client)
+
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
+    id_notation_benchmark = [
+        "idNotationBenchmark_example",
+    ] # [str] | 
+    attributes = [
+        "_attributes_example",
+    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
+    language = "_language_example" # str |  (optional)
+
+    try:
+        # End-of-day (EOD) benchmark key figures of a stock for the time range of six months.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_stock_notation_key_figures_benchmark_month_6_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
+        pprint(api_response)
+
+    except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_month_6_get: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
+ **id_notation_benchmark** | **[str]**|  |
+ **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
+ **language** | **str**|  | [optional]
+
+### Return type
+
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -312,7 +516,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_week_1_get**
-> InlineResponse2005 get_stock_notation_key_figures_benchmark_week_1_get(id, id_notation_benchmark)
+> InlineResponse20012 get_stock_notation_key_figures_benchmark_week_1_get(identifier, identifier_type, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
 
@@ -358,7 +562,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | 
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
     ] # [str] | 
@@ -371,7 +576,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_week_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
+        api_response = api_instance.get_stock_notation_key_figures_benchmark_week_1_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -383,14 +588,15 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
  **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -411,7 +617,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_year_1_get**
-> InlineResponse2005 get_stock_notation_key_figures_benchmark_year_1_get(id, id_notation_benchmark)
+> InlineResponse20012 get_stock_notation_key_figures_benchmark_year_1_get(identifier, identifier_type, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
 
@@ -457,7 +663,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | 
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
     ] # [str] | 
@@ -470,7 +677,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_year_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
+        api_response = api_instance.get_stock_notation_key_figures_benchmark_year_1_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -482,14 +689,15 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
  **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -510,7 +718,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_year_3_get**
-> InlineResponse2005 get_stock_notation_key_figures_benchmark_year_3_get(id, id_notation_benchmark)
+> InlineResponse20012 get_stock_notation_key_figures_benchmark_year_3_get(identifier, identifier_type, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
 
@@ -556,7 +764,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | 
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
     ] # [str] | 
@@ -569,7 +778,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_year_3_get(id, id_notation_benchmark, attributes=attributes, language=language)
+        api_response = api_instance.get_stock_notation_key_figures_benchmark_year_3_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -581,14 +790,15 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
  **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -609,7 +819,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_year_5_get**
-> InlineResponse2005 get_stock_notation_key_figures_benchmark_year_5_get(id, id_notation_benchmark)
+> InlineResponse20012 get_stock_notation_key_figures_benchmark_year_5_get(identifier, identifier_type, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
 
@@ -655,7 +865,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | 
+    identifier = "80728880015" # str | 
+    identifier_type = "idNotation" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
     ] # [str] | 
@@ -668,7 +879,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_year_5_get(id, id_notation_benchmark, attributes=attributes, language=language)
+        api_response = api_instance.get_stock_notation_key_figures_benchmark_year_5_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -680,14 +891,15 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
  **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -708,7 +920,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_owner_list**
-> InlineResponse2002 get_stock_owner_list(id)
+> InlineResponse2008 get_stock_owner_list(identifier, identifier_type)
 
 List of owners for a specific type of a company's shares.
 
@@ -754,7 +966,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | 
+    identifier = "PQ6ZGC" # str | 
+    identifier_type = "idInstrument" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -764,7 +977,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # List of owners for a specific type of a company's shares.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_stock_owner_list(id, attributes=attributes, language=language)
+        api_response = api_instance.get_stock_owner_list(identifier, identifier_type, attributes=attributes, language=language)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -776,13 +989,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
  **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -803,7 +1017,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_recommendation_aggregate_get**
-> InlineResponse200 get_stock_recommendation_aggregate_get(id)
+> InlineResponse2003 get_stock_recommendation_aggregate_get(identifier, identifier_type)
 
 Target price and aggregated recommendations for a stock.
 
@@ -849,7 +1063,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | 
+    identifier = "PQ6ZGC" # str | 
+    identifier_type = "idInstrument" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -858,7 +1073,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # Target price and aggregated recommendations for a stock.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_stock_recommendation_aggregate_get(id, attributes=attributes)
+        api_response = api_instance.get_stock_recommendation_aggregate_get(identifier, identifier_type, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -870,12 +1085,13 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -896,7 +1112,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_recommendation_aggregate_history_list**
-> InlineResponse2001 get_stock_recommendation_aggregate_history_list(id, snapshots)
+> InlineResponse2004 get_stock_recommendation_aggregate_history_list(identifier, identifier_type, snapshots)
 
 Current and historical trade recommendations and target prices for a stock.
 
@@ -942,7 +1158,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | 
+    identifier = "PQ6ZGC" # str | 
+    identifier_type = "idInstrument" # str | 
     snapshots = [
         "latest",
     ] # [str] | 
@@ -954,7 +1171,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # Current and historical trade recommendations and target prices for a stock.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_stock_recommendation_aggregate_history_list(id, snapshots, attributes=attributes)
+        api_response = api_instance.get_stock_recommendation_aggregate_history_list(identifier, identifier_type, snapshots, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -966,13 +1183,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
  **snapshots** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -993,7 +1211,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_stock_dividend_list**
-> InlineResponse2003 post_stock_dividend_list(inline_object)
+> InlineResponse20010 post_stock_dividend_list()
 
 List of dividends for a stock.
 
@@ -1039,32 +1257,36 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    inline_object = InlineObject(
-        data=StockDividendListData(
-            id="id_example",
-            filter=StockDividendListDataFilter(
-                period=StockDividendListDataFilterPeriod(
+    post_stock_dividend_list_request = PostStockDividendListRequest(
+        data=PostStockDividendListRequestData(
+            identifier=PostStockDividendListRequestDataIdentifier(
+                value="PQ6ZGC",
+                type="idInstrument",
+            ),
+            filter=PostStockDividendListRequestDataFilter(
+                period=PostStockDividendListRequestDataFilterPeriod(
                     start=dateutil_parser('1970-01-01').date(),
                     end=dateutil_parser('1970-01-01').date(),
                 ),
-                type=StockDividendListDataFilterType(
+                type=PostStockDividendListRequestDataFilterType(
                     id=3.14,
                 ),
             ),
         ),
-        meta=StockDividendListMeta(
+        meta=PostStockDividendListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=["dates.payment"],
+            sort=["dividends.dates.payment"],
         ),
-    ) # InlineObject | 
+    ) # PostStockDividendListRequest |  (optional)
 
     try:
         # List of dividends for a stock.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_stock_dividend_list(inline_object)
+        # and optional values
+        api_response = api_instance.post_stock_dividend_list(post_stock_dividend_list_request=post_stock_dividend_list_request)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -1076,11 +1298,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**InlineObject**](InlineObject.md)|  |
+ **post_stock_dividend_list_request** | [**PostStockDividendListRequest**](PostStockDividendListRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -1101,7 +1323,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_stock_notation_ranking_intraday_list**
-> InlineResponse2006 post_stock_notation_ranking_intraday_list()
+> InlineResponse20013 post_stock_notation_ranking_intraday_list()
 
 Ranking of stocks' notations using intraday figures.
 
@@ -1147,83 +1369,83 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    inline_object1 = InlineObject1(
-        data=StockNotationRankingIntradayListData(
-            prices=StockNotationRankingIntradayListDataPrices(
+    post_stock_notation_ranking_intraday_list_request = PostStockNotationRankingIntradayListRequest(
+        data=PostStockNotationRankingIntradayListRequestData(
+            prices=PostStockNotationRankingIntradayListRequestDataPrices(
                 quality="DLY",
             ),
-            currency=StockNotationRankingIntradayListDataCurrency(
+            currency=PostStockNotationRankingIntradayListRequestDataCurrency(
                 id=3.14,
             ),
-            market=StockNotationRankingIntradayListDataMarket(
+            market=PostStockNotationRankingIntradayListRequestDataMarket(
                 ids=[
                     3.14,
                 ],
-                priority=StockNotationRankingIntradayListDataMarketPriority(
+                priority=PostStockNotationRankingIntradayListRequestDataMarketPriority(
                     ids=[
                         3.14,
                     ],
                 ),
             ),
-            instrument_restriction_list=StockNotationRankingIntradayListDataInstrumentRestrictionList(
+            instrument_restriction_list=PostStockNotationRankingIntradayListRequestDataInstrumentRestrictionList(
                 ids=[
                     3.14,
                 ],
             ),
-            notation_restriction_list=StockNotationRankingIntradayListDataNotationRestrictionList(
+            notation_restriction_list=PostStockNotationRankingIntradayListRequestDataNotationRestrictionList(
                 ids=[
                     3.14,
                 ],
             ),
-            industry_classification=StockNotationRankingIntradayListDataIndustryClassification(
+            industry_classification=PostStockNotationRankingIntradayListRequestDataIndustryClassification(
                 ids=[
                     3.14,
                 ],
             ),
-            company=StockNotationRankingIntradayListDataCompany(
-                country=StockNotationRankingIntradayListDataCompanyCountry(
+            company=PostStockNotationRankingIntradayListRequestDataCompany(
+                country=PostStockNotationRankingIntradayListRequestDataCompanyCountry(
                     ids=[
                         3.14,
                     ],
                 ),
             ),
-            index_membership=StockNotationRankingIntradayListDataIndexMembership(
+            index_membership=PostStockNotationRankingIntradayListRequestDataIndexMembership(
                 ids=[
                     "ids_example",
                 ],
                 use_alternative_notation=False,
             ),
-            performance=StockNotationRankingIntradayListDataPerformance(
-                relative=StockNotationRankingIntradayListDataPerformanceRelative(
-                    minimum=StockNotationRankingIntradayListDataPerformanceRelativeMinimum(
+            performance=PostStockNotationRankingIntradayListRequestDataPerformance(
+                relative=PostStockNotationRankingIntradayListRequestDataPerformanceRelative(
+                    minimum=PostStockNotationRankingIntradayListRequestDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=StockNotationRankingIntradayListDataPerformanceRelativeMaximum(
+                    maximum=PostStockNotationRankingIntradayListRequestDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
             ),
         ),
-        meta=StockNotationRankingIntradayListMeta(
+        meta=PostStockNotationRankingIntradayListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
             sort=["-trade.performance.relative"],
-            pagination=StockNotationRankingIntradayListMetaPagination(
+            pagination=PostStockNotationRankingIntradayListRequestMetaPagination(
                 offset=0,
                 limit=20,
             ),
         ),
-    ) # InlineObject1 |  (optional)
+    ) # PostStockNotationRankingIntradayListRequest |  (optional)
 
     try:
         # Ranking of stocks' notations using intraday figures.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_stock_notation_ranking_intraday_list(inline_object1=inline_object1)
+        api_response = api_instance.post_stock_notation_ranking_intraday_list(post_stock_notation_ranking_intraday_list_request=post_stock_notation_ranking_intraday_list_request)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -1235,11 +1457,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **post_stock_notation_ranking_intraday_list_request** | [**PostStockNotationRankingIntradayListRequest**](PostStockNotationRankingIntradayListRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -1260,11 +1482,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_stock_notation_screener_search**
-> InlineResponse2007 post_stock_notation_screener_search()
+> InlineResponse20014 post_stock_notation_screener_search()
 
 Screener for stocks' notations based on stock-specific parameters.
 
-Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
+Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Currency dependent current figures on company level (see attribute `currentKeyFigures.company.currencyDependent`) or on share instrument level (see attribute `currentKeyFigures.shareInstrument.currencyDependent`) are only returned if the currency (see parameter `currentKeyFigures.company.currencyDependent.currency.isoCode` or parameter `currentKeyFigures.shareInstrument.currencyDependent.currency.isoCode` respectively) are set.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
 
 ### Example
 
@@ -1306,72 +1528,72 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    inline_object2 = InlineObject2(
-        data=StockNotationScreenerSearchData(
-            validation=StockNotationScreenerSearchDataValidation(
+    post_stock_notation_screener_search_request = PostStockNotationScreenerSearchRequest(
+        data=PostStockNotationScreenerSearchRequestData(
+            validation=PostStockNotationScreenerSearchRequestDataValidation(
                 only_active=True,
                 only_not_suspended=False,
-                prices=StockNotationScreenerSearchDataValidationPrices(
+                prices=PostStockNotationScreenerSearchRequestDataValidationPrices(
                     quality="DLY",
-                    latest=StockNotationScreenerSearchDataValidationPricesLatest(
+                    latest=PostStockNotationScreenerSearchRequestDataValidationPricesLatest(
                         available_only=True,
                         minimum_date=dateutil_parser('1970-01-01').date(),
                     ),
-                    previous=StockNotationScreenerSearchDataValidationPricesPrevious(
+                    previous=PostStockNotationScreenerSearchRequestDataValidationPricesPrevious(
                         available_only=True,
                         minimum_date=dateutil_parser('1970-01-01').date(),
                     ),
                 ),
-                value_unit=StockNotationScreenerSearchDataValidationValueUnit(
-                    restrict=StockNotationScreenerSearchDataValidationValueUnitRestrict(
+                value_unit=PostStockNotationScreenerSearchRequestDataValidationValueUnit(
+                    restrict=PostStockNotationScreenerSearchRequestDataValidationValueUnitRestrict(
                         ids=[
                             3.14,
                         ],
                     ),
-                    exclude=StockNotationScreenerSearchDataValidationValueUnitExclude(
+                    exclude=PostStockNotationScreenerSearchRequestDataValidationValueUnitExclude(
                         ids=[
                             3.14,
                         ],
                     ),
                 ),
-                market=StockNotationScreenerSearchDataValidationMarket(
-                    selection=StockNotationScreenerSearchDataValidationMarketSelection(
-                        restrict=StockNotationScreenerSearchDataValidationMarketSelectionRestrict(
+                market=PostStockNotationScreenerSearchRequestDataValidationMarket(
+                    selection=PostStockNotationScreenerSearchRequestDataValidationMarketSelection(
+                        restrict=PostStockNotationScreenerSearchRequestDataValidationMarketSelectionRestrict(
                             ids=[
                                 3.14,
                             ],
                         ),
-                        exclude=StockNotationScreenerSearchDataValidationMarketSelectionExclude(
+                        exclude=PostStockNotationScreenerSearchRequestDataValidationMarketSelectionExclude(
                             ids=[
                                 3.14,
                             ],
                         ),
                     ),
-                    priority=StockNotationScreenerSearchDataValidationMarketPriority(
+                    priority=PostStockNotationScreenerSearchRequestDataValidationMarketPriority(
                         ids=[
                             3.14,
                         ],
                     ),
                 ),
-                instrument_selection_list=StockNotationScreenerSearchDataValidationInstrumentSelectionList(
-                    restrict=StockNotationScreenerSearchDataValidationInstrumentSelectionListRestrict(
+                instrument_selection_list=PostStockNotationScreenerSearchRequestDataValidationInstrumentSelectionList(
+                    restrict=PostStockNotationScreenerSearchRequestDataValidationInstrumentSelectionListRestrict(
                         ids=[
                             3.14,
                         ],
                     ),
-                    exclude=StockNotationScreenerSearchDataValidationInstrumentSelectionListExclude(
+                    exclude=PostStockNotationScreenerSearchRequestDataValidationInstrumentSelectionListExclude(
                         ids=[
                             3.14,
                         ],
                     ),
                 ),
-                notation_selection_list=StockNotationScreenerSearchDataValidationNotationSelectionList(
-                    restrict=StockNotationScreenerSearchDataValidationNotationSelectionListRestrict(
+                notation_selection_list=PostStockNotationScreenerSearchRequestDataValidationNotationSelectionList(
+                    restrict=PostStockNotationScreenerSearchRequestDataValidationNotationSelectionListRestrict(
                         ids=[
                             3.14,
                         ],
                     ),
-                    exclude=StockNotationScreenerSearchDataValidationNotationSelectionListExclude(
+                    exclude=PostStockNotationScreenerSearchRequestDataValidationNotationSelectionListExclude(
                         ids=[
                             3.14,
                         ],
@@ -1381,43 +1603,123 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
             stock_type=[
                 "common",
             ],
-            industry_classification=StockNotationScreenerSearchDataIndustryClassification(
-                restrict=StockNotationScreenerSearchDataIndustryClassificationRestrict(
+            industry_classification=PostStockNotationScreenerSearchRequestDataIndustryClassification(
+                restrict=PostStockNotationScreenerSearchRequestDataIndustryClassificationRestrict(
                     ids=[
                         3.14,
                     ],
                 ),
-                exclude=StockNotationScreenerSearchDataIndustryClassificationExclude(
+                exclude=PostStockNotationScreenerSearchRequestDataIndustryClassificationExclude(
                     ids=[
                         3.14,
                     ],
                 ),
             ),
-            company=StockNotationScreenerSearchDataCompany(
-                country=StockNotationScreenerSearchDataCompanyCountry(
-                    restrict=StockNotationScreenerSearchDataCompanyCountryRestrict(
+            company=PostStockNotationScreenerSearchRequestDataCompany(
+                country=PostStockNotationScreenerSearchRequestDataCompanyCountry(
+                    restrict=PostStockNotationScreenerSearchRequestDataCompanyCountryRestrict(
                         ids=[
                             3.14,
                         ],
                     ),
-                    exclude=StockNotationScreenerSearchDataCompanyCountryExclude(
+                    exclude=PostStockNotationScreenerSearchRequestDataCompanyCountryExclude(
                         ids=[
                             3.14,
                         ],
                     ),
                 ),
             ),
-            index_membership=StockNotationScreenerSearchDataIndexMembership(
+            index_membership=PostStockNotationScreenerSearchRequestDataIndexMembership(
                 ids=[
                     "ids_example",
                 ],
             ),
-            compliance=StockNotationScreenerSearchDataCompliance(
-                france=StockNotationScreenerSearchDataComplianceFrance(
+            esg=PostStockNotationScreenerSearchRequestDataEsg(
+                truvalue_labs=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabs(
+                    sasb=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasb(
+                        all_categories=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategories(
+                            insight=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsight(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                            momentum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesMomentum(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                            ranking=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesRanking(
+                                minimum="leader",
+                            ),
+                        ),
+                        materiality=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbMateriality(
+                            insight=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsight(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                            momentum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesMomentum(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                            ranking=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesRanking(
+                                minimum="leader",
+                            ),
+                        ),
+                    ),
+                    sdg=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdg(
+                        impact=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdgImpact(
+                            insight=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsight(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                            momentum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdgImpactMomentum(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            compliance=PostStockNotationScreenerSearchRequestDataCompliance(
+                france=PostStockNotationScreenerSearchRequestDataComplianceFrance(
                     _or=[
-                        StockNotationScreenerSearchDataComplianceFranceOr(
+                        PostStockNotationScreenerSearchRequestDataComplianceFranceOr(
                             _and=[
-                                StockNotationScreenerSearchDataComplianceFranceAnd(
+                                PostStockNotationScreenerSearchRequestDataComplianceFranceAnd(
                                     id=2,
                                     negate=True,
                                 ),
@@ -1426,266 +1728,458 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                     ],
                 ),
             ),
+            current_key_figures=PostStockNotationScreenerSearchRequestDataCurrentKeyFigures(
+                company=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompany(
+                    shares_outstanding=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstanding(
+                        minimum=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMinimum(
+                            value="value_example",
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMaximum(
+                            value="value_example",
+                            inclusive=True,
+                        ),
+                    ),
+                    free_float=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyFreeFloat(
+                        minimum=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMinimum(
+                            value="value_example",
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMaximum(
+                            value="value_example",
+                            inclusive=True,
+                        ),
+                    ),
+                    currency_dependent=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependent(
+                        currency=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentCurrency(
+                            iso_code="EUR",
+                        ),
+                        market_capitalization_shares_outstanding=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentMarketCapitalizationSharesOutstanding(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        per_share=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentPerShare(
+                            earnings=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentPerShareEarnings(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                            book_value=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentPerShareBookValue(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                            cash_flow=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentPerShareCashFlow(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                            sales=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentPerShareSales(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                share_instrument=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrument(
+                    shares_outstanding=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstanding(
+                        minimum=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMinimum(
+                            value="value_example",
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMaximum(
+                            value="value_example",
+                            inclusive=True,
+                        ),
+                    ),
+                    free_float=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyFreeFloat(
+                        minimum=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMinimum(
+                            value="value_example",
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMaximum(
+                            value="value_example",
+                            inclusive=True,
+                        ),
+                    ),
+                    ratios=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatios(
+                        price_earnings=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosPriceEarnings(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        price_book_value=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosPriceBookValue(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        price_cash_flow=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosPriceCashFlow(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        price_sales=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosPriceSales(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        dividend_yield=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosDividendYield(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        earnings_yield=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosEarningsYield(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                    ),
+                    currency_dependent=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentCurrencyDependent(
+                        currency=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentCurrency(
+                            iso_code="EUR",
+                        ),
+                        market_capitalization_shares_outstanding=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentMarketCapitalizationSharesOutstanding(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        per_share=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentCurrencyDependentPerShare(
+                            dividend=PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentCurrencyDependentPerShareDividend(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
             reported_key_figures=[
-                StockNotationScreenerSearchDataReportedKeyFigures(
-                    fiscal_year=StockNotationScreenerSearchDataFiscalYear(
+                PostStockNotationScreenerSearchRequestDataReportedKeyFigures(
+                    fiscal_year=PostStockNotationScreenerSearchRequestDataFiscalYear(
                         year_end=3.14,
                         year=3.14,
                     ),
-                    currency_dependent_key_figures=StockNotationScreenerSearchDataCurrencyDependentKeyFigures(
-                        currency=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency(
+                    currency_dependent_key_figures=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigures(
+                        currency=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresCurrency(
                             iso_code="EUR",
                         ),
-                        market_capitalization=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalization(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        market_capitalization=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresMarketCapitalization(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                        ebit=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresEbit(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        ebitda=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresEbitda(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        ebit=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresEbit(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        per_share=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShare(
-                            sales=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareSales(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        ebitda=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresEbitda(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        per_share=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShare(
+                            sales=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareSales(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
-                            recurring_diluted_earnings=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareRecurringDilutedEarnings(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                            recurring_diluted_earnings=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareRecurringDilutedEarnings(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                            dividends=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareDividends(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
-                            book_value=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareBookValue(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                            dividends=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareDividends(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
-                            cash_flow=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareCashFlow(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                            book_value=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareBookValue(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                            cash_flow=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareCashFlow(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
                     ),
-                    ebit_margin=StockNotationScreenerSearchDataEbitMargin(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    ebit_margin=PostStockNotationScreenerSearchRequestDataEbitMargin(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    ebitda_margin=StockNotationScreenerSearchDataEbitdaMargin(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    net_income_margin=StockNotationScreenerSearchDataNetIncomeMargin(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    ebitda_margin=PostStockNotationScreenerSearchRequestDataEbitdaMargin(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    gross_income_margin=StockNotationScreenerSearchDataGrossIncomeMargin(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    operating_margin=StockNotationScreenerSearchDataOperatingMargin(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    net_income_margin=PostStockNotationScreenerSearchRequestDataNetIncomeMargin(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    return_on_assets=StockNotationScreenerSearchDataReturnOnAssets(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    return_on_equity=StockNotationScreenerSearchDataReturnOnEquity(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    gross_income_margin=PostStockNotationScreenerSearchRequestDataGrossIncomeMargin(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    ratios=StockNotationScreenerSearchDataRatios(
-                        price_sales=StockNotationScreenerSearchDataRatiosPriceSales(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                    operating_margin=PostStockNotationScreenerSearchRequestDataOperatingMargin(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    return_on_assets=PostStockNotationScreenerSearchRequestDataReturnOnAssets(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    return_on_equity=PostStockNotationScreenerSearchRequestDataReturnOnEquity(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    ratios=PostStockNotationScreenerSearchRequestDataRatios(
+                        price_sales=PostStockNotationScreenerSearchRequestDataRatiosPriceSales(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        price_earnings=StockNotationScreenerSearchDataRatiosPriceEarnings(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_earnings=PostStockNotationScreenerSearchRequestDataRatiosPriceEarnings(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                        price_book_value=StockNotationScreenerSearchDataRatiosPriceBookValue(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        price_cash_flow=StockNotationScreenerSearchDataRatiosPriceCashFlow(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_book_value=PostStockNotationScreenerSearchRequestDataRatiosPriceBookValue(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                        price_free_cash_flow=StockNotationScreenerSearchDataRatiosPriceFreeCashFlow(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        dividend_yield=StockNotationScreenerSearchDataRatiosDividendYield(
-                            minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                        price_cash_flow=PostStockNotationScreenerSearchRequestDataRatiosPriceCashFlow(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                        enterprise_value_ebit=StockNotationScreenerSearchDataRatiosEnterpriseValueEbit(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        enterprise_value_ebitda=StockNotationScreenerSearchDataRatiosEnterpriseValueEbitda(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_free_cash_flow=PostStockNotationScreenerSearchRequestDataRatiosPriceFreeCashFlow(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                        enterprise_value_sales=StockNotationScreenerSearchDataRatiosEnterpriseValueSales(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        debt_equity=StockNotationScreenerSearchDataRatiosDebtEquity(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        dividend_yield=PostStockNotationScreenerSearchRequestDataRatiosDividendYield(
+                            minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        enterprise_value_ebit=PostStockNotationScreenerSearchRequestDataRatiosEnterpriseValueEbit(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        enterprise_value_ebitda=PostStockNotationScreenerSearchRequestDataRatiosEnterpriseValueEbitda(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        enterprise_value_sales=PostStockNotationScreenerSearchRequestDataRatiosEnterpriseValueSales(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        debt_equity=PostStockNotationScreenerSearchRequestDataRatiosDebtEquity(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
@@ -1693,268 +2187,487 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                     ),
                 ),
             ],
-            performance=StockNotationScreenerSearchDataPerformance(
-                intraday=StockNotationScreenerSearchDataPerformanceIntraday(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
+            benchmark=PostStockNotationScreenerSearchRequestDataBenchmark(
+                type="local",
+                beta=PostStockNotationScreenerSearchRequestDataBenchmarkBeta(
+                    week1=PostStockNotationScreenerSearchRequestDataBenchmarkBetaWeek1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
                     ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
+                    month1=PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonth1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    months3=PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonths3(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    months6=PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonths6(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    year1=PostStockNotationScreenerSearchRequestDataBenchmarkBetaYear1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    years3=PostStockNotationScreenerSearchRequestDataBenchmarkBetaYears3(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    years5=PostStockNotationScreenerSearchRequestDataBenchmarkBetaYears5(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
                     ),
                 ),
-                end_of_day=StockNotationScreenerSearchDataPerformanceEndOfDay(
-                    day1=StockNotationScreenerSearchDataPerformanceEndOfDayDay1(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                correlation=PostStockNotationScreenerSearchRequestDataBenchmarkCorrelation(
+                    week1=PostStockNotationScreenerSearchRequestDataBenchmarkBetaWeek1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    week1=StockNotationScreenerSearchDataPerformanceEndOfDayWeek1(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    month1=StockNotationScreenerSearchDataPerformanceEndOfDayMonth1(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    month1=PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonth1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    months3=StockNotationScreenerSearchDataPerformanceEndOfDayMonths3(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    months6=StockNotationScreenerSearchDataPerformanceEndOfDayMonths6(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    months3=PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonths3(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    year1=StockNotationScreenerSearchDataPerformanceEndOfDayYear1(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    years3=StockNotationScreenerSearchDataPerformanceEndOfDayYears3(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    months6=PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonths6(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    years5=StockNotationScreenerSearchDataPerformanceEndOfDayYears5(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    year_to_date=StockNotationScreenerSearchDataPerformanceEndOfDayYearToDate(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    year1=PostStockNotationScreenerSearchRequestDataBenchmarkBetaYear1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    years3=PostStockNotationScreenerSearchRequestDataBenchmarkBetaYears3(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    years5=PostStockNotationScreenerSearchRequestDataBenchmarkBetaYears5(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                ),
+                outperformance=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance(
+                    week1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceWeek1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    month1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonth1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    months3=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonths3(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    months6=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonths6(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    year1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYear1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    years3=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYears3(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    years5=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYears5(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                 ),
             ),
-            volatility=StockNotationScreenerSearchDataVolatility(
-                week1=StockNotationScreenerSearchDataPerformanceEndOfDayWeek1(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+            performance=PostStockNotationScreenerSearchRequestDataPerformance(
+                intraday=PostStockNotationScreenerSearchRequestDataPerformanceIntraday(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                month1=StockNotationScreenerSearchDataPerformanceEndOfDayMonth1(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
-                months3=StockNotationScreenerSearchDataPerformanceEndOfDayMonths3(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                months6=StockNotationScreenerSearchDataPerformanceEndOfDayMonths6(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                year1=StockNotationScreenerSearchDataPerformanceEndOfDayYear1(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                years3=StockNotationScreenerSearchDataPerformanceEndOfDayYears3(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                years5=StockNotationScreenerSearchDataPerformanceEndOfDayYears5(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                year_to_date=StockNotationScreenerSearchDataPerformanceEndOfDayYearToDate(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-            ),
-            trading_value=StockNotationScreenerSearchDataTradingValue(
-                average=StockNotationScreenerSearchDataTradingValueAverage(
-                    days5=StockNotationScreenerSearchDataTradingValueAverageDays5(
-                        minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                end_of_day=PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay(
+                    day1=PostStockNotationScreenerSearchRequestDataPerformanceEndOfDayDay1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    days30=StockNotationScreenerSearchDataTradingValueAverageDays30(
-                        minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                    week1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceWeek1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    month1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonth1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    months3=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonths3(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    months6=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonths6(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    year1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYear1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    years3=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYears3(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    years5=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYears5(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    year_to_date=PostStockNotationScreenerSearchRequestDataPerformanceEndOfDayYearToDate(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                 ),
             ),
-            simple_moving_average=StockNotationScreenerSearchDataSimpleMovingAverage(
-                days20=StockNotationScreenerSearchDataSimpleMovingAverageDays20(
-                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+            volatility=PostStockNotationScreenerSearchRequestDataVolatility(
+                week1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceWeek1(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                days50=StockNotationScreenerSearchDataSimpleMovingAverageDays50(
-                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
-                days200=StockNotationScreenerSearchDataSimpleMovingAverageDays200(
-                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                month1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonth1(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
-                trading_days_since_crossover=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossover(
-                    sma20vs50=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50(
-                        number_days=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDays(
-                            minimum=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMinimum(
+                months3=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonths3(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                months6=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonths6(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                year1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYear1(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                years3=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYears3(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                years5=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYears5(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                year_to_date=PostStockNotationScreenerSearchRequestDataPerformanceEndOfDayYearToDate(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+            ),
+            trading_value=PostStockNotationScreenerSearchRequestDataTradingValue(
+                average=PostStockNotationScreenerSearchRequestDataTradingValueAverage(
+                    days5=PostStockNotationScreenerSearchRequestDataTradingValueAverageDays5(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    days30=PostStockNotationScreenerSearchRequestDataTradingValueAverageDays30(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                ),
+            ),
+            simple_moving_average=PostStockNotationScreenerSearchRequestDataSimpleMovingAverage(
+                days20=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageDays20(
+                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                days50=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageDays50(
+                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                days200=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageDays200(
+                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                trading_days_since_crossover=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossover(
+                    sma20vs50=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50(
+                        number_days=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDays(
+                            minimum=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMinimum(
                                 value=0,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMaximum(
                                 value=0,
                                 inclusive=True,
                             ),
                         ),
                         direction="up",
                     ),
-                    sma50vs200=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200(
-                        number_days=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays(
-                            minimum=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMinimum(
+                    sma50vs200=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200(
+                        number_days=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays(
+                            minimum=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMinimum(
                                 value=0,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMaximum(
                                 value=0,
                                 inclusive=True,
                             ),
@@ -1963,120 +2676,174 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                     ),
                 ),
             ),
-            rsi_wilder=StockNotationScreenerSearchDataRsiWilder(
-                days14=StockNotationScreenerSearchDataRsiWilderDays14(
-                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+            rsi_wilder=PostStockNotationScreenerSearchRequestDataRsiWilder(
+                days14=PostStockNotationScreenerSearchRequestDataRsiWilderDays14(
+                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
             ),
-            recommendation=StockNotationScreenerSearchDataRecommendation(
-                counts=StockNotationScreenerSearchDataRecommendationCounts(
-                    total=StockNotationScreenerSearchDataRecommendationCountsTotal(
-                        minimum=StockNotationScreenerSearchDataRecommendationCountsTotalMinimum(
+            recommendation=PostStockNotationScreenerSearchRequestDataRecommendation(
+                counts=PostStockNotationScreenerSearchRequestDataRecommendationCounts(
+                    total=PostStockNotationScreenerSearchRequestDataRecommendationCountsTotal(
+                        minimum=PostStockNotationScreenerSearchRequestDataRecommendationCountsTotalMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataRecommendationCountsTotalMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataRecommendationCountsTotalMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                 ),
-                consensus=StockNotationScreenerSearchDataRecommendationConsensus(
-                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                        value=3.14,
-                        inclusive=True,
+                consensus=PostStockNotationScreenerSearchRequestDataRecommendationConsensus(
+                    range=PostStockNotationScreenerSearchRequestDataRecommendationConsensusRange(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
                     ),
-                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                        value=3.14,
-                        inclusive=True,
+                    change=PostStockNotationScreenerSearchRequestDataRecommendationConsensusChange(
+                        week1=PostStockNotationScreenerSearchRequestDataBenchmarkBetaWeek1(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        month1=PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonth1(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        months3=PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonths3(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        months6=PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonths6(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        year1=PostStockNotationScreenerSearchRequestDataBenchmarkBetaYear1(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
                     ),
                 ),
             ),
             estimates=[
-                StockNotationScreenerSearchDataEstimates(
-                    fiscal_year=StockNotationScreenerSearchDataFiscalYear1(
+                PostStockNotationScreenerSearchRequestDataEstimates(
+                    fiscal_year=PostStockNotationScreenerSearchRequestDataFiscalYear1(
                         year_end=3.14,
                         year=3.14,
                     ),
-                    currency_dependent_estimates=StockNotationScreenerSearchDataCurrencyDependentEstimates(
-                        currency=StockNotationScreenerSearchDataCurrencyDependentEstimatesCurrency(
+                    currency_dependent_estimates=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimates(
+                        currency=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesCurrency(
                             iso_code="EUR",
                         ),
-                        ebit=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbit(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        ebit=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbit(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                        ),
-                        ebitda=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitda(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        per_share=StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShare(
-                            sales=StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareSales(
-                                mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        ebitda=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitda(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                        per_share=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShare(
+                            sales=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareSales(
+                                mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
-                                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
                                 ),
                             ),
-                            earnings=StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareEarnings(
-                                mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                            earnings=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareEarnings(
+                                mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
-                                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                        value=3.14,
-                                        inclusive=True,
-                                    ),
-                                ),
-                            ),
-                            dividends=StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareDividends(
-                                mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                        value=3.14,
-                                        inclusive=True,
-                                    ),
-                                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
                                 ),
                             ),
-                            cash_flow=StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareCashFlow(
-                                mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                            dividends=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareDividends(
+                                mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
-                                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                        value=3.14,
+                                        inclusive=True,
+                                    ),
+                                ),
+                            ),
+                            cash_flow=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareCashFlow(
+                                mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                        value=3.14,
+                                        inclusive=True,
+                                    ),
+                                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
@@ -2084,146 +2851,146 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                             ),
                         ),
                     ),
-                    return_on_assets=StockNotationScreenerSearchDataReturnOnAssets1(
-                        mean=StockNotationScreenerSearchDataReturnOnAssets1Mean(
-                            minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    return_on_assets=PostStockNotationScreenerSearchRequestDataReturnOnAssets1(
+                        mean=PostStockNotationScreenerSearchRequestDataReturnOnAssets1Mean(
+                            minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                    ),
-                    return_on_equity=StockNotationScreenerSearchDataReturnOnEquity1(
-                        mean=StockNotationScreenerSearchDataReturnOnAssets1Mean(
-                            minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
                     ),
-                    ratios=StockNotationScreenerSearchDataRatios1(
-                        price_sales=StockNotationScreenerSearchDataRatios1PriceSales(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                    return_on_equity=PostStockNotationScreenerSearchRequestDataReturnOnEquity1(
+                        mean=PostStockNotationScreenerSearchRequestDataReturnOnAssets1Mean(
+                            minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                    ),
+                    ratios=PostStockNotationScreenerSearchRequestDataRatios1(
+                        price_sales=PostStockNotationScreenerSearchRequestDataRatios1PriceSales(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        price_earnings=StockNotationScreenerSearchDataRatios1PriceEarnings(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_earnings=PostStockNotationScreenerSearchRequestDataRatios1PriceEarnings(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                        ),
-                        price_earnings_growth=StockNotationScreenerSearchDataRatios1PriceEarningsGrowth(
-                            mean=StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        price_book_value=StockNotationScreenerSearchDataRatios1PriceBookValue(
-                            mean=StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_earnings_growth=PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowth(
+                            mean=PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowthMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                        ),
-                        price_cash_flow=StockNotationScreenerSearchDataRatios1PriceCashFlow(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        price_free_cash_flow=StockNotationScreenerSearchDataRatios1PriceFreeCashFlow(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_book_value=PostStockNotationScreenerSearchRequestDataRatios1PriceBookValue(
+                            mean=PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowthMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                        ),
-                        dividend_yield=StockNotationScreenerSearchDataRatios1DividendYield(
-                            mean=StockNotationScreenerSearchDataReturnOnAssets1Mean(
-                                minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        enterprise_value_ebit=StockNotationScreenerSearchDataRatios1EnterpriseValueEbit(
-                            mean=StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_cash_flow=PostStockNotationScreenerSearchRequestDataRatios1PriceCashFlow(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                        ),
-                        enterprise_value_ebitda=StockNotationScreenerSearchDataRatios1EnterpriseValueEbitda(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        enterprise_value_sales=StockNotationScreenerSearchDataRatios1EnterpriseValueSales(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_free_cash_flow=PostStockNotationScreenerSearchRequestDataRatios1PriceFreeCashFlow(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                        dividend_yield=PostStockNotationScreenerSearchRequestDataRatios1DividendYield(
+                            mean=PostStockNotationScreenerSearchRequestDataReturnOnAssets1Mean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                        enterprise_value_ebit=PostStockNotationScreenerSearchRequestDataRatios1EnterpriseValueEbit(
+                            mean=PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowthMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                        enterprise_value_ebitda=PostStockNotationScreenerSearchRequestDataRatios1EnterpriseValueEbitda(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                        enterprise_value_sales=PostStockNotationScreenerSearchRequestDataRatios1EnterpriseValueSales(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
@@ -2233,24 +3000,24 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 ),
             ],
         ),
-        meta=StockNotationScreenerSearchMeta(
+        meta=PostStockNotationScreenerSearchRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
             sort=["instrument.name"],
-            pagination=StockNotationScreenerSearchMetaPagination(
+            pagination=PostStockNotationScreenerSearchRequestMetaPagination(
                 offset=0,
                 limit=20,
             ),
         ),
-    ) # InlineObject2 |  (optional)
+    ) # PostStockNotationScreenerSearchRequest |  (optional)
 
     try:
         # Screener for stocks' notations based on stock-specific parameters.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_stock_notation_screener_search(inline_object2=inline_object2)
+        api_response = api_instance.post_stock_notation_screener_search(post_stock_notation_screener_search_request=post_stock_notation_screener_search_request)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -2262,11 +3029,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **post_stock_notation_screener_search_request** | [**PostStockNotationScreenerSearchRequest**](PostStockNotationScreenerSearchRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -2287,7 +3054,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_stock_notation_screener_value_ranges_get**
-> InlineResponse2008 post_stock_notation_screener_value_ranges_get()
+> InlineResponse20015 post_stock_notation_screener_value_ranges_get()
 
 Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
 
@@ -2333,72 +3100,72 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    inline_object3 = InlineObject3(
-        data=StockNotationScreenerSearchData(
-            validation=StockNotationScreenerSearchDataValidation(
+    post_stock_notation_screener_value_ranges_get_request = PostStockNotationScreenerValueRangesGetRequest(
+        data=PostStockNotationScreenerValueRangesGetRequestData(
+            validation=PostStockNotationScreenerSearchRequestDataValidation(
                 only_active=True,
                 only_not_suspended=False,
-                prices=StockNotationScreenerSearchDataValidationPrices(
+                prices=PostStockNotationScreenerSearchRequestDataValidationPrices(
                     quality="DLY",
-                    latest=StockNotationScreenerSearchDataValidationPricesLatest(
+                    latest=PostStockNotationScreenerSearchRequestDataValidationPricesLatest(
                         available_only=True,
                         minimum_date=dateutil_parser('1970-01-01').date(),
                     ),
-                    previous=StockNotationScreenerSearchDataValidationPricesPrevious(
+                    previous=PostStockNotationScreenerSearchRequestDataValidationPricesPrevious(
                         available_only=True,
                         minimum_date=dateutil_parser('1970-01-01').date(),
                     ),
                 ),
-                value_unit=StockNotationScreenerSearchDataValidationValueUnit(
-                    restrict=StockNotationScreenerSearchDataValidationValueUnitRestrict(
+                value_unit=PostStockNotationScreenerSearchRequestDataValidationValueUnit(
+                    restrict=PostStockNotationScreenerSearchRequestDataValidationValueUnitRestrict(
                         ids=[
                             3.14,
                         ],
                     ),
-                    exclude=StockNotationScreenerSearchDataValidationValueUnitExclude(
+                    exclude=PostStockNotationScreenerSearchRequestDataValidationValueUnitExclude(
                         ids=[
                             3.14,
                         ],
                     ),
                 ),
-                market=StockNotationScreenerSearchDataValidationMarket(
-                    selection=StockNotationScreenerSearchDataValidationMarketSelection(
-                        restrict=StockNotationScreenerSearchDataValidationMarketSelectionRestrict(
+                market=PostStockNotationScreenerSearchRequestDataValidationMarket(
+                    selection=PostStockNotationScreenerSearchRequestDataValidationMarketSelection(
+                        restrict=PostStockNotationScreenerSearchRequestDataValidationMarketSelectionRestrict(
                             ids=[
                                 3.14,
                             ],
                         ),
-                        exclude=StockNotationScreenerSearchDataValidationMarketSelectionExclude(
+                        exclude=PostStockNotationScreenerSearchRequestDataValidationMarketSelectionExclude(
                             ids=[
                                 3.14,
                             ],
                         ),
                     ),
-                    priority=StockNotationScreenerSearchDataValidationMarketPriority(
+                    priority=PostStockNotationScreenerSearchRequestDataValidationMarketPriority(
                         ids=[
                             3.14,
                         ],
                     ),
                 ),
-                instrument_selection_list=StockNotationScreenerSearchDataValidationInstrumentSelectionList(
-                    restrict=StockNotationScreenerSearchDataValidationInstrumentSelectionListRestrict(
+                instrument_selection_list=PostStockNotationScreenerSearchRequestDataValidationInstrumentSelectionList(
+                    restrict=PostStockNotationScreenerSearchRequestDataValidationInstrumentSelectionListRestrict(
                         ids=[
                             3.14,
                         ],
                     ),
-                    exclude=StockNotationScreenerSearchDataValidationInstrumentSelectionListExclude(
+                    exclude=PostStockNotationScreenerSearchRequestDataValidationInstrumentSelectionListExclude(
                         ids=[
                             3.14,
                         ],
                     ),
                 ),
-                notation_selection_list=StockNotationScreenerSearchDataValidationNotationSelectionList(
-                    restrict=StockNotationScreenerSearchDataValidationNotationSelectionListRestrict(
+                notation_selection_list=PostStockNotationScreenerSearchRequestDataValidationNotationSelectionList(
+                    restrict=PostStockNotationScreenerSearchRequestDataValidationNotationSelectionListRestrict(
                         ids=[
                             3.14,
                         ],
                     ),
-                    exclude=StockNotationScreenerSearchDataValidationNotationSelectionListExclude(
+                    exclude=PostStockNotationScreenerSearchRequestDataValidationNotationSelectionListExclude(
                         ids=[
                             3.14,
                         ],
@@ -2408,43 +3175,43 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
             stock_type=[
                 "common",
             ],
-            industry_classification=StockNotationScreenerSearchDataIndustryClassification(
-                restrict=StockNotationScreenerSearchDataIndustryClassificationRestrict(
+            industry_classification=PostStockNotationScreenerSearchRequestDataIndustryClassification(
+                restrict=PostStockNotationScreenerSearchRequestDataIndustryClassificationRestrict(
                     ids=[
                         3.14,
                     ],
                 ),
-                exclude=StockNotationScreenerSearchDataIndustryClassificationExclude(
+                exclude=PostStockNotationScreenerSearchRequestDataIndustryClassificationExclude(
                     ids=[
                         3.14,
                     ],
                 ),
             ),
-            company=StockNotationScreenerSearchDataCompany(
-                country=StockNotationScreenerSearchDataCompanyCountry(
-                    restrict=StockNotationScreenerSearchDataCompanyCountryRestrict(
+            company=PostStockNotationScreenerSearchRequestDataCompany(
+                country=PostStockNotationScreenerSearchRequestDataCompanyCountry(
+                    restrict=PostStockNotationScreenerSearchRequestDataCompanyCountryRestrict(
                         ids=[
                             3.14,
                         ],
                     ),
-                    exclude=StockNotationScreenerSearchDataCompanyCountryExclude(
+                    exclude=PostStockNotationScreenerSearchRequestDataCompanyCountryExclude(
                         ids=[
                             3.14,
                         ],
                     ),
                 ),
             ),
-            index_membership=StockNotationScreenerSearchDataIndexMembership(
+            index_membership=PostStockNotationScreenerSearchRequestDataIndexMembership(
                 ids=[
                     "ids_example",
                 ],
             ),
-            compliance=StockNotationScreenerSearchDataCompliance(
-                france=StockNotationScreenerSearchDataComplianceFrance(
+            compliance=PostStockNotationScreenerSearchRequestDataCompliance(
+                france=PostStockNotationScreenerSearchRequestDataComplianceFrance(
                     _or=[
-                        StockNotationScreenerSearchDataComplianceFranceOr(
+                        PostStockNotationScreenerSearchRequestDataComplianceFranceOr(
                             _and=[
-                                StockNotationScreenerSearchDataComplianceFranceAnd(
+                                PostStockNotationScreenerSearchRequestDataComplianceFranceAnd(
                                     id=2,
                                     negate=True,
                                 ),
@@ -2454,265 +3221,265 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 ),
             ),
             reported_key_figures=[
-                StockNotationScreenerSearchDataReportedKeyFigures(
-                    fiscal_year=StockNotationScreenerSearchDataFiscalYear(
+                PostStockNotationScreenerSearchRequestDataReportedKeyFigures(
+                    fiscal_year=PostStockNotationScreenerSearchRequestDataFiscalYear(
                         year_end=3.14,
                         year=3.14,
                     ),
-                    currency_dependent_key_figures=StockNotationScreenerSearchDataCurrencyDependentKeyFigures(
-                        currency=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency(
+                    currency_dependent_key_figures=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigures(
+                        currency=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresCurrency(
                             iso_code="EUR",
                         ),
-                        market_capitalization=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalization(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        market_capitalization=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresMarketCapitalization(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                        ebit=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresEbit(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        ebitda=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresEbitda(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        ebit=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresEbit(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        per_share=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShare(
-                            sales=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareSales(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        ebitda=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresEbitda(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        per_share=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShare(
+                            sales=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareSales(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
-                            recurring_diluted_earnings=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareRecurringDilutedEarnings(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                            recurring_diluted_earnings=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareRecurringDilutedEarnings(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                            dividends=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareDividends(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
-                            book_value=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareBookValue(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                            dividends=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareDividends(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
-                            cash_flow=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareCashFlow(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                            book_value=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareBookValue(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                            cash_flow=PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareCashFlow(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
                     ),
-                    ebit_margin=StockNotationScreenerSearchDataEbitMargin(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    ebit_margin=PostStockNotationScreenerSearchRequestDataEbitMargin(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    ebitda_margin=StockNotationScreenerSearchDataEbitdaMargin(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    net_income_margin=StockNotationScreenerSearchDataNetIncomeMargin(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    ebitda_margin=PostStockNotationScreenerSearchRequestDataEbitdaMargin(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    gross_income_margin=StockNotationScreenerSearchDataGrossIncomeMargin(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    operating_margin=StockNotationScreenerSearchDataOperatingMargin(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    net_income_margin=PostStockNotationScreenerSearchRequestDataNetIncomeMargin(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    return_on_assets=StockNotationScreenerSearchDataReturnOnAssets(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    return_on_equity=StockNotationScreenerSearchDataReturnOnEquity(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    gross_income_margin=PostStockNotationScreenerSearchRequestDataGrossIncomeMargin(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    ratios=StockNotationScreenerSearchDataRatios(
-                        price_sales=StockNotationScreenerSearchDataRatiosPriceSales(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                    operating_margin=PostStockNotationScreenerSearchRequestDataOperatingMargin(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    return_on_assets=PostStockNotationScreenerSearchRequestDataReturnOnAssets(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    return_on_equity=PostStockNotationScreenerSearchRequestDataReturnOnEquity(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    ratios=PostStockNotationScreenerSearchRequestDataRatios(
+                        price_sales=PostStockNotationScreenerSearchRequestDataRatiosPriceSales(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        price_earnings=StockNotationScreenerSearchDataRatiosPriceEarnings(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_earnings=PostStockNotationScreenerSearchRequestDataRatiosPriceEarnings(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                        price_book_value=StockNotationScreenerSearchDataRatiosPriceBookValue(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        price_cash_flow=StockNotationScreenerSearchDataRatiosPriceCashFlow(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_book_value=PostStockNotationScreenerSearchRequestDataRatiosPriceBookValue(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                        price_free_cash_flow=StockNotationScreenerSearchDataRatiosPriceFreeCashFlow(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        dividend_yield=StockNotationScreenerSearchDataRatiosDividendYield(
-                            minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                        price_cash_flow=PostStockNotationScreenerSearchRequestDataRatiosPriceCashFlow(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                        enterprise_value_ebit=StockNotationScreenerSearchDataRatiosEnterpriseValueEbit(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        enterprise_value_ebitda=StockNotationScreenerSearchDataRatiosEnterpriseValueEbitda(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_free_cash_flow=PostStockNotationScreenerSearchRequestDataRatiosPriceFreeCashFlow(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                        enterprise_value_sales=StockNotationScreenerSearchDataRatiosEnterpriseValueSales(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
-                        debt_equity=StockNotationScreenerSearchDataRatiosDebtEquity(
-                            minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        dividend_yield=PostStockNotationScreenerSearchRequestDataRatiosDividendYield(
+                            minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        enterprise_value_ebit=PostStockNotationScreenerSearchRequestDataRatiosEnterpriseValueEbit(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        enterprise_value_ebitda=PostStockNotationScreenerSearchRequestDataRatiosEnterpriseValueEbitda(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        enterprise_value_sales=PostStockNotationScreenerSearchRequestDataRatiosEnterpriseValueSales(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                        debt_equity=PostStockNotationScreenerSearchRequestDataRatiosDebtEquity(
+                            minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
@@ -2720,390 +3487,390 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                     ),
                 ),
             ],
-            performance=StockNotationScreenerSearchDataPerformance(
-                intraday=StockNotationScreenerSearchDataPerformanceIntraday(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+            performance=PostStockNotationScreenerSearchRequestDataPerformance(
+                intraday=PostStockNotationScreenerSearchRequestDataPerformanceIntraday(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                end_of_day=StockNotationScreenerSearchDataPerformanceEndOfDay(
-                    day1=StockNotationScreenerSearchDataPerformanceEndOfDayDay1(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    week1=StockNotationScreenerSearchDataPerformanceEndOfDayWeek1(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    month1=StockNotationScreenerSearchDataPerformanceEndOfDayMonth1(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    months3=StockNotationScreenerSearchDataPerformanceEndOfDayMonths3(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    months6=StockNotationScreenerSearchDataPerformanceEndOfDayMonths6(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    year1=StockNotationScreenerSearchDataPerformanceEndOfDayYear1(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    years3=StockNotationScreenerSearchDataPerformanceEndOfDayYears3(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    years5=StockNotationScreenerSearchDataPerformanceEndOfDayYears5(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                    year_to_date=StockNotationScreenerSearchDataPerformanceEndOfDayYearToDate(
-                        minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                        maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                            value=3.14,
-                            inclusive=True,
-                        ),
-                    ),
-                ),
-            ),
-            volatility=StockNotationScreenerSearchDataVolatility(
-                week1=StockNotationScreenerSearchDataPerformanceEndOfDayWeek1(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
-                month1=StockNotationScreenerSearchDataPerformanceEndOfDayMonth1(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                months3=StockNotationScreenerSearchDataPerformanceEndOfDayMonths3(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                months6=StockNotationScreenerSearchDataPerformanceEndOfDayMonths6(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                year1=StockNotationScreenerSearchDataPerformanceEndOfDayYear1(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                years3=StockNotationScreenerSearchDataPerformanceEndOfDayYears3(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                years5=StockNotationScreenerSearchDataPerformanceEndOfDayYears5(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                year_to_date=StockNotationScreenerSearchDataPerformanceEndOfDayYearToDate(
-                    minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-            ),
-            trading_value=StockNotationScreenerSearchDataTradingValue(
-                average=StockNotationScreenerSearchDataTradingValueAverage(
-                    days5=StockNotationScreenerSearchDataTradingValueAverageDays5(
-                        minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                end_of_day=PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay(
+                    day1=PostStockNotationScreenerSearchRequestDataPerformanceEndOfDayDay1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
-                    days30=StockNotationScreenerSearchDataTradingValueAverageDays30(
-                        minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                    week1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceWeek1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    month1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonth1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    months3=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonths3(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    months6=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonths6(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    year1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYear1(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    years3=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYears3(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    years5=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYears5(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                    year_to_date=PostStockNotationScreenerSearchRequestDataPerformanceEndOfDayYearToDate(
+                        minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                 ),
             ),
-            simple_moving_average=StockNotationScreenerSearchDataSimpleMovingAverage(
-                days20=StockNotationScreenerSearchDataSimpleMovingAverageDays20(
-                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+            volatility=PostStockNotationScreenerSearchRequestDataVolatility(
+                week1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceWeek1(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                ),
-                days50=StockNotationScreenerSearchDataSimpleMovingAverageDays50(
-                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                        value=3.14,
-                        inclusive=True,
-                    ),
-                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
-                days200=StockNotationScreenerSearchDataSimpleMovingAverageDays200(
-                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                month1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonth1(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
-                trading_days_since_crossover=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossover(
-                    sma20vs50=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50(
-                        number_days=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDays(
-                            minimum=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMinimum(
-                                value=0,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMaximum(
-                                value=0,
-                                inclusive=True,
-                            ),
+                months3=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonths3(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                months6=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonths6(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                year1=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYear1(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                years3=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYears3(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                years5=PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceYears5(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                year_to_date=PostStockNotationScreenerSearchRequestDataPerformanceEndOfDayYearToDate(
+                    minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+            ),
+            trading_value=PostStockNotationScreenerSearchRequestDataTradingValue(
+                average=PostStockNotationScreenerSearchRequestDataTradingValueAverage(
+                    days5=PostStockNotationScreenerSearchRequestDataTradingValueAverageDays5(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
                         ),
-                        direction="up",
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
                     ),
-                    sma50vs200=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200(
-                        number_days=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays(
-                            minimum=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMinimum(
+                    days30=PostStockNotationScreenerSearchRequestDataTradingValueAverageDays30(
+                        minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                        maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                            value=3.14,
+                            inclusive=True,
+                        ),
+                    ),
+                ),
+            ),
+            simple_moving_average=PostStockNotationScreenerSearchRequestDataSimpleMovingAverage(
+                days20=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageDays20(
+                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                days50=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageDays50(
+                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                days200=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageDays200(
+                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+                trading_days_since_crossover=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossover(
+                    sma20vs50=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50(
+                        number_days=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDays(
+                            minimum=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMinimum(
                                 value=0,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDaysMaximum(
                                 value=0,
                                 inclusive=True,
                             ),
                         ),
                         direction="up",
                     ),
+                    sma50vs200=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200(
+                        number_days=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays(
+                            minimum=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMinimum(
+                                value=0,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMaximum(
+                                value=0,
+                                inclusive=True,
+                            ),
+                        ),
+                        direction="up",
+                    ),
                 ),
             ),
-            rsi_wilder=StockNotationScreenerSearchDataRsiWilder(
-                days14=StockNotationScreenerSearchDataRsiWilderDays14(
-                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+            rsi_wilder=PostStockNotationScreenerSearchRequestDataRsiWilder(
+                days14=PostStockNotationScreenerSearchRequestDataRsiWilderDays14(
+                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
             ),
-            recommendation=StockNotationScreenerSearchDataRecommendation(
-                counts=StockNotationScreenerSearchDataRecommendationCounts(
-                    total=StockNotationScreenerSearchDataRecommendationCountsTotal(
-                        minimum=StockNotationScreenerSearchDataRecommendationCountsTotalMinimum(
+            recommendation=PostStockNotationScreenerValueRangesGetRequestDataRecommendation(
+                counts=PostStockNotationScreenerSearchRequestDataRecommendationCounts(
+                    total=PostStockNotationScreenerSearchRequestDataRecommendationCountsTotal(
+                        minimum=PostStockNotationScreenerSearchRequestDataRecommendationCountsTotalMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=StockNotationScreenerSearchDataRecommendationCountsTotalMaximum(
+                        maximum=PostStockNotationScreenerSearchRequestDataRecommendationCountsTotalMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                 ),
-                consensus=StockNotationScreenerSearchDataRecommendationConsensus(
-                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                consensus=PostStockNotationScreenerValueRangesGetRequestDataRecommendationConsensus(
+                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
             ),
             estimates=[
-                StockNotationScreenerSearchDataEstimates(
-                    fiscal_year=StockNotationScreenerSearchDataFiscalYear1(
+                PostStockNotationScreenerSearchRequestDataEstimates(
+                    fiscal_year=PostStockNotationScreenerSearchRequestDataFiscalYear1(
                         year_end=3.14,
                         year=3.14,
                     ),
-                    currency_dependent_estimates=StockNotationScreenerSearchDataCurrencyDependentEstimates(
-                        currency=StockNotationScreenerSearchDataCurrencyDependentEstimatesCurrency(
+                    currency_dependent_estimates=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimates(
+                        currency=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesCurrency(
                             iso_code="EUR",
                         ),
-                        ebit=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbit(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        ebit=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbit(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                        ),
-                        ebitda=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitda(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        per_share=StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShare(
-                            sales=StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareSales(
-                                mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        ebitda=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitda(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                        per_share=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShare(
+                            sales=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareSales(
+                                mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
-                                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
                                 ),
                             ),
-                            earnings=StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareEarnings(
-                                mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                            earnings=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareEarnings(
+                                mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
-                                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                        value=3.14,
-                                        inclusive=True,
-                                    ),
-                                ),
-                            ),
-                            dividends=StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareDividends(
-                                mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                        value=3.14,
-                                        inclusive=True,
-                                    ),
-                                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
                                 ),
                             ),
-                            cash_flow=StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareCashFlow(
-                                mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                    minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                            dividends=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareDividends(
+                                mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
-                                    maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                        value=3.14,
+                                        inclusive=True,
+                                    ),
+                                ),
+                            ),
+                            cash_flow=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareCashFlow(
+                                mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                    minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                        value=3.14,
+                                        inclusive=True,
+                                    ),
+                                    maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                         value=3.14,
                                         inclusive=True,
                                     ),
@@ -3111,146 +3878,146 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                             ),
                         ),
                     ),
-                    return_on_assets=StockNotationScreenerSearchDataReturnOnAssets1(
-                        mean=StockNotationScreenerSearchDataReturnOnAssets1Mean(
-                            minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
+                    return_on_assets=PostStockNotationScreenerSearchRequestDataReturnOnAssets1(
+                        mean=PostStockNotationScreenerSearchRequestDataReturnOnAssets1Mean(
+                            minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                        ),
-                    ),
-                    return_on_equity=StockNotationScreenerSearchDataReturnOnEquity1(
-                        mean=StockNotationScreenerSearchDataReturnOnAssets1Mean(
-                            minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                                value=3.14,
-                                inclusive=True,
-                            ),
-                            maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                            maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
                         ),
                     ),
-                    ratios=StockNotationScreenerSearchDataRatios1(
-                        price_sales=StockNotationScreenerSearchDataRatios1PriceSales(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                    return_on_equity=PostStockNotationScreenerSearchRequestDataReturnOnEquity1(
+                        mean=PostStockNotationScreenerSearchRequestDataReturnOnAssets1Mean(
+                            minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                            maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                                value=3.14,
+                                inclusive=True,
+                            ),
+                        ),
+                    ),
+                    ratios=PostStockNotationScreenerSearchRequestDataRatios1(
+                        price_sales=PostStockNotationScreenerSearchRequestDataRatios1PriceSales(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        price_earnings=StockNotationScreenerSearchDataRatios1PriceEarnings(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_earnings=PostStockNotationScreenerSearchRequestDataRatios1PriceEarnings(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                        ),
-                        price_earnings_growth=StockNotationScreenerSearchDataRatios1PriceEarningsGrowth(
-                            mean=StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        price_book_value=StockNotationScreenerSearchDataRatios1PriceBookValue(
-                            mean=StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_earnings_growth=PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowth(
+                            mean=PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowthMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                        ),
-                        price_cash_flow=StockNotationScreenerSearchDataRatios1PriceCashFlow(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        price_free_cash_flow=StockNotationScreenerSearchDataRatios1PriceFreeCashFlow(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_book_value=PostStockNotationScreenerSearchRequestDataRatios1PriceBookValue(
+                            mean=PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowthMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                        ),
-                        dividend_yield=StockNotationScreenerSearchDataRatios1DividendYield(
-                            mean=StockNotationScreenerSearchDataReturnOnAssets1Mean(
-                                minimum=StockNotationScreenerSearchDataEbitMarginMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataEbitMarginMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        enterprise_value_ebit=StockNotationScreenerSearchDataRatios1EnterpriseValueEbit(
-                            mean=StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_cash_flow=PostStockNotationScreenerSearchRequestDataRatios1PriceCashFlow(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                            ),
-                        ),
-                        enterprise_value_ebitda=StockNotationScreenerSearchDataRatios1EnterpriseValueEbitda(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
-                                    value=3.14,
-                                    inclusive=True,
-                                ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
                             ),
                         ),
-                        enterprise_value_sales=StockNotationScreenerSearchDataRatios1EnterpriseValueSales(
-                            mean=StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean(
-                                minimum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum(
+                        price_free_cash_flow=PostStockNotationScreenerSearchRequestDataRatios1PriceFreeCashFlow(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
-                                maximum=StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum(
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                        dividend_yield=PostStockNotationScreenerSearchRequestDataRatios1DividendYield(
+                            mean=PostStockNotationScreenerSearchRequestDataReturnOnAssets1Mean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEbitMarginMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEbitMarginMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                        enterprise_value_ebit=PostStockNotationScreenerSearchRequestDataRatios1EnterpriseValueEbit(
+                            mean=PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowthMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                        enterprise_value_ebitda=PostStockNotationScreenerSearchRequestDataRatios1EnterpriseValueEbitda(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                            ),
+                        ),
+                        enterprise_value_sales=PostStockNotationScreenerSearchRequestDataRatios1EnterpriseValueSales(
+                            mean=PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean(
+                                minimum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum(
+                                    value=3.14,
+                                    inclusive=True,
+                                ),
+                                maximum=PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum(
                                     value=3.14,
                                     inclusive=True,
                                 ),
@@ -3260,19 +4027,19 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 ),
             ],
         ),
-        meta=StockNotationScreenerValueRangesGetMeta(
+        meta=PostCompanyKeyItemsCurrentGetByInstrumentRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # InlineObject3 |  (optional)
+    ) # PostStockNotationScreenerValueRangesGetRequest |  (optional)
 
     try:
         # Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_stock_notation_screener_value_ranges_get(inline_object3=inline_object3)
+        api_response = api_instance.post_stock_notation_screener_value_ranges_get(post_stock_notation_screener_value_ranges_get_request=post_stock_notation_screener_value_ranges_get_request)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -3284,11 +4051,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object3** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+ **post_stock_notation_screener_value_ranges_get_request** | [**PostStockNotationScreenerValueRangesGetRequest**](PostStockNotationScreenerValueRangesGetRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 

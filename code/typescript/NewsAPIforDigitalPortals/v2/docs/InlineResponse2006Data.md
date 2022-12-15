@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Identifier of the distributor. | [optional] 
-**name** | **String** | Name of the distributor. | [optional] 
-**delivery** | [**InlineResponse2005DataDelivery**](InlineResponse2005DataDelivery.md) |  | [optional] 
+**id** | **Number** | Identifier of the news article type. | [optional] 
+**name** | **String** | Name of the news article type. | [optional] 
 
 

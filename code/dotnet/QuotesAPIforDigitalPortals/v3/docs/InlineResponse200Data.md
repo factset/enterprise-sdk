@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of an asset class. | [optional] 
+**Id** | **decimal?** | Identifier of an asset class. | [optional] 
 **Code** | **string** | Code of the asset class. | [optional] 
 **Description** | **string** | Description of the asset class in English. | [optional] 
 

@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**get_event_details**](EventsApi.md#get_event_details) | **GET** /events/details | 
 [**get_event_entities**](EventsApi.md#get_event_entities) | **GET** /events/entities | 
 [**get_event_headlines**](EventsApi.md#get_event_headlines) | **GET** /events/headlines | 
+[**post_event_adaptive_cards**](EventsApi.md#post_event_adaptive_cards) | **POST** /events/adaptive-cards | 
 [**post_event_details**](EventsApi.md#post_event_details) | **POST** /events/details | 
+[**post_event_entities**](EventsApi.md#post_event_entities) | **POST** /events/entities | 
 [**post_event_headlines**](EventsApi.md#post_event_headlines) | **POST** /events/headlines | 
 
 
@@ -161,7 +163,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
     signal_ids = "dilutionTrigger,freeCashFlow" # str |  (optional)
     ids = "FDS-US,AMZN-US" # str | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
     portfolios = "portfolios_example" # str | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -174,11 +176,12 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         lte=3.14,
     ) # RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional)
     sort = "-userRelevanceScore,-eventDate" # str | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
+    resolve_identifiers = True # bool | The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional)
 
     try:
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_event_adaptive_cards(created=created, updated=updated, signal_ids=signal_ids, ids=ids, portfolios=portfolios, themes=themes, categories=categories, user_relevance_score=user_relevance_score, sort=sort)
+        api_response = api_instance.get_event_adaptive_cards(created=created, updated=updated, signal_ids=signal_ids, ids=ids, portfolios=portfolios, themes=themes, categories=categories, user_relevance_score=user_relevance_score, sort=sort, resolve_identifiers=resolve_identifiers)
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -191,7 +194,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **created** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | **DateTimeInterval**| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signal_ids** | **str**|  | [optional]
  **ids** | **str**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional]
  **portfolios** | **str**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional]
@@ -199,6 +202,7 @@ Name | Type | Description  | Notes
  **categories** | **str**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional]
  **user_relevance_score** | **RelevanceScoreRange**| A range for filtering signal events based on their relevancy score. | [optional]
  **sort** | **str**| Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). | [optional]
+ **resolve_identifiers** | **bool**| The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. | [optional]
 
 ### Return type
 
@@ -371,7 +375,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
     signal_ids = "dilutionTrigger,freeCashFlow" # str |  (optional)
     ids = "FDS-US,AMZN-US" # str | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
     portfolios = "portfolios_example" # str | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -384,11 +388,12 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         lte=3.14,
     ) # RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional)
     sort = "-userRelevanceScore,-eventDate" # str | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
+    resolve_identifiers = True # bool | The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional)
 
     try:
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_event_details(created=created, updated=updated, signal_ids=signal_ids, ids=ids, portfolios=portfolios, themes=themes, categories=categories, user_relevance_score=user_relevance_score, sort=sort)
+        api_response = api_instance.get_event_details(created=created, updated=updated, signal_ids=signal_ids, ids=ids, portfolios=portfolios, themes=themes, categories=categories, user_relevance_score=user_relevance_score, sort=sort, resolve_identifiers=resolve_identifiers)
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -401,7 +406,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **created** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | **DateTimeInterval**| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signal_ids** | **str**|  | [optional]
  **ids** | **str**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional]
  **portfolios** | **str**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional]
@@ -409,6 +414,7 @@ Name | Type | Description  | Notes
  **categories** | **str**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional]
  **user_relevance_score** | **RelevanceScoreRange**| A range for filtering signal events based on their relevancy score. | [optional]
  **sort** | **str**| Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). | [optional]
+ **resolve_identifiers** | **bool**| The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. | [optional]
 
 ### Return type
 
@@ -492,7 +498,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
     signal_ids = "dilutionTrigger,freeCashFlow" # str |  (optional)
     themes = "themes_example" # str | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
     categories = "categories_example" # str | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
@@ -519,7 +525,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **created** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | **DateTimeInterval**| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signal_ids** | **str**|  | [optional]
  **themes** | **str**| Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. | [optional]
  **categories** | **str**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional]
@@ -607,7 +613,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
     signal_ids = "dilutionTrigger,freeCashFlow" # str |  (optional)
     ids = "FDS-US,AMZN-US" # str | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
     portfolios = "portfolios_example" # str | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -620,11 +626,12 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         lte=3.14,
     ) # RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional)
     sort = "-userRelevanceScore,-eventDate" # str | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
+    resolve_identifiers = True # bool | The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional)
 
     try:
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_event_headlines(created=created, updated=updated, signal_ids=signal_ids, ids=ids, portfolios=portfolios, themes=themes, categories=categories, user_relevance_score=user_relevance_score, sort=sort)
+        api_response = api_instance.get_event_headlines(created=created, updated=updated, signal_ids=signal_ids, ids=ids, portfolios=portfolios, themes=themes, categories=categories, user_relevance_score=user_relevance_score, sort=sort, resolve_identifiers=resolve_identifiers)
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -637,7 +644,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **created** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | **DateTimeInterval**| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signal_ids** | **str**|  | [optional]
  **ids** | **str**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional]
  **portfolios** | **str**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional]
@@ -645,6 +652,7 @@ Name | Type | Description  | Notes
  **categories** | **str**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional]
  **user_relevance_score** | **RelevanceScoreRange**| A range for filtering signal events based on their relevancy score. | [optional]
  **sort** | **str**| Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). | [optional]
+ **resolve_identifiers** | **bool**| The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. | [optional]
 
 ### Return type
 
@@ -657,6 +665,106 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_event_adaptive_cards**
+> EventAdaptiveCards post_event_adaptive_cards(event_request_body)
+
+
+
+Fetch Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.Signals
+from fds.sdk.Signals.api import events_api
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.Signals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.Signals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.Signals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = events_api.EventsApi(api_client)
+
+    event_request_body = EventRequestBody(
+        created=None,
+        updated=None,
+        signal_ids="dilutionTrigger,freeCashFlow",
+        ids="FDS-US,AMZN-US",
+        portfolios="portfolios_example",
+        themes="themes_example",
+        categories="categories_example",
+        user_relevance_score=None,
+        sort="sort_example",
+        resolve_identifiers=True,
+    ) # EventRequestBody | 
+
+    try:
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_event_adaptive_cards(event_request_body)
+        pprint(api_response)
+
+    except fds.sdk.Signals.ApiException as e:
+        print("Exception when calling EventsApi->post_event_adaptive_cards: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **event_request_body** | [**EventRequestBody**](EventRequestBody.md)|  |
+
+### Return type
+
+[**EventAdaptiveCards**](EventAdaptiveCards.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -727,6 +835,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         categories="categories_example",
         user_relevance_score=None,
         sort="sort_example",
+        resolve_identifiers=True,
     ) # EventRequestBody | 
 
     try:
@@ -764,6 +873,102 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_event_entities**
+> EventsEntities post_event_entities(events_entities_post)
+
+
+
+Fetch FactSet entity IDs for events that match the filtering criteria
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.Signals
+from fds.sdk.Signals.api import events_api
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.Signals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.Signals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.Signals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = events_api.EventsApi(api_client)
+
+    events_entities_post = EventsEntitiesPost(
+        created=None,
+        updated=None,
+        signal_ids="dilutionTrigger,freeCashFlow",
+        themes="themes_example",
+        categories="categories_example",
+        user_relevance_score=None,
+    ) # EventsEntitiesPost | 
+
+    try:
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_event_entities(events_entities_post)
+        pprint(api_response)
+
+    except fds.sdk.Signals.ApiException as e:
+        print("Exception when calling EventsApi->post_event_entities: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **events_entities_post** | [**EventsEntitiesPost**](EventsEntitiesPost.md)|  |
+
+### Return type
+
+[**EventsEntities**](EventsEntities.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -824,6 +1029,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         categories="categories_example",
         user_relevance_score=None,
         sort="sort_example",
+        resolve_identifiers=True,
     ) # EventRequestBody | 
 
     try:

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse2002Data]**](InlineResponse2002Data.md) | List of owners with their respective share sorted descending by the fraction owned. | [optional] 
+**data** | [**[InlineResponse2002Data]**](InlineResponse2002Data.md) | Estimated figures for selected fiscal years. | [optional] 
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 

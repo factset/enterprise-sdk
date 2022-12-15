@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **event_date** | **date** | The UTC date/time of the event in ISO 8601 format. | 
 **summary** | **str** | One sentence summary of the event. | 
 **user_relevance_score** | **float** | Relevancy score of this event for the requesting user on a scale of 0 to 1. Higher value indicates more relevancy. | 
+**company_name** | **str** | Name of the company reported in signal. Omitted if null. | [optional] 
 **created** | **datetime** | Date/Time in UTC the event was first recorded in our data store. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

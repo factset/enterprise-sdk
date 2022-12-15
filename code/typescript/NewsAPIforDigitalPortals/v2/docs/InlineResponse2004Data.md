@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Identifier of the news article type. | [optional] 
-**name** | **String** | Name of the news article type. | [optional] 
+**identifiers** | [**[InlineResponse2004DataIdentifiers]**](InlineResponse2004DataIdentifiers.md) | List of identifiers. | [optional] 
+**articles** | [**[InlineResponse2001Data]**](InlineResponse2001Data.md) | News articles that match the filter criteria ordered by descending article time. | [optional] 
 
 

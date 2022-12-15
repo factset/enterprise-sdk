@@ -7,9 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **BigDecimal** | Identifier of the distributor. |  [optional]
-**name** | **String** | Name of the distributor. |  [optional]
-**delivery** | [**InlineResponse2005DataDelivery**](InlineResponse2005DataDelivery.md) |  |  [optional]
+**id** | **BigDecimal** | Identifier of the news article type. |  [optional]
+**name** | **String** | Name of the news article type. |  [optional]
 
 
 ## Implemented Interfaces

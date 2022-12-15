@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a country. | [optional] 
+**Id** | **decimal?** | Identifier of a country. | [optional] 
 **Code** | **string** | ISO 3166-1 alpha-2 code of the country. | [optional] 
 **Name** | **string** | Name of the country. | [optional] 
 

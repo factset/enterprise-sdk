@@ -5,7 +5,7 @@ Issuer of the investment product.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of the issuer. | [optional] 
+**Id** | **decimal?** | Identifier of the issuer. | [optional] 
 **Name** | **string** | Name of the issuer. | [optional] 
 **Lei** | **string** | Legal entity identifier (LEI) of the issuer. | [optional] 
 

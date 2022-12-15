@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,12 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20046NotationFsym from './InlineResponse20046NotationFsym';
-import InlineResponse20066DataMarket from './InlineResponse20066DataMarket';
-import InlineResponse20088Nsin from './InlineResponse20088Nsin';
-import InlineResponse20089Instrument from './InlineResponse20089Instrument';
-import InlineResponse20089TradingValue from './InlineResponse20089TradingValue';
-import InlineResponse20089ValueUnit from './InlineResponse20089ValueUnit';
 
 /**
  * The InlineResponse20089Data model module.
@@ -53,28 +47,13 @@ class InlineResponse20089Data {
             obj = obj || new InlineResponse20089Data();
 
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('valueUnit')) {
-                obj['valueUnit'] = InlineResponse20089ValueUnit.constructFromObject(data['valueUnit']);
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('market')) {
-                obj['market'] = InlineResponse20066DataMarket.constructFromObject(data['market']);
-            }
-            if (data.hasOwnProperty('symbol')) {
-                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
-            }
-            if (data.hasOwnProperty('nsin')) {
-                obj['nsin'] = InlineResponse20088Nsin.constructFromObject(data['nsin']);
-            }
-            if (data.hasOwnProperty('fsym')) {
-                obj['fsym'] = InlineResponse20046NotationFsym.constructFromObject(data['fsym']);
-            }
-            if (data.hasOwnProperty('instrument')) {
-                obj['instrument'] = InlineResponse20089Instrument.constructFromObject(data['instrument']);
-            }
-            if (data.hasOwnProperty('tradingValue')) {
-                obj['tradingValue'] = InlineResponse20089TradingValue.constructFromObject(data['tradingValue']);
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
         }
         return obj;
@@ -84,46 +63,22 @@ class InlineResponse20089Data {
 }
 
 /**
- * Identifier of a notation.
- * @member {String} id
+ * Identifier of the type.
+ * @member {Number} id
  */
 InlineResponse20089Data.prototype['id'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20089ValueUnit} valueUnit
+ * Code of the type.
+ * @member {String} code
  */
-InlineResponse20089Data.prototype['valueUnit'] = undefined;
+InlineResponse20089Data.prototype['code'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20066DataMarket} market
+ * Description of the type in english language.
+ * @member {String} description
  */
-InlineResponse20089Data.prototype['market'] = undefined;
-
-/**
- * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
- * @member {String} symbol
- */
-InlineResponse20089Data.prototype['symbol'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20088Nsin} nsin
- */
-InlineResponse20089Data.prototype['nsin'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20046NotationFsym} fsym
- */
-InlineResponse20089Data.prototype['fsym'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20089Instrument} instrument
- */
-InlineResponse20089Data.prototype['instrument'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20089TradingValue} tradingValue
- */
-InlineResponse20089Data.prototype['tradingValue'] = undefined;
+InlineResponse20089Data.prototype['description'] = undefined;
 
 
 

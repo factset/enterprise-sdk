@@ -16,7 +16,7 @@ info:
     url: http://www.factset.com/api/license.html
   termsOfService: http://www.factset.com/api/terms.html
   title: FactSet Quant Factor Library API
-  version: 1.0.0
+  version: 1.0.1
 servers:
 - description: Production Server
   url: https://api.factset.com/content
@@ -617,7 +617,7 @@ components:
         data:
         - requestId: TSLA-US
           fsymId: HTM0LK-R
-          date: 2021-02-04
+          date: 20210204
           velocity63D: -1.191401
           stochastic63D: 90.9372
           retMom63D: 98.78822
@@ -653,7 +653,7 @@ components:
           pcta52Wl: 1119.2091
         - requestId: AMZN-US
           fsymId: MCNYYL-R
-          date: 2021-02-04
+          date: 20210204
           velocity63D: -0.072986
           stochastic63D: 70.69603
           retMom63D: 0.035024
@@ -1227,10 +1227,10 @@ components:
     factorsResponse:
       example:
         data:
-        - date: 2021-02-04T00:00:00.000+0000
+        - date: 20210204
           requestId: TSLA-US
           fsymId: HTM0LK-R
-        - date: 2021-02-04T00:00:00.000+0000
+        - date: 20210204
           requestId: TSLA-US
           fsymId: HTM0LK-R
       properties:
@@ -1260,7 +1260,7 @@ components:
             type: number
         type: object
       example:
-        date: 2021-02-04T00:00:00.000+0000
+        date: 20210204
         requestId: TSLA-US
         fsymId: HTM0LK-R
       properties:
@@ -1280,9 +1280,8 @@ components:
           type: string
         date:
           description: The as of date of the factors in YYYY-MM-DD format.
-          example: 2021-02-04
-          format: date
-          type: string
+          example: 20210204
+          type: integer
       required:
       - date
       - fsymId

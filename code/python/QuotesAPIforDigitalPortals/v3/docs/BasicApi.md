@@ -1,6 +1,6 @@
 # fds.sdk.QuotesAPIforDigitalPortals.BasicApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -179,7 +179,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of benchmark types.
@@ -198,7 +198,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -272,7 +272,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of frequency types.
@@ -291,7 +291,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -362,11 +362,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    id = 3.14 # float | Identifier of a language.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details for a language.
@@ -384,9 +384,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a language. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -457,11 +457,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    code = "code_example" # str | ISO 639-1 code of the language.
+    code = "code_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details for a language identified by code.
@@ -479,9 +479,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **str**| ISO 639-1 code of the language. |
+ **code** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -555,10 +555,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    language = "_language_example" # str |  (optional)
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of languages.
@@ -577,7 +575,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
 ### Return type
@@ -649,11 +647,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    id = 3.14 # float | Identifier of a market.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details of a market.
@@ -671,9 +669,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a market. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -747,10 +745,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    language = "_language_example" # str |  (optional)
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of market groups.
@@ -769,7 +765,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
 ### Return type
@@ -844,10 +840,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    language = "_language_example" # str |  (optional)
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of market types.
@@ -866,7 +860,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
 ### Return type
@@ -1029,11 +1023,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    id = 3.14 # float | Identifier of a continent.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details for a continent.
@@ -1051,9 +1045,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a continent. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1127,10 +1121,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    language = "_language_example" # str |  (optional)
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of continents.
@@ -1149,7 +1141,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
 ### Return type
@@ -1221,11 +1213,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    id = 3.14 # float | Identifier of a country.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details for a country.
@@ -1243,9 +1235,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a country. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1316,11 +1308,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    code = "code_example" # str | ISO 3166-1 alpha-2 code of a country.
+    code = "code_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details for a country identified by code.
@@ -1338,9 +1330,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **str**| ISO 3166-1 alpha-2 code of a country. |
+ **code** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1414,10 +1406,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    language = "_language_example" # str |  (optional)
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of countries.
@@ -1436,7 +1426,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
 ### Return type
@@ -1508,11 +1498,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    id = 3.14 # float | Identifier of a region.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details for a region.
@@ -1530,9 +1520,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a region. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -1606,10 +1596,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    language = "_language_example" # str |  (optional)
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of regions.
@@ -1628,7 +1616,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
 ### Return type
@@ -1700,7 +1688,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    id = 3.14 # float | Identifier of a timezone. An invalid or unsupported identifier will result in an error.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1721,7 +1709,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a timezone. An invalid or unsupported identifier will result in an error. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1793,7 +1781,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    name = "W" # str | Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error.
+    name = "W" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -1814,7 +1802,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error. |
+ **name** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1889,10 +1877,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    language = "_language_example" # str |  (optional)
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of alternative units.
@@ -1911,7 +1897,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
 ### Return type
@@ -1983,11 +1969,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    id = 3.14 # float | Identifier of a fractional currency.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details of a fractional currency.
@@ -2005,9 +1991,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a fractional currency. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -2081,10 +2067,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    language = "_language_example" # str |  (optional)
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of fractional currencies.
@@ -2103,7 +2087,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
 ### Return type
@@ -2175,11 +2159,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    id = 3.14 # float | Identifier of a value unit.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details of a value unit.
@@ -2197,9 +2181,9 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a value unit. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -2270,26 +2254,26 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    body = InlineObject(
-        data=BasicBackgroundTextTypeListData(
-            filter=BasicBackgroundTextTypeListDataFilter(
+    post_basic_background_text_type_list_request = PostBasicBackgroundTextTypeListRequest(
+        data=PostBasicBackgroundTextTypeListRequestData(
+            filter=PostBasicBackgroundTextTypeListRequestDataFilter(
                 ids=[
                     3.14,
                 ],
             ),
         ),
-        meta=BasicBackgroundTextTypeListMeta(
+        meta=PostBasicBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
         ),
-    ) # InlineObject |  (optional)
+    ) # PostBasicBackgroundTextTypeListRequest |  (optional)
 
     try:
         # List of background text types.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_basic_background_text_type_list(body=body)
+        api_response = api_instance.post_basic_background_text_type_list(post_basic_background_text_type_list_request=post_basic_background_text_type_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2301,7 +2285,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **post_basic_background_text_type_list_request** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2372,29 +2356,27 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    body = InlineObject1(
-        data=BasicDeliveryListData(
-            filter=BasicDeliveryListDataFilter(
+    post_basic_delivery_list_request = PostBasicDeliveryListRequest(
+        data=PostBasicDeliveryListRequestData(
+            filter=PostBasicDeliveryListRequestDataFilter(
                 ids=[
                     3.14,
                 ],
             ),
         ),
-        meta=BasicDeliveryListMeta(
+        meta=PostBasicDeliveryListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
-            sort=[
-                "name",
-            ],
+            sort=["name"],
         ),
-    ) # InlineObject1 |  (optional)
+    ) # PostBasicDeliveryListRequest |  (optional)
 
     try:
         # List of deliveries.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_basic_delivery_list(body=body)
+        api_response = api_instance.post_basic_delivery_list(post_basic_delivery_list_request=post_basic_delivery_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2406,7 +2388,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **post_basic_delivery_list_request** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2477,10 +2459,10 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    body = InlineObject2(
-        data=BasicMarketListData(
-            filter=BasicMarketListDataFilter(
-                markets=BasicMarketListDataFilterMarkets(
+    post_basic_market_list_request = PostBasicMarketListRequest(
+        data=PostBasicMarketListRequestData(
+            filter=PostBasicMarketListRequestDataFilter(
+                markets=PostBasicMarketListRequestDataFilterMarkets(
                     ids=[
                         3.14,
                     ],
@@ -2488,26 +2470,24 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 only_active=True,
             ),
         ),
-        meta=BasicMarketListMeta(
+        meta=PostBasicMarketListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "name",
-            ],
-            pagination=BasicMarketListMetaPagination(
+            sort=["name"],
+            pagination=PostBasicMarketListRequestMetaPagination(
                 offset=0,
-                limit=0,
+                limit=20,
             ),
         ),
-    ) # InlineObject2 |  (optional)
+    ) # PostBasicMarketListRequest |  (optional)
 
     try:
         # List of markets.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_basic_market_list(body=body)
+        api_response = api_instance.post_basic_market_list(post_basic_market_list_request=post_basic_market_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2519,7 +2499,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **post_basic_market_list_request** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2590,29 +2570,27 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    body = InlineObject3(
-        data=BasicMediaTypeListData(
-            filter=BasicMediaTypeListDataFilter(
+    post_basic_media_type_list_request = PostBasicMediaTypeListRequest(
+        data=PostBasicMediaTypeListRequestData(
+            filter=PostBasicMediaTypeListRequestDataFilter(
                 ids=[
                     3.14,
                 ],
             ),
         ),
-        meta=BasicMediaTypeListMeta(
+        meta=PostBasicMediaTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
-            sort=[
-                "id",
-            ],
+            sort=["name"],
         ),
-    ) # InlineObject3 |  (optional)
+    ) # PostBasicMediaTypeListRequest |  (optional)
 
     try:
         # List of Internet media types.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_basic_media_type_list(body=body)
+        api_response = api_instance.post_basic_media_type_list(post_basic_media_type_list_request=post_basic_media_type_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2624,7 +2602,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+ **post_basic_media_type_list_request** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2695,31 +2673,29 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    body = InlineObject4(
-        data=BasicMicOperatingListData(
-            filter=BasicMicOperatingListDataFilter(
+    post_basic_mic_operating_list_request = PostBasicMicOperatingListRequest(
+        data=PostBasicMicOperatingListRequestData(
+            filter=PostBasicMicOperatingListRequestDataFilter(
                 status="active",
             ),
         ),
-        meta=BasicMicOperatingListMeta(
+        meta=PostBasicMicOperatingListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
-            sort=[
-                "isoCode",
-            ],
-            pagination=BasicMarketListMetaPagination(
+            sort=["name"],
+            pagination=PostBasicMarketListRequestMetaPagination(
                 offset=0,
-                limit=0,
+                limit=20,
             ),
         ),
-    ) # InlineObject4 |  (optional)
+    ) # PostBasicMicOperatingListRequest |  (optional)
 
     try:
         # List of operating market identifier codes (MIC).
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_basic_mic_operating_list(body=body)
+        api_response = api_instance.post_basic_mic_operating_list(post_basic_mic_operating_list_request=post_basic_mic_operating_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2731,7 +2707,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional]
+ **post_basic_mic_operating_list_request** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2802,26 +2778,26 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    body = InlineObject5(
-        data=BasicTimezoneListData(
-            filter=BasicTimezoneListDataFilter(
+    post_basic_timezone_list_request = PostBasicTimezoneListRequest(
+        data=PostBasicTimezoneListRequestData(
+            filter=PostBasicTimezoneListRequestDataFilter(
                 ids=[
                     3.14,
                 ],
             ),
         ),
-        meta=BasicBackgroundTextTypeListMeta(
+        meta=PostBasicBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
         ),
-    ) # InlineObject5 |  (optional)
+    ) # PostBasicTimezoneListRequest |  (optional)
 
     try:
         # List of timezones.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_basic_timezone_list(body=body)
+        api_response = api_instance.post_basic_timezone_list(post_basic_timezone_list_request=post_basic_timezone_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2833,7 +2809,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional]
+ **post_basic_timezone_list_request** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2904,28 +2880,26 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    body = InlineObject7(
-        data=BasicValueUnitListData(
-            filter=BasicValueUnitListDataFilter(
+    post_basic_value_unit_currency_list_request = PostBasicValueUnitCurrencyListRequest(
+        data=PostBasicValueUnitListRequestData(
+            filter=PostBasicValueUnitListRequestDataFilter(
                 status="active",
             ),
         ),
-        meta=BasicValueUnitListMeta(
+        meta=PostBasicValueUnitListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "name",
-            ],
+            sort=["name"],
         ),
-    ) # InlineObject7 |  (optional)
+    ) # PostBasicValueUnitCurrencyListRequest |  (optional)
 
     try:
         # List of currencies.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_basic_value_unit_currency_list(body=body)
+        api_response = api_instance.post_basic_value_unit_currency_list(post_basic_value_unit_currency_list_request=post_basic_value_unit_currency_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2937,7 +2911,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject7**](InlineObject7.md)|  | [optional]
+ **post_basic_value_unit_currency_list_request** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3008,28 +2982,26 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    body = InlineObject8(
-        data=BasicValueUnitCurrencyMainListData(
-            filter=BasicValueUnitCurrencyMainListDataFilter(
+    post_basic_value_unit_currency_main_list_request = PostBasicValueUnitCurrencyMainListRequest(
+        data=PostBasicValueUnitCurrencyMainListRequestData(
+            filter=PostBasicValueUnitCurrencyMainListRequestDataFilter(
                 status="active",
             ),
         ),
-        meta=BasicValueUnitListMeta(
+        meta=PostBasicValueUnitListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "name",
-            ],
+            sort=["name"],
         ),
-    ) # InlineObject8 |  (optional)
+    ) # PostBasicValueUnitCurrencyMainListRequest |  (optional)
 
     try:
         # List of main currencies.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_basic_value_unit_currency_main_list(body=body)
+        api_response = api_instance.post_basic_value_unit_currency_main_list(post_basic_value_unit_currency_main_list_request=post_basic_value_unit_currency_main_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -3041,7 +3013,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject8**](InlineObject8.md)|  | [optional]
+ **post_basic_value_unit_currency_main_list_request** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3112,28 +3084,26 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = basic_api.BasicApi(api_client)
 
-    body = InlineObject6(
-        data=BasicValueUnitListData(
-            filter=BasicValueUnitListDataFilter(
+    post_basic_value_unit_list_request = PostBasicValueUnitListRequest(
+        data=PostBasicValueUnitListRequestData(
+            filter=PostBasicValueUnitListRequestDataFilter(
                 status="active",
             ),
         ),
-        meta=BasicValueUnitListMeta(
+        meta=PostBasicValueUnitListRequestMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "name",
-            ],
+            sort=["name"],
         ),
-    ) # InlineObject6 |  (optional)
+    ) # PostBasicValueUnitListRequest |  (optional)
 
     try:
         # List of value units.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_basic_value_unit_list(body=body)
+        api_response = api_instance.post_basic_value_unit_list(post_basic_value_unit_list_request=post_basic_value_unit_list_request)
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -3145,7 +3115,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  | [optional]
+ **post_basic_value_unit_list_request** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)|  | [optional]
 
 ### Return type
 

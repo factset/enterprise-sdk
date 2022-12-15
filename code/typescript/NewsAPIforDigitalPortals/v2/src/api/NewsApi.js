@@ -1,6 +1,6 @@
 /**
  * News API For Digital Portals
- * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with quotes, time series, watchlists, and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the Quotes API for Digital Portals for access to detailed price and performance information, plus basic support for security identifier cross-reference.
+ * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with [quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals), [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals), [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals), and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price and performance information, plus basic support for security identifier cross-reference. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -13,15 +13,10 @@
 
 
 import ApiClient from "../ApiClient";
-import InlineObject from '../model/InlineObject';
-import InlineObject1 from '../model/InlineObject1';
-import InlineObject2 from '../model/InlineObject2';
-import InlineObject3 from '../model/InlineObject3';
-import InlineObject4 from '../model/InlineObject4';
-import InlineObject5 from '../model/InlineObject5';
-import InlineObject6 from '../model/InlineObject6';
 import InlineResponse200 from '../model/InlineResponse200';
 import InlineResponse2001 from '../model/InlineResponse2001';
+import InlineResponse20010 from '../model/InlineResponse20010';
+import InlineResponse20011 from '../model/InlineResponse20011';
 import InlineResponse2002 from '../model/InlineResponse2002';
 import InlineResponse2003 from '../model/InlineResponse2003';
 import InlineResponse2004 from '../model/InlineResponse2004';
@@ -30,6 +25,13 @@ import InlineResponse2006 from '../model/InlineResponse2006';
 import InlineResponse2007 from '../model/InlineResponse2007';
 import InlineResponse2008 from '../model/InlineResponse2008';
 import InlineResponse2009 from '../model/InlineResponse2009';
+import PostNewsArticleListByChainRequest from '../model/PostNewsArticleListByChainRequest';
+import PostNewsArticleListByIndexRequest from '../model/PostNewsArticleListByIndexRequest';
+import PostNewsArticleListByInstrumentRequest from '../model/PostNewsArticleListByInstrumentRequest';
+import PostNewsArticleListByMediaKindRequest from '../model/PostNewsArticleListByMediaKindRequest';
+import PostNewsArticleListRequest from '../model/PostNewsArticleListRequest';
+import PostNewsArticleSearchByTextRequest from '../model/PostNewsArticleSearchByTextRequest';
+import PostNewsPublisherSearchByNameRequest from '../model/PostNewsPublisherSearchByNameRequest';
 
 /**
 * News service.
@@ -120,7 +122,7 @@ export default class NewsApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
      */
     getNewsArticleTypeGetWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -147,7 +149,7 @@ export default class NewsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2003;
+      let returnType = InlineResponse2005;
 
       return this.apiClient.callApi(
         '/news/article/type/get', 'GET',
@@ -163,7 +165,7 @@ export default class NewsApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language 
-     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getNewsArticleTypeGet(id, opts) {
       return this.getNewsArticleTypeGetWithHttpInfo(id, opts)
@@ -179,7 +181,7 @@ export default class NewsApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2006} and HTTP response
      */
     getNewsArticleTypeListWithHttpInfo(opts) {
       opts = opts || {};
@@ -201,7 +203,7 @@ export default class NewsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2004;
+      let returnType = InlineResponse2006;
 
       return this.apiClient.callApi(
         '/news/article/type/list', 'GET',
@@ -216,7 +218,7 @@ export default class NewsApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language 
-     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
+     * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
      */
     getNewsArticleTypeList(opts) {
       return this.getNewsArticleTypeListWithHttpInfo(opts)
@@ -232,7 +234,7 @@ export default class NewsApi {
      * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2007} and HTTP response
      */
     getNewsDistributorGetWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -258,7 +260,7 @@ export default class NewsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2005;
+      let returnType = InlineResponse2007;
 
       return this.apiClient.callApi(
         '/news/distributor/get', 'GET',
@@ -273,7 +275,7 @@ export default class NewsApi {
      * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
+     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
      */
     getNewsDistributorGet(id, opts) {
       return this.getNewsDistributorGetWithHttpInfo(id, opts)
@@ -290,7 +292,7 @@ export default class NewsApi {
      * @param {Array.<Number>} opts.ids 
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2006} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2008} and HTTP response
      */
     getNewsDistributorListWithHttpInfo(opts) {
       opts = opts || {};
@@ -313,7 +315,7 @@ export default class NewsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2006;
+      let returnType = InlineResponse2008;
 
       return this.apiClient.callApi(
         '/news/distributor/list', 'GET',
@@ -329,7 +331,7 @@ export default class NewsApi {
      * @param {Array.<Number>} opts.ids 
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
-     * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
+     * @return { Promise.< module:model/InlineResponse2008 > } a Promise, with data of type {@link module:model/InlineResponse2008 }
      */
     getNewsDistributorList(opts) {
       return this.getNewsDistributorListWithHttpInfo(opts)
@@ -345,7 +347,7 @@ export default class NewsApi {
      * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2007} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
      */
     getNewsPublisherGetWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -371,7 +373,7 @@ export default class NewsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2007;
+      let returnType = InlineResponse2009;
 
       return this.apiClient.callApi(
         '/news/publisher/get', 'GET',
@@ -386,7 +388,7 @@ export default class NewsApi {
      * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
+     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
      */
     getNewsPublisherGet(id, opts) {
       return this.getNewsPublisherGetWithHttpInfo(id, opts)
@@ -405,7 +407,7 @@ export default class NewsApi {
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2008} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20010} and HTTP response
      */
     getNewsPublisherListWithHttpInfo(opts) {
       opts = opts || {};
@@ -430,7 +432,7 @@ export default class NewsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2008;
+      let returnType = InlineResponse20010;
 
       return this.apiClient.callApi(
         '/news/publisher/list', 'GET',
@@ -448,7 +450,7 @@ export default class NewsApi {
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
-     * @return { Promise.< module:model/InlineResponse2008 > } a Promise, with data of type {@link module:model/InlineResponse2008 }
+     * @return { Promise.< module:model/InlineResponse20010 > } a Promise, with data of type {@link module:model/InlineResponse20010 }
      */
     getNewsPublisherList(opts) {
       return this.getNewsPublisherListWithHttpInfo(opts)
@@ -465,7 +467,7 @@ export default class NewsApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20011} and HTTP response
      */
     getNewsPublisherListByDistributorWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -492,7 +494,7 @@ export default class NewsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2009;
+      let returnType = InlineResponse20011;
 
       return this.apiClient.callApi(
         '/news/publisher/listByDistributor', 'GET',
@@ -508,7 +510,7 @@ export default class NewsApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
-     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
+     * @return { Promise.< module:model/InlineResponse20011 > } a Promise, with data of type {@link module:model/InlineResponse20011 }
      */
     getNewsPublisherListByDistributor(id, opts) {
       return this.getNewsPublisherListByDistributorWithHttpInfo(id, opts)
@@ -522,12 +524,12 @@ export default class NewsApi {
      * List of news articles.
      * List of news articles.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject} opts.inlineObject 
+     * @param {module:model/PostNewsArticleListRequest} opts.postNewsArticleListRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
     postNewsArticleListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['inlineObject'];
+      let postBody = opts['postNewsArticleListRequest'];
 
       let pathParams = {
       };
@@ -556,7 +558,7 @@ export default class NewsApi {
      * List of news articles.
      * List of news articles.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject} opts.inlineObject 
+     * @param {module:model/PostNewsArticleListRequest} opts.postNewsArticleListRequest 
      * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     postNewsArticleList(opts) {
@@ -570,15 +572,13 @@ export default class NewsApi {
     /**
      * List news articles of an article chain.
      * List news articles of an article chain.
-     * @param {module:model/InlineObject1} inlineObject1 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNewsArticleListByChainRequest} opts.postNewsArticleListByChainRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
      */
-    postNewsArticleListByChainWithHttpInfo(inlineObject1) {
-      let postBody = inlineObject1;
-      // verify the required parameter 'inlineObject1' is set
-      if (inlineObject1 === undefined || inlineObject1 === null) {
-        throw new Error("Missing the required parameter 'inlineObject1' when calling postNewsArticleListByChain");
-      }
+    postNewsArticleListByChainWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postNewsArticleListByChainRequest'];
 
       let pathParams = {
       };
@@ -606,11 +606,12 @@ export default class NewsApi {
     /**
      * List news articles of an article chain.
      * List news articles of an article chain.
-     * @param {module:model/InlineObject1} inlineObject1 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNewsArticleListByChainRequest} opts.postNewsArticleListByChainRequest 
      * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
-    postNewsArticleListByChain(inlineObject1) {
-      return this.postNewsArticleListByChainWithHttpInfo(inlineObject1)
+    postNewsArticleListByChain(opts) {
+      return this.postNewsArticleListByChainWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -620,15 +621,13 @@ export default class NewsApi {
     /**
      * News articles for instruments that are constituents of the given indices.
      * News articles for instruments that are constituents of the given indices.
-     * @param {module:model/InlineObject2} inlineObject2 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNewsArticleListByIndexRequest} opts.postNewsArticleListByIndexRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
-    postNewsArticleListByIndexWithHttpInfo(inlineObject2) {
-      let postBody = inlineObject2;
-      // verify the required parameter 'inlineObject2' is set
-      if (inlineObject2 === undefined || inlineObject2 === null) {
-        throw new Error("Missing the required parameter 'inlineObject2' when calling postNewsArticleListByIndex");
-      }
+    postNewsArticleListByIndexWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postNewsArticleListByIndexRequest'];
 
       let pathParams = {
       };
@@ -644,7 +643,7 @@ export default class NewsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2001;
+      let returnType = InlineResponse2003;
 
       return this.apiClient.callApi(
         '/news/article/listByIndex', 'POST',
@@ -656,11 +655,12 @@ export default class NewsApi {
     /**
      * News articles for instruments that are constituents of the given indices.
      * News articles for instruments that are constituents of the given indices.
-     * @param {module:model/InlineObject2} inlineObject2 
-     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNewsArticleListByIndexRequest} opts.postNewsArticleListByIndexRequest 
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
-    postNewsArticleListByIndex(inlineObject2) {
-      return this.postNewsArticleListByIndexWithHttpInfo(inlineObject2)
+    postNewsArticleListByIndex(opts) {
+      return this.postNewsArticleListByIndexWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -670,15 +670,13 @@ export default class NewsApi {
     /**
      * News articles for instruments.
      * News articles for instruments.
-     * @param {module:model/InlineObject3} inlineObject3 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNewsArticleListByInstrumentRequest} opts.postNewsArticleListByInstrumentRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
-    postNewsArticleListByInstrumentWithHttpInfo(inlineObject3) {
-      let postBody = inlineObject3;
-      // verify the required parameter 'inlineObject3' is set
-      if (inlineObject3 === undefined || inlineObject3 === null) {
-        throw new Error("Missing the required parameter 'inlineObject3' when calling postNewsArticleListByInstrument");
-      }
+    postNewsArticleListByInstrumentWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postNewsArticleListByInstrumentRequest'];
 
       let pathParams = {
       };
@@ -694,7 +692,7 @@ export default class NewsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2001;
+      let returnType = InlineResponse2004;
 
       return this.apiClient.callApi(
         '/news/article/listByInstrument', 'POST',
@@ -706,11 +704,12 @@ export default class NewsApi {
     /**
      * News articles for instruments.
      * News articles for instruments.
-     * @param {module:model/InlineObject3} inlineObject3 
-     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNewsArticleListByInstrumentRequest} opts.postNewsArticleListByInstrumentRequest 
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
-    postNewsArticleListByInstrument(inlineObject3) {
-      return this.postNewsArticleListByInstrumentWithHttpInfo(inlineObject3)
+    postNewsArticleListByInstrument(opts) {
+      return this.postNewsArticleListByInstrumentWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -720,15 +719,13 @@ export default class NewsApi {
     /**
      * List news articles which contain media of specific media kinds.
      * List news articles which contain media of specific media kinds.
-     * @param {module:model/InlineObject4} inlineObject4 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNewsArticleListByMediaKindRequest} opts.postNewsArticleListByMediaKindRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
-    postNewsArticleListByMediaKindWithHttpInfo(inlineObject4) {
-      let postBody = inlineObject4;
-      // verify the required parameter 'inlineObject4' is set
-      if (inlineObject4 === undefined || inlineObject4 === null) {
-        throw new Error("Missing the required parameter 'inlineObject4' when calling postNewsArticleListByMediaKind");
-      }
+    postNewsArticleListByMediaKindWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postNewsArticleListByMediaKindRequest'];
 
       let pathParams = {
       };
@@ -756,11 +753,12 @@ export default class NewsApi {
     /**
      * List news articles which contain media of specific media kinds.
      * List news articles which contain media of specific media kinds.
-     * @param {module:model/InlineObject4} inlineObject4 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNewsArticleListByMediaKindRequest} opts.postNewsArticleListByMediaKindRequest 
      * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
-    postNewsArticleListByMediaKind(inlineObject4) {
-      return this.postNewsArticleListByMediaKindWithHttpInfo(inlineObject4)
+    postNewsArticleListByMediaKind(opts) {
+      return this.postNewsArticleListByMediaKindWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -771,12 +769,12 @@ export default class NewsApi {
      * Search for news articles using a fulltext search.
      * Search for news articles using a fulltext search. All specified criteria need to be fulfilled for an article to match. Each criterion is handled according to its selectionType; \"include\" requires the criterion to evaluate to true, \"exclude\" requires the criterion to evaluate to false. A criterion is fulfilled when at least one of its values is found.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject5} opts.inlineObject5 
+     * @param {module:model/PostNewsArticleSearchByTextRequest} opts.postNewsArticleSearchByTextRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
     postNewsArticleSearchByTextWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['inlineObject5'];
+      let postBody = opts['postNewsArticleSearchByTextRequest'];
 
       let pathParams = {
       };
@@ -805,7 +803,7 @@ export default class NewsApi {
      * Search for news articles using a fulltext search.
      * Search for news articles using a fulltext search. All specified criteria need to be fulfilled for an article to match. Each criterion is handled according to its selectionType; \"include\" requires the criterion to evaluate to true, \"exclude\" requires the criterion to evaluate to false. A criterion is fulfilled when at least one of its values is found.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject5} opts.inlineObject5 
+     * @param {module:model/PostNewsArticleSearchByTextRequest} opts.postNewsArticleSearchByTextRequest 
      * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     postNewsArticleSearchByText(opts) {
@@ -819,15 +817,13 @@ export default class NewsApi {
     /**
      * Search for publishers.
      * Search for publishers by the name of the publisher.
-     * @param {module:model/InlineObject6} inlineObject6 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNewsPublisherSearchByNameRequest} opts.postNewsPublisherSearchByNameRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20011} and HTTP response
      */
-    postNewsPublisherSearchByNameWithHttpInfo(inlineObject6) {
-      let postBody = inlineObject6;
-      // verify the required parameter 'inlineObject6' is set
-      if (inlineObject6 === undefined || inlineObject6 === null) {
-        throw new Error("Missing the required parameter 'inlineObject6' when calling postNewsPublisherSearchByName");
-      }
+    postNewsPublisherSearchByNameWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['postNewsPublisherSearchByNameRequest'];
 
       let pathParams = {
       };
@@ -843,7 +839,7 @@ export default class NewsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2009;
+      let returnType = InlineResponse20011;
 
       return this.apiClient.callApi(
         '/news/publisher/searchByName', 'POST',
@@ -855,11 +851,12 @@ export default class NewsApi {
     /**
      * Search for publishers.
      * Search for publishers by the name of the publisher.
-     * @param {module:model/InlineObject6} inlineObject6 
-     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostNewsPublisherSearchByNameRequest} opts.postNewsPublisherSearchByNameRequest 
+     * @return { Promise.< module:model/InlineResponse20011 > } a Promise, with data of type {@link module:model/InlineResponse20011 }
      */
-    postNewsPublisherSearchByName(inlineObject6) {
-      return this.postNewsPublisherSearchByNameWithHttpInfo(inlineObject6)
+    postNewsPublisherSearchByName(opts) {
+      return this.postNewsPublisherSearchByNameWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

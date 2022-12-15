@@ -1,6 +1,6 @@
 # BasicApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -166,7 +166,7 @@ public class Example {
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2002 result = apiInstance.getBasicBenchmarkTypeList(attributes, language);
             System.out.println(result);
@@ -188,7 +188,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -252,7 +252,7 @@ public class Example {
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2004 result = apiInstance.getBasicFrequencyTypeList(attributes, language);
             System.out.println(result);
@@ -274,7 +274,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -338,9 +338,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a language.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2005 result = apiInstance.getBasicLanguageGet(id, attributes, language);
             System.out.println(result);
@@ -361,9 +361,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a language. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -426,9 +426,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        String code = "code_example"; // String | ISO 639-1 code of the language.
+        String code = "code_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2006 result = apiInstance.getBasicLanguageGetByCode(code, attributes, language);
             System.out.println(result);
@@ -449,9 +449,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| ISO 639-1 code of the language. |
+ **code** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -515,7 +515,7 @@ public class Example {
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
         try {
             InlineResponse2007 result = apiInstance.getBasicLanguageList(attributes, language, sort);
@@ -538,7 +538,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: code, -code, name, -name]
 
 ### Return type
@@ -603,9 +603,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a market.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2008 result = apiInstance.getBasicMarketGet(id, attributes, language);
             System.out.println(result);
@@ -626,9 +626,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a market. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -692,7 +692,7 @@ public class Example {
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
         try {
             InlineResponse20010 result = apiInstance.getBasicMarketGroupList(attributes, language, sort);
@@ -715,7 +715,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: name, -name, shortName, -shortName]
 
 ### Return type
@@ -780,7 +780,7 @@ public class Example {
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
         try {
             InlineResponse20011 result = apiInstance.getBasicMarketTypeList(attributes, language, sort);
@@ -803,7 +803,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: name, -name]
 
 ### Return type
@@ -952,9 +952,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a continent.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20017 result = apiInstance.getBasicRegionContinentGet(id, attributes, language);
             System.out.println(result);
@@ -975,9 +975,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a continent. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1041,7 +1041,7 @@ public class Example {
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
         try {
             InlineResponse20018 result = apiInstance.getBasicRegionContinentList(attributes, language, sort);
@@ -1064,7 +1064,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: name, -name]
 
 ### Return type
@@ -1129,9 +1129,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a country.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20019 result = apiInstance.getBasicRegionCountryGet(id, attributes, language);
             System.out.println(result);
@@ -1152,9 +1152,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a country. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1217,9 +1217,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        String code = "code_example"; // String | ISO 3166-1 alpha-2 code of a country.
+        String code = "code_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20020 result = apiInstance.getBasicRegionCountryGetByCode(code, attributes, language);
             System.out.println(result);
@@ -1240,9 +1240,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| ISO 3166-1 alpha-2 code of a country. |
+ **code** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1306,7 +1306,7 @@ public class Example {
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
         try {
             InlineResponse20021 result = apiInstance.getBasicRegionCountryList(attributes, language, sort);
@@ -1329,7 +1329,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: code, -code, name, -name]
 
 ### Return type
@@ -1394,9 +1394,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a region.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20015 result = apiInstance.getBasicRegionGet(id, attributes, language);
             System.out.println(result);
@@ -1417,9 +1417,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a region. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1483,7 +1483,7 @@ public class Example {
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
         try {
             InlineResponse20016 result = apiInstance.getBasicRegionList(attributes, language, sort);
@@ -1506,7 +1506,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: code, -code, name, -name]
 
 ### Return type
@@ -1571,7 +1571,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a timezone. An invalid or unsupported identifier will result in an error.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse20022 result = apiInstance.getBasicTimezoneGet(id, attributes);
@@ -1593,7 +1593,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a timezone. An invalid or unsupported identifier will result in an error. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1657,7 +1657,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        String name = "name_example"; // String | Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error.
+        String name = "name_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse20022 result = apiInstance.getBasicTimezoneGetByName(name, attributes);
@@ -1679,7 +1679,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error. |
+ **name** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1744,7 +1744,7 @@ public class Example {
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
         try {
             InlineResponse20026 result = apiInstance.getBasicValueUnitAlternativeList(attributes, language, sort);
@@ -1767,7 +1767,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: name, -name]
 
 ### Return type
@@ -1832,9 +1832,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a fractional currency.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20028 result = apiInstance.getBasicValueUnitCurrencyFractionalGet(id, attributes, language);
             System.out.println(result);
@@ -1855,9 +1855,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a fractional currency. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -1921,7 +1921,7 @@ public class Example {
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
         try {
             InlineResponse20029 result = apiInstance.getBasicValueUnitCurrencyFractionalList(attributes, language, sort);
@@ -1944,7 +1944,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: name, -name]
 
 ### Return type
@@ -2009,9 +2009,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a value unit.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse20024 result = apiInstance.getBasicValueUnitGet(id, attributes, language);
             System.out.println(result);
@@ -2032,9 +2032,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a value unit. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -2057,7 +2057,7 @@ Name | Type | Description  | Notes
 
 ## postBasicBackgroundTextTypeList
 
-> InlineResponse2001 postBasicBackgroundTextTypeList(body)
+> InlineResponse2001 postBasicBackgroundTextTypeList(postBasicBackgroundTextTypeListRequest)
 
 List of background text types.
 
@@ -2097,9 +2097,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        InlineObject body = new InlineObject(); // InlineObject | 
+        PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = new PostBasicBackgroundTextTypeListRequest(); // PostBasicBackgroundTextTypeListRequest | 
         try {
-            InlineResponse2001 result = apiInstance.postBasicBackgroundTextTypeList(body);
+            InlineResponse2001 result = apiInstance.postBasicBackgroundTextTypeList(postBasicBackgroundTextTypeListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2118,7 +2118,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **postBasicBackgroundTextTypeListRequest** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2141,7 +2141,7 @@ Name | Type | Description  | Notes
 
 ## postBasicDeliveryList
 
-> InlineResponse2003 postBasicDeliveryList(body)
+> InlineResponse2003 postBasicDeliveryList(postBasicDeliveryListRequest)
 
 List of deliveries.
 
@@ -2181,9 +2181,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        InlineObject1 body = new InlineObject1(); // InlineObject1 | 
+        PostBasicDeliveryListRequest postBasicDeliveryListRequest = new PostBasicDeliveryListRequest(); // PostBasicDeliveryListRequest | 
         try {
-            InlineResponse2003 result = apiInstance.postBasicDeliveryList(body);
+            InlineResponse2003 result = apiInstance.postBasicDeliveryList(postBasicDeliveryListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2202,7 +2202,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **postBasicDeliveryListRequest** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2225,7 +2225,7 @@ Name | Type | Description  | Notes
 
 ## postBasicMarketList
 
-> InlineResponse2009 postBasicMarketList(body)
+> InlineResponse2009 postBasicMarketList(postBasicMarketListRequest)
 
 List of markets.
 
@@ -2265,9 +2265,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        InlineObject2 body = new InlineObject2(); // InlineObject2 | 
+        PostBasicMarketListRequest postBasicMarketListRequest = new PostBasicMarketListRequest(); // PostBasicMarketListRequest | 
         try {
-            InlineResponse2009 result = apiInstance.postBasicMarketList(body);
+            InlineResponse2009 result = apiInstance.postBasicMarketList(postBasicMarketListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2286,7 +2286,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **postBasicMarketListRequest** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2309,7 +2309,7 @@ Name | Type | Description  | Notes
 
 ## postBasicMediaTypeList
 
-> InlineResponse20013 postBasicMediaTypeList(body)
+> InlineResponse20013 postBasicMediaTypeList(postBasicMediaTypeListRequest)
 
 List of Internet media types.
 
@@ -2349,9 +2349,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        InlineObject3 body = new InlineObject3(); // InlineObject3 | 
+        PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = new PostBasicMediaTypeListRequest(); // PostBasicMediaTypeListRequest | 
         try {
-            InlineResponse20013 result = apiInstance.postBasicMediaTypeList(body);
+            InlineResponse20013 result = apiInstance.postBasicMediaTypeList(postBasicMediaTypeListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2370,7 +2370,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+ **postBasicMediaTypeListRequest** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2393,7 +2393,7 @@ Name | Type | Description  | Notes
 
 ## postBasicMicOperatingList
 
-> InlineResponse20014 postBasicMicOperatingList(body)
+> InlineResponse20014 postBasicMicOperatingList(postBasicMicOperatingListRequest)
 
 List of operating market identifier codes (MIC).
 
@@ -2433,9 +2433,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        InlineObject4 body = new InlineObject4(); // InlineObject4 | 
+        PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = new PostBasicMicOperatingListRequest(); // PostBasicMicOperatingListRequest | 
         try {
-            InlineResponse20014 result = apiInstance.postBasicMicOperatingList(body);
+            InlineResponse20014 result = apiInstance.postBasicMicOperatingList(postBasicMicOperatingListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2454,7 +2454,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional]
+ **postBasicMicOperatingListRequest** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2477,7 +2477,7 @@ Name | Type | Description  | Notes
 
 ## postBasicTimezoneList
 
-> InlineResponse20023 postBasicTimezoneList(body)
+> InlineResponse20023 postBasicTimezoneList(postBasicTimezoneListRequest)
 
 List of timezones.
 
@@ -2517,9 +2517,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        InlineObject5 body = new InlineObject5(); // InlineObject5 | 
+        PostBasicTimezoneListRequest postBasicTimezoneListRequest = new PostBasicTimezoneListRequest(); // PostBasicTimezoneListRequest | 
         try {
-            InlineResponse20023 result = apiInstance.postBasicTimezoneList(body);
+            InlineResponse20023 result = apiInstance.postBasicTimezoneList(postBasicTimezoneListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2538,7 +2538,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional]
+ **postBasicTimezoneListRequest** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2561,7 +2561,7 @@ Name | Type | Description  | Notes
 
 ## postBasicValueUnitCurrencyList
 
-> InlineResponse20027 postBasicValueUnitCurrencyList(body)
+> InlineResponse20027 postBasicValueUnitCurrencyList(postBasicValueUnitCurrencyListRequest)
 
 List of currencies.
 
@@ -2601,9 +2601,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        InlineObject7 body = new InlineObject7(); // InlineObject7 | 
+        PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = new PostBasicValueUnitCurrencyListRequest(); // PostBasicValueUnitCurrencyListRequest | 
         try {
-            InlineResponse20027 result = apiInstance.postBasicValueUnitCurrencyList(body);
+            InlineResponse20027 result = apiInstance.postBasicValueUnitCurrencyList(postBasicValueUnitCurrencyListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2622,7 +2622,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject7**](InlineObject7.md)|  | [optional]
+ **postBasicValueUnitCurrencyListRequest** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2645,7 +2645,7 @@ Name | Type | Description  | Notes
 
 ## postBasicValueUnitCurrencyMainList
 
-> InlineResponse20030 postBasicValueUnitCurrencyMainList(body)
+> InlineResponse20030 postBasicValueUnitCurrencyMainList(postBasicValueUnitCurrencyMainListRequest)
 
 List of main currencies.
 
@@ -2685,9 +2685,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        InlineObject8 body = new InlineObject8(); // InlineObject8 | 
+        PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = new PostBasicValueUnitCurrencyMainListRequest(); // PostBasicValueUnitCurrencyMainListRequest | 
         try {
-            InlineResponse20030 result = apiInstance.postBasicValueUnitCurrencyMainList(body);
+            InlineResponse20030 result = apiInstance.postBasicValueUnitCurrencyMainList(postBasicValueUnitCurrencyMainListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2706,7 +2706,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject8**](InlineObject8.md)|  | [optional]
+ **postBasicValueUnitCurrencyMainListRequest** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2729,7 +2729,7 @@ Name | Type | Description  | Notes
 
 ## postBasicValueUnitList
 
-> InlineResponse20025 postBasicValueUnitList(body)
+> InlineResponse20025 postBasicValueUnitList(postBasicValueUnitListRequest)
 
 List of value units.
 
@@ -2769,9 +2769,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        InlineObject6 body = new InlineObject6(); // InlineObject6 | 
+        PostBasicValueUnitListRequest postBasicValueUnitListRequest = new PostBasicValueUnitListRequest(); // PostBasicValueUnitListRequest | 
         try {
-            InlineResponse20025 result = apiInstance.postBasicValueUnitList(body);
+            InlineResponse20025 result = apiInstance.postBasicValueUnitList(postBasicValueUnitListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2790,7 +2790,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  | [optional]
+ **postBasicValueUnitListRequest** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)|  | [optional]
 
 ### Return type
 

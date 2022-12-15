@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of the category system type. | [optional] 
+**Id** | **decimal?** | Identifier of the category system type. | [optional] 
 **Name** | **string** | Name of the category system type. | [optional] 
 **Description** | **string** | Description of the category system type. | [optional] 
 

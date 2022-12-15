@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -49,7 +49,7 @@ export default class CategoryApi {
      * List of entitled category datasets.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20035} and HTTP response
      */
     getCategoryDatasetListWithHttpInfo(opts) {
@@ -86,7 +86,7 @@ export default class CategoryApi {
      * List of entitled category datasets.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20035 > } a Promise, with data of type {@link module:model/InlineResponse20035 }
      */
     getCategoryDatasetList(opts) {
@@ -100,10 +100,10 @@ export default class CategoryApi {
     /**
      * Details of a category.
      * Details of a category.
-     * @param {Number} id Identifier of a category.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20031} and HTTP response
      */
     getCategoryGetWithHttpInfo(id, opts) {
@@ -143,10 +143,10 @@ export default class CategoryApi {
     /**
      * Details of a category.
      * Details of a category.
-     * @param {Number} id Identifier of a category.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20031 > } a Promise, with data of type {@link module:model/InlineResponse20031 }
      */
     getCategoryGet(id, opts) {
@@ -160,12 +160,12 @@ export default class CategoryApi {
     /**
      * List of instruments where a specific dataset has assigned a given category.
      * List of instruments where a specific dataset has assigned a given category.
-     * @param {Number} idCategory Identifier of a category.
-     * @param {Number} idCategoryDataset Identifier of a category dataset.
+     * @param {Number} idCategory 
+     * @param {Number} idCategoryDataset 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20036} and HTTP response
      */
     getCategoryInstrumentListWithHttpInfo(idCategory, idCategoryDataset, opts) {
@@ -211,12 +211,12 @@ export default class CategoryApi {
     /**
      * List of instruments where a specific dataset has assigned a given category.
      * List of instruments where a specific dataset has assigned a given category.
-     * @param {Number} idCategory Identifier of a category.
-     * @param {Number} idCategoryDataset Identifier of a category dataset.
+     * @param {Number} idCategory 
+     * @param {Number} idCategoryDataset 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
      * @return { Promise.< module:model/InlineResponse20036 > } a Promise, with data of type {@link module:model/InlineResponse20036 }
      */
     getCategoryInstrumentList(idCategory, idCategoryDataset, opts) {
@@ -230,10 +230,10 @@ export default class CategoryApi {
     /**
      * Details of a category level.
      * Details of a category level.
-     * @param {Number} id Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20037} and HTTP response
      */
     getCategoryLevelGetWithHttpInfo(id, opts) {
@@ -273,10 +273,10 @@ export default class CategoryApi {
     /**
      * Details of a category level.
      * Details of a category level.
-     * @param {Number} id Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20037 > } a Promise, with data of type {@link module:model/InlineResponse20037 }
      */
     getCategoryLevelGet(id, opts) {
@@ -290,10 +290,10 @@ export default class CategoryApi {
     /**
      * List of categories.
      * List of categories.
-     * @param {Array.<Number>} ids List of categories belonging to the same category system.
+     * @param {Array.<Number>} ids 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20032} and HTTP response
      */
     getCategoryListWithHttpInfo(ids, opts) {
@@ -333,10 +333,10 @@ export default class CategoryApi {
     /**
      * List of categories.
      * List of categories.
-     * @param {Array.<Number>} ids List of categories belonging to the same category system.
+     * @param {Array.<Number>} ids 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20032 > } a Promise, with data of type {@link module:model/InlineResponse20032 }
      */
     getCategoryList(ids, opts) {
@@ -350,12 +350,12 @@ export default class CategoryApi {
     /**
      * List of categories assigned to a category level.
      * List of categories assigned to a category level.
-     * @param {Number} id Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @param {String} opts.language 
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20033} and HTTP response
      */
     getCategoryListByLevelWithHttpInfo(id, opts) {
@@ -397,12 +397,12 @@ export default class CategoryApi {
     /**
      * List of categories assigned to a category level.
      * List of categories assigned to a category level.
-     * @param {Number} id Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @param {String} opts.language 
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
      * @return { Promise.< module:model/InlineResponse20033 > } a Promise, with data of type {@link module:model/InlineResponse20033 }
      */
     getCategoryListByLevel(id, opts) {
@@ -416,12 +416,12 @@ export default class CategoryApi {
     /**
      * List of categories assigned to a category system.
      * List of categories assigned to a category system.
-     * @param {Number} id Identifier of a category system. See endpoint `/category/system/list` for valid values.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @param {String} opts.language 
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20034} and HTTP response
      */
     getCategoryListBySystemWithHttpInfo(id, opts) {
@@ -463,12 +463,12 @@ export default class CategoryApi {
     /**
      * List of categories assigned to a category system.
      * List of categories assigned to a category system.
-     * @param {Number} id Identifier of a category system. See endpoint `/category/system/list` for valid values.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
-     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @param {String} opts.language 
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
      * @return { Promise.< module:model/InlineResponse20034 > } a Promise, with data of type {@link module:model/InlineResponse20034 }
      */
     getCategoryListBySystem(id, opts) {
@@ -482,10 +482,10 @@ export default class CategoryApi {
     /**
      * Path from the first level to the level of a specific category.
      * Path from the first level to the level of a specific category.
-     * @param {Number} id Identifier of a category.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20038} and HTTP response
      */
     getCategoryPathGetWithHttpInfo(id, opts) {
@@ -525,10 +525,10 @@ export default class CategoryApi {
     /**
      * Path from the first level to the level of a specific category.
      * Path from the first level to the level of a specific category.
-     * @param {Number} id Identifier of a category.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20038 > } a Promise, with data of type {@link module:model/InlineResponse20038 }
      */
     getCategoryPathGet(id, opts) {
@@ -542,10 +542,10 @@ export default class CategoryApi {
     /**
      * Details of an entitled category system.
      * Details of an entitled category system.
-     * @param {Number} id Identifier of a category system. See endpoint `/category/system/list` for valid values.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20039} and HTTP response
      */
     getCategorySystemGetWithHttpInfo(id, opts) {
@@ -585,10 +585,10 @@ export default class CategoryApi {
     /**
      * Details of an entitled category system.
      * Details of an entitled category system.
-     * @param {Number} id Identifier of a category system. See endpoint `/category/system/list` for valid values.
+     * @param {Number} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20039 > } a Promise, with data of type {@link module:model/InlineResponse20039 }
      */
     getCategorySystemGet(id, opts) {
@@ -603,9 +603,9 @@ export default class CategoryApi {
      * List of entitled category systems.
      * List of entitled category systems.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.idType Filter for a specific category system type. See endpoint `/category/system/type/list` for valid values.
+     * @param {Number} opts.idType 
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20040} and HTTP response
      */
     getCategorySystemListWithHttpInfo(opts) {
@@ -642,9 +642,9 @@ export default class CategoryApi {
      * List of entitled category systems.
      * List of entitled category systems.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.idType Filter for a specific category system type. See endpoint `/category/system/type/list` for valid values.
+     * @param {Number} opts.idType 
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20040 > } a Promise, with data of type {@link module:model/InlineResponse20040 }
      */
     getCategorySystemList(opts) {
@@ -660,7 +660,7 @@ export default class CategoryApi {
      * List of category system types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20041} and HTTP response
      */
     getCategorySystemTypeListWithHttpInfo(opts) {
@@ -697,7 +697,7 @@ export default class CategoryApi {
      * List of category system types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
+     * @param {String} opts.language 
      * @return { Promise.< module:model/InlineResponse20041 > } a Promise, with data of type {@link module:model/InlineResponse20041 }
      */
     getCategorySystemTypeList(opts) {

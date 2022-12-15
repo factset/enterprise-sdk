@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;InlineResponse2002Data&gt;**](InlineResponse2002Data.md) | List of owners with their respective share sorted descending by the fraction owned. |  [optional]
+**data** | [**java.util.List&lt;InlineResponse2002Data&gt;**](InlineResponse2002Data.md) | Estimated figures for selected fiscal years. |  [optional]
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
 
 

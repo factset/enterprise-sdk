@@ -1,15 +1,13 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.InlineResponse20068Data
+List of notations.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Identifier of the notation. | [optional] 
-**Active** | **bool** | Indicates whether the notation is active. | [optional] 
-**Market** | [**InlineResponse20066DataMarket**](InlineResponse20066DataMarket.md) |  | [optional] 
-**ValueUnit** | [**InlineResponse20066DataValueUnit**](InlineResponse20066DataValueUnit.md) |  | [optional] 
-**Fsym** | [**InlineResponse20046NotationFsym**](InlineResponse20046NotationFsym.md) |  | [optional] 
-**Instrument** | [**InlineResponse20068Instrument**](InlineResponse20068Instrument.md) |  | [optional] 
+**IdInstrument** | **string** | MDG identifier of the instrument. | [optional] 
+**SourceIdentifier** | **string** | Identifier used in the request. | [optional] 
+**Notations** | [**List&lt;InlineResponse20068DataNotations&gt;**](InlineResponse20068DataNotations.md) | List of notations. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

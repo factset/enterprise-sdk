@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -26,6 +26,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -46,13 +50,13 @@ public class InlineResponse20028Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_CODE = "code";
-  private String code;
+  private JsonNullable<String> code = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FACTOR = "factor";
-  private BigDecimal factor;
+  private JsonNullable<BigDecimal> factor = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_MAIN_CURRENCY = "mainCurrency";
   private InlineResponse20028DataMainCurrency mainCurrency;
@@ -61,7 +65,7 @@ public class InlineResponse20028Data implements Serializable {
   }
 
   public InlineResponse20028Data code(String code) {
-    this.code = code;
+    this.code = JsonNullable.<String>of(code);
     return this;
   }
 
@@ -71,23 +75,31 @@ public class InlineResponse20028Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Code of the fractional currency such as GBp (for British pence), USc (for U.S. cents), EUc for (Euro cent).")
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCode() {
-    return code;
+        return code.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCode(String code) {
+
+  public JsonNullable<String> getCode_JsonNullable() {
+    return code;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CODE)
+  public void setCode_JsonNullable(JsonNullable<String> code) {
     this.code = code;
+  }
+
+  public void setCode(String code) {
+    this.code = JsonNullable.<String>of(code);
   }
 
 
   public InlineResponse20028Data name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -97,23 +109,31 @@ public class InlineResponse20028Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the fractional currency.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public InlineResponse20028Data factor(BigDecimal factor) {
-    this.factor = factor;
+    this.factor = JsonNullable.<BigDecimal>of(factor);
     return this;
   }
 
@@ -123,18 +143,26 @@ public class InlineResponse20028Data implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Conversion factor between the fractional and its main currency. For example, the value 100 indicates that 100 US cents are equivalent to one US dollar.")
-  @JsonProperty(JSON_PROPERTY_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getFactor() {
-    return factor;
+        return factor.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFactor(BigDecimal factor) {
+
+  public JsonNullable<BigDecimal> getFactor_JsonNullable() {
+    return factor;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FACTOR)
+  public void setFactor_JsonNullable(JsonNullable<BigDecimal> factor) {
     this.factor = factor;
+  }
+
+  public void setFactor(BigDecimal factor) {
+    this.factor = JsonNullable.<BigDecimal>of(factor);
   }
 
 
@@ -176,15 +204,26 @@ public class InlineResponse20028Data implements Serializable {
       return false;
     }
     InlineResponse20028Data inlineResponse20028Data = (InlineResponse20028Data) o;
-    return Objects.equals(this.code, inlineResponse20028Data.code) &&
-        Objects.equals(this.name, inlineResponse20028Data.name) &&
-        Objects.equals(this.factor, inlineResponse20028Data.factor) &&
+    return equalsNullable(this.code, inlineResponse20028Data.code) &&
+        equalsNullable(this.name, inlineResponse20028Data.name) &&
+        equalsNullable(this.factor, inlineResponse20028Data.factor) &&
         Objects.equals(this.mainCurrency, inlineResponse20028Data.mainCurrency);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, name, factor, mainCurrency);
+    return Objects.hash(hashCodeNullable(code), hashCodeNullable(name), hashCodeNullable(factor), mainCurrency);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

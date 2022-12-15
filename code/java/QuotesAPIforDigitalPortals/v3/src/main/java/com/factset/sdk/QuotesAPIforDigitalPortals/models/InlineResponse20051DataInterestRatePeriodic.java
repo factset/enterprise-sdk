@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -43,16 +47,16 @@ public class InlineResponse20051DataInterestRatePeriodic implements Serializable
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FIXED = "fixed";
-  private BigDecimal fixed;
+  private JsonNullable<BigDecimal> fixed = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
-  private BigDecimal amount;
+  private JsonNullable<BigDecimal> amount = JsonNullable.<BigDecimal>undefined();
 
   public InlineResponse20051DataInterestRatePeriodic() { 
   }
 
   public InlineResponse20051DataInterestRatePeriodic fixed(BigDecimal fixed) {
-    this.fixed = fixed;
+    this.fixed = JsonNullable.<BigDecimal>of(fixed);
     return this;
   }
 
@@ -62,23 +66,31 @@ public class InlineResponse20051DataInterestRatePeriodic implements Serializable
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Fixed interest rate. For coupon periods different from one year, the value differs from the fixed annualized interest rate (see attribute `coupons.interestRate.annualized.fixed`).")
-  @JsonProperty(JSON_PROPERTY_FIXED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getFixed() {
-    return fixed;
+        return fixed.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FIXED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFixed(BigDecimal fixed) {
+
+  public JsonNullable<BigDecimal> getFixed_JsonNullable() {
+    return fixed;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIXED)
+  public void setFixed_JsonNullable(JsonNullable<BigDecimal> fixed) {
     this.fixed = fixed;
+  }
+
+  public void setFixed(BigDecimal fixed) {
+    this.fixed = JsonNullable.<BigDecimal>of(fixed);
   }
 
 
   public InlineResponse20051DataInterestRatePeriodic amount(BigDecimal amount) {
-    this.amount = amount;
+    this.amount = JsonNullable.<BigDecimal>of(amount);
     return this;
   }
 
@@ -88,18 +100,26 @@ public class InlineResponse20051DataInterestRatePeriodic implements Serializable
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Coupon amount corresponding to the fixed interest rate (see attribute `coupons.interestRate.periodic.fixed`). The attribute is available only for instruments with a declared nominal value, e.g. securitized derivatives.")
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getAmount() {
-    return amount;
+        return amount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmount(BigDecimal amount) {
+
+  public JsonNullable<BigDecimal> getAmount_JsonNullable() {
+    return amount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  public void setAmount_JsonNullable(JsonNullable<BigDecimal> amount) {
     this.amount = amount;
+  }
+
+  public void setAmount(BigDecimal amount) {
+    this.amount = JsonNullable.<BigDecimal>of(amount);
   }
 
 
@@ -115,13 +135,24 @@ public class InlineResponse20051DataInterestRatePeriodic implements Serializable
       return false;
     }
     InlineResponse20051DataInterestRatePeriodic inlineResponse20051DataInterestRatePeriodic = (InlineResponse20051DataInterestRatePeriodic) o;
-    return Objects.equals(this.fixed, inlineResponse20051DataInterestRatePeriodic.fixed) &&
-        Objects.equals(this.amount, inlineResponse20051DataInterestRatePeriodic.amount);
+    return equalsNullable(this.fixed, inlineResponse20051DataInterestRatePeriodic.fixed) &&
+        equalsNullable(this.amount, inlineResponse20051DataInterestRatePeriodic.amount);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fixed, amount);
+    return Objects.hash(hashCodeNullable(fixed), hashCodeNullable(amount));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

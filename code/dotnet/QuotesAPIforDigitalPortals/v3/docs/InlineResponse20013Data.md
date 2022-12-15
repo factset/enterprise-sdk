@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of an Internet media type. | [optional] 
+**Id** | **decimal?** | Identifier of an Internet media type. | [optional] 
 **Name** | **string** | Name according to the Internet Assigned Numbers Authority. | [optional] 
 **Description** | **string** | English description of the Internet media type. | [optional] 
 **Kind** | [**InlineResponse20013Kind**](InlineResponse20013Kind.md) |  | [optional] 

@@ -2,17 +2,16 @@
 
 # InlineResponse2003Data
 
+Target price and aggregated recommendations for a stock.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Identifier of a dividend. |  [optional]
-**type** | [**InlineResponse2003Type**](InlineResponse2003Type.md) |  |  [optional]
-**occurrence** | [**InlineResponse2003Occurrence**](InlineResponse2003Occurrence.md) |  |  [optional]
-**dates** | [**InlineResponse2003Dates**](InlineResponse2003Dates.md) |  |  [optional]
-**currency** | [**InlineResponse2003Currency**](InlineResponse2003Currency.md) |  |  [optional]
-**gross** | [**InlineResponse2003Gross**](InlineResponse2003Gross.md) |  |  [optional]
+**idInstrument** | **String** | MDG identifier of the instrument. |  [optional]
+**sourceIdentifier** | **String** | Identifier used in the request. |  [optional]
+**targetPrice** | [**InlineResponse2003DataTargetPrice**](InlineResponse2003DataTargetPrice.md) |  |  [optional]
+**recommendation** | [**InlineResponse2003DataRecommendation**](InlineResponse2003DataRecommendation.md) |  |  [optional]
 
 
 ## Implemented Interfaces

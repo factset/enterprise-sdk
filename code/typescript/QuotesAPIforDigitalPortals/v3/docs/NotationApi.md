@@ -1,6 +1,6 @@
 # quotesapifordigitalportals.NotationApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,12 +15,16 @@ Method | HTTP request | Description
 [**getNotationKeyFiguresMonth6List**](NotationApi.md#getNotationKeyFiguresMonth6List) | **GET** /notation/keyFigures/month/6/list | End-of-day (EOD) key figures for the time range of six months, for a list of notations.
 [**getNotationKeyFiguresWeek1Get**](NotationApi.md#getNotationKeyFiguresWeek1Get) | **GET** /notation/keyFigures/week/1/get | End-of-day (EOD) key figures for the time range of one week.
 [**getNotationKeyFiguresWeek1List**](NotationApi.md#getNotationKeyFiguresWeek1List) | **GET** /notation/keyFigures/week/1/list | End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+[**getNotationKeyFiguresYear10Get**](NotationApi.md#getNotationKeyFiguresYear10Get) | **GET** /notation/keyFigures/year/10/get | End-of-day (EOD) key figures for the time range of ten years.
+[**getNotationKeyFiguresYear10List**](NotationApi.md#getNotationKeyFiguresYear10List) | **GET** /notation/keyFigures/year/10/list | End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
 [**getNotationKeyFiguresYear1Get**](NotationApi.md#getNotationKeyFiguresYear1Get) | **GET** /notation/keyFigures/year/1/get | End-of-day (EOD) key figures for the time range of one year.
 [**getNotationKeyFiguresYear1List**](NotationApi.md#getNotationKeyFiguresYear1List) | **GET** /notation/keyFigures/year/1/list | End-of-day (EOD) key figures for the time range of one year, for a list of notations.
 [**getNotationKeyFiguresYear3Get**](NotationApi.md#getNotationKeyFiguresYear3Get) | **GET** /notation/keyFigures/year/3/get | End-of-day (EOD) key figures for the time range of three years.
 [**getNotationKeyFiguresYear3List**](NotationApi.md#getNotationKeyFiguresYear3List) | **GET** /notation/keyFigures/year/3/list | End-of-day (EOD) key figures for the time range of three years, for a list of notations.
 [**getNotationKeyFiguresYear5Get**](NotationApi.md#getNotationKeyFiguresYear5Get) | **GET** /notation/keyFigures/year/5/get | End-of-day (EOD) key figures for the time range of five years.
 [**getNotationKeyFiguresYear5List**](NotationApi.md#getNotationKeyFiguresYear5List) | **GET** /notation/keyFigures/year/5/list | End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+[**getNotationKeyFiguresYear7Get**](NotationApi.md#getNotationKeyFiguresYear7Get) | **GET** /notation/keyFigures/year/7/get | End-of-day (EOD) key figures for the time range of seven years.
+[**getNotationKeyFiguresYear7List**](NotationApi.md#getNotationKeyFiguresYear7List) | **GET** /notation/keyFigures/year/7/list | End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
 [**getNotationKeyFiguresYearToDateGet**](NotationApi.md#getNotationKeyFiguresYearToDateGet) | **GET** /notation/keyFigures/yearToDate/get | End-of-day (EOD) key figures for the time range year-to-date (YTD)..
 [**getNotationKeyFiguresYearToDateList**](NotationApi.md#getNotationKeyFiguresYearToDateList) | **GET** /notation/keyFigures/yearToDate/list | End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
 [**getNotationList**](NotationApi.md#getNotationList) | **GET** /notation/list | Basic data for a list of notations.
@@ -32,13 +36,14 @@ Method | HTTP request | Description
 [**postNotationCrossReferenceListByISIN**](NotationApi.md#postNotationCrossReferenceListByISIN) | **POST** /notation/crossReference/listByISIN | List of entitled notations.
 [**postNotationCrossReferenceListByInstrument**](NotationApi.md#postNotationCrossReferenceListByInstrument) | **POST** /notation/crossReference/listByInstrument | List of entitled notations.
 [**postNotationCrossReferenceListBySymbol**](NotationApi.md#postNotationCrossReferenceListBySymbol) | **POST** /notation/crossReference/listBySymbol | List of entitled notations.
+[**postNotationMarketList**](NotationApi.md#postNotationMarketList) | **POST** /notation/market/list | List of markets with entitled notations.
 [**postNotationSearchByText**](NotationApi.md#postNotationSearchByText) | **POST** /notation/searchByText | Text-based search for notations.
 
 
 
 ## getNotationCrossReferenceFactSetIdentifierGet
 
-> InlineResponse20069 getNotationCrossReferenceFactSetIdentifierGet(id, opts)
+> InlineResponse20071 getNotationCrossReferenceFactSetIdentifierGet(identifier, identifierType, opts)
 
 Retrieve FactSet identifiers for a given notation.
 
@@ -70,13 +75,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of a notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationCrossReferenceFactSetIdentifierGet(id, opts).then(
+apiInstance.getNotationCrossReferenceFactSetIdentifierGet(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -95,12 +101,13 @@ apiInstance.getNotationCrossReferenceFactSetIdentifierGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. | 
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse20069**](InlineResponse20069.md)
+[**InlineResponse20071**](InlineResponse20071.md)
 
 ### Authorization
 
@@ -114,7 +121,7 @@ Name | Type | Description  | Notes
 
 ## getNotationCrossReferenceGetByFactSetMarketSymbol
 
-> InlineResponse20066 getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, opts)
+> InlineResponse20067 getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, opts)
 
 Translate a FactSet market symbol to a notation.
 
@@ -146,10 +153,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const factSetMarketSymbol = "factSetMarketSymbol_example"; // String | Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE).
+const factSetMarketSymbol = "factSetMarketSymbol_example"; // String | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -172,13 +179,13 @@ apiInstance.getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **factSetMarketSymbol** | **String**| Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE). | 
+ **factSetMarketSymbol** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20066**](InlineResponse20066.md)
+[**InlineResponse20067**](InlineResponse20067.md)
 
 ### Authorization
 
@@ -192,7 +199,7 @@ Name | Type | Description  | Notes
 
 ## getNotationGet
 
-> InlineResponse20064 getNotationGet(id, opts)
+> InlineResponse20065 getNotationGet(identifier, identifierType, opts)
 
 Basic data for a notation.
 
@@ -224,14 +231,15 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of a notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
-apiInstance.getNotationGet(id, opts).then(
+apiInstance.getNotationGet(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -250,13 +258,14 @@ apiInstance.getNotationGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. | 
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20064**](InlineResponse20064.md)
+[**InlineResponse20065**](InlineResponse20065.md)
 
 ### Authorization
 
@@ -270,7 +279,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth1Get
 
-> InlineResponse20072 getNotationKeyFiguresMonth1Get(id, opts)
+> InlineResponse20076 getNotationKeyFiguresMonth1Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one month.
 
@@ -302,13 +311,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of the notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresMonth1Get(id, opts).then(
+apiInstance.getNotationKeyFiguresMonth1Get(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -327,12 +337,13 @@ apiInstance.getNotationKeyFiguresMonth1Get(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -346,7 +357,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth1List
 
-> InlineResponse20073 getNotationKeyFiguresMonth1List(ids, opts)
+> InlineResponse20077 getNotationKeyFiguresMonth1List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one month, for a list of notations.
 
@@ -378,13 +389,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const ids = ["null"]; // [String] | List of notations.
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresMonth1List(ids, opts).then(
+apiInstance.getNotationKeyFiguresMonth1List(identifiers, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -403,12 +415,13 @@ apiInstance.getNotationKeyFiguresMonth1List(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| List of notations. | 
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -422,7 +435,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth3Get
 
-> InlineResponse20074 getNotationKeyFiguresMonth3Get(id, opts)
+> InlineResponse20074 getNotationKeyFiguresMonth3Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of three months.
 
@@ -454,13 +467,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of the notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresMonth3Get(id, opts).then(
+apiInstance.getNotationKeyFiguresMonth3Get(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -479,7 +493,8 @@ apiInstance.getNotationKeyFiguresMonth3Get(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -498,7 +513,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth3List
 
-> InlineResponse20075 getNotationKeyFiguresMonth3List(ids, opts)
+> InlineResponse20075 getNotationKeyFiguresMonth3List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of three months, for a list of notations.
 
@@ -530,13 +545,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const ids = ["null"]; // [String] | List of notations.
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresMonth3List(ids, opts).then(
+apiInstance.getNotationKeyFiguresMonth3List(identifiers, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -555,7 +571,8 @@ apiInstance.getNotationKeyFiguresMonth3List(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| List of notations. | 
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -574,7 +591,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth6Get
 
-> InlineResponse20074 getNotationKeyFiguresMonth6Get(id, opts)
+> InlineResponse20074 getNotationKeyFiguresMonth6Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of six months.
 
@@ -606,13 +623,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of the notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresMonth6Get(id, opts).then(
+apiInstance.getNotationKeyFiguresMonth6Get(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -631,7 +649,8 @@ apiInstance.getNotationKeyFiguresMonth6Get(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -650,7 +669,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth6List
 
-> InlineResponse20075 getNotationKeyFiguresMonth6List(ids, opts)
+> InlineResponse20075 getNotationKeyFiguresMonth6List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of six months, for a list of notations.
 
@@ -682,13 +701,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const ids = ["null"]; // [String] | List of notations.
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresMonth6List(ids, opts).then(
+apiInstance.getNotationKeyFiguresMonth6List(identifiers, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -707,7 +727,8 @@ apiInstance.getNotationKeyFiguresMonth6List(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| List of notations. | 
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -726,7 +747,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresWeek1Get
 
-> InlineResponse20072 getNotationKeyFiguresWeek1Get(id, opts)
+> InlineResponse20076 getNotationKeyFiguresWeek1Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one week.
 
@@ -758,13 +779,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of the notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresWeek1Get(id, opts).then(
+apiInstance.getNotationKeyFiguresWeek1Get(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -783,12 +805,13 @@ apiInstance.getNotationKeyFiguresWeek1Get(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -802,7 +825,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresWeek1List
 
-> InlineResponse20073 getNotationKeyFiguresWeek1List(ids, opts)
+> InlineResponse20077 getNotationKeyFiguresWeek1List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one week, for a list of notations.
 
@@ -834,13 +857,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const ids = ["null"]; // [String] | List of notations.
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresWeek1List(ids, opts).then(
+apiInstance.getNotationKeyFiguresWeek1List(identifiers, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -859,12 +883,169 @@ apiInstance.getNotationKeyFiguresWeek1List(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| List of notations. | 
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20077**](InlineResponse20077.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getNotationKeyFiguresYear10Get
+
+> InlineResponse20074 getNotationKeyFiguresYear10Get(identifier, identifierType, opts)
+
+End-of-day (EOD) key figures for the time range of ten years.
+
+End-of-day (EOD) key figures for the time range of ten years.
+
+### Example
+
+```javascript
+const { ApiClient, NotationApi } = require('@factset/sdk-quotesapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new NotationApi();
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
+const opts = {
+  'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
+};
+
+// Call api endpoint
+apiInstance.getNotationKeyFiguresYear10Get(identifier, identifierType, opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
+ **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+
+### Return type
+
+[**InlineResponse20074**](InlineResponse20074.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getNotationKeyFiguresYear10List
+
+> InlineResponse20075 getNotationKeyFiguresYear10List(identifiers, identifierType, opts)
+
+End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+
+End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+
+### Example
+
+```javascript
+const { ApiClient, NotationApi } = require('@factset/sdk-quotesapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new NotationApi();
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
+const opts = {
+  'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
+};
+
+// Call api endpoint
+apiInstance.getNotationKeyFiguresYear10List(identifiers, identifierType, opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
+ **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+
+### Return type
+
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -878,7 +1059,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear1Get
 
-> InlineResponse20072 getNotationKeyFiguresYear1Get(id, opts)
+> InlineResponse20076 getNotationKeyFiguresYear1Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one year.
 
@@ -910,13 +1091,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of the notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresYear1Get(id, opts).then(
+apiInstance.getNotationKeyFiguresYear1Get(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -935,12 +1117,13 @@ apiInstance.getNotationKeyFiguresYear1Get(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -954,7 +1137,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear1List
 
-> InlineResponse20073 getNotationKeyFiguresYear1List(ids, opts)
+> InlineResponse20077 getNotationKeyFiguresYear1List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one year, for a list of notations.
 
@@ -986,13 +1169,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const ids = ["null"]; // [String] | List of notations.
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresYear1List(ids, opts).then(
+apiInstance.getNotationKeyFiguresYear1List(identifiers, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1011,12 +1195,13 @@ apiInstance.getNotationKeyFiguresYear1List(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| List of notations. | 
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -1030,7 +1215,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear3Get
 
-> InlineResponse20074 getNotationKeyFiguresYear3Get(id, opts)
+> InlineResponse20074 getNotationKeyFiguresYear3Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of three years.
 
@@ -1062,13 +1247,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of the notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresYear3Get(id, opts).then(
+apiInstance.getNotationKeyFiguresYear3Get(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1087,7 +1273,8 @@ apiInstance.getNotationKeyFiguresYear3Get(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -1106,7 +1293,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear3List
 
-> InlineResponse20075 getNotationKeyFiguresYear3List(ids, opts)
+> InlineResponse20075 getNotationKeyFiguresYear3List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of three years, for a list of notations.
 
@@ -1138,13 +1325,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const ids = ["null"]; // [String] | List of notations.
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresYear3List(ids, opts).then(
+apiInstance.getNotationKeyFiguresYear3List(identifiers, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1163,7 +1351,8 @@ apiInstance.getNotationKeyFiguresYear3List(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| List of notations. | 
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -1182,7 +1371,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear5Get
 
-> InlineResponse20074 getNotationKeyFiguresYear5Get(id, opts)
+> InlineResponse20074 getNotationKeyFiguresYear5Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of five years.
 
@@ -1214,13 +1403,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of the notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresYear5Get(id, opts).then(
+apiInstance.getNotationKeyFiguresYear5Get(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1239,7 +1429,8 @@ apiInstance.getNotationKeyFiguresYear5Get(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -1258,7 +1449,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear5List
 
-> InlineResponse20075 getNotationKeyFiguresYear5List(ids, opts)
+> InlineResponse20075 getNotationKeyFiguresYear5List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of five years, for a list of notations.
 
@@ -1290,13 +1481,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const ids = ["null"]; // [String] | List of notations.
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresYear5List(ids, opts).then(
+apiInstance.getNotationKeyFiguresYear5List(identifiers, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1315,7 +1507,164 @@ apiInstance.getNotationKeyFiguresYear5List(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| List of notations. | 
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
+ **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+
+### Return type
+
+[**InlineResponse20075**](InlineResponse20075.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getNotationKeyFiguresYear7Get
+
+> InlineResponse20074 getNotationKeyFiguresYear7Get(identifier, identifierType, opts)
+
+End-of-day (EOD) key figures for the time range of seven years.
+
+End-of-day (EOD) key figures for the time range of seven years.
+
+### Example
+
+```javascript
+const { ApiClient, NotationApi } = require('@factset/sdk-quotesapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new NotationApi();
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
+const opts = {
+  'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
+};
+
+// Call api endpoint
+apiInstance.getNotationKeyFiguresYear7Get(identifier, identifierType, opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
+ **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+
+### Return type
+
+[**InlineResponse20074**](InlineResponse20074.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getNotationKeyFiguresYear7List
+
+> InlineResponse20075 getNotationKeyFiguresYear7List(identifiers, identifierType, opts)
+
+End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+
+End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+
+### Example
+
+```javascript
+const { ApiClient, NotationApi } = require('@factset/sdk-quotesapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new NotationApi();
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
+const opts = {
+  'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
+};
+
+// Call api endpoint
+apiInstance.getNotationKeyFiguresYear7List(identifiers, identifierType, opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -1334,7 +1683,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYearToDateGet
 
-> InlineResponse20076 getNotationKeyFiguresYearToDateGet(id, opts)
+> InlineResponse20078 getNotationKeyFiguresYearToDateGet(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD)..
 
@@ -1366,13 +1715,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of the notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresYearToDateGet(id, opts).then(
+apiInstance.getNotationKeyFiguresYearToDateGet(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1391,12 +1741,13 @@ apiInstance.getNotationKeyFiguresYearToDateGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -1410,7 +1761,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYearToDateList
 
-> InlineResponse20077 getNotationKeyFiguresYearToDateList(ids, opts)
+> InlineResponse20079 getNotationKeyFiguresYearToDateList(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
 
@@ -1442,13 +1793,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const ids = ["null"]; // [String] | List of notations.
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationKeyFiguresYearToDateList(ids, opts).then(
+apiInstance.getNotationKeyFiguresYearToDateList(identifiers, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1467,12 +1819,13 @@ apiInstance.getNotationKeyFiguresYearToDateList(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| List of notations. | 
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20079**](InlineResponse20079.md)
 
 ### Authorization
 
@@ -1486,7 +1839,7 @@ Name | Type | Description  | Notes
 
 ## getNotationList
 
-> InlineResponse20065 getNotationList(ids, opts)
+> InlineResponse20066 getNotationList(identifiers, identifierType, opts)
 
 Basic data for a list of notations.
 
@@ -1518,14 +1871,15 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const ids = ["null"]; // [String] | List of notations.
+const identifiers = ["null"]; // [String] | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
-apiInstance.getNotationList(ids, opts).then(
+apiInstance.getNotationList(identifiers, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1544,13 +1898,14 @@ apiInstance.getNotationList(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| List of notations. | 
+ **identifiers** | [**[String]**](String.md)|  | 
+ **identifierType** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20065**](InlineResponse20065.md)
+[**InlineResponse20066**](InlineResponse20066.md)
 
 ### Authorization
 
@@ -1564,7 +1919,7 @@ Name | Type | Description  | Notes
 
 ## getNotationSearchBasic
 
-> InlineResponse20088 getNotationSearchBasic(searchValue, opts)
+> InlineResponse20091 getNotationSearchBasic(searchValue, opts)
 
 Basic search for notations.
 
@@ -1596,16 +1951,16 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const searchValue = "searchValue_example"; // String | Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+const searchValue = "searchValue_example"; // String | 
 const opts = {
-  'nsins': ["null"], // [String] | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-  'assetClass': "assetClass_example", // String | A parameter to limit the output to a particular asset class.
-  'onlyActive': true, // Boolean | If true, restricts the result to active notations.
-  'popularity': false, // Boolean | If true, the results are sorted by descending popularity.
+  'nsins': ["null"], // [String] | 
+  'assetClass': "assetClass_example", // String | 
+  'onlyActive': true, // Boolean | 
+  'popularity': false, // Boolean | 
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
-  'paginationOffset': 0.0, // Number | Non-negative number of entries to skip, or 0 (default).
-  'paginationLimit': 20.0 // Number | Non-negative maximum number of entries to return.
+  'language': "language_example", // String | 
+  'paginationOffset': 0, // Number | Non-negative number of entries to skip, or 0 (default).
+  'paginationLimit': 20 // Number | Non-negative maximum number of entries to return.
 };
 
 // Call api endpoint
@@ -1628,19 +1983,19 @@ apiInstance.getNotationSearchBasic(searchValue, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchValue** | **String**| Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. | 
- **nsins** | [**[String]**](String.md)| A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. | [optional] 
- **assetClass** | **String**| A parameter to limit the output to a particular asset class. | [optional] 
- **onlyActive** | **Boolean**| If true, restricts the result to active notations. | [optional] [default to true]
- **popularity** | **Boolean**| If true, the results are sorted by descending popularity. | [optional] [default to false]
+ **searchValue** | **String**|  | 
+ **nsins** | [**[String]**](String.md)|  | [optional] 
+ **assetClass** | **String**|  | [optional] 
+ **onlyActive** | **Boolean**|  | [optional] [default to true]
+ **popularity** | **Boolean**|  | [optional] [default to false]
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **language** | **String**|  | [optional] 
+ **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
-[**InlineResponse20088**](InlineResponse20088.md)
+[**InlineResponse20091**](InlineResponse20091.md)
 
 ### Authorization
 
@@ -1654,7 +2009,7 @@ Name | Type | Description  | Notes
 
 ## getNotationSearchByTextRankedByVolume
 
-> InlineResponse20090 getNotationSearchByTextRankedByVolume(searchValue, opts)
+> InlineResponse20093 getNotationSearchByTextRankedByVolume(searchValue, opts)
 
 Basic search for notations.
 
@@ -1686,16 +2041,16 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const searchValue = "searchValue_example"; // String | Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
+const searchValue = "searchValue_example"; // String | 
 const opts = {
-  'idMarkets': [null], // [Number] | List of market identifiers. Limits the results to the given markets. For possible values, see endpoint `/basic/market/list`.
-  'nsins': ["null"], // [String] | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-  'assetClass': ["null"], // [String] | Limits the results to a particular asset class.
-  'onlyActive': true, // Boolean | If true, restricts the result to active notations.
+  'idMarkets': [null], // [Number] | 
+  'nsins': ["null"], // [String] | 
+  'assetClass': ["null"], // [String] | 
+  'onlyActive': true, // Boolean | 
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
-  'paginationOffset': 0.0, // Number | Non-negative number of entries to skip, or 0 (default).
-  'paginationLimit': 20.0 // Number | Non-negative maximum number of entries to return.
+  'language': "language_example", // String | 
+  'paginationOffset': 0, // Number | Non-negative number of entries to skip, or 0 (default).
+  'paginationLimit': 20 // Number | Non-negative maximum number of entries to return.
 };
 
 // Call api endpoint
@@ -1718,19 +2073,19 @@ apiInstance.getNotationSearchByTextRankedByVolume(searchValue, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchValue** | **String**| Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. | 
- **idMarkets** | [**[Number]**](Number.md)| List of market identifiers. Limits the results to the given markets. For possible values, see endpoint &#x60;/basic/market/list&#x60;. | [optional] 
- **nsins** | [**[String]**](String.md)| A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. | [optional] 
- **assetClass** | [**[String]**](String.md)| Limits the results to a particular asset class. | [optional] 
- **onlyActive** | **Boolean**| If true, restricts the result to active notations. | [optional] [default to true]
+ **searchValue** | **String**|  | 
+ **idMarkets** | [**[Number]**](Number.md)|  | [optional] 
+ **nsins** | [**[String]**](String.md)|  | [optional] 
+ **assetClass** | [**[String]**](String.md)|  | [optional] 
+ **onlyActive** | **Boolean**|  | [optional] [default to true]
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **language** | **String**|  | [optional] 
+ **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
-[**InlineResponse20090**](InlineResponse20090.md)
+[**InlineResponse20093**](InlineResponse20093.md)
 
 ### Authorization
 
@@ -1744,7 +2099,7 @@ Name | Type | Description  | Notes
 
 ## getNotationStatusGet
 
-> InlineResponse20078 getNotationStatusGet(id, opts)
+> InlineResponse20081 getNotationStatusGet(identifier, identifierType, opts)
 
 Intraday trading status of a notation.
 
@@ -1776,14 +2131,15 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const id = "id_example"; // String | Identifier of a notation.
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
 const opts = {
-  'quality': "'DLY'", // String | Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD).
+  'quality': "'DLY'", // String | 
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.getNotationStatusGet(id, opts).then(
+apiInstance.getNotationStatusGet(identifier, identifierType, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1802,13 +2158,14 @@ apiInstance.getNotationStatusGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. | 
- **quality** | **String**| Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). | [optional] [default to &#39;DLY&#39;]
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
+ **quality** | **String**|  | [optional] [default to &#39;DLY&#39;]
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse20078**](InlineResponse20078.md)
+[**InlineResponse20081**](InlineResponse20081.md)
 
 ### Authorization
 
@@ -1822,7 +2179,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier
 
-> InlineResponse20070 postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(body)
+> InlineResponse20072 postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(opts)
 
 Retrieve a list of notations for a given FactSet identifier.
 
@@ -1854,10 +2211,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const body = new quotesapifordigitalportals.InlineObject19(); // InlineObject19 | 
+const opts = {
+  'postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest': new quotesapifordigitalportals.PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest() // PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest | 
+};
 
 // Call api endpoint
-apiInstance.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(body).then(
+apiInstance.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1876,11 +2235,11 @@ apiInstance.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(b
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject19**](InlineObject19.md)|  | 
+ **postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest**](PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20070**](InlineResponse20070.md)
+[**InlineResponse20072**](InlineResponse20072.md)
 
 ### Authorization
 
@@ -1894,7 +2253,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceFactSetIdentifierListByInstrument
 
-> InlineResponse20071 postNotationCrossReferenceFactSetIdentifierListByInstrument(body)
+> InlineResponse20073 postNotationCrossReferenceFactSetIdentifierListByInstrument(opts)
 
 Retrieve a list of FactSet identifiers for a given instrument.
 
@@ -1926,10 +2285,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const body = new quotesapifordigitalportals.InlineObject20(); // InlineObject20 | 
+const opts = {
+  'postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest': new quotesapifordigitalportals.PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest() // PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest | 
+};
 
 // Call api endpoint
-apiInstance.postNotationCrossReferenceFactSetIdentifierListByInstrument(body).then(
+apiInstance.postNotationCrossReferenceFactSetIdentifierListByInstrument(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1948,11 +2309,11 @@ apiInstance.postNotationCrossReferenceFactSetIdentifierListByInstrument(body).th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject20**](InlineObject20.md)|  | 
+ **postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest**](PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20071**](InlineResponse20071.md)
+[**InlineResponse20073**](InlineResponse20073.md)
 
 ### Authorization
 
@@ -1966,7 +2327,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceListByISIN
 
-> InlineResponse20067 postNotationCrossReferenceListByISIN(opts)
+> InlineResponse20069 postNotationCrossReferenceListByISIN(opts)
 
 List of entitled notations.
 
@@ -1999,7 +2360,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NotationApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject17() // InlineObject17 | 
+  'postNotationCrossReferenceListByISINRequest': new quotesapifordigitalportals.PostNotationCrossReferenceListByISINRequest() // PostNotationCrossReferenceListByISINRequest | 
 };
 
 // Call api endpoint
@@ -2022,11 +2383,11 @@ apiInstance.postNotationCrossReferenceListByISIN(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject17**](InlineObject17.md)|  | [optional] 
+ **postNotationCrossReferenceListByISINRequest** | [**PostNotationCrossReferenceListByISINRequest**](PostNotationCrossReferenceListByISINRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20067**](InlineResponse20067.md)
+[**InlineResponse20069**](InlineResponse20069.md)
 
 ### Authorization
 
@@ -2040,7 +2401,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceListByInstrument
 
-> InlineResponse20067 postNotationCrossReferenceListByInstrument(opts)
+> InlineResponse20068 postNotationCrossReferenceListByInstrument(opts)
 
 List of entitled notations.
 
@@ -2073,7 +2434,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NotationApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject16() // InlineObject16 | 
+  'postNotationCrossReferenceListByInstrumentRequest': new quotesapifordigitalportals.PostNotationCrossReferenceListByInstrumentRequest() // PostNotationCrossReferenceListByInstrumentRequest | 
 };
 
 // Call api endpoint
@@ -2096,11 +2457,11 @@ apiInstance.postNotationCrossReferenceListByInstrument(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject16**](InlineObject16.md)|  | [optional] 
+ **postNotationCrossReferenceListByInstrumentRequest** | [**PostNotationCrossReferenceListByInstrumentRequest**](PostNotationCrossReferenceListByInstrumentRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20067**](InlineResponse20067.md)
+[**InlineResponse20068**](InlineResponse20068.md)
 
 ### Authorization
 
@@ -2114,7 +2475,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceListBySymbol
 
-> InlineResponse20068 postNotationCrossReferenceListBySymbol(opts)
+> InlineResponse20070 postNotationCrossReferenceListBySymbol(opts)
 
 List of entitled notations.
 
@@ -2147,7 +2508,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NotationApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject18() // InlineObject18 | 
+  'postNotationCrossReferenceListBySymbolRequest': new quotesapifordigitalportals.PostNotationCrossReferenceListBySymbolRequest() // PostNotationCrossReferenceListBySymbolRequest | 
 };
 
 // Call api endpoint
@@ -2170,11 +2531,85 @@ apiInstance.postNotationCrossReferenceListBySymbol(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject18**](InlineObject18.md)|  | [optional] 
+ **postNotationCrossReferenceListBySymbolRequest** | [**PostNotationCrossReferenceListBySymbolRequest**](PostNotationCrossReferenceListBySymbolRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20068**](InlineResponse20068.md)
+[**InlineResponse20070**](InlineResponse20070.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postNotationMarketList
+
+> InlineResponse20080 postNotationMarketList(opts)
+
+List of markets with entitled notations.
+
+List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
+
+### Example
+
+```javascript
+const { ApiClient, NotationApi } = require('@factset/sdk-quotesapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new NotationApi();
+const opts = {
+  'postNotationMarketListRequest': new quotesapifordigitalportals.PostNotationMarketListRequest() // PostNotationMarketListRequest | 
+};
+
+// Call api endpoint
+apiInstance.postNotationMarketList(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postNotationMarketListRequest** | [**PostNotationMarketListRequest**](PostNotationMarketListRequest.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse20080**](InlineResponse20080.md)
 
 ### Authorization
 
@@ -2188,7 +2623,7 @@ Name | Type | Description  | Notes
 
 ## postNotationSearchByText
 
-> InlineResponse20089 postNotationSearchByText(body)
+> InlineResponse20092 postNotationSearchByText(opts)
 
 Text-based search for notations.
 
@@ -2220,10 +2655,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const body = new quotesapifordigitalportals.InlineObject22(); // InlineObject22 | 
+const opts = {
+  'postNotationSearchByTextRequest': new quotesapifordigitalportals.PostNotationSearchByTextRequest() // PostNotationSearchByTextRequest | 
+};
 
 // Call api endpoint
-apiInstance.postNotationSearchByText(body).then(
+apiInstance.postNotationSearchByText(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -2242,11 +2679,11 @@ apiInstance.postNotationSearchByText(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject22**](InlineObject22.md)|  | 
+ **postNotationSearchByTextRequest** | [**PostNotationSearchByTextRequest**](PostNotationSearchByTextRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20089**](InlineResponse20089.md)
+[**InlineResponse20092**](InlineResponse20092.md)
 
 ### Authorization
 

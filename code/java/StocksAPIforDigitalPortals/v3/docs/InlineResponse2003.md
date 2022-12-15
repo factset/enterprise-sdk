@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;InlineResponse2003Data&gt;**](InlineResponse2003Data.md) | List of dividends. |  [optional]
+**data** | [**InlineResponse2003Data**](InlineResponse2003Data.md) |  |  [optional]
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
 
 

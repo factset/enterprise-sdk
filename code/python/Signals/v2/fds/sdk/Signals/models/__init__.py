@@ -11,7 +11,6 @@
 
 from fds.sdk.Signals.model.contract import Contract
 from fds.sdk.Signals.model.contract_fields import ContractFields
-from fds.sdk.Signals.model.contract_fields_event_date import ContractFieldsEventDate
 from fds.sdk.Signals.model.contract_fields_summary import ContractFieldsSummary
 from fds.sdk.Signals.model.contract_property import ContractProperty
 from fds.sdk.Signals.model.contract_property_items import ContractPropertyItems
@@ -31,6 +30,7 @@ from fds.sdk.Signals.model.event_headlines import EventHeadlines
 from fds.sdk.Signals.model.event_meta import EventMeta
 from fds.sdk.Signals.model.event_request_body import EventRequestBody
 from fds.sdk.Signals.model.events_entities import EventsEntities
+from fds.sdk.Signals.model.events_entities_post import EventsEntitiesPost
 from fds.sdk.Signals.model.events_meta import EventsMeta
 from fds.sdk.Signals.model.events_meta_date_range import EventsMetaDateRange
 from fds.sdk.Signals.model.events_meta_pagination import EventsMetaPagination

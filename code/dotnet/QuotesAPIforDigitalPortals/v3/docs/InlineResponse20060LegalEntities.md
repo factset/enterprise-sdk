@@ -5,7 +5,7 @@ Legal entities and their respective background texts with regard to the role.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a legal entity. | [optional] 
+**Id** | **decimal?** | Identifier of a legal entity. | [optional] 
 **Name** | **string** | Name of the legal entity. | [optional] 
 **BackgroundTexts** | [**InlineResponse20060LegalEntitiesBackgroundTexts**](InlineResponse20060LegalEntitiesBackgroundTexts.md) |  | [optional] 
 

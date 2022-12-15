@@ -5,7 +5,7 @@ Summary risk indicator (SRI).
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of rating grade. | [optional] 
+**Id** | **decimal?** | Identifier of rating grade. | [optional] 
 **Rank** | **string** | Rating grade. | [optional] 
 **Description** | **string** | Description of the rating grade. | [optional] 
 

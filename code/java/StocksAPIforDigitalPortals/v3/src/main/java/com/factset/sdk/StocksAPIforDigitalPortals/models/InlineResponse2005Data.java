@@ -1,6 +1,6 @@
 /*
  * Stocks API For Digital Portals
- * The stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts: Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with potentially daily updates).  This API is fully integrated with the corresponding Quotes API, allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the Time Series API for Digital Portals.  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the Bonds API and the Securitized Derivatives API for details.
+ * The Stocks API features a screener to search for equity instruments based on stock-specific parameters.  Parameters for up to three fiscal years might now be used in one request; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years. Search criteria also include benchmark-related attributes (beta, correlation, outperformance), and ESG parameters, based on FactSet’s Truvalue ESG scores.  A separate endpoint returns the possible values and value ranges for the parameters that the endpoint /stock/notation/screener/search accepts Application developers can request the values and value ranges only for a restricted set of notations that match predefined parameters. This functionality may be used to pre-fill the values and value ranges of the parameters of the /stock/notation/screener/search endpoint so that performing a search always leads to a non-empty set of notations.  The endpoint /stock/notation/ranking/intraday/list ranks stocks notations using intraday figures, for example to build a gainers/losers list.   Additional endpoints include end-of-day benchmark key figures, and selected fundamentals (as of end of fiscal year and with daily updates).  This API is fully integrated with the corresponding [Quotes API](https://developer.factset.com/api-catalog/quotes-api-digital-portals), allowing access to detailed price and performance information of instruments, as well as basic security identifier cross-reference. For direct access to price histories, please refer to the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals).  Similar criteria based screener APIs exist for fixed income instruments and securitized derivatives: See the [Bonds API](https://developer.factset.com/api-catalog/bonds-api-digital-portals) and the [Securitized Derivatives API](https://developer.factset.com/api-catalog/securitized-derivatives-api-digital-portals) for details.  See also the recipe [\"Enrich Your Digital Portal with Flexible Equity Screening\"](https://developer.factset.com/recipe-catalog/enrich-your-digital-portal-flexible-equity-screening). 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2005Notation;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2005Status;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2005Officers;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2005Type;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
@@ -36,161 +35,79 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
  * InlineResponse2005Data
  */
 @JsonPropertyOrder({
-  InlineResponse2005Data.JSON_PROPERTY_NOTATION,
-  InlineResponse2005Data.JSON_PROPERTY_BETA,
-  InlineResponse2005Data.JSON_PROPERTY_CORRELATION,
-  InlineResponse2005Data.JSON_PROPERTY_OUTPERFORMANCE,
-  InlineResponse2005Data.JSON_PROPERTY_STATUS
+  InlineResponse2005Data.JSON_PROPERTY_TYPE,
+  InlineResponse2005Data.JSON_PROPERTY_OFFICERS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2005Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NOTATION = "notation";
-  private InlineResponse2005Notation notation;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private InlineResponse2005Type type;
 
-  public static final String JSON_PROPERTY_BETA = "beta";
-  private BigDecimal beta;
-
-  public static final String JSON_PROPERTY_CORRELATION = "correlation";
-  private BigDecimal correlation;
-
-  public static final String JSON_PROPERTY_OUTPERFORMANCE = "outperformance";
-  private BigDecimal outperformance;
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private InlineResponse2005Status status;
+  public static final String JSON_PROPERTY_OFFICERS = "officers";
+  private java.util.List<InlineResponse2005Officers> officers = null;
 
   public InlineResponse2005Data() { 
   }
 
-  public InlineResponse2005Data notation(InlineResponse2005Notation notation) {
-    this.notation = notation;
+  public InlineResponse2005Data type(InlineResponse2005Type type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get notation
-   * @return notation
+   * Get type
+   * @return type
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NOTATION)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2005Notation getNotation() {
-    return notation;
+  public InlineResponse2005Type getType() {
+    return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NOTATION)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNotation(InlineResponse2005Notation notation) {
-    this.notation = notation;
+  public void setType(InlineResponse2005Type type) {
+    this.type = type;
   }
 
 
-  public InlineResponse2005Data beta(BigDecimal beta) {
-    this.beta = beta;
+  public InlineResponse2005Data officers(java.util.List<InlineResponse2005Officers> officers) {
+    this.officers = officers;
+    return this;
+  }
+
+  public InlineResponse2005Data addOfficersItem(InlineResponse2005Officers officersItem) {
+    if (this.officers == null) {
+      this.officers = new java.util.ArrayList<>();
+    }
+    this.officers.add(officersItem);
     return this;
   }
 
    /**
-   * Beta of the notation.
-   * @return beta
+   * List of officers that are members of the board.
+   * @return officers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Beta of the notation.")
-  @JsonProperty(JSON_PROPERTY_BETA)
+  @ApiModelProperty(value = "List of officers that are members of the board.")
+  @JsonProperty(JSON_PROPERTY_OFFICERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getBeta() {
-    return beta;
+  public java.util.List<InlineResponse2005Officers> getOfficers() {
+    return officers;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BETA)
+  @JsonProperty(JSON_PROPERTY_OFFICERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBeta(BigDecimal beta) {
-    this.beta = beta;
-  }
-
-
-  public InlineResponse2005Data correlation(BigDecimal correlation) {
-    this.correlation = correlation;
-    return this;
-  }
-
-   /**
-   * Correlation of the notation.
-   * @return correlation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Correlation of the notation.")
-  @JsonProperty(JSON_PROPERTY_CORRELATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getCorrelation() {
-    return correlation;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CORRELATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCorrelation(BigDecimal correlation) {
-    this.correlation = correlation;
-  }
-
-
-  public InlineResponse2005Data outperformance(BigDecimal outperformance) {
-    this.outperformance = outperformance;
-    return this;
-  }
-
-   /**
-   * Outperformance of the notation.
-   * @return outperformance
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Outperformance of the notation.")
-  @JsonProperty(JSON_PROPERTY_OUTPERFORMANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getOutperformance() {
-    return outperformance;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_OUTPERFORMANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOutperformance(BigDecimal outperformance) {
-    this.outperformance = outperformance;
-  }
-
-
-  public InlineResponse2005Data status(InlineResponse2005Status status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2005Status getStatus() {
-    return status;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(InlineResponse2005Status status) {
-    this.status = status;
+  public void setOfficers(java.util.List<InlineResponse2005Officers> officers) {
+    this.officers = officers;
   }
 
 
@@ -206,27 +123,21 @@ public class InlineResponse2005Data implements Serializable {
       return false;
     }
     InlineResponse2005Data inlineResponse2005Data = (InlineResponse2005Data) o;
-    return Objects.equals(this.notation, inlineResponse2005Data.notation) &&
-        Objects.equals(this.beta, inlineResponse2005Data.beta) &&
-        Objects.equals(this.correlation, inlineResponse2005Data.correlation) &&
-        Objects.equals(this.outperformance, inlineResponse2005Data.outperformance) &&
-        Objects.equals(this.status, inlineResponse2005Data.status);
+    return Objects.equals(this.type, inlineResponse2005Data.type) &&
+        Objects.equals(this.officers, inlineResponse2005Data.officers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(notation, beta, correlation, outperformance, status);
+    return Objects.hash(type, officers);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2005Data {\n");
-    sb.append("    notation: ").append(toIndentedString(notation)).append("\n");
-    sb.append("    beta: ").append(toIndentedString(beta)).append("\n");
-    sb.append("    correlation: ").append(toIndentedString(correlation)).append("\n");
-    sb.append("    outperformance: ").append(toIndentedString(outperformance)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    officers: ").append(toIndentedString(officers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

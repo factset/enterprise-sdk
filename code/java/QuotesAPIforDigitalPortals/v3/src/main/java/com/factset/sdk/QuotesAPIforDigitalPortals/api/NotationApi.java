@@ -12,13 +12,6 @@ import java.util.Map;
 import java.util.Objects;
 
 import java.math.BigDecimal;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject16;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject17;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject18;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject19;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject20;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject22;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20064;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20065;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20066;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20067;
@@ -33,9 +26,19 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20075;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20076;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20077;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20078;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20088;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20089;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20090;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20079;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20080;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20081;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20091;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20092;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20093;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostNotationCrossReferenceListByISINRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostNotationCrossReferenceListByInstrumentRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostNotationCrossReferenceListBySymbolRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostNotationMarketListRequest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostNotationSearchByTextRequest;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotationApi {
@@ -51,23 +54,23 @@ public class NotationApi {
 
     private static final Map<Integer, GenericType> getNotationCrossReferenceFactSetIdentifierGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationCrossReferenceFactSetIdentifierGetResponseTypeMap.put(200, new GenericType<InlineResponse20069>(){});
+    getNotationCrossReferenceFactSetIdentifierGetResponseTypeMap.put(200, new GenericType<InlineResponse20071>(){});
   }
   private static final Map<Integer, GenericType> getNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeMap.put(200, new GenericType<InlineResponse20066>(){});
+    getNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeMap.put(200, new GenericType<InlineResponse20067>(){});
   }
   private static final Map<Integer, GenericType> getNotationGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationGetResponseTypeMap.put(200, new GenericType<InlineResponse20064>(){});
+    getNotationGetResponseTypeMap.put(200, new GenericType<InlineResponse20065>(){});
   }
   private static final Map<Integer, GenericType> getNotationKeyFiguresMonth1GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationKeyFiguresMonth1GetResponseTypeMap.put(200, new GenericType<InlineResponse20072>(){});
+    getNotationKeyFiguresMonth1GetResponseTypeMap.put(200, new GenericType<InlineResponse20076>(){});
   }
   private static final Map<Integer, GenericType> getNotationKeyFiguresMonth1ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationKeyFiguresMonth1ListResponseTypeMap.put(200, new GenericType<InlineResponse20073>(){});
+    getNotationKeyFiguresMonth1ListResponseTypeMap.put(200, new GenericType<InlineResponse20077>(){});
   }
   private static final Map<Integer, GenericType> getNotationKeyFiguresMonth3GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
@@ -87,19 +90,27 @@ public class NotationApi {
   }
   private static final Map<Integer, GenericType> getNotationKeyFiguresWeek1GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationKeyFiguresWeek1GetResponseTypeMap.put(200, new GenericType<InlineResponse20072>(){});
+    getNotationKeyFiguresWeek1GetResponseTypeMap.put(200, new GenericType<InlineResponse20076>(){});
   }
   private static final Map<Integer, GenericType> getNotationKeyFiguresWeek1ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationKeyFiguresWeek1ListResponseTypeMap.put(200, new GenericType<InlineResponse20073>(){});
+    getNotationKeyFiguresWeek1ListResponseTypeMap.put(200, new GenericType<InlineResponse20077>(){});
+  }
+  private static final Map<Integer, GenericType> getNotationKeyFiguresYear10GetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNotationKeyFiguresYear10GetResponseTypeMap.put(200, new GenericType<InlineResponse20074>(){});
+  }
+  private static final Map<Integer, GenericType> getNotationKeyFiguresYear10ListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNotationKeyFiguresYear10ListResponseTypeMap.put(200, new GenericType<InlineResponse20075>(){});
   }
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear1GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationKeyFiguresYear1GetResponseTypeMap.put(200, new GenericType<InlineResponse20072>(){});
+    getNotationKeyFiguresYear1GetResponseTypeMap.put(200, new GenericType<InlineResponse20076>(){});
   }
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear1ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationKeyFiguresYear1ListResponseTypeMap.put(200, new GenericType<InlineResponse20073>(){});
+    getNotationKeyFiguresYear1ListResponseTypeMap.put(200, new GenericType<InlineResponse20077>(){});
   }
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear3GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
@@ -117,53 +128,65 @@ public class NotationApi {
   static {
     getNotationKeyFiguresYear5ListResponseTypeMap.put(200, new GenericType<InlineResponse20075>(){});
   }
+  private static final Map<Integer, GenericType> getNotationKeyFiguresYear7GetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNotationKeyFiguresYear7GetResponseTypeMap.put(200, new GenericType<InlineResponse20074>(){});
+  }
+  private static final Map<Integer, GenericType> getNotationKeyFiguresYear7ListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNotationKeyFiguresYear7ListResponseTypeMap.put(200, new GenericType<InlineResponse20075>(){});
+  }
   private static final Map<Integer, GenericType> getNotationKeyFiguresYearToDateGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationKeyFiguresYearToDateGetResponseTypeMap.put(200, new GenericType<InlineResponse20076>(){});
+    getNotationKeyFiguresYearToDateGetResponseTypeMap.put(200, new GenericType<InlineResponse20078>(){});
   }
   private static final Map<Integer, GenericType> getNotationKeyFiguresYearToDateListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationKeyFiguresYearToDateListResponseTypeMap.put(200, new GenericType<InlineResponse20077>(){});
+    getNotationKeyFiguresYearToDateListResponseTypeMap.put(200, new GenericType<InlineResponse20079>(){});
   }
   private static final Map<Integer, GenericType> getNotationListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationListResponseTypeMap.put(200, new GenericType<InlineResponse20065>(){});
+    getNotationListResponseTypeMap.put(200, new GenericType<InlineResponse20066>(){});
   }
   private static final Map<Integer, GenericType> getNotationSearchBasicResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationSearchBasicResponseTypeMap.put(200, new GenericType<InlineResponse20088>(){});
+    getNotationSearchBasicResponseTypeMap.put(200, new GenericType<InlineResponse20091>(){});
   }
   private static final Map<Integer, GenericType> getNotationSearchByTextRankedByVolumeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationSearchByTextRankedByVolumeResponseTypeMap.put(200, new GenericType<InlineResponse20090>(){});
+    getNotationSearchByTextRankedByVolumeResponseTypeMap.put(200, new GenericType<InlineResponse20093>(){});
   }
   private static final Map<Integer, GenericType> getNotationStatusGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getNotationStatusGetResponseTypeMap.put(200, new GenericType<InlineResponse20078>(){});
+    getNotationStatusGetResponseTypeMap.put(200, new GenericType<InlineResponse20081>(){});
   }
   private static final Map<Integer, GenericType> postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeMap.put(200, new GenericType<InlineResponse20070>(){});
+    postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeMap.put(200, new GenericType<InlineResponse20072>(){});
   }
   private static final Map<Integer, GenericType> postNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse20071>(){});
+    postNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse20073>(){});
   }
   private static final Map<Integer, GenericType> postNotationCrossReferenceListByISINResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postNotationCrossReferenceListByISINResponseTypeMap.put(200, new GenericType<InlineResponse20067>(){});
+    postNotationCrossReferenceListByISINResponseTypeMap.put(200, new GenericType<InlineResponse20069>(){});
   }
   private static final Map<Integer, GenericType> postNotationCrossReferenceListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postNotationCrossReferenceListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse20067>(){});
+    postNotationCrossReferenceListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse20068>(){});
   }
   private static final Map<Integer, GenericType> postNotationCrossReferenceListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postNotationCrossReferenceListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20068>(){});
+    postNotationCrossReferenceListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20070>(){});
+  }
+  private static final Map<Integer, GenericType> postNotationMarketListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postNotationMarketListResponseTypeMap.put(200, new GenericType<InlineResponse20080>(){});
   }
   private static final Map<Integer, GenericType> postNotationSearchByTextResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postNotationSearchByTextResponseTypeMap.put(200, new GenericType<InlineResponse20089>(){});
+    postNotationSearchByTextResponseTypeMap.put(200, new GenericType<InlineResponse20092>(){});
   }
 
    
@@ -190,9 +213,10 @@ public class NotationApi {
   /**
    * Retrieve FactSet identifiers for a given notation.
    * &lt;p&gt;Retrieve FactSet identifiers for a given notation. Security and listing-level identifiers are always included, regional level identifiers are included, if available.
-   * @param id Identifier of a notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20069
+   * @return InlineResponse20071
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -200,16 +224,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20069 getNotationCrossReferenceFactSetIdentifierGet(String id, java.util.Set<String> attributes) throws ApiException {
-    return getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(id, attributes).getData();
+  public InlineResponse20071 getNotationCrossReferenceFactSetIdentifierGet(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(identifier, identifierType, attributes).getData();
   }
 
   /**
    * Retrieve FactSet identifiers for a given notation.
    * &lt;p&gt;Retrieve FactSet identifiers for a given notation. Security and listing-level identifiers are always included, regional level identifiers are included, if available.
-   * @param id Identifier of a notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20069&gt;
+   * @return ApiResponse&lt;InlineResponse20071&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -217,12 +242,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20069> getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(String id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20071> getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationCrossReferenceFactSetIdentifierGet");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationCrossReferenceFactSetIdentifierGet");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationCrossReferenceFactSetIdentifierGet");
     }
     
     // create path and map variables
@@ -234,7 +264,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -255,7 +286,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20069
+        InlineResponse20071
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationCrossReferenceFactSetIdentifierGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -267,10 +298,10 @@ public class NotationApi {
   /**
    * Translate a FactSet market symbol to a notation.
    * Translate a FactSet market symbol to a notation. This symbol is also known as TICKER_EXCHANGE.
-   * @param factSetMarketSymbol Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE). (required)
+   * @param factSetMarketSymbol  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @return InlineResponse20066
+   * @param language  (optional)
+   * @return InlineResponse20067
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -278,17 +309,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20066 getNotationCrossReferenceGetByFactSetMarketSymbol(String factSetMarketSymbol, java.util.Set<String> attributes, String language) throws ApiException {
+  public InlineResponse20067 getNotationCrossReferenceGetByFactSetMarketSymbol(String factSetMarketSymbol, java.util.Set<String> attributes, String language) throws ApiException {
     return getNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(factSetMarketSymbol, attributes, language).getData();
   }
 
   /**
    * Translate a FactSet market symbol to a notation.
    * Translate a FactSet market symbol to a notation. This symbol is also known as TICKER_EXCHANGE.
-   * @param factSetMarketSymbol Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE). (required)
+   * @param factSetMarketSymbol  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @return ApiResponse&lt;InlineResponse20066&gt;
+   * @param language  (optional)
+   * @return ApiResponse&lt;InlineResponse20067&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -296,7 +327,7 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20066> getNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(String factSetMarketSymbol, java.util.Set<String> attributes, String language) throws ApiException {
+  public ApiResponse<InlineResponse20067> getNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(String factSetMarketSymbol, java.util.Set<String> attributes, String language) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'factSetMarketSymbol' is set
@@ -335,7 +366,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20066
+        InlineResponse20067
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationCrossReferenceGetByFactSetMarketSymbol", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -347,10 +378,11 @@ public class NotationApi {
   /**
    * Basic data for a notation.
    * Basic data for a notation.
-   * @param id Identifier of a notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @return InlineResponse20064
+   * @param language  (optional)
+   * @return InlineResponse20065
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -358,17 +390,18 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20064 getNotationGet(String id, java.util.Set<String> attributes, String language) throws ApiException {
-    return getNotationGetWithHttpInfo(id, attributes, language).getData();
+  public InlineResponse20065 getNotationGet(String identifier, String identifierType, java.util.Set<String> attributes, String language) throws ApiException {
+    return getNotationGetWithHttpInfo(identifier, identifierType, attributes, language).getData();
   }
 
   /**
    * Basic data for a notation.
    * Basic data for a notation.
-   * @param id Identifier of a notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @return ApiResponse&lt;InlineResponse20064&gt;
+   * @param language  (optional)
+   * @return ApiResponse&lt;InlineResponse20065&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -376,12 +409,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20064> getNotationGetWithHttpInfo(String id, java.util.Set<String> attributes, String language) throws ApiException {
+  public ApiResponse<InlineResponse20065> getNotationGetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes, String language) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationGet");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationGet");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationGet");
     }
     
     // create path and map variables
@@ -393,7 +431,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_language", language));
 
@@ -415,7 +454,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20064
+        InlineResponse20065
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -427,9 +466,10 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of one month.
    * End-of-day (EOD) key figures for the time range of one month.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20072
+   * @return InlineResponse20076
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -437,16 +477,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20072 getNotationKeyFiguresMonth1Get(String id, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresMonth1GetWithHttpInfo(id, attributes).getData();
+  public InlineResponse20076 getNotationKeyFiguresMonth1Get(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresMonth1GetWithHttpInfo(identifier, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of one month.
    * End-of-day (EOD) key figures for the time range of one month.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20072&gt;
+   * @return ApiResponse&lt;InlineResponse20076&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -454,12 +495,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20072> getNotationKeyFiguresMonth1GetWithHttpInfo(String id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20076> getNotationKeyFiguresMonth1GetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationKeyFiguresMonth1Get");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationKeyFiguresMonth1Get");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth1Get");
     }
     
     // create path and map variables
@@ -471,7 +517,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -492,7 +539,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20072
+        InlineResponse20076
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresMonth1Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -504,9 +551,10 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of one month, for a list of notations.
    * End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20073
+   * @return InlineResponse20077
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -514,16 +562,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20073 getNotationKeyFiguresMonth1List(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresMonth1ListWithHttpInfo(ids, attributes).getData();
+  public InlineResponse20077 getNotationKeyFiguresMonth1List(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresMonth1ListWithHttpInfo(identifiers, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of one month, for a list of notations.
    * End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20073&gt;
+   * @return ApiResponse&lt;InlineResponse20077&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -531,12 +580,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20073> getNotationKeyFiguresMonth1ListWithHttpInfo(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20077> getNotationKeyFiguresMonth1ListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getNotationKeyFiguresMonth1List");
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationKeyFiguresMonth1List");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth1List");
     }
     
     // create path and map variables
@@ -548,7 +602,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -569,7 +624,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20073
+        InlineResponse20077
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresMonth1List", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -581,7 +636,8 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of three months.
    * End-of-day (EOD) key figures for the time range of three months.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse20074
    * @throws ApiException if fails to make API call
@@ -591,14 +647,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20074 getNotationKeyFiguresMonth3Get(String id, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresMonth3GetWithHttpInfo(id, attributes).getData();
+  public InlineResponse20074 getNotationKeyFiguresMonth3Get(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresMonth3GetWithHttpInfo(identifier, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of three months.
    * End-of-day (EOD) key figures for the time range of three months.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse20074&gt;
    * @throws ApiException if fails to make API call
@@ -608,12 +665,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20074> getNotationKeyFiguresMonth3GetWithHttpInfo(String id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20074> getNotationKeyFiguresMonth3GetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationKeyFiguresMonth3Get");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationKeyFiguresMonth3Get");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth3Get");
     }
     
     // create path and map variables
@@ -625,7 +687,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -658,7 +721,8 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of three months, for a list of notations.
    * End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse20075
    * @throws ApiException if fails to make API call
@@ -668,14 +732,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20075 getNotationKeyFiguresMonth3List(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresMonth3ListWithHttpInfo(ids, attributes).getData();
+  public InlineResponse20075 getNotationKeyFiguresMonth3List(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresMonth3ListWithHttpInfo(identifiers, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of three months, for a list of notations.
    * End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse20075&gt;
    * @throws ApiException if fails to make API call
@@ -685,12 +750,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20075> getNotationKeyFiguresMonth3ListWithHttpInfo(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20075> getNotationKeyFiguresMonth3ListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getNotationKeyFiguresMonth3List");
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationKeyFiguresMonth3List");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth3List");
     }
     
     // create path and map variables
@@ -702,7 +772,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -735,7 +806,8 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of six months.
    * End-of-day (EOD) key figures for the time range of six months.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse20074
    * @throws ApiException if fails to make API call
@@ -745,14 +817,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20074 getNotationKeyFiguresMonth6Get(String id, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresMonth6GetWithHttpInfo(id, attributes).getData();
+  public InlineResponse20074 getNotationKeyFiguresMonth6Get(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresMonth6GetWithHttpInfo(identifier, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of six months.
    * End-of-day (EOD) key figures for the time range of six months.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse20074&gt;
    * @throws ApiException if fails to make API call
@@ -762,12 +835,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20074> getNotationKeyFiguresMonth6GetWithHttpInfo(String id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20074> getNotationKeyFiguresMonth6GetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationKeyFiguresMonth6Get");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationKeyFiguresMonth6Get");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth6Get");
     }
     
     // create path and map variables
@@ -779,7 +857,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -812,7 +891,8 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of six months, for a list of notations.
    * End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse20075
    * @throws ApiException if fails to make API call
@@ -822,14 +902,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20075 getNotationKeyFiguresMonth6List(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresMonth6ListWithHttpInfo(ids, attributes).getData();
+  public InlineResponse20075 getNotationKeyFiguresMonth6List(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresMonth6ListWithHttpInfo(identifiers, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of six months, for a list of notations.
    * End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse20075&gt;
    * @throws ApiException if fails to make API call
@@ -839,12 +920,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20075> getNotationKeyFiguresMonth6ListWithHttpInfo(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20075> getNotationKeyFiguresMonth6ListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getNotationKeyFiguresMonth6List");
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationKeyFiguresMonth6List");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresMonth6List");
     }
     
     // create path and map variables
@@ -856,7 +942,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -889,9 +976,10 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of one week.
    * End-of-day (EOD) key figures for the time range of one week.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20072
+   * @return InlineResponse20076
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -899,16 +987,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20072 getNotationKeyFiguresWeek1Get(String id, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresWeek1GetWithHttpInfo(id, attributes).getData();
+  public InlineResponse20076 getNotationKeyFiguresWeek1Get(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresWeek1GetWithHttpInfo(identifier, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of one week.
    * End-of-day (EOD) key figures for the time range of one week.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20072&gt;
+   * @return ApiResponse&lt;InlineResponse20076&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -916,12 +1005,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20072> getNotationKeyFiguresWeek1GetWithHttpInfo(String id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20076> getNotationKeyFiguresWeek1GetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationKeyFiguresWeek1Get");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationKeyFiguresWeek1Get");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresWeek1Get");
     }
     
     // create path and map variables
@@ -933,7 +1027,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -954,7 +1049,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20072
+        InlineResponse20076
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresWeek1Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -966,9 +1061,10 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of one week, for a list of notations.
    * End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20073
+   * @return InlineResponse20077
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -976,16 +1072,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20073 getNotationKeyFiguresWeek1List(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresWeek1ListWithHttpInfo(ids, attributes).getData();
+  public InlineResponse20077 getNotationKeyFiguresWeek1List(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresWeek1ListWithHttpInfo(identifiers, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of one week, for a list of notations.
    * End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20073&gt;
+   * @return ApiResponse&lt;InlineResponse20077&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -993,12 +1090,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20073> getNotationKeyFiguresWeek1ListWithHttpInfo(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20077> getNotationKeyFiguresWeek1ListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getNotationKeyFiguresWeek1List");
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationKeyFiguresWeek1List");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresWeek1List");
     }
     
     // create path and map variables
@@ -1010,7 +1112,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -1031,7 +1134,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20073
+        InlineResponse20077
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresWeek1List", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1041,11 +1144,12 @@ public class NotationApi {
 
   }
   /**
-   * End-of-day (EOD) key figures for the time range of one year.
-   * End-of-day (EOD) key figures for the time range of one year.
-   * @param id Identifier of the notation. (required)
+   * End-of-day (EOD) key figures for the time range of ten years.
+   * End-of-day (EOD) key figures for the time range of ten years.
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20072
+   * @return InlineResponse20074
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1053,16 +1157,187 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20072 getNotationKeyFiguresYear1Get(String id, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresYear1GetWithHttpInfo(id, attributes).getData();
+  public InlineResponse20074 getNotationKeyFiguresYear10Get(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYear10GetWithHttpInfo(identifier, identifierType, attributes).getData();
+  }
+
+  /**
+   * End-of-day (EOD) key figures for the time range of ten years.
+   * End-of-day (EOD) key figures for the time range of ten years.
+   * @param identifier  (required)
+   * @param identifierType  (required)
+   * @param attributes Limit the attributes returned in the response to the specified set. (optional)
+   * @return ApiResponse&lt;InlineResponse20074&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse20074> getNotationKeyFiguresYear10GetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationKeyFiguresYear10Get");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear10Get");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/notation/keyFigures/year/10/get";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        InlineResponse20074
+      
+    > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresYear10Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getNotationKeyFiguresYear10GetResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+   * End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+   * @param identifiers  (required)
+   * @param identifierType  (required)
+   * @param attributes Limit the attributes returned in the response to the specified set. (optional)
+   * @return InlineResponse20075
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse20075 getNotationKeyFiguresYear10List(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYear10ListWithHttpInfo(identifiers, identifierType, attributes).getData();
+  }
+
+  /**
+   * End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+   * End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+   * @param identifiers  (required)
+   * @param identifierType  (required)
+   * @param attributes Limit the attributes returned in the response to the specified set. (optional)
+   * @return ApiResponse&lt;InlineResponse20075&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse20075> getNotationKeyFiguresYear10ListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYear10List");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear10List");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/notation/keyFigures/year/10/list";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        InlineResponse20075
+      
+    > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresYear10List", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getNotationKeyFiguresYear10ListResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * End-of-day (EOD) key figures for the time range of one year.
+   * End-of-day (EOD) key figures for the time range of one year.
+   * @param identifier  (required)
+   * @param identifierType  (required)
+   * @param attributes Limit the attributes returned in the response to the specified set. (optional)
+   * @return InlineResponse20076
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse20076 getNotationKeyFiguresYear1Get(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYear1GetWithHttpInfo(identifier, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of one year.
    * End-of-day (EOD) key figures for the time range of one year.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20072&gt;
+   * @return ApiResponse&lt;InlineResponse20076&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1070,12 +1345,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20072> getNotationKeyFiguresYear1GetWithHttpInfo(String id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20076> getNotationKeyFiguresYear1GetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationKeyFiguresYear1Get");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationKeyFiguresYear1Get");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear1Get");
     }
     
     // create path and map variables
@@ -1087,7 +1367,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -1108,7 +1389,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20072
+        InlineResponse20076
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresYear1Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1120,9 +1401,10 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of one year, for a list of notations.
    * End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20073
+   * @return InlineResponse20077
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1130,16 +1412,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20073 getNotationKeyFiguresYear1List(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresYear1ListWithHttpInfo(ids, attributes).getData();
+  public InlineResponse20077 getNotationKeyFiguresYear1List(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYear1ListWithHttpInfo(identifiers, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of one year, for a list of notations.
    * End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20073&gt;
+   * @return ApiResponse&lt;InlineResponse20077&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1147,12 +1430,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20073> getNotationKeyFiguresYear1ListWithHttpInfo(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20077> getNotationKeyFiguresYear1ListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getNotationKeyFiguresYear1List");
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYear1List");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear1List");
     }
     
     // create path and map variables
@@ -1164,7 +1452,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -1185,7 +1474,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20073
+        InlineResponse20077
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresYear1List", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1197,7 +1486,8 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of three years.
    * End-of-day (EOD) key figures for the time range of three years.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse20074
    * @throws ApiException if fails to make API call
@@ -1207,14 +1497,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20074 getNotationKeyFiguresYear3Get(String id, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresYear3GetWithHttpInfo(id, attributes).getData();
+  public InlineResponse20074 getNotationKeyFiguresYear3Get(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYear3GetWithHttpInfo(identifier, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of three years.
    * End-of-day (EOD) key figures for the time range of three years.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse20074&gt;
    * @throws ApiException if fails to make API call
@@ -1224,12 +1515,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20074> getNotationKeyFiguresYear3GetWithHttpInfo(String id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20074> getNotationKeyFiguresYear3GetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationKeyFiguresYear3Get");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationKeyFiguresYear3Get");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear3Get");
     }
     
     // create path and map variables
@@ -1241,7 +1537,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -1274,7 +1571,8 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of three years, for a list of notations.
    * End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse20075
    * @throws ApiException if fails to make API call
@@ -1284,14 +1582,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20075 getNotationKeyFiguresYear3List(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresYear3ListWithHttpInfo(ids, attributes).getData();
+  public InlineResponse20075 getNotationKeyFiguresYear3List(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYear3ListWithHttpInfo(identifiers, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of three years, for a list of notations.
    * End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse20075&gt;
    * @throws ApiException if fails to make API call
@@ -1301,12 +1600,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20075> getNotationKeyFiguresYear3ListWithHttpInfo(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20075> getNotationKeyFiguresYear3ListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getNotationKeyFiguresYear3List");
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYear3List");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear3List");
     }
     
     // create path and map variables
@@ -1318,7 +1622,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -1351,7 +1656,8 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of five years.
    * End-of-day (EOD) key figures for the time range of five years.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse20074
    * @throws ApiException if fails to make API call
@@ -1361,14 +1667,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20074 getNotationKeyFiguresYear5Get(String id, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresYear5GetWithHttpInfo(id, attributes).getData();
+  public InlineResponse20074 getNotationKeyFiguresYear5Get(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYear5GetWithHttpInfo(identifier, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of five years.
    * End-of-day (EOD) key figures for the time range of five years.
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse20074&gt;
    * @throws ApiException if fails to make API call
@@ -1378,12 +1685,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20074> getNotationKeyFiguresYear5GetWithHttpInfo(String id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20074> getNotationKeyFiguresYear5GetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationKeyFiguresYear5Get");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationKeyFiguresYear5Get");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear5Get");
     }
     
     // create path and map variables
@@ -1395,7 +1707,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -1428,7 +1741,8 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range of five years, for a list of notations.
    * End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse20075
    * @throws ApiException if fails to make API call
@@ -1438,14 +1752,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20075 getNotationKeyFiguresYear5List(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresYear5ListWithHttpInfo(ids, attributes).getData();
+  public InlineResponse20075 getNotationKeyFiguresYear5List(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYear5ListWithHttpInfo(identifiers, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range of five years, for a list of notations.
    * End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse20075&gt;
    * @throws ApiException if fails to make API call
@@ -1455,12 +1770,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20075> getNotationKeyFiguresYear5ListWithHttpInfo(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20075> getNotationKeyFiguresYear5ListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getNotationKeyFiguresYear5List");
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYear5List");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear5List");
     }
     
     // create path and map variables
@@ -1472,7 +1792,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -1503,11 +1824,12 @@ public class NotationApi {
 
   }
   /**
-   * End-of-day (EOD) key figures for the time range year-to-date (YTD)..
-   * End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..
-   * @param id Identifier of the notation. (required)
+   * End-of-day (EOD) key figures for the time range of seven years.
+   * End-of-day (EOD) key figures for the time range of seven years.
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20076
+   * @return InlineResponse20074
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1515,16 +1837,187 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20076 getNotationKeyFiguresYearToDateGet(String id, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresYearToDateGetWithHttpInfo(id, attributes).getData();
+  public InlineResponse20074 getNotationKeyFiguresYear7Get(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYear7GetWithHttpInfo(identifier, identifierType, attributes).getData();
+  }
+
+  /**
+   * End-of-day (EOD) key figures for the time range of seven years.
+   * End-of-day (EOD) key figures for the time range of seven years.
+   * @param identifier  (required)
+   * @param identifierType  (required)
+   * @param attributes Limit the attributes returned in the response to the specified set. (optional)
+   * @return ApiResponse&lt;InlineResponse20074&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse20074> getNotationKeyFiguresYear7GetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationKeyFiguresYear7Get");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear7Get");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/notation/keyFigures/year/7/get";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        InlineResponse20074
+      
+    > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresYear7Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getNotationKeyFiguresYear7GetResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+   * End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+   * @param identifiers  (required)
+   * @param identifierType  (required)
+   * @param attributes Limit the attributes returned in the response to the specified set. (optional)
+   * @return InlineResponse20075
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse20075 getNotationKeyFiguresYear7List(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYear7ListWithHttpInfo(identifiers, identifierType, attributes).getData();
+  }
+
+  /**
+   * End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+   * End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+   * @param identifiers  (required)
+   * @param identifierType  (required)
+   * @param attributes Limit the attributes returned in the response to the specified set. (optional)
+   * @return ApiResponse&lt;InlineResponse20075&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse20075> getNotationKeyFiguresYear7ListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYear7List");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYear7List");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/notation/keyFigures/year/7/list";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        InlineResponse20075
+      
+    > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresYear7List", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getNotationKeyFiguresYear7ListResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * End-of-day (EOD) key figures for the time range year-to-date (YTD)..
+   * End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..
+   * @param identifier  (required)
+   * @param identifierType  (required)
+   * @param attributes Limit the attributes returned in the response to the specified set. (optional)
+   * @return InlineResponse20078
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse20078 getNotationKeyFiguresYearToDateGet(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYearToDateGetWithHttpInfo(identifier, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range year-to-date (YTD)..
    * End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..
-   * @param id Identifier of the notation. (required)
+   * @param identifier  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20076&gt;
+   * @return ApiResponse&lt;InlineResponse20078&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1532,12 +2025,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20076> getNotationKeyFiguresYearToDateGetWithHttpInfo(String id, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20078> getNotationKeyFiguresYearToDateGetWithHttpInfo(String identifier, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationKeyFiguresYearToDateGet");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationKeyFiguresYearToDateGet");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYearToDateGet");
     }
     
     // create path and map variables
@@ -1549,7 +2047,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -1570,7 +2069,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20076
+        InlineResponse20078
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresYearToDateGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1582,9 +2081,10 @@ public class NotationApi {
   /**
    * End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
    * End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations. The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent tradingday of the current calendar year for which EOD prices are available..
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20077
+   * @return InlineResponse20079
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1592,16 +2092,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20077 getNotationKeyFiguresYearToDateList(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
-    return getNotationKeyFiguresYearToDateListWithHttpInfo(ids, attributes).getData();
+  public InlineResponse20079 getNotationKeyFiguresYearToDateList(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
+    return getNotationKeyFiguresYearToDateListWithHttpInfo(identifiers, identifierType, attributes).getData();
   }
 
   /**
    * End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
    * End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations. The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent tradingday of the current calendar year for which EOD prices are available..
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20077&gt;
+   * @return ApiResponse&lt;InlineResponse20079&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1609,12 +2110,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20077> getNotationKeyFiguresYearToDateListWithHttpInfo(java.util.Set<String> ids, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20079> getNotationKeyFiguresYearToDateListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getNotationKeyFiguresYearToDateList");
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationKeyFiguresYearToDateList");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationKeyFiguresYearToDateList");
     }
     
     // create path and map variables
@@ -1626,7 +2132,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
     
@@ -1647,7 +2154,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20077
+        InlineResponse20079
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationKeyFiguresYearToDateList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1659,10 +2166,11 @@ public class NotationApi {
   /**
    * Basic data for a list of notations.
    * Basic data for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @return InlineResponse20065
+   * @param language  (optional)
+   * @return InlineResponse20066
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1670,17 +2178,18 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20065 getNotationList(java.util.Set<String> ids, java.util.Set<String> attributes, String language) throws ApiException {
-    return getNotationListWithHttpInfo(ids, attributes, language).getData();
+  public InlineResponse20066 getNotationList(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes, String language) throws ApiException {
+    return getNotationListWithHttpInfo(identifiers, identifierType, attributes, language).getData();
   }
 
   /**
    * Basic data for a list of notations.
    * Basic data for a list of notations.
-   * @param ids List of notations. (required)
+   * @param identifiers  (required)
+   * @param identifierType  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @return ApiResponse&lt;InlineResponse20065&gt;
+   * @param language  (optional)
+   * @return ApiResponse&lt;InlineResponse20066&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1688,12 +2197,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20065> getNotationListWithHttpInfo(java.util.Set<String> ids, java.util.Set<String> attributes, String language) throws ApiException {
+  public ApiResponse<InlineResponse20066> getNotationListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, java.util.Set<String> attributes, String language) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getNotationList");
+    // verify the required parameter 'identifiers' is set
+    if (identifiers == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifiers' when calling getNotationList");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationList");
     }
     
     // create path and map variables
@@ -1705,7 +2219,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "identifiers", identifiers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_language", language));
 
@@ -1727,7 +2242,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20065
+        InlineResponse20066
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1739,16 +2254,16 @@ public class NotationApi {
   /**
    * Basic search for notations.
    * Search for a notation whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered. Better matching results appear in the response before less relevant matches. If the parameter popularity is set to true, the popularity of the notation is the primary sort criterion. Popularity is affected mostly by the request frequency of the notation.
-   * @param searchValue Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. (required)
-   * @param nsins A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional)
-   * @param assetClass A parameter to limit the output to a particular asset class. (optional)
-   * @param onlyActive If true, restricts the result to active notations. (optional, default to true)
-   * @param popularity If true, the results are sorted by descending popularity. (optional, default to false)
+   * @param searchValue  (required)
+   * @param nsins  (optional)
+   * @param assetClass  (optional)
+   * @param onlyActive  (optional, default to true)
+   * @param popularity  (optional, default to false)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
-   * @return InlineResponse20088
+   * @param language  (optional)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
+   * @return InlineResponse20091
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1756,23 +2271,23 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20088 getNotationSearchBasic(String searchValue, java.util.Set<String> nsins, String assetClass, Boolean onlyActive, Boolean popularity, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
+  public InlineResponse20091 getNotationSearchBasic(String searchValue, java.util.Set<String> nsins, String assetClass, Boolean onlyActive, Boolean popularity, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
     return getNotationSearchBasicWithHttpInfo(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit).getData();
   }
 
   /**
    * Basic search for notations.
    * Search for a notation whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered. Better matching results appear in the response before less relevant matches. If the parameter popularity is set to true, the popularity of the notation is the primary sort criterion. Popularity is affected mostly by the request frequency of the notation.
-   * @param searchValue Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. (required)
-   * @param nsins A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional)
-   * @param assetClass A parameter to limit the output to a particular asset class. (optional)
-   * @param onlyActive If true, restricts the result to active notations. (optional, default to true)
-   * @param popularity If true, the results are sorted by descending popularity. (optional, default to false)
+   * @param searchValue  (required)
+   * @param nsins  (optional)
+   * @param assetClass  (optional)
+   * @param onlyActive  (optional, default to true)
+   * @param popularity  (optional, default to false)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
-   * @return ApiResponse&lt;InlineResponse20088&gt;
+   * @param language  (optional)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
+   * @return ApiResponse&lt;InlineResponse20091&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1780,7 +2295,7 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20088> getNotationSearchBasicWithHttpInfo(String searchValue, java.util.Set<String> nsins, String assetClass, Boolean onlyActive, Boolean popularity, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
+  public ApiResponse<InlineResponse20091> getNotationSearchBasicWithHttpInfo(String searchValue, java.util.Set<String> nsins, String assetClass, Boolean onlyActive, Boolean popularity, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'searchValue' is set
@@ -1825,7 +2340,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20088
+        InlineResponse20091
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationSearchBasic", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1837,16 +2352,16 @@ public class NotationApi {
   /**
    * Basic search for notations.
    * Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
-   * @param searchValue Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. (required)
-   * @param idMarkets List of market identifiers. Limits the results to the given markets. For possible values, see endpoint &#x60;/basic/market/list&#x60;. (optional)
-   * @param nsins A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional)
-   * @param assetClass Limits the results to a particular asset class. (optional)
-   * @param onlyActive If true, restricts the result to active notations. (optional, default to true)
+   * @param searchValue  (required)
+   * @param idMarkets  (optional)
+   * @param nsins  (optional)
+   * @param assetClass  (optional)
+   * @param onlyActive  (optional, default to true)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
-   * @return InlineResponse20090
+   * @param language  (optional)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
+   * @return InlineResponse20093
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1854,23 +2369,23 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20090 getNotationSearchByTextRankedByVolume(String searchValue, java.util.Set<BigDecimal> idMarkets, java.util.Set<String> nsins, java.util.List<String> assetClass, Boolean onlyActive, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
+  public InlineResponse20093 getNotationSearchByTextRankedByVolume(String searchValue, java.util.Set<BigDecimal> idMarkets, java.util.Set<String> nsins, java.util.List<String> assetClass, Boolean onlyActive, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
     return getNotationSearchByTextRankedByVolumeWithHttpInfo(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit).getData();
   }
 
   /**
    * Basic search for notations.
    * Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
-   * @param searchValue Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. (required)
-   * @param idMarkets List of market identifiers. Limits the results to the given markets. For possible values, see endpoint &#x60;/basic/market/list&#x60;. (optional)
-   * @param nsins A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional)
-   * @param assetClass Limits the results to a particular asset class. (optional)
-   * @param onlyActive If true, restricts the result to active notations. (optional, default to true)
+   * @param searchValue  (required)
+   * @param idMarkets  (optional)
+   * @param nsins  (optional)
+   * @param assetClass  (optional)
+   * @param onlyActive  (optional, default to true)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
-   * @return ApiResponse&lt;InlineResponse20090&gt;
+   * @param language  (optional)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
+   * @return ApiResponse&lt;InlineResponse20093&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1878,7 +2393,7 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20090> getNotationSearchByTextRankedByVolumeWithHttpInfo(String searchValue, java.util.Set<BigDecimal> idMarkets, java.util.Set<String> nsins, java.util.List<String> assetClass, Boolean onlyActive, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
+  public ApiResponse<InlineResponse20093> getNotationSearchByTextRankedByVolumeWithHttpInfo(String searchValue, java.util.Set<BigDecimal> idMarkets, java.util.Set<String> nsins, java.util.List<String> assetClass, Boolean onlyActive, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'searchValue' is set
@@ -1923,7 +2438,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20090
+        InlineResponse20093
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationSearchByTextRankedByVolume", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1935,10 +2450,11 @@ public class NotationApi {
   /**
    * Intraday trading status of a notation.
    * Intraday trading status of a notation.
-   * @param id Identifier of a notation. (required)
-   * @param quality Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). (optional, default to DLY)
+   * @param identifier  (required)
+   * @param identifierType  (required)
+   * @param quality  (optional, default to DLY)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20078
+   * @return InlineResponse20081
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1946,17 +2462,18 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20078 getNotationStatusGet(String id, String quality, java.util.Set<String> attributes) throws ApiException {
-    return getNotationStatusGetWithHttpInfo(id, quality, attributes).getData();
+  public InlineResponse20081 getNotationStatusGet(String identifier, String identifierType, String quality, java.util.Set<String> attributes) throws ApiException {
+    return getNotationStatusGetWithHttpInfo(identifier, identifierType, quality, attributes).getData();
   }
 
   /**
    * Intraday trading status of a notation.
    * Intraday trading status of a notation.
-   * @param id Identifier of a notation. (required)
-   * @param quality Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). (optional, default to DLY)
+   * @param identifier  (required)
+   * @param identifierType  (required)
+   * @param quality  (optional, default to DLY)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20078&gt;
+   * @return ApiResponse&lt;InlineResponse20081&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1964,12 +2481,17 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20078> getNotationStatusGetWithHttpInfo(String id, String quality, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20081> getNotationStatusGetWithHttpInfo(String identifier, String identifierType, String quality, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getNotationStatusGet");
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling getNotationStatusGet");
+    }
+    
+    // verify the required parameter 'identifierType' is set
+    if (identifierType == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifierType' when calling getNotationStatusGet");
     }
     
     // create path and map variables
@@ -1981,7 +2503,8 @@ public class NotationApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifier", identifier));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identifierType", identifierType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "quality", quality));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
 
@@ -2003,7 +2526,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20078
+        InlineResponse20081
       
     > apiResponse = apiClient.invokeAPI("NotationApi.getNotationStatusGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -2015,8 +2538,8 @@ public class NotationApi {
   /**
    * Retrieve a list of notations for a given FactSet identifier.
    * &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
-   * @param body  (required)
-   * @return InlineResponse20070
+   * @param postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest  (optional)
+   * @return InlineResponse20072
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2024,15 +2547,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20070 postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(InlineObject19 body) throws ApiException {
-    return postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(body).getData();
+  public InlineResponse20072 postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest) throws ApiException {
+    return postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest).getData();
   }
 
   /**
    * Retrieve a list of notations for a given FactSet identifier.
    * &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
-   * @param body  (required)
-   * @return ApiResponse&lt;InlineResponse20070&gt;
+   * @param postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest  (optional)
+   * @return ApiResponse&lt;InlineResponse20072&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2040,13 +2563,8 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20070> postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(InlineObject19 body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier");
-    }
+  public ApiResponse<InlineResponse20072> postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest) throws ApiException {
+    Object localVarPostBody = postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest;
     
     // create path and map variables
     String localVarPath = "/notation/crossReference/factSetIdentifier/listByFactSetIdentifier";
@@ -2076,7 +2594,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20070
+        InlineResponse20072
       
     > apiResponse = apiClient.invokeAPI("NotationApi.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -2088,8 +2606,8 @@ public class NotationApi {
   /**
    * Retrieve a list of FactSet identifiers for a given instrument.
    * &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
-   * @param body  (required)
-   * @return InlineResponse20071
+   * @param postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest  (optional)
+   * @return InlineResponse20073
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2097,15 +2615,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20071 postNotationCrossReferenceFactSetIdentifierListByInstrument(InlineObject20 body) throws ApiException {
-    return postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(body).getData();
+  public InlineResponse20073 postNotationCrossReferenceFactSetIdentifierListByInstrument(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest) throws ApiException {
+    return postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest).getData();
   }
 
   /**
    * Retrieve a list of FactSet identifiers for a given instrument.
    * &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
-   * @param body  (required)
-   * @return ApiResponse&lt;InlineResponse20071&gt;
+   * @param postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest  (optional)
+   * @return ApiResponse&lt;InlineResponse20073&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2113,13 +2631,8 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20071> postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(InlineObject20 body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postNotationCrossReferenceFactSetIdentifierListByInstrument");
-    }
+  public ApiResponse<InlineResponse20073> postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest) throws ApiException {
+    Object localVarPostBody = postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest;
     
     // create path and map variables
     String localVarPath = "/notation/crossReference/factSetIdentifier/listByInstrument";
@@ -2149,7 +2662,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20071
+        InlineResponse20073
       
     > apiResponse = apiClient.invokeAPI("NotationApi.postNotationCrossReferenceFactSetIdentifierListByInstrument", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -2161,8 +2674,8 @@ public class NotationApi {
   /**
    * List of entitled notations.
    * List of entitled notations.
-   * @param body  (optional)
-   * @return InlineResponse20067
+   * @param postNotationCrossReferenceListByISINRequest  (optional)
+   * @return InlineResponse20069
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2170,15 +2683,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20067 postNotationCrossReferenceListByISIN(InlineObject17 body) throws ApiException {
-    return postNotationCrossReferenceListByISINWithHttpInfo(body).getData();
+  public InlineResponse20069 postNotationCrossReferenceListByISIN(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest) throws ApiException {
+    return postNotationCrossReferenceListByISINWithHttpInfo(postNotationCrossReferenceListByISINRequest).getData();
   }
 
   /**
    * List of entitled notations.
    * List of entitled notations.
-   * @param body  (optional)
-   * @return ApiResponse&lt;InlineResponse20067&gt;
+   * @param postNotationCrossReferenceListByISINRequest  (optional)
+   * @return ApiResponse&lt;InlineResponse20069&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2186,8 +2699,8 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20067> postNotationCrossReferenceListByISINWithHttpInfo(InlineObject17 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse20069> postNotationCrossReferenceListByISINWithHttpInfo(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest) throws ApiException {
+    Object localVarPostBody = postNotationCrossReferenceListByISINRequest;
     
     // create path and map variables
     String localVarPath = "/notation/crossReference/listByISIN";
@@ -2217,7 +2730,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20067
+        InlineResponse20069
       
     > apiResponse = apiClient.invokeAPI("NotationApi.postNotationCrossReferenceListByISIN", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -2229,8 +2742,8 @@ public class NotationApi {
   /**
    * List of entitled notations.
    * List of entitled notations.
-   * @param body  (optional)
-   * @return InlineResponse20067
+   * @param postNotationCrossReferenceListByInstrumentRequest  (optional)
+   * @return InlineResponse20068
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2238,15 +2751,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20067 postNotationCrossReferenceListByInstrument(InlineObject16 body) throws ApiException {
-    return postNotationCrossReferenceListByInstrumentWithHttpInfo(body).getData();
+  public InlineResponse20068 postNotationCrossReferenceListByInstrument(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest) throws ApiException {
+    return postNotationCrossReferenceListByInstrumentWithHttpInfo(postNotationCrossReferenceListByInstrumentRequest).getData();
   }
 
   /**
    * List of entitled notations.
    * List of entitled notations.
-   * @param body  (optional)
-   * @return ApiResponse&lt;InlineResponse20067&gt;
+   * @param postNotationCrossReferenceListByInstrumentRequest  (optional)
+   * @return ApiResponse&lt;InlineResponse20068&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2254,8 +2767,8 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20067> postNotationCrossReferenceListByInstrumentWithHttpInfo(InlineObject16 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse20068> postNotationCrossReferenceListByInstrumentWithHttpInfo(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest) throws ApiException {
+    Object localVarPostBody = postNotationCrossReferenceListByInstrumentRequest;
     
     // create path and map variables
     String localVarPath = "/notation/crossReference/listByInstrument";
@@ -2285,7 +2798,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20067
+        InlineResponse20068
       
     > apiResponse = apiClient.invokeAPI("NotationApi.postNotationCrossReferenceListByInstrument", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -2297,8 +2810,8 @@ public class NotationApi {
   /**
    * List of entitled notations.
    * List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
-   * @param body  (optional)
-   * @return InlineResponse20068
+   * @param postNotationCrossReferenceListBySymbolRequest  (optional)
+   * @return InlineResponse20070
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2306,15 +2819,15 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20068 postNotationCrossReferenceListBySymbol(InlineObject18 body) throws ApiException {
-    return postNotationCrossReferenceListBySymbolWithHttpInfo(body).getData();
+  public InlineResponse20070 postNotationCrossReferenceListBySymbol(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest) throws ApiException {
+    return postNotationCrossReferenceListBySymbolWithHttpInfo(postNotationCrossReferenceListBySymbolRequest).getData();
   }
 
   /**
    * List of entitled notations.
    * List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
-   * @param body  (optional)
-   * @return ApiResponse&lt;InlineResponse20068&gt;
+   * @param postNotationCrossReferenceListBySymbolRequest  (optional)
+   * @return ApiResponse&lt;InlineResponse20070&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2322,8 +2835,8 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20068> postNotationCrossReferenceListBySymbolWithHttpInfo(InlineObject18 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse20070> postNotationCrossReferenceListBySymbolWithHttpInfo(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest) throws ApiException {
+    Object localVarPostBody = postNotationCrossReferenceListBySymbolRequest;
     
     // create path and map variables
     String localVarPath = "/notation/crossReference/listBySymbol";
@@ -2353,7 +2866,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20068
+        InlineResponse20070
       
     > apiResponse = apiClient.invokeAPI("NotationApi.postNotationCrossReferenceListBySymbol", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -2363,10 +2876,10 @@ public class NotationApi {
 
   }
   /**
-   * Text-based search for notations.
-   * Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
-   * @param body  (required)
-   * @return InlineResponse20089
+   * List of markets with entitled notations.
+   * List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
+   * @param postNotationMarketListRequest  (optional)
+   * @return InlineResponse20080
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2374,15 +2887,83 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20089 postNotationSearchByText(InlineObject22 body) throws ApiException {
-    return postNotationSearchByTextWithHttpInfo(body).getData();
+  public InlineResponse20080 postNotationMarketList(PostNotationMarketListRequest postNotationMarketListRequest) throws ApiException {
+    return postNotationMarketListWithHttpInfo(postNotationMarketListRequest).getData();
+  }
+
+  /**
+   * List of markets with entitled notations.
+   * List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
+   * @param postNotationMarketListRequest  (optional)
+   * @return ApiResponse&lt;InlineResponse20080&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse20080> postNotationMarketListWithHttpInfo(PostNotationMarketListRequest postNotationMarketListRequest) throws ApiException {
+    Object localVarPostBody = postNotationMarketListRequest;
+    
+    // create path and map variables
+    String localVarPath = "/notation/market/list";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        InlineResponse20080
+      
+    > apiResponse = apiClient.invokeAPI("NotationApi.postNotationMarketList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, postNotationMarketListResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Text-based search for notations.
+   * Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
+   * @param postNotationSearchByTextRequest  (optional)
+   * @return InlineResponse20092
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse20092 postNotationSearchByText(PostNotationSearchByTextRequest postNotationSearchByTextRequest) throws ApiException {
+    return postNotationSearchByTextWithHttpInfo(postNotationSearchByTextRequest).getData();
   }
 
   /**
    * Text-based search for notations.
    * Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
-   * @param body  (required)
-   * @return ApiResponse&lt;InlineResponse20089&gt;
+   * @param postNotationSearchByTextRequest  (optional)
+   * @return ApiResponse&lt;InlineResponse20092&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2390,13 +2971,8 @@ public class NotationApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20089> postNotationSearchByTextWithHttpInfo(InlineObject22 body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postNotationSearchByText");
-    }
+  public ApiResponse<InlineResponse20092> postNotationSearchByTextWithHttpInfo(PostNotationSearchByTextRequest postNotationSearchByTextRequest) throws ApiException {
+    Object localVarPostBody = postNotationSearchByTextRequest;
     
     // create path and map variables
     String localVarPath = "/notation/searchByText";
@@ -2426,7 +3002,7 @@ public class NotationApi {
 
     ApiResponse<
         
-        InlineResponse20089
+        InlineResponse20092
       
     > apiResponse = apiClient.invokeAPI("NotationApi.postNotationSearchByText", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

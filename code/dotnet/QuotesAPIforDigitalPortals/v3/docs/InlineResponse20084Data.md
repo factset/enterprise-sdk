@@ -1,13 +1,18 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.InlineResponse20084Data
-Orderbook.
+Bid and ask prices for the notation.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**IdNotation** | **string** | MDG identifier of the listing. | [optional] 
+**SourceIdentifier** | **string** | Identifier used in the request. | [optional] 
+**ValueUnit** | [**InlineResponse20082DataValueUnit**](InlineResponse20082DataValueUnit.md) |  | [optional] 
+**Currency** | [**InlineResponse20082DataCurrency**](InlineResponse20082DataCurrency.md) |  | [optional] 
+**Market** | [**InlineResponse20083Market**](InlineResponse20083Market.md) |  | [optional] 
 **Quality** | **string** | Quality of the price. | [optional] 
-**Asks** | [**List&lt;InlineResponse20084DataAsks&gt;**](InlineResponse20084DataAsks.md) | Ask entries of the full orderbook. | [optional] 
-**Bids** | [**List&lt;InlineResponse20084DataAsks&gt;**](InlineResponse20084DataAsks.md) | Bid entries of the full orderbook. | [optional] 
+**Bid** | [**InlineResponse20084DataBid**](InlineResponse20084DataBid.md) |  | [optional] 
+**Ask** | [**InlineResponse20084DataAsk**](InlineResponse20084DataAsk.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

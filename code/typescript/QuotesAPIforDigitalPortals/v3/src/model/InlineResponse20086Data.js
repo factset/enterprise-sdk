@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20086DataAsks from './InlineResponse20086DataAsks';
 
 /**
  * The InlineResponse20086Data model module.
@@ -20,6 +21,7 @@ import ApiClient from '../ApiClient';
 class InlineResponse20086Data {
     /**
      * Constructs a new <code>InlineResponse20086Data</code>.
+     * Orderbook.
      * @alias module:model/InlineResponse20086Data
      */
     constructor() { 
@@ -46,14 +48,20 @@ class InlineResponse20086Data {
         if (data) {
             obj = obj || new InlineResponse20086Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
-                obj['code'] = ApiClient.convertToType(data['code'], 'String');
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
-                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            if (data.hasOwnProperty('quality')) {
+                obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
+            }
+            if (data.hasOwnProperty('asks')) {
+                obj['asks'] = ApiClient.convertToType(data['asks'], [InlineResponse20086DataAsks]);
+            }
+            if (data.hasOwnProperty('bids')) {
+                obj['bids'] = ApiClient.convertToType(data['bids'], [InlineResponse20086DataAsks]);
             }
         }
         return obj;
@@ -63,25 +71,58 @@ class InlineResponse20086Data {
 }
 
 /**
- * Identifier of the type.
- * @member {Number} id
+ * MDG identifier of the listing.
+ * @member {String} idNotation
  */
-InlineResponse20086Data.prototype['id'] = undefined;
+InlineResponse20086Data.prototype['idNotation'] = undefined;
 
 /**
- * Code of the type.
- * @member {String} code
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
  */
-InlineResponse20086Data.prototype['code'] = undefined;
+InlineResponse20086Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * Description of the type in english language.
- * @member {String} description
+ * Quality of the price.
+ * @member {module:model/InlineResponse20086Data.QualityEnum} quality
  */
-InlineResponse20086Data.prototype['description'] = undefined;
+InlineResponse20086Data.prototype['quality'] = undefined;
+
+/**
+ * List of sell orders aggregated by price.
+ * @member {Array.<module:model/InlineResponse20086DataAsks>} asks
+ */
+InlineResponse20086Data.prototype['asks'] = undefined;
+
+/**
+ * List of buy orders aggregated by price.
+ * @member {Array.<module:model/InlineResponse20086DataAsks>} bids
+ */
+InlineResponse20086Data.prototype['bids'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>quality</code> property.
+ * @enum {String}
+ * @readonly
+ */
+InlineResponse20086Data['QualityEnum'] = {
+
+    /**
+     * value: "RLT"
+     * @const
+     */
+    "RLT": "RLT",
+
+    /**
+     * value: "DLY"
+     * @const
+     */
+    "DLY": "DLY"
+};
 
 
 

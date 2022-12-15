@@ -1,6 +1,6 @@
 # quotesapifordigitalportals.BasicApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -149,7 +149,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new BasicApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -173,7 +173,7 @@ apiInstance.getBasicBenchmarkTypeList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -225,7 +225,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new BasicApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -249,7 +249,7 @@ apiInstance.getBasicFrequencyTypeList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -299,10 +299,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const id = 3.4; // Number | Identifier of a language.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -325,9 +325,9 @@ apiInstance.getBasicLanguageGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a language. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -377,10 +377,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const code = "code_example"; // String | ISO 639-1 code of the language.
+const code = "code_example"; // String | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -403,9 +403,9 @@ apiInstance.getBasicLanguageGetByCode(code, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| ISO 639-1 code of the language. | 
+ **code** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -457,7 +457,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new BasicApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
+  'language': "language_example", // String | 
   'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
 };
 
@@ -482,7 +482,7 @@ apiInstance.getBasicLanguageList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -533,10 +533,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const id = 3.4; // Number | Identifier of a market.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -559,9 +559,9 @@ apiInstance.getBasicMarketGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a market. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -613,7 +613,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new BasicApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
+  'language': "language_example", // String | 
   'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
 };
 
@@ -638,7 +638,7 @@ apiInstance.getBasicMarketGroupList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -691,7 +691,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new BasicApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
+  'language': "language_example", // String | 
   'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
 };
 
@@ -716,7 +716,7 @@ apiInstance.getBasicMarketTypeList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -841,10 +841,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const id = 3.4; // Number | Identifier of a continent.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -867,9 +867,9 @@ apiInstance.getBasicRegionContinentGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a continent. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -921,7 +921,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new BasicApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
+  'language': "language_example", // String | 
   'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
 };
 
@@ -946,7 +946,7 @@ apiInstance.getBasicRegionContinentList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -997,10 +997,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const id = 3.4; // Number | Identifier of a country.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -1023,9 +1023,9 @@ apiInstance.getBasicRegionCountryGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a country. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -1075,10 +1075,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const code = "code_example"; // String | ISO 3166-1 alpha-2 code of a country.
+const code = "code_example"; // String | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -1101,9 +1101,9 @@ apiInstance.getBasicRegionCountryGetByCode(code, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| ISO 3166-1 alpha-2 code of a country. | 
+ **code** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -1155,7 +1155,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new BasicApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
+  'language': "language_example", // String | 
   'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
 };
 
@@ -1180,7 +1180,7 @@ apiInstance.getBasicRegionCountryList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -1231,10 +1231,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const id = 3.4; // Number | Identifier of a region.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -1257,9 +1257,9 @@ apiInstance.getBasicRegionGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a region. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -1311,7 +1311,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new BasicApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
+  'language': "language_example", // String | 
   'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
 };
 
@@ -1336,7 +1336,7 @@ apiInstance.getBasicRegionList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -1387,7 +1387,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const id = 3.4; // Number | Identifier of a timezone. An invalid or unsupported identifier will result in an error.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -1412,7 +1412,7 @@ apiInstance.getBasicTimezoneGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a timezone. An invalid or unsupported identifier will result in an error. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -1463,7 +1463,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const name = "name_example"; // String | Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error.
+const name = "name_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -1488,7 +1488,7 @@ apiInstance.getBasicTimezoneGetByName(name, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error. | 
+ **name** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -1541,7 +1541,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new BasicApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
+  'language': "language_example", // String | 
   'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
 };
 
@@ -1566,7 +1566,7 @@ apiInstance.getBasicValueUnitAlternativeList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -1617,10 +1617,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const id = 3.4; // Number | Identifier of a fractional currency.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -1643,9 +1643,9 @@ apiInstance.getBasicValueUnitCurrencyFractionalGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a fractional currency. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -1697,7 +1697,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new BasicApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example", // String | ISO 639-1 code of the language.
+  'language': "language_example", // String | 
   'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
 };
 
@@ -1722,7 +1722,7 @@ apiInstance.getBasicValueUnitCurrencyFractionalList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
@@ -1773,10 +1773,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BasicApi();
-const id = 3.4; // Number | Identifier of a value unit.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -1799,9 +1799,9 @@ apiInstance.getBasicValueUnitGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a value unit. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -1852,7 +1852,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject() // InlineObject | 
+  'postBasicBackgroundTextTypeListRequest': new quotesapifordigitalportals.PostBasicBackgroundTextTypeListRequest() // PostBasicBackgroundTextTypeListRequest | 
 };
 
 // Call api endpoint
@@ -1875,7 +1875,7 @@ apiInstance.postBasicBackgroundTextTypeList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **postBasicBackgroundTextTypeListRequest** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1926,7 +1926,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject1() // InlineObject1 | 
+  'postBasicDeliveryListRequest': new quotesapifordigitalportals.PostBasicDeliveryListRequest() // PostBasicDeliveryListRequest | 
 };
 
 // Call api endpoint
@@ -1949,7 +1949,7 @@ apiInstance.postBasicDeliveryList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
+ **postBasicDeliveryListRequest** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2000,7 +2000,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject2() // InlineObject2 | 
+  'postBasicMarketListRequest': new quotesapifordigitalportals.PostBasicMarketListRequest() // PostBasicMarketListRequest | 
 };
 
 // Call api endpoint
@@ -2023,7 +2023,7 @@ apiInstance.postBasicMarketList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **postBasicMarketListRequest** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2074,7 +2074,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject3() // InlineObject3 | 
+  'postBasicMediaTypeListRequest': new quotesapifordigitalportals.PostBasicMediaTypeListRequest() // PostBasicMediaTypeListRequest | 
 };
 
 // Call api endpoint
@@ -2097,7 +2097,7 @@ apiInstance.postBasicMediaTypeList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
+ **postBasicMediaTypeListRequest** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2148,7 +2148,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject4() // InlineObject4 | 
+  'postBasicMicOperatingListRequest': new quotesapifordigitalportals.PostBasicMicOperatingListRequest() // PostBasicMicOperatingListRequest | 
 };
 
 // Call api endpoint
@@ -2171,7 +2171,7 @@ apiInstance.postBasicMicOperatingList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
+ **postBasicMicOperatingListRequest** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2222,7 +2222,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject5() // InlineObject5 | 
+  'postBasicTimezoneListRequest': new quotesapifordigitalportals.PostBasicTimezoneListRequest() // PostBasicTimezoneListRequest | 
 };
 
 // Call api endpoint
@@ -2245,7 +2245,7 @@ apiInstance.postBasicTimezoneList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+ **postBasicTimezoneListRequest** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2296,7 +2296,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject7() // InlineObject7 | 
+  'postBasicValueUnitCurrencyListRequest': new quotesapifordigitalportals.PostBasicValueUnitCurrencyListRequest() // PostBasicValueUnitCurrencyListRequest | 
 };
 
 // Call api endpoint
@@ -2319,7 +2319,7 @@ apiInstance.postBasicValueUnitCurrencyList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject7**](InlineObject7.md)|  | [optional] 
+ **postBasicValueUnitCurrencyListRequest** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2370,7 +2370,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject8() // InlineObject8 | 
+  'postBasicValueUnitCurrencyMainListRequest': new quotesapifordigitalportals.PostBasicValueUnitCurrencyMainListRequest() // PostBasicValueUnitCurrencyMainListRequest | 
 };
 
 // Call api endpoint
@@ -2393,7 +2393,7 @@ apiInstance.postBasicValueUnitCurrencyMainList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject8**](InlineObject8.md)|  | [optional] 
+ **postBasicValueUnitCurrencyMainListRequest** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2444,7 +2444,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'body': new quotesapifordigitalportals.InlineObject6() // InlineObject6 | 
+  'postBasicValueUnitListRequest': new quotesapifordigitalportals.PostBasicValueUnitListRequest() // PostBasicValueUnitListRequest | 
 };
 
 // Call api endpoint
@@ -2467,7 +2467,7 @@ apiInstance.postBasicValueUnitList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  | [optional] 
+ **postBasicValueUnitListRequest** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)|  | [optional] 
 
 ### Return type
 

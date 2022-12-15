@@ -1,6 +1,6 @@
 /**
  * News API For Digital Portals
- * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with quotes, time series, watchlists, and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the Quotes API for Digital Portals for access to detailed price and performance information, plus basic support for security identifier cross-reference.
+ * Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with [quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals), [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals), [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals), and other Functional APIs.  Search for news articles from various news distributors and publishers. Incorporate a multitude of search parameters such as region, category, source, article type and provider-specific meta data, to easily filter out the noise.  All search and list endpoints can be subscribed to receive streamed updates.  News providers include:  * APA * AWP  * Businesswire * Cercle Finance * Direkt News SE * Dow Jones News * dpa * dpa-AFX  * EUWAX * GlobenewsWire * Kauppalehti * Midnight Trader * MoneyAM * newsaktuell * OMX * PR Newswire  * Ritzau Finans * StreetAccount News * TDN News        See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price and performance information, plus basic support for security identifier cross-reference. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -15,15 +15,13 @@ import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
 import ErrorMetaObject from './model/ErrorMetaObject';
-import InlineObject from './model/InlineObject';
-import InlineObject1 from './model/InlineObject1';
-import InlineObject2 from './model/InlineObject2';
-import InlineObject3 from './model/InlineObject3';
-import InlineObject4 from './model/InlineObject4';
-import InlineObject5 from './model/InlineObject5';
-import InlineObject6 from './model/InlineObject6';
 import InlineResponse200 from './model/InlineResponse200';
 import InlineResponse2001 from './model/InlineResponse2001';
+import InlineResponse20010 from './model/InlineResponse20010';
+import InlineResponse20010Data from './model/InlineResponse20010Data';
+import InlineResponse20010Meta from './model/InlineResponse20010Meta';
+import InlineResponse20011 from './model/InlineResponse20011';
+import InlineResponse20011Data from './model/InlineResponse20011Data';
 import InlineResponse2001Categories from './model/InlineResponse2001Categories';
 import InlineResponse2001Chain from './model/InlineResponse2001Chain';
 import InlineResponse2001Data from './model/InlineResponse2001Data';
@@ -41,21 +39,24 @@ import InlineResponse2002DataArticles from './model/InlineResponse2002DataArticl
 import InlineResponse2002DataDistributor from './model/InlineResponse2002DataDistributor';
 import InlineResponse2003 from './model/InlineResponse2003';
 import InlineResponse2003Data from './model/InlineResponse2003Data';
+import InlineResponse2003DataIdentifiers from './model/InlineResponse2003DataIdentifiers';
+import InlineResponse2003DataStatus from './model/InlineResponse2003DataStatus';
 import InlineResponse2004 from './model/InlineResponse2004';
 import InlineResponse2004Data from './model/InlineResponse2004Data';
+import InlineResponse2004DataIdentifiers from './model/InlineResponse2004DataIdentifiers';
+import InlineResponse2004DataStatus from './model/InlineResponse2004DataStatus';
 import InlineResponse2005 from './model/InlineResponse2005';
 import InlineResponse2005Data from './model/InlineResponse2005Data';
-import InlineResponse2005DataDelivery from './model/InlineResponse2005DataDelivery';
 import InlineResponse2006 from './model/InlineResponse2006';
 import InlineResponse2006Data from './model/InlineResponse2006Data';
 import InlineResponse2007 from './model/InlineResponse2007';
 import InlineResponse2007Data from './model/InlineResponse2007Data';
-import InlineResponse2007DataDistributor from './model/InlineResponse2007DataDistributor';
+import InlineResponse2007DataDelivery from './model/InlineResponse2007DataDelivery';
 import InlineResponse2008 from './model/InlineResponse2008';
 import InlineResponse2008Data from './model/InlineResponse2008Data';
-import InlineResponse2008Meta from './model/InlineResponse2008Meta';
 import InlineResponse2009 from './model/InlineResponse2009';
 import InlineResponse2009Data from './model/InlineResponse2009Data';
+import InlineResponse2009DataDistributor from './model/InlineResponse2009DataDistributor';
 import InlineResponse200Data from './model/InlineResponse200Data';
 import InlineResponse200DataCategories from './model/InlineResponse200DataCategories';
 import InlineResponse200DataDistributor from './model/InlineResponse200DataDistributor';
@@ -67,43 +68,52 @@ import InlineResponse200DataMedia from './model/InlineResponse200DataMedia';
 import InlineResponse200DataPublisher from './model/InlineResponse200DataPublisher';
 import InlineResponse200DataTypes from './model/InlineResponse200DataTypes';
 import InlineResponse200Meta from './model/InlineResponse200Meta';
-import NewsArticleListByChainData from './model/NewsArticleListByChainData';
-import NewsArticleListByChainDataFilter from './model/NewsArticleListByChainDataFilter';
-import NewsArticleListByIndexData from './model/NewsArticleListByIndexData';
-import NewsArticleListByInstrumentData from './model/NewsArticleListByInstrumentData';
-import NewsArticleListByMediaKindData from './model/NewsArticleListByMediaKindData';
-import NewsArticleListData from './model/NewsArticleListData';
-import NewsArticleListDataFilter from './model/NewsArticleListDataFilter';
-import NewsArticleListDataFilterCategories from './model/NewsArticleListDataFilterCategories';
-import NewsArticleListDataFilterDistributor from './model/NewsArticleListDataFilterDistributor';
-import NewsArticleListDataFilterLanguage from './model/NewsArticleListDataFilterLanguage';
-import NewsArticleListDataFilterPublisher from './model/NewsArticleListDataFilterPublisher';
-import NewsArticleListDataFilterRange from './model/NewsArticleListDataFilterRange';
-import NewsArticleListDataFilterRegions from './model/NewsArticleListDataFilterRegions';
-import NewsArticleListDataFilterTypes from './model/NewsArticleListDataFilterTypes';
-import NewsArticleListMeta from './model/NewsArticleListMeta';
-import NewsArticleListMetaPagination from './model/NewsArticleListMetaPagination';
-import NewsArticleListMetaSubscription from './model/NewsArticleListMetaSubscription';
-import NewsArticleSearchByTextData from './model/NewsArticleSearchByTextData';
-import NewsArticleSearchByTextDataCategories from './model/NewsArticleSearchByTextDataCategories';
-import NewsArticleSearchByTextDataCriteria from './model/NewsArticleSearchByTextDataCriteria';
-import NewsArticleSearchByTextDataDistributor from './model/NewsArticleSearchByTextDataDistributor';
-import NewsArticleSearchByTextDataIndices from './model/NewsArticleSearchByTextDataIndices';
-import NewsArticleSearchByTextDataInstruments from './model/NewsArticleSearchByTextDataInstruments';
-import NewsArticleSearchByTextDataLanguage from './model/NewsArticleSearchByTextDataLanguage';
-import NewsArticleSearchByTextDataPublisher from './model/NewsArticleSearchByTextDataPublisher';
-import NewsArticleSearchByTextDataRegions from './model/NewsArticleSearchByTextDataRegions';
-import NewsArticleSearchByTextDataText from './model/NewsArticleSearchByTextDataText';
-import NewsArticleSearchByTextDataTextCriteria from './model/NewsArticleSearchByTextDataTextCriteria';
-import NewsArticleSearchByTextDataTypes from './model/NewsArticleSearchByTextDataTypes';
-import NewsPublisherSearchByNameData from './model/NewsPublisherSearchByNameData';
-import NewsPublisherSearchByNameDataFilter from './model/NewsPublisherSearchByNameDataFilter';
-import NewsPublisherSearchByNameDataFilterDelivery from './model/NewsPublisherSearchByNameDataFilterDelivery';
-import NewsPublisherSearchByNameDataFilterDistributor from './model/NewsPublisherSearchByNameDataFilterDistributor';
-import NewsPublisherSearchByNameMeta from './model/NewsPublisherSearchByNameMeta';
 import OffsetBasedPaginationOutputObject from './model/OffsetBasedPaginationOutputObject';
 import OffsetBasedPaginationOutputObjectWithoutTotal from './model/OffsetBasedPaginationOutputObjectWithoutTotal';
 import PartialOutputObject from './model/PartialOutputObject';
+import PostNewsArticleListByChainRequest from './model/PostNewsArticleListByChainRequest';
+import PostNewsArticleListByChainRequestData from './model/PostNewsArticleListByChainRequestData';
+import PostNewsArticleListByChainRequestDataFilter from './model/PostNewsArticleListByChainRequestDataFilter';
+import PostNewsArticleListByIndexRequest from './model/PostNewsArticleListByIndexRequest';
+import PostNewsArticleListByIndexRequestData from './model/PostNewsArticleListByIndexRequestData';
+import PostNewsArticleListByIndexRequestDataIdentifier from './model/PostNewsArticleListByIndexRequestDataIdentifier';
+import PostNewsArticleListByInstrumentRequest from './model/PostNewsArticleListByInstrumentRequest';
+import PostNewsArticleListByInstrumentRequestData from './model/PostNewsArticleListByInstrumentRequestData';
+import PostNewsArticleListByInstrumentRequestDataIdentifier from './model/PostNewsArticleListByInstrumentRequestDataIdentifier';
+import PostNewsArticleListByMediaKindRequest from './model/PostNewsArticleListByMediaKindRequest';
+import PostNewsArticleListByMediaKindRequestData from './model/PostNewsArticleListByMediaKindRequestData';
+import PostNewsArticleListRequest from './model/PostNewsArticleListRequest';
+import PostNewsArticleListRequestData from './model/PostNewsArticleListRequestData';
+import PostNewsArticleListRequestDataFilter from './model/PostNewsArticleListRequestDataFilter';
+import PostNewsArticleListRequestDataFilterCategories from './model/PostNewsArticleListRequestDataFilterCategories';
+import PostNewsArticleListRequestDataFilterDistributor from './model/PostNewsArticleListRequestDataFilterDistributor';
+import PostNewsArticleListRequestDataFilterLanguage from './model/PostNewsArticleListRequestDataFilterLanguage';
+import PostNewsArticleListRequestDataFilterPublisher from './model/PostNewsArticleListRequestDataFilterPublisher';
+import PostNewsArticleListRequestDataFilterRange from './model/PostNewsArticleListRequestDataFilterRange';
+import PostNewsArticleListRequestDataFilterRegions from './model/PostNewsArticleListRequestDataFilterRegions';
+import PostNewsArticleListRequestDataFilterTypes from './model/PostNewsArticleListRequestDataFilterTypes';
+import PostNewsArticleListRequestMeta from './model/PostNewsArticleListRequestMeta';
+import PostNewsArticleListRequestMetaPagination from './model/PostNewsArticleListRequestMetaPagination';
+import PostNewsArticleListRequestMetaSubscription from './model/PostNewsArticleListRequestMetaSubscription';
+import PostNewsArticleSearchByTextRequest from './model/PostNewsArticleSearchByTextRequest';
+import PostNewsArticleSearchByTextRequestData from './model/PostNewsArticleSearchByTextRequestData';
+import PostNewsArticleSearchByTextRequestDataCategories from './model/PostNewsArticleSearchByTextRequestDataCategories';
+import PostNewsArticleSearchByTextRequestDataCriteria from './model/PostNewsArticleSearchByTextRequestDataCriteria';
+import PostNewsArticleSearchByTextRequestDataDistributor from './model/PostNewsArticleSearchByTextRequestDataDistributor';
+import PostNewsArticleSearchByTextRequestDataIndices from './model/PostNewsArticleSearchByTextRequestDataIndices';
+import PostNewsArticleSearchByTextRequestDataInstruments from './model/PostNewsArticleSearchByTextRequestDataInstruments';
+import PostNewsArticleSearchByTextRequestDataLanguage from './model/PostNewsArticleSearchByTextRequestDataLanguage';
+import PostNewsArticleSearchByTextRequestDataPublisher from './model/PostNewsArticleSearchByTextRequestDataPublisher';
+import PostNewsArticleSearchByTextRequestDataRegions from './model/PostNewsArticleSearchByTextRequestDataRegions';
+import PostNewsArticleSearchByTextRequestDataText from './model/PostNewsArticleSearchByTextRequestDataText';
+import PostNewsArticleSearchByTextRequestDataTextCriteria from './model/PostNewsArticleSearchByTextRequestDataTextCriteria';
+import PostNewsArticleSearchByTextRequestDataTypes from './model/PostNewsArticleSearchByTextRequestDataTypes';
+import PostNewsPublisherSearchByNameRequest from './model/PostNewsPublisherSearchByNameRequest';
+import PostNewsPublisherSearchByNameRequestData from './model/PostNewsPublisherSearchByNameRequestData';
+import PostNewsPublisherSearchByNameRequestDataFilter from './model/PostNewsPublisherSearchByNameRequestDataFilter';
+import PostNewsPublisherSearchByNameRequestDataFilterDelivery from './model/PostNewsPublisherSearchByNameRequestDataFilterDelivery';
+import PostNewsPublisherSearchByNameRequestDataFilterDistributor from './model/PostNewsPublisherSearchByNameRequestDataFilterDistributor';
+import PostNewsPublisherSearchByNameRequestMeta from './model/PostNewsPublisherSearchByNameRequestMeta';
 import StatusObject from './model/StatusObject';
 
 import NewsApi from './api/NewsApi';
@@ -165,48 +175,6 @@ export {
     ErrorMetaObject,
 
     /**
-     * The InlineObject model constructor.
-     * @property {module:model/InlineObject}
-     */
-    InlineObject,
-
-    /**
-     * The InlineObject1 model constructor.
-     * @property {module:model/InlineObject1}
-     */
-    InlineObject1,
-
-    /**
-     * The InlineObject2 model constructor.
-     * @property {module:model/InlineObject2}
-     */
-    InlineObject2,
-
-    /**
-     * The InlineObject3 model constructor.
-     * @property {module:model/InlineObject3}
-     */
-    InlineObject3,
-
-    /**
-     * The InlineObject4 model constructor.
-     * @property {module:model/InlineObject4}
-     */
-    InlineObject4,
-
-    /**
-     * The InlineObject5 model constructor.
-     * @property {module:model/InlineObject5}
-     */
-    InlineObject5,
-
-    /**
-     * The InlineObject6 model constructor.
-     * @property {module:model/InlineObject6}
-     */
-    InlineObject6,
-
-    /**
      * The InlineResponse200 model constructor.
      * @property {module:model/InlineResponse200}
      */
@@ -217,6 +185,36 @@ export {
      * @property {module:model/InlineResponse2001}
      */
     InlineResponse2001,
+
+    /**
+     * The InlineResponse20010 model constructor.
+     * @property {module:model/InlineResponse20010}
+     */
+    InlineResponse20010,
+
+    /**
+     * The InlineResponse20010Data model constructor.
+     * @property {module:model/InlineResponse20010Data}
+     */
+    InlineResponse20010Data,
+
+    /**
+     * The InlineResponse20010Meta model constructor.
+     * @property {module:model/InlineResponse20010Meta}
+     */
+    InlineResponse20010Meta,
+
+    /**
+     * The InlineResponse20011 model constructor.
+     * @property {module:model/InlineResponse20011}
+     */
+    InlineResponse20011,
+
+    /**
+     * The InlineResponse20011Data model constructor.
+     * @property {module:model/InlineResponse20011Data}
+     */
+    InlineResponse20011Data,
 
     /**
      * The InlineResponse2001Categories model constructor.
@@ -321,6 +319,18 @@ export {
     InlineResponse2003Data,
 
     /**
+     * The InlineResponse2003DataIdentifiers model constructor.
+     * @property {module:model/InlineResponse2003DataIdentifiers}
+     */
+    InlineResponse2003DataIdentifiers,
+
+    /**
+     * The InlineResponse2003DataStatus model constructor.
+     * @property {module:model/InlineResponse2003DataStatus}
+     */
+    InlineResponse2003DataStatus,
+
+    /**
      * The InlineResponse2004 model constructor.
      * @property {module:model/InlineResponse2004}
      */
@@ -333,6 +343,18 @@ export {
     InlineResponse2004Data,
 
     /**
+     * The InlineResponse2004DataIdentifiers model constructor.
+     * @property {module:model/InlineResponse2004DataIdentifiers}
+     */
+    InlineResponse2004DataIdentifiers,
+
+    /**
+     * The InlineResponse2004DataStatus model constructor.
+     * @property {module:model/InlineResponse2004DataStatus}
+     */
+    InlineResponse2004DataStatus,
+
+    /**
      * The InlineResponse2005 model constructor.
      * @property {module:model/InlineResponse2005}
      */
@@ -343,12 +365,6 @@ export {
      * @property {module:model/InlineResponse2005Data}
      */
     InlineResponse2005Data,
-
-    /**
-     * The InlineResponse2005DataDelivery model constructor.
-     * @property {module:model/InlineResponse2005DataDelivery}
-     */
-    InlineResponse2005DataDelivery,
 
     /**
      * The InlineResponse2006 model constructor.
@@ -375,10 +391,10 @@ export {
     InlineResponse2007Data,
 
     /**
-     * The InlineResponse2007DataDistributor model constructor.
-     * @property {module:model/InlineResponse2007DataDistributor}
+     * The InlineResponse2007DataDelivery model constructor.
+     * @property {module:model/InlineResponse2007DataDelivery}
      */
-    InlineResponse2007DataDistributor,
+    InlineResponse2007DataDelivery,
 
     /**
      * The InlineResponse2008 model constructor.
@@ -393,12 +409,6 @@ export {
     InlineResponse2008Data,
 
     /**
-     * The InlineResponse2008Meta model constructor.
-     * @property {module:model/InlineResponse2008Meta}
-     */
-    InlineResponse2008Meta,
-
-    /**
      * The InlineResponse2009 model constructor.
      * @property {module:model/InlineResponse2009}
      */
@@ -409,6 +419,12 @@ export {
      * @property {module:model/InlineResponse2009Data}
      */
     InlineResponse2009Data,
+
+    /**
+     * The InlineResponse2009DataDistributor model constructor.
+     * @property {module:model/InlineResponse2009DataDistributor}
+     */
+    InlineResponse2009DataDistributor,
 
     /**
      * The InlineResponse200Data model constructor.
@@ -477,210 +493,6 @@ export {
     InlineResponse200Meta,
 
     /**
-     * The NewsArticleListByChainData model constructor.
-     * @property {module:model/NewsArticleListByChainData}
-     */
-    NewsArticleListByChainData,
-
-    /**
-     * The NewsArticleListByChainDataFilter model constructor.
-     * @property {module:model/NewsArticleListByChainDataFilter}
-     */
-    NewsArticleListByChainDataFilter,
-
-    /**
-     * The NewsArticleListByIndexData model constructor.
-     * @property {module:model/NewsArticleListByIndexData}
-     */
-    NewsArticleListByIndexData,
-
-    /**
-     * The NewsArticleListByInstrumentData model constructor.
-     * @property {module:model/NewsArticleListByInstrumentData}
-     */
-    NewsArticleListByInstrumentData,
-
-    /**
-     * The NewsArticleListByMediaKindData model constructor.
-     * @property {module:model/NewsArticleListByMediaKindData}
-     */
-    NewsArticleListByMediaKindData,
-
-    /**
-     * The NewsArticleListData model constructor.
-     * @property {module:model/NewsArticleListData}
-     */
-    NewsArticleListData,
-
-    /**
-     * The NewsArticleListDataFilter model constructor.
-     * @property {module:model/NewsArticleListDataFilter}
-     */
-    NewsArticleListDataFilter,
-
-    /**
-     * The NewsArticleListDataFilterCategories model constructor.
-     * @property {module:model/NewsArticleListDataFilterCategories}
-     */
-    NewsArticleListDataFilterCategories,
-
-    /**
-     * The NewsArticleListDataFilterDistributor model constructor.
-     * @property {module:model/NewsArticleListDataFilterDistributor}
-     */
-    NewsArticleListDataFilterDistributor,
-
-    /**
-     * The NewsArticleListDataFilterLanguage model constructor.
-     * @property {module:model/NewsArticleListDataFilterLanguage}
-     */
-    NewsArticleListDataFilterLanguage,
-
-    /**
-     * The NewsArticleListDataFilterPublisher model constructor.
-     * @property {module:model/NewsArticleListDataFilterPublisher}
-     */
-    NewsArticleListDataFilterPublisher,
-
-    /**
-     * The NewsArticleListDataFilterRange model constructor.
-     * @property {module:model/NewsArticleListDataFilterRange}
-     */
-    NewsArticleListDataFilterRange,
-
-    /**
-     * The NewsArticleListDataFilterRegions model constructor.
-     * @property {module:model/NewsArticleListDataFilterRegions}
-     */
-    NewsArticleListDataFilterRegions,
-
-    /**
-     * The NewsArticleListDataFilterTypes model constructor.
-     * @property {module:model/NewsArticleListDataFilterTypes}
-     */
-    NewsArticleListDataFilterTypes,
-
-    /**
-     * The NewsArticleListMeta model constructor.
-     * @property {module:model/NewsArticleListMeta}
-     */
-    NewsArticleListMeta,
-
-    /**
-     * The NewsArticleListMetaPagination model constructor.
-     * @property {module:model/NewsArticleListMetaPagination}
-     */
-    NewsArticleListMetaPagination,
-
-    /**
-     * The NewsArticleListMetaSubscription model constructor.
-     * @property {module:model/NewsArticleListMetaSubscription}
-     */
-    NewsArticleListMetaSubscription,
-
-    /**
-     * The NewsArticleSearchByTextData model constructor.
-     * @property {module:model/NewsArticleSearchByTextData}
-     */
-    NewsArticleSearchByTextData,
-
-    /**
-     * The NewsArticleSearchByTextDataCategories model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataCategories}
-     */
-    NewsArticleSearchByTextDataCategories,
-
-    /**
-     * The NewsArticleSearchByTextDataCriteria model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataCriteria}
-     */
-    NewsArticleSearchByTextDataCriteria,
-
-    /**
-     * The NewsArticleSearchByTextDataDistributor model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataDistributor}
-     */
-    NewsArticleSearchByTextDataDistributor,
-
-    /**
-     * The NewsArticleSearchByTextDataIndices model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataIndices}
-     */
-    NewsArticleSearchByTextDataIndices,
-
-    /**
-     * The NewsArticleSearchByTextDataInstruments model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataInstruments}
-     */
-    NewsArticleSearchByTextDataInstruments,
-
-    /**
-     * The NewsArticleSearchByTextDataLanguage model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataLanguage}
-     */
-    NewsArticleSearchByTextDataLanguage,
-
-    /**
-     * The NewsArticleSearchByTextDataPublisher model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataPublisher}
-     */
-    NewsArticleSearchByTextDataPublisher,
-
-    /**
-     * The NewsArticleSearchByTextDataRegions model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataRegions}
-     */
-    NewsArticleSearchByTextDataRegions,
-
-    /**
-     * The NewsArticleSearchByTextDataText model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataText}
-     */
-    NewsArticleSearchByTextDataText,
-
-    /**
-     * The NewsArticleSearchByTextDataTextCriteria model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataTextCriteria}
-     */
-    NewsArticleSearchByTextDataTextCriteria,
-
-    /**
-     * The NewsArticleSearchByTextDataTypes model constructor.
-     * @property {module:model/NewsArticleSearchByTextDataTypes}
-     */
-    NewsArticleSearchByTextDataTypes,
-
-    /**
-     * The NewsPublisherSearchByNameData model constructor.
-     * @property {module:model/NewsPublisherSearchByNameData}
-     */
-    NewsPublisherSearchByNameData,
-
-    /**
-     * The NewsPublisherSearchByNameDataFilter model constructor.
-     * @property {module:model/NewsPublisherSearchByNameDataFilter}
-     */
-    NewsPublisherSearchByNameDataFilter,
-
-    /**
-     * The NewsPublisherSearchByNameDataFilterDelivery model constructor.
-     * @property {module:model/NewsPublisherSearchByNameDataFilterDelivery}
-     */
-    NewsPublisherSearchByNameDataFilterDelivery,
-
-    /**
-     * The NewsPublisherSearchByNameDataFilterDistributor model constructor.
-     * @property {module:model/NewsPublisherSearchByNameDataFilterDistributor}
-     */
-    NewsPublisherSearchByNameDataFilterDistributor,
-
-    /**
-     * The NewsPublisherSearchByNameMeta model constructor.
-     * @property {module:model/NewsPublisherSearchByNameMeta}
-     */
-    NewsPublisherSearchByNameMeta,
-
-    /**
      * The OffsetBasedPaginationOutputObject model constructor.
      * @property {module:model/OffsetBasedPaginationOutputObject}
      */
@@ -697,6 +509,264 @@ export {
      * @property {module:model/PartialOutputObject}
      */
     PartialOutputObject,
+
+    /**
+     * The PostNewsArticleListByChainRequest model constructor.
+     * @property {module:model/PostNewsArticleListByChainRequest}
+     */
+    PostNewsArticleListByChainRequest,
+
+    /**
+     * The PostNewsArticleListByChainRequestData model constructor.
+     * @property {module:model/PostNewsArticleListByChainRequestData}
+     */
+    PostNewsArticleListByChainRequestData,
+
+    /**
+     * The PostNewsArticleListByChainRequestDataFilter model constructor.
+     * @property {module:model/PostNewsArticleListByChainRequestDataFilter}
+     */
+    PostNewsArticleListByChainRequestDataFilter,
+
+    /**
+     * The PostNewsArticleListByIndexRequest model constructor.
+     * @property {module:model/PostNewsArticleListByIndexRequest}
+     */
+    PostNewsArticleListByIndexRequest,
+
+    /**
+     * The PostNewsArticleListByIndexRequestData model constructor.
+     * @property {module:model/PostNewsArticleListByIndexRequestData}
+     */
+    PostNewsArticleListByIndexRequestData,
+
+    /**
+     * The PostNewsArticleListByIndexRequestDataIdentifier model constructor.
+     * @property {module:model/PostNewsArticleListByIndexRequestDataIdentifier}
+     */
+    PostNewsArticleListByIndexRequestDataIdentifier,
+
+    /**
+     * The PostNewsArticleListByInstrumentRequest model constructor.
+     * @property {module:model/PostNewsArticleListByInstrumentRequest}
+     */
+    PostNewsArticleListByInstrumentRequest,
+
+    /**
+     * The PostNewsArticleListByInstrumentRequestData model constructor.
+     * @property {module:model/PostNewsArticleListByInstrumentRequestData}
+     */
+    PostNewsArticleListByInstrumentRequestData,
+
+    /**
+     * The PostNewsArticleListByInstrumentRequestDataIdentifier model constructor.
+     * @property {module:model/PostNewsArticleListByInstrumentRequestDataIdentifier}
+     */
+    PostNewsArticleListByInstrumentRequestDataIdentifier,
+
+    /**
+     * The PostNewsArticleListByMediaKindRequest model constructor.
+     * @property {module:model/PostNewsArticleListByMediaKindRequest}
+     */
+    PostNewsArticleListByMediaKindRequest,
+
+    /**
+     * The PostNewsArticleListByMediaKindRequestData model constructor.
+     * @property {module:model/PostNewsArticleListByMediaKindRequestData}
+     */
+    PostNewsArticleListByMediaKindRequestData,
+
+    /**
+     * The PostNewsArticleListRequest model constructor.
+     * @property {module:model/PostNewsArticleListRequest}
+     */
+    PostNewsArticleListRequest,
+
+    /**
+     * The PostNewsArticleListRequestData model constructor.
+     * @property {module:model/PostNewsArticleListRequestData}
+     */
+    PostNewsArticleListRequestData,
+
+    /**
+     * The PostNewsArticleListRequestDataFilter model constructor.
+     * @property {module:model/PostNewsArticleListRequestDataFilter}
+     */
+    PostNewsArticleListRequestDataFilter,
+
+    /**
+     * The PostNewsArticleListRequestDataFilterCategories model constructor.
+     * @property {module:model/PostNewsArticleListRequestDataFilterCategories}
+     */
+    PostNewsArticleListRequestDataFilterCategories,
+
+    /**
+     * The PostNewsArticleListRequestDataFilterDistributor model constructor.
+     * @property {module:model/PostNewsArticleListRequestDataFilterDistributor}
+     */
+    PostNewsArticleListRequestDataFilterDistributor,
+
+    /**
+     * The PostNewsArticleListRequestDataFilterLanguage model constructor.
+     * @property {module:model/PostNewsArticleListRequestDataFilterLanguage}
+     */
+    PostNewsArticleListRequestDataFilterLanguage,
+
+    /**
+     * The PostNewsArticleListRequestDataFilterPublisher model constructor.
+     * @property {module:model/PostNewsArticleListRequestDataFilterPublisher}
+     */
+    PostNewsArticleListRequestDataFilterPublisher,
+
+    /**
+     * The PostNewsArticleListRequestDataFilterRange model constructor.
+     * @property {module:model/PostNewsArticleListRequestDataFilterRange}
+     */
+    PostNewsArticleListRequestDataFilterRange,
+
+    /**
+     * The PostNewsArticleListRequestDataFilterRegions model constructor.
+     * @property {module:model/PostNewsArticleListRequestDataFilterRegions}
+     */
+    PostNewsArticleListRequestDataFilterRegions,
+
+    /**
+     * The PostNewsArticleListRequestDataFilterTypes model constructor.
+     * @property {module:model/PostNewsArticleListRequestDataFilterTypes}
+     */
+    PostNewsArticleListRequestDataFilterTypes,
+
+    /**
+     * The PostNewsArticleListRequestMeta model constructor.
+     * @property {module:model/PostNewsArticleListRequestMeta}
+     */
+    PostNewsArticleListRequestMeta,
+
+    /**
+     * The PostNewsArticleListRequestMetaPagination model constructor.
+     * @property {module:model/PostNewsArticleListRequestMetaPagination}
+     */
+    PostNewsArticleListRequestMetaPagination,
+
+    /**
+     * The PostNewsArticleListRequestMetaSubscription model constructor.
+     * @property {module:model/PostNewsArticleListRequestMetaSubscription}
+     */
+    PostNewsArticleListRequestMetaSubscription,
+
+    /**
+     * The PostNewsArticleSearchByTextRequest model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequest}
+     */
+    PostNewsArticleSearchByTextRequest,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestData model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestData}
+     */
+    PostNewsArticleSearchByTextRequestData,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataCategories model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataCategories}
+     */
+    PostNewsArticleSearchByTextRequestDataCategories,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataCriteria model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataCriteria}
+     */
+    PostNewsArticleSearchByTextRequestDataCriteria,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataDistributor model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataDistributor}
+     */
+    PostNewsArticleSearchByTextRequestDataDistributor,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataIndices model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataIndices}
+     */
+    PostNewsArticleSearchByTextRequestDataIndices,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataInstruments model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataInstruments}
+     */
+    PostNewsArticleSearchByTextRequestDataInstruments,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataLanguage model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataLanguage}
+     */
+    PostNewsArticleSearchByTextRequestDataLanguage,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataPublisher model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataPublisher}
+     */
+    PostNewsArticleSearchByTextRequestDataPublisher,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataRegions model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataRegions}
+     */
+    PostNewsArticleSearchByTextRequestDataRegions,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataText model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataText}
+     */
+    PostNewsArticleSearchByTextRequestDataText,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataTextCriteria model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataTextCriteria}
+     */
+    PostNewsArticleSearchByTextRequestDataTextCriteria,
+
+    /**
+     * The PostNewsArticleSearchByTextRequestDataTypes model constructor.
+     * @property {module:model/PostNewsArticleSearchByTextRequestDataTypes}
+     */
+    PostNewsArticleSearchByTextRequestDataTypes,
+
+    /**
+     * The PostNewsPublisherSearchByNameRequest model constructor.
+     * @property {module:model/PostNewsPublisherSearchByNameRequest}
+     */
+    PostNewsPublisherSearchByNameRequest,
+
+    /**
+     * The PostNewsPublisherSearchByNameRequestData model constructor.
+     * @property {module:model/PostNewsPublisherSearchByNameRequestData}
+     */
+    PostNewsPublisherSearchByNameRequestData,
+
+    /**
+     * The PostNewsPublisherSearchByNameRequestDataFilter model constructor.
+     * @property {module:model/PostNewsPublisherSearchByNameRequestDataFilter}
+     */
+    PostNewsPublisherSearchByNameRequestDataFilter,
+
+    /**
+     * The PostNewsPublisherSearchByNameRequestDataFilterDelivery model constructor.
+     * @property {module:model/PostNewsPublisherSearchByNameRequestDataFilterDelivery}
+     */
+    PostNewsPublisherSearchByNameRequestDataFilterDelivery,
+
+    /**
+     * The PostNewsPublisherSearchByNameRequestDataFilterDistributor model constructor.
+     * @property {module:model/PostNewsPublisherSearchByNameRequestDataFilterDistributor}
+     */
+    PostNewsPublisherSearchByNameRequestDataFilterDistributor,
+
+    /**
+     * The PostNewsPublisherSearchByNameRequestMeta model constructor.
+     * @property {module:model/PostNewsPublisherSearchByNameRequestMeta}
+     */
+    PostNewsPublisherSearchByNameRequestMeta,
 
     /**
      * The StatusObject model constructor.

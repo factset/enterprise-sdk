@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of the type. | [optional] 
+**Id** | **decimal?** | Identifier of the type. | [optional] 
 **Name** | **string** | English name of the type. | [optional] 
 **Description** | **string** | English description of the type. | [optional] 
 

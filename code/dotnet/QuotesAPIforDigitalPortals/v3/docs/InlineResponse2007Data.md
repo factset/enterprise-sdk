@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a language. | [optional] 
+**Id** | **decimal?** | Identifier of a language. | [optional] 
 **Code** | **string** | ISO 639-1 code of the language. | [optional] 
 **Name** | **string** | Name of the language. | [optional] 
 

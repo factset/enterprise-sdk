@@ -1,13 +1,15 @@
 # InlineResponse20070Data
 
-Instrument data with a list of regional-level data and assigned listing-level data.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instrument** | [**InlineResponse20070DataInstrument**](InlineResponse20070DataInstrument.md) |  | [optional] 
-**permanent_identifier** | **str** | FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S). | [optional] 
-**regional** | [**[InlineResponse20070DataRegional]**](InlineResponse20070DataRegional.md) | Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array. | [optional] 
+**id** | **str, none_type** | Identifier of the notation. | [optional] 
+**active** | **bool, none_type** | Indicates whether the notation is active. | [optional] 
+**market** | [**InlineResponse20067DataMarket**](InlineResponse20067DataMarket.md) |  | [optional] 
+**value_unit** | [**InlineResponse20067DataValueUnit**](InlineResponse20067DataValueUnit.md) |  | [optional] 
+**fsym** | [**InlineResponse20046NotationFsym**](InlineResponse20046NotationFsym.md) |  | [optional] 
+**instrument** | [**InlineResponse20070Instrument**](InlineResponse20070Instrument.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

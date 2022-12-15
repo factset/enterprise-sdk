@@ -1,6 +1,6 @@
 # NotationApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,12 +15,16 @@ Method | HTTP request | Description
 [**getNotationKeyFiguresMonth6List**](NotationApi.md#getNotationKeyFiguresMonth6List) | **GET** /notation/keyFigures/month/6/list | End-of-day (EOD) key figures for the time range of six months, for a list of notations.
 [**getNotationKeyFiguresWeek1Get**](NotationApi.md#getNotationKeyFiguresWeek1Get) | **GET** /notation/keyFigures/week/1/get | End-of-day (EOD) key figures for the time range of one week.
 [**getNotationKeyFiguresWeek1List**](NotationApi.md#getNotationKeyFiguresWeek1List) | **GET** /notation/keyFigures/week/1/list | End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+[**getNotationKeyFiguresYear10Get**](NotationApi.md#getNotationKeyFiguresYear10Get) | **GET** /notation/keyFigures/year/10/get | End-of-day (EOD) key figures for the time range of ten years.
+[**getNotationKeyFiguresYear10List**](NotationApi.md#getNotationKeyFiguresYear10List) | **GET** /notation/keyFigures/year/10/list | End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
 [**getNotationKeyFiguresYear1Get**](NotationApi.md#getNotationKeyFiguresYear1Get) | **GET** /notation/keyFigures/year/1/get | End-of-day (EOD) key figures for the time range of one year.
 [**getNotationKeyFiguresYear1List**](NotationApi.md#getNotationKeyFiguresYear1List) | **GET** /notation/keyFigures/year/1/list | End-of-day (EOD) key figures for the time range of one year, for a list of notations.
 [**getNotationKeyFiguresYear3Get**](NotationApi.md#getNotationKeyFiguresYear3Get) | **GET** /notation/keyFigures/year/3/get | End-of-day (EOD) key figures for the time range of three years.
 [**getNotationKeyFiguresYear3List**](NotationApi.md#getNotationKeyFiguresYear3List) | **GET** /notation/keyFigures/year/3/list | End-of-day (EOD) key figures for the time range of three years, for a list of notations.
 [**getNotationKeyFiguresYear5Get**](NotationApi.md#getNotationKeyFiguresYear5Get) | **GET** /notation/keyFigures/year/5/get | End-of-day (EOD) key figures for the time range of five years.
 [**getNotationKeyFiguresYear5List**](NotationApi.md#getNotationKeyFiguresYear5List) | **GET** /notation/keyFigures/year/5/list | End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+[**getNotationKeyFiguresYear7Get**](NotationApi.md#getNotationKeyFiguresYear7Get) | **GET** /notation/keyFigures/year/7/get | End-of-day (EOD) key figures for the time range of seven years.
+[**getNotationKeyFiguresYear7List**](NotationApi.md#getNotationKeyFiguresYear7List) | **GET** /notation/keyFigures/year/7/list | End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
 [**getNotationKeyFiguresYearToDateGet**](NotationApi.md#getNotationKeyFiguresYearToDateGet) | **GET** /notation/keyFigures/yearToDate/get | End-of-day (EOD) key figures for the time range year-to-date (YTD)..
 [**getNotationKeyFiguresYearToDateList**](NotationApi.md#getNotationKeyFiguresYearToDateList) | **GET** /notation/keyFigures/yearToDate/list | End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
 [**getNotationList**](NotationApi.md#getNotationList) | **GET** /notation/list | Basic data for a list of notations.
@@ -32,13 +36,14 @@ Method | HTTP request | Description
 [**postNotationCrossReferenceListByISIN**](NotationApi.md#postNotationCrossReferenceListByISIN) | **POST** /notation/crossReference/listByISIN | List of entitled notations.
 [**postNotationCrossReferenceListByInstrument**](NotationApi.md#postNotationCrossReferenceListByInstrument) | **POST** /notation/crossReference/listByInstrument | List of entitled notations.
 [**postNotationCrossReferenceListBySymbol**](NotationApi.md#postNotationCrossReferenceListBySymbol) | **POST** /notation/crossReference/listBySymbol | List of entitled notations.
+[**postNotationMarketList**](NotationApi.md#postNotationMarketList) | **POST** /notation/market/list | List of markets with entitled notations.
 [**postNotationSearchByText**](NotationApi.md#postNotationSearchByText) | **POST** /notation/searchByText | Text-based search for notations.
 
 
 
 ## getNotationCrossReferenceFactSetIdentifierGet
 
-> InlineResponse20069 getNotationCrossReferenceFactSetIdentifierGet(id, attributes)
+> InlineResponse20071 getNotationCrossReferenceFactSetIdentifierGet(identifier, identifierType, attributes)
 
 Retrieve FactSet identifiers for a given notation.
 
@@ -78,10 +83,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of a notation.
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20069 result = apiInstance.getNotationCrossReferenceFactSetIdentifierGet(id, attributes);
+            InlineResponse20071 result = apiInstance.getNotationCrossReferenceFactSetIdentifierGet(identifier, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -100,12 +106,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. |
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20069**](InlineResponse20069.md)
+[**InlineResponse20071**](InlineResponse20071.md)
 
 ### Authorization
 
@@ -124,7 +131,7 @@ Name | Type | Description  | Notes
 
 ## getNotationCrossReferenceGetByFactSetMarketSymbol
 
-> InlineResponse20066 getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, attributes, language)
+> InlineResponse20067 getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, attributes, language)
 
 Translate a FactSet market symbol to a notation.
 
@@ -164,11 +171,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String factSetMarketSymbol = "factSetMarketSymbol_example"; // String | Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE).
+        String factSetMarketSymbol = "factSetMarketSymbol_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse20066 result = apiInstance.getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, attributes, language);
+            InlineResponse20067 result = apiInstance.getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -187,13 +194,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **factSetMarketSymbol** | **String**| Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE). |
+ **factSetMarketSymbol** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse20066**](InlineResponse20066.md)
+[**InlineResponse20067**](InlineResponse20067.md)
 
 ### Authorization
 
@@ -212,7 +219,7 @@ Name | Type | Description  | Notes
 
 ## getNotationGet
 
-> InlineResponse20064 getNotationGet(id, attributes, language)
+> InlineResponse20065 getNotationGet(identifier, identifierType, attributes, language)
 
 Basic data for a notation.
 
@@ -252,11 +259,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of a notation.
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse20064 result = apiInstance.getNotationGet(id, attributes, language);
+            InlineResponse20065 result = apiInstance.getNotationGet(identifier, identifierType, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -275,13 +283,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. |
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse20064**](InlineResponse20064.md)
+[**InlineResponse20065**](InlineResponse20065.md)
 
 ### Authorization
 
@@ -300,7 +309,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth1Get
 
-> InlineResponse20072 getNotationKeyFiguresMonth1Get(id, attributes)
+> InlineResponse20076 getNotationKeyFiguresMonth1Get(identifier, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of one month.
 
@@ -340,10 +349,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20072 result = apiInstance.getNotationKeyFiguresMonth1Get(id, attributes);
+            InlineResponse20076 result = apiInstance.getNotationKeyFiguresMonth1Get(identifier, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -362,12 +372,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -386,7 +397,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth1List
 
-> InlineResponse20073 getNotationKeyFiguresMonth1List(ids, attributes)
+> InlineResponse20077 getNotationKeyFiguresMonth1List(identifiers, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of one month, for a list of notations.
 
@@ -426,10 +437,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        java.util.Set<String> ids = Arrays.asList(); // java.util.Set<String> | List of notations.
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20073 result = apiInstance.getNotationKeyFiguresMonth1List(ids, attributes);
+            InlineResponse20077 result = apiInstance.getNotationKeyFiguresMonth1List(identifiers, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -448,12 +460,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| List of notations. |
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -472,7 +485,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth3Get
 
-> InlineResponse20074 getNotationKeyFiguresMonth3Get(id, attributes)
+> InlineResponse20074 getNotationKeyFiguresMonth3Get(identifier, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of three months.
 
@@ -512,10 +525,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20074 result = apiInstance.getNotationKeyFiguresMonth3Get(id, attributes);
+            InlineResponse20074 result = apiInstance.getNotationKeyFiguresMonth3Get(identifier, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -534,7 +548,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -558,7 +573,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth3List
 
-> InlineResponse20075 getNotationKeyFiguresMonth3List(ids, attributes)
+> InlineResponse20075 getNotationKeyFiguresMonth3List(identifiers, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of three months, for a list of notations.
 
@@ -598,10 +613,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        java.util.Set<String> ids = Arrays.asList(); // java.util.Set<String> | List of notations.
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20075 result = apiInstance.getNotationKeyFiguresMonth3List(ids, attributes);
+            InlineResponse20075 result = apiInstance.getNotationKeyFiguresMonth3List(identifiers, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -620,7 +636,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| List of notations. |
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -644,7 +661,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth6Get
 
-> InlineResponse20074 getNotationKeyFiguresMonth6Get(id, attributes)
+> InlineResponse20074 getNotationKeyFiguresMonth6Get(identifier, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of six months.
 
@@ -684,10 +701,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20074 result = apiInstance.getNotationKeyFiguresMonth6Get(id, attributes);
+            InlineResponse20074 result = apiInstance.getNotationKeyFiguresMonth6Get(identifier, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -706,7 +724,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -730,7 +749,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth6List
 
-> InlineResponse20075 getNotationKeyFiguresMonth6List(ids, attributes)
+> InlineResponse20075 getNotationKeyFiguresMonth6List(identifiers, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of six months, for a list of notations.
 
@@ -770,10 +789,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        java.util.Set<String> ids = Arrays.asList(); // java.util.Set<String> | List of notations.
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20075 result = apiInstance.getNotationKeyFiguresMonth6List(ids, attributes);
+            InlineResponse20075 result = apiInstance.getNotationKeyFiguresMonth6List(identifiers, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -792,7 +812,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| List of notations. |
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -816,7 +837,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresWeek1Get
 
-> InlineResponse20072 getNotationKeyFiguresWeek1Get(id, attributes)
+> InlineResponse20076 getNotationKeyFiguresWeek1Get(identifier, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of one week.
 
@@ -856,10 +877,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20072 result = apiInstance.getNotationKeyFiguresWeek1Get(id, attributes);
+            InlineResponse20076 result = apiInstance.getNotationKeyFiguresWeek1Get(identifier, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -878,12 +900,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -902,7 +925,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresWeek1List
 
-> InlineResponse20073 getNotationKeyFiguresWeek1List(ids, attributes)
+> InlineResponse20077 getNotationKeyFiguresWeek1List(identifiers, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of one week, for a list of notations.
 
@@ -942,10 +965,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        java.util.Set<String> ids = Arrays.asList(); // java.util.Set<String> | List of notations.
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20073 result = apiInstance.getNotationKeyFiguresWeek1List(ids, attributes);
+            InlineResponse20077 result = apiInstance.getNotationKeyFiguresWeek1List(identifiers, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -964,12 +988,189 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| List of notations. |
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20077**](InlineResponse20077.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+
+## getNotationKeyFiguresYear10Get
+
+> InlineResponse20074 getNotationKeyFiguresYear10Get(identifier, identifierType, attributes)
+
+End-of-day (EOD) key figures for the time range of ten years.
+
+End-of-day (EOD) key figures for the time range of ten years.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
+import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
+import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.api.NotationApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        NotationApi apiInstance = new NotationApi(defaultClient);
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
+        try {
+            InlineResponse20074 result = apiInstance.getNotationKeyFiguresYear10Get(identifier, identifierType, attributes);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling NotationApi#getNotationKeyFiguresYear10Get");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
+ **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse20074**](InlineResponse20074.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+
+## getNotationKeyFiguresYear10List
+
+> InlineResponse20075 getNotationKeyFiguresYear10List(identifiers, identifierType, attributes)
+
+End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+
+End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
+import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
+import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.api.NotationApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        NotationApi apiInstance = new NotationApi(defaultClient);
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
+        try {
+            InlineResponse20075 result = apiInstance.getNotationKeyFiguresYear10List(identifiers, identifierType, attributes);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling NotationApi#getNotationKeyFiguresYear10List");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
+ **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -988,7 +1189,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear1Get
 
-> InlineResponse20072 getNotationKeyFiguresYear1Get(id, attributes)
+> InlineResponse20076 getNotationKeyFiguresYear1Get(identifier, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of one year.
 
@@ -1028,10 +1229,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20072 result = apiInstance.getNotationKeyFiguresYear1Get(id, attributes);
+            InlineResponse20076 result = apiInstance.getNotationKeyFiguresYear1Get(identifier, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1050,12 +1252,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1074,7 +1277,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear1List
 
-> InlineResponse20073 getNotationKeyFiguresYear1List(ids, attributes)
+> InlineResponse20077 getNotationKeyFiguresYear1List(identifiers, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of one year, for a list of notations.
 
@@ -1114,10 +1317,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        java.util.Set<String> ids = Arrays.asList(); // java.util.Set<String> | List of notations.
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20073 result = apiInstance.getNotationKeyFiguresYear1List(ids, attributes);
+            InlineResponse20077 result = apiInstance.getNotationKeyFiguresYear1List(identifiers, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1136,12 +1340,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| List of notations. |
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -1160,7 +1365,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear3Get
 
-> InlineResponse20074 getNotationKeyFiguresYear3Get(id, attributes)
+> InlineResponse20074 getNotationKeyFiguresYear3Get(identifier, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of three years.
 
@@ -1200,10 +1405,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20074 result = apiInstance.getNotationKeyFiguresYear3Get(id, attributes);
+            InlineResponse20074 result = apiInstance.getNotationKeyFiguresYear3Get(identifier, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1222,7 +1428,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1246,7 +1453,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear3List
 
-> InlineResponse20075 getNotationKeyFiguresYear3List(ids, attributes)
+> InlineResponse20075 getNotationKeyFiguresYear3List(identifiers, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of three years, for a list of notations.
 
@@ -1286,10 +1493,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        java.util.Set<String> ids = Arrays.asList(); // java.util.Set<String> | List of notations.
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20075 result = apiInstance.getNotationKeyFiguresYear3List(ids, attributes);
+            InlineResponse20075 result = apiInstance.getNotationKeyFiguresYear3List(identifiers, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1308,7 +1516,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| List of notations. |
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1332,7 +1541,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear5Get
 
-> InlineResponse20074 getNotationKeyFiguresYear5Get(id, attributes)
+> InlineResponse20074 getNotationKeyFiguresYear5Get(identifier, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of five years.
 
@@ -1372,10 +1581,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20074 result = apiInstance.getNotationKeyFiguresYear5Get(id, attributes);
+            InlineResponse20074 result = apiInstance.getNotationKeyFiguresYear5Get(identifier, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1394,7 +1604,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1418,7 +1629,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear5List
 
-> InlineResponse20075 getNotationKeyFiguresYear5List(ids, attributes)
+> InlineResponse20075 getNotationKeyFiguresYear5List(identifiers, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range of five years, for a list of notations.
 
@@ -1458,10 +1669,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        java.util.Set<String> ids = Arrays.asList(); // java.util.Set<String> | List of notations.
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20075 result = apiInstance.getNotationKeyFiguresYear5List(ids, attributes);
+            InlineResponse20075 result = apiInstance.getNotationKeyFiguresYear5List(identifiers, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1480,7 +1692,184 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| List of notations. |
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
+ **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse20075**](InlineResponse20075.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+
+## getNotationKeyFiguresYear7Get
+
+> InlineResponse20074 getNotationKeyFiguresYear7Get(identifier, identifierType, attributes)
+
+End-of-day (EOD) key figures for the time range of seven years.
+
+End-of-day (EOD) key figures for the time range of seven years.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
+import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
+import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.api.NotationApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        NotationApi apiInstance = new NotationApi(defaultClient);
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
+        try {
+            InlineResponse20074 result = apiInstance.getNotationKeyFiguresYear7Get(identifier, identifierType, attributes);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling NotationApi#getNotationKeyFiguresYear7Get");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
+ **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse20074**](InlineResponse20074.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+
+## getNotationKeyFiguresYear7List
+
+> InlineResponse20075 getNotationKeyFiguresYear7List(identifiers, identifierType, attributes)
+
+End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+
+End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
+import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
+import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.api.NotationApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        NotationApi apiInstance = new NotationApi(defaultClient);
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
+        try {
+            InlineResponse20075 result = apiInstance.getNotationKeyFiguresYear7List(identifiers, identifierType, attributes);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling NotationApi#getNotationKeyFiguresYear7List");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -1504,7 +1893,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYearToDateGet
 
-> InlineResponse20076 getNotationKeyFiguresYearToDateGet(id, attributes)
+> InlineResponse20078 getNotationKeyFiguresYearToDateGet(identifier, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD)..
 
@@ -1544,10 +1933,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20076 result = apiInstance.getNotationKeyFiguresYearToDateGet(id, attributes);
+            InlineResponse20078 result = apiInstance.getNotationKeyFiguresYearToDateGet(identifier, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1566,12 +1956,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -1590,7 +1981,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYearToDateList
 
-> InlineResponse20077 getNotationKeyFiguresYearToDateList(ids, attributes)
+> InlineResponse20079 getNotationKeyFiguresYearToDateList(identifiers, identifierType, attributes)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
 
@@ -1630,10 +2021,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        java.util.Set<String> ids = Arrays.asList(); // java.util.Set<String> | List of notations.
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20077 result = apiInstance.getNotationKeyFiguresYearToDateList(ids, attributes);
+            InlineResponse20079 result = apiInstance.getNotationKeyFiguresYearToDateList(identifiers, identifierType, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1652,12 +2044,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| List of notations. |
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20079**](InlineResponse20079.md)
 
 ### Authorization
 
@@ -1676,7 +2069,7 @@ Name | Type | Description  | Notes
 
 ## getNotationList
 
-> InlineResponse20065 getNotationList(ids, attributes, language)
+> InlineResponse20066 getNotationList(identifiers, identifierType, attributes, language)
 
 Basic data for a list of notations.
 
@@ -1716,11 +2109,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        java.util.Set<String> ids = Arrays.asList(); // java.util.Set<String> | List of notations.
+        java.util.Set<String> identifiers = Arrays.asList(); // java.util.Set<String> | 
+        String identifierType = "idNotation"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse20065 result = apiInstance.getNotationList(ids, attributes, language);
+            InlineResponse20066 result = apiInstance.getNotationList(identifiers, identifierType, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1739,13 +2133,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| List of notations. |
+ **identifiers** | **List&lt;String&gt;**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse20065**](InlineResponse20065.md)
+[**InlineResponse20066**](InlineResponse20066.md)
 
 ### Authorization
 
@@ -1764,7 +2159,7 @@ Name | Type | Description  | Notes
 
 ## getNotationSearchBasic
 
-> InlineResponse20088 getNotationSearchBasic(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit)
+> InlineResponse20091 getNotationSearchBasic(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit)
 
 Basic search for notations.
 
@@ -1805,17 +2200,17 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String searchValue = "searchValue_example"; // String | Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
-        java.util.Set<String> nsins = Arrays.asList(); // java.util.Set<String> | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-        String assetClass = "index"; // String | A parameter to limit the output to a particular asset class.
-        Boolean onlyActive = true; // Boolean | If true, restricts the result to active notations.
-        Boolean popularity = false; // Boolean | If true, the results are sorted by descending popularity.
+        String searchValue = "searchValue_example"; // String | 
+        java.util.Set<String> nsins = Arrays.asList(); // java.util.Set<String> | 
+        String assetClass = "index"; // String | 
+        Boolean onlyActive = true; // Boolean | 
+        Boolean popularity = false; // Boolean | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("20.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        String language = "language_example"; // String | 
+        BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
+        BigDecimal paginationLimit = new BigDecimal("20"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
-            InlineResponse20088 result = apiInstance.getNotationSearchBasic(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit);
+            InlineResponse20091 result = apiInstance.getNotationSearchBasic(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1834,19 +2229,19 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchValue** | **String**| Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. |
- **nsins** | **List&lt;String&gt;**| A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. | [optional] [enum: wkn, valor, cusip, sedol]
- **assetClass** | **String**| A parameter to limit the output to a particular asset class. | [optional] [enum: index, stock, fund, etf, debt, investmentProduct, leveragedProduct, currency, commodity, option, future, interestRate]
- **onlyActive** | **Boolean**| If true, restricts the result to active notations. | [optional] [default to true]
- **popularity** | **Boolean**| If true, the results are sorted by descending popularity. | [optional] [default to false]
+ **searchValue** | **String**|  |
+ **nsins** | **List&lt;String&gt;**|  | [optional] [enum: wkn, valor, cusip, sedol]
+ **assetClass** | **String**|  | [optional] [enum: index, stock, fund, etf, debt, investmentProduct, leveragedProduct, currency, commodity, option, future, interestRate, right]
+ **onlyActive** | **Boolean**|  | [optional] [default to true]
+ **popularity** | **Boolean**|  | [optional] [default to false]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **language** | **String**|  | [optional]
+ **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
-[**InlineResponse20088**](InlineResponse20088.md)
+[**InlineResponse20091**](InlineResponse20091.md)
 
 ### Authorization
 
@@ -1865,7 +2260,7 @@ Name | Type | Description  | Notes
 
 ## getNotationSearchByTextRankedByVolume
 
-> InlineResponse20090 getNotationSearchByTextRankedByVolume(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit)
+> InlineResponse20093 getNotationSearchByTextRankedByVolume(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit)
 
 Basic search for notations.
 
@@ -1906,17 +2301,17 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String searchValue = "searchValue_example"; // String | Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
-        java.util.Set<BigDecimal> idMarkets = Arrays.asList(); // java.util.Set<BigDecimal> | List of market identifiers. Limits the results to the given markets. For possible values, see endpoint `/basic/market/list`.
-        java.util.Set<String> nsins = Arrays.asList(); // java.util.Set<String> | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched.
-        java.util.List<String> assetClass = Arrays.asList(); // java.util.List<String> | Limits the results to a particular asset class.
-        Boolean onlyActive = true; // Boolean | If true, restricts the result to active notations.
+        String searchValue = "searchValue_example"; // String | 
+        java.util.Set<BigDecimal> idMarkets = Arrays.asList(); // java.util.Set<BigDecimal> | 
+        java.util.Set<String> nsins = Arrays.asList(); // java.util.Set<String> | 
+        java.util.List<String> assetClass = Arrays.asList(); // java.util.List<String> | 
+        Boolean onlyActive = true; // Boolean | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("20.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        String language = "language_example"; // String | 
+        BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
+        BigDecimal paginationLimit = new BigDecimal("20"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
-            InlineResponse20090 result = apiInstance.getNotationSearchByTextRankedByVolume(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
+            InlineResponse20093 result = apiInstance.getNotationSearchByTextRankedByVolume(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1935,19 +2330,19 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchValue** | **String**| Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. |
- **idMarkets** | **List&lt;BigDecimal&gt;**| List of market identifiers. Limits the results to the given markets. For possible values, see endpoint &#x60;/basic/market/list&#x60;. | [optional]
- **nsins** | **List&lt;String&gt;**| A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. | [optional] [enum: wkn, valor, cusip, sedol]
- **assetClass** | **List&lt;String&gt;**| Limits the results to a particular asset class. | [optional] [enum: index, stock, fund, etf, debt, investmentProduct, leveragedProduct, currency, commodity, option, future, interestRate]
- **onlyActive** | **Boolean**| If true, restricts the result to active notations. | [optional] [default to true]
+ **searchValue** | **String**|  |
+ **idMarkets** | **List&lt;BigDecimal&gt;**|  | [optional]
+ **nsins** | **List&lt;String&gt;**|  | [optional] [enum: wkn, valor, cusip, sedol]
+ **assetClass** | **List&lt;String&gt;**|  | [optional] [enum: index, stock, fund, etf, debt, investmentProduct, leveragedProduct, currency, commodity, option, future, interestRate, right]
+ **onlyActive** | **Boolean**|  | [optional] [default to true]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **language** | **String**|  | [optional]
+ **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
-[**InlineResponse20090**](InlineResponse20090.md)
+[**InlineResponse20093**](InlineResponse20093.md)
 
 ### Authorization
 
@@ -1966,7 +2361,7 @@ Name | Type | Description  | Notes
 
 ## getNotationStatusGet
 
-> InlineResponse20078 getNotationStatusGet(id, quality, attributes)
+> InlineResponse20081 getNotationStatusGet(identifier, identifierType, quality, attributes)
 
 Intraday trading status of a notation.
 
@@ -2006,11 +2401,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        String id = "id_example"; // String | Identifier of a notation.
-        String quality = "RLT"; // String | Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD).
+        String identifier = "identifier_example"; // String | 
+        String identifierType = "idNotation"; // String | 
+        String quality = "RLT"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20078 result = apiInstance.getNotationStatusGet(id, quality, attributes);
+            InlineResponse20081 result = apiInstance.getNotationStatusGet(identifier, identifierType, quality, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2029,13 +2425,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. |
- **quality** | **String**| Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). | [optional] [default to DLY] [enum: RLT, DLY, BST]
+ **identifier** | **String**|  |
+ **identifierType** | **String**|  | [enum: idNotation, tickerExchange, tickerRegion, fdsPermanentIdentifierListing, fdsPermanentIdentifierRegional]
+ **quality** | **String**|  | [optional] [default to DLY] [enum: RLT, DLY, BST]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
-[**InlineResponse20078**](InlineResponse20078.md)
+[**InlineResponse20081**](InlineResponse20081.md)
 
 ### Authorization
 
@@ -2054,7 +2451,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier
 
-> InlineResponse20070 postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(body)
+> InlineResponse20072 postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest)
 
 Retrieve a list of notations for a given FactSet identifier.
 
@@ -2094,9 +2491,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        InlineObject19 body = new InlineObject19(); // InlineObject19 | 
+        PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = new PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest(); // PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest | 
         try {
-            InlineResponse20070 result = apiInstance.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(body);
+            InlineResponse20072 result = apiInstance.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2115,11 +2512,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject19**](InlineObject19.md)|  |
+ **postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest**](PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20070**](InlineResponse20070.md)
+[**InlineResponse20072**](InlineResponse20072.md)
 
 ### Authorization
 
@@ -2138,7 +2535,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceFactSetIdentifierListByInstrument
 
-> InlineResponse20071 postNotationCrossReferenceFactSetIdentifierListByInstrument(body)
+> InlineResponse20073 postNotationCrossReferenceFactSetIdentifierListByInstrument(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest)
 
 Retrieve a list of FactSet identifiers for a given instrument.
 
@@ -2178,9 +2575,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        InlineObject20 body = new InlineObject20(); // InlineObject20 | 
+        PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = new PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest(); // PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest | 
         try {
-            InlineResponse20071 result = apiInstance.postNotationCrossReferenceFactSetIdentifierListByInstrument(body);
+            InlineResponse20073 result = apiInstance.postNotationCrossReferenceFactSetIdentifierListByInstrument(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2199,11 +2596,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject20**](InlineObject20.md)|  |
+ **postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest**](PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20071**](InlineResponse20071.md)
+[**InlineResponse20073**](InlineResponse20073.md)
 
 ### Authorization
 
@@ -2222,7 +2619,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceListByISIN
 
-> InlineResponse20067 postNotationCrossReferenceListByISIN(body)
+> InlineResponse20069 postNotationCrossReferenceListByISIN(postNotationCrossReferenceListByISINRequest)
 
 List of entitled notations.
 
@@ -2262,9 +2659,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        InlineObject17 body = new InlineObject17(); // InlineObject17 | 
+        PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = new PostNotationCrossReferenceListByISINRequest(); // PostNotationCrossReferenceListByISINRequest | 
         try {
-            InlineResponse20067 result = apiInstance.postNotationCrossReferenceListByISIN(body);
+            InlineResponse20069 result = apiInstance.postNotationCrossReferenceListByISIN(postNotationCrossReferenceListByISINRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2283,11 +2680,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject17**](InlineObject17.md)|  | [optional]
+ **postNotationCrossReferenceListByISINRequest** | [**PostNotationCrossReferenceListByISINRequest**](PostNotationCrossReferenceListByISINRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20067**](InlineResponse20067.md)
+[**InlineResponse20069**](InlineResponse20069.md)
 
 ### Authorization
 
@@ -2306,7 +2703,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceListByInstrument
 
-> InlineResponse20067 postNotationCrossReferenceListByInstrument(body)
+> InlineResponse20068 postNotationCrossReferenceListByInstrument(postNotationCrossReferenceListByInstrumentRequest)
 
 List of entitled notations.
 
@@ -2346,9 +2743,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        InlineObject16 body = new InlineObject16(); // InlineObject16 | 
+        PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = new PostNotationCrossReferenceListByInstrumentRequest(); // PostNotationCrossReferenceListByInstrumentRequest | 
         try {
-            InlineResponse20067 result = apiInstance.postNotationCrossReferenceListByInstrument(body);
+            InlineResponse20068 result = apiInstance.postNotationCrossReferenceListByInstrument(postNotationCrossReferenceListByInstrumentRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2367,11 +2764,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject16**](InlineObject16.md)|  | [optional]
+ **postNotationCrossReferenceListByInstrumentRequest** | [**PostNotationCrossReferenceListByInstrumentRequest**](PostNotationCrossReferenceListByInstrumentRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20067**](InlineResponse20067.md)
+[**InlineResponse20068**](InlineResponse20068.md)
 
 ### Authorization
 
@@ -2390,7 +2787,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceListBySymbol
 
-> InlineResponse20068 postNotationCrossReferenceListBySymbol(body)
+> InlineResponse20070 postNotationCrossReferenceListBySymbol(postNotationCrossReferenceListBySymbolRequest)
 
 List of entitled notations.
 
@@ -2430,9 +2827,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        InlineObject18 body = new InlineObject18(); // InlineObject18 | 
+        PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = new PostNotationCrossReferenceListBySymbolRequest(); // PostNotationCrossReferenceListBySymbolRequest | 
         try {
-            InlineResponse20068 result = apiInstance.postNotationCrossReferenceListBySymbol(body);
+            InlineResponse20070 result = apiInstance.postNotationCrossReferenceListBySymbol(postNotationCrossReferenceListBySymbolRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2451,11 +2848,96 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject18**](InlineObject18.md)|  | [optional]
+ **postNotationCrossReferenceListBySymbolRequest** | [**PostNotationCrossReferenceListBySymbolRequest**](PostNotationCrossReferenceListBySymbolRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20068**](InlineResponse20068.md)
+[**InlineResponse20070**](InlineResponse20070.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+
+## postNotationMarketList
+
+> InlineResponse20080 postNotationMarketList(postNotationMarketListRequest)
+
+List of markets with entitled notations.
+
+List of markets with entitled notations. The list contains only markets with at least one active and entitled notation. 
+All identifiers used as parameters must be valid and entitled.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
+import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
+import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
+import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.api.NotationApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        NotationApi apiInstance = new NotationApi(defaultClient);
+        PostNotationMarketListRequest postNotationMarketListRequest = new PostNotationMarketListRequest(); // PostNotationMarketListRequest | 
+        try {
+            InlineResponse20080 result = apiInstance.postNotationMarketList(postNotationMarketListRequest);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling NotationApi#postNotationMarketList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postNotationMarketListRequest** | [**PostNotationMarketListRequest**](PostNotationMarketListRequest.md)|  | [optional]
+
+### Return type
+
+[**InlineResponse20080**](InlineResponse20080.md)
 
 ### Authorization
 
@@ -2474,7 +2956,7 @@ Name | Type | Description  | Notes
 
 ## postNotationSearchByText
 
-> InlineResponse20089 postNotationSearchByText(body)
+> InlineResponse20092 postNotationSearchByText(postNotationSearchByTextRequest)
 
 Text-based search for notations.
 
@@ -2515,9 +2997,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NotationApi apiInstance = new NotationApi(defaultClient);
-        InlineObject22 body = new InlineObject22(); // InlineObject22 | 
+        PostNotationSearchByTextRequest postNotationSearchByTextRequest = new PostNotationSearchByTextRequest(); // PostNotationSearchByTextRequest | 
         try {
-            InlineResponse20089 result = apiInstance.postNotationSearchByText(body);
+            InlineResponse20092 result = apiInstance.postNotationSearchByText(postNotationSearchByTextRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -2536,11 +3018,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject22**](InlineObject22.md)|  |
+ **postNotationSearchByTextRequest** | [**PostNotationSearchByTextRequest**](PostNotationSearchByTextRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20089**](InlineResponse20089.md)
+[**InlineResponse20092**](InlineResponse20092.md)
 
 ### Authorization
 

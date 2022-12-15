@@ -1,6 +1,6 @@
 /*
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -27,6 +27,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -50,7 +54,7 @@ public class InlineResponse20050DataComponents implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
   private InlineResponse20050DataValueUnit valueUnit;
@@ -89,30 +93,30 @@ public class InlineResponse20050DataComponents implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_PARTICIPATION = "participation";
-  private ParticipationEnum participation;
+  private JsonNullable<ParticipationEnum> participation = JsonNullable.<ParticipationEnum>undefined();
 
   public static final String JSON_PROPERTY_NUMBER_SHARES = "numberShares";
-  private BigDecimal numberShares;
+  private JsonNullable<BigDecimal> numberShares = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_INITIAL_WEIGHT = "initialWeight";
-  private BigDecimal initialWeight;
+  private JsonNullable<BigDecimal> initialWeight = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_REFERENCE_LEVEL = "referenceLevel";
-  private BigDecimal referenceLevel;
+  private JsonNullable<BigDecimal> referenceLevel = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_CONSTANT_LEVERAGE = "constantLeverage";
-  private BigDecimal constantLeverage;
+  private JsonNullable<BigDecimal> constantLeverage = JsonNullable.<BigDecimal>undefined();
 
   public InlineResponse20050DataComponents() { 
   }
 
   public InlineResponse20050DataComponents name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -122,18 +126,26 @@ public class InlineResponse20050DataComponents implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the component, provided also if there is no notation for the component.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
@@ -190,7 +202,7 @@ public class InlineResponse20050DataComponents implements Serializable {
 
 
   public InlineResponse20050DataComponents participation(ParticipationEnum participation) {
-    this.participation = participation;
+    this.participation = JsonNullable.<ParticipationEnum>of(participation);
     return this;
   }
 
@@ -200,23 +212,31 @@ public class InlineResponse20050DataComponents implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether the level of the composite instrument rises or falls with a rising level of the component. The level of a basket always rises with rising level of its components and vice versa; therefore, for those the attribute is not set. The level of an alpha structure or a futures spread is calculated by subtracting the performance (price) of the short component from that of the long one. The level of a factor index rises with rising level of its component if the latter is long, and falls if it is short. For the type of composite instrument, see attribute  `typeComposite`.")
-  @JsonProperty(JSON_PROPERTY_PARTICIPATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public ParticipationEnum getParticipation() {
-    return participation;
+        return participation.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PARTICIPATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setParticipation(ParticipationEnum participation) {
+
+  public JsonNullable<ParticipationEnum> getParticipation_JsonNullable() {
+    return participation;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARTICIPATION)
+  public void setParticipation_JsonNullable(JsonNullable<ParticipationEnum> participation) {
     this.participation = participation;
+  }
+
+  public void setParticipation(ParticipationEnum participation) {
+    this.participation = JsonNullable.<ParticipationEnum>of(participation);
   }
 
 
   public InlineResponse20050DataComponents numberShares(BigDecimal numberShares) {
-    this.numberShares = numberShares;
+    this.numberShares = JsonNullable.<BigDecimal>of(numberShares);
     return this;
   }
 
@@ -226,23 +246,31 @@ public class InlineResponse20050DataComponents implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Absolute number of shares of the component contained in the composite instrument.  The absolute number of shares can be subject to change due to corporate actions or active management of the composite instrument (see attribute `activeManagement`). If the component is an index, the number of shares is a factor which applies to the level of the index.")
-  @JsonProperty(JSON_PROPERTY_NUMBER_SHARES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getNumberShares() {
-    return numberShares;
+        return numberShares.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NUMBER_SHARES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumberShares(BigDecimal numberShares) {
+
+  public JsonNullable<BigDecimal> getNumberShares_JsonNullable() {
+    return numberShares;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NUMBER_SHARES)
+  public void setNumberShares_JsonNullable(JsonNullable<BigDecimal> numberShares) {
     this.numberShares = numberShares;
+  }
+
+  public void setNumberShares(BigDecimal numberShares) {
+    this.numberShares = JsonNullable.<BigDecimal>of(numberShares);
   }
 
 
   public InlineResponse20050DataComponents initialWeight(BigDecimal initialWeight) {
-    this.initialWeight = initialWeight;
+    this.initialWeight = JsonNullable.<BigDecimal>of(initialWeight);
     return this;
   }
 
@@ -252,23 +280,31 @@ public class InlineResponse20050DataComponents implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Weighting of the component, valid only at initial fixing   (see attribute `initialFixing` in endpoint `/securitizedDerivative/get`). ")
-  @JsonProperty(JSON_PROPERTY_INITIAL_WEIGHT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getInitialWeight() {
-    return initialWeight;
+        return initialWeight.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_INITIAL_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInitialWeight(BigDecimal initialWeight) {
+
+  public JsonNullable<BigDecimal> getInitialWeight_JsonNullable() {
+    return initialWeight;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INITIAL_WEIGHT)
+  public void setInitialWeight_JsonNullable(JsonNullable<BigDecimal> initialWeight) {
     this.initialWeight = initialWeight;
+  }
+
+  public void setInitialWeight(BigDecimal initialWeight) {
+    this.initialWeight = JsonNullable.<BigDecimal>of(initialWeight);
   }
 
 
   public InlineResponse20050DataComponents referenceLevel(BigDecimal referenceLevel) {
-    this.referenceLevel = referenceLevel;
+    this.referenceLevel = JsonNullable.<BigDecimal>of(referenceLevel);
     return this;
   }
 
@@ -278,23 +314,31 @@ public class InlineResponse20050DataComponents implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Level of the component on the issue date of the derivative product.  For the value unit, see attribute `valueUnit`.")
-  @JsonProperty(JSON_PROPERTY_REFERENCE_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getReferenceLevel() {
-    return referenceLevel;
+        return referenceLevel.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REFERENCE_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReferenceLevel(BigDecimal referenceLevel) {
+
+  public JsonNullable<BigDecimal> getReferenceLevel_JsonNullable() {
+    return referenceLevel;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REFERENCE_LEVEL)
+  public void setReferenceLevel_JsonNullable(JsonNullable<BigDecimal> referenceLevel) {
     this.referenceLevel = referenceLevel;
+  }
+
+  public void setReferenceLevel(BigDecimal referenceLevel) {
+    this.referenceLevel = JsonNullable.<BigDecimal>of(referenceLevel);
   }
 
 
   public InlineResponse20050DataComponents constantLeverage(BigDecimal constantLeverage) {
-    this.constantLeverage = constantLeverage;
+    this.constantLeverage = JsonNullable.<BigDecimal>of(constantLeverage);
     return this;
   }
 
@@ -304,18 +348,26 @@ public class InlineResponse20050DataComponents implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "For a leveraged component, e.g. a component of a factor index, day-to-day leverage factor of the component's performance.")
-  @JsonProperty(JSON_PROPERTY_CONSTANT_LEVERAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getConstantLeverage() {
-    return constantLeverage;
+        return constantLeverage.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CONSTANT_LEVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConstantLeverage(BigDecimal constantLeverage) {
+
+  public JsonNullable<BigDecimal> getConstantLeverage_JsonNullable() {
+    return constantLeverage;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONSTANT_LEVERAGE)
+  public void setConstantLeverage_JsonNullable(JsonNullable<BigDecimal> constantLeverage) {
     this.constantLeverage = constantLeverage;
+  }
+
+  public void setConstantLeverage(BigDecimal constantLeverage) {
+    this.constantLeverage = JsonNullable.<BigDecimal>of(constantLeverage);
   }
 
 
@@ -331,19 +383,30 @@ public class InlineResponse20050DataComponents implements Serializable {
       return false;
     }
     InlineResponse20050DataComponents inlineResponse20050DataComponents = (InlineResponse20050DataComponents) o;
-    return Objects.equals(this.name, inlineResponse20050DataComponents.name) &&
+    return equalsNullable(this.name, inlineResponse20050DataComponents.name) &&
         Objects.equals(this.valueUnit, inlineResponse20050DataComponents.valueUnit) &&
         Objects.equals(this.notation, inlineResponse20050DataComponents.notation) &&
-        Objects.equals(this.participation, inlineResponse20050DataComponents.participation) &&
-        Objects.equals(this.numberShares, inlineResponse20050DataComponents.numberShares) &&
-        Objects.equals(this.initialWeight, inlineResponse20050DataComponents.initialWeight) &&
-        Objects.equals(this.referenceLevel, inlineResponse20050DataComponents.referenceLevel) &&
-        Objects.equals(this.constantLeverage, inlineResponse20050DataComponents.constantLeverage);
+        equalsNullable(this.participation, inlineResponse20050DataComponents.participation) &&
+        equalsNullable(this.numberShares, inlineResponse20050DataComponents.numberShares) &&
+        equalsNullable(this.initialWeight, inlineResponse20050DataComponents.initialWeight) &&
+        equalsNullable(this.referenceLevel, inlineResponse20050DataComponents.referenceLevel) &&
+        equalsNullable(this.constantLeverage, inlineResponse20050DataComponents.constantLeverage);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, valueUnit, notation, participation, numberShares, initialWeight, referenceLevel, constantLeverage);
+    return Objects.hash(hashCodeNullable(name), valueUnit, notation, hashCodeNullable(participation), hashCodeNullable(numberShares), hashCodeNullable(initialWeight), hashCodeNullable(referenceLevel), hashCodeNullable(constantLeverage));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

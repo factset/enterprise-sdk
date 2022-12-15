@@ -1,6 +1,6 @@
 /**
  * Quotes API For Digital Portals
- * The quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the Time Series API for Digital Portals for direct access to price histories, and the News API for Digital Portals for searching and fetching related news.
+ * The Quotes API combines endpoints for retrieving security end-of-day, delayed, and realtime prices with performance key figures and basic reference data on the security and market level.  The API supports over 20 different price types for each quote and comes with basic search endpoints based on security identifiers and instrument names. Market coverage is included in the *Sample Use Cases* section below.  The Digital Portal use case is focused on high-performance applications that are  * serving millions of end-users, * accessible by client browsers via the internet, * supporting subscriptions for streamed updates out-of-the-box, * typically combining a wide variety of *for Digital Portals*-APIs into a highly use-case specific solution for customers, * integrated into complex infrastructures such as existing frontend frameworks, authentication services.  All APIs labelled *for Digital Portals* have been designed for direct use by client web applications and feature extreme low latency: The average response time across all endpoints is 30 ms whereas 99% of all requests are answered in close to under 300ms.  See the [Time Series API for Digital Portals](https://developer.factset.com/api-catalog/time-series-api-digital-portals) for direct access to price histories, and the [News API for Digital Portals](https://developer.factset.com/api-catalog/news-api-digital-portals) for searching and fetching related news. 
  *
  * The version of the OpenAPI document: 2
  * 
@@ -12,7 +12,16 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20083DataAsks from './InlineResponse20083DataAsks';
+import InlineResponse20082DataCurrency from './InlineResponse20082DataCurrency';
+import InlineResponse20082DataValueUnit from './InlineResponse20082DataValueUnit';
+import InlineResponse20083Accumulated from './InlineResponse20083Accumulated';
+import InlineResponse20083First from './InlineResponse20083First';
+import InlineResponse20083High from './InlineResponse20083High';
+import InlineResponse20083Latest from './InlineResponse20083Latest';
+import InlineResponse20083Low from './InlineResponse20083Low';
+import InlineResponse20083Market from './InlineResponse20083Market';
+import InlineResponse20083PreviousClose from './InlineResponse20083PreviousClose';
+import InlineResponse20083Status from './InlineResponse20083Status';
 
 /**
  * The InlineResponse20083Data model module.
@@ -21,7 +30,6 @@ import InlineResponse20083DataAsks from './InlineResponse20083DataAsks';
 class InlineResponse20083Data {
     /**
      * Constructs a new <code>InlineResponse20083Data</code>.
-     * Orderbook.
      * @alias module:model/InlineResponse20083Data
      */
     constructor() { 
@@ -48,14 +56,44 @@ class InlineResponse20083Data {
         if (data) {
             obj = obj || new InlineResponse20083Data();
 
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
+            }
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
+            }
+            if (data.hasOwnProperty('valueUnit')) {
+                obj['valueUnit'] = InlineResponse20082DataValueUnit.constructFromObject(data['valueUnit']);
+            }
+            if (data.hasOwnProperty('currency')) {
+                obj['currency'] = InlineResponse20082DataCurrency.constructFromObject(data['currency']);
+            }
+            if (data.hasOwnProperty('market')) {
+                obj['market'] = InlineResponse20083Market.constructFromObject(data['market']);
+            }
             if (data.hasOwnProperty('quality')) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('asks')) {
-                obj['asks'] = ApiClient.convertToType(data['asks'], [InlineResponse20083DataAsks]);
+            if (data.hasOwnProperty('latest')) {
+                obj['latest'] = InlineResponse20083Latest.constructFromObject(data['latest']);
             }
-            if (data.hasOwnProperty('bids')) {
-                obj['bids'] = ApiClient.convertToType(data['bids'], [InlineResponse20083DataAsks]);
+            if (data.hasOwnProperty('first')) {
+                obj['first'] = InlineResponse20083First.constructFromObject(data['first']);
+            }
+            if (data.hasOwnProperty('low')) {
+                obj['low'] = InlineResponse20083Low.constructFromObject(data['low']);
+            }
+            if (data.hasOwnProperty('high')) {
+                obj['high'] = InlineResponse20083High.constructFromObject(data['high']);
+            }
+            if (data.hasOwnProperty('previousClose')) {
+                obj['previousClose'] = InlineResponse20083PreviousClose.constructFromObject(data['previousClose']);
+            }
+            if (data.hasOwnProperty('accumulated')) {
+                obj['accumulated'] = InlineResponse20083Accumulated.constructFromObject(data['accumulated']);
+            }
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = InlineResponse20083Status.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -65,22 +103,72 @@ class InlineResponse20083Data {
 }
 
 /**
+ * MDG identifier of the listing.
+ * @member {String} idNotation
+ */
+InlineResponse20083Data.prototype['idNotation'] = undefined;
+
+/**
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
+ */
+InlineResponse20083Data.prototype['sourceIdentifier'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20082DataValueUnit} valueUnit
+ */
+InlineResponse20083Data.prototype['valueUnit'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20082DataCurrency} currency
+ */
+InlineResponse20083Data.prototype['currency'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20083Market} market
+ */
+InlineResponse20083Data.prototype['market'] = undefined;
+
+/**
  * Quality of the price.
  * @member {module:model/InlineResponse20083Data.QualityEnum} quality
  */
 InlineResponse20083Data.prototype['quality'] = undefined;
 
 /**
- * List of sell orders aggregated by price.
- * @member {Array.<module:model/InlineResponse20083DataAsks>} asks
+ * @member {module:model/InlineResponse20083Latest} latest
  */
-InlineResponse20083Data.prototype['asks'] = undefined;
+InlineResponse20083Data.prototype['latest'] = undefined;
 
 /**
- * List of buy orders aggregated by price.
- * @member {Array.<module:model/InlineResponse20083DataAsks>} bids
+ * @member {module:model/InlineResponse20083First} first
  */
-InlineResponse20083Data.prototype['bids'] = undefined;
+InlineResponse20083Data.prototype['first'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20083Low} low
+ */
+InlineResponse20083Data.prototype['low'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20083High} high
+ */
+InlineResponse20083Data.prototype['high'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20083PreviousClose} previousClose
+ */
+InlineResponse20083Data.prototype['previousClose'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20083Accumulated} accumulated
+ */
+InlineResponse20083Data.prototype['accumulated'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20083Status} status
+ */
+InlineResponse20083Data.prototype['status'] = undefined;
 
 
 
@@ -103,7 +191,13 @@ InlineResponse20083Data['QualityEnum'] = {
      * value: "DLY"
      * @const
      */
-    "DLY": "DLY"
+    "DLY": "DLY",
+
+    /**
+     * value: "EOD"
+     * @const
+     */
+    "EOD": "EOD"
 };
 
 

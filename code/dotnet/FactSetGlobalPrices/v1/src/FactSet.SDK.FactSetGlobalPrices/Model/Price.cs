@@ -1,7 +1,7 @@
 /*
  * FactSet Global Prices API
  *
- * The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p> 
+ * The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>
  *
  * The version of the OpenAPI document: 1.5.0
  * Contact: api@factset.com
@@ -30,7 +30,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
     /// Price
     /// </summary>
     [DataContract(Name = "price")]
-    public partial class Price : Dictionary<String, Object>, IEquatable<Price>, IValidatableObject
+    public partial class Price : IEquatable<Price>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Price" /> class.
@@ -131,22 +131,22 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return base.Equals(input) &&
                 (
                     this.FsymId == input.FsymId ||
                     (this.FsymId != null &&
                     this.FsymId.Equals(input.FsymId))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Date == input.Date ||
                     (this.Date != null &&
                     this.Date.Equals(input.Date))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&

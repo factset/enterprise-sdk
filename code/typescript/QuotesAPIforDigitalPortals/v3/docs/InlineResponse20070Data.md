@@ -4,8 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instrument** | [**InlineResponse20070DataInstrument**](InlineResponse20070DataInstrument.md) |  | [optional] 
-**permanentIdentifier** | **String** | FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S). | [optional] 
-**regional** | [**[InlineResponse20070DataRegional]**](InlineResponse20070DataRegional.md) | Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array. | [optional] 
+**id** | **String** | Identifier of the notation. | [optional] 
+**active** | **Boolean** | Indicates whether the notation is active. | [optional] 
+**market** | [**InlineResponse20067DataMarket**](InlineResponse20067DataMarket.md) |  | [optional] 
+**valueUnit** | [**InlineResponse20067DataValueUnit**](InlineResponse20067DataValueUnit.md) |  | [optional] 
+**fsym** | [**InlineResponse20046NotationFsym**](InlineResponse20046NotationFsym.md) |  | [optional] 
+**instrument** | [**InlineResponse20070Instrument**](InlineResponse20070Instrument.md) |  | [optional] 
 
 

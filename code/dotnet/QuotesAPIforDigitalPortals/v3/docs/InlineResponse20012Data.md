@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a media kind. | [optional] 
+**Id** | **decimal?** | Identifier of a media kind. | [optional] 
 **Name** | **string** | English name of the media kind. | [optional] 
 **Description** | **string** | English description of the media kind. | [optional] 
 
