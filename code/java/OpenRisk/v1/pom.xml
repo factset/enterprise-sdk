@@ -5,7 +5,7 @@
     <artifactId>openrisk</artifactId>
     <packaging>jar</packaging>
     <name>openrisk</name>
-    <version>0.21.4</version>
+    <version>1.0.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Open:Risk client library for Java</description>
     <scm>

@@ -1,0 +1,16 @@
+{
+  "projectName": "@factset/sdk-exchangedatafeeddatamodel",
+  "projectVersion": "0.20.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Exchange DataFeed Data Model client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "exchangedatafeeddatamodel",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/ExchangeDataFeedDataModel/0.20.0",
+  "usePromises": true,
+  "licenseName": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

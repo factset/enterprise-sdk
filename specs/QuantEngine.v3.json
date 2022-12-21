@@ -1,0 +1,3633 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Quant API",
+    "description": "Allow clients to fetch Analytics through APIs.",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "version": "3"
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com"
+    }
+  ],
+  "paths": {
+    "/analytics/engines/quant/v3/calculations": {
+      "post": {
+        "tags": [
+          "QuantCalculations"
+        ],
+        "summary": "Create and Run Quant Engine calculation",
+        "description": "This endpoint runs the Quant Engine calculation specified in the POST body parameters.\r\nIt can take one or more calculation units as input.",
+        "operationId": "postAndCalculate",
+        "parameters": [
+          {
+            "name": "Cache-Control",
+            "in": "header",
+            "description": "Standard HTTP header.  Accepts no-store, max-age, max-stale.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuantCalculationParametersRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response if the calculation has one unit and is completed with an error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectRoot"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectRoot"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Expected response, contains the poll URL in the Location header.",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for the resulting calculation",
+                "schema": {
+                  "type": "string",
+                  "description": "URL to poll for the resulting calculation"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid calculation parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "One or more calculation settings were unavailable.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Cancel older requests using Cancel Calculation endpoint or wait for older requests to finish/expire.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        },
+        "x-factset-different-success-responses": true
+      },
+      "get": {
+        "tags": [
+          "QuantCalculations"
+        ],
+        "summary": "Get all calculations",
+        "description": "This endpoints returns all calculation requests.",
+        "operationId": "getAllCalculations",
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of calculation requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationsSummaryRoot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid page number.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No calculation found.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/engines/quant/v3/calculations/{id}": {
+      "put": {
+        "tags": [
+          "QuantCalculations"
+        ],
+        "summary": "Create or update Quant Engine calculation and run it.",
+        "description": "This endpoint updates and runs the Quant Engine calculation specified in the PUT body parameters. This also allows creating new Quant Engine calculations with custom ids.\r\nIt can take one or more calculation units as input.",
+        "operationId": "putAndCalculate",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint"
+            }
+          },
+          {
+            "name": "Cache-Control",
+            "in": "header",
+            "description": "Standard HTTP header.  Accepts no-store, max-age, max-stale.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Calculation Parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuantCalculationParametersRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response if the calculation has one unit and is completed with an error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectRoot"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectRoot"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Expected response, contains the poll URL in the Location header.",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for the resulting calculation",
+                "schema": {
+                  "type": "string",
+                  "description": "URL to poll for the resulting calculation"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Calculation Parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "One or more calculation settings were unavailable.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Duplicate calculation exists with same parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Cancel older requests using Cancel Calculation endpoint or wait for older requests to finish/expire.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        },
+        "x-factset-different-success-responses": true
+      },
+      "get": {
+        "tags": [
+          "QuantCalculations"
+        ],
+        "summary": "Get Quant Engine calculation parameters by id",
+        "description": "This is the endpoint that returns the calculation parameters passed for a calculation.",
+        "operationId": "getCalculationParameters",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns the Quant Engine calculation parameters.",
+            "headers": {
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuantCalculationParametersRoot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid identifier provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Calculation id not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "QuantCalculations"
+        ],
+        "summary": "Cancel Quant calculation by id",
+        "description": "This is the endpoint to cancel a previously submitted calculation.",
+        "operationId": "cancelCalculationById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "from url, provided from the location header in the Create and Run Quant calculation endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "from url, provided from the location header in the Create and Run Quant calculation endpoint"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Expected response, calculation was canceled successfully.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid identifier provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "There was no request for the calculation identifier provided, or the request was already canceled for the provided identifier.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/engines/quant/v3/calculations/{id}/status": {
+      "get": {
+        "tags": [
+          "QuantCalculations"
+        ],
+        "summary": "Get Quant Engine calculation status by id",
+        "description": "This is the endpoint to check on the progress of a previously requested calculation.\r\nIf the calculation has finished computing, the location header will point to the result url.\r\nOtherwise, the calculation is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.",
+        "operationId": "getCalculationStatusById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response once calculation is completed.",
+            "headers": {
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Expected response returned if the calculation is not yet completed, should contain X-FactSet-Api-PickUp-Progress header.",
+            "headers": {
+              "X-FactSet-Api-PickUp-Progress": {
+                "description": "FactSet's progress header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's progress header."
+                }
+              },
+              "Cache-Control": {
+                "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value.",
+                "schema": {
+                  "type": "integer",
+                  "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid identifier provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Calculation was already returned, provided id was not a requested calculation, or the calculation was cancelled",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/result": {
+      "get": {
+        "tags": [
+          "QuantCalculations"
+        ],
+        "summary": "Get Quant Engine calculation result by id",
+        "description": "This is the endpoint to get the result of a previously requested calculation.\r\nIf the calculation has finished computing, the body of the response will contain the requested document in JSON.",
+        "operationId": "getCalculationUnitResultById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "from url, provided from the location header in the Get Quant Engine calculation status by id endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "from url, provided from the location header in the Get Quant Engine calculation status by id endpoint"
+            }
+          },
+          {
+            "name": "unitId",
+            "in": "path",
+            "description": "from url, provided from the location header in the Get Quant Engine calculation status by id endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "from url, provided from the location header in the Get Quant Engine calculation status by id endpoint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response once calculation is completed, returns JSON in the format specified in the Calculation parameters.",
+            "headers": {
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid identifier provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Calculation was already returned, provided id was not a requested calculation, or the calculation was cancelled",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/info": {
+      "get": {
+        "tags": [
+          "QuantCalculations"
+        ],
+        "summary": "Get Quant Engine calculation metadata information by id",
+        "description": "This is the endpoint to get the metadata information of a previously requested calculation.",
+        "operationId": "getCalculationUnitInfoById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "from url, provided from the location header in the Get Quant calculation status by id endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "from url, provided from the location header in the Get Quant calculation status by id endpoint"
+            }
+          },
+          {
+            "name": "unitId",
+            "in": "path",
+            "description": "from url, provided from the location header in the Get Quant calculation status by id endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "from url, provided from the location header in the Get Quant calculation status by id endpoint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response once calculation is completed.",
+            "headers": {
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid identifier provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Calculation was already returned, provided id was not a requested calculation, or the calculation was cancelled",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "QuantScreeningExpressionUniverse": {
+        "required": [
+          "universeExpr",
+          "universeType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuantUniverse"
+          }
+        ],
+        "properties": {
+          "universeExpr": {
+            "type": "string"
+          },
+          "universeType": {
+            "enum": [
+              "Equity",
+              "Debt"
+            ],
+            "type": "string"
+          },
+          "securityExpr": {
+            "type": "string"
+          }
+        }
+      },
+      "QuantIdentifierUniverse": {
+        "required": [
+          "identifiers",
+          "universeType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuantUniverse"
+          }
+        ],
+        "properties": {
+          "universeType": {
+            "enum": [
+              "Equity",
+              "Debt"
+            ],
+            "type": "string"
+          },
+          "identifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "QuantUniverse": {
+        "required": [
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "source": {
+            "enum": [
+              "ScreeningExpressionUniverse",
+              "UniversalScreenUniverse",
+              "IdentifierUniverse"
+            ],
+            "type": "string"
+          }
+        }
+      },
+      "QuantUniversalScreenUniverse": {
+        "required": [
+          "screen"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuantUniverse"
+          }
+        ],
+        "properties": {
+          "screen": {
+            "type": "string"
+          }
+        }
+      },
+      "QuantDateList": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuantDate"
+          }
+        ],
+        "properties": {
+          "dates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "QuantDate": {
+        "required": [
+          "calendar",
+          "frequency",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "source": {
+            "enum": [
+              "FdsDate",
+              "DateList"
+            ],
+            "type": "string"
+          },
+          "frequency": {
+            "type": "string"
+          },
+          "calendar": {
+            "type": "string"
+          },
+          "overrideUniversalScreenCalendar": {
+            "type": "boolean"
+          }
+        }
+      },
+      "QuantFdsDate": {
+        "required": [
+          "endDate",
+          "startDate"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuantDate"
+          }
+        ],
+        "properties": {
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          }
+        }
+      },
+      "QuantFqlExpression": {
+        "required": [
+          "expr",
+          "name"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuantFormula"
+          }
+        ],
+        "properties": {
+          "expr": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "dateOffset": {
+            "type": "string"
+          },
+          "isArrayReturnType": {
+            "type": "boolean"
+          }
+        }
+      },
+      "QuantUniversalScreenParameter": {
+        "required": [
+          "name",
+          "referenceName"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuantFormula"
+          }
+        ],
+        "properties": {
+          "referenceName": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "QuantAllUniversalScreenParameters": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuantFormula"
+          }
+        ]
+      },
+      "QuantFormula": {
+        "required": [
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "source": {
+            "enum": [
+              "ScreeningExpression",
+              "FqlExpression",
+              "UniversalScreenParameter",
+              "AllUniversalScreenParameters"
+            ],
+            "type": "string"
+          }
+        }
+      },
+      "QuantScreeningExpression": {
+        "required": [
+          "expr",
+          "name"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuantFormula"
+          }
+        ],
+        "properties": {
+          "expr": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "dateOffset": {
+            "type": "string"
+          }
+        }
+      },
+      "QuantScreeningExpressionUniverseObsolete": {
+        "required": [
+          "universeExpr",
+          "universeType"
+        ],
+        "type": "object",
+        "properties": {
+          "universeExpr": {
+            "type": "string"
+          },
+          "universeType": {
+            "enum": [
+              "Equity",
+              "Debt"
+            ],
+            "type": "string"
+          },
+          "securityExpr": {
+            "type": "string"
+          },
+          "source": {
+            "enum": [
+              "ScreeningExpressionUniverse",
+              "UniversalScreenUniverse",
+              "IdentifierUniverse"
+            ],
+            "type": "string"
+          }
+        }
+      },
+      "QuantUniversalScreenUniverseObsolete": {
+        "required": [
+          "screen"
+        ],
+        "type": "object",
+        "properties": {
+          "screen": {
+            "type": "string"
+          },
+          "source": {
+            "enum": [
+              "ScreeningExpressionUniverse",
+              "UniversalScreenUniverse",
+              "IdentifierUniverse"
+            ],
+            "type": "string"
+          }
+        }
+      },
+      "QuantIdentifierUniverseObsolete": {
+        "required": [
+          "identifiers",
+          "universeType"
+        ],
+        "type": "object",
+        "properties": {
+          "universeType": {
+            "enum": [
+              "Equity",
+              "Debt"
+            ],
+            "type": "string"
+          },
+          "identifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source": {
+            "enum": [
+              "ScreeningExpressionUniverse",
+              "UniversalScreenUniverse",
+              "IdentifierUniverse"
+            ],
+            "type": "string"
+          }
+        }
+      },
+      "QuantFdsDateObsolete": {
+        "required": [
+          "calendar",
+          "endDate",
+          "frequency",
+          "startDate"
+        ],
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          },
+          "frequency": {
+            "type": "string"
+          },
+          "calendar": {
+            "type": "string"
+          },
+          "overrideUniversalScreenCalendar": {
+            "type": "boolean"
+          }
+        }
+      },
+      "QuantDateListObsolete": {
+        "required": [
+          "calendar",
+          "frequency"
+        ],
+        "type": "object",
+        "properties": {
+          "dates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "frequency": {
+            "type": "string"
+          },
+          "calendar": {
+            "type": "string"
+          },
+          "overrideUniversalScreenCalendar": {
+            "type": "boolean"
+          }
+        }
+      },
+      "QuantScreeningExpressionObsolete": {
+        "required": [
+          "expr",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "expr": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "dateOffset": {
+            "type": "string"
+          }
+        }
+      },
+      "QuantFqlExpressionObsolete": {
+        "required": [
+          "expr",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "expr": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "dateOffset": {
+            "type": "string"
+          },
+          "isArrayReturnType": {
+            "type": "boolean"
+          }
+        }
+      },
+      "QuantUniversalScreenParameterObsolete": {
+        "required": [
+          "name",
+          "referenceName"
+        ],
+        "type": "object",
+        "properties": {
+          "referenceName": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "QuantAllUniversalScreenParametersObsolete": {
+        "type": "object"
+      },
+      "OneOfQuantUniverse": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/QuantUniversalScreenUniverse"
+          },
+          {
+            "$ref": "#/components/schemas/QuantScreeningExpressionUniverse"
+          },
+          {
+            "$ref": "#/components/schemas/QuantIdentifierUniverse"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "source",
+          "mapping": {
+            "UniversalScreenUniverse": "#/components/schemas/QuantUniversalScreenUniverse",
+            "ScreeningExpressionUniverse": "#/components/schemas/QuantScreeningExpressionUniverse",
+            "IdentifierUniverse": "#/components/schemas/QuantIdentifierUniverse"
+          }
+        }
+      },
+      "OneOfQuantDates": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/QuantFdsDate"
+          },
+          {
+            "$ref": "#/components/schemas/QuantDateList"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "source",
+          "mapping": {
+            "FdsDate": "#/components/schemas/QuantFdsDate",
+            "DateList": "#/components/schemas/QuantDateList"
+          }
+        }
+      },
+      "OneOfQuantFormulas": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/QuantScreeningExpression"
+          },
+          {
+            "$ref": "#/components/schemas/QuantFqlExpression"
+          },
+          {
+            "$ref": "#/components/schemas/QuantUniversalScreenParameter"
+          },
+          {
+            "$ref": "#/components/schemas/QuantAllUniversalScreenParameters"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "source",
+          "mapping": {
+            "ScreeningExpression": "#/components/schemas/QuantScreeningExpression",
+            "FqlExpression": "#/components/schemas/QuantFqlExpression",
+            "UniversalScreenParameter": "#/components/schemas/QuantUniversalScreenParameter",
+            "AllUniversalScreenParameters": "#/components/schemas/QuantAllUniversalScreenParameters"
+          }
+        }
+      },
+      "OneOfQuantFormulasArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/OneOfQuantFormulas"
+        }
+      },
+      "QuantCalculationParameters": {
+        "type": "object",
+        "properties": {
+          "universe": {
+            "$ref": "#/components/schemas/OneOfQuantUniverse"
+          },
+          "dates": {
+            "$ref": "#/components/schemas/OneOfQuantDates"
+          },
+          "formulas": {
+            "$ref": "#/components/schemas/OneOfQuantFormulasArray"
+          },
+          "jobDescription": {
+            "type": "string"
+          }
+        }
+      },
+      "QuantCalculationMeta": {
+        "type": "object",
+        "properties": {
+          "allowArrayData": {
+            "type": "boolean"
+          },
+          "contentorganization": {
+            "enum": [
+              "None",
+              "Row",
+              "Column",
+              "SimplifiedRow"
+            ],
+            "type": "string",
+            "default": "SimplifiedRow",
+            "deprecated": true
+          },
+          "stachContentOrganization": {
+            "enum": [
+              "None",
+              "Row",
+              "Column",
+              "SimplifiedRow"
+            ],
+            "type": "string",
+            "default": "SimplifiedRow"
+          },
+          "contenttype": {
+            "enum": [
+              "Json",
+              "Binary"
+            ],
+            "type": "string",
+            "default": "Json",
+            "deprecated": true
+          },
+          "format": {
+            "enum": [
+              "JsonStach",
+              "Table",
+              "Tableau",
+              "BinaryStach",
+              "Bison",
+              "Binary",
+              "Pdf",
+              "Pptx",
+              "Feather"
+            ],
+            "type": "string",
+            "default": "JsonStach"
+          }
+        }
+      },
+      "QuantCalculationParametersRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/QuantCalculationParameters"
+            },
+            "description": "List of calculation parameters."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/QuantCalculationMeta"
+          }
+        }
+      },
+      "ErrorSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          },
+          "parameter": {
+            "type": "string"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ErrorSource"
+          }
+        }
+      },
+      "CalculationUnitStatus": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "Queued",
+              "Executing",
+              "Success",
+              "Failed",
+              "Cancelled"
+            ],
+            "type": "string",
+            "description": "The status of calculation unit."
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "description": "The error in a calculation unit."
+          },
+          "result": {
+            "type": "string",
+            "description": "The result URL of the calculation."
+          },
+          "progress": {
+            "type": "string",
+            "description": "The progress of the calculation unit."
+          },
+          "points": {
+            "type": "integer",
+            "description": "The points for the calculation unit.",
+            "format": "int32"
+          }
+        }
+      },
+      "CalculationStatus": {
+        "type": "object",
+        "properties": {
+          "calculationid": {
+            "type": "string",
+            "description": "Calculation's identifier"
+          },
+          "status": {
+            "enum": [
+              "Queued",
+              "Executing",
+              "Completed",
+              "Cancelled"
+            ],
+            "type": "string",
+            "description": "Calculation's status"
+          },
+          "units": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/CalculationUnitStatus"
+            },
+            "description": "Number of calculation units in batch."
+          }
+        }
+      },
+      "CalculationUnitStatusMeta": {
+        "type": "object",
+        "properties": {
+          "info": {
+            "type": "string",
+            "description": "The Info URL of the calculation."
+          }
+        }
+      },
+      "CalculationStatusMeta": {
+        "type": "object",
+        "properties": {
+          "units": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/CalculationUnitStatusMeta"
+            },
+            "description": "Meta of calculation units in batch."
+          }
+        }
+      },
+      "CalculationStatusRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CalculationStatus"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/CalculationStatusMeta"
+          }
+        }
+      },
+      "ObjectRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {},
+          "meta": {}
+        }
+      },
+      "ClientErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "CalculationsSummary": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "Queued",
+              "Executing",
+              "Completed",
+              "Cancelled"
+            ],
+            "type": "string",
+            "description": "Last poll status of the calculation."
+          },
+          "units": {
+            "type": "integer",
+            "description": "Number of calculation units in batch.",
+            "format": "int32"
+          },
+          "requestTime": {
+            "type": "string",
+            "description": "Request time of calculation.",
+            "format": "date-time"
+          },
+          "lastPollTime": {
+            "type": "string",
+            "description": "Last poll time of calculation.",
+            "format": "date-time"
+          }
+        }
+      },
+      "PaginationInfo": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCalculations": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string"
+          },
+          "previousPage": {
+            "type": "string"
+          }
+        }
+      },
+      "PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfo"
+          }
+        }
+      },
+      "CalculationsSummaryRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CalculationsSummary"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/"
+  }
+}

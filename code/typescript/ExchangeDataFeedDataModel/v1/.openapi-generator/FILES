@@ -1,0 +1,17 @@
+.babelrc
+.gitignore
+.openapi-generator-ignore
+.travis.yml
+LICENSE
+README.md
+docs/ErrorResponse.md
+docs/FactSetProductCodesApi.md
+docs/RTDataModelProducts.md
+git_push.sh
+mocha.opts
+package.json
+src/ApiClient.js
+src/api/FactSetProductCodesApi.js
+src/index.js
+src/model/ErrorResponse.js
+src/model/RTDataModelProducts.js

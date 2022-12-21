@@ -1,0 +1,206 @@
+openapi: 3.0.0
+info:
+  description: FactSet’s Exchange DataFeed products provide access to consolidated
+    real-time and delayed global exchange data. Proprietary technology normalizes
+    over 250 global venues, 18+ million instruments, and 150+ data fields. Asset types
+    integrated include equities, futures, options, warrants, fixed income, mutual
+    funds, ETFs, indices, commodities, and FX rates. Innovative technology ensures
+    reliability and provides scalability that allows clients to make requests based
+    on a symbol list or an exchange. Reduce development time by powering proprietary
+    and third-party applications with exchange data from a unified data model. <p>The
+    Exchange DataFeed Data Model API provides mappings for enumerations used in our
+    Real-Time DataFeed products and should be used in conjunction with the DataFeed
+    Data Model documentation available for each product. <p>The initial beta version
+    of this API is limited to include mapping tables for the product codes only.
+  title: Exchange DataFeed Data Model API
+  version: 1.0.0
+servers:
+- url: https://api.factset.com/RTDataModel
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /products:
+    get:
+      description: "\nData can be returned in CSV, JSON or XML format, use the `format`\
+        \ parameter to chnage from the default JSON format.\n \n\n'*You must be logged\
+        \ into the Developer Portal and obtain an **[API Key](https://developer.factset.com/factset/api-key-listing)**\
+        \ for ''Try it Out'' to receive a successful server response. Select **Authorize**\
+        \ button or visit **[Authentication Support](https://developer.factset.com/authentication)**\
+        \ for more details.*'\n"
+      operationId: get_products
+      parameters:
+      - description: The format of the output file.<p>**Try it Out** - All formats
+          available</p>
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          default: json
+          enum:
+          - xml
+          - json
+          - csv
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+              - product_code: 9001
+                description: New York Stock Exchange Level 1
+              - product_code: 9002
+                description: Nasdaq Stock Market Level 1
+              - product_code: 9003
+                description: Nasdaq Stock Market Level 2
+              - product_code: 9004
+                description: NYSE American Level 1
+              - product_code: 9005
+                description: US Options Composite Pricing Level 1
+              schema:
+                $ref: '#/components/schemas/RTDataModel_Products'
+            application/xml:
+              example: <products type="array"> <product> <product-code>9001</product-code>
+                <description>New York Stock Exchange Level 1</description> </product>
+                <product> <product-code>9002</product-code> <description>Nasdaq Stock
+                Market Level 1</description> </product> <product> <product-code>9003</product-code>
+                <description>Nasdaq Stock Market Level 2</description> </product>
+                <product> <product-code>9004</product-code> <description>NYSE American
+                Level 1</description> </product> <product> <product-code>9005</product-code>
+                <description>US Options Composite Pricing Level 1</description> </product>
+                </products>
+              schema:
+                $ref: '#/components/schemas/RTDataModel_Products'
+          description: Successful response for the FactSet product codes table
+        "401":
+          content:
+            application/json:
+              example:
+                status: 401
+                error: Unauthorized
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from.
+        "402":
+          content:
+            application/json:
+              example:
+                status: 402
+                error: Invalid method
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Invalid method.
+        "404":
+          content:
+            application/json:
+              example:
+                status: 404
+                error: Not Found
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The provided report name is not valid.
+      summary: Request the enumeration table for FactSet product codes.
+      tags:
+      - FactSet Product codes
+      x-accepts: application/json
+components:
+  parameters:
+    format:
+      description: The format of the output file.<p>**Try it Out** - All formats available</p>
+      explode: true
+      in: query
+      name: format
+      required: false
+      schema:
+        default: json
+        enum:
+        - xml
+        - json
+        - csv
+        type: string
+      style: form
+  responses:
+    "401":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+        text/csv:
+          example: Unauthorized
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+    "402":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+        text/csv:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Invalid HTTP method. Either the method is not POST or GET or exceeds
+        the maximum request length (currently set at 5000 bytes). The description
+        field will indicate the exact reason.
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+        text/csv:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The provided report name is not valid.
+  schemas:
+    RTDataModel_Products:
+      description: sample response
+      example:
+        description: New York Stock Exchange Level 1
+        product_code: 9001
+      properties:
+        product_code:
+          description: FactSet product code
+          example: 9001
+          type: integer
+        description:
+          description: Product description
+          example: New York Stock Exchange Level 1
+          type: string
+      title: Product codes
+      type: object
+    errorResponse:
+      properties:
+        status:
+          description: status
+          example: 401
+          type: integer
+        error:
+          description: The plain text error message
+          example: Unauthorized
+          type: string
+      title: Error Response
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+
