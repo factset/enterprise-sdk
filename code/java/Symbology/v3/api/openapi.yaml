@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Symbology API provides symbol resolution services, allowing clients to translate market identifiers into various symbology types such as, FactSet Permanent Identifiers, CUSIP, ISIN, SEDOL, Tickers, and LEIs. <p>Factset's Symbology API sits at the center of its hub-and-spoke data model, enabling you to quickly harmonize the expanding catalog of Content APIs.</p>
   title: FactSet Symbology API
-  version: 3.0.0
+  version: 3.1.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -35,10 +35,12 @@ paths:
         \ Id\n* fsymSecurityId - FactSet security level permanent identifier\n* fsymRegionalId\
         \ - FactSet regional level permanent identifier\n* fsymListingId - FactSet\
         \ listing level permanent identifier\n* ISIN*\n* tickerExchange\n* tickerRegion\n\
-        * bloombergFigi (input only)\n* bloombergTicker (input only)\n\n**These symbol\
-        \ types require additional subscriptions. If you would like to gain access\
-        \ to these symbol types, please contact your FactSet Account Team or \"Report\
-        \ Issue\" above and our support teams can assist.*\n"
+        * bloombergFigi (Input only)\n* bloombergTicker (Input only)\n* GVKEY (Input\
+        \ only)\n* GVKEY & IID (Input only)\n* JCN\n* LoanX (Input only)\n* Markit\
+        \ Red (Input only)\n\n**These symbol types require additional subscriptions.\
+        \ If you would like to gain access to these symbol types, please contact your\
+        \ FactSet Account Team or \"Report Issue\" above and our support teams can\
+        \ assist.*\n"
       operationId: identifierResolution
       parameters:
       - description: |
@@ -103,6 +105,11 @@ paths:
           - tickerRegion
           - bloombergFigi
           - bloombergTicker
+          - GVKEY
+          - GVKEY & IID
+          - JCN
+          - LoanX
+          - Markit Red
           type: string
         style: form
       - description: The type of symbols being outputted. Multiple types of symbols
@@ -138,6 +145,7 @@ paths:
             - ISIN
             - tickerExchange
             - tickerRegion
+            - JCN
             type: string
           type: array
         style: form
@@ -239,10 +247,12 @@ paths:
         \ Id\n* fsymSecurityId - FactSet security level permanent identifier\n* fsymRegionalId\
         \ - FactSet regional level permanent identifier\n* fsymListingId - FactSet\
         \ listing level permanent identifier\n* ISIN*\n* tickerExchange\n* tickerRegion\n\
-        * bloombergFigi (input only)\n* bloombergTicker (input only)\n\n**These symbol\
-        \ types require additional subscriptions. If you would like to gain access\
-        \ to these symbol types, please contact your FactSet Account Team or \"Report\
-        \ Issue\" above and our support teams can assist.*\n"
+        * bloombergFigi (Input only)\n* bloombergTicker (Input only)\n* GVKEY (Input\
+        \ only)\n* GVKEY & IID (Input only)\n* JCN\n* LoanX (Input only)\n* Markit\
+        \ Red (Input only)\n\n**These symbol types require additional subscriptions.\
+        \ If you would like to gain access to these symbol types, please contact your\
+        \ FactSet Account Team or \"Report Issue\" above and our support teams can\
+        \ assist.*\n"
       operationId: batchIdentifierResolution
       requestBody:
         content:
@@ -346,6 +356,8 @@ components:
           inputSymbolType: tickerRegion
           cusip: 02079K305
           sedol: BYVY8G0
+          name: Alphabet Inc. Class A
+          frefListingExchange: USA
     multipleIdentifierResolution:
       description: Translating multiple security or entity identifiers into other
         identifiers.
@@ -356,14 +368,20 @@ components:
           inputSymbolType: tickerRegion
           cusip: 02079K305
           sedol: BYVY8G0
+          name: Alphabet Inc. Class A
+          frefListingExchange: USA
         - requestId: AAPL-US
           inputSymbolType: tickerRegion
           cusip: "037833100"
           sedol: "2046251"
+          name: Apple, Inc.
+          frefListingExchange: NAS
         - requestId: MSFT-US
           inputSymbolType: tickerRegion
           cusip: "594918104"
           sedol: "2588173"
+          name: Microsoft Corporation
+          frefListingExchange: NAS
     singleIdentifierResolutionPost:
       description: Translating a security or entity identifier into other identifiers
         from a Post Body.
@@ -588,6 +606,11 @@ components:
         - tickerRegion
         - bloombergFigi
         - bloombergTicker
+        - GVKEY
+        - GVKEY & IID
+        - JCN
+        - LoanX
+        - Markit Red
         type: string
       style: form
     getOutputSymbolTypes:
@@ -624,6 +647,7 @@ components:
           - ISIN
           - tickerExchange
           - tickerRegion
+          - JCN
           type: string
         type: array
       style: form
@@ -741,6 +765,7 @@ components:
             - ISIN
             - tickerExchange
             - tickerRegion
+            - JCN
             type: string
           maxItems: 20
           minItems: 1
@@ -756,10 +781,14 @@ components:
       description: Response object for Identifier Resolution endpoint.
       example:
         data:
-        - inputSymbolType: tickerRegion
+        - frefListingExchange: USA
+          inputSymbolType: tickerRegion
           requestId: GOOGL-US
-        - inputSymbolType: tickerRegion
+          name: Alphabet Inc. Class A
+        - frefListingExchange: USA
+          inputSymbolType: tickerRegion
           requestId: GOOGL-US
+          name: Alphabet Inc. Class A
       properties:
         data:
           description: Array of symbol translation objects.
@@ -779,8 +808,10 @@ components:
         type: string
       description: Identifier Resolution data object.
       example:
+        frefListingExchange: USA
         inputSymbolType: tickerRegion
         requestId: GOOGL-US
+        name: Alphabet Inc. Class A
       properties:
         requestId:
           description: Identifier inputted in the request.
@@ -791,6 +822,17 @@ components:
           description: The type of identifier inputted in the request
           example: tickerRegion
           nullable: false
+          type: string
+        name:
+          description: Name of the requested identifier
+          example: Alphabet Inc. Class A
+          nullable: true
+          type: string
+        frefListingExchange:
+          description: The 3 digit fref exchange code for the primary exchange of
+            the security
+          example: USA
+          nullable: true
           type: string
       title: Identifier Resolution
       type: object
@@ -858,6 +900,11 @@ components:
       - tickerRegion
       - bloombergFigi
       - bloombergTicker
+      - GVKEY
+      - GVKEY & IID
+      - JCN
+      - LoanX
+      - Markit Red
       maxItems: 1
       title: Input Symbol Type
       type: string
@@ -889,6 +936,7 @@ components:
         - ISIN
         - tickerExchange
         - tickerRegion
+        - JCN
         type: string
       maxItems: 20
       minItems: 1

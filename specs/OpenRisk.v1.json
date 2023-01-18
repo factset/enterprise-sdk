@@ -3,7 +3,7 @@
   "info": {
     "title": "Open:Risk API",
     "description": "Service to calculate parametric linear risk statistics and generate risk model asset identifier mappings.",
-    "version": "1.22.0",
+    "version": "1.23.0",
     "contact": {
       "name": "Parametric Risk Analytics Development",
       "email": "ParametricRiskAnalyticsDevelopment@factset.com"
@@ -2253,18 +2253,18 @@
                 {
                   "level": "Portfolio",
                   "stat": "ActiveVarianceToRisk",
-                  "value": 13.4046296043299
+                  "value": 12.3237450414125
                 },
                 {
                   "level": "SecurityGroup",
                   "stat": "ActiveVarianceToRisk",
                   "value": [
-                    13.4046296043299,
-                    5.16619772654378,
+                    12.3237450414125,
+                    3.49070893626629,
                     0,
-                    8.23843187778615,
-                    3.5970502715837,
-                    4.64138160620245
+                    8.83303610514624,
+                    3.92451636403069,
+                    4.90851974111555
                   ]
                 },
                 {
@@ -2342,10 +2342,10 @@
                   },
                   "stat": "ActiveFactorRisk",
                   "value": [
-                    3.43214707511258,
-                    3.3154251743545,
-                    2.11663397770895,
-                    1.76588546238827
+                    3.58271372820859,
+                    3.53603891949914,
+                    2.28313734920285,
+                    1.79315591947734
                   ]
                 },
                 {
@@ -2362,26 +2362,26 @@
                   "level": "Security",
                   "stat": "RawResidualRisk",
                   "value": [
-                    16.1144743502966,
-                    15.0907321167139,
-                    14.5813268142218,
+                    16.2557500876236,
+                    14.951706491152,
+                    14.7063781437888,
                     0,
-                    22.0891681692947,
-                    22.0891681692947,
-                    12.4074014271987
+                    17.8158822217523,
+                    17.8158822217523,
+                    11.4525275487782
                   ]
                 },
                 {
                   "level": "Security",
                   "stat": "RawSecurityFactorRisk",
                   "value": [
-                    20.6371308776655,
-                    16.5028659454423,
-                    19.9725467794761,
+                    20.5316732730502,
+                    16.789112177398,
+                    19.9101159997578,
                     0,
-                    14.0144486797372,
-                    17.656722691209,
-                    16.345354139906
+                    14.3123316983644,
+                    18.0077748529056,
+                    16.5729861101766
                   ]
                 },
                 {
@@ -2409,7 +2409,12 @@
                   ]
                 },
                 {
-                  "data": {
+                  "level": "FactorSecurity",
+                  "settings": {
+                    "sparse": true
+                  },
+                  "stat": "RawFactorExposure",
+                  "value": {
                     "columns": 7,
                     "indexPointer": [
                       0,
@@ -2431,15 +2436,15 @@
                       1,
                       1
                     ]
-                  },
-                  "level": "FactorSecurity",
+                  }
+                },
+                {
+                  "level": "Factor",
                   "settings": {
                     "sparse": true
                   },
-                  "stat": "RawFactorExposure"
-                },
-                {
-                  "data": {
+                  "stat": "PortfolioExposure",
+                  "value": {
                     "columns": 2,
                     "indexPointer": [
                       0,
@@ -2452,12 +2457,7 @@
                     "value": [
                       1
                     ]
-                  },
-                  "level": "Factor",
-                  "settings": {
-                    "sparse": true
-                  },
-                  "stat": "PortfolioExposure"
+                  }
                 }
               ],
               "meta": {
@@ -2481,12 +2481,12 @@
                       {
                         "groups": [
                           {
-                            "index": 3,
-                            "name": "Fundamental Factors"
-                          },
-                          {
                             "index": 2,
                             "name": "Market Factors"
+                          },
+                          {
+                            "index": 3,
+                            "name": "Fundamental Factors"
                           }
                         ],
                         "index": 1,
@@ -2537,7 +2537,15 @@
                   "covarianceDate": "2021-05-31",
                   "ssrDate": "2021-05-31",
                   "universeDate": "2021-05-31"
-                }
+                },
+                "warnings": [
+                  {
+                    "code": "requestBodyMissingData",
+                    "detail": "Missing Factors: [CGTUR, CGMEX, CGDEU, CGVNM, CGEGY, CGMYS, CGHKG, CGSAU, CGFIN, CGARE, CGCHE, CGSGP, CGZAF, CGARG, CGLKA, CGCHN, CGCAN, CGBRA, CGKOR, CGISR, CGPAK, CGITA, CGTHA, CGRUS, CGJPN, CGNOR, CGAUT, CGPHL, CGKWT, CGNZL, CGIND, CGUSA, CGNLD, CGBEL, CGPOL, CGAUS, CGSWE, CGIRL, CGPRT, CGQAT, CGGBR, CGESP, CGIDN, CGTWN, CGDNK, CGFRA, CGEASTRNEUXPOLRUS, CGSUBSAHARA, CGLATAMXARGBRA, CGMESMALL, CGNAFRICA, CGGRCCYP, IGHEALTHPROVDR, IGMRTGREIT, IGAUTOCOMP, IGHEALTHTECH, IGSPCLRETL, IGMULTUTILITIES, IGENRGYEQPMNT, IGEQREIT, IGAIRFRGTLOGSTC, IGTECHSTRGPERIPH, IGTBCCO, IGMARINE, IGINSRNCE, IGITSRVCS, IGHTLRESTRNTLEISR, IGTRADINGDISTRB, IGMEDIA, IGLIFESCNCESRVCS, IGBEVRG, IGROADRAIL, IGCOMMSEQPMT, IGFOODSTPLRETL, IGAUTO, IGGASUTILITIES, IGTXTLAPPRLLXRY, IGHSHLDDURABLES, IGBUILDINGPRD, IGINDPWRRENPROD, IGCONTNRSPCKG, IGTRNSPRTINFRSTCR, IGPRSNLPRD, IGPHARMACTCL, IGOILGASFUELS, IGPROFSRVC, IGRLESTMGMTDEV, IGINDSTRCONGLM, IGFOODPRDCT, IGSEMICONDCTR, IGINTRNTMKTRETL, IGCONSTRENG, IGHSHLDPRD, IGHEALTHCREQPMT, IGTHRFTMORTGFNCE, IGBANKS, IGELECTUTILITIES, IGSOFTWARE, IGMACHINERY, IGMETALSMINING, IGELCTRCLEQPMNT, IGAIRLINES, IGDIVCONSMRSRVC, IGPAPERFORESTPRD, IGMULTLNRETL, IGCAPMKTS, IGWRLSTELECOM, IGWTRUTILITIES, IGCONSMRFIN, IGDIVFINSRVCS, IGCHEMICALS, IGAEROSPCDEF, IGDISTRIBUTORS, IGCOMMSRVCSPPLY, IGBIOTECH, IGLEISREPRD, IGELECTEQUIP, IGDIVTELECOM, IGCONSTRMATERIAL, IGENTERTAINMENT, IGINTERMEDIASERV, FX_AED, FX_ARS, FX_AUD, FX_BAM, FX_BDT, FX_BGN, FX_BHD, FX_BMD, FX_BRL, FX_BWP, FX_CAD, FX_CHF, FX_CLF, FX_CLP, FX_CNH, FX_CNY, FX_COP, FX_CZK, FX_DKK, FX_EGP, FX_EUR, FX_GBP, FX_GHS, FX_HKD, FX_HRK, FX_HUF, FX_IDR, FX_ILS, FX_INR, FX_ISK, FX_JMD, FX_JOD, FX_JPY, FX_KES, FX_KRW, FX_KWD, FX_KZT, FX_LBP, FX_LKR, FX_LTL, FX_LVL, FX_MAD, FX_MKD, FX_MUR, FX_MWK, FX_MXN, FX_MYR, FX_NAD, FX_NGN, FX_NOK, FX_NZD, FX_OMR, FX_PEN, FX_PHP, FX_PKR, FX_PLN, FX_QAR, FX_RON, FX_RSD, FX_RUB, FX_SAR, FX_SEK, FX_SGD, FX_SKK, FX_THB, FX_TND, FX_TRY, FX_TTD, FX_TWD, FX_TZS, FX_UAH, FX_UGX, FX_USD, FX_UYU, FX_VES, FX_VND, FX_XAF, FX_XOF, FX_ZAR, FX_ZMK, FX_ZMW, FX_ZWL]",
+                    "id": "a25dce97-8df7-4145-b219-16c15975a38c",
+                    "title": "Factor grouping missing factor(s)."
+                  }
+                ]
               }
             }
           }

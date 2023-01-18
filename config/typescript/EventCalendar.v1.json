@@ -1,0 +1,16 @@
+{
+  "projectName": "@factset/sdk-eventcalendar",
+  "projectVersion": "0.20.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Event Calendar client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "eventcalendar",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/EventCalendar/0.20.0",
+  "usePromises": true,
+  "licenseName": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

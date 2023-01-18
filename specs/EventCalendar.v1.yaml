@@ -1,0 +1,223 @@
+openapi: 3.0.3
+info:
+  title: Event Calendar API
+  description: Retrieves events for companies
+  version: 1.0.0
+  contact:
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+    email: api@factset.com
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
+servers:
+  - url: https://api.factset.com/event-calendar/v1
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Company
+    description: Company tag
+paths:
+  /company/event/list:
+    post:
+      summary: Retrieve Company Event data
+      description: This endpoint returns all company events with filters from the request.
+      tags:
+        - Company
+      operationId: getCompanyEvent
+      requestBody:
+        $ref: '#/components/requestBodies/companyEventRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyEventResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  requestBodies:
+    companyEventRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/companyEventRequest'
+      description: Company Event request body
+      required: true
+  schemas:
+    errorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/error'
+    error:
+      type: object
+      properties:
+        title:
+          type: string
+        code:
+          type: string
+        id:
+          type: string
+    companyEventRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            date:
+              type: object
+              properties:
+                start:
+                  description: Event start time as date/time string according to ISO 8601.
+                  type: string
+                  format: date-time
+                  example: '2022-12-01T00:00:00Z'
+                end:
+                  description: Event end time as date/time string according to ISO 8601.
+                  type: string
+                  format: date-time
+                  example: '2022-12-31T22:59:02Z'
+            universe:
+              type: object
+              properties:
+                symbols:
+                  description: Companies to return in the response
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - AAPL-US
+                    - MSFT-US
+                    - FDS-US
+                type:
+                  type: string
+                  enum:
+                    - tickers
+                    - index
+                    - etf
+                    - mutual
+                    - allCompanies
+                  example: tickers
+            types:
+              description: The type of events returned in the response
+              type: array
+              items:
+                type: string
+                enum:
+                  - E
+                  - SA
+                  - G
+                  - AM
+                  - SM
+                  - SS
+                  - CP
+                  - confirmedER
+                  - SR
+                  - projectedER
+                  - S
+                  - D
+                example: E
+    companyEventResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              ticker:
+                type: string
+                example: AAPL-US
+              companyName:
+                type: string
+                example: Apple, Inc.
+              description:
+                type: string
+                example: Q2 2023 Earnings Release (Projected)
+              eventDateTime:
+                type: string
+                format: date-time
+                example: '2023-01-01T00:00:00Z'
+              marketTimeCode:
+                type: string
+                example: Unspecified
+              eventType:
+                type: string
+                enum:
+                  - E
+                  - SA
+                  - G
+                  - AM
+                  - SM
+                  - SS
+                  - CP
+                  - confirmedER
+                  - SR
+                  - projectedER
+                  - S
+                  - D
+                example: E
+              eventId:
+                type: string
+                example: '1200867930'
+              webcastLink:
+                type: string
+                example: ''
+              irLink:
+                type: string
+                example: investor.apple.com/investor-relations/default.aspx
+              fiscalYear:
+                type: string
+                example: '2023'
+              fiscalPeriod:
+                type: string
+                example: '1'
+              contactEmail:
+                type: string
+                example: jdoe@apple.com
+              contactPhone:
+                type: string
+                example: 1(888)227.0303
+              contactName:
+                type: string
+                example: John Doe

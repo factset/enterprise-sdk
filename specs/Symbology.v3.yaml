@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 3.0.0
+  version: 3.1.0
   title: FactSet Symbology API
   contact:
     name: FactSet Research Systems
@@ -80,9 +80,19 @@ paths:
 
         * tickerRegion
 
-        * bloombergFigi (input only)
+        * bloombergFigi (Input only)
 
-        * bloombergTicker (input only)
+        * bloombergTicker (Input only)
+
+        * GVKEY (Input only)
+
+        * GVKEY & IID (Input only)
+
+        * JCN
+
+        * LoanX (Input only)
+
+        * Markit Red (Input only)
 
 
         **These symbol types require additional subscriptions. If you would like
@@ -197,9 +207,19 @@ paths:
 
         * tickerRegion
 
-        * bloombergFigi (input only)
+        * bloombergFigi (Input only)
 
-        * bloombergTicker (input only)
+        * bloombergTicker (Input only)
+
+        * GVKEY (Input only)
+
+        * GVKEY & IID (Input only)
+
+        * JCN
+
+        * LoanX (Input only)
+
+        * Markit Red (Input only)
 
 
         **These symbol types require additional subscriptions. If you would like
@@ -337,6 +357,11 @@ components:
           - tickerRegion
           - bloombergFigi
           - bloombergTicker
+          - GVKEY
+          - GVKEY & IID
+          - JCN
+          - LoanX
+          - Markit Red
         default: tickerRegion
       required: true
       description: >
@@ -370,6 +395,7 @@ components:
             - ISIN
             - tickerExchange
             - tickerRegion
+            - JCN
       required: true
       explode: false
       description: >-
@@ -420,6 +446,18 @@ components:
           description: The type of identifier inputted in the request
           example: tickerRegion
           nullable: false
+        name:
+          type: string
+          description: Name of the requested identifier
+          example: Alphabet Inc. Class A
+          nullable: true
+        frefListingExchange:
+          type: string
+          description: >-
+            The 3 digit fref exchange code for the primary exchange of the
+            security
+          example: USA
+          nullable: true
       additionalProperties:
         title: Requested output symbol type
         description: >
@@ -514,6 +552,11 @@ components:
         - tickerRegion
         - bloombergFigi
         - bloombergTicker
+        - GVKEY
+        - GVKEY & IID
+        - JCN
+        - LoanX
+        - Markit Red
       default: tickerRegion
     getOutputSymbolTypes:
       title: Output Symbol Types
@@ -541,6 +584,7 @@ components:
           - ISIN
           - tickerExchange
           - tickerRegion
+          - JCN
       minItems: 1
       maxItems: 20
       description: >-
@@ -636,6 +680,8 @@ components:
             inputSymbolType: tickerRegion
             cusip: 02079K305
             sedol: BYVY8G0
+            name: Alphabet Inc. Class A
+            frefListingExchange: USA
     multipleIdentifierResolution:
       summary: >-
         Translating multiple security or entity identifiers into other
@@ -649,14 +695,20 @@ components:
             inputSymbolType: tickerRegion
             cusip: 02079K305
             sedol: BYVY8G0
+            name: Alphabet Inc. Class A
+            frefListingExchange: USA
           - requestId: AAPL-US
             inputSymbolType: tickerRegion
             cusip: '037833100'
             sedol: '2046251'
+            name: Apple, Inc.
+            frefListingExchange: NAS
           - requestId: MSFT-US
             inputSymbolType: tickerRegion
             cusip: '594918104'
             sedol: '2588173'
+            name: Microsoft Corporation
+            frefListingExchange: NAS
     singleIdentifierResolutionPost:
       summary: >-
         Translating a single security or entity identifier into other

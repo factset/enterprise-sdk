@@ -53,6 +53,8 @@ Name | Type | Description | Notes
 
 * `tickerRegion` (value: `"tickerRegion"`)
 
+* `JCN` (value: `"JCN"`)
+
 
 
 

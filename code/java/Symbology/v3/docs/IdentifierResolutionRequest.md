@@ -38,6 +38,7 @@ FSYMLISTINGID | &quot;fsymListingId&quot;
 ISIN | &quot;ISIN&quot;
 TICKEREXCHANGE | &quot;tickerExchange&quot;
 TICKERREGION | &quot;tickerRegion&quot;
+JCN | &quot;JCN&quot;
 
 
 ## Implemented Interfaces

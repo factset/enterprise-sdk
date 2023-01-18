@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.
 
-Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>
+Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p>
 
 ### Example
 

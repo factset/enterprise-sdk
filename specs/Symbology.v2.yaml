@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.1.1
+  version: 2.1.2
   title: FactSet Symbology API
   contact:
     name: FactSet Research Systems
@@ -918,8 +918,7 @@ paths:
       description: >-
         Returns the full history of Ticker-Exchange or Ticker-Region changes for
         a requested security. <p> This method is best for requesting **large
-        universes** of `ids`.</p><p>**This endpoint is included with all other
-        Content API packages.**</p>
+        universes** of `ids`.</p>
       operationId: batchTickerHistory
       requestBody:
         required: true

@@ -1,0 +1,280 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: Retrieves events for companies
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Event Calendar API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
+servers:
+- url: https://api.factset.com/event-calendar/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Company tag
+  name: Company
+paths:
+  /company/event/list:
+    post:
+      description: This endpoint returns all company events with filters from the
+        request.
+      operationId: getCompanyEvent
+      requestBody:
+        $ref: '#/components/requestBodies/companyEventRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyEventResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      summary: Retrieve Company Event data
+      tags:
+      - Company
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  requestBodies:
+    companyEventRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/companyEventRequest'
+      description: Company Event request body
+      required: true
+  schemas:
+    errorResponse:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/error'
+          type: array
+      type: object
+    error:
+      properties:
+        title:
+          type: string
+        code:
+          type: string
+        id:
+          type: string
+      type: object
+    companyEventRequest:
+      properties:
+        data:
+          $ref: '#/components/schemas/companyEventRequest_data'
+      type: object
+    companyEventResponse:
+      example:
+        data:
+        - eventDateTime: 2023-01-01T00:00:00Z
+          eventId: "1200867930"
+          ticker: AAPL-US
+          contactEmail: jdoe@apple.com
+          contactName: John Doe
+          companyName: Apple, Inc.
+          description: Q2 2023 Earnings Release (Projected)
+          eventType: E
+          irLink: investor.apple.com/investor-relations/default.aspx
+          marketTimeCode: Unspecified
+          fiscalPeriod: "1"
+          contactPhone: 1(888)227.0303
+          webcastLink: ""
+          fiscalYear: "2023"
+        - eventDateTime: 2023-01-01T00:00:00Z
+          eventId: "1200867930"
+          ticker: AAPL-US
+          contactEmail: jdoe@apple.com
+          contactName: John Doe
+          companyName: Apple, Inc.
+          description: Q2 2023 Earnings Release (Projected)
+          eventType: E
+          irLink: investor.apple.com/investor-relations/default.aspx
+          marketTimeCode: Unspecified
+          fiscalPeriod: "1"
+          contactPhone: 1(888)227.0303
+          webcastLink: ""
+          fiscalYear: "2023"
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/companyEventResponse_data'
+          type: array
+      type: object
+    companyEventRequest_data_date:
+      properties:
+        start:
+          description: Event start time as date/time string according to ISO 8601.
+          example: 2022-12-01T00:00:00Z
+          format: date-time
+          type: string
+        end:
+          description: Event end time as date/time string according to ISO 8601.
+          example: 2022-12-31T22:59:02Z
+          format: date-time
+          type: string
+      type: object
+    companyEventRequest_data_universe:
+      properties:
+        symbols:
+          description: Companies to return in the response
+          example:
+          - AAPL-US
+          - MSFT-US
+          - FDS-US
+          items:
+            type: string
+          type: array
+        type:
+          enum:
+          - tickers
+          - index
+          - etf
+          - mutual
+          - allCompanies
+          example: tickers
+          type: string
+      type: object
+    companyEventRequest_data:
+      properties:
+        date:
+          $ref: '#/components/schemas/companyEventRequest_data_date'
+        universe:
+          $ref: '#/components/schemas/companyEventRequest_data_universe'
+        types:
+          description: The type of events returned in the response
+          items:
+            enum:
+            - E
+            - SA
+            - G
+            - AM
+            - SM
+            - SS
+            - CP
+            - confirmedER
+            - SR
+            - projectedER
+            - S
+            - D
+            example: E
+            type: string
+          type: array
+      type: object
+    companyEventResponse_data:
+      example:
+        eventDateTime: 2023-01-01T00:00:00Z
+        eventId: "1200867930"
+        ticker: AAPL-US
+        contactEmail: jdoe@apple.com
+        contactName: John Doe
+        companyName: Apple, Inc.
+        description: Q2 2023 Earnings Release (Projected)
+        eventType: E
+        irLink: investor.apple.com/investor-relations/default.aspx
+        marketTimeCode: Unspecified
+        fiscalPeriod: "1"
+        contactPhone: 1(888)227.0303
+        webcastLink: ""
+        fiscalYear: "2023"
+      properties:
+        ticker:
+          example: AAPL-US
+          type: string
+        companyName:
+          example: Apple, Inc.
+          type: string
+        description:
+          example: Q2 2023 Earnings Release (Projected)
+          type: string
+        eventDateTime:
+          example: 2023-01-01T00:00:00Z
+          format: date-time
+          type: string
+        marketTimeCode:
+          example: Unspecified
+          type: string
+        eventType:
+          enum:
+          - E
+          - SA
+          - G
+          - AM
+          - SM
+          - SS
+          - CP
+          - confirmedER
+          - SR
+          - projectedER
+          - S
+          - D
+          example: E
+          type: string
+        eventId:
+          example: "1200867930"
+          type: string
+        webcastLink:
+          example: ""
+          type: string
+        irLink:
+          example: investor.apple.com/investor-relations/default.aspx
+          type: string
+        fiscalYear:
+          example: "2023"
+          type: string
+        fiscalPeriod:
+          example: "1"
+          type: string
+        contactEmail:
+          example: jdoe@apple.com
+          type: string
+        contactPhone:
+          example: 1(888)227.0303
+          type: string
+        contactName:
+          example: John Doe
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -89,7 +89,7 @@ public class TickerApi {
 
   /**
    * Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.
-   * Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. &lt;p&gt; This method is best for requesting **large universes** of &#x60;ids&#x60;.&lt;/p&gt;&lt;p&gt;**This endpoint is included with all other Content API packages.**&lt;/p&gt;
+   * Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. &lt;p&gt; This method is best for requesting **large universes** of &#x60;ids&#x60;.&lt;/p&gt;
    * @param tickerHistoryTranslationRequest Response Body for Ticker History (required)
    * @return TickerHistoryTranslationResponse
    * @throws ApiException if fails to make API call
@@ -110,7 +110,7 @@ public class TickerApi {
 
   /**
    * Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.
-   * Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. &lt;p&gt; This method is best for requesting **large universes** of &#x60;ids&#x60;.&lt;/p&gt;&lt;p&gt;**This endpoint is included with all other Content API packages.**&lt;/p&gt;
+   * Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. &lt;p&gt; This method is best for requesting **large universes** of &#x60;ids&#x60;.&lt;/p&gt;
    * @param tickerHistoryTranslationRequest Response Body for Ticker History (required)
    * @return ApiResponse&lt;TickerHistoryTranslationResponse&gt;
    * @throws ApiException if fails to make API call

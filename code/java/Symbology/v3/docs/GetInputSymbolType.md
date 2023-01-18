@@ -53,5 +53,15 @@
 
 * `BLOOMBERGTICKER` (value: `"bloombergTicker"`)
 
+* `GVKEY` (value: `"GVKEY"`)
+
+* `GVKEY_IID` (value: `"GVKEY & IID"`)
+
+* `JCN` (value: `"JCN"`)
+
+* `LOANX` (value: `"LoanX"`)
+
+* `MARKIT_RED` (value: `"Markit Red"`)
+
 
 
