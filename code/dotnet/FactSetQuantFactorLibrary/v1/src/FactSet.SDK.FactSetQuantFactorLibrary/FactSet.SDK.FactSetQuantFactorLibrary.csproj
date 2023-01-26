@@ -13,7 +13,7 @@
     <Description>FactSet Quant Factor Library client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.FactSetQuantFactorLibrary</RootNamespace>
-    <Version>1.0.1</Version>
+    <Version>2.0.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.FactSetQuantFactorLibrary.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

@@ -30,14 +30,14 @@ namespace FactSet.SDK.FactSetPrivateMarkets.Model
     /// Financials
     /// </summary>
     [DataContract(Name = "financials")]
-    public partial class Financials : Dictionary<String, Object>, IEquatable<Financials>, IValidatableObject
+    public partial class Financials : IEquatable<Financials>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Financials" /> class.
         /// </summary>
         /// <param name="fsymId">Unique FactSet-generated identifier representing an entity for the current entity identifier (-E).</param>
         /// <param name="requestId">Identifier used in &#x60;ids&#x60;..</param>
-        public Financials(string fsymId = default(string), string requestId = default(string)) : base()
+        public Financials(string fsymId = default(string), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.RequestId = requestId;
@@ -72,7 +72,6 @@ namespace FactSet.SDK.FactSetPrivateMarkets.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Financials {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
@@ -84,7 +83,7 @@ namespace FactSet.SDK.FactSetPrivateMarkets.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -110,12 +109,12 @@ namespace FactSet.SDK.FactSetPrivateMarkets.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.FsymId == input.FsymId ||
                     (this.FsymId != null &&
                     this.FsymId.Equals(input.FsymId))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&
@@ -132,7 +131,7 @@ namespace FactSet.SDK.FactSetPrivateMarkets.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.FsymId != null)
                 {
                     hashCode = (hashCode * 59) + this.FsymId.GetHashCode();

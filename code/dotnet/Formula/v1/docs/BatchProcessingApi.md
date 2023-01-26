@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Returns the response for a Batch Request
 
-Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **10 minutes** via the `batch` parameter in the `/time-series` and `/cross-sectional` endpoints.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.* 
+Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.* 
 
 ### Example
 ```csharp
@@ -120,7 +120,7 @@ GetBatchDataResponseWrapper
 
 Returns the status for a Batch Request
 
-Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **10 minutes** via the `batch` parameter in the `/time-series` and `/cross-sectional` endpoints.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.* 
+Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.* 
 
 ### Example
 ```csharp
@@ -224,7 +224,7 @@ GetBatchDataWithPostResponseWrapper
 
 Returns the status for a Batch Request
 
-Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **10 minutes** via the `batch` parameter in the `/time-series` and `/cross-sectional` endpoints.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.* 
+Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.* 
 
 ### Example
 ```csharp
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 Returns the status for a Batch Request
 
-Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **10 minutes** via the `batch` parameter in the `/time-series` and `/cross-sectional` endpoints.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.* 
+Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.* 
 
 ### Example
 ```csharp

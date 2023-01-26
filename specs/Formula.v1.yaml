@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.2.2
+  version: '1.4'
   title: FactSet Formula API
   description: >
 
@@ -86,7 +86,7 @@ paths:
           This endpoint has a unique **TIMESERIES** data object that pairs the requested data with FactSet provided dates. This helps reduce the need for additional data requests and reduces the work required by users.
 
         The `/time-series` endpoint supports Long Running asynchronous requests
-        up to **10 minutes** via the `batch` parameter. *This feature is
+        up to **20 minutes** via the `batch` parameter. *This feature is
         available to Individual Users subscribed to the Performance Package and
         Performance Package Plus Performance Tiers and all Production Users. If
         you are unsure which Performance Tier you are subscribed to or you would
@@ -98,6 +98,7 @@ paths:
       operationId: getTimeSeriesData
       parameters:
         - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/symbolType'
         - $ref: '#/components/parameters/universe'
         - $ref: '#/components/parameters/universeType_time_series'
         - $ref: '#/components/parameters/formulas_time_series'
@@ -105,6 +106,7 @@ paths:
         - $ref: '#/components/parameters/fsymId_time_series'
         - $ref: '#/components/parameters/displayName_time_series'
         - $ref: '#/components/parameters/flatten_time_series'
+        - $ref: '#/components/parameters/dates_time_series'
         - $ref: '#/components/parameters/batch'
       responses:
         '200':
@@ -197,7 +199,7 @@ paths:
           This endpoint has a unique **TIMESERIES** data object that pairs the requested data with FactSet provided dates. This helps reduce the need for additional data requests and reduces the work required by users.
 
         The `/time-series` endpoint supports Long Running asynchronous requests
-        up to **10 minutes** via the `batch` parameter. *This feature is
+        up to **20 minutes** via the `batch` parameter. *This feature is
         available to Individual Users subscribed to the Performance Package and
         Performance Package Plus Performance Tiers and all Production Users. If
         you are unsure which Performance Tier you are subscribed to or you would
@@ -311,6 +313,7 @@ paths:
       operationId: getCrossSectionalData
       parameters:
         - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/symbolType'
         - $ref: '#/components/parameters/universe'
         - $ref: '#/components/parameters/universeType_cross_sectional'
         - $ref: '#/components/parameters/formulas_cross_sectional'
@@ -515,7 +518,7 @@ paths:
         Return the status for the underlying batch request that is specified by
         the id.
 
-          The Formula API supports Long Running asynchronous requests up to **10 minutes** via the `batch` parameter in the `/time-series` and `/cross-sectional` endpoints.
+          The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.
 
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       tags:
@@ -579,7 +582,7 @@ paths:
         Return the status for the underlying batch request that is specified by
         the id.
 
-          The Formula API supports Long Running asynchronous requests up to **10 minutes** via the `batch` parameter in the `/time-series` and `/cross-sectional` endpoints.
+          The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.
 
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       tags:
@@ -644,7 +647,7 @@ paths:
         Returns the response data for the underlying batch request that is
         specified by the id.
 
-          The Formula API supports Long Running asynchronous requests up to **10 minutes** via the `batch` parameter in the `/time-series` and `/cross-sectional` endpoints.
+          The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.
 
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       tags:
@@ -705,7 +708,7 @@ paths:
         Returns the response data for the underlying batch request that is
         specified by the id.
 
-          The Formula API supports Long Running asynchronous requests up to **10 minutes** via the `batch` parameter in the `/time-series` and `/cross-sectional` endpoints.
+          The Formula API supports Long Running asynchronous requests up to **20 minutes** via the `batch` parameter in the `/time-series` endpoint and up to **10 minutes** in the `/cross-sectional` endpoint.
 
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       tags:
@@ -775,7 +778,11 @@ components:
     ids:
       name: ids
       description: >
-        List of entity identifiers.
+        List of entity identifiers. This request value is sent back in the
+        response as the field *requestId*. By default, accepted symbol types
+        include Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.
+        Use the `symbolType` parameter to submit other supported third-party
+        identifier types.
 
 
         The `ids` and `universe` parameters provide two different ways to
@@ -802,6 +809,39 @@ components:
             - IBM
             - AAPL
             - MSFT
+    symbolType:
+      name: symbolType
+      in: query
+      description: >
+        Specify the type of symbols submitted in the `ids` parameter. This is
+        only required when submitting ids that are not supported by default. 
+
+
+        Available symbol types -
+
+        * DEFAULT - Accepted symbol types include Market Tickers, SEDOLs, ISINs,
+        CUSIPs, or FactSet Permanent Ids.
+
+
+        * BLOOMBERG - Accepted symbol types include Bloomberg Tickers and
+        Bloomberg FIGIs. 
+          * When submitting Bloomberg symbols, the Bloomberg symbol is translated to a FactSet Permanent Identifier which is then used to retrieve the requested FQL and Screening formulas. The Bloomberg symbol submitted will be returned in the response in the field *requestId*. To see the FactSet Permanent Identifer that the Bloomberg symbol resolved to, use the `fsymId` parameter in addition to the `symbolType` parameter.
+          * Bloomberg symbols can not be submitted with other symbol types. 
+          * Bloomberg Symbol Resolution is not available via Batch Requests.
+
+        Bloomberg Symbol Resolution is included with the Individual User
+        subscription. Users with a Production User subscription require
+        additional access to submit Bloomberg symbols. If you would like to gain
+        access to Bloomberg Symbol Resolution, please contact your FactSet
+        Account Team or "Report Issue" above and our support teams can assist.
+      required: false
+      schema:
+        type: string
+        enum:
+          - DEFAULT
+          - BLOOMBERG
+        default: DEFAULT
+      explode: false
     universe:
       name: universe
       description: |
@@ -1275,17 +1315,45 @@ components:
           - 'N'
         default: 'N'
       explode: false
+    dates_time_series:
+      name: dates
+      description: >
+        Specify **N** for the `dates` parameter to suppress the **dates** of the
+        response. The default value for the `dates` parameter is **Y**.
+
+
+        In the non-flattened response model, setting dates to **N** will remove
+        the "dates" array from the TIMESERIES objectType, meaning that the
+        results will be returned as an ARRAY objectType.
+
+
+        In the flattened response mode, setting dates to **N** will remove the
+        "dates" attribute from the response objects. The flatten parameter first
+        attempts to flatten the response by dates. Removing the dates can make
+        it easier to align multiple data items when the date definition differs
+        from the desired alignment.
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - 'Y'
+          - 'N'
+        default: 'Y'
+      explode: false
     batch:
       name: batch
       in: query
       description: >
-        Enables the ability to asynchronously "batch" the request, supporting a
-        long-running request up to **10 minutes**. Upon requesting batch=Y, the
+        Enables the ability to asynchronously "batch" the request,  supporting a
+        long-running request up to **20 minutes**. Upon requesting batch=Y, the
         service will respond back with an HTTP Status Code of 202.
 
 
-        A user is limited to running 5 Batch Requests in a 10 minute period.
-
+        Individual users are limited to running 5 Batch Requests in a 5 minute
+        period and are allowed 5 concurrent Batch Requests. Production users are
+        limited to running 10 Batch Requests in a 5 minute period and are
+        allowed 10 concurrent Batch Requests.
 
         *This feature is available to Individual Users subscribed to the
         Performance Package and Performance Package Plus Performance Tiers and
@@ -1339,6 +1407,34 @@ components:
                 - FDS-US
                 - IBM-US
                 - XOM-US
+            symbolType:
+              title: symbolType
+              type: string
+              description: >
+                Specify the type of symbols submitted in the `ids` parameter.
+                This is only required when submitting ids that are not supported
+                by default. 
+
+
+                Available symbol types -
+
+                * DEFAULT - Accepted symbol types include Market Tickers,
+                SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.
+
+
+                * BLOOMBERG - Accepted symbol types include Bloomberg Tickers
+                and Bloomberg FIGIs. 
+                  * When submitting Bloomberg symbols, the Bloomberg symbol is translated to a FactSet Permanent Identifier which is then used to retrieve the requested FQL and Screening formulas. The Bloomberg symbol submitted will be returned in the response in the field *requestId*. To see the FactSet Permanent Identifer that the Bloomberg symbol resolved to, use the `fsymId` parameter in addition to the `
+                  ` parameter.
+                  * Bloomberg symbols can not be submitted with other symbol types. 
+                  * Bloomberg Symbol Resolution is not available via Batch Requests.
+
+                Bloomberg Symbol Resolution is included with the Individual User
+                subscription. Users with a Production User subscription require
+                additional access to submit Bloomberg symbols. If you would like
+                to gain access to Bloomberg Symbol Resolution, please contact
+                your FactSet Account Team or "Report Issue" above and our
+                support teams can assist.
             universe:
               title: universe
               description: |
@@ -1464,17 +1560,44 @@ components:
               enum:
                 - 'Y'
                 - 'N'
+            dates:
+              title: dates
+              description: >
+                Specify **N** for the `dates` parameter to suppress the
+                **dates** of the response. The default value for the `dates`
+                parameter is **Y**.
+
+
+                In the non-flattened response model, setting dates to **N** will
+                remove the "dates" array from the TIMESERIES objectType, meaning
+                that the results will be returned as an ARRAY objectType.
+
+
+                In the flattened response mode, setting dates to **N** will
+                remove the "dates" attribute from the response objects. The
+                flatten parameter first attempts to flatten the response by
+                dates. Removing the dates can make it easier to align multiple
+                data items when the date definition differs from the desired
+                alignment.
+              type: string
+              example: 'N'
+              default: 'Y'
+              enum:
+                - 'Y'
+                - 'N'
             batch:
               title: batch
               description: >
                 Enables the ability to asynchronously "batch" the request,
-                supporting a long-running request up to **10 minutes**. Upon
+                supporting a long-running request up to **20 minutes**. Upon
                 requesting "batch": "Y", the service will respond back with an
                 HTTP Status Code of 202.
 
 
-                A user is limited to running 5 Batch Requests in a 10 minute
-                period.
+                Individual users are limited to running 5 Batch Requests in a 5
+                minute period and are allowed 5 concurrent Batch Requests.
+                Production users are limited to running 10 Batch Requests in a 5
+                minute period and are allowed 10 concurrent Batch Requests.
 
 
                 *This feature is available to Individual Users subscribed to the
@@ -2002,6 +2125,33 @@ components:
                 - FDS-US
                 - IBM-US
                 - XOM-US
+            symbolType:
+              title: symbolType
+              type: string
+              description: >
+                Specify the type of symbols submitted in the `ids` parameter.
+                This is only required when submitting ids that are not supported
+                by default. 
+
+
+                Available symbol types -
+
+                * DEFAULT - Accepted symbol types include Market Tickers,
+                SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.
+
+
+                * BLOOMBERG - Accepted symbol types include Bloomberg Tickers
+                and Bloomberg FIGIs. 
+                  * When submitting Bloomberg symbols, the Bloomberg symbol is translated to a FactSet Permanent Identifier which is then used to retrieve the requested FQL and Screening formulas. The Bloomberg symbol submitted will be returned in the response in the field *requestId*. To see the FactSet Permanent Identifer that the Bloomberg symbol resolved to, use the `fsymId` parameter in addition to the `symbolType` parameter.
+                  * Bloomberg symbols can not be submitted with other symbol types. 
+                  * Bloomberg Symbol Resolution is not available via Batch Requests.
+                  
+                Bloomberg Symbol Resolution is included with the Individual User
+                subscription. Users with a Production User subscription require
+                additional access to submit Bloomberg symbols. If you would like
+                to gain access to Bloomberg Symbol Resolution, please contact
+                your FactSet Account Team or "Report Issue" above and our
+                support teams can assist.
             universe:
               title: universe
               description: |
@@ -2131,13 +2281,15 @@ components:
               title: batch
               description: >
                 Enables the ability to asynchronously "batch" the request,
-                supporting a long-running request up to 10 minutes. Upon
+                supporting a long-running request up to 20 minutes. Upon
                 requesting "batch": "Y", the service will respond back with an
                 HTTP Status Code of 202.
 
 
-                A user is limited to running 5 Batch Requests in a 10 minute
-                period.
+                Individual users are limited to running 5 Batch Requests in a 5
+                minute period and are allowed 5 concurrent Batch Requests.
+                Production users are limited to running 10 Batch Requests in a 5
+                minute period and are allowed 10 concurrent Batch Requests.
 
 
                 *This feature is available to Individual Users subscribed to the
@@ -2594,7 +2746,8 @@ components:
       description: >-
         Request Timeout. This error may be returned if it takes more than 29
         seconds for the request to process or if a batch request takes more than
-        10 minutes to process.
+        20 minutes to process for the time-series endpoint and 10 minutes to
+        process for the cross-sectional endpoint.
       headers:
         api-version:
           $ref: '#/components/headers/api-version'
@@ -4062,7 +4215,7 @@ components:
     BatchStatusFailedResponse:
       description: >-
         Batch Status Failed Response. The example response shows the result of
-        checking the status of a batch request that took longer than 10 minutes
+        checking the status of a batch request that took longer than 20 minutes
         to calculate and timed out.
       value:
         data:

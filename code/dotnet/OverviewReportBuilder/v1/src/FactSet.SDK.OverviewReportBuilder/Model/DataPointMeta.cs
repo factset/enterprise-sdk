@@ -117,7 +117,11 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
             try
             {
-                newDataPointMeta = new DataPointMeta(JsonConvert.DeserializeObject<DataPointMetaAnyOf>(jsonString, DataPointMeta.SerializerSettings));
+                var hasAdditionalProperties = !(typeof(DataPointMetaAnyOf).GetProperty("AdditionalProperties") is null);
+                newDataPointMeta = new DataPointMeta(JsonConvert.DeserializeObject<DataPointMetaAnyOf>(
+                    jsonString, 
+                    hasAdditionalProperties ? DataPointMeta.AdditionalPropertiesSerializerSettings : DataPointMeta.SerializerSettings
+                )); 
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newDataPointMeta;
             }

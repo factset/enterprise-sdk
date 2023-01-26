@@ -30,7 +30,7 @@ namespace FactSet.SDK.FactSetESG.Model
     /// Spotlights
     /// </summary>
     [DataContract(Name = "Spotlights")]
-    public partial class Spotlights : Dictionary<String, Object>, IEquatable<Spotlights>, IValidatableObject
+    public partial class Spotlights : IEquatable<Spotlights>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Spotlights" /> class.
@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetESG.Model
         /// <param name="date">Ending date for the period requested expressed in YYYY-MM-DD format. (required).</param>
         /// <param name="fsymId">FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E). (required).</param>
         /// <param name="requestId">Identifier that was used for the request. (required).</param>
-        public Spotlights(DateTime date, string fsymId, string requestId) : base()
+        public Spotlights(DateTime date, string fsymId, string requestId)
         {
             this.Date = date;
             // to ensure "fsymId" is required (not null)
@@ -98,7 +98,6 @@ namespace FactSet.SDK.FactSetESG.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Spotlights {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
@@ -111,7 +110,7 @@ namespace FactSet.SDK.FactSetESG.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -137,17 +136,17 @@ namespace FactSet.SDK.FactSetESG.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.Date == input.Date ||
                     (this.Date != null &&
                     this.Date.Equals(input.Date))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.FsymId == input.FsymId ||
                     (this.FsymId != null &&
                     this.FsymId.Equals(input.FsymId))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&
@@ -164,7 +163,7 @@ namespace FactSet.SDK.FactSetESG.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.Date != null)
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();

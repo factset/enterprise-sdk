@@ -1,7 +1,7 @@
 /*
  * FactSet Global Prices API
  *
- * The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>
+ * The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p> 
  *
  * The version of the OpenAPI document: 1.5.0
  * Contact: api@factset.com
@@ -39,7 +39,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         /// <param name="date">Ending date for the period expressed in YYYY-MM-DD format..</param>
         /// <param name="currency">Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public Price(string fsymId = default(string), DateTime? date = default(DateTime?), string currency = default(string), string requestId = default(string)) : base()
+        public Price(string fsymId = default(string), DateTime? date = default(DateTime?), string currency = default(string), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.Date = date;
@@ -91,7 +91,6 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Price {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
@@ -105,7 +104,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -131,22 +130,22 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             {
                 return false;
             }
-            return base.Equals(input) &&
+            return 
                 (
                     this.FsymId == input.FsymId ||
                     (this.FsymId != null &&
                     this.FsymId.Equals(input.FsymId))
-                ) && base.Equals(input) &&
+                ) && 
                 (
                     this.Date == input.Date ||
                     (this.Date != null &&
                     this.Date.Equals(input.Date))
-                ) && base.Equals(input) &&
+                ) && 
                 (
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
-                ) && base.Equals(input) &&
+                ) && 
                 (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&
@@ -163,7 +162,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.FsymId != null)
                 {
                     hashCode = (hashCode * 59) + this.FsymId.GetHashCode();

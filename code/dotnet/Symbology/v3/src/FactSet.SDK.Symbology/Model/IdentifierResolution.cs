@@ -30,7 +30,7 @@ namespace FactSet.SDK.Symbology.Model
     /// Identifier Resolution data object.
     /// </summary>
     [DataContract(Name = "identifierResolution")]
-    public partial class IdentifierResolution : Dictionary<String, string>, IEquatable<IdentifierResolution>, IValidatableObject
+    public partial class IdentifierResolution : IEquatable<IdentifierResolution>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentifierResolution" /> class.
@@ -39,12 +39,13 @@ namespace FactSet.SDK.Symbology.Model
         /// <param name="inputSymbolType">The type of identifier inputted in the request.</param>
         /// <param name="name">Name of the requested identifier.</param>
         /// <param name="frefListingExchange">The 3 digit fref exchange code for the primary exchange of the security.</param>
-        public IdentifierResolution(string requestId = default(string), string inputSymbolType = default(string), string name = default(string), string frefListingExchange = default(string)) : base()
+        public IdentifierResolution(string requestId = default(string), string inputSymbolType = default(string), string name = default(string), string frefListingExchange = default(string))
         {
             this.RequestId = requestId;
             this.InputSymbolType = inputSymbolType;
             this.Name = name;
             this.FrefListingExchange = frefListingExchange;
+            this.AdditionalProperties = new Dictionary<string, string>();
         }
 
         /// <summary>
@@ -76,6 +77,22 @@ namespace FactSet.SDK.Symbology.Model
         public string FrefListingExchange { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        public IDictionary<string, string> AdditionalProperties { get; set; }
+
+        [JsonExtensionData]
+        private JObject _rawAdditionalData;
+
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            if (_rawAdditionalData != null) {
+                new JsonSerializer().Populate(_rawAdditionalData.CreateReader(), AdditionalProperties);
+            }
+        }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,11 +100,11 @@ namespace FactSet.SDK.Symbology.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class IdentifierResolution {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  InputSymbolType: ").Append(InputSymbolType).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  FrefListingExchange: ").Append(FrefListingExchange).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,7 +113,7 @@ namespace FactSet.SDK.Symbology.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -122,27 +139,28 @@ namespace FactSet.SDK.Symbology.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&
                     this.RequestId.Equals(input.RequestId))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.InputSymbolType == input.InputSymbolType ||
                     (this.InputSymbolType != null &&
                     this.InputSymbolType.Equals(input.InputSymbolType))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.FrefListingExchange == input.FrefListingExchange ||
                     (this.FrefListingExchange != null &&
                     this.FrefListingExchange.Equals(input.FrefListingExchange))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -153,7 +171,7 @@ namespace FactSet.SDK.Symbology.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
@@ -169,6 +187,10 @@ namespace FactSet.SDK.Symbology.Model
                 if (this.FrefListingExchange != null)
                 {
                     hashCode = (hashCode * 59) + this.FrefListingExchange.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

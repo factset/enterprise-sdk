@@ -29,7 +29,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
     /// ProblemDetails
     /// </summary>
     [DataContract(Name = "ProblemDetails")]
-    public partial class ProblemDetails : Dictionary<String, Object>, IEquatable<ProblemDetails>, IValidatableObject
+    public partial class ProblemDetails : IEquatable<ProblemDetails>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ProblemDetails" /> class.
@@ -39,13 +39,14 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <param name="status">status.</param>
         /// <param name="detail">detail.</param>
         /// <param name="instance">instance.</param>
-        public ProblemDetails(string type = default(string), string title = default(string), int? status = default(int?), string detail = default(string), string instance = default(string)) : base()
+        public ProblemDetails(string type = default(string), string title = default(string), int? status = default(int?), string detail = default(string), string instance = default(string))
         {
             this.Type = type;
             this.Title = title;
             this.Status = status;
             this.Detail = detail;
             this.Instance = instance;
+            this.AdditionalProperties = new Dictionary<string, Object>();
         }
 
         /// <summary>
@@ -79,6 +80,22 @@ namespace FactSet.SDK.IRNConfiguration.Model
         public string Instance { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        public IDictionary<string, Object> AdditionalProperties { get; set; }
+
+        [JsonExtensionData]
+        private JObject _rawAdditionalData;
+
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            if (_rawAdditionalData != null) {
+                new JsonSerializer().Populate(_rawAdditionalData.CreateReader(), AdditionalProperties);
+            }
+        }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,12 +103,12 @@ namespace FactSet.SDK.IRNConfiguration.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProblemDetails {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Detail: ").Append(Detail).Append("\n");
             sb.Append("  Instance: ").Append(Instance).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,7 +117,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -126,32 +143,33 @@ namespace FactSet.SDK.IRNConfiguration.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Detail == input.Detail ||
                     (this.Detail != null &&
                     this.Detail.Equals(input.Detail))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Instance == input.Instance ||
                     (this.Instance != null &&
                     this.Instance.Equals(input.Instance))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -162,7 +180,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
@@ -182,6 +200,10 @@ namespace FactSet.SDK.IRNConfiguration.Model
                 if (this.Instance != null)
                 {
                     hashCode = (hashCode * 59) + this.Instance.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

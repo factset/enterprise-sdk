@@ -1,7 +1,7 @@
 /*
  * FactSet Global Prices API
  *
- * The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>
+ * The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p> 
  *
  * The version of the OpenAPI document: 1.5.0
  * Contact: api@factset.com
@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         /// <param name="iadDefTradingAdj">Annualized Dividend value in the trading currency. The value is adjusted for splits.</param>
         /// <param name="currency">Currency ISO code associated with the annualized dividends.For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public AnnualizedDividendsObject(string fsymId = default(string), string eventId = default(string), string effectiveDate = default(string), float? iadDefTradingAdj = default(float?), string currency = default(string), string requestId = default(string)) : base()
+        public AnnualizedDividendsObject(string fsymId = default(string), string eventId = default(string), string effectiveDate = default(string), float? iadDefTradingAdj = default(float?), string currency = default(string), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.EventId = eventId;
@@ -108,7 +108,6 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AnnualizedDividendsObject {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  EventId: ").Append(EventId).Append("\n");
             sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
@@ -124,7 +123,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -150,32 +149,32 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             {
                 return false;
             }
-            return base.Equals(input) &&
+            return 
                 (
                     this.FsymId == input.FsymId ||
                     (this.FsymId != null &&
                     this.FsymId.Equals(input.FsymId))
-                ) && base.Equals(input) &&
+                ) && 
                 (
                     this.EventId == input.EventId ||
                     (this.EventId != null &&
                     this.EventId.Equals(input.EventId))
-                ) && base.Equals(input) &&
+                ) && 
                 (
                     this.EffectiveDate == input.EffectiveDate ||
                     (this.EffectiveDate != null &&
                     this.EffectiveDate.Equals(input.EffectiveDate))
-                ) && base.Equals(input) &&
+                ) && 
                 (
                     this.IadDefTradingAdj == input.IadDefTradingAdj ||
                     (this.IadDefTradingAdj != null &&
                     this.IadDefTradingAdj.Equals(input.IadDefTradingAdj))
-                ) && base.Equals(input) &&
+                ) && 
                 (
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
-                ) && base.Equals(input) &&
+                ) && 
                 (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&
@@ -192,7 +191,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.FsymId != null)
                 {
                     hashCode = (hashCode * 59) + this.FsymId.GetHashCode();

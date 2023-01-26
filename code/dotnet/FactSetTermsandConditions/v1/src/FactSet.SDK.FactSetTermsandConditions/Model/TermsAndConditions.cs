@@ -30,7 +30,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
     /// Terms And Conditions data items for a Fixed Income security.
     /// </summary>
     [DataContract(Name = "termsAndConditions")]
-    public partial class TermsAndConditions : Dictionary<String, Object>, IEquatable<TermsAndConditions>, IValidatableObject
+    public partial class TermsAndConditions : IEquatable<TermsAndConditions>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TermsAndConditions" /> class.
@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// </summary>
         /// <param name="requestId">Security identifier used in the request. (required).</param>
         /// <param name="fsymId">FactSet Permanent Security Identifier. (required).</param>
-        public TermsAndConditions(string requestId, string fsymId) : base()
+        public TermsAndConditions(string requestId, string fsymId)
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {
@@ -88,7 +88,6 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TermsAndConditions {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
@@ -100,7 +99,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -126,12 +125,12 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&
                     this.RequestId.Equals(input.RequestId))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.FsymId == input.FsymId ||
                     (this.FsymId != null &&
@@ -148,7 +147,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();

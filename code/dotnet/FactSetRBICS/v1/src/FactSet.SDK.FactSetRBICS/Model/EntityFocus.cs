@@ -30,7 +30,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
     /// EntityFocus
     /// </summary>
     [DataContract(Name = "entityFocus")]
-    public partial class EntityFocus : Dictionary<String, Object>, IEquatable<EntityFocus>, IValidatableObject
+    public partial class EntityFocus : IEquatable<EntityFocus>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityFocus" /> class.
@@ -47,7 +47,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
         /// <param name="fsymId">FactSet Company identifier being classified. (required).</param>
         /// <param name="firstDate">First date of the classification. (required).</param>
         /// <param name="lastDate">Date when the classification became no longer valid. (required).</param>
-        public EntityFocus(string requestId, string fsymId, string firstDate, string lastDate) : base()
+        public EntityFocus(string requestId, string fsymId, string firstDate, string lastDate)
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {
@@ -114,7 +114,6 @@ namespace FactSet.SDK.FactSetRBICS.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class EntityFocus {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  FirstDate: ").Append(FirstDate).Append("\n");
@@ -128,7 +127,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -154,22 +153,22 @@ namespace FactSet.SDK.FactSetRBICS.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&
                     this.RequestId.Equals(input.RequestId))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.FsymId == input.FsymId ||
                     (this.FsymId != null &&
                     this.FsymId.Equals(input.FsymId))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.FirstDate == input.FirstDate ||
                     (this.FirstDate != null &&
                     this.FirstDate.Equals(input.FirstDate))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.LastDate == input.LastDate ||
                     (this.LastDate != null &&
@@ -186,7 +185,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();

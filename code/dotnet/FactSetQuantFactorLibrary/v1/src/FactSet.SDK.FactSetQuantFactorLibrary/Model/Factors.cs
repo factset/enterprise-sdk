@@ -30,20 +30,22 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
     /// Factors
     /// </summary>
     [DataContract(Name = "factors")]
-    public partial class Factors : Dictionary<String, Object>, IEquatable<Factors>, IValidatableObject
+    public partial class Factors : IEquatable<Factors>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Factors" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Factors() { }
+        protected Factors() {
+            this.AdditionalProperties = new Dictionary<string, Object>();
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="Factors" /> class.
         /// </summary>
         /// <param name="requestId">Identifier that was used for the request. (required).</param>
         /// <param name="fsymId">Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security’s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet. (required).</param>
         /// <param name="date">The as of date of the factors in YYYY-MM-DD format. (required).</param>
-        public Factors(string requestId, string fsymId, int date) : base()
+        public Factors(string requestId, string fsymId, int date)
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {
@@ -56,6 +58,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
             }
             this.FsymId = fsymId;
             this.Date = date;
+            this.AdditionalProperties = new Dictionary<string, Object>();
         }
 
         /// <summary>
@@ -80,6 +83,22 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         public int Date { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        public IDictionary<string, Object> AdditionalProperties { get; set; }
+
+        [JsonExtensionData]
+        private JObject _rawAdditionalData;
+
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            if (_rawAdditionalData != null) {
+                new JsonSerializer().Populate(_rawAdditionalData.CreateReader(), AdditionalProperties);
+            }
+        }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -87,10 +106,10 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Factors {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,7 +118,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -125,21 +144,22 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&
                     this.RequestId.Equals(input.RequestId))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.FsymId == input.FsymId ||
                     (this.FsymId != null &&
                     this.FsymId.Equals(input.FsymId))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Date == input.Date ||
                     this.Date.Equals(input.Date)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -150,7 +170,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
@@ -160,6 +180,10 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
                     hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
+                }
                 return hashCode;
             }
         }

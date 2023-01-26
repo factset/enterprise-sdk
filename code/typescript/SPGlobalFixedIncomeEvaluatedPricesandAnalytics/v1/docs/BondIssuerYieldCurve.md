@@ -1,0 +1,45 @@
+# spglobalfixedincomeevaluatedpricesandanalytics.BondIssuerYieldCurve
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**requestId** | **String** | Identifier that was used for the request. | [optional] 
+**fsymId** | **String** | FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet. | [optional] 
+**date** | **Date** | The date on which the price is calculated. | [optional] 
+**yieldCurveDate3M** | **Date** | Returns the 3M yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate6M** | **Date** | Returns the 6M yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate1Y** | **Date** | Returns the 1Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate2Y** | **Date** | Returns the 2Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate3Y** | **Date** | Returns the 3Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate4Y** | **Date** | Returns the 4Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate5Y** | **Date** | Returns the 5Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate6Y** | **Date** | Returns the 6Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate7Y** | **Date** | Returns the 7Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate8Y** | **Date** | Returns the 8Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate9Y** | **Date** | Returns the 9Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate10Y** | **Date** | Returns the 10Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate15Y** | **Date** | Returns the 15Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate20Y** | **Date** | Returns the 20Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate25Y** | **Date** | Returns the 25Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate30Y** | **Date** | Returns the 30Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**yieldCurveDate40Y** | **Date** | Returns the 40Y yield curve date in &#39;YYYY-MM-DD&#39; format. | [optional] 
+**ytmCurve3M** | **Number** | Returns the 3M yield to maturity. | [optional] 
+**ytmCurve6M** | **Number** | Returns the 6M yield to maturity. | [optional] 
+**ytmCurve1Y** | **Number** | Returns the 1Y yield to maturity. | [optional] 
+**ytmCurve2Y** | **Number** | Returns the 2Y yield to maturity. | [optional] 
+**ytmCurve3Y** | **Number** | Returns the 3Y yield to maturity. | [optional] 
+**ytmCurve4Y** | **Number** | Returns the 4Y yield to maturity. | [optional] 
+**ytmCurve5Y** | **Number** | Returns the 5Y yield to maturity. | [optional] 
+**ytmCurve6Y** | **Number** | Returns the 6Y yield to maturity. | [optional] 
+**ytmCurve7Y** | **Number** | Returns the 7Y yield to maturity. | [optional] 
+**ytmCurve8Y** | **Number** | Returns the 8Y yield to maturity. | [optional] 
+**ytmCurve9Y** | **Number** | Returns the 9Y yield to maturity. | [optional] 
+**ytmCurve10Y** | **Number** | Returns the 10Y yield to maturity. | [optional] 
+**ytmCurve15Y** | **Number** | Returns the 15Y yield to maturity. | [optional] 
+**ytmCurve20Y** | **Number** | Returns the 20Y yield to maturity. | [optional] 
+**ytmCurve25Y** | **Number** | Returns the 25Y yield to maturity. | [optional] 
+**ytmCurve30Y** | **Number** | Returns the 30Y yield to maturity. | [optional] 
+**ytmCurve40Y** | **Number** | Returns the 40Y yield to maturity. | [optional] 
+
+

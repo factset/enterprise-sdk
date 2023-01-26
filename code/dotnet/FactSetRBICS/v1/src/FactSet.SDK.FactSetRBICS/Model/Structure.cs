@@ -30,7 +30,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
     /// Structure
     /// </summary>
     [DataContract(Name = "structure")]
-    public partial class Structure : Dictionary<String, Object>, IEquatable<Structure>, IValidatableObject
+    public partial class Structure : IEquatable<Structure>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Structure" /> class.
@@ -38,7 +38,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
         /// <param name="rbicsId">RBICS Code for the classification..</param>
         /// <param name="firstDate">First date of the classification..</param>
         /// <param name="lastDate">Date when the classification became no longer valid. If &#x60;null&#x60;, the classification is still valid..</param>
-        public Structure(string rbicsId = default(string), string firstDate = default(string), string lastDate = default(string)) : base()
+        public Structure(string rbicsId = default(string), string firstDate = default(string), string lastDate = default(string))
         {
             this.RbicsId = rbicsId;
             this.FirstDate = firstDate;
@@ -81,7 +81,6 @@ namespace FactSet.SDK.FactSetRBICS.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Structure {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  RbicsId: ").Append(RbicsId).Append("\n");
             sb.Append("  FirstDate: ").Append(FirstDate).Append("\n");
             sb.Append("  LastDate: ").Append(LastDate).Append("\n");
@@ -94,7 +93,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -120,17 +119,17 @@ namespace FactSet.SDK.FactSetRBICS.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.RbicsId == input.RbicsId ||
                     (this.RbicsId != null &&
                     this.RbicsId.Equals(input.RbicsId))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.FirstDate == input.FirstDate ||
                     (this.FirstDate != null &&
                     this.FirstDate.Equals(input.FirstDate))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.LastDate == input.LastDate ||
                     (this.LastDate != null &&
@@ -147,7 +146,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.RbicsId != null)
                 {
                     hashCode = (hashCode * 59) + this.RbicsId.GetHashCode();
