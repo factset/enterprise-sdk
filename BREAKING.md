@@ -1,0 +1,50 @@
+# Breaking Changes
+
+## Dotnet
+
+### 2023-01-25 handling of schemas with named and additionalProperties
+
+Accessing values of schemas with named properties and `additionalProperties` in the OpenAPI spec changed.
+
+```yaml
+# OpenAPI Spec Example
+components:
+  schemas:
+    MySchema:
+      type: object
+      properties:
+        namedProperty:
+          # ...
+      additionalProperties: true
+```
+
+Accessing properties with the old code:
+
+```cs
+... = instance.NamedProperty // this was null
+... = instance["namedProperty"] // to get the named property
+... = instance["AnyOtherAdditionalProperty"] // to get additional properties
+```
+
+Accessing properties with the new code:
+
+```cs
+... = instance.NamedProperty // to get the named property
+... = instance.AdditionalProperties["AnyOtherAddtionalProperty"] // to get additional properties
+```
+
+Affected SDKs:
+* [FactSetESG v2.0.0](./code/dotnet/FactSetESG/v1)
+* [FactSetETF v2.0.0](./code/dotnet/FactSetETF/v1)
+* [FactSetPrivateMarkets v2.0.0](./code/dotnet/FactSetPrivateMarkets/v1)
+* [FactSetQuantFactorLibrary v2.0.0](./code/dotnet/FactSetQuantFactorLibrary/v1)
+* [FactSetRBICS v0.22.0](./code/dotnet/FactSetRBICS/v1)
+* [FactSetTermsandConditions v2.0.0](./code/dotnet/FactSetTermsandConditions/v1)
+* [Formula v2.0.0](./code/dotnet/Formula/v1)
+* [IRNConfiguration v2.0.0](./code/dotnet/IRNConfiguration/v1)
+* [IRNContacts v2.0.0](./code/dotnet/IRNContacts/v1)
+* [IRNCustomSymbols v2.0.0](./code/dotnet/IRNCustomSymbols/v1)
+* [IRNMeetings v2.0.0](./code/dotnet/IRNMeetings/v1)
+* [IRNNotes v2.0.0](./code/dotnet/IRNNotes/v1)
+* [ModelPortfolio v0.22.0](./code/dotnet/ModelPortfolio/v3)
+* [Symbology v3.0.0](./code/dotnet/Symbology/v3)
