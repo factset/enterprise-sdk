@@ -128,7 +128,7 @@ public class BondSensitivity implements Serializable {
    * @return requestId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "149123CH2", value = "Identifier that was used for the request.")
+  @ApiModelProperty(example = "US45905URL07", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -188,7 +188,7 @@ public class BondSensitivity implements Serializable {
    * @return date
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Mon Oct 10 00:00:00 UTC 2022", value = "The date on which the price is calculated.")
+  @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
   public LocalDate getDate() {
@@ -222,7 +222,7 @@ public class BondSensitivity implements Serializable {
    * @return bidConvexity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6.67", value = "Measures the change of Duration with the change in yield,based on the bid price .Available only  for `corporate bonds` and `municipal bonds`.")
+  @ApiModelProperty(example = "5.83", value = "Measures the change of Duration with the change in yield,based on the bid price .Available only  for `corporate bonds` and `municipal bonds`.")
   @JsonIgnore
 
   public Double getBidConvexity() {
@@ -256,7 +256,7 @@ public class BondSensitivity implements Serializable {
    * @return midConvexity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6.67", value = "Measures the change of duration with the change in yield,based on the mid price .Available only  for `corporate bonds`")
+  @ApiModelProperty(example = "5.83", value = "Measures the change of duration with the change in yield,based on the mid price .Available only  for `corporate bonds`")
   @JsonIgnore
 
   public Double getMidConvexity() {
@@ -290,7 +290,7 @@ public class BondSensitivity implements Serializable {
    * @return askConvexity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6.67", value = "Measures the change of duration with the change in yield,based on the ask price .Available only  for `corporate bonds`")
+  @ApiModelProperty(example = "5.83", value = "Measures the change of duration with the change in yield,based on the ask price .Available only  for `corporate bonds`")
   @JsonIgnore
 
   public Double getAskConvexity() {
@@ -324,7 +324,7 @@ public class BondSensitivity implements Serializable {
    * @return bidEffectiveConvexity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6.11114", value = "The effective convexity based on the bid price .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "4.86286", value = "The effective convexity based on the bid price .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getBidEffectiveConvexity() {
@@ -358,7 +358,7 @@ public class BondSensitivity implements Serializable {
    * @return midEffectiveConvexity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6.11415", value = "The effective convexity based on the mid price .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "4.86481", value = "The effective convexity based on the mid price .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getMidEffectiveConvexity() {
@@ -392,7 +392,7 @@ public class BondSensitivity implements Serializable {
    * @return askEffectiveConvexity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6.11717", value = " The effective convexity based on the ask price. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "4.86676", value = " The effective convexity based on the ask price. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getAskEffectiveConvexity() {
@@ -426,7 +426,7 @@ public class BondSensitivity implements Serializable {
    * @return bidEffectiveDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.83742", value = "A duration calculation for bonds with embedded options,based on the bid price. Effective duration takes into account that expected cash flows fluctuate as interest rates change. Available only  for `corporate bonds`")
+  @ApiModelProperty(example = "1.9278", value = "A duration calculation for bonds with embedded options,based on the bid price. Effective duration takes into account that expected cash flows fluctuate as interest rates change. Available only  for `corporate bonds`")
   @JsonIgnore
 
   public Double getBidEffectiveDuration() {
@@ -460,7 +460,7 @@ public class BondSensitivity implements Serializable {
    * @return midEffectiveDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2.17612", value = "A duration calculation for bonds with embedded options,based on the mid price. Effective duration takes into account that expected cash flows fluctuate as interest rates change .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "1.92845", value = "A duration calculation for bonds with embedded options,based on the mid price. Effective duration takes into account that expected cash flows fluctuate as interest rates change .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getMidEffectiveDuration() {
@@ -494,7 +494,7 @@ public class BondSensitivity implements Serializable {
    * @return askEffectiveDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "89.80762", value = "A duration calculation for bonds with embedded options,based on the ask price. Effective duration takes into account that expected cash flows fluctuate as interest rates change. Available only  for `corporate bonds`")
+  @ApiModelProperty(example = "1.9291", value = "A duration calculation for bonds with embedded options,based on the ask price. Effective duration takes into account that expected cash flows fluctuate as interest rates change. Available only  for `corporate bonds`")
   @JsonIgnore
 
   public Double getAskEffectiveDuration() {
@@ -528,7 +528,7 @@ public class BondSensitivity implements Serializable {
    * @return bidMacaulayDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2.34", value = "The weighted average maturity of bond, where the weights are relative discounted cash flows in each period,based on the bid price .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "2.04", value = "The weighted average maturity of bond, where the weights are relative discounted cash flows in each period,based on the bid price .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getBidMacaulayDuration() {
@@ -562,7 +562,7 @@ public class BondSensitivity implements Serializable {
    * @return midMacaulayDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2.34", value = "The weighted average maturity of bond, where the weights are relative discounted cash flows in each period,based on the mid price .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "2.04", value = "The weighted average maturity of bond, where the weights are relative discounted cash flows in each period,based on the mid price .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getMidMacaulayDuration() {
@@ -596,7 +596,7 @@ public class BondSensitivity implements Serializable {
    * @return askMacaulayDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2.34", value = "The weighted average maturity of bond, where the weights are relative discounted cash flows in each period,based on the ask price .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "2.04", value = "The weighted average maturity of bond, where the weights are relative discounted cash flows in each period,based on the ask price .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getAskMacaulayDuration() {
@@ -630,7 +630,7 @@ public class BondSensitivity implements Serializable {
    * @return bidModifiedDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2.29", value = "The first derivative of the bond price, with respect to yield,based on the bid price.")
+  @ApiModelProperty(example = "2", value = "The first derivative of the bond price, with respect to yield,based on the bid price.")
   @JsonIgnore
 
   public Double getBidModifiedDuration() {
@@ -664,7 +664,7 @@ public class BondSensitivity implements Serializable {
    * @return midModifiedDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2.29", value = "The first derivative of the bond price, with respect to yield,based on the mid price. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "2", value = "The first derivative of the bond price, with respect to yield,based on the mid price. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getMidModifiedDuration() {
@@ -698,7 +698,7 @@ public class BondSensitivity implements Serializable {
    * @return askModifiedDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2.29", value = "The first derivative of the bond price, with respect to yield,based on the ask price. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "2", value = "The first derivative of the bond price, with respect to yield,based on the ask price. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getAskModifiedDuration() {

@@ -230,7 +230,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return fsymId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0015CS-E", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
+  @ApiModelProperty(example = "CJQZQ0-S", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
   public String getFsymId() {
@@ -264,7 +264,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return date
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Wed Oct 05 00:00:00 UTC 2022", value = "The date on which the price is calculated.")
+  @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
   public LocalDate getDate() {
@@ -298,7 +298,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate3M
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Tue Feb 28 00:00:00 UTC 2023", value = "Returns the 3M yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Sun Apr 30 00:00:00 UTC 2023", value = "Returns the 3M yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate3M() {
@@ -332,7 +332,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate6M
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Tue May 30 00:00:00 UTC 2023", value = "Returns the 6M yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Mon Jul 31 00:00:00 UTC 2023", value = "Returns the 6M yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate6M() {
@@ -366,7 +366,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate1Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Thu Nov 30 00:00:00 UTC 2023", value = "Returns the 1Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Wed Jan 31 00:00:00 UTC 2024", value = "Returns the 1Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate1Y() {
@@ -400,7 +400,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate2Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sat Nov 30 00:00:00 UTC 2024", value = "Returns the 2Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Fri Jan 31 00:00:00 UTC 2025", value = "Returns the 2Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate2Y() {
@@ -434,7 +434,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate3Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sun Nov 30 00:00:00 UTC 2025", value = "Returns the 3Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Sat Jan 31 00:00:00 UTC 2026", value = "Returns the 3Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate3Y() {
@@ -468,7 +468,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate4Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Mon Nov 30 00:00:00 UTC 2026", value = "Returns the 4Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Sun Jan 31 00:00:00 UTC 2027", value = "Returns the 4Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate4Y() {
@@ -502,7 +502,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate5Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Tue Nov 30 00:00:00 UTC 2027", value = "Returns the 5Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Mon Jan 31 00:00:00 UTC 2028", value = "Returns the 5Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate5Y() {
@@ -536,7 +536,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate6Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Thu Nov 30 00:00:00 UTC 2028", value = "Returns the 6Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Wed Jan 31 00:00:00 UTC 2029", value = "Returns the 6Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate6Y() {
@@ -570,7 +570,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate7Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Fri Nov 30 00:00:00 UTC 2029", value = "Returns the 7Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Thu Jan 31 00:00:00 UTC 2030", value = "Returns the 7Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate7Y() {
@@ -604,7 +604,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate8Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sat Nov 30 00:00:00 UTC 2030", value = "Returns the 8Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Fri Jan 31 00:00:00 UTC 2031", value = "Returns the 8Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate8Y() {
@@ -638,7 +638,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate9Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sun Nov 30 00:00:00 UTC 2031", value = "Returns the 9Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Sat Jan 31 00:00:00 UTC 2032", value = "Returns the 9Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate9Y() {
@@ -672,7 +672,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate10Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Tue Nov 30 00:00:00 UTC 2032", value = "Returns the 10Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Mon Jan 31 00:00:00 UTC 2033", value = "Returns the 10Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate10Y() {
@@ -706,7 +706,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate15Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Mon Nov 30 00:00:00 UTC 2037", value = "Returns the 15Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Sun Jan 31 00:00:00 UTC 2038", value = "Returns the 15Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate15Y() {
@@ -740,7 +740,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate20Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sun Nov 30 00:00:00 UTC 2042", value = "Returns the 20Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Sat Jan 31 00:00:00 UTC 2043", value = "Returns the 20Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate20Y() {
@@ -774,7 +774,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate25Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sat Nov 30 00:00:00 UTC 2047", value = "Returns the 25Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Fri Jan 31 00:00:00 UTC 2048", value = "Returns the 25Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate25Y() {
@@ -808,7 +808,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate30Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sat Nov 30 00:00:00 UTC 2052", value = "Returns the 30Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Fri Jan 31 00:00:00 UTC 2053", value = "Returns the 30Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate30Y() {
@@ -842,7 +842,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return yieldCurveDate40Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Thu Nov 30 00:00:00 UTC 2062", value = "Returns the 40Y yield curve date in 'YYYY-MM-DD' format.")
+  @ApiModelProperty(example = "Wed Jan 31 00:00:00 UTC 2063", value = "Returns the 40Y yield curve date in 'YYYY-MM-DD' format.")
   @JsonIgnore
 
   public LocalDate getYieldCurveDate40Y() {
@@ -876,7 +876,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve3M
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.5035", value = "Returns the 3M yield to maturity.")
+  @ApiModelProperty(example = "4.71383", value = "Returns the 3M yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve3M() {
@@ -910,7 +910,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve6M
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.76372", value = "Returns the 6M yield to maturity.")
+  @ApiModelProperty(example = "4.85789", value = "Returns the 6M yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve6M() {
@@ -944,7 +944,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve1Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.84112", value = "Returns the 1Y yield to maturity.")
+  @ApiModelProperty(example = "4.87322", value = "Returns the 1Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve1Y() {
@@ -978,7 +978,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve2Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.63288", value = "Returns the 2Y yield to maturity.")
+  @ApiModelProperty(example = "4.31165", value = "Returns the 2Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve2Y() {
@@ -1012,7 +1012,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve3Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.39938", value = "Returns the 3Y yield to maturity.")
+  @ApiModelProperty(example = "3.94318", value = "Returns the 3Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve3Y() {
@@ -1046,7 +1046,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve4Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.21041", value = "Returns the 4Y yield to maturity.")
+  @ApiModelProperty(example = "3.84834", value = "Returns the 4Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve4Y() {
@@ -1080,7 +1080,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve5Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.08112", value = "Returns the 5Y yield to maturity.")
+  @ApiModelProperty(example = "3.77094", value = "Returns the 5Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve5Y() {
@@ -1114,7 +1114,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve6Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.09088", value = "Returns the 6Y yield to maturity.")
+  @ApiModelProperty(example = "3.75772", value = "Returns the 6Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve6Y() {
@@ -1148,7 +1148,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve7Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3.97412", value = "Returns the 7Y yield to maturity.")
+  @ApiModelProperty(example = "3.70533", value = "Returns the 7Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve7Y() {
@@ -1182,7 +1182,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve8Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3.83298", value = "Returns the 8Y yield to maturity.")
+  @ApiModelProperty(example = "3.68161", value = "Returns the 8Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve8Y() {
@@ -1216,7 +1216,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve9Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3.88251", value = "Returns the 9Y yield to maturity.")
+  @ApiModelProperty(example = "3.69604", value = "Returns the 9Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve9Y() {
@@ -1250,7 +1250,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve10Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3.89116", value = "Returns the 10Y yield to maturity.")
+  @ApiModelProperty(example = "3.75209", value = "Returns the 10Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve10Y() {
@@ -1284,7 +1284,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve15Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.29078", value = "Returns the 15Y yield to maturity.")
+  @ApiModelProperty(example = "4.15736", value = "Returns the 15Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve15Y() {
@@ -1318,7 +1318,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve20Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.72927", value = "Returns the 20Y yield to maturity.")
+  @ApiModelProperty(example = "4.55024", value = "Returns the 20Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve20Y() {
@@ -1352,7 +1352,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve25Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.63288", value = "Returns the 25Y yield to maturity.")
+  @ApiModelProperty(example = "4.73328", value = "Returns the 25Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve25Y() {
@@ -1386,7 +1386,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve30Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.68269", value = "Returns the 30Y yield to maturity.")
+  @ApiModelProperty(example = "4.76396", value = "Returns the 30Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve30Y() {
@@ -1420,7 +1420,7 @@ public class BondIssuerYieldCurve implements Serializable {
    * @return ytmCurve40Y
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.21041", value = "Returns the 40Y yield to maturity.")
+  @ApiModelProperty(example = "4.61172", value = "Returns the 40Y yield to maturity.")
   @JsonIgnore
 
   public Double getYtmCurve40Y() {

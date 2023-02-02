@@ -184,7 +184,7 @@ public class BondSpread implements Serializable {
    * @return requestId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "149123CH2", value = "Identifier that was used for the request.")
+  @ApiModelProperty(example = "US45905URL07", value = "Identifier that was used for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -210,7 +210,7 @@ public class BondSpread implements Serializable {
    * @return fsymId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "K9RRQP-S", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
+  @ApiModelProperty(example = "CJQZQ0-S", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
   public String getFsymId() {
@@ -244,7 +244,7 @@ public class BondSpread implements Serializable {
    * @return date
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sat Oct 08 00:00:00 UTC 2022", value = "The date on which the price is calculated.")
+  @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
   public LocalDate getDate() {
@@ -278,7 +278,7 @@ public class BondSpread implements Serializable {
    * @return actualCDSBondBasisMid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "-0.001763", value = "The difference between the CDS spread interpolated to the bond maturity and the asset swap spread of the bond .Available only  for `corporate bonds`")
+  @ApiModelProperty(value = "The difference between the CDS spread interpolated to the bond maturity and the asset swap spread of the bond .Available only  for `corporate bonds`")
   @JsonIgnore
 
   public Double getActualCDSBondBasisMid() {
@@ -312,7 +312,7 @@ public class BondSpread implements Serializable {
    * @return actualIMMCDSBondBasis
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "-0.001641", value = "The difference between the CDS spread interpolated to the IMM date immediately following the bond maturity,and the asset swap spread of the bond .Available only  for `corporate bonds`")
+  @ApiModelProperty(value = "The difference between the CDS spread interpolated to the IMM date immediately following the bond maturity,and the asset swap spread of the bond .Available only  for `corporate bonds`")
   @JsonIgnore
 
   public Double getActualIMMCDSBondBasis() {
@@ -346,7 +346,7 @@ public class BondSpread implements Serializable {
    * @return cdSBondBasisDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Fri Oct 07 00:00:00 UTC 2022", value = "The date of the CDS Bond Basis .Available only  for `corporate bonds`")
+  @ApiModelProperty(value = "The date of the CDS Bond Basis .Available only  for `corporate bonds`")
   @JsonIgnore
 
   public LocalDate getCdSBondBasisDate() {
@@ -380,7 +380,7 @@ public class BondSpread implements Serializable {
    * @return bidDiscountMargin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.4727", value = "The discount margin of a Floating Rate Note,denominated in basis points, based on the evaluated bid price. Discount margin is the return earned in addition to the index underlying the floating rate security .Available only  for `corporate bonds` and `asset-backed security bonds`.")
+  @ApiModelProperty(value = "The discount margin of a Floating Rate Note,denominated in basis points, based on the evaluated bid price. Discount margin is the return earned in addition to the index underlying the floating rate security .Available only  for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
   public Double getBidDiscountMargin() {
@@ -414,7 +414,7 @@ public class BondSpread implements Serializable {
    * @return midDiscountMargin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.49987", value = "The discount margin of a Floating RateNote, denominate in basis points, based on the evaluated mid price. Discount margin is the return earned in addition to the index underlying the floating rate security .Available only  for `corporate bonds` and `asset-backed security bonds`.")
+  @ApiModelProperty(value = "The discount margin of a Floating RateNote, denominate in basis points, based on the evaluated mid price. Discount margin is the return earned in addition to the index underlying the floating rate security .Available only  for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
   public Double getMidDiscountMargin() {
@@ -448,7 +448,7 @@ public class BondSpread implements Serializable {
    * @return askDiscountMargin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.81036", value = "The discount margin of a Floating Rate Note, denominated in basis points, based on the evaluated ask price. Discount margin is the return earned in addition to the index underlying the floating rate security. Available only  for `corporate bonds` and `asset-backed security bonds`.")
+  @ApiModelProperty(value = "The discount margin of a Floating Rate Note, denominated in basis points, based on the evaluated ask price. Discount margin is the return earned in addition to the index underlying the floating rate security. Available only  for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
   public Double getAskDiscountMargin() {
@@ -482,7 +482,7 @@ public class BondSpread implements Serializable {
    * @return bidOAS
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.83742", value = "The Option Adjusted Spread (OAS), based on the bid price. OAS is the flat spread which has to be added to the treasury yield curve in a pricing model (that accounts for embedded options) to discount a security payment to match its market price. Available only  for `corporate bonds`")
+  @ApiModelProperty(value = "The Option Adjusted Spread (OAS), based on the bid price. OAS is the flat spread which has to be added to the treasury yield curve in a pricing model (that accounts for embedded options) to discount a security payment to match its market price. Available only  for `corporate bonds`")
   @JsonIgnore
 
   public Double getBidOAS() {
@@ -516,7 +516,7 @@ public class BondSpread implements Serializable {
    * @return midOAS
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "93.65304", value = "The Option Adjusted Spread (OAS), based on the mid price. OAS is the flat spread which has to be added to the treasury yield curve in a pricing model (that accounts for embedded options) to discount a security payment to match its market price .Available only  for `corporate bonds` and `asset-backed security bonds`.")
+  @ApiModelProperty(value = "The Option Adjusted Spread (OAS), based on the mid price. OAS is the flat spread which has to be added to the treasury yield curve in a pricing model (that accounts for embedded options) to discount a security payment to match its market price .Available only  for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
   public Double getMidOAS() {
@@ -550,7 +550,7 @@ public class BondSpread implements Serializable {
    * @return askOAS
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "89.80762", value = "The Option Adjusted Spread (OAS), based on the ask price. OAS is the flat spread which has to be added to the treasury yield curve in a pricing model (that accounts for embedded options) to discount a security payment to match its market price. Available only  for `corporate bonds`")
+  @ApiModelProperty(value = "The Option Adjusted Spread (OAS), based on the ask price. OAS is the flat spread which has to be added to the treasury yield curve in a pricing model (that accounts for embedded options) to discount a security payment to match its market price. Available only  for `corporate bonds`")
   @JsonIgnore
 
   public Double getAskOAS() {
@@ -584,7 +584,7 @@ public class BondSpread implements Serializable {
    * @return bidAssetSwapSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The bid asset swap spread in the currency of the instrument. Asset Swap Spread is the difference between the yield of an instrument and the LIBOR curve .Available only  for `corporate bonds` and `asset-backed security bonds`.")
+  @ApiModelProperty(example = "-14.02804", value = "The bid asset swap spread in the currency of the instrument. Asset Swap Spread is the difference between the yield of an instrument and the LIBOR curve .Available only  for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
   public Double getBidAssetSwapSpread() {
@@ -618,7 +618,7 @@ public class BondSpread implements Serializable {
    * @return midAssetSwapSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The mid asset swap spread in the currency of the instrument. Asset Swap Spread is the difference between the yield of an instrument and the LIBOR curve .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "-15.30298", value = "The mid asset swap spread in the currency of the instrument. Asset Swap Spread is the difference between the yield of an instrument and the LIBOR curve .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getMidAssetSwapSpread() {
@@ -652,7 +652,7 @@ public class BondSpread implements Serializable {
    * @return askAssetSwapSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ask asset swap spread in the currency of the instrument. Asset Swap Spread is the difference between the yield of an instrument and the LIBOR curve .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "-16.57834", value = "The ask asset swap spread in the currency of the instrument. Asset Swap Spread is the difference between the yield of an instrument and the LIBOR curve .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getAskAssetSwapSpread() {
@@ -686,7 +686,7 @@ public class BondSpread implements Serializable {
    * @return bidZSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The bid Z spread of the instrument, based on the bid price. Z spread is the constant spread that will make the price of an instrument equal to the present value of its cash flows, when added to the yield at each point on the spot rate treasury curve, where a cash flow is received. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "-14.33783", value = "The bid Z spread of the instrument, based on the bid price. Z spread is the constant spread that will make the price of an instrument equal to the present value of its cash flows, when added to the yield at each point on the spot rate treasury curve, where a cash flow is received. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getBidZSpread() {
@@ -720,7 +720,7 @@ public class BondSpread implements Serializable {
    * @return midZSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The bid Z spread of the instrument, based on the mid price. Z spread is the constant spread that will make the price of an instrument equal to the present value of its cash flows, when added to the yield at each point on the spot rate treasury curve, where a cash flow is received .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "-15.63881", value = "The bid Z spread of the instrument, based on the mid price. Z spread is the constant spread that will make the price of an instrument equal to the present value of its cash flows, when added to the yield at each point on the spot rate treasury curve, where a cash flow is received .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getMidZSpread() {
@@ -754,7 +754,7 @@ public class BondSpread implements Serializable {
    * @return askZSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The bid Z spread of the instrument, based on the ask price. Z spread is the constant spread that will make the price of an instrument equal to the present value of its cash flows, when added to the yield at each point on the spot rate treasury curve, where a cash flow is received .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "-16.93988", value = "The bid Z spread of the instrument, based on the ask price. Z spread is the constant spread that will make the price of an instrument equal to the present value of its cash flows, when added to the yield at each point on the spot rate treasury curve, where a cash flow is received .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getAskZSpread() {
@@ -788,7 +788,7 @@ public class BondSpread implements Serializable {
    * @return bidGSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The G spread of the instrument, based on the bid price. G spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate government curve. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "7.76769", value = "The G spread of the instrument, based on the bid price. G spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate government curve. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getBidGSpread() {
@@ -822,7 +822,7 @@ public class BondSpread implements Serializable {
    * @return midGSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The G spread of the instrument, based on the mid price. G spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate government curve. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "6.8439", value = "The G spread of the instrument, based on the mid price. G spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate government curve. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getMidGSpread() {
@@ -856,7 +856,7 @@ public class BondSpread implements Serializable {
    * @return askGSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The G spread of the instrument, based on the ask price. G spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate government curve. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "5.92011", value = "The G spread of the instrument, based on the ask price. G spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate government curve. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getAskGSpread() {
@@ -890,7 +890,7 @@ public class BondSpread implements Serializable {
    * @return bidYieldSpreadvBenchmark
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "107.46191", value = "The spread of the instrument bid yield against the assigned benchmark bid yield. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "1.8", value = "The spread of the instrument bid yield against the assigned benchmark bid yield. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getBidYieldSpreadvBenchmark() {
@@ -924,7 +924,7 @@ public class BondSpread implements Serializable {
    * @return midYieldSpreadvBenchmark
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "105.71191", value = "The spread of the instrument mid yield against the assigned benchmark mid yield. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "0.9", value = "The spread of the instrument mid yield against the assigned benchmark mid yield. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getMidYieldSpreadvBenchmark() {
@@ -958,7 +958,7 @@ public class BondSpread implements Serializable {
    * @return askYieldSpreadvBenchmark
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "103.96191", value = "The spread of the instrument ask yield against the assigned benchmark ask yield. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "0", value = "The spread of the instrument ask yield against the assigned benchmark ask yield. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getAskYieldSpreadvBenchmark() {
@@ -992,7 +992,7 @@ public class BondSpread implements Serializable {
    * @return bidAskPriceSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.22127", value = "The difference between the ask price and the bid price.")
+  @ApiModelProperty(example = "0.05119", value = "The difference between the ask price and the bid price.")
   @JsonIgnore
 
   public Double getBidAskPriceSpread() {
@@ -1026,7 +1026,7 @@ public class BondSpread implements Serializable {
    * @return bidAskYieldSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3.90712", value = "The difference between the ask yield and bid yield .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "2.65437", value = "The difference between the ask yield and bid yield .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getBidAskYieldSpread() {
@@ -1060,7 +1060,7 @@ public class BondSpread implements Serializable {
    * @return bidSTWSpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "107.46191", value = "The difference, in terms of spread, between the bid yield to worst and the yield to maturity of the treasury bond with the closest maturity to the yieldToWorstDate. Available only  for `corporate bonds`.")
+  @ApiModelProperty(value = "The difference, in terms of spread, between the bid yield to worst and the yield to maturity of the treasury bond with the closest maturity to the yieldToWorstDate. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getBidSTWSpread() {
@@ -1094,7 +1094,7 @@ public class BondSpread implements Serializable {
    * @return midISpread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The I spread of the bond, based on the mid price. I spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate reference curve. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "-15.93663", value = "The I spread of the bond, based on the mid price. I spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate reference curve. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getMidISpread() {

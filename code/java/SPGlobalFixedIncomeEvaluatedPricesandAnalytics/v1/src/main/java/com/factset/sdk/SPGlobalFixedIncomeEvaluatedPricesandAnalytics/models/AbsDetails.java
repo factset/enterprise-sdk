@@ -192,7 +192,7 @@ public class AbsDetails implements Serializable {
    * @return date
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Mon Dec 05 00:00:00 UTC 2022", value = "The date on which the price is calculated.")
+  @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
   public LocalDate getDate() {
@@ -498,7 +498,7 @@ public class AbsDetails implements Serializable {
    * @return liquidity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3", value = "Returns the market liquidity score.")
+  @ApiModelProperty(example = "1", value = "Returns the market liquidity score.")
   @JsonIgnore
 
   public Double getLiquidity() {
@@ -702,7 +702,7 @@ public class AbsDetails implements Serializable {
    * @return wal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.028", value = "Returns the Weighted Average Life of the instrument.")
+  @ApiModelProperty(example = "0.886", value = "Returns the Weighted Average Life of the instrument.")
   @JsonIgnore
 
   public Double getWal() {
@@ -736,7 +736,7 @@ public class AbsDetails implements Serializable {
    * @return waLPrincipal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.028", value = "Returns the Weighted Average Life of the instrument.")
+  @ApiModelProperty(example = "0.886", value = "Returns the Weighted Average Life of the instrument.")
   @JsonIgnore
 
   public Double getWaLPrincipal() {

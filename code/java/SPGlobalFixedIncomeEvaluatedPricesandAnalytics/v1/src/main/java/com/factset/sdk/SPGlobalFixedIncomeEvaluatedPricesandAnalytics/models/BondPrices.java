@@ -150,7 +150,7 @@ public class BondPrices implements Serializable {
    * @return fsymId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SJY281-R", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
+  @ApiModelProperty(example = "CJQZQ0-S", value = "FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
   @JsonIgnore
 
   public String getFsymId() {
@@ -218,7 +218,7 @@ public class BondPrices implements Serializable {
    * @return date
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sat Oct 08 00:00:00 UTC 2022", value = "The date on which the price is calculated.")
+  @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
   public LocalDate getDate() {
@@ -252,7 +252,7 @@ public class BondPrices implements Serializable {
    * @return cleanBidPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.52705", value = "The bid price of the instrument.")
+  @ApiModelProperty(example = "95.74477", value = "The bid price of the instrument.")
   @JsonIgnore
 
   public Double getCleanBidPrice() {
@@ -286,7 +286,7 @@ public class BondPrices implements Serializable {
    * @return cleanMidPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.4727", value = "The bid price of the instrument.")
+  @ApiModelProperty(example = "95.77036", value = "The bid price of the instrument.")
   @JsonIgnore
 
   public Double getCleanMidPrice() {
@@ -320,7 +320,7 @@ public class BondPrices implements Serializable {
    * @return cleanAskPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.49987", value = "The bid price of the instrument.")
+  @ApiModelProperty(example = "95.79596", value = "The bid price of the instrument.")
   @JsonIgnore
 
   public Double getCleanAskPrice() {
@@ -354,7 +354,7 @@ public class BondPrices implements Serializable {
    * @return dirtyBidPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.81036", value = "The price of the bond plus the interest that is accrued between coupon payments, based on the bid price. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "96.61248", value = "The price of the bond plus the interest that is accrued between coupon payments, based on the bid price. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getDirtyBidPrice() {
@@ -388,7 +388,7 @@ public class BondPrices implements Serializable {
    * @return dirtyMidPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.83742", value = "The price of the bond plus the interest that is accrued between coupon payments, based on the mid price. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "96.63807", value = "The price of the bond plus the interest that is accrued between coupon payments, based on the mid price. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getDirtyMidPrice() {
@@ -422,7 +422,7 @@ public class BondPrices implements Serializable {
    * @return dirtyAskPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "94.86448", value = "The price of the bond plus the interest that is accrued between coupon payments, based on the bid price. Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "96.66367", value = "The price of the bond plus the interest that is accrued between coupon payments, based on the bid price. Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getDirtyAskPrice() {
@@ -456,7 +456,7 @@ public class BondPrices implements Serializable {
    * @return pv
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2.1494", value = "The present variation per one basis point change in yield, based on the mid price .Available only  for `corporate bonds`.")
+  @ApiModelProperty(example = "1.96728", value = "The present variation per one basis point change in yield, based on the mid price .Available only  for `corporate bonds`.")
   @JsonIgnore
 
   public Double getPv() {
@@ -490,7 +490,7 @@ public class BondPrices implements Serializable {
    * @return bidPriceDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sat Oct 08 00:00:00 UTC 2022", value = "The date the bid price is valued to. Available only  for `municipal bonds`.")
+  @ApiModelProperty(value = "The date the bid price is valued to. Available only  for `municipal bonds`.")
   @JsonIgnore
 
   public LocalDate getBidPriceDate() {
@@ -524,7 +524,7 @@ public class BondPrices implements Serializable {
    * @return midPriceDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sat Oct 08 00:00:00 UTC 2022", value = "The date the mid price is valued to. Available only  for `municipal bonds`.")
+  @ApiModelProperty(value = "The date the mid price is valued to. Available only  for `municipal bonds`.")
   @JsonIgnore
 
   public LocalDate getMidPriceDate() {
@@ -558,7 +558,7 @@ public class BondPrices implements Serializable {
    * @return askPriceDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sat Oct 08 00:00:00 UTC 2022", value = "The date the ask price is valued to. Available only  for `municipal bonds`.")
+  @ApiModelProperty(value = "The date the ask price is valued to. Available only  for `municipal bonds`.")
   @JsonIgnore
 
   public LocalDate getAskPriceDate() {
@@ -592,7 +592,7 @@ public class BondPrices implements Serializable {
    * @return bidPriceType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "BM", value = "Bid price type for the given identifier. Available only  for `municipal bonds`.")
+  @ApiModelProperty(value = "Bid price type for the given identifier. Available only  for `municipal bonds`.")
   @JsonIgnore
 
   public String getBidPriceType() {
@@ -626,7 +626,7 @@ public class BondPrices implements Serializable {
    * @return midPriceType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "BM", value = "Mid price type for the given identifier .Available only  for `municipal bonds`.")
+  @ApiModelProperty(value = "Mid price type for the given identifier .Available only  for `municipal bonds`.")
   @JsonProperty(JSON_PROPERTY_MID_PRICE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -652,7 +652,7 @@ public class BondPrices implements Serializable {
    * @return askPriceType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "BM", value = "Ask price type for the given identifier .Available only  for `municipal bonds`.")
+  @ApiModelProperty(value = "Ask price type for the given identifier .Available only  for `municipal bonds`.")
   @JsonIgnore
 
   public String getAskPriceType() {

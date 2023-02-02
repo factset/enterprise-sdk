@@ -176,7 +176,7 @@ public class BondYield implements Serializable {
    * @return date
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Wed Oct 05 00:00:00 UTC 2022", value = "The date on which the price is calculated.")
+  @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
   public LocalDate getDate() {
@@ -210,7 +210,7 @@ public class BondYield implements Serializable {
    * @return bidYieldToMaturity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.35395", value = "The yield to maturity of the bid price of the instrument. Available only for `corporate bonds` and `asset-backed security bonds`.")
+  @ApiModelProperty(example = "4.27241", value = "The yield to maturity of the bid price of the instrument. Available only for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
   public Double getBidYieldToMaturity() {
@@ -244,7 +244,7 @@ public class BondYield implements Serializable {
    * @return midYieldToMaturity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.34013", value = "The yield to maturity of the mid price of the instrument. Available only for `corporate bonds` and `asset-backed security bonds`.")
+  @ApiModelProperty(example = "4.25914", value = "The yield to maturity of the mid price of the instrument. Available only for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
   public Double getMidYieldToMaturity() {
@@ -278,7 +278,7 @@ public class BondYield implements Serializable {
    * @return askYieldToMaturity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.32632", value = "The yield to maturity of the ask price of the instrument. Available only for `corporate bonds`.")
+  @ApiModelProperty(example = "4.24587", value = "The yield to maturity of the ask price of the instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
   public Double getAskYieldToMaturity() {
@@ -312,7 +312,7 @@ public class BondYield implements Serializable {
    * @return bidYieldToWorst
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4.66849", value = "The lowest yield, under all possible scenarios, of the bid price of the instrument. Available only for `corporate bonds` and `municipal bonds`.")
+  @ApiModelProperty(value = "The lowest yield, under all possible scenarios, of the bid price of the instrument. Available only for `corporate bonds` and `municipal bonds`.")
   @JsonIgnore
 
   public Double getBidYieldToWorst() {
@@ -346,7 +346,7 @@ public class BondYield implements Serializable {
    * @return midYieldToWorst
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.0464953", value = "The lowest yield, under all possible scenarios, of the mid price of the instrument. Available only for `corporate bonds` and `municipal bonds`.")
+  @ApiModelProperty(value = "The lowest yield, under all possible scenarios, of the mid price of the instrument. Available only for `corporate bonds` and `municipal bonds`.")
   @JsonIgnore
 
   public Double getMidYieldToWorst() {
@@ -380,7 +380,7 @@ public class BondYield implements Serializable {
    * @return askYieldToWorst
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.0463057", value = "The lowest yield, under all possible scenarios, of the ask price of the instrument. Available only for `corporate bonds` and `municipal bonds`.")
+  @ApiModelProperty(value = "The lowest yield, under all possible scenarios, of the ask price of the instrument. Available only for `corporate bonds` and `municipal bonds`.")
   @JsonIgnore
 
   public Double getAskYieldToWorst() {
@@ -414,7 +414,7 @@ public class BondYield implements Serializable {
    * @return benchmarkBidYieldToMaturity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3.76523", value = "The bid yield to maturity of the benchmark instrument. Available only for `corporate bonds`.")
+  @ApiModelProperty(example = "4.25441", value = "The bid yield to maturity of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
   public Double getBenchmarkBidYieldToMaturity() {
@@ -448,7 +448,7 @@ public class BondYield implements Serializable {
    * @return benchmarkMidYieldToMaturity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3.76337", value = "The mid yield to maturity of the benchmark instrument. Available only for `corporate bonds`.")
+  @ApiModelProperty(example = "4.25014", value = "The mid yield to maturity of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
   public Double getBenchmarkMidYieldToMaturity() {
@@ -482,7 +482,7 @@ public class BondYield implements Serializable {
    * @return benchmarkAskYieldToMaturity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3.76151", value = "The ask yield to maturity of the benchmark instrument. Available only for `corporate bonds`.")
+  @ApiModelProperty(example = "4.24587", value = "The ask yield to maturity of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
   public Double getBenchmarkAskYieldToMaturity() {
@@ -516,7 +516,7 @@ public class BondYield implements Serializable {
    * @return bidYieldToCall
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.601", value = "The yield to call of the bid price of the instrument. Available only for `asset-backed security bonds`.")
+  @ApiModelProperty(value = "The yield to call of the bid price of the instrument. Available only for `asset-backed security bonds`.")
   @JsonIgnore
 
   public Double getBidYieldToCall() {
@@ -550,7 +550,7 @@ public class BondYield implements Serializable {
    * @return midYieldToCall
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.5442", value = "The yield to call of the mid price of the instrument. Available only for `asset-backed security bonds`.")
+  @ApiModelProperty(value = "The yield to call of the mid price of the instrument. Available only for `asset-backed security bonds`.")
   @JsonIgnore
 
   public Double getMidYieldToCall() {
@@ -584,7 +584,7 @@ public class BondYield implements Serializable {
    * @return yieldTWDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Tue Apr 09 00:00:00 UTC 2030", value = "The date used in the yield to worst calculation. Available only for 'corporate bonds'.")
+  @ApiModelProperty(value = "The date used in the yield to worst calculation. Available only for 'corporate bonds'.")
   @JsonIgnore
 
   public LocalDate getYieldTWDate() {

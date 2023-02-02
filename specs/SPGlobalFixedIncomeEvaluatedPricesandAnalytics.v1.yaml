@@ -789,7 +789,7 @@ components:
             region/currency has been allocated and the identifiers are on
             FactSet.
           type: string
-          example: SJY281-R
+          example: CJQZQ0-S
           nullable: true
         currency:
           description: >-
@@ -802,25 +802,25 @@ components:
           description: The date on which the price is calculated.
           type: string
           format: date
-          example: '2022-10-08'
+          example: '2023-01-26'
           nullable: true
         cleanBidPrice:
           description: The bid price of the instrument.
           type: number
           format: double
-          example: 94.52705
+          example: 95.74477
           nullable: true
         cleanMidPrice:
           description: The bid price of the instrument.
           type: number
           format: double
-          example: 94.4727
+          example: 95.77036
           nullable: true
         cleanAskPrice:
           description: The bid price of the instrument.
           type: number
           format: double
-          example: 94.49987
+          example: 95.79596
           nullable: true
         dirtyBidPrice:
           description: >-
@@ -829,7 +829,7 @@ components:
             `corporate bonds`.
           type: number
           format: double
-          example: 94.81036
+          example: 96.61248
           nullable: true
         dirtyMidPrice:
           description: >-
@@ -838,7 +838,7 @@ components:
             `corporate bonds`.
           type: number
           format: double
-          example: 94.83742
+          example: 96.63807
           nullable: true
         dirtyAskPrice:
           description: >-
@@ -847,7 +847,7 @@ components:
             `corporate bonds`.
           type: number
           format: double
-          example: 94.86448
+          example: 96.66367
           nullable: true
         pv:
           description: >-
@@ -855,7 +855,7 @@ components:
             the mid price .Available only  for `corporate bonds`.
           type: number
           format: double
-          example: 2.1494
+          example: 1.96728
           nullable: true
         bidPriceDate:
           description: >-
@@ -863,7 +863,7 @@ components:
             bonds`.
           type: string
           format: date
-          example: '2022-10-08'
+          example: null
           nullable: true
         midPriceDate:
           description: >-
@@ -871,7 +871,7 @@ components:
             bonds`.
           type: string
           format: date
-          example: '2022-10-08'
+          example: null
           nullable: true
         askPriceDate:
           description: >-
@@ -879,27 +879,27 @@ components:
             bonds`.
           type: string
           format: date
-          example: '2022-10-08'
+          example: null
           nullable: true
         bidPriceType:
           description: >-
             Bid price type for the given identifier. Available only  for
             `municipal bonds`.
           type: string
-          example: BM
+          example: null
           nullable: true
         midPriceType:
           description: >-
             Mid price type for the given identifier .Available only  for
             `municipal bonds`.
           type: string
-          example: BM
+          example: null
         askPriceType:
           description: >-
             Ask price type for the given identifier .Available only  for
             `municipal bonds`.
           type: string
-          example: BM
+          example: null
           nullable: true
     bondSpreadRequest:
       title: Bond Spread Request Body
@@ -934,7 +934,7 @@ components:
         requestId:
           description: Identifier that was used for the request.
           type: string
-          example: 149123CH2
+          example: US45905URL07
         fsymId:
           description: >-
             FactSet Regional Security Identifier. Six alpha-numeric characters,
@@ -946,13 +946,13 @@ components:
             region/currency has been allocated and the identifiers are on
             FactSet.
           type: string
-          example: K9RRQP-S
+          example: CJQZQ0-S
           nullable: true
         date:
           description: The date on which the price is calculated.
           type: string
           format: date
-          example: '2022-10-08'
+          example: '2023-01-26'
           nullable: true
         actualCDSBondBasisMid:
           description: >-
@@ -961,7 +961,7 @@ components:
             `corporate bonds`
           type: number
           format: double
-          example: -0.001763
+          example: null
           nullable: true
         actualIMMCDSBondBasis:
           description: >-
@@ -970,7 +970,7 @@ components:
             the bond .Available only  for `corporate bonds`
           type: number
           format: double
-          example: -0.001641
+          example: null
           nullable: true
         CDSBondBasisDate:
           description: >-
@@ -978,7 +978,7 @@ components:
             bonds`
           type: string
           format: date
-          example: '2022-10-07'
+          example: null
           nullable: true
         bidDiscountMargin:
           description: >-
@@ -989,7 +989,7 @@ components:
             security bonds`.
           type: number
           format: double
-          example: 94.4727
+          example: null
           nullable: true
         midDiscountMargin:
           description: >-
@@ -1000,7 +1000,7 @@ components:
             security bonds`.
           type: number
           format: double
-          example: 94.49987
+          example: null
           nullable: true
         askDiscountMargin:
           description: >-
@@ -1011,7 +1011,7 @@ components:
             security bonds`.
           type: number
           format: double
-          example: 94.81036
+          example: null
           nullable: true
         bidOAS:
           description: >-
@@ -1022,7 +1022,7 @@ components:
             `corporate bonds`
           type: number
           format: double
-          example: 94.83742
+          example: null
           nullable: true
         midOAS:
           description: >-
@@ -1033,7 +1033,7 @@ components:
             `corporate bonds` and `asset-backed security bonds`.
           type: number
           format: double
-          example: 93.65304
+          example: null
           nullable: true
         askOAS:
           description: >-
@@ -1044,7 +1044,7 @@ components:
             `corporate bonds`
           type: number
           format: double
-          example: 89.80762
+          example: null
           nullable: true
         bidAssetSwapSpread:
           description: >-
@@ -1054,7 +1054,7 @@ components:
             `asset-backed security bonds`.
           type: number
           format: double
-          example: null
+          example: -14.02804
           nullable: true
         midAssetSwapSpread:
           description: >-
@@ -1063,7 +1063,7 @@ components:
             the LIBOR curve .Available only  for `corporate bonds`.
           type: number
           format: double
-          example: null
+          example: -15.30298
           nullable: true
         askAssetSwapSpread:
           description: >-
@@ -1072,7 +1072,7 @@ components:
             the LIBOR curve .Available only  for `corporate bonds`.
           type: number
           format: double
-          example: null
+          example: -16.57834
           nullable: true
         bidZSpread:
           description: >-
@@ -1083,7 +1083,7 @@ components:
             flow is received. Available only  for `corporate bonds`.
           type: number
           format: double
-          example: null
+          example: -14.33783
           nullable: true
         midZSpread:
           description: >-
@@ -1094,7 +1094,7 @@ components:
             flow is received .Available only  for `corporate bonds`.
           type: number
           format: double
-          example: null
+          example: -15.63881
           nullable: true
         askZSpread:
           description: >-
@@ -1105,7 +1105,7 @@ components:
             flow is received .Available only  for `corporate bonds`.
           type: number
           format: double
-          example: null
+          example: -16.93988
           nullable: true
         bidGSpread:
           description: >-
@@ -1115,7 +1115,7 @@ components:
             government curve. Available only  for `corporate bonds`.
           type: number
           format: double
-          example: null
+          example: 7.76769
           nullable: true
         midGSpread:
           description: >-
@@ -1125,7 +1125,7 @@ components:
             government curve. Available only  for `corporate bonds`.
           type: number
           format: double
-          example: null
+          example: 6.8439
           nullable: true
         askGSpread:
           description: >-
@@ -1135,7 +1135,7 @@ components:
             government curve. Available only  for `corporate bonds`.
           type: number
           format: double
-          example: null
+          example: 5.92011
           nullable: true
         bidYieldSpreadvBenchmark:
           description: >-
@@ -1143,7 +1143,7 @@ components:
             benchmark bid yield. Available only  for `corporate bonds`.
           type: number
           format: double
-          example: 107.46191
+          example: 1.8
           nullable: true
         midYieldSpreadvBenchmark:
           description: >-
@@ -1151,7 +1151,7 @@ components:
             benchmark mid yield. Available only  for `corporate bonds`.
           type: number
           format: double
-          example: 105.71191
+          example: 0.9
           nullable: true
         askYieldSpreadvBenchmark:
           description: >-
@@ -1159,13 +1159,13 @@ components:
             benchmark ask yield. Available only  for `corporate bonds`.
           type: number
           format: double
-          example: 103.96191
+          example: 0
           nullable: true
         bidAskPriceSpread:
           description: The difference between the ask price and the bid price.
           type: number
           format: double
-          example: 0.22127
+          example: 0.05119
           nullable: true
         bidAskYieldSpread:
           description: >-
@@ -1173,7 +1173,7 @@ components:
             for `corporate bonds`.
           type: number
           format: double
-          example: 3.90712
+          example: 2.65437
           nullable: true
         bidSTWSpread:
           description: >-
@@ -1183,7 +1183,7 @@ components:
             bonds`.
           type: number
           format: double
-          example: 107.46191
+          example: null
           nullable: true
         midISpread:
           description: >-
@@ -1193,7 +1193,7 @@ components:
             reference curve. Available only  for `corporate bonds`.
           type: number
           format: double
-          example: null
+          example: -15.93663
           nullable: true
         midWALTreasurySpread:
           description: >-
@@ -1279,7 +1279,7 @@ components:
           description: The date on which the price is calculated.
           type: string
           format: date
-          example: '2022-10-05'
+          example: '2023-01-26'
           nullable: true
         bidYieldToMaturity:
           description: >-
@@ -1287,7 +1287,7 @@ components:
             only for `corporate bonds` and `asset-backed security bonds`.
           type: number
           format: double
-          example: 4.35395
+          example: 4.27241
           nullable: true
         midYieldToMaturity:
           description: >-
@@ -1295,7 +1295,7 @@ components:
             only for `corporate bonds` and `asset-backed security bonds`.
           type: number
           format: double
-          example: 4.34013
+          example: 4.25914
           nullable: true
         askYieldToMaturity:
           description: >-
@@ -1303,7 +1303,7 @@ components:
             only for `corporate bonds`.
           type: number
           format: double
-          example: 4.32632
+          example: 4.24587
           nullable: true
         bidYieldToWorst:
           description: >-
@@ -1312,7 +1312,7 @@ components:
             bonds`.
           type: number
           format: double
-          example: 4.66849
+          example: null
           nullable: true
         midYieldToWorst:
           description: >-
@@ -1321,7 +1321,7 @@ components:
             bonds`.
           type: number
           format: double
-          example: 0.0464953
+          example: null
           nullable: true
         askYieldToWorst:
           description: >-
@@ -1330,7 +1330,7 @@ components:
             bonds`.
           type: number
           format: double
-          example: 0.0463057
+          example: null
           nullable: true
         benchmarkBidYieldToMaturity:
           description: >-
@@ -1338,7 +1338,7 @@ components:
             only for `corporate bonds`.
           type: number
           format: double
-          example: 3.76523
+          example: 4.25441
           nullable: true
         benchmarkMidYieldToMaturity:
           description: >-
@@ -1346,7 +1346,7 @@ components:
             only for `corporate bonds`.
           type: number
           format: double
-          example: 3.76337
+          example: 4.25014
           nullable: true
         benchmarkAskYieldToMaturity:
           description: >-
@@ -1354,7 +1354,7 @@ components:
             only for `corporate bonds`.
           type: number
           format: double
-          example: 3.76151
+          example: 4.24587
           nullable: true
         bidYieldToCall:
           description: >-
@@ -1362,7 +1362,7 @@ components:
             for `asset-backed security bonds`.
           type: number
           format: double
-          example: 0.601
+          example: null
           nullable: true
         midYieldToCall:
           description: >-
@@ -1370,7 +1370,7 @@ components:
             for `asset-backed security bonds`.
           type: number
           format: double
-          example: 0.5442
+          example: null
           nullable: true
         yieldTWDate:
           description: >-
@@ -1378,7 +1378,7 @@ components:
             'corporate bonds'.
           type: string
           format: date
-          example: '2030-04-09'
+          example: null
           nullable: true
     bondIssuerYieldCurveRequest:
       title: Bond Issuer Yield Curve Request Body
@@ -1425,217 +1425,217 @@ components:
             region/currency has been allocated and the identifiers are on
             FactSet.
           type: string
-          example: 0015CS-E
+          example: CJQZQ0-S
           nullable: true
         date:
           description: The date on which the price is calculated.
           type: string
           format: date
-          example: '2022-10-05'
+          example: '2023-01-26'
           nullable: true
         yieldCurveDate3M:
           description: Returns the 3M yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2023-02-28'
+          example: '2023-04-30'
           nullable: true
         yieldCurveDate6M:
           description: Returns the 6M yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2023-05-30'
+          example: '2023-07-31'
           nullable: true
         yieldCurveDate1Y:
           description: Returns the 1Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2023-11-30'
+          example: '2024-01-31'
           nullable: true
         yieldCurveDate2Y:
           description: Returns the 2Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2024-11-30'
+          example: '2025-01-31'
           nullable: true
         yieldCurveDate3Y:
           description: Returns the 3Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2025-11-30'
+          example: '2026-01-31'
           nullable: true
         yieldCurveDate4Y:
           description: Returns the 4Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2026-11-30'
+          example: '2027-01-31'
           nullable: true
         yieldCurveDate5Y:
           description: Returns the 5Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2027-11-30'
+          example: '2028-01-31'
           nullable: true
         yieldCurveDate6Y:
           description: Returns the 6Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2028-11-30'
+          example: '2029-01-31'
           nullable: true
         yieldCurveDate7Y:
           description: Returns the 7Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2029-11-30'
+          example: '2030-01-31'
           nullable: true
         yieldCurveDate8Y:
           description: Returns the 8Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2030-11-30'
+          example: '2031-01-31'
           nullable: true
         yieldCurveDate9Y:
           description: Returns the 9Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2031-11-30'
+          example: '2032-01-31'
           nullable: true
         yieldCurveDate10Y:
           description: Returns the 10Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2032-11-30'
+          example: '2033-01-31'
           nullable: true
         yieldCurveDate15Y:
           description: Returns the 15Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2037-11-30'
+          example: '2038-01-31'
           nullable: true
         yieldCurveDate20Y:
           description: Returns the 20Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2042-11-30'
+          example: '2043-01-31'
           nullable: true
         yieldCurveDate25Y:
           description: Returns the 25Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2047-11-30'
+          example: '2048-01-31'
           nullable: true
         yieldCurveDate30Y:
           description: Returns the 30Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2052-11-30'
+          example: '2053-01-31'
           nullable: true
         yieldCurveDate40Y:
           description: Returns the 40Y yield curve date in 'YYYY-MM-DD' format.
           type: string
           format: date
-          example: '2062-11-30'
+          example: '2063-01-31'
           nullable: true
         ytmCurve3M:
           description: Returns the 3M yield to maturity.
           type: number
           format: double
-          example: 4.5035
+          example: 4.71383
           nullable: true
         ytmCurve6M:
           description: Returns the 6M yield to maturity.
           type: number
           format: double
-          example: 4.76372
+          example: 4.85789
           nullable: true
         ytmCurve1Y:
           description: Returns the 1Y yield to maturity.
           type: number
           format: double
-          example: 4.84112
+          example: 4.87322
           nullable: true
         ytmCurve2Y:
           description: Returns the 2Y yield to maturity.
           type: number
           format: double
-          example: 4.63288
+          example: 4.31165
           nullable: true
         ytmCurve3Y:
           description: Returns the 3Y yield to maturity.
           type: number
           format: double
-          example: 4.39938
+          example: 3.94318
           nullable: true
         ytmCurve4Y:
           description: Returns the 4Y yield to maturity.
           type: number
           format: double
-          example: 4.21041
+          example: 3.84834
           nullable: true
         ytmCurve5Y:
           description: Returns the 5Y yield to maturity.
           type: number
           format: double
-          example: 4.08112
+          example: 3.77094
           nullable: true
         ytmCurve6Y:
           description: Returns the 6Y yield to maturity.
           type: number
           format: double
-          example: 4.09088
+          example: 3.75772
           nullable: true
         ytmCurve7Y:
           description: Returns the 7Y yield to maturity.
           type: number
           format: double
-          example: 3.97412
+          example: 3.70533
           nullable: true
         ytmCurve8Y:
           description: Returns the 8Y yield to maturity.
           type: number
           format: double
-          example: 3.83298
+          example: 3.68161
           nullable: true
         ytmCurve9Y:
           description: Returns the 9Y yield to maturity.
           type: number
           format: double
-          example: 3.88251
+          example: 3.69604
           nullable: true
         ytmCurve10Y:
           description: Returns the 10Y yield to maturity.
           type: number
           format: double
-          example: 3.89116
+          example: 3.75209
           nullable: true
         ytmCurve15Y:
           description: Returns the 15Y yield to maturity.
           type: number
           format: double
-          example: 4.29078
+          example: 4.15736
           nullable: true
         ytmCurve20Y:
           description: Returns the 20Y yield to maturity.
           type: number
           format: double
-          example: 4.72927
+          example: 4.55024
           nullable: true
         ytmCurve25Y:
           description: Returns the 25Y yield to maturity.
           type: number
           format: double
-          example: 4.63288
+          example: 4.73328
           nullable: true
         ytmCurve30Y:
           description: Returns the 30Y yield to maturity.
           type: number
           format: double
-          example: 4.68269
+          example: 4.76396
           nullable: true
         ytmCurve40Y:
           description: Returns the 40Y yield to maturity.
           type: number
           format: double
-          example: 4.21041
+          example: 4.61172
           nullable: true
     bondSensitivityRequest:
       title: Bond Sensitivity Request Body
@@ -1670,7 +1670,7 @@ components:
         requestId:
           description: Identifier that was used for the request.
           type: string
-          example: 149123CH2
+          example: US45905URL07
         fsymId:
           description: >-
             FactSet Regional Security Identifier. Six alpha-numeric characters,
@@ -1688,7 +1688,7 @@ components:
           description: The date on which the price is calculated.
           type: string
           format: date
-          example: '2022-10-10'
+          example: '2023-01-26'
           nullable: true
         bidConvexity:
           description: >-
@@ -1697,7 +1697,7 @@ components:
             bonds`.
           type: number
           format: double
-          example: 6.67
+          example: 5.83
           nullable: true
         midConvexity:
           description: >-
@@ -1705,7 +1705,7 @@ components:
             the mid price .Available only  for `corporate bonds`
           type: number
           format: double
-          example: 6.67
+          example: 5.83
           nullable: true
         askConvexity:
           description: >-
@@ -1713,7 +1713,7 @@ components:
             the ask price .Available only  for `corporate bonds`
           type: number
           format: double
-          example: 6.67
+          example: 5.83
           nullable: true
         bidEffectiveConvexity:
           description: >-
@@ -1721,7 +1721,7 @@ components:
             `corporate bonds`.
           type: number
           format: double
-          example: 6.11114
+          example: 4.86286
           nullable: true
         midEffectiveConvexity:
           description: >-
@@ -1729,13 +1729,13 @@ components:
             `corporate bonds`.
           type: number
           format: double
-          example: 6.11415
+          example: 4.86481
           nullable: true
         askEffectiveConvexity:
           description: ' The effective convexity based on the ask price. Available only  for `corporate bonds`.'
           type: number
           format: double
-          example: 6.11717
+          example: 4.86676
           nullable: true
         bidEffectiveDuration:
           description: >-
@@ -1745,7 +1745,7 @@ components:
             `corporate bonds`
           type: number
           format: double
-          example: 94.83742
+          example: 1.9278
           nullable: true
         midEffectiveDuration:
           description: >-
@@ -1755,7 +1755,7 @@ components:
             `corporate bonds`.
           type: number
           format: double
-          example: 2.17612
+          example: 1.92845
           nullable: true
         askEffectiveDuration:
           description: >-
@@ -1765,7 +1765,7 @@ components:
             `corporate bonds`
           type: number
           format: double
-          example: 89.80762
+          example: 1.9291
           nullable: true
         bidMacaulayDuration:
           description: >-
@@ -1774,7 +1774,7 @@ components:
             .Available only  for `corporate bonds`.
           type: number
           format: double
-          example: 2.34
+          example: 2.04
           nullable: true
         midMacaulayDuration:
           description: >-
@@ -1783,7 +1783,7 @@ components:
             .Available only  for `corporate bonds`.
           type: number
           format: double
-          example: 2.34
+          example: 2.04
           nullable: true
         askMacaulayDuration:
           description: >-
@@ -1792,7 +1792,7 @@ components:
             .Available only  for `corporate bonds`.
           type: number
           format: double
-          example: 2.34
+          example: 2.04
           nullable: true
         bidModifiedDuration:
           description: >-
@@ -1800,7 +1800,7 @@ components:
             on the bid price.
           type: number
           format: double
-          example: 2.29
+          example: 2
           nullable: true
         midModifiedDuration:
           description: >-
@@ -1808,7 +1808,7 @@ components:
             on the mid price. Available only  for `corporate bonds`.
           type: number
           format: double
-          example: 2.29
+          example: 2
           nullable: true
         askModifiedDuration:
           description: >-
@@ -1816,7 +1816,7 @@ components:
             on the ask price. Available only  for `corporate bonds`.
           type: number
           format: double
-          example: 2.29
+          example: 2
           nullable: true
     bondMetaRequest:
       title: Bond Meta Request Body
@@ -1869,7 +1869,7 @@ components:
           description: The date on which the price is calculated.
           type: string
           format: date
-          example: '2022-10-05'
+          example: '2023-01-26'
           nullable: true
         classification:
           description: Returns the top level sector classification of the instrument.
@@ -1893,7 +1893,7 @@ components:
             Available only for `corporate bonds`.
           type: string
           format: date
-          example: '2029-02-18'
+          example: null
           nullable: true
         defaulted:
           description: >-
@@ -1907,66 +1907,66 @@ components:
             The ISIN (International Securities Identification Number) to which
             the price data applies.
           type: string
-          example: DE000A1RQEE0
+          example: US45905URL07
           nullable: true
         cusip:
           description: >-
             Unique CUSIP identifier for the instrument to which the price data
             applies.
           type: string
-          example: 149123CH2
+          example: 45905URL0
           nullable: true
         vendorId:
           description: Returns the Vendor ID.
           type: string
-          example: US149123CH22
+          example: US45905URL07
           nullable: true
         ticker:
           description: >-
             The IHS Markit ticker for the organization. Available only for
             `corporate bonds` and `asset-backed security bonds`.
           type: string
-          example: FACINC
+          example: IBRD
           nullable: true
         setId:
           description: >-
             EVB internal identifier of instrumentSet. Available only for
             `corporate bonds`.
           type: number
-          example: 226325
+          example: 684
           nullable: true
         benchmarkISIN:
           description: >-
             The ISIN of the benchmark instrument. Available only for `corporate
             bonds`.
           type: string
-          example: US91282CFV81
+          example: US91282CGD74
           nullable: true
         benchmarkCUSIP:
           description: >-
             The CUSIP of the benchmark instrument. Available only for `corporate
             bonds`.
           type: string
-          example: 91282CFV8
+          example: 91282CGD7
           nullable: true
         name:
           description: Returns full bond name (issuer name-coupon rate-maturity year)
           type: string
-          example: Caterpillar Inc 2.6 09-Apr-2030
+          example: Intl Bk for Recon & Dev 2.125 03-Mar-2025
           nullable: true
         issuerName:
           description: >-
             Returns the short name of the issuer. Available only for `corporate
             bonds` and 'municipal bonds'.
           type: string
-          example: Caterpillar Inc
+          example: Intl Bk for Recon & Dev
           nullable: true
         benchmarkName:
           description: >-
             The name of the benchmark instrument. Available only for `corporate
             bonds`.
           type: string
-          example: USGB 4.125 11/15/32
+          example: USGB 4.25 12/31/24
           nullable: true
         perpetual:
           description: >-
@@ -1990,21 +1990,21 @@ components:
         issueName:
           description: Name of the instrument. Available only for `municipal bonds`.
           type: string
-          example: Special Obligation Refunding Bonds - Series 2019-A
+          example: null
           nullable: true
         bondTicker:
           description: >-
             Returns the bond specific ticker. Available only for `asset-backed
             security bonds`.
           type: string
-          example: BCM 1998-B A
+          example: null
           nullable: true
         indexTrancheName:
           description: >-
             The field shows Index Tranche Name. Available only for `asset-backed
             security bonds`.
           type: string
-          example: SUBORD
+          example: null
           nullable: true
         redemption:
           description: >-
@@ -2012,7 +2012,7 @@ components:
             the optional redemption/call. Available only for `asset-backed
             security bonds`.
           type: string
-          example: ASAP
+          example: null
           nullable: true
     absDetailsRequest:
       title: ABS Details Request Body
@@ -2065,7 +2065,7 @@ components:
           description: The date on which the price is calculated.
           type: string
           format: date
-          example: '2022-12-05'
+          example: '2023-01-26'
           nullable: true
         cdr:
           description: >-
@@ -2141,7 +2141,7 @@ components:
           description: Returns the market liquidity score.
           type: number
           format: double
-          example: 3
+          example: 1
           nullable: true
         payUp:
           description: Returns the number of ticks, in 32nds format, above the TBA price.
@@ -2185,13 +2185,13 @@ components:
           description: Returns the Weighted Average Life of the instrument.
           type: number
           format: double
-          example: 1.028
+          example: 0.886
           nullable: true
         WALPrincipal:
           description: Returns the Weighted Average Life of the instrument.
           type: number
           format: double
-          example: 1.028
+          example: 0.886
           nullable: true
     bondCouponRequest:
       title: Bond Coupon Request Body
@@ -2244,7 +2244,7 @@ components:
           description: The date on which the price is calculated.
           type: string
           format: date
-          example: '2022-12-07'
+          example: '2023-01-26'
           nullable: true
         accruedInterest:
           description: >-
@@ -2252,7 +2252,7 @@ components:
             the bond. Available only for `corporate and municipal bonds`.
           type: number
           format: double
-          example: 0.56667
+          example: 0.86771
           nullable: true
         coupon:
           description: >-

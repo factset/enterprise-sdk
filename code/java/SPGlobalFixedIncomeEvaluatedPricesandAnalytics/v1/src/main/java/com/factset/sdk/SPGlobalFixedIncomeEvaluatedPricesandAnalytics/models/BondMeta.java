@@ -213,7 +213,7 @@ public class BondMeta implements Serializable {
    * @return date
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Wed Oct 05 00:00:00 UTC 2022", value = "The date on which the price is calculated.")
+  @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
   public LocalDate getDate() {
@@ -315,7 +315,7 @@ public class BondMeta implements Serializable {
    * @return assumedMaturityDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Sun Feb 18 00:00:00 UTC 2029", value = "The assumed maturity date on which the principal amount of the security becomes due and payable. This is controlled by the evaluator and represents the maturity date being used in the market. Available only for `corporate bonds`.")
+  @ApiModelProperty(value = "The assumed maturity date on which the principal amount of the security becomes due and payable. This is controlled by the evaluator and represents the maturity date being used in the market. Available only for `corporate bonds`.")
   @JsonIgnore
 
   public LocalDate getAssumedMaturityDate() {
@@ -383,7 +383,7 @@ public class BondMeta implements Serializable {
    * @return isin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "DE000A1RQEE0", value = "The ISIN (International Securities Identification Number) to which the price data applies.")
+  @ApiModelProperty(example = "US45905URL07", value = "The ISIN (International Securities Identification Number) to which the price data applies.")
   @JsonIgnore
 
   public String getIsin() {
@@ -417,7 +417,7 @@ public class BondMeta implements Serializable {
    * @return cusip
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "149123CH2", value = "Unique CUSIP identifier for the instrument to which the price data applies.")
+  @ApiModelProperty(example = "45905URL0", value = "Unique CUSIP identifier for the instrument to which the price data applies.")
   @JsonIgnore
 
   public String getCusip() {
@@ -451,7 +451,7 @@ public class BondMeta implements Serializable {
    * @return vendorId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "US149123CH22", value = "Returns the Vendor ID.")
+  @ApiModelProperty(example = "US45905URL07", value = "Returns the Vendor ID.")
   @JsonIgnore
 
   public String getVendorId() {
@@ -485,7 +485,7 @@ public class BondMeta implements Serializable {
    * @return ticker
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "FACINC", value = "The IHS Markit ticker for the organization. Available only for `corporate bonds` and `asset-backed security bonds`.")
+  @ApiModelProperty(example = "IBRD", value = "The IHS Markit ticker for the organization. Available only for `corporate bonds` and `asset-backed security bonds`.")
   @JsonIgnore
 
   public String getTicker() {
@@ -519,7 +519,7 @@ public class BondMeta implements Serializable {
    * @return setId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "226325", value = "EVB internal identifier of instrumentSet. Available only for `corporate bonds`.")
+  @ApiModelProperty(example = "684", value = "EVB internal identifier of instrumentSet. Available only for `corporate bonds`.")
   @JsonIgnore
 
   public BigDecimal getSetId() {
@@ -553,7 +553,7 @@ public class BondMeta implements Serializable {
    * @return benchmarkISIN
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "US91282CFV81", value = "The ISIN of the benchmark instrument. Available only for `corporate bonds`.")
+  @ApiModelProperty(example = "US91282CGD74", value = "The ISIN of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
   public String getBenchmarkISIN() {
@@ -587,7 +587,7 @@ public class BondMeta implements Serializable {
    * @return benchmarkCUSIP
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "91282CFV8", value = "The CUSIP of the benchmark instrument. Available only for `corporate bonds`.")
+  @ApiModelProperty(example = "91282CGD7", value = "The CUSIP of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
   public String getBenchmarkCUSIP() {
@@ -621,7 +621,7 @@ public class BondMeta implements Serializable {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Caterpillar Inc 2.6 09-Apr-2030", value = "Returns full bond name (issuer name-coupon rate-maturity year)")
+  @ApiModelProperty(example = "Intl Bk for Recon & Dev 2.125 03-Mar-2025", value = "Returns full bond name (issuer name-coupon rate-maturity year)")
   @JsonIgnore
 
   public String getName() {
@@ -655,7 +655,7 @@ public class BondMeta implements Serializable {
    * @return issuerName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Caterpillar Inc", value = "Returns the short name of the issuer. Available only for `corporate bonds` and 'municipal bonds'.")
+  @ApiModelProperty(example = "Intl Bk for Recon & Dev", value = "Returns the short name of the issuer. Available only for `corporate bonds` and 'municipal bonds'.")
   @JsonIgnore
 
   public String getIssuerName() {
@@ -689,7 +689,7 @@ public class BondMeta implements Serializable {
    * @return benchmarkName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USGB 4.125 11/15/32", value = "The name of the benchmark instrument. Available only for `corporate bonds`.")
+  @ApiModelProperty(example = "USGB 4.25 12/31/24", value = "The name of the benchmark instrument. Available only for `corporate bonds`.")
   @JsonIgnore
 
   public String getBenchmarkName() {
@@ -825,7 +825,7 @@ public class BondMeta implements Serializable {
    * @return issueName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Special Obligation Refunding Bonds - Series 2019-A", value = "Name of the instrument. Available only for `municipal bonds`.")
+  @ApiModelProperty(value = "Name of the instrument. Available only for `municipal bonds`.")
   @JsonIgnore
 
   public String getIssueName() {
@@ -859,7 +859,7 @@ public class BondMeta implements Serializable {
    * @return bondTicker
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "BCM 1998-B A", value = "Returns the bond specific ticker. Available only for `asset-backed security bonds`.")
+  @ApiModelProperty(value = "Returns the bond specific ticker. Available only for `asset-backed security bonds`.")
   @JsonIgnore
 
   public String getBondTicker() {
@@ -893,7 +893,7 @@ public class BondMeta implements Serializable {
    * @return indexTrancheName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SUBORD", value = "The field shows Index Tranche Name. Available only for `asset-backed security bonds`.")
+  @ApiModelProperty(value = "The field shows Index Tranche Name. Available only for `asset-backed security bonds`.")
   @JsonIgnore
 
   public String getIndexTrancheName() {
@@ -927,7 +927,7 @@ public class BondMeta implements Serializable {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ASAP", value = "Returns the indication of whether the bond is run to maturity or to the optional redemption/call. Available only for `asset-backed security bonds`.")
+  @ApiModelProperty(value = "Returns the indication of whether the bond is run to maturity or to the optional redemption/call. Available only for `asset-backed security bonds`.")
   @JsonIgnore
 
   public String getRedemption() {

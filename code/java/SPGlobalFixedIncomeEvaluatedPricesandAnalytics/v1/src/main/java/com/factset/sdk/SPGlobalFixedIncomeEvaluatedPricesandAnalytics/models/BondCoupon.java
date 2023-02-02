@@ -144,7 +144,7 @@ public class BondCoupon implements Serializable {
    * @return date
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Wed Dec 07 00:00:00 UTC 2022", value = "The date on which the price is calculated.")
+  @ApiModelProperty(example = "Thu Jan 26 00:00:00 UTC 2023", value = "The date on which the price is calculated.")
   @JsonIgnore
 
   public LocalDate getDate() {
@@ -178,7 +178,7 @@ public class BondCoupon implements Serializable {
    * @return accruedInterest
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.56667", value = "The interest that is owed, but not yet paid, added to the price of the bond. Available only for `corporate and municipal bonds`.")
+  @ApiModelProperty(example = "0.86771", value = "The interest that is owed, but not yet paid, added to the price of the bond. Available only for `corporate and municipal bonds`.")
   @JsonIgnore
 
   public Double getAccruedInterest() {
