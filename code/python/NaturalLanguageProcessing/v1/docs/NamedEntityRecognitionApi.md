@@ -1,16 +1,18 @@
 # fds.sdk.NaturalLanguageProcessing.NamedEntityRecognitionApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitive_nlp_v1_ner_entities_post**](NamedEntityRecognitionApi.md#cognitive_nlp_v1_ner_entities_post) | **POST** /cognitive/nlp/v1/ner/entities | Endpoint to detect entities from text
+[**ner_entities**](NamedEntityRecognitionApi.md#ner_entities) | **POST** /ner/entities | Endpoint to detect entities from text
 
 
-# **cognitive_nlp_v1_ner_entities_post**
-> NERResponseSchema cognitive_nlp_v1_ner_entities_post()
+# **ner_entities**
+> NERResponseSchema ner_entities()
 
 Endpoint to detect entities from text
+
+Detect entities (People, Places, Organizations, etc.) in plain text
 
 ### Example
 
@@ -64,11 +66,11 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
         # Endpoint to detect entities from text
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.cognitive_nlp_v1_ner_entities_post(ner_input_schema=ner_input_schema)
+        api_response = api_instance.ner_entities(ner_input_schema=ner_input_schema)
         pprint(api_response)
 
     except fds.sdk.NaturalLanguageProcessing.ApiException as e:
-        print("Exception when calling NamedEntityRecognitionApi->cognitive_nlp_v1_ner_entities_post: %s\n" % e)
+        print("Exception when calling NamedEntityRecognitionApi->ner_entities: %s\n" % e)
 ```
 
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **orderId** | **String** | Unique id for the order |  [optional]
 **instrument** | [**Instrument**](Instrument.md) |  | 
-**side** | [**SideEnum**](#SideEnum) | Side can be buy or sell | 
+**side** | [**SideEnum**](#SideEnum) | Side | 
 **orderType** | [**OrderTypeEnum**](#OrderTypeEnum) | Type of the order | 
 **orderQuantity** | **Double** | Order quantity |  [optional]
 **price** | **Double** | Order Price |  [optional]
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **prevClosePrice** | **Double** | Previous close price |  [optional]
 **settlementType** | **String** | Settlement type |  [optional]
 **settlementDate** | **String** | Settlement date in YYYYMMDD format |  [optional]
-**handlingInstructions** | [**HandlingInstructionsEnum**](#HandlingInstructionsEnum) | Handling instructions | 
+**handlingInstructions** | [**HandlingInstructionsEnum**](#HandlingInstructionsEnum) | Handling instructions |  [optional]
 **executionInstructions** | [**ExecutionInstructionsEnum**](#ExecutionInstructionsEnum) | Execution instructions |  [optional]
 **locateRequired** | **Boolean** | Locate Required |  [optional]
 **effectiveTime** | **String** | Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC |  [optional]
@@ -38,6 +38,8 @@ Name | Value
 ---- | -----
 BUY | &quot;buy&quot;
 SELL | &quot;sell&quot;
+SELL_SHORT | &quot;sell_short&quot;
+SELL_SHORT_EXEMPT | &quot;sell_short_exempt&quot;
 
 
 

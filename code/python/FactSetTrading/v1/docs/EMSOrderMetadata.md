@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **error** | **str** | Error message | [optional] 
 **info** | **str** | information | [optional] 
 **order_id** | **str** | Order Id | [optional] 
+**warning** | **str** | Warning | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

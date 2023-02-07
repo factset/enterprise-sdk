@@ -1,13 +1,18 @@
 openapi: 3.0.1
 info:
   contact:
-    email: ai@factset.com
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: APIs that leverage Natural Language Processing to help extract meaningful
     data from unstructured text
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Natural Language Processing API
-  version: 1.1.0
+  version: 1.3.0
 servers:
-- url: https://api.factset.com
+- url: https://api.factset.com/cognitive/nlp/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -15,8 +20,9 @@ tags:
 - name: AI Text Summarization
 - name: AI Themes
 - name: Named Entity Recognition
+- name: Question & Answer
 paths:
-  /cognitive/nlp/v1/themes:
+  /themes:
     post:
       description: |
         This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text.
@@ -34,6 +40,7 @@ paths:
           }]
         }
         ```
+      operationId: themes
       requestBody:
         content:
           application/json:
@@ -138,8 +145,10 @@ paths:
       - AI Themes
       x-contentType: application/json
       x-accepts: application/json
-  /cognitive/nlp/v1/summarization/headline:
+  /summarization/headline:
     post:
+      description: Generate a headline-length summary of plain text
+      operationId: summarizationHeadline
       parameters: []
       requestBody:
         content:
@@ -176,8 +185,11 @@ paths:
       - AI Text Summarization
       x-contentType: application/json
       x-accepts: application/json
-  /cognitive/nlp/v1/summarization/headline-and-summary:
+  /summarization/headline-and-summary:
     post:
+      description: Generate both a paragraph-length, and headline-length summary of
+        plain text
+      operationId: summarizationHeadlineAndSummary
       parameters: []
       requestBody:
         content:
@@ -214,8 +226,10 @@ paths:
       - AI Text Summarization
       x-contentType: application/json
       x-accepts: application/json
-  /cognitive/nlp/v1/summarization/summary:
+  /summarization/summary:
     post:
+      description: Generate a paragraph-length summary of plain text
+      operationId: summarizationSummary
       parameters: []
       requestBody:
         content:
@@ -252,8 +266,11 @@ paths:
       - AI Text Summarization
       x-contentType: application/json
       x-accepts: application/json
-  /cognitive/nlp/v1/ner/entities:
+  /ner/entities:
     post:
+      description: Detect entities (People, Places, Organizations, etc.) in plain
+        text
+      operationId: nerEntities
       parameters: []
       requestBody:
         content:
@@ -278,12 +295,15 @@ paths:
       - Named Entity Recognition
       x-contentType: application/json
       x-accepts: application/json
-  /cognitive/nlp/v1/summarization/result/{result_id}:
+  /summarization/result/{resultId}:
     get:
+      description: Retrieve the summarization result from a job started with the other
+        summarization endpoints
+      operationId: summarizationResult
       parameters:
       - explode: false
         in: path
-        name: result_id
+        name: resultId
         required: true
         schema:
           type: string
@@ -323,8 +343,479 @@ paths:
       tags:
       - AI Text Summarization
       x-accepts: application/json
+  /qna/answers:
+    post:
+      description: Create a task submission by providing plain text and question(s).
+        The underlying model will answer the question. The created task needs to be
+        polled to obtain the results. Please check the schema(s) for each of the status
+        codes for more details about the task.
+      operationId: qnaPostQuestion
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QnAAnswerParametersRoot'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnATaskRoot'
+          description: Accepted
+          headers:
+            Location:
+              description: The `Location` response header indicates the URL to redirect
+                a page to.
+              explode: false
+              required: true
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+          description: The browser (or proxy) sent a request that this server could
+            not understand.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+          description: The server could not verify that you are authorized to access
+            the URL requested. You either supplied the wrong credentials (e.g. a bad
+            password), or your browser doesn't understand how to supply the credentials
+            required.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+          description: The server encountered an internal error and was unable to
+            complete your request. Either the server is overloaded or there is an
+            error in the application.
+      summary: Post a question for answer(s)
+      tags:
+      - Question & Answer
+      x-contentType: application/json
+      x-accepts: application/json
+  /qna/answers/{id}:
+    get:
+      description: Obtain the results from the original task request. The `id` parameter
+        represents the identifier from the task and comes from the POST request which
+        created the task. Once the task is complete, the result can be fetched with
+        this endpoint.
+      operationId: qnaGetAnswers
+      parameters:
+      - description: Identifier from the Question & Answer task and comes from the
+          POST request which created the task
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnAAnswerRoot'
+          description: OK
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnATaskRoot'
+          description: Accepted
+          headers:
+            Location:
+              description: The `Location` response header indicates the URL to redirect
+                a page to.
+              explode: false
+              required: true
+              schema:
+                type: string
+              style: simple
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+          description: The server could not verify that you are authorized to access
+            the URL requested. You either supplied the wrong credentials (e.g. a bad
+            password), or your browser doesn't understand how to supply the credentials
+            required.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+          description: The requested URL was not found on the server. If you entered
+            the URL manually please check your spelling and try again.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+          description: The server encountered an internal error and was unable to
+            complete your request. Either the server is overloaded or there is an
+            error in the application.
+      summary: Get the answer(s)
+      tags:
+      - Question & Answer
+      x-factset-different-success-responses: true
+      x-accepts: application/json
+  /qna/answers/{id}/status:
+    get:
+      description: Endpoint to obtain the status of the task request. The `id` parameter
+        represents the identifier of the task created and comes from the POST request
+        which created the task.
+      operationId: qnaGetStatus
+      parameters:
+      - description: Identifier from the Question & Answer task and comes from the
+          POST request which created the task
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnATaskRoot'
+          description: Created
+          headers:
+            Location:
+              description: The `Location` response header indicates the URL to redirect
+                a page to.
+              explode: false
+              required: true
+              schema:
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnATaskRoot'
+          description: Accepted
+          headers:
+            Location:
+              description: The `Location` response header indicates the URL to redirect
+                a page to.
+              explode: false
+              required: true
+              schema:
+                type: string
+              style: simple
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+          description: The server could not verify that you are authorized to access
+            the URL requested. You either supplied the wrong credentials (e.g. a bad
+            password), or your browser doesn't understand how to supply the credentials
+            required.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+          description: The requested URL was not found on the server. If you entered
+            the URL manually please check your spelling and try again.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+          description: The server encountered an internal error and was unable to
+            complete your request. Either the server is overloaded or there is an
+            error in the application.
+      summary: Get the completion status
+      tags:
+      - Question & Answer
+      x-accepts: application/json
 components:
   schemas:
+    QnAAnswer:
+      description: Schema that defines the answer with a confidence score.
+      example:
+        score: 0.8831543922424316
+        answer: Joel Wilson
+      properties:
+        answer:
+          description: The machine-generated answer to the question
+          example: Joel Wilson
+          type: string
+        score:
+          description: The confidence score associated to the answer
+          example: 0.8831543922424316
+          type: number
+      required:
+      - answer
+      - score
+      type: object
+    QnAAnswerParameters:
+      description: Schema that defines the parameters needed to be supplied for generating
+        answer(s).
+      example:
+        input: |2
+
+          Matchbox.io Uses Voice-First Games as A Natural Way of Learning
+          matchbox.ioCredit: matchbox.io
+          Alexa and gaming have been rubbing shoulders since day one. From guiding children through LEGO adventures to multi-player trivia games for bored drivers, Voice has proven to be the new frontier of gaming.
+          When voice assistants first bobbed into the mainstream, marketing solution architect and data scientist Joel Wilson immediately saw the potential of Voice not only for games, but for education. He started his venture with the Alexa skill Question of the Day, a simple trivia game that poses a different question each day. Over 4,000 five-star reviews and hundreds of thousands of users later, it has become a routine skill for people happy to learn something new every day.
+          "We're on a mission to enable frictionless learning," Wilson told Amazon. "We've just scratched the surface of how we can do that with voice-first games."
+          Meet matchbox.io
+          In 2017, Wilson founded the voice-first gaming company matchbox.io, dedicated to creating interactive, educational experiences through Amazon Alexa and, more recently, Samsung Bixby. In just a few years, matchbox.io has become a recognized leader in educational games on voice-first devices.
+          With Question of the Day growing into one of the most popular and highest rated skills in the Alexa Skill Store, Wilson and his team of Data Scientists and Education Innovators immersed themselves in helping people learn more about the world through Voice. Before long, they launched another educational skill called Kids Quiz.
+          Kids Quiz poses new questions every day for children ages 5-12, from animals and science to brainteasers and fun facts. They can also collect stars and unlock surprises as they go. Another addition to the matchbox.io repertoire is Three Questions, which provides, well, three questions a day rather than just one. Like their other skills, players can earn points and unlock bonus content.
+          With three successful voice-first experiences under their belt, matchbox.io is marching forward with their mission to leverage Voice to disperse a little bit more knowledge to their users every single day.
+
+          Why Voice for learning?
+          At this point, the question is almost rhetorical. We've seen games capture the short attention spans of children, teach stubborn students and professionals new skills, and hold the curiosity of busy adults for decades. With Voice, the captivating effect of gaming is multiplied by the prospect of playing with increasingly less effort. There are no controls to untangle (or fight over), no keyboard to pound repeatedly, and no limitation for people with limited vision or mobility.
+          "Voice is the perfect, most accessible interface for gaming," says Wilson in an Amazon blog post. "We can tailor the experience to customers wants and needs, so they can learn something quick, hear more in-depth info about a particular fact, or settle in for an extended game play."
+          With over 6 million users playing his company's voice-first gaming apps, it's clear that the marriage between Voice and traditional learning is set for the long-run. The question now is which gaming companies will take advantage of it.
+
+          The future of voice-first gaming
+          Using Voice for interactive learning is all well and good, but what about the business side of things?
+          Wilson knows a few things about this too. Feeling confident about their skills' continued popularity, they made a move to monetize them with In-Skill Purchasing (ISP). This feature allows the company to fund the creation of more educational experiences by adding paid, premium content to their apps. This way, they can keep their users engaged while safely sustaining their business.
+          Wilson believes that this is the future of voice-first gaming industry. In his eyes, all you need is a good idea, quality content, and the smarts to know how and when to monetize it. As voice assistants and devices evolve, however, so will the methods to run a successful business with them. But Wilson is already dabbling in new ways to make his passion for learning and gaming a long-term venture.
+          "There's still a lot to be explored with Voice gaming," says Wilson.
+          To learn so much more about Voice and gaming experiences, you'll be excited to know that Wilson will be at VOICE Summit to share design and strategy insights alongside equally bright minds from Gamefuly, Drivetime, and V Group Inc.
+
+          Don't miss their talk "Gaming in the voice-first era," and make sure you stick around for hundreds more sessions, workshops, expert panels, and our exclusive VOICE Awards dinner. It's the world's largest voice tech event and we're pulling out all the stops. To join us at our annual showdown and have a summer you'll never forget, snatch one of the very last tickets!
+        question: Who is the founder?
+        numberOfAnswers: 2
+      properties:
+        input:
+          description: The text input that provides the context
+          example: |2
+
+            Matchbox.io Uses Voice-First Games as A Natural Way of Learning
+            matchbox.ioCredit: matchbox.io
+            Alexa and gaming have been rubbing shoulders since day one. From guiding children through LEGO adventures to multi-player trivia games for bored drivers, Voice has proven to be the new frontier of gaming.
+            When voice assistants first bobbed into the mainstream, marketing solution architect and data scientist Joel Wilson immediately saw the potential of Voice not only for games, but for education. He started his venture with the Alexa skill Question of the Day, a simple trivia game that poses a different question each day. Over 4,000 five-star reviews and hundreds of thousands of users later, it has become a routine skill for people happy to learn something new every day.
+            "We're on a mission to enable frictionless learning," Wilson told Amazon. "We've just scratched the surface of how we can do that with voice-first games."
+            Meet matchbox.io
+            In 2017, Wilson founded the voice-first gaming company matchbox.io, dedicated to creating interactive, educational experiences through Amazon Alexa and, more recently, Samsung Bixby. In just a few years, matchbox.io has become a recognized leader in educational games on voice-first devices.
+            With Question of the Day growing into one of the most popular and highest rated skills in the Alexa Skill Store, Wilson and his team of Data Scientists and Education Innovators immersed themselves in helping people learn more about the world through Voice. Before long, they launched another educational skill called Kids Quiz.
+            Kids Quiz poses new questions every day for children ages 5-12, from animals and science to brainteasers and fun facts. They can also collect stars and unlock surprises as they go. Another addition to the matchbox.io repertoire is Three Questions, which provides, well, three questions a day rather than just one. Like their other skills, players can earn points and unlock bonus content.
+            With three successful voice-first experiences under their belt, matchbox.io is marching forward with their mission to leverage Voice to disperse a little bit more knowledge to their users every single day.
+
+            Why Voice for learning?
+            At this point, the question is almost rhetorical. We've seen games capture the short attention spans of children, teach stubborn students and professionals new skills, and hold the curiosity of busy adults for decades. With Voice, the captivating effect of gaming is multiplied by the prospect of playing with increasingly less effort. There are no controls to untangle (or fight over), no keyboard to pound repeatedly, and no limitation for people with limited vision or mobility.
+            "Voice is the perfect, most accessible interface for gaming," says Wilson in an Amazon blog post. "We can tailor the experience to customers wants and needs, so they can learn something quick, hear more in-depth info about a particular fact, or settle in for an extended game play."
+            With over 6 million users playing his company's voice-first gaming apps, it's clear that the marriage between Voice and traditional learning is set for the long-run. The question now is which gaming companies will take advantage of it.
+
+            The future of voice-first gaming
+            Using Voice for interactive learning is all well and good, but what about the business side of things?
+            Wilson knows a few things about this too. Feeling confident about their skills' continued popularity, they made a move to monetize them with In-Skill Purchasing (ISP). This feature allows the company to fund the creation of more educational experiences by adding paid, premium content to their apps. This way, they can keep their users engaged while safely sustaining their business.
+            Wilson believes that this is the future of voice-first gaming industry. In his eyes, all you need is a good idea, quality content, and the smarts to know how and when to monetize it. As voice assistants and devices evolve, however, so will the methods to run a successful business with them. But Wilson is already dabbling in new ways to make his passion for learning and gaming a long-term venture.
+            "There's still a lot to be explored with Voice gaming," says Wilson.
+            To learn so much more about Voice and gaming experiences, you'll be excited to know that Wilson will be at VOICE Summit to share design and strategy insights alongside equally bright minds from Gamefuly, Drivetime, and V Group Inc.
+
+            Don't miss their talk "Gaming in the voice-first era," and make sure you stick around for hundreds more sessions, workshops, expert panels, and our exclusive VOICE Awards dinner. It's the world's largest voice tech event and we're pulling out all the stops. To join us at our annual showdown and have a summer you'll never forget, snatch one of the very last tickets!
+          maxLength: 10000
+          minLength: 1
+          type: string
+        numberOfAnswers:
+          default: 2
+          description: Number of answers for the question
+          example: 2
+          maximum: 10
+          minimum: 1
+          type: integer
+        question:
+          description: Question associated to the provided context
+          example: Who is the founder?
+          maxLength: 1000
+          minLength: 1
+          type: string
+      required:
+      - input
+      - question
+      type: object
+    QnAAnswerParametersRoot:
+      description: Schema that envelopes the `QnAAnswerParameters` and include additional
+        `meta` (if available).
+      example:
+        data:
+          input: |2
+
+            Matchbox.io Uses Voice-First Games as A Natural Way of Learning
+            matchbox.ioCredit: matchbox.io
+            Alexa and gaming have been rubbing shoulders since day one. From guiding children through LEGO adventures to multi-player trivia games for bored drivers, Voice has proven to be the new frontier of gaming.
+            When voice assistants first bobbed into the mainstream, marketing solution architect and data scientist Joel Wilson immediately saw the potential of Voice not only for games, but for education. He started his venture with the Alexa skill Question of the Day, a simple trivia game that poses a different question each day. Over 4,000 five-star reviews and hundreds of thousands of users later, it has become a routine skill for people happy to learn something new every day.
+            "We're on a mission to enable frictionless learning," Wilson told Amazon. "We've just scratched the surface of how we can do that with voice-first games."
+            Meet matchbox.io
+            In 2017, Wilson founded the voice-first gaming company matchbox.io, dedicated to creating interactive, educational experiences through Amazon Alexa and, more recently, Samsung Bixby. In just a few years, matchbox.io has become a recognized leader in educational games on voice-first devices.
+            With Question of the Day growing into one of the most popular and highest rated skills in the Alexa Skill Store, Wilson and his team of Data Scientists and Education Innovators immersed themselves in helping people learn more about the world through Voice. Before long, they launched another educational skill called Kids Quiz.
+            Kids Quiz poses new questions every day for children ages 5-12, from animals and science to brainteasers and fun facts. They can also collect stars and unlock surprises as they go. Another addition to the matchbox.io repertoire is Three Questions, which provides, well, three questions a day rather than just one. Like their other skills, players can earn points and unlock bonus content.
+            With three successful voice-first experiences under their belt, matchbox.io is marching forward with their mission to leverage Voice to disperse a little bit more knowledge to their users every single day.
+
+            Why Voice for learning?
+            At this point, the question is almost rhetorical. We've seen games capture the short attention spans of children, teach stubborn students and professionals new skills, and hold the curiosity of busy adults for decades. With Voice, the captivating effect of gaming is multiplied by the prospect of playing with increasingly less effort. There are no controls to untangle (or fight over), no keyboard to pound repeatedly, and no limitation for people with limited vision or mobility.
+            "Voice is the perfect, most accessible interface for gaming," says Wilson in an Amazon blog post. "We can tailor the experience to customers wants and needs, so they can learn something quick, hear more in-depth info about a particular fact, or settle in for an extended game play."
+            With over 6 million users playing his company's voice-first gaming apps, it's clear that the marriage between Voice and traditional learning is set for the long-run. The question now is which gaming companies will take advantage of it.
+
+            The future of voice-first gaming
+            Using Voice for interactive learning is all well and good, but what about the business side of things?
+            Wilson knows a few things about this too. Feeling confident about their skills' continued popularity, they made a move to monetize them with In-Skill Purchasing (ISP). This feature allows the company to fund the creation of more educational experiences by adding paid, premium content to their apps. This way, they can keep their users engaged while safely sustaining their business.
+            Wilson believes that this is the future of voice-first gaming industry. In his eyes, all you need is a good idea, quality content, and the smarts to know how and when to monetize it. As voice assistants and devices evolve, however, so will the methods to run a successful business with them. But Wilson is already dabbling in new ways to make his passion for learning and gaming a long-term venture.
+            "There's still a lot to be explored with Voice gaming," says Wilson.
+            To learn so much more about Voice and gaming experiences, you'll be excited to know that Wilson will be at VOICE Summit to share design and strategy insights alongside equally bright minds from Gamefuly, Drivetime, and V Group Inc.
+
+            Don't miss their talk "Gaming in the voice-first era," and make sure you stick around for hundreds more sessions, workshops, expert panels, and our exclusive VOICE Awards dinner. It's the world's largest voice tech event and we're pulling out all the stops. To join us at our annual showdown and have a summer you'll never forget, snatch one of the very last tickets!
+          question: Who is the founder?
+          numberOfAnswers: 2
+        meta: '{}'
+      properties:
+        data:
+          $ref: '#/components/schemas/QnAAnswerParameters'
+        meta:
+          type: object
+      required:
+      - data
+      type: object
+    QnAAnswerRoot:
+      description: Schema that envelopes the `QnAAnswer` and include additional `meta`
+        (if available).
+      example:
+        data:
+        - score: 0.8831543922424316
+          answer: Joel Wilson
+        - score: 0.8831543922424316
+          answer: Joel Wilson
+        meta: '{}'
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/QnAAnswer'
+          type: array
+        meta:
+          description: Any associated metadata
+          type: object
+      required:
+      - data
+      type: object
+    QnAErrorSource:
+      description: Schema that defines the source of the error.
+      properties:
+        parameter:
+          description: A string indicating which path or URI query parameter caused
+            the error.
+          type: string
+        pointer:
+          description: More details pointing to the error.
+          type: string
+      required:
+      - parameter
+      - pointer
+      type: object
+    QnAHTTPError:
+      description: Schema that defines HTTP error(s).
+      properties:
+        code:
+          description: HTTP Status Code
+          type: string
+        detail:
+          description: Error detail (if any)
+          type: string
+        id:
+          description: The unique identifier detailing the error(s)
+          format: uuid
+          type: string
+        source:
+          $ref: '#/components/schemas/QnAErrorSource'
+        title:
+          description: Error title
+          type: string
+      required:
+      - code
+      - id
+      - title
+      type: object
+    QnAHTTPErrorRoot:
+      description: Schema that defines HTTP error(s).
+      properties:
+        errors:
+          description: List of errors
+          items:
+            $ref: '#/components/schemas/QnAHTTPError'
+          type: array
+      required:
+      - errors
+      type: object
+    QnATask:
+      description: Schema that represents a long-running process/task.
+      example:
+        startedAt: 2000-01-23T04:56:07.000+00:00
+        id: ca509a4a-2ec9-4770-817a-f1caac18c95c
+        status: queued
+      properties:
+        id:
+          description: The task identifier
+          example: ca509a4a-2ec9-4770-817a-f1caac18c95c
+          format: uuid
+          type: string
+        startedAt:
+          description: The date time the task started (UTC).
+          format: date-time
+          type: string
+        status:
+          description: |2-
+
+            Completion status of the task.
+
+            The detailed description of each of the statuses is as follows:
+            |Status|Description|
+            |--------|--------|
+            |queued|The task did not start yet.|
+            |created|The task is completed and the underlying resource is created.|
+            |failed|The task has failed and consequently the creation of the resource failed.|
+            |executing|The task is executing.|
+            |cancelled|The task is cancelled and the creation of the underlying resource was cancelled before it could finish.|
+          enum:
+          - queued
+          - created
+          - failed
+          - executing
+          - cancelled
+          example: queued
+          type: string
+      required:
+      - id
+      - startedAt
+      - status
+      type: object
+    QnATaskRoot:
+      description: Schema that envelopes `QnATask` and include additional `meta` (if
+        available).
+      example:
+        data:
+          startedAt: 2000-01-23T04:56:07.000+00:00
+          id: ca509a4a-2ec9-4770-817a-f1caac18c95c
+          status: queued
+        meta: '{}'
+      properties:
+        data:
+          $ref: '#/components/schemas/QnATask'
+        meta:
+          type: object
+      required:
+      - data
+      type: object
     SummarizationRequest:
       example:
         text: 'Advanced Energy Transforms Indoor Farming With Intelligent New Lighting

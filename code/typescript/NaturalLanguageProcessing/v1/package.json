@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-naturallanguageprocessing",
-  "version": "0.21.3",
+  "version": "0.22.0",
   "description": "Natural Language Processing client library for JavaScript",
   "license": "Apache License, Version 2.0",
   "author": "FactSet Research Systems",

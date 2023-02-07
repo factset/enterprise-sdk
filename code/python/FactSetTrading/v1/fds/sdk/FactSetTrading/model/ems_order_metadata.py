@@ -59,6 +59,8 @@ class EMSOrderMetadata(ModelNormal):
         ('side',): {
             'BUY': "buy",
             'SELL': "sell",
+            'SELL_SHORT': "sell_short",
+            'SELL_SHORT_EXEMPT': "sell_short_exempt",
         },
         ('order_type',): {
             'MARKET': "market",
@@ -95,6 +97,7 @@ class EMSOrderMetadata(ModelNormal):
             'error': (str,),  # noqa: E501
             'info': (str,),  # noqa: E501
             'order_id': (str,),  # noqa: E501
+            'warning': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +113,7 @@ class EMSOrderMetadata(ModelNormal):
         'error': 'error',  # noqa: E501
         'info': 'info',  # noqa: E501
         'order_id': 'orderId',  # noqa: E501
+        'warning': 'warning',  # noqa: E501
     }
 
     read_only_vars = {
@@ -160,6 +164,7 @@ class EMSOrderMetadata(ModelNormal):
             error (str): Error message. [optional]  # noqa: E501
             info (str): information. [optional]  # noqa: E501
             order_id (str): Order Id. [optional]  # noqa: E501
+            warning (str): Warning. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,6 +253,7 @@ class EMSOrderMetadata(ModelNormal):
             error (str): Error message. [optional]  # noqa: E501
             info (str): information. [optional]  # noqa: E501
             order_id (str): Order Id. [optional]  # noqa: E501
+            warning (str): Warning. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

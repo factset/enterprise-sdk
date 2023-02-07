@@ -27,10 +27,10 @@ public class NamedEntityRecognitionApi {
     this.apiClient = apiClient;
   }
 
-    private static final Map<Integer, GenericType> cognitiveNlpV1NerEntitiesPostResponseTypeMap = new HashMap<Integer, GenericType>();
+    private static final Map<Integer, GenericType> nerEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    cognitiveNlpV1NerEntitiesPostResponseTypeMap.put(200, new GenericType<NERResponseSchema>(){});
-    cognitiveNlpV1NerEntitiesPostResponseTypeMap.put(400, new GenericType<NERValidationError>(){});
+    nerEntitiesResponseTypeMap.put(200, new GenericType<NERResponseSchema>(){});
+    nerEntitiesResponseTypeMap.put(400, new GenericType<NERValidationError>(){});
   }
 
    
@@ -56,7 +56,7 @@ public class NamedEntityRecognitionApi {
 
   /**
    * Endpoint to detect entities from text
-   * 
+   * Detect entities (People, Places, Organizations, etc.) in plain text
    * @param neRInputSchema  (optional)
    * @return NERResponseSchema
    * @throws ApiException if fails to make API call
@@ -67,13 +67,13 @@ public class NamedEntityRecognitionApi {
        <tr><td> 400 </td><td> Validation error </td><td>  -  </td></tr>
      </table>
    */
-  public NERResponseSchema cognitiveNlpV1NerEntitiesPost(NERInputSchema neRInputSchema) throws ApiException {
-    return cognitiveNlpV1NerEntitiesPostWithHttpInfo(neRInputSchema).getData();
+  public NERResponseSchema nerEntities(NERInputSchema neRInputSchema) throws ApiException {
+    return nerEntitiesWithHttpInfo(neRInputSchema).getData();
   }
 
   /**
    * Endpoint to detect entities from text
-   * 
+   * Detect entities (People, Places, Organizations, etc.) in plain text
    * @param neRInputSchema  (optional)
    * @return ApiResponse&lt;NERResponseSchema&gt;
    * @throws ApiException if fails to make API call
@@ -84,11 +84,11 @@ public class NamedEntityRecognitionApi {
        <tr><td> 400 </td><td> Validation error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<NERResponseSchema> cognitiveNlpV1NerEntitiesPostWithHttpInfo(NERInputSchema neRInputSchema) throws ApiException {
+  public ApiResponse<NERResponseSchema> nerEntitiesWithHttpInfo(NERInputSchema neRInputSchema) throws ApiException {
     Object localVarPostBody = neRInputSchema;
     
     // create path and map variables
-    String localVarPath = "/cognitive/nlp/v1/ner/entities";
+    String localVarPath = "/ner/entities";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -117,9 +117,9 @@ public class NamedEntityRecognitionApi {
         
         NERResponseSchema
       
-    > apiResponse = apiClient.invokeAPI("NamedEntityRecognitionApi.cognitiveNlpV1NerEntitiesPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("NamedEntityRecognitionApi.nerEntities", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, cognitiveNlpV1NerEntitiesPostResponseTypeMap, false);
+                               localVarAuthNames, nerEntitiesResponseTypeMap, false);
 
     return apiResponse;
 

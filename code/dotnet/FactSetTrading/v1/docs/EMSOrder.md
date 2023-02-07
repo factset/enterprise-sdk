@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OrderId** | **string** | Unique id for the order | [optional] 
 **Instrument** | [**Instrument**](Instrument.md) |  | 
-**Side** | **string** | Side can be buy or sell | 
+**Side** | **string** | Side | 
 **OrderType** | **string** | Type of the order | 
 **OrderQuantity** | **double** | Order quantity | [optional] 
 **Price** | **double** | Order Price | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **PrevClosePrice** | **double** | Previous close price | [optional] 
 **SettlementType** | **string** | Settlement type | [optional] 
 **SettlementDate** | **string** | Settlement date in YYYYMMDD format | [optional] 
-**HandlingInstructions** | **string** | Handling instructions | 
+**HandlingInstructions** | **string** | Handling instructions | [optional] 
 **ExecutionInstructions** | **string** | Execution instructions | [optional] 
 **LocateRequired** | **bool** | Locate Required | [optional] 
 **EffectiveTime** | **string** | Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC | [optional] 

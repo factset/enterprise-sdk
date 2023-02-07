@@ -1,94 +1,24 @@
 # naturallanguageprocessing.AITextSummarizationApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitiveNlpV1SummarizationHeadlineAndSummaryPost**](AITextSummarizationApi.md#cognitiveNlpV1SummarizationHeadlineAndSummaryPost) | **POST** /cognitive/nlp/v1/summarization/headline-and-summary | Endpoint to summarize and generate a headline from text
-[**cognitiveNlpV1SummarizationHeadlinePost**](AITextSummarizationApi.md#cognitiveNlpV1SummarizationHeadlinePost) | **POST** /cognitive/nlp/v1/summarization/headline | Endpoint to generate a headline from text
-[**cognitiveNlpV1SummarizationResultResultIdGet**](AITextSummarizationApi.md#cognitiveNlpV1SummarizationResultResultIdGet) | **GET** /cognitive/nlp/v1/summarization/result/{result_id} | Endpoint to obtain result of a particular summarization job
-[**cognitiveNlpV1SummarizationSummaryPost**](AITextSummarizationApi.md#cognitiveNlpV1SummarizationSummaryPost) | **POST** /cognitive/nlp/v1/summarization/summary | Endpoint to summarize text
+[**summarizationHeadline**](AITextSummarizationApi.md#summarizationHeadline) | **POST** /summarization/headline | Endpoint to generate a headline from text
+[**summarizationHeadlineAndSummary**](AITextSummarizationApi.md#summarizationHeadlineAndSummary) | **POST** /summarization/headline-and-summary | Endpoint to summarize and generate a headline from text
+[**summarizationResult**](AITextSummarizationApi.md#summarizationResult) | **GET** /summarization/result/{resultId} | Endpoint to obtain result of a particular summarization job
+[**summarizationSummary**](AITextSummarizationApi.md#summarizationSummary) | **POST** /summarization/summary | Endpoint to summarize text
 
 
 
-## cognitiveNlpV1SummarizationHeadlineAndSummaryPost
+## summarizationHeadline
 
-> SummarizationResultID cognitiveNlpV1SummarizationHeadlineAndSummaryPost(opts)
-
-Endpoint to summarize and generate a headline from text
-
-### Example
-
-```javascript
-const { ApiClient, AITextSummarizationApi } = require('@factset/sdk-naturallanguageprocessing');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new AITextSummarizationApi();
-const opts = {
-  'summarizationRequest': new naturallanguageprocessing.SummarizationRequest() // SummarizationRequest | 
-};
-
-// Call api endpoint
-apiInstance.cognitiveNlpV1SummarizationHeadlineAndSummaryPost(opts).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **summarizationRequest** | [**SummarizationRequest**](SummarizationRequest.md)|  | [optional] 
-
-### Return type
-
-[**SummarizationResultID**](SummarizationResultID.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## cognitiveNlpV1SummarizationHeadlinePost
-
-> SummarizationResultID cognitiveNlpV1SummarizationHeadlinePost(opts)
+> SummarizationResultID summarizationHeadline(opts)
 
 Endpoint to generate a headline from text
 
+Generate a headline-length summary of plain text
+
 ### Example
 
 ```javascript
@@ -120,7 +50,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.cognitiveNlpV1SummarizationHeadlinePost(opts).then(
+apiInstance.summarizationHeadline(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -155,11 +85,87 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## cognitiveNlpV1SummarizationResultResultIdGet
+## summarizationHeadlineAndSummary
 
-> SummarizationResult cognitiveNlpV1SummarizationResultResultIdGet(resultId)
+> SummarizationResultID summarizationHeadlineAndSummary(opts)
+
+Endpoint to summarize and generate a headline from text
+
+Generate both a paragraph-length, and headline-length summary of plain text
+
+### Example
+
+```javascript
+const { ApiClient, AITextSummarizationApi } = require('@factset/sdk-naturallanguageprocessing');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new AITextSummarizationApi();
+const opts = {
+  'summarizationRequest': new naturallanguageprocessing.SummarizationRequest() // SummarizationRequest | 
+};
+
+// Call api endpoint
+apiInstance.summarizationHeadlineAndSummary(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **summarizationRequest** | [**SummarizationRequest**](SummarizationRequest.md)|  | [optional] 
+
+### Return type
+
+[**SummarizationResultID**](SummarizationResultID.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## summarizationResult
+
+> SummarizationResult summarizationResult(resultId)
 
 Endpoint to obtain result of a particular summarization job
+
+Retrieve the summarization result from a job started with the other summarization endpoints
 
 ### Example
 
@@ -190,7 +196,7 @@ const apiInstance = new AITextSummarizationApi();
 const resultId = "resultId_example"; // String | 
 
 // Call api endpoint
-apiInstance.cognitiveNlpV1SummarizationResultResultIdGet(resultId).then(
+apiInstance.summarizationResult(resultId).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -225,11 +231,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## cognitiveNlpV1SummarizationSummaryPost
+## summarizationSummary
 
-> SummarizationResultID cognitiveNlpV1SummarizationSummaryPost(opts)
+> SummarizationResultID summarizationSummary(opts)
 
 Endpoint to summarize text
+
+Generate a paragraph-length summary of plain text
 
 ### Example
 
@@ -262,7 +270,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.cognitiveNlpV1SummarizationSummaryPost(opts).then(
+apiInstance.summarizationSummary(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');

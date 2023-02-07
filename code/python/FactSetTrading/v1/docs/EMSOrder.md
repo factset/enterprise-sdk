@@ -5,9 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **instrument** | [**Instrument**](Instrument.md) |  | 
-**side** | **str** | Side can be buy or sell | 
+**side** | **str** | Side | 
 **order_type** | **str** | Type of the order | 
-**handling_instructions** | **str** | Handling instructions | 
 **order_id** | **str** | Unique id for the order | [optional] 
 **order_quantity** | **float** | Order quantity | [optional] 
 **price** | **float** | Order Price | [optional] 
@@ -20,6 +19,7 @@ Name | Type | Description | Notes
 **prev_close_price** | **float** | Previous close price | [optional] 
 **settlement_type** | **str** | Settlement type | [optional] 
 **settlement_date** | **str** | Settlement date in YYYYMMDD format | [optional] 
+**handling_instructions** | **str** | Handling instructions | [optional] 
 **execution_instructions** | **str** | Execution instructions | [optional] 
 **locate_required** | **bool** | Locate Required | [optional] 
 **effective_time** | **str** | Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC | [optional] 

@@ -29,34 +29,34 @@ public class AiTextSummarizationApi {
     this.apiClient = apiClient;
   }
 
-    private static final Map<Integer, GenericType> cognitiveNlpV1SummarizationHeadlineAndSummaryPostResponseTypeMap = new HashMap<Integer, GenericType>();
+    private static final Map<Integer, GenericType> summarizationHeadlineResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    cognitiveNlpV1SummarizationHeadlineAndSummaryPostResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
-    cognitiveNlpV1SummarizationHeadlineAndSummaryPostResponseTypeMap.put(400, new GenericType<ValidationError>(){});
-    cognitiveNlpV1SummarizationHeadlineAndSummaryPostResponseTypeMap.put(401, new GenericType<HTTPError>(){});
-    cognitiveNlpV1SummarizationHeadlineAndSummaryPostResponseTypeMap.put(500, new GenericType<HTTPError>(){});
+    summarizationHeadlineResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
+    summarizationHeadlineResponseTypeMap.put(400, new GenericType<ValidationError>(){});
+    summarizationHeadlineResponseTypeMap.put(401, new GenericType<HTTPError>(){});
+    summarizationHeadlineResponseTypeMap.put(500, new GenericType<HTTPError>(){});
   }
-  private static final Map<Integer, GenericType> cognitiveNlpV1SummarizationHeadlinePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> summarizationHeadlineAndSummaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    cognitiveNlpV1SummarizationHeadlinePostResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
-    cognitiveNlpV1SummarizationHeadlinePostResponseTypeMap.put(400, new GenericType<ValidationError>(){});
-    cognitiveNlpV1SummarizationHeadlinePostResponseTypeMap.put(401, new GenericType<HTTPError>(){});
-    cognitiveNlpV1SummarizationHeadlinePostResponseTypeMap.put(500, new GenericType<HTTPError>(){});
+    summarizationHeadlineAndSummaryResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
+    summarizationHeadlineAndSummaryResponseTypeMap.put(400, new GenericType<ValidationError>(){});
+    summarizationHeadlineAndSummaryResponseTypeMap.put(401, new GenericType<HTTPError>(){});
+    summarizationHeadlineAndSummaryResponseTypeMap.put(500, new GenericType<HTTPError>(){});
   }
-  private static final Map<Integer, GenericType> cognitiveNlpV1SummarizationResultResultIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> summarizationResultResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    cognitiveNlpV1SummarizationResultResultIdGetResponseTypeMap.put(200, new GenericType<SummarizationResult>(){});
-    cognitiveNlpV1SummarizationResultResultIdGetResponseTypeMap.put(400, new GenericType<HTTPError>(){});
-    cognitiveNlpV1SummarizationResultResultIdGetResponseTypeMap.put(401, new GenericType<HTTPError>(){});
-    cognitiveNlpV1SummarizationResultResultIdGetResponseTypeMap.put(404, new GenericType<HTTPError>(){});
-    cognitiveNlpV1SummarizationResultResultIdGetResponseTypeMap.put(500, new GenericType<HTTPError>(){});
+    summarizationResultResponseTypeMap.put(200, new GenericType<SummarizationResult>(){});
+    summarizationResultResponseTypeMap.put(400, new GenericType<HTTPError>(){});
+    summarizationResultResponseTypeMap.put(401, new GenericType<HTTPError>(){});
+    summarizationResultResponseTypeMap.put(404, new GenericType<HTTPError>(){});
+    summarizationResultResponseTypeMap.put(500, new GenericType<HTTPError>(){});
   }
-  private static final Map<Integer, GenericType> cognitiveNlpV1SummarizationSummaryPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> summarizationSummaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    cognitiveNlpV1SummarizationSummaryPostResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
-    cognitiveNlpV1SummarizationSummaryPostResponseTypeMap.put(400, new GenericType<ValidationError>(){});
-    cognitiveNlpV1SummarizationSummaryPostResponseTypeMap.put(401, new GenericType<HTTPError>(){});
-    cognitiveNlpV1SummarizationSummaryPostResponseTypeMap.put(500, new GenericType<HTTPError>(){});
+    summarizationSummaryResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
+    summarizationSummaryResponseTypeMap.put(400, new GenericType<ValidationError>(){});
+    summarizationSummaryResponseTypeMap.put(401, new GenericType<HTTPError>(){});
+    summarizationSummaryResponseTypeMap.put(500, new GenericType<HTTPError>(){});
   }
 
    
@@ -81,8 +81,8 @@ public class AiTextSummarizationApi {
   }
 
   /**
-   * Endpoint to summarize and generate a headline from text
-   * 
+   * Endpoint to generate a headline from text
+   * Generate a headline-length summary of plain text
    * @param summarizationRequest  (optional)
    * @return SummarizationResultID
    * @throws ApiException if fails to make API call
@@ -95,13 +95,13 @@ public class AiTextSummarizationApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public SummarizationResultID cognitiveNlpV1SummarizationHeadlineAndSummaryPost(SummarizationRequest summarizationRequest) throws ApiException {
-    return cognitiveNlpV1SummarizationHeadlineAndSummaryPostWithHttpInfo(summarizationRequest).getData();
+  public SummarizationResultID summarizationHeadline(SummarizationRequest summarizationRequest) throws ApiException {
+    return summarizationHeadlineWithHttpInfo(summarizationRequest).getData();
   }
 
   /**
-   * Endpoint to summarize and generate a headline from text
-   * 
+   * Endpoint to generate a headline from text
+   * Generate a headline-length summary of plain text
    * @param summarizationRequest  (optional)
    * @return ApiResponse&lt;SummarizationResultID&gt;
    * @throws ApiException if fails to make API call
@@ -114,11 +114,11 @@ public class AiTextSummarizationApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SummarizationResultID> cognitiveNlpV1SummarizationHeadlineAndSummaryPostWithHttpInfo(SummarizationRequest summarizationRequest) throws ApiException {
+  public ApiResponse<SummarizationResultID> summarizationHeadlineWithHttpInfo(SummarizationRequest summarizationRequest) throws ApiException {
     Object localVarPostBody = summarizationRequest;
     
     // create path and map variables
-    String localVarPath = "/cognitive/nlp/v1/summarization/headline-and-summary";
+    String localVarPath = "/summarization/headline";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -147,16 +147,16 @@ public class AiTextSummarizationApi {
         
         SummarizationResultID
       
-    > apiResponse = apiClient.invokeAPI("AiTextSummarizationApi.cognitiveNlpV1SummarizationHeadlineAndSummaryPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("AiTextSummarizationApi.summarizationHeadline", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, cognitiveNlpV1SummarizationHeadlineAndSummaryPostResponseTypeMap, false);
+                               localVarAuthNames, summarizationHeadlineResponseTypeMap, false);
 
     return apiResponse;
 
   }
   /**
-   * Endpoint to generate a headline from text
-   * 
+   * Endpoint to summarize and generate a headline from text
+   * Generate both a paragraph-length, and headline-length summary of plain text
    * @param summarizationRequest  (optional)
    * @return SummarizationResultID
    * @throws ApiException if fails to make API call
@@ -169,13 +169,13 @@ public class AiTextSummarizationApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public SummarizationResultID cognitiveNlpV1SummarizationHeadlinePost(SummarizationRequest summarizationRequest) throws ApiException {
-    return cognitiveNlpV1SummarizationHeadlinePostWithHttpInfo(summarizationRequest).getData();
+  public SummarizationResultID summarizationHeadlineAndSummary(SummarizationRequest summarizationRequest) throws ApiException {
+    return summarizationHeadlineAndSummaryWithHttpInfo(summarizationRequest).getData();
   }
 
   /**
-   * Endpoint to generate a headline from text
-   * 
+   * Endpoint to summarize and generate a headline from text
+   * Generate both a paragraph-length, and headline-length summary of plain text
    * @param summarizationRequest  (optional)
    * @return ApiResponse&lt;SummarizationResultID&gt;
    * @throws ApiException if fails to make API call
@@ -188,11 +188,11 @@ public class AiTextSummarizationApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SummarizationResultID> cognitiveNlpV1SummarizationHeadlinePostWithHttpInfo(SummarizationRequest summarizationRequest) throws ApiException {
+  public ApiResponse<SummarizationResultID> summarizationHeadlineAndSummaryWithHttpInfo(SummarizationRequest summarizationRequest) throws ApiException {
     Object localVarPostBody = summarizationRequest;
     
     // create path and map variables
-    String localVarPath = "/cognitive/nlp/v1/summarization/headline";
+    String localVarPath = "/summarization/headline-and-summary";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -221,16 +221,16 @@ public class AiTextSummarizationApi {
         
         SummarizationResultID
       
-    > apiResponse = apiClient.invokeAPI("AiTextSummarizationApi.cognitiveNlpV1SummarizationHeadlinePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("AiTextSummarizationApi.summarizationHeadlineAndSummary", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, cognitiveNlpV1SummarizationHeadlinePostResponseTypeMap, false);
+                               localVarAuthNames, summarizationHeadlineAndSummaryResponseTypeMap, false);
 
     return apiResponse;
 
   }
   /**
    * Endpoint to obtain result of a particular summarization job
-   * 
+   * Retrieve the summarization result from a job started with the other summarization endpoints
    * @param resultId  (required)
    * @return SummarizationResult
    * @throws ApiException if fails to make API call
@@ -244,13 +244,13 @@ public class AiTextSummarizationApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public SummarizationResult cognitiveNlpV1SummarizationResultResultIdGet(String resultId) throws ApiException {
-    return cognitiveNlpV1SummarizationResultResultIdGetWithHttpInfo(resultId).getData();
+  public SummarizationResult summarizationResult(String resultId) throws ApiException {
+    return summarizationResultWithHttpInfo(resultId).getData();
   }
 
   /**
    * Endpoint to obtain result of a particular summarization job
-   * 
+   * Retrieve the summarization result from a job started with the other summarization endpoints
    * @param resultId  (required)
    * @return ApiResponse&lt;SummarizationResult&gt;
    * @throws ApiException if fails to make API call
@@ -264,17 +264,17 @@ public class AiTextSummarizationApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SummarizationResult> cognitiveNlpV1SummarizationResultResultIdGetWithHttpInfo(String resultId) throws ApiException {
+  public ApiResponse<SummarizationResult> summarizationResultWithHttpInfo(String resultId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'resultId' is set
     if (resultId == null) {
-      throw new ApiException(400, "Missing the required parameter 'resultId' when calling cognitiveNlpV1SummarizationResultResultIdGet");
+      throw new ApiException(400, "Missing the required parameter 'resultId' when calling summarizationResult");
     }
     
     // create path and map variables
-    String localVarPath = "/cognitive/nlp/v1/summarization/result/{result_id}"
-      .replaceAll("\\{" + "result_id" + "\\}", apiClient.escapeString(resultId.toString()));
+    String localVarPath = "/summarization/result/{resultId}"
+      .replaceAll("\\{" + "resultId" + "\\}", apiClient.escapeString(resultId.toString()));
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -303,16 +303,16 @@ public class AiTextSummarizationApi {
         
         SummarizationResult
       
-    > apiResponse = apiClient.invokeAPI("AiTextSummarizationApi.cognitiveNlpV1SummarizationResultResultIdGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("AiTextSummarizationApi.summarizationResult", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, cognitiveNlpV1SummarizationResultResultIdGetResponseTypeMap, false);
+                               localVarAuthNames, summarizationResultResponseTypeMap, false);
 
     return apiResponse;
 
   }
   /**
    * Endpoint to summarize text
-   * 
+   * Generate a paragraph-length summary of plain text
    * @param summarizationRequest  (optional)
    * @return SummarizationResultID
    * @throws ApiException if fails to make API call
@@ -325,13 +325,13 @@ public class AiTextSummarizationApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public SummarizationResultID cognitiveNlpV1SummarizationSummaryPost(SummarizationRequest summarizationRequest) throws ApiException {
-    return cognitiveNlpV1SummarizationSummaryPostWithHttpInfo(summarizationRequest).getData();
+  public SummarizationResultID summarizationSummary(SummarizationRequest summarizationRequest) throws ApiException {
+    return summarizationSummaryWithHttpInfo(summarizationRequest).getData();
   }
 
   /**
    * Endpoint to summarize text
-   * 
+   * Generate a paragraph-length summary of plain text
    * @param summarizationRequest  (optional)
    * @return ApiResponse&lt;SummarizationResultID&gt;
    * @throws ApiException if fails to make API call
@@ -344,11 +344,11 @@ public class AiTextSummarizationApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SummarizationResultID> cognitiveNlpV1SummarizationSummaryPostWithHttpInfo(SummarizationRequest summarizationRequest) throws ApiException {
+  public ApiResponse<SummarizationResultID> summarizationSummaryWithHttpInfo(SummarizationRequest summarizationRequest) throws ApiException {
     Object localVarPostBody = summarizationRequest;
     
     // create path and map variables
-    String localVarPath = "/cognitive/nlp/v1/summarization/summary";
+    String localVarPath = "/summarization/summary";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -377,9 +377,9 @@ public class AiTextSummarizationApi {
         
         SummarizationResultID
       
-    > apiResponse = apiClient.invokeAPI("AiTextSummarizationApi.cognitiveNlpV1SummarizationSummaryPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("AiTextSummarizationApi.summarizationSummary", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, cognitiveNlpV1SummarizationSummaryPostResponseTypeMap, false);
+                               localVarAuthNames, summarizationSummaryResponseTypeMap, false);
 
     return apiResponse;
 

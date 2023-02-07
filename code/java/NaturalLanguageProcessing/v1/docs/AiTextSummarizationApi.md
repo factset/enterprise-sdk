@@ -1,107 +1,24 @@
 # AiTextSummarizationApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitiveNlpV1SummarizationHeadlineAndSummaryPost**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationHeadlineAndSummaryPost) | **POST** /cognitive/nlp/v1/summarization/headline-and-summary | Endpoint to summarize and generate a headline from text
-[**cognitiveNlpV1SummarizationHeadlinePost**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationHeadlinePost) | **POST** /cognitive/nlp/v1/summarization/headline | Endpoint to generate a headline from text
-[**cognitiveNlpV1SummarizationResultResultIdGet**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationResultResultIdGet) | **GET** /cognitive/nlp/v1/summarization/result/{result_id} | Endpoint to obtain result of a particular summarization job
-[**cognitiveNlpV1SummarizationSummaryPost**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationSummaryPost) | **POST** /cognitive/nlp/v1/summarization/summary | Endpoint to summarize text
+[**summarizationHeadline**](AiTextSummarizationApi.md#summarizationHeadline) | **POST** /summarization/headline | Endpoint to generate a headline from text
+[**summarizationHeadlineAndSummary**](AiTextSummarizationApi.md#summarizationHeadlineAndSummary) | **POST** /summarization/headline-and-summary | Endpoint to summarize and generate a headline from text
+[**summarizationResult**](AiTextSummarizationApi.md#summarizationResult) | **GET** /summarization/result/{resultId} | Endpoint to obtain result of a particular summarization job
+[**summarizationSummary**](AiTextSummarizationApi.md#summarizationSummary) | **POST** /summarization/summary | Endpoint to summarize text
 
 
 
-## cognitiveNlpV1SummarizationHeadlineAndSummaryPost
+## summarizationHeadline
 
-> SummarizationResultID cognitiveNlpV1SummarizationHeadlineAndSummaryPost(summarizationRequest)
-
-Endpoint to summarize and generate a headline from text
-
-### Example
-
-```java
-// Import classes:
-import com.factset.sdk.NaturalLanguageProcessing.ApiClient;
-import com.factset.sdk.NaturalLanguageProcessing.ApiException;
-import com.factset.sdk.NaturalLanguageProcessing.Configuration;
-import com.factset.sdk.NaturalLanguageProcessing.auth.*;
-import com.factset.sdk.NaturalLanguageProcessing.models.*;
-import com.factset.sdk.NaturalLanguageProcessing.api.AiTextSummarizationApi;
-
-import com.factset.sdk.utils.authentication.ConfidentialClient;
-
-public class Example {
-    public static void main(String[] args) throws Exception {
-        // Examples for each supported authentication method are below,
-        // choose one that satisfies your use case.
-
-        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-        // See https://github.com/FactSet/enterprise-sdk#oauth-20
-        // for information on how to create the app-config.json file
-        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
-        // for more information on using the ConfidentialClient class
-        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient()
-          .setFactSetOAuth2Client(confidentialClient);
-
-        /* Basic authentication: FactSetApiKey */
-        // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient()
-        //   .setUsername("YOUR USERNAME")
-        //   .setPassword("YOUR PASSWORD");
-
-        AiTextSummarizationApi apiInstance = new AiTextSummarizationApi(defaultClient);
-        SummarizationRequest summarizationRequest = new SummarizationRequest(); // SummarizationRequest | 
-        try {
-            SummarizationResultID result = apiInstance.cognitiveNlpV1SummarizationHeadlineAndSummaryPost(summarizationRequest);
-            System.out.println(result);
-
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AiTextSummarizationApi#cognitiveNlpV1SummarizationHeadlineAndSummaryPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **summarizationRequest** | [**SummarizationRequest**](SummarizationRequest.md)|  | [optional]
-
-### Return type
-
-[**SummarizationResultID**](SummarizationResultID.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Unique Result ID |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Access Denied |  -  |
-| **500** | Internal Server Error |  -  |
-
-
-## cognitiveNlpV1SummarizationHeadlinePost
-
-> SummarizationResultID cognitiveNlpV1SummarizationHeadlinePost(summarizationRequest)
+> SummarizationResultID summarizationHeadline(summarizationRequest)
 
 Endpoint to generate a headline from text
 
+Generate a headline-length summary of plain text
+
 ### Example
 
 ```java
@@ -138,11 +55,11 @@ public class Example {
         AiTextSummarizationApi apiInstance = new AiTextSummarizationApi(defaultClient);
         SummarizationRequest summarizationRequest = new SummarizationRequest(); // SummarizationRequest | 
         try {
-            SummarizationResultID result = apiInstance.cognitiveNlpV1SummarizationHeadlinePost(summarizationRequest);
+            SummarizationResultID result = apiInstance.summarizationHeadline(summarizationRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling AiTextSummarizationApi#cognitiveNlpV1SummarizationHeadlinePost");
+            System.err.println("Exception when calling AiTextSummarizationApi#summarizationHeadline");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -181,11 +98,100 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error |  -  |
 
 
-## cognitiveNlpV1SummarizationResultResultIdGet
+## summarizationHeadlineAndSummary
 
-> SummarizationResult cognitiveNlpV1SummarizationResultResultIdGet(resultId)
+> SummarizationResultID summarizationHeadlineAndSummary(summarizationRequest)
+
+Endpoint to summarize and generate a headline from text
+
+Generate both a paragraph-length, and headline-length summary of plain text
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.NaturalLanguageProcessing.ApiClient;
+import com.factset.sdk.NaturalLanguageProcessing.ApiException;
+import com.factset.sdk.NaturalLanguageProcessing.Configuration;
+import com.factset.sdk.NaturalLanguageProcessing.auth.*;
+import com.factset.sdk.NaturalLanguageProcessing.models.*;
+import com.factset.sdk.NaturalLanguageProcessing.api.AiTextSummarizationApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        AiTextSummarizationApi apiInstance = new AiTextSummarizationApi(defaultClient);
+        SummarizationRequest summarizationRequest = new SummarizationRequest(); // SummarizationRequest | 
+        try {
+            SummarizationResultID result = apiInstance.summarizationHeadlineAndSummary(summarizationRequest);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AiTextSummarizationApi#summarizationHeadlineAndSummary");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **summarizationRequest** | [**SummarizationRequest**](SummarizationRequest.md)|  | [optional]
+
+### Return type
+
+[**SummarizationResultID**](SummarizationResultID.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Unique Result ID |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Access Denied |  -  |
+| **500** | Internal Server Error |  -  |
+
+
+## summarizationResult
+
+> SummarizationResult summarizationResult(resultId)
 
 Endpoint to obtain result of a particular summarization job
+
+Retrieve the summarization result from a job started with the other summarization endpoints
 
 ### Example
 
@@ -223,11 +229,11 @@ public class Example {
         AiTextSummarizationApi apiInstance = new AiTextSummarizationApi(defaultClient);
         String resultId = "resultId_example"; // String | 
         try {
-            SummarizationResult result = apiInstance.cognitiveNlpV1SummarizationResultResultIdGet(resultId);
+            SummarizationResult result = apiInstance.summarizationResult(resultId);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling AiTextSummarizationApi#cognitiveNlpV1SummarizationResultResultIdGet");
+            System.err.println("Exception when calling AiTextSummarizationApi#summarizationResult");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -267,11 +273,13 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error |  -  |
 
 
-## cognitiveNlpV1SummarizationSummaryPost
+## summarizationSummary
 
-> SummarizationResultID cognitiveNlpV1SummarizationSummaryPost(summarizationRequest)
+> SummarizationResultID summarizationSummary(summarizationRequest)
 
 Endpoint to summarize text
+
+Generate a paragraph-length summary of plain text
 
 ### Example
 
@@ -309,11 +317,11 @@ public class Example {
         AiTextSummarizationApi apiInstance = new AiTextSummarizationApi(defaultClient);
         SummarizationRequest summarizationRequest = new SummarizationRequest(); // SummarizationRequest | 
         try {
-            SummarizationResultID result = apiInstance.cognitiveNlpV1SummarizationSummaryPost(summarizationRequest);
+            SummarizationResultID result = apiInstance.summarizationSummary(summarizationRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling AiTextSummarizationApi#cognitiveNlpV1SummarizationSummaryPost");
+            System.err.println("Exception when calling AiTextSummarizationApi#summarizationSummary");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

@@ -1,111 +1,23 @@
 # FactSet.SDK.NaturalLanguageProcessing.Api.AITextSummarizationApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CognitiveNlpV1SummarizationHeadlineAndSummaryPost**](AITextSummarizationApi.md#cognitivenlpv1summarizationheadlineandsummarypost) | **POST** /cognitive/nlp/v1/summarization/headline-and-summary | Endpoint to summarize and generate a headline from text
-[**CognitiveNlpV1SummarizationHeadlinePost**](AITextSummarizationApi.md#cognitivenlpv1summarizationheadlinepost) | **POST** /cognitive/nlp/v1/summarization/headline | Endpoint to generate a headline from text
-[**CognitiveNlpV1SummarizationResultResultIdGet**](AITextSummarizationApi.md#cognitivenlpv1summarizationresultresultidget) | **GET** /cognitive/nlp/v1/summarization/result/{result_id} | Endpoint to obtain result of a particular summarization job
-[**CognitiveNlpV1SummarizationSummaryPost**](AITextSummarizationApi.md#cognitivenlpv1summarizationsummarypost) | **POST** /cognitive/nlp/v1/summarization/summary | Endpoint to summarize text
+[**SummarizationHeadline**](AITextSummarizationApi.md#summarizationheadline) | **POST** /summarization/headline | Endpoint to generate a headline from text
+[**SummarizationHeadlineAndSummary**](AITextSummarizationApi.md#summarizationheadlineandsummary) | **POST** /summarization/headline-and-summary | Endpoint to summarize and generate a headline from text
+[**SummarizationResult**](AITextSummarizationApi.md#summarizationresult) | **GET** /summarization/result/{resultId} | Endpoint to obtain result of a particular summarization job
+[**SummarizationSummary**](AITextSummarizationApi.md#summarizationsummary) | **POST** /summarization/summary | Endpoint to summarize text
 
 
-<a name="cognitivenlpv1summarizationheadlineandsummarypost"></a>
-# **CognitiveNlpV1SummarizationHeadlineAndSummaryPost**
-> SummarizationResultID CognitiveNlpV1SummarizationHeadlineAndSummaryPost (SummarizationRequest summarizationRequest = null)
-
-Endpoint to summarize and generate a headline from text
-
-### Example
-```csharp
-using System;
-using System.Threading.Tasks;
-using FactSet.SDK.Utils.Authentication;
-using FactSet.SDK.NaturalLanguageProcessing.Api;
-using FactSet.SDK.NaturalLanguageProcessing.Client;
-using FactSet.SDK.NaturalLanguageProcessing.Model;
-
-namespace Example
-{
-    public class CognitiveNlpV1SummarizationHeadlineAndSummaryPostExample
-    {
-        public static async Task Main()
-        {
-            var config = new FactSet.SDK.NaturalLanguageProcessing.Client.Configuration();
-
-            // Examples for each supported authentication method are below,
-            // choose one that satisfies your use case.
-
-            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-            // See https://github.com/FactSet/enterprise-sdk#oauth-20
-            // for information on how to create the app-config.json file
-            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
-            // for more information on using the ConfidentialClient class
-            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
-            config.OAuth2Client = confidentialClient;
-
-            /* Basic authentication: FactSetApiKey */
-            // See https://github.com/FactSet/enterprise-sdk#api-key
-            // for information how to create an API key
-            // config.Username = "USERNAME-SERIAL";
-            // config.Password = "API-KEY";
-
-            var apiInstance = new AITextSummarizationApi(config);
-
-            var summarizationRequest = new SummarizationRequest(); // SummarizationRequest |  (optional) 
-
-            try
-            {
-                // Endpoint to summarize and generate a headline from text
-                SummarizationResultID result = apiInstance.CognitiveNlpV1SummarizationHeadlineAndSummaryPost(summarizationRequest);
-                Console.WriteLine(result.ToJson());
-            }
-            catch (ApiException  e)
-            {
-                Console.WriteLine("Exception when calling AITextSummarizationApi.CognitiveNlpV1SummarizationHeadlineAndSummaryPost: " + e.Message );
-                Console.WriteLine("Status Code: "+ e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **summarizationRequest** | [**SummarizationRequest**](SummarizationRequest.md)|  | [optional] 
-
-### Return type
-[**SummarizationResultID**](SummarizationResultID.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Unique Result ID |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Access Denied |  -  |
-| **500** | Internal Server Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="cognitivenlpv1summarizationheadlinepost"></a>
-# **CognitiveNlpV1SummarizationHeadlinePost**
-> SummarizationResultID CognitiveNlpV1SummarizationHeadlinePost (SummarizationRequest summarizationRequest = null)
+<a name="summarizationheadline"></a>
+# **SummarizationHeadline**
+> SummarizationResultID SummarizationHeadline (SummarizationRequest summarizationRequest = null)
 
 Endpoint to generate a headline from text
 
+Generate a headline-length summary of plain text
+
 ### Example
 ```csharp
 using System;
@@ -117,7 +29,7 @@ using FactSet.SDK.NaturalLanguageProcessing.Model;
 
 namespace Example
 {
-    public class CognitiveNlpV1SummarizationHeadlinePostExample
+    public class SummarizationHeadlineExample
     {
         public static async Task Main()
         {
@@ -147,12 +59,12 @@ namespace Example
             try
             {
                 // Endpoint to generate a headline from text
-                SummarizationResultID result = apiInstance.CognitiveNlpV1SummarizationHeadlinePost(summarizationRequest);
+                SummarizationResultID result = apiInstance.SummarizationHeadline(summarizationRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling AITextSummarizationApi.CognitiveNlpV1SummarizationHeadlinePost: " + e.Message );
+                Console.WriteLine("Exception when calling AITextSummarizationApi.SummarizationHeadline: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -190,11 +102,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cognitivenlpv1summarizationresultresultidget"></a>
-# **CognitiveNlpV1SummarizationResultResultIdGet**
-> SummarizationResult CognitiveNlpV1SummarizationResultResultIdGet (string resultId)
+<a name="summarizationheadlineandsummary"></a>
+# **SummarizationHeadlineAndSummary**
+> SummarizationResultID SummarizationHeadlineAndSummary (SummarizationRequest summarizationRequest = null)
 
-Endpoint to obtain result of a particular summarization job
+Endpoint to summarize and generate a headline from text
+
+Generate both a paragraph-length, and headline-length summary of plain text
 
 ### Example
 ```csharp
@@ -207,7 +121,99 @@ using FactSet.SDK.NaturalLanguageProcessing.Model;
 
 namespace Example
 {
-    public class CognitiveNlpV1SummarizationResultResultIdGetExample
+    public class SummarizationHeadlineAndSummaryExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.NaturalLanguageProcessing.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new AITextSummarizationApi(config);
+
+            var summarizationRequest = new SummarizationRequest(); // SummarizationRequest |  (optional) 
+
+            try
+            {
+                // Endpoint to summarize and generate a headline from text
+                SummarizationResultID result = apiInstance.SummarizationHeadlineAndSummary(summarizationRequest);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling AITextSummarizationApi.SummarizationHeadlineAndSummary: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **summarizationRequest** | [**SummarizationRequest**](SummarizationRequest.md)|  | [optional] 
+
+### Return type
+[**SummarizationResultID**](SummarizationResultID.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Unique Result ID |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Access Denied |  -  |
+| **500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="summarizationresult"></a>
+# **SummarizationResult**
+> SummarizationResult SummarizationResult (string resultId)
+
+Endpoint to obtain result of a particular summarization job
+
+Retrieve the summarization result from a job started with the other summarization endpoints
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.NaturalLanguageProcessing.Api;
+using FactSet.SDK.NaturalLanguageProcessing.Client;
+using FactSet.SDK.NaturalLanguageProcessing.Model;
+
+namespace Example
+{
+    public class SummarizationResultExample
     {
         public static async Task Main()
         {
@@ -237,12 +243,12 @@ namespace Example
             try
             {
                 // Endpoint to obtain result of a particular summarization job
-                SummarizationResult result = apiInstance.CognitiveNlpV1SummarizationResultResultIdGet(resultId);
+                SummarizationResult result = apiInstance.SummarizationResult(resultId);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling AITextSummarizationApi.CognitiveNlpV1SummarizationResultResultIdGet: " + e.Message );
+                Console.WriteLine("Exception when calling AITextSummarizationApi.SummarizationResult: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -281,11 +287,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cognitivenlpv1summarizationsummarypost"></a>
-# **CognitiveNlpV1SummarizationSummaryPost**
-> SummarizationResultID CognitiveNlpV1SummarizationSummaryPost (SummarizationRequest summarizationRequest = null)
+<a name="summarizationsummary"></a>
+# **SummarizationSummary**
+> SummarizationResultID SummarizationSummary (SummarizationRequest summarizationRequest = null)
 
 Endpoint to summarize text
+
+Generate a paragraph-length summary of plain text
 
 ### Example
 ```csharp
@@ -298,7 +306,7 @@ using FactSet.SDK.NaturalLanguageProcessing.Model;
 
 namespace Example
 {
-    public class CognitiveNlpV1SummarizationSummaryPostExample
+    public class SummarizationSummaryExample
     {
         public static async Task Main()
         {
@@ -328,12 +336,12 @@ namespace Example
             try
             {
                 // Endpoint to summarize text
-                SummarizationResultID result = apiInstance.CognitiveNlpV1SummarizationSummaryPost(summarizationRequest);
+                SummarizationResultID result = apiInstance.SummarizationSummary(summarizationRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling AITextSummarizationApi.CognitiveNlpV1SummarizationSummaryPost: " + e.Message );
+                Console.WriteLine("Exception when calling AITextSummarizationApi.SummarizationSummary: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }

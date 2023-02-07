@@ -49,7 +49,19 @@ namespace FactSet.SDK.FactSetTrading.Model
             /// Enum Sell for value: sell
             /// </summary>
             [EnumMember(Value = "sell")]
-            Sell = 2
+            Sell = 2,
+
+            /// <summary>
+            /// Enum SellShort for value: sell_short
+            /// </summary>
+            [EnumMember(Value = "sell_short")]
+            SellShort = 3,
+
+            /// <summary>
+            /// Enum SellShortExempt for value: sell_short_exempt
+            /// </summary>
+            [EnumMember(Value = "sell_short_exempt")]
+            SellShortExempt = 4
 
         }
 
@@ -122,7 +134,8 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// <param name="error">Error message.</param>
         /// <param name="info">information.</param>
         /// <param name="orderId">Order Id.</param>
-        public EMSOrderMetadata(string symbol = default(string), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), double orderQuantity = default(double), string error = default(string), string info = default(string), string orderId = default(string))
+        /// <param name="warning">Warning.</param>
+        public EMSOrderMetadata(string symbol = default(string), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), double orderQuantity = default(double), string error = default(string), string info = default(string), string orderId = default(string), string warning = default(string))
         {
             this.Symbol = symbol;
             this.Side = side;
@@ -131,6 +144,7 @@ namespace FactSet.SDK.FactSetTrading.Model
             this.Error = error;
             this.Info = info;
             this.OrderId = orderId;
+            this.Warning = warning;
         }
 
         /// <summary>
@@ -169,6 +183,13 @@ namespace FactSet.SDK.FactSetTrading.Model
         public string OrderId { get; set; }
 
         /// <summary>
+        /// Warning
+        /// </summary>
+        /// <value>Warning</value>
+        [DataMember(Name = "warning", EmitDefaultValue = false)]
+        public string Warning { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -183,6 +204,7 @@ namespace FactSet.SDK.FactSetTrading.Model
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Info: ").Append(Info).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
+            sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -249,6 +271,11 @@ namespace FactSet.SDK.FactSetTrading.Model
                     this.OrderId == input.OrderId ||
                     (this.OrderId != null &&
                     this.OrderId.Equals(input.OrderId))
+                ) && 
+                (
+                    this.Warning == input.Warning ||
+                    (this.Warning != null &&
+                    this.Warning.Equals(input.Warning))
                 );
         }
 
@@ -279,6 +306,10 @@ namespace FactSet.SDK.FactSetTrading.Model
                 if (this.OrderId != null)
                 {
                     hashCode = (hashCode * 59) + this.OrderId.GetHashCode();
+                }
+                if (this.Warning != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warning.GetHashCode();
                 }
                 return hashCode;
             }

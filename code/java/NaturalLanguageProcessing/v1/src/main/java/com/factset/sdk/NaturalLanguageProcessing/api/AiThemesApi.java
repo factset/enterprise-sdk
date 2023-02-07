@@ -27,11 +27,11 @@ public class AiThemesApi {
     this.apiClient = apiClient;
   }
 
-    private static final Map<Integer, GenericType> cognitiveNlpV1ThemesPostResponseTypeMap = new HashMap<Integer, GenericType>();
+    private static final Map<Integer, GenericType> themesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    cognitiveNlpV1ThemesPostResponseTypeMap.put(200, new GenericType<ThemesRoot>(){});
-    cognitiveNlpV1ThemesPostResponseTypeMap.put(400, new GenericType<ErrorsRoot>(){});
-    cognitiveNlpV1ThemesPostResponseTypeMap.put(404, new GenericType<ErrorsRoot>(){});
+    themesResponseTypeMap.put(200, new GenericType<ThemesRoot>(){});
+    themesResponseTypeMap.put(400, new GenericType<ErrorsRoot>(){});
+    themesResponseTypeMap.put(404, new GenericType<ErrorsRoot>(){});
   }
 
    
@@ -73,8 +73,8 @@ public class AiThemesApi {
        <tr><td> 503 </td><td> The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later. </td><td>  * X-FactSet-Api-Request-Key - Key to uniquely identify an API request. <br>  </td></tr>
      </table>
    */
-  public ThemesRoot cognitiveNlpV1ThemesPost(ThemeParametersRoot themeParametersRoot) throws ApiException {
-    return cognitiveNlpV1ThemesPostWithHttpInfo(themeParametersRoot).getData();
+  public ThemesRoot themes(ThemeParametersRoot themeParametersRoot) throws ApiException {
+    return themesWithHttpInfo(themeParametersRoot).getData();
   }
 
   /**
@@ -95,16 +95,16 @@ public class AiThemesApi {
        <tr><td> 503 </td><td> The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later. </td><td>  * X-FactSet-Api-Request-Key - Key to uniquely identify an API request. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<ThemesRoot> cognitiveNlpV1ThemesPostWithHttpInfo(ThemeParametersRoot themeParametersRoot) throws ApiException {
+  public ApiResponse<ThemesRoot> themesWithHttpInfo(ThemeParametersRoot themeParametersRoot) throws ApiException {
     Object localVarPostBody = themeParametersRoot;
     
     // verify the required parameter 'themeParametersRoot' is set
     if (themeParametersRoot == null) {
-      throw new ApiException(400, "Missing the required parameter 'themeParametersRoot' when calling cognitiveNlpV1ThemesPost");
+      throw new ApiException(400, "Missing the required parameter 'themeParametersRoot' when calling themes");
     }
     
     // create path and map variables
-    String localVarPath = "/cognitive/nlp/v1/themes";
+    String localVarPath = "/themes";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -133,9 +133,9 @@ public class AiThemesApi {
         
         ThemesRoot
       
-    > apiResponse = apiClient.invokeAPI("AiThemesApi.cognitiveNlpV1ThemesPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("AiThemesApi.themes", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, cognitiveNlpV1ThemesPostResponseTypeMap, false);
+                               localVarAuthNames, themesResponseTypeMap, false);
 
     return apiResponse;
 

@@ -1,16 +1,16 @@
 # naturallanguageprocessing.AIThemesApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitiveNlpV1ThemesPost**](AIThemesApi.md#cognitiveNlpV1ThemesPost) | **POST** /cognitive/nlp/v1/themes | Endpoint to extract themes from text
+[**themes**](AIThemesApi.md#themes) | **POST** /themes | Endpoint to extract themes from text
 
 
 
-## cognitiveNlpV1ThemesPost
+## themes
 
-> ThemesRoot cognitiveNlpV1ThemesPost(themeParametersRoot)
+> ThemesRoot themes(themeParametersRoot)
 
 Endpoint to extract themes from text
 
@@ -45,7 +45,7 @@ const apiInstance = new AIThemesApi();
 const themeParametersRoot = new naturallanguageprocessing.ThemeParametersRoot(); // ThemeParametersRoot | 
 
 // Call api endpoint
-apiInstance.cognitiveNlpV1ThemesPost(themeParametersRoot).then(
+apiInstance.themes(themeParametersRoot).then(
   data => {
 
     console.log('API called successfully. Returned data:');

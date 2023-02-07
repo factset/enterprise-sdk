@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **error** | **String** | Error message | [optional] 
 **info** | **String** | information | [optional] 
 **orderId** | **String** | Order Id | [optional] 
+**warning** | **String** | Warning | [optional] 
 
 
 
@@ -20,6 +21,10 @@ Name | Type | Description | Notes
 * `buy` (value: `"buy"`)
 
 * `sell` (value: `"sell"`)
+
+* `sell_short` (value: `"sell_short"`)
+
+* `sell_short_exempt` (value: `"sell_short_exempt"`)
 
 
 

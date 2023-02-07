@@ -1,18 +1,20 @@
 # naturallanguageprocessing.NamedEntityRecognitionApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitiveNlpV1NerEntitiesPost**](NamedEntityRecognitionApi.md#cognitiveNlpV1NerEntitiesPost) | **POST** /cognitive/nlp/v1/ner/entities | Endpoint to detect entities from text
+[**nerEntities**](NamedEntityRecognitionApi.md#nerEntities) | **POST** /ner/entities | Endpoint to detect entities from text
 
 
 
-## cognitiveNlpV1NerEntitiesPost
+## nerEntities
 
-> NERResponseSchema cognitiveNlpV1NerEntitiesPost(opts)
+> NERResponseSchema nerEntities(opts)
 
 Endpoint to detect entities from text
+
+Detect entities (People, Places, Organizations, etc.) in plain text
 
 ### Example
 
@@ -45,7 +47,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.cognitiveNlpV1NerEntitiesPost(opts).then(
+apiInstance.nerEntities(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');

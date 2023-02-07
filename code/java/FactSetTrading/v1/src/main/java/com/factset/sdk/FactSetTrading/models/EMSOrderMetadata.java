@@ -39,7 +39,8 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSOrderMetadata.JSON_PROPERTY_ORDER_QUANTITY,
   EMSOrderMetadata.JSON_PROPERTY_ERROR,
   EMSOrderMetadata.JSON_PROPERTY_INFO,
-  EMSOrderMetadata.JSON_PROPERTY_ORDER_ID
+  EMSOrderMetadata.JSON_PROPERTY_ORDER_ID,
+  EMSOrderMetadata.JSON_PROPERTY_WARNING
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EMSOrderMetadata implements Serializable {
@@ -54,7 +55,11 @@ public class EMSOrderMetadata implements Serializable {
   public enum SideEnum {
     BUY("buy"),
     
-    SELL("sell");
+    SELL("sell"),
+    
+    SELL_SHORT("sell_short"),
+    
+    SELL_SHORT_EXEMPT("sell_short_exempt");
 
     private String value;
 
@@ -143,6 +148,9 @@ public class EMSOrderMetadata implements Serializable {
 
   public static final String JSON_PROPERTY_ORDER_ID = "orderId";
   private String orderId;
+
+  public static final String JSON_PROPERTY_WARNING = "warning";
+  private String warning;
 
   public EMSOrderMetadata() { 
   }
@@ -329,6 +337,32 @@ public class EMSOrderMetadata implements Serializable {
   }
 
 
+  public EMSOrderMetadata warning(String warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Warning
+   * @return warning
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Warning")
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getWarning() {
+    return warning;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWarning(String warning) {
+    this.warning = warning;
+  }
+
+
   /**
    * Return true if this EMSOrderMetadata object is equal to o.
    */
@@ -347,12 +381,13 @@ public class EMSOrderMetadata implements Serializable {
         Objects.equals(this.orderQuantity, emSOrderMetadata.orderQuantity) &&
         Objects.equals(this.error, emSOrderMetadata.error) &&
         Objects.equals(this.info, emSOrderMetadata.info) &&
-        Objects.equals(this.orderId, emSOrderMetadata.orderId);
+        Objects.equals(this.orderId, emSOrderMetadata.orderId) &&
+        Objects.equals(this.warning, emSOrderMetadata.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(symbol, side, orderType, orderQuantity, error, info, orderId);
+    return Objects.hash(symbol, side, orderType, orderQuantity, error, info, orderId, warning);
   }
 
   @Override
@@ -366,6 +401,7 @@ public class EMSOrderMetadata implements Serializable {
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    info: ").append(toIndentedString(info)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

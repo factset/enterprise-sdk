@@ -1,18 +1,20 @@
 # NamedEntityRecognitionApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitiveNlpV1NerEntitiesPost**](NamedEntityRecognitionApi.md#cognitiveNlpV1NerEntitiesPost) | **POST** /cognitive/nlp/v1/ner/entities | Endpoint to detect entities from text
+[**nerEntities**](NamedEntityRecognitionApi.md#nerEntities) | **POST** /ner/entities | Endpoint to detect entities from text
 
 
 
-## cognitiveNlpV1NerEntitiesPost
+## nerEntities
 
-> NERResponseSchema cognitiveNlpV1NerEntitiesPost(neRInputSchema)
+> NERResponseSchema nerEntities(neRInputSchema)
 
 Endpoint to detect entities from text
+
+Detect entities (People, Places, Organizations, etc.) in plain text
 
 ### Example
 
@@ -50,11 +52,11 @@ public class Example {
         NamedEntityRecognitionApi apiInstance = new NamedEntityRecognitionApi(defaultClient);
         NERInputSchema neRInputSchema = new NERInputSchema(); // NERInputSchema | 
         try {
-            NERResponseSchema result = apiInstance.cognitiveNlpV1NerEntitiesPost(neRInputSchema);
+            NERResponseSchema result = apiInstance.nerEntities(neRInputSchema);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamedEntityRecognitionApi#cognitiveNlpV1NerEntitiesPost");
+            System.err.println("Exception when calling NamedEntityRecognitionApi#nerEntities");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

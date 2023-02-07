@@ -1,17 +1,19 @@
 # FactSet.SDK.NaturalLanguageProcessing.Api.NamedEntityRecognitionApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CognitiveNlpV1NerEntitiesPost**](NamedEntityRecognitionApi.md#cognitivenlpv1nerentitiespost) | **POST** /cognitive/nlp/v1/ner/entities | Endpoint to detect entities from text
+[**NerEntities**](NamedEntityRecognitionApi.md#nerentities) | **POST** /ner/entities | Endpoint to detect entities from text
 
 
-<a name="cognitivenlpv1nerentitiespost"></a>
-# **CognitiveNlpV1NerEntitiesPost**
-> NERResponseSchema CognitiveNlpV1NerEntitiesPost (NERInputSchema nERInputSchema = null)
+<a name="nerentities"></a>
+# **NerEntities**
+> NERResponseSchema NerEntities (NERInputSchema nERInputSchema = null)
 
 Endpoint to detect entities from text
+
+Detect entities (People, Places, Organizations, etc.) in plain text
 
 ### Example
 ```csharp
@@ -24,7 +26,7 @@ using FactSet.SDK.NaturalLanguageProcessing.Model;
 
 namespace Example
 {
-    public class CognitiveNlpV1NerEntitiesPostExample
+    public class NerEntitiesExample
     {
         public static async Task Main()
         {
@@ -54,12 +56,12 @@ namespace Example
             try
             {
                 // Endpoint to detect entities from text
-                NERResponseSchema result = apiInstance.CognitiveNlpV1NerEntitiesPost(nERInputSchema);
+                NERResponseSchema result = apiInstance.NerEntities(nERInputSchema);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling NamedEntityRecognitionApi.CognitiveNlpV1NerEntitiesPost: " + e.Message );
+                Console.WriteLine("Exception when calling NamedEntityRecognitionApi.NerEntities: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }

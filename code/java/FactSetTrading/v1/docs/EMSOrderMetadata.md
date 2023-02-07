@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **error** | **String** | Error message |  [optional]
 **info** | **String** | information |  [optional]
 **orderId** | **String** | Order Id |  [optional]
+**warning** | **String** | Warning |  [optional]
 
 
 
@@ -23,6 +24,8 @@ Name | Value
 ---- | -----
 BUY | &quot;buy&quot;
 SELL | &quot;sell&quot;
+SELL_SHORT | &quot;sell_short&quot;
+SELL_SHORT_EXEMPT | &quot;sell_short_exempt&quot;
 
 
 

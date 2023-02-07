@@ -65,6 +65,8 @@ class EMSOrder(ModelNormal):
         ('side',): {
             'BUY': "buy",
             'SELL': "sell",
+            'SELL_SHORT': "sell_short",
+            'SELL_SHORT_EXEMPT': "sell_short_exempt",
         },
         ('order_type',): {
             'MARKET': "market",
@@ -152,7 +154,6 @@ class EMSOrder(ModelNormal):
             'instrument': (Instrument,),  # noqa: E501
             'side': (str,),  # noqa: E501
             'order_type': (str,),  # noqa: E501
-            'handling_instructions': (str,),  # noqa: E501
             'order_id': (str,),  # noqa: E501
             'order_quantity': (float,),  # noqa: E501
             'price': (float,),  # noqa: E501
@@ -165,6 +166,7 @@ class EMSOrder(ModelNormal):
             'prev_close_price': (float,),  # noqa: E501
             'settlement_type': (str,),  # noqa: E501
             'settlement_date': (str,),  # noqa: E501
+            'handling_instructions': (str,),  # noqa: E501
             'execution_instructions': (str,),  # noqa: E501
             'locate_required': (bool,),  # noqa: E501
             'effective_time': (str,),  # noqa: E501
@@ -182,7 +184,6 @@ class EMSOrder(ModelNormal):
         'instrument': 'instrument',  # noqa: E501
         'side': 'side',  # noqa: E501
         'order_type': 'orderType',  # noqa: E501
-        'handling_instructions': 'handlingInstructions',  # noqa: E501
         'order_id': 'orderId',  # noqa: E501
         'order_quantity': 'orderQuantity',  # noqa: E501
         'price': 'price',  # noqa: E501
@@ -195,6 +196,7 @@ class EMSOrder(ModelNormal):
         'prev_close_price': 'prevClosePrice',  # noqa: E501
         'settlement_type': 'settlementType',  # noqa: E501
         'settlement_date': 'settlementDate',  # noqa: E501
+        'handling_instructions': 'handlingInstructions',  # noqa: E501
         'execution_instructions': 'executionInstructions',  # noqa: E501
         'locate_required': 'locateRequired',  # noqa: E501
         'effective_time': 'effectiveTime',  # noqa: E501
@@ -210,14 +212,13 @@ class EMSOrder(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, instrument, side, order_type, handling_instructions, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, instrument, side, order_type, *args, **kwargs):  # noqa: E501
         """EMSOrder - a model defined in OpenAPI
 
         Args:
             instrument (Instrument):
-            side (str): Side can be buy or sell
+            side (str): Side
             order_type (str): Type of the order
-            handling_instructions (str): Handling instructions
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -262,6 +263,7 @@ class EMSOrder(ModelNormal):
             prev_close_price (float): Previous close price. [optional]  # noqa: E501
             settlement_type (str): Settlement type. [optional]  # noqa: E501
             settlement_date (str): Settlement date in YYYYMMDD format. [optional]  # noqa: E501
+            handling_instructions (str): Handling instructions. [optional]  # noqa: E501
             execution_instructions (str): Execution instructions. [optional]  # noqa: E501
             locate_required (bool): Locate Required. [optional]  # noqa: E501
             effective_time (str): Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC. [optional]  # noqa: E501
@@ -298,7 +300,6 @@ class EMSOrder(ModelNormal):
         self.instrument = instrument
         self.side = side
         self.order_type = order_type
-        self.handling_instructions = handling_instructions
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -319,14 +320,13 @@ class EMSOrder(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, instrument, side, order_type, handling_instructions, *args, **kwargs):  # noqa: E501
+    def __init__(self, instrument, side, order_type, *args, **kwargs):  # noqa: E501
         """EMSOrder - a model defined in OpenAPI
 
         Args:
             instrument (Instrument):
-            side (str): Side can be buy or sell
+            side (str): Side
             order_type (str): Type of the order
-            handling_instructions (str): Handling instructions
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -371,6 +371,7 @@ class EMSOrder(ModelNormal):
             prev_close_price (float): Previous close price. [optional]  # noqa: E501
             settlement_type (str): Settlement type. [optional]  # noqa: E501
             settlement_date (str): Settlement date in YYYYMMDD format. [optional]  # noqa: E501
+            handling_instructions (str): Handling instructions. [optional]  # noqa: E501
             execution_instructions (str): Execution instructions. [optional]  # noqa: E501
             locate_required (bool): Locate Required. [optional]  # noqa: E501
             effective_time (str): Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC. [optional]  # noqa: E501
@@ -405,7 +406,6 @@ class EMSOrder(ModelNormal):
         self.instrument = instrument
         self.side = side
         self.order_type = order_type
-        self.handling_instructions = handling_instructions
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -33,9 +33,9 @@ namespace FactSet.SDK.FactSetTrading.Model
     public partial class EMSOrder : IEquatable<EMSOrder>, IValidatableObject
     {
         /// <summary>
-        /// Side can be buy or sell
+        /// Side
         /// </summary>
-        /// <value>Side can be buy or sell</value>
+        /// <value>Side</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SideEnum
         {
@@ -49,15 +49,27 @@ namespace FactSet.SDK.FactSetTrading.Model
             /// Enum Sell for value: sell
             /// </summary>
             [EnumMember(Value = "sell")]
-            Sell = 2
+            Sell = 2,
+
+            /// <summary>
+            /// Enum SellShort for value: sell_short
+            /// </summary>
+            [EnumMember(Value = "sell_short")]
+            SellShort = 3,
+
+            /// <summary>
+            /// Enum SellShortExempt for value: sell_short_exempt
+            /// </summary>
+            [EnumMember(Value = "sell_short_exempt")]
+            SellShortExempt = 4
 
         }
 
 
         /// <summary>
-        /// Side can be buy or sell
+        /// Side
         /// </summary>
-        /// <value>Side can be buy or sell</value>
+        /// <value>Side</value>
         [DataMember(Name = "side", IsRequired = true, EmitDefaultValue = false)]
         public SideEnum Side { get; set; }
         /// <summary>
@@ -144,8 +156,8 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// Handling instructions
         /// </summary>
         /// <value>Handling instructions</value>
-        [DataMember(Name = "handlingInstructions", IsRequired = true, EmitDefaultValue = false)]
-        public HandlingInstructionsEnum HandlingInstructions { get; set; }
+        [DataMember(Name = "handlingInstructions", EmitDefaultValue = false)]
+        public HandlingInstructionsEnum? HandlingInstructions { get; set; }
         /// <summary>
         /// Execution instructions
         /// </summary>
@@ -454,7 +466,7 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// </summary>
         /// <param name="orderId">Unique id for the order.</param>
         /// <param name="instrument">instrument (required).</param>
-        /// <param name="side">Side can be buy or sell (required).</param>
+        /// <param name="side">Side (required).</param>
         /// <param name="orderType">Type of the order (required).</param>
         /// <param name="orderQuantity">Order quantity.</param>
         /// <param name="price">Order Price.</param>
@@ -467,14 +479,14 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// <param name="prevClosePrice">Previous close price.</param>
         /// <param name="settlementType">Settlement type.</param>
         /// <param name="settlementDate">Settlement date in YYYYMMDD format.</param>
-        /// <param name="handlingInstructions">Handling instructions (required).</param>
+        /// <param name="handlingInstructions">Handling instructions.</param>
         /// <param name="executionInstructions">Execution instructions.</param>
         /// <param name="locateRequired">Locate Required.</param>
         /// <param name="effectiveTime">Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC.</param>
         /// <param name="account">Account.</param>
         /// <param name="timeInForce">timeInForce.</param>
         /// <param name="userDefinedFields">User defined fields.</param>
-        public EMSOrder(Instrument instrument, SideEnum side, OrderTypeEnum orderType, HandlingInstructionsEnum handlingInstructions,string orderId = default(string), double orderQuantity = default(double), double price = default(double), double stopPrice = default(double), double strikePrice = default(double), string currency = default(string), bool isCovered = default(bool), double maxShow = default(double), double maxFloor = default(double), double prevClosePrice = default(double), string settlementType = default(string), string settlementDate = default(string), ExecutionInstructionsEnum? executionInstructions = default(ExecutionInstructionsEnum?), bool locateRequired = default(bool), string effectiveTime = default(string), string account = default(string), TimeInForce timeInForce = default(TimeInForce), Dictionary<string, string> userDefinedFields = default(Dictionary<string, string>))
+        public EMSOrder(Instrument instrument, SideEnum side, OrderTypeEnum orderType,string orderId = default(string), double orderQuantity = default(double), double price = default(double), double stopPrice = default(double), double strikePrice = default(double), string currency = default(string), bool isCovered = default(bool), double maxShow = default(double), double maxFloor = default(double), double prevClosePrice = default(double), string settlementType = default(string), string settlementDate = default(string), HandlingInstructionsEnum? handlingInstructions = default(HandlingInstructionsEnum?), ExecutionInstructionsEnum? executionInstructions = default(ExecutionInstructionsEnum?), bool locateRequired = default(bool), string effectiveTime = default(string), string account = default(string), TimeInForce timeInForce = default(TimeInForce), Dictionary<string, string> userDefinedFields = default(Dictionary<string, string>))
         {
             // to ensure "instrument" is required (not null)
             if (instrument == null) {
@@ -483,7 +495,6 @@ namespace FactSet.SDK.FactSetTrading.Model
             this.Instrument = instrument;
             this.Side = side;
             this.OrderType = orderType;
-            this.HandlingInstructions = handlingInstructions;
             this.OrderId = orderId;
             this.OrderQuantity = orderQuantity;
             this.Price = price;
@@ -496,6 +507,7 @@ namespace FactSet.SDK.FactSetTrading.Model
             this.PrevClosePrice = prevClosePrice;
             this.SettlementType = settlementType;
             this.SettlementDate = settlementDate;
+            this.HandlingInstructions = handlingInstructions;
             this.ExecutionInstructions = executionInstructions;
             this.LocateRequired = locateRequired;
             this.EffectiveTime = effectiveTime;

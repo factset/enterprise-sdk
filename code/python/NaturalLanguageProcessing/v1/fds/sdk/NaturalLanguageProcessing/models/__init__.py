@@ -20,6 +20,15 @@ from fds.sdk.NaturalLanguageProcessing.model.ner_input_schema import NERInputSch
 from fds.sdk.NaturalLanguageProcessing.model.ner_organization import NEROrganization
 from fds.sdk.NaturalLanguageProcessing.model.ner_response_schema import NERResponseSchema
 from fds.sdk.NaturalLanguageProcessing.model.ner_validation_error import NERValidationError
+from fds.sdk.NaturalLanguageProcessing.model.qn_a_answer import QnAAnswer
+from fds.sdk.NaturalLanguageProcessing.model.qn_a_answer_parameters import QnAAnswerParameters
+from fds.sdk.NaturalLanguageProcessing.model.qn_a_answer_parameters_root import QnAAnswerParametersRoot
+from fds.sdk.NaturalLanguageProcessing.model.qn_a_answer_root import QnAAnswerRoot
+from fds.sdk.NaturalLanguageProcessing.model.qn_a_error_source import QnAErrorSource
+from fds.sdk.NaturalLanguageProcessing.model.qn_ahttp_error import QnAHTTPError
+from fds.sdk.NaturalLanguageProcessing.model.qn_ahttp_error_root import QnAHTTPErrorRoot
+from fds.sdk.NaturalLanguageProcessing.model.qn_a_task import QnATask
+from fds.sdk.NaturalLanguageProcessing.model.qn_a_task_root import QnATaskRoot
 from fds.sdk.NaturalLanguageProcessing.model.summarization_request import SummarizationRequest
 from fds.sdk.NaturalLanguageProcessing.model.summarization_result import SummarizationResult
 from fds.sdk.NaturalLanguageProcessing.model.summarization_result_id import SummarizationResultID

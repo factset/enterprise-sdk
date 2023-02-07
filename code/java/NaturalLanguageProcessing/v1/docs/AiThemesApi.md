@@ -1,16 +1,16 @@
 # AiThemesApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitiveNlpV1ThemesPost**](AiThemesApi.md#cognitiveNlpV1ThemesPost) | **POST** /cognitive/nlp/v1/themes | Endpoint to extract themes from text
+[**themes**](AiThemesApi.md#themes) | **POST** /themes | Endpoint to extract themes from text
 
 
 
-## cognitiveNlpV1ThemesPost
+## themes
 
-> ThemesRoot cognitiveNlpV1ThemesPost(themeParametersRoot)
+> ThemesRoot themes(themeParametersRoot)
 
 Endpoint to extract themes from text
 
@@ -67,11 +67,11 @@ public class Example {
         AiThemesApi apiInstance = new AiThemesApi(defaultClient);
         ThemeParametersRoot themeParametersRoot = new ThemeParametersRoot(); // ThemeParametersRoot | 
         try {
-            ThemesRoot result = apiInstance.cognitiveNlpV1ThemesPost(themeParametersRoot);
+            ThemesRoot result = apiInstance.themes(themeParametersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling AiThemesApi#cognitiveNlpV1ThemesPost");
+            System.err.println("Exception when calling AiThemesApi#themes");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

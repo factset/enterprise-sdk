@@ -1,14 +1,14 @@
 # fds.sdk.NaturalLanguageProcessing.AIThemesApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitive_nlp_v1_themes_post**](AIThemesApi.md#cognitive_nlp_v1_themes_post) | **POST** /cognitive/nlp/v1/themes | Endpoint to extract themes from text
+[**themes**](AIThemesApi.md#themes) | **POST** /themes | Endpoint to extract themes from text
 
 
-# **cognitive_nlp_v1_themes_post**
-> ThemesRoot cognitive_nlp_v1_themes_post(theme_parameters_root)
+# **themes**
+> ThemesRoot themes(theme_parameters_root)
 
 Endpoint to extract themes from text
 
@@ -64,11 +64,11 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     try:
         # Endpoint to extract themes from text
         # example passing only required values which don't have defaults set
-        api_response = api_instance.cognitive_nlp_v1_themes_post(theme_parameters_root)
+        api_response = api_instance.themes(theme_parameters_root)
         pprint(api_response)
 
     except fds.sdk.NaturalLanguageProcessing.ApiException as e:
-        print("Exception when calling AIThemesApi->cognitive_nlp_v1_themes_post: %s\n" % e)
+        print("Exception when calling AIThemesApi->themes: %s\n" % e)
 ```
 
 

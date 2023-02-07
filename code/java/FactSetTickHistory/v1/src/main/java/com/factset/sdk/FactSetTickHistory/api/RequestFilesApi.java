@@ -56,12 +56,16 @@ public class RequestFilesApi {
 
   /**
    * Returns the requestId and status
-   * Try it Out - references a Sandbox environment to simulate live reponses.&lt;/p&gt; **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.&lt;/p&gt; PROD has data from 20120101 to current date &amp;&lt;/p&gt; **available IDs is limited to..**&lt;/p&gt; US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA&lt;/p&gt; ASX - CBA-ASX, BHP-ASX&lt;/p&gt; LSE - HSBA-LON, VOD-LON&lt;/p&gt; Tokyo - 7203-TKS, 4307-TKS&lt;/p&gt; Swiss - NESN-SWX, COTN-SWX&lt;/p&gt; Singapore - J36-SES &amp;&lt;/p&gt; Hong Kong - 700-HKG&lt;/p&gt;
-   * @param startDate The date for (or from which) the data is required&lt;/p&gt; **In Sandbox, data available from 1st to 31st Jan&#39;21 only** (required)
-   * @param endDate The date to which data is required&lt;/p&gt; **In Sandbox, data available from 1st to 31st Jan&#39;21 only** (required)
-   * @param ticker any ticker. &lt;p&gt;**Either ticker(s) + iso_code  (OR) product is allowed**&lt;/p&gt; **NOTE**:Only one identifier can be requested per request (optional)
-   * @param isoCode iso_code. &lt;p&gt;ticker(s) + iso_code&lt;/p&gt; &lt;p&gt;**Does not support multiple iso_codes**&lt;/p&gt; (optional)
-   * @param fields Fields for which data is requested. Refer &lt;a href&#x3D; \&quot;https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation\&quot;&gt;Output fileds list&lt;/a&gt;. for available fields.&lt;/p&gt; **In trial default&#x3D;all fields** (optional, default to *)
+   * Try it Out - references a Sandbox environment to simulate live reponses.&lt;/p&gt; **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.&lt;/p&gt; PROD has data from 20120101 to current date &amp;&lt;/p&gt; **available IDs is limited to..**&lt;/p&gt; US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA&lt;/p&gt; ASX - CBA-ASX, BHP-ASX, APA-ASX&lt;/p&gt; LSE - HSBA-LON, VOD-LON&lt;/p&gt; Tokyo - 7203-TKS, 4307-TKS&lt;/p&gt; Swiss - NESN-SWX, COTN-SWX&lt;/p&gt; Singapore - J36-SES &amp;&lt;/p&gt; Hong Kong - 700-HKG&lt;/p&gt;
+   * @param startDate The date for (or from which) the data is required.&lt;/p&gt; **In Sandbox, data available from 1st to 31st Jan&#39;21 only**. (required)
+   * @param endDate The date to which data is required.&lt;/p&gt; **In Sandbox, data available from 1st to 31st Jan&#39;21 only**. (required)
+   * @param ticker The requested list of security identifiers. &lt;p&gt;**Either ticker(s) + iso_code  (OR) product is allowed**&lt;/p&gt; **NOTE**:Only one identifier can be requested per request (optional)
+   * @param isoCode The requested ISO code. &lt;p&gt;ticker(s) + iso_code&lt;/p&gt; &lt;p&gt;**Does not support multiple iso_codes**&lt;/p&gt; (optional)
+   * @param fields Fields for which data is requested. Refer &lt;a href&#x3D; \&quot;https://developer.factset.com/api-catalog/factset-tick-history-api#apiDocumentation\&quot;&gt;Output fields list&lt;/a&gt;. for available fields.&lt;/p&gt; **In trial default&#x3D;all fields** (optional, default to *)
+   * @param startTime The start time of the data being requested. The time should be in HH:MM:SS format. (optional)
+   * @param endTime The end time of the data being requested. The time should be in HH:MM:SS format. (optional)
+   * @param single Returns data in a single file when single&#x3D;true. This parameter only works for smaller date/time requests where the file size is upto 128MB. (optional, default to false)
+   * @param regionalISOCode Works in conjunction with iso_code parameter.&lt;p&gt;ticker(s) + iso_code + regionalISOCode&lt;/p&gt; &lt;p&gt;**Does not support multiple regionalISOCodes**&lt;/p&gt; (optional)
    * @return RequestFilesResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -71,18 +75,22 @@ public class RequestFilesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public RequestFilesResponse v1RequestFilesGet(LocalDate startDate, LocalDate endDate, String ticker, String isoCode, String fields) throws ApiException {
-    return v1RequestFilesGetWithHttpInfo(startDate, endDate, ticker, isoCode, fields).getData();
+  public RequestFilesResponse v1RequestFilesGet(LocalDate startDate, LocalDate endDate, String ticker, String isoCode, String fields, String startTime, String endTime, String single, String regionalISOCode) throws ApiException {
+    return v1RequestFilesGetWithHttpInfo(startDate, endDate, ticker, isoCode, fields, startTime, endTime, single, regionalISOCode).getData();
   }
 
   /**
    * Returns the requestId and status
-   * Try it Out - references a Sandbox environment to simulate live reponses.&lt;/p&gt; **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.&lt;/p&gt; PROD has data from 20120101 to current date &amp;&lt;/p&gt; **available IDs is limited to..**&lt;/p&gt; US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA&lt;/p&gt; ASX - CBA-ASX, BHP-ASX&lt;/p&gt; LSE - HSBA-LON, VOD-LON&lt;/p&gt; Tokyo - 7203-TKS, 4307-TKS&lt;/p&gt; Swiss - NESN-SWX, COTN-SWX&lt;/p&gt; Singapore - J36-SES &amp;&lt;/p&gt; Hong Kong - 700-HKG&lt;/p&gt;
-   * @param startDate The date for (or from which) the data is required&lt;/p&gt; **In Sandbox, data available from 1st to 31st Jan&#39;21 only** (required)
-   * @param endDate The date to which data is required&lt;/p&gt; **In Sandbox, data available from 1st to 31st Jan&#39;21 only** (required)
-   * @param ticker any ticker. &lt;p&gt;**Either ticker(s) + iso_code  (OR) product is allowed**&lt;/p&gt; **NOTE**:Only one identifier can be requested per request (optional)
-   * @param isoCode iso_code. &lt;p&gt;ticker(s) + iso_code&lt;/p&gt; &lt;p&gt;**Does not support multiple iso_codes**&lt;/p&gt; (optional)
-   * @param fields Fields for which data is requested. Refer &lt;a href&#x3D; \&quot;https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation\&quot;&gt;Output fileds list&lt;/a&gt;. for available fields.&lt;/p&gt; **In trial default&#x3D;all fields** (optional, default to *)
+   * Try it Out - references a Sandbox environment to simulate live reponses.&lt;/p&gt; **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.&lt;/p&gt; PROD has data from 20120101 to current date &amp;&lt;/p&gt; **available IDs is limited to..**&lt;/p&gt; US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA&lt;/p&gt; ASX - CBA-ASX, BHP-ASX, APA-ASX&lt;/p&gt; LSE - HSBA-LON, VOD-LON&lt;/p&gt; Tokyo - 7203-TKS, 4307-TKS&lt;/p&gt; Swiss - NESN-SWX, COTN-SWX&lt;/p&gt; Singapore - J36-SES &amp;&lt;/p&gt; Hong Kong - 700-HKG&lt;/p&gt;
+   * @param startDate The date for (or from which) the data is required.&lt;/p&gt; **In Sandbox, data available from 1st to 31st Jan&#39;21 only**. (required)
+   * @param endDate The date to which data is required.&lt;/p&gt; **In Sandbox, data available from 1st to 31st Jan&#39;21 only**. (required)
+   * @param ticker The requested list of security identifiers. &lt;p&gt;**Either ticker(s) + iso_code  (OR) product is allowed**&lt;/p&gt; **NOTE**:Only one identifier can be requested per request (optional)
+   * @param isoCode The requested ISO code. &lt;p&gt;ticker(s) + iso_code&lt;/p&gt; &lt;p&gt;**Does not support multiple iso_codes**&lt;/p&gt; (optional)
+   * @param fields Fields for which data is requested. Refer &lt;a href&#x3D; \&quot;https://developer.factset.com/api-catalog/factset-tick-history-api#apiDocumentation\&quot;&gt;Output fields list&lt;/a&gt;. for available fields.&lt;/p&gt; **In trial default&#x3D;all fields** (optional, default to *)
+   * @param startTime The start time of the data being requested. The time should be in HH:MM:SS format. (optional)
+   * @param endTime The end time of the data being requested. The time should be in HH:MM:SS format. (optional)
+   * @param single Returns data in a single file when single&#x3D;true. This parameter only works for smaller date/time requests where the file size is upto 128MB. (optional, default to false)
+   * @param regionalISOCode Works in conjunction with iso_code parameter.&lt;p&gt;ticker(s) + iso_code + regionalISOCode&lt;/p&gt; &lt;p&gt;**Does not support multiple regionalISOCodes**&lt;/p&gt; (optional)
    * @return ApiResponse&lt;RequestFilesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -92,7 +100,7 @@ public class RequestFilesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<RequestFilesResponse> v1RequestFilesGetWithHttpInfo(LocalDate startDate, LocalDate endDate, String ticker, String isoCode, String fields) throws ApiException {
+  public ApiResponse<RequestFilesResponse> v1RequestFilesGetWithHttpInfo(LocalDate startDate, LocalDate endDate, String ticker, String isoCode, String fields, String startTime, String endTime, String single, String regionalISOCode) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'startDate' is set
@@ -119,6 +127,10 @@ public class RequestFilesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_time", startTime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_time", endTime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "single", single));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "regionalISOCode", regionalISOCode));
 
     
     

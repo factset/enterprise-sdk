@@ -9,7 +9,7 @@
       "email": "analytics.api.support@factset.com"
     },
     "license": {
-      "name": "Apache License 2.0",
+      "name": "Apache License, Version 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
     },
     "version": "1"
@@ -94,8 +94,7 @@
                           "orderType": "market",
                           "orderQuantity": 1000,
                           "price": 450,
-                          "currency": "USD",
-                          "handlingInstructions": "auto_ord_pub"
+                          "currency": "USD"
                         }
                       ]
                     }
@@ -430,7 +429,6 @@
       },
       "EMSOrder": {
         "required": [
-          "handlingInstructions",
           "instrument",
           "orderType",
           "side"
@@ -448,10 +446,12 @@
           "side": {
             "enum": [
               "buy",
-              "sell"
+              "sell",
+              "sell_short",
+              "sell_short_exempt"
             ],
             "type": "string",
-            "description": "Side can be buy or sell",
+            "description": "Side",
             "example": "buy"
           },
           "orderType": {
@@ -631,7 +631,9 @@
           "side": {
             "enum": [
               "buy",
-              "sell"
+              "sell",
+              "sell_short",
+              "sell_short_exempt"
             ],
             "type": "string",
             "description": "Side"
@@ -664,6 +666,10 @@
           "orderId": {
             "type": "string",
             "description": "Order Id"
+          },
+          "warning": {
+            "type": "string",
+            "description": "Warning"
           }
         },
         "additionalProperties": false
@@ -900,5 +906,9 @@
     {
       "FactSetOAuth2": []
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/"
+  }
 }

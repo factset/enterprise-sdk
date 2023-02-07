@@ -1,15 +1,15 @@
 # FactSet.SDK.NaturalLanguageProcessing.Api.AIThemesApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CognitiveNlpV1ThemesPost**](AIThemesApi.md#cognitivenlpv1themespost) | **POST** /cognitive/nlp/v1/themes | Endpoint to extract themes from text
+[**Themes**](AIThemesApi.md#themes) | **POST** /themes | Endpoint to extract themes from text
 
 
-<a name="cognitivenlpv1themespost"></a>
-# **CognitiveNlpV1ThemesPost**
-> ThemesRoot CognitiveNlpV1ThemesPost (ThemeParametersRoot themeParametersRoot)
+<a name="themes"></a>
+# **Themes**
+> ThemesRoot Themes (ThemeParametersRoot themeParametersRoot)
 
 Endpoint to extract themes from text
 
@@ -26,7 +26,7 @@ using FactSet.SDK.NaturalLanguageProcessing.Model;
 
 namespace Example
 {
-    public class CognitiveNlpV1ThemesPostExample
+    public class ThemesExample
     {
         public static async Task Main()
         {
@@ -56,12 +56,12 @@ namespace Example
             try
             {
                 // Endpoint to extract themes from text
-                ThemesRoot result = apiInstance.CognitiveNlpV1ThemesPost(themeParametersRoot);
+                ThemesRoot result = apiInstance.Themes(themeParametersRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling AIThemesApi.CognitiveNlpV1ThemesPost: " + e.Message );
+                Console.WriteLine("Exception when calling AIThemesApi.Themes: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }

@@ -69,12 +69,16 @@ public class EMSOrder implements Serializable {
   private Instrument instrument;
 
   /**
-   * Side can be buy or sell
+   * Side
    */
   public enum SideEnum {
     BUY("buy"),
     
-    SELL("sell");
+    SELL("sell"),
+    
+    SELL_SHORT("sell_short"),
+    
+    SELL_SHORT_EXEMPT("sell_short_exempt");
 
     private String value;
 
@@ -375,14 +379,12 @@ public class EMSOrder implements Serializable {
   public EMSOrder(
     @JsonProperty(value=JSON_PROPERTY_INSTRUMENT, required=true) Instrument instrument, 
     @JsonProperty(value=JSON_PROPERTY_SIDE, required=true) SideEnum side, 
-    @JsonProperty(value=JSON_PROPERTY_ORDER_TYPE, required=true) OrderTypeEnum orderType, 
-    @JsonProperty(value=JSON_PROPERTY_HANDLING_INSTRUCTIONS, required=true) HandlingInstructionsEnum handlingInstructions
+    @JsonProperty(value=JSON_PROPERTY_ORDER_TYPE, required=true) OrderTypeEnum orderType
   ) {
     this();
     this.instrument = instrument;
     this.side = side;
     this.orderType = orderType;
-    this.handlingInstructions = handlingInstructions;
   }
 
   public EMSOrder orderId(String orderId) {
@@ -443,11 +445,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Side can be buy or sell
+   * Side
    * @return side
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "buy", required = true, value = "Side can be buy or sell")
+  @ApiModelProperty(example = "buy", required = true, value = "Side")
   @JsonProperty(JSON_PROPERTY_SIDE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -784,10 +786,10 @@ public class EMSOrder implements Serializable {
    * Handling instructions
    * @return handlingInstructions
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "auto_ord_pub", required = true, value = "Handling instructions")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "auto_ord_pub", value = "Handling instructions")
   @JsonProperty(JSON_PROPERTY_HANDLING_INSTRUCTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public HandlingInstructionsEnum getHandlingInstructions() {
     return handlingInstructions;
@@ -795,7 +797,7 @@ public class EMSOrder implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_HANDLING_INSTRUCTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHandlingInstructions(HandlingInstructionsEnum handlingInstructions) {
     this.handlingInstructions = handlingInstructions;
   }

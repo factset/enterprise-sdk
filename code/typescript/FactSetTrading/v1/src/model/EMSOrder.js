@@ -24,13 +24,12 @@ class EMSOrder {
      * Constructs a new <code>EMSOrder</code>.
      * @alias module:model/EMSOrder
      * @param instrument {module:model/Instrument} 
-     * @param side {module:model/EMSOrder.SideEnum} Side can be buy or sell
+     * @param side {module:model/EMSOrder.SideEnum} Side
      * @param orderType {module:model/EMSOrder.OrderTypeEnum} Type of the order
-     * @param handlingInstructions {module:model/EMSOrder.HandlingInstructionsEnum} Handling instructions
      */
-    constructor(instrument, side, orderType, handlingInstructions) { 
+    constructor(instrument, side, orderType) { 
         
-        EMSOrder.initialize(this, instrument, side, orderType, handlingInstructions);
+        EMSOrder.initialize(this, instrument, side, orderType);
     }
 
     /**
@@ -38,11 +37,10 @@ class EMSOrder {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, instrument, side, orderType, handlingInstructions) { 
+    static initialize(obj, instrument, side, orderType) { 
         obj['instrument'] = instrument;
         obj['side'] = side;
         obj['orderType'] = orderType;
-        obj['handlingInstructions'] = handlingInstructions;
     }
 
     /**
@@ -141,7 +139,7 @@ EMSOrder.prototype['orderId'] = undefined;
 EMSOrder.prototype['instrument'] = undefined;
 
 /**
- * Side can be buy or sell
+ * Side
  * @member {module:model/EMSOrder.SideEnum} side
  */
 EMSOrder.prototype['side'] = undefined;
@@ -280,7 +278,19 @@ EMSOrder['SideEnum'] = {
      * value: "sell"
      * @const
      */
-    "sell": "sell"
+    "sell": "sell",
+
+    /**
+     * value: "sell_short"
+     * @const
+     */
+    "sell_short": "sell_short",
+
+    /**
+     * value: "sell_short_exempt"
+     * @const
+     */
+    "sell_short_exempt": "sell_short_exempt"
 };
 
 

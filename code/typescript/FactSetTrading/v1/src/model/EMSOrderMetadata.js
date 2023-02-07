@@ -67,6 +67,9 @@ class EMSOrderMetadata {
             if (data.hasOwnProperty('orderId')) {
                 obj['orderId'] = ApiClient.convertToType(data['orderId'], 'String');
             }
+            if (data.hasOwnProperty('warning')) {
+                obj['warning'] = ApiClient.convertToType(data['warning'], 'String');
+            }
         }
         return obj;
     }
@@ -116,6 +119,12 @@ EMSOrderMetadata.prototype['info'] = undefined;
  */
 EMSOrderMetadata.prototype['orderId'] = undefined;
 
+/**
+ * Warning
+ * @member {String} warning
+ */
+EMSOrderMetadata.prototype['warning'] = undefined;
+
 
 
 
@@ -137,7 +146,19 @@ EMSOrderMetadata['SideEnum'] = {
      * value: "sell"
      * @const
      */
-    "sell": "sell"
+    "sell": "sell",
+
+    /**
+     * value: "sell_short"
+     * @const
+     */
+    "sell_short": "sell_short",
+
+    /**
+     * value: "sell_short_exempt"
+     * @const
+     */
+    "sell_short_exempt": "sell_short_exempt"
 };
 
 

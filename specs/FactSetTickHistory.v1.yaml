@@ -4,7 +4,7 @@ info:
   description: >-
     TickHistory provides dynamic access to historical tick data for a specific
     security for specific dates or date range.
-  version: 1.0.0
+  version: 1.1.0
 servers:
   - url: https://api-sandbox.factset.com/bulk-documents/tickhistory
 security:
@@ -21,15 +21,20 @@ paths:
         reponses.</p> **In Sandbox** data available from 20210101 to 20210131.
         Current date data is not available.</p> PROD has data from 20120101 to
         current date &</p> **available IDs is limited to..**</p> US Equity -
-        IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE -
-        HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Swiss - NESN-SWX,
-        COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
+        IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX,
+        APA-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p>
+        Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong -
+        700-HKG</p>
       parameters:
         - $ref: '#/components/parameters/ticker'
         - $ref: '#/components/parameters/iso_code'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/start_date'
         - $ref: '#/components/parameters/end_date'
+        - $ref: '#/components/parameters/start_time'
+        - $ref: '#/components/parameters/end_time'
+        - $ref: '#/components/parameters/single'
+        - $ref: '#/components/parameters/regionalISOCode'
       responses:
         '200':
           description: Successs
@@ -95,18 +100,19 @@ components:
       name: ticker
       in: query
       description: >-
-        any ticker. <p>**Either ticker(s) + iso_code  (OR) product is
-        allowed**</p> **NOTE**:Only one identifier can be requested per request
+        The requested list of security identifiers. <p>**Either ticker(s) +
+        iso_code  (OR) product is allowed**</p> **NOTE**:Only one identifier can
+        be requested per request
       required: false
       schema:
         type: string
       examples:
         fieldname1:
+          value: CBA,BHP,APA
+          summary: ASX
+        fieldname2:
           value: IBM,F,AAPL,GOOG
           summary: US Equity
-        fieldname2:
-          value: CBA,BHP
-          summary: ASX
         fieldname3:
           value: HSBA,VOD
           summary: LSE
@@ -126,18 +132,18 @@ components:
       name: iso_code
       in: query
       description: >-
-        iso_code. <p>ticker(s) + iso_code</p> <p>**Does not support multiple
-        iso_codes**</p>
+        The requested ISO code. <p>ticker(s) + iso_code</p> <p>**Does not
+        support multiple iso_codes**</p>
       required: false
       schema:
         type: string
       examples:
         fieldname1:
-          value: USA
-          summary: US Equity
-        fieldname2:
           value: AUS
           summary: ASX
+        fieldname2:
+          value: USA
+          summary: US Equity
         fieldname3:
           value: LON
           summary: LSE
@@ -158,8 +164,8 @@ components:
       in: query
       description: >-
         Fields for which data is requested. Refer <a href=
-        "https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation">Output
-        fileds list</a>. for available fields.</p> **In trial default=all
+        "https://developer.factset.com/api-catalog/factset-tick-history-api#apiDocumentation">Output
+        fields list</a>. for available fields.</p> **In trial default=all
         fields**
       required: false
       schema:
@@ -179,8 +185,8 @@ components:
       name: start_date
       in: query
       description: >-
-        The date for (or from which) the data is required</p> **In Sandbox, data
-        available from 1st to 31st Jan'21 only**
+        The date for (or from which) the data is required.</p> **In Sandbox,
+        data available from 1st to 31st Jan'21 only**.
       required: true
       schema:
         type: string
@@ -194,8 +200,8 @@ components:
       name: end_date
       in: query
       description: >-
-        The date to which data is required</p> **In Sandbox, data available from
-        1st to 31st Jan'21 only**
+        The date to which data is required.</p> **In Sandbox, data available
+        from 1st to 31st Jan'21 only**.
       required: true
       schema:
         type: string
@@ -204,6 +210,55 @@ components:
         exactDate:
           value: '2021-01-31'
           summary: Files until Jan 31,2021
+    start_time:
+      name: start_time
+      in: query
+      description: >-
+        The start time of the data being requested. The time should be in
+        HH:MM:SS format.
+      required: false
+      schema:
+        type: string
+        format: time
+      example: '10:20:30'
+    end_time:
+      name: end_time
+      in: query
+      description: >-
+        The end time of the data being requested. The time should be in HH:MM:SS
+        format.
+      required: false
+      schema:
+        type: string
+        format: time
+      example: '11:20:30'
+    single:
+      name: single
+      in: query
+      description: >-
+        Returns data in a single file when single=true. This parameter only
+        works for smaller date/time requests where the file size is upto 128MB.
+      required: false
+      schema:
+        type: string
+        enum:
+          - 'true'
+          - 'false'
+        default: 'false'
+    regionalISOCode:
+      name: regionalISOCode
+      in: query
+      description: >-
+        Works in conjunction with iso_code parameter.<p>ticker(s) + iso_code +
+        regionalISOCode</p> <p>**Does not support multiple
+        regionalISOCodes**</p>
+      required: false
+      schema:
+        type: string
+      examples:
+        fieldname1:
+          value: ASX
+          summary: ASX
     requestId:
       name: requestId
       in: query

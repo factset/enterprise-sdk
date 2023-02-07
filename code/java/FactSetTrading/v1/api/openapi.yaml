@@ -6,10 +6,13 @@ info:
     url: https://developer.factset.com/contact
   description: Allow clients to trade orders.
   license:
-    name: Apache License 2.0
+    name: Apache License, Version 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.txt
   title: EMS API
   version: "1"
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
 servers:
 - url: https://api.factset.com
 security:
@@ -70,7 +73,6 @@ paths:
                       orderQuantity: 1000
                       price: 450
                       currency: USD
-                      handlingInstructions: auto_ord_pub
               Single Order:
                 value:
                   data:
@@ -364,10 +366,12 @@ components:
         instrument:
           $ref: '#/components/schemas/Instrument'
         side:
-          description: Side can be buy or sell
+          description: Side
           enum:
           - buy
           - sell
+          - sell_short
+          - sell_short_exempt
           example: buy
           type: string
         orderType:
@@ -512,7 +516,6 @@ components:
           description: User defined fields
           type: object
       required:
-      - handlingInstructions
       - instrument
       - orderType
       - side
@@ -524,6 +527,7 @@ components:
         orderType: market
         side: buy
         orderId: orderId
+        warning: warning
         error: error
         orderQuantity: 0.8008281904610115
         info: info
@@ -536,6 +540,8 @@ components:
           enum:
           - buy
           - sell
+          - sell_short
+          - sell_short_exempt
           type: string
         orderType:
           description: Order Type
@@ -559,6 +565,9 @@ components:
           type: string
         orderId:
           description: Order Id
+          type: string
+        warning:
+          description: Warning
           type: string
       type: object
     EMSOrders:
@@ -655,6 +664,7 @@ components:
             orderType: market
             side: buy
             orderId: orderId
+            warning: warning
             error: error
             orderQuantity: 0.8008281904610115
             info: info
@@ -664,6 +674,7 @@ components:
             orderType: market
             side: buy
             orderId: orderId
+            warning: warning
             error: error
             orderQuantity: 0.8008281904610115
             info: info
@@ -687,6 +698,7 @@ components:
               orderType: market
               side: buy
               orderId: orderId
+              warning: warning
               error: error
               orderQuantity: 0.8008281904610115
               info: info
@@ -696,6 +708,7 @@ components:
               orderType: market
               side: buy
               orderId: orderId
+              warning: warning
               error: error
               orderQuantity: 0.8008281904610115
               info: info

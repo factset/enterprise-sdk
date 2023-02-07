@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **orderId** | **String** | Unique id for the order | [optional] 
 **instrument** | [**Instrument**](Instrument.md) |  | 
-**side** | **String** | Side can be buy or sell | 
+**side** | **String** | Side | 
 **orderType** | **String** | Type of the order | 
 **orderQuantity** | **Number** | Order quantity | [optional] 
 **price** | **Number** | Order Price | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **prevClosePrice** | **Number** | Previous close price | [optional] 
 **settlementType** | **String** | Settlement type | [optional] 
 **settlementDate** | **String** | Settlement date in YYYYMMDD format | [optional] 
-**handlingInstructions** | **String** | Handling instructions | 
+**handlingInstructions** | **String** | Handling instructions | [optional] 
 **executionInstructions** | **String** | Execution instructions | [optional] 
 **locateRequired** | **Boolean** | Locate Required | [optional] 
 **effectiveTime** | **String** | Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC | [optional] 
@@ -35,6 +35,10 @@ Name | Type | Description | Notes
 * `buy` (value: `"buy"`)
 
 * `sell` (value: `"sell"`)
+
+* `sell_short` (value: `"sell_short"`)
+
+* `sell_short_exempt` (value: `"sell_short_exempt"`)
 
 
 
