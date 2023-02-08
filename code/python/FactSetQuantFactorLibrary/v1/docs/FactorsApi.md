@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_factors_for_list**](FactorsApi.md#get_factors_for_list) | **POST** /factset-quant-factor-library/v1/factors | Retrieves Quant Factors for a large list of ids.
 
 
+
 # **get_factors**
 > FactorsResponse get_factors(ids, factors, start_date, end_date)
 

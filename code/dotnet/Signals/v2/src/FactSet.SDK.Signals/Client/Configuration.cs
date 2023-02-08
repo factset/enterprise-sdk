@@ -33,7 +33,7 @@ namespace FactSet.SDK.Signals.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.21.2";
+        public const string Version = "0.22.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.Signals.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/Signals/0.21.2";
+            UserAgent = "fds-sdk/dotnet/Signals/0.22.0";
             BasePath = "https://api.factset.com/signals/v2";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.Signals.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2.5.0\n";
-            report += "    SDK Package Version: 0.21.2\n";
+            report += "    SDK Package Version: 0.22.0\n";
 
             return report;
         }

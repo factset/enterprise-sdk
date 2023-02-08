@@ -27,8 +27,8 @@ public class CouponsApi {
   public CouponsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCouponHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCouponHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCouponHistoryResponseTypeMap.put(200, new GenericType<CouponHistoryResponse>(){});
     getCouponHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -37,6 +37,7 @@ public class CouponsApi {
     getCouponHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCouponHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCouponHistoryForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCouponHistoryForListResponseTypeMap.put(200, new GenericType<CouponHistoryResponse>(){});
@@ -46,6 +47,7 @@ public class CouponsApi {
     getCouponHistoryForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCouponHistoryForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCouponSchedulesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCouponSchedulesResponseTypeMap.put(200, new GenericType<CouponSchedulesResponse>(){});
@@ -55,6 +57,7 @@ public class CouponsApi {
     getCouponSchedulesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCouponSchedulesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCouponSchedulesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCouponSchedulesForListResponseTypeMap.put(200, new GenericType<CouponSchedulesResponse>(){});
@@ -65,7 +68,7 @@ public class CouponsApi {
     getCouponSchedulesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

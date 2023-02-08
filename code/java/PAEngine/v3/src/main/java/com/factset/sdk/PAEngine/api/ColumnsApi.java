@@ -26,19 +26,20 @@ public class ColumnsApi {
   public ColumnsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPAColumnByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPAColumnByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPAColumnByIdResponseTypeMap.put(200, new GenericType<ColumnRoot>(){});
     getPAColumnByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getPAColumnByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getPAColumnsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPAColumnsResponseTypeMap.put(200, new GenericType<ColumnSummaryRoot>(){});
   }
 
-   
+  
 
 
   /**

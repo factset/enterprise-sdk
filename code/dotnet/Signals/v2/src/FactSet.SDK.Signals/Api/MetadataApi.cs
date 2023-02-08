@@ -220,22 +220,26 @@ namespace FactSet.SDK.Signals.Api
         private FactSet.SDK.Signals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoriesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoriesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SignalMetaData) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDataDictionaryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SignalMetaData) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDataDictionaryByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SignalDefinition) },
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetThemesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SignalMetaData) },
@@ -245,7 +249,7 @@ namespace FactSet.SDK.Signals.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

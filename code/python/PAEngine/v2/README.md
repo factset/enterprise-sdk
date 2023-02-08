@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.protobuf.stach.extensions fds.sdk.PAEngine
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import accounts_api
 from fds.sdk.PAEngine.models import *

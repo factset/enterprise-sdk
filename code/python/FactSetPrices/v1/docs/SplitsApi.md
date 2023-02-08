@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_security_splits_for_list**](SplitsApi.md#get_security_splits_for_list) | **POST** /factset-prices/v1/splits | Requests splits for a list of &#x60;ids&#x60;
 
 
+
 # **get_security_splits**
 > SplitsResponse get_security_splits(ids)
 

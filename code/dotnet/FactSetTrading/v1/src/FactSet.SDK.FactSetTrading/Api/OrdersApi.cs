@@ -188,16 +188,19 @@ namespace FactSet.SDK.FactSetTrading.Api
         private FactSet.SDK.FactSetTrading.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CancelResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CancelResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(EMSOrdersCreateResponseRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> CreateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(EMSOrdersCreateResponseRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> ReplaceResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(EMSOrdersCreateResponseRoot) },
@@ -207,7 +210,7 @@ namespace FactSet.SDK.FactSetTrading.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

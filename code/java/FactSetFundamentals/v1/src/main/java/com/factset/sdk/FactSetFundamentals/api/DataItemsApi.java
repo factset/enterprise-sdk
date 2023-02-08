@@ -26,8 +26,8 @@ public class DataItemsApi {
   public DataItemsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFdsFundamentalsMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFdsFundamentalsMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFdsFundamentalsMetricsResponseTypeMap.put(200, new GenericType<MetricsResponse>(){});
     getFdsFundamentalsMetricsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class DataItemsApi {
     getFdsFundamentalsMetricsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFdsFundamentalsMetricsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFdsFundamentalsMetricsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFdsFundamentalsMetricsForListResponseTypeMap.put(200, new GenericType<MetricsResponse>(){});
@@ -46,7 +47,7 @@ public class DataItemsApi {
     getFdsFundamentalsMetricsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

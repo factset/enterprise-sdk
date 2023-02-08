@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_statuses_for_list**](HelperApi.md#get_statuses_for_list) | **POST** /factset-funds/v1/status | Get Fund&#39;s current status and database availability for large list of ids.
 
 
+
 # **get_statuses**
 > StatusesResponse get_statuses(ids)
 

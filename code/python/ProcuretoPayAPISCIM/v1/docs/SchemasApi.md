@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**schemas_id_get**](SchemasApi.md#schemas_id_get) | **GET** /Schemas/{id} | Get a schema.
 
 
+
 # **schemas_get**
 > SchemaList schemas_get()
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetNonPeriodicForList**](NonPeriodicApi.md#getnonperiodicforlist) | **POST** /factset-private-markets/v1/non-periodic | Returns Private Company reference data for a list of ids.
 
 
+
 <a name="getnonperiodic"></a>
 # **GetNonPeriodic**
 > NonPeriodicResponse GetNonPeriodic (List<string> ids, List<string> fields)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnonperiodicforlist"></a>
 # **GetNonPeriodicForList**
 > NonPeriodicResponse GetNonPeriodicForList (NonPeriodicRequest nonPeriodicRequest)
@@ -197,4 +199,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -27,23 +27,26 @@ public class AttachmentsApi {
   public AttachmentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createAttachmentResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createAttachmentResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createAttachmentResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> downloadAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getAttachmentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAttachmentsResponseTypeMap.put(200, new GenericType<java.util.List<AttachmentSummaryDto>>(){});
     getAttachmentsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getAttachmentsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> softDeleteNoteAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

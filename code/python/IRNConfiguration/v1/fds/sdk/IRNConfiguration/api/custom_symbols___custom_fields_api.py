@@ -45,6 +45,7 @@ class CustomSymbolsCustomFieldsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_custom_symbol_custom_field_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -102,6 +103,7 @@ class CustomSymbolsCustomFieldsApi(object):
             },
             api_client=api_client
         )
+
         self.delete_custom_symbol_custom_field_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -154,6 +156,7 @@ class CustomSymbolsCustomFieldsApi(object):
             },
             api_client=api_client
         )
+
         self.get_custom_symbol_custom_field_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -209,6 +212,7 @@ class CustomSymbolsCustomFieldsApi(object):
             },
             api_client=api_client
         )
+
         self.get_custom_symbol_custom_fields_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -257,6 +261,7 @@ class CustomSymbolsCustomFieldsApi(object):
             },
             api_client=api_client
         )
+
         self.patch_custom_symbol_custom_field_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -319,6 +324,7 @@ class CustomSymbolsCustomFieldsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -330,6 +336,7 @@ class CustomSymbolsCustomFieldsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_custom_symbol_custom_field(
         self,
@@ -496,6 +503,7 @@ class CustomSymbolsCustomFieldsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.create_custom_symbol_custom_field_endpoint.call_with_http_info(**kwargs)
+
 
     def delete_custom_symbol_custom_field(
         self,
@@ -679,6 +687,7 @@ class CustomSymbolsCustomFieldsApi(object):
             custom_symbol_custom_field_id
         return self.delete_custom_symbol_custom_field_endpoint.call_with_http_info(**kwargs)
 
+
     def get_custom_symbol_custom_field(
         self,
         custom_symbol_custom_field_id,
@@ -861,6 +870,7 @@ class CustomSymbolsCustomFieldsApi(object):
             custom_symbol_custom_field_id
         return self.get_custom_symbol_custom_field_endpoint.call_with_http_info(**kwargs)
 
+
     def get_custom_symbol_custom_fields(
         self,
         **kwargs
@@ -1022,6 +1032,7 @@ class CustomSymbolsCustomFieldsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_custom_symbol_custom_fields_endpoint.call_with_http_info(**kwargs)
+
 
     def patch_custom_symbol_custom_field(
         self,
@@ -1208,4 +1219,5 @@ class CustomSymbolsCustomFieldsApi(object):
         kwargs['custom_symbol_custom_field_id'] = \
             custom_symbol_custom_field_id
         return self.patch_custom_symbol_custom_field_endpoint.call_with_http_info(**kwargs)
+
 

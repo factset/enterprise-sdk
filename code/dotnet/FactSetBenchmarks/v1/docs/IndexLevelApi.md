@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**GetIndexSnapshotForList**](IndexLevelApi.md#getindexsnapshotforlist) | **POST** /factset-benchmarks/v1/index-snapshot | Retrieves the Index Level Snapshot of Prices and Returns information for a given identifier and single date.
 
 
+
 <a name="getbenchmarkratios"></a>
 # **GetBenchmarkRatios**
 > BenchmarkRatiosResponse GetBenchmarkRatios (List<string> ids, List<string> metrics, string startDate = null, string endDate = null, string frequency = null, string periodicity = null, string currency = null)
@@ -118,6 +119,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbenchmarkratiosforlist"></a>
 # **GetBenchmarkRatiosForList**
 > BenchmarkRatiosResponse GetBenchmarkRatiosForList (BenchmarkRatiosRequest benchmarkRatiosRequest)
@@ -211,6 +213,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getindexhistory"></a>
 # **GetIndexHistory**
@@ -322,6 +325,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getindexhistoryforlist"></a>
 # **GetIndexHistoryForList**
 > IndexHistoryResponse GetIndexHistoryForList (IndexHistoryRequest indexHistoryRequest)
@@ -415,6 +419,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getindexsnapshot"></a>
 # **GetIndexSnapshot**
@@ -518,6 +523,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getindexsnapshotforlist"></a>
 # **GetIndexSnapshotForList**
 > IndexSnapshotResponse GetIndexSnapshotForList (IndexSnapshotRequest indexSnapshotRequest)
@@ -611,4 +617,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

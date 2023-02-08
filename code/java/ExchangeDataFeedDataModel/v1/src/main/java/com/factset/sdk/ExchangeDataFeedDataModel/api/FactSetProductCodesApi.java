@@ -25,8 +25,8 @@ public class FactSetProductCodesApi {
   public FactSetProductCodesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getProductsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getProductsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getProductsResponseTypeMap.put(200, new GenericType<RTDataModelProducts>(){});
     getProductsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
@@ -34,7 +34,7 @@ public class FactSetProductCodesApi {
     getProductsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

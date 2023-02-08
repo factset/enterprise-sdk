@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**GetConvertibleTriggersForList**](ConvertiblesApi.md#getconvertibletriggersforlist) | **POST** /factset-terms-and-conditions/v1/convertible-triggers | Return Convertible Trigger data for a large list of Fixed Income securities.
 
 
+
 <a name="getconvertibledetails"></a>
 # **GetConvertibleDetails**
 > ConvertibleDetailsResponse GetConvertibleDetails (List<string> ids)
@@ -105,6 +106,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getconvertibledetailsforlist"></a>
 # **GetConvertibleDetailsForList**
@@ -200,6 +202,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getconvertiblehistory"></a>
 # **GetConvertibleHistory**
 > ConvertibleHistoryResponse GetConvertibleHistory (List<string> ids)
@@ -293,6 +296,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getconvertiblehistoryforlist"></a>
 # **GetConvertibleHistoryForList**
@@ -388,6 +392,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getconvertibletriggers"></a>
 # **GetConvertibleTriggers**
 > ConvertibleTriggersResponse GetConvertibleTriggers (List<string> ids)
@@ -482,6 +487,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getconvertibletriggersforlist"></a>
 # **GetConvertibleTriggersForList**
 > ConvertibleTriggersResponse GetConvertibleTriggersForList (TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
@@ -575,4 +581,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

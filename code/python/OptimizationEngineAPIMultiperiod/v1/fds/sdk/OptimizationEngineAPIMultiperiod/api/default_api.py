@@ -42,6 +42,7 @@ class DefaultApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.mpo_v1_optimize_fpo_post_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -97,6 +98,7 @@ class DefaultApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -108,6 +110,7 @@ class DefaultApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def mpo_v1_optimize_fpo_post(
         self,
@@ -274,4 +277,5 @@ class DefaultApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.mpo_v1_optimize_fpo_post_endpoint.call_with_http_info(**kwargs)
+
 

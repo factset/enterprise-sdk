@@ -28,8 +28,8 @@ public class RatingsApi {
   public RatingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getConsensusRatingsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getConsensusRatingsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getConsensusRatingsResponseTypeMap.put(200, new GenericType<ConsensusRatingsResponse>(){});
     getConsensusRatingsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class RatingsApi {
     getConsensusRatingsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getConsensusRatingsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getConsensusRatingsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getConsensusRatingsForListResponseTypeMap.put(200, new GenericType<ConsensusRatingsResponse>(){});
@@ -47,6 +48,7 @@ public class RatingsApi {
     getConsensusRatingsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getConsensusRatingsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getDetailRatingsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDetailRatingsResponseTypeMap.put(200, new GenericType<DetailRatingsResponse>(){});
@@ -56,6 +58,7 @@ public class RatingsApi {
     getDetailRatingsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getDetailRatingsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getDetailRatingsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDetailRatingsForListResponseTypeMap.put(200, new GenericType<DetailRatingsResponse>(){});
@@ -66,7 +69,7 @@ public class RatingsApi {
     getDetailRatingsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

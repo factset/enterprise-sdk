@@ -33,41 +33,48 @@ public class PricesApi {
   public PricesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPricesBidAskGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPricesBidAskGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPricesBidAskGetResponseTypeMap.put(200, new GenericType<InlineResponse20084>(){});
   }
+
   private static final Map<Integer, GenericType> getPricesBidAskListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPricesBidAskListResponseTypeMap.put(200, new GenericType<InlineResponse20085>(){});
   }
+
   private static final Map<Integer, GenericType> getPricesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPricesGetResponseTypeMap.put(200, new GenericType<InlineResponse20082>(){});
   }
+
   private static final Map<Integer, GenericType> getPricesListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPricesListResponseTypeMap.put(200, new GenericType<InlineResponse20083>(){});
   }
+
   private static final Map<Integer, GenericType> getPricesOrderbookAggregatedGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPricesOrderbookAggregatedGetResponseTypeMap.put(200, new GenericType<InlineResponse20086>(){});
   }
+
   private static final Map<Integer, GenericType> getPricesOrderbookFullGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPricesOrderbookFullGetResponseTypeMap.put(200, new GenericType<InlineResponse20087>(){});
   }
+
   private static final Map<Integer, GenericType> getPricesTradingScheduleEventTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPricesTradingScheduleEventTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20089>(){});
   }
+
   private static final Map<Integer, GenericType> postPricesTradingScheduleEventListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postPricesTradingScheduleEventListResponseTypeMap.put(200, new GenericType<InlineResponse20088>(){});
   }
 
-   
+  
 
 
   /**

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_entity_task_status**](EntityMatchBulkApi.md#get_entity_task_status) | **GET** /factset-concordance/v1/entity-task-status | Gets the status of the requested taskId or all tasks for a User
 
 
+
 # **create_entity_task**
 > EntityTaskResponse create_entity_task(task_name, input_file, client_id_column, name_column)
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_estimate_metrics_for_list**](DataItemsApi.md#get_estimate_metrics_for_list) | **POST** /factset-estimates/v2/metrics | Available Estimate metrics or ratios.
 
 
+
 # **get_estimate_metrics**
 > MetricsResponse get_estimate_metrics()
 

@@ -204,7 +204,8 @@ namespace FactSet.SDK.OFDB.Api
         private FactSet.SDK.OFDB.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> DeleteDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> DeleteDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
@@ -213,6 +214,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)406, typeof(InlineResponse406) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteDateFromSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(InlineResponse202) },
@@ -222,6 +224,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)406, typeof(InlineResponse406) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(InlineResponse202) },
@@ -235,7 +238,7 @@ namespace FactSet.SDK.OFDB.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

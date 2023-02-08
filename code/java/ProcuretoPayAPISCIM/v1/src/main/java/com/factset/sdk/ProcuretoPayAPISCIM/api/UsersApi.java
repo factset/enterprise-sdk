@@ -27,8 +27,8 @@ public class UsersApi {
   public UsersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> usersGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> usersGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     usersGetResponseTypeMap.put(200, new GenericType<UserResourceList>(){});
     usersGetResponseTypeMap.put(400, new GenericType<Error>(){});
@@ -36,7 +36,9 @@ public class UsersApi {
     usersGetResponseTypeMap.put(403, new GenericType<Error>(){});
     usersGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> usersIdDeleteResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> usersIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     usersIdGetResponseTypeMap.put(200, new GenericType<UserResource>(){});
@@ -45,6 +47,7 @@ public class UsersApi {
     usersIdGetResponseTypeMap.put(404, new GenericType<Error>(){});
     usersIdGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> usersIdPatchResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     usersIdPatchResponseTypeMap.put(200, new GenericType<UserResource>(){});
@@ -53,6 +56,7 @@ public class UsersApi {
     usersIdPatchResponseTypeMap.put(403, new GenericType<Error>(){});
     usersIdPatchResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> usersIdPutResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     usersIdPutResponseTypeMap.put(200, new GenericType<UserResource>(){});
@@ -62,6 +66,7 @@ public class UsersApi {
     usersIdPutResponseTypeMap.put(404, new GenericType<Error>(){});
     usersIdPutResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> usersPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     usersPostResponseTypeMap.put(201, new GenericType<UserResource>(){});
@@ -71,7 +76,7 @@ public class UsersApi {
     usersPostResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

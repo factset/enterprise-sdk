@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetRecordEvent**](EventsApi.md#getrecordevent) | **GET** /v1/notes/{noteId}/events/{recordEventId} | Get details of a record event of a note
 
 
+
 <a name="getallevents"></a>
 # **GetAllEvents**
 > List&lt;EventSnippetDto&gt; GetAllEvents (string startDate, string endDate = null, List<string> types = null)
@@ -101,6 +102,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getevents"></a>
 # **GetEvents**
 > List&lt;RecordEventSummaryDto&gt; GetEvents (Guid noteId)
@@ -189,6 +191,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getrecordevent"></a>
 # **GetRecordEvent**
@@ -280,4 +283,5 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

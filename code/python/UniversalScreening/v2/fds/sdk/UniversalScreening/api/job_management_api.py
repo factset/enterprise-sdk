@@ -42,6 +42,7 @@ class JobManagementApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.delete_active_job_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -94,6 +95,7 @@ class JobManagementApi(object):
             },
             api_client=api_client
         )
+
         self.delete_all_active_jobs_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -139,6 +141,7 @@ class JobManagementApi(object):
             },
             api_client=api_client
         )
+
         self.get_all_active_jobs_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -188,6 +191,7 @@ class JobManagementApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -199,6 +203,7 @@ class JobManagementApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def delete_active_job(
         self,
@@ -386,6 +391,7 @@ class JobManagementApi(object):
             id
         return self.delete_active_job_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_all_active_jobs(
         self,
         **kwargs
@@ -552,6 +558,7 @@ class JobManagementApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.delete_all_active_jobs_endpoint.call_with_http_info(**kwargs)
 
+
     def get_all_active_jobs(
         self,
         **kwargs
@@ -717,4 +724,5 @@ class JobManagementApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_all_active_jobs_endpoint.call_with_http_info(**kwargs)
+
 

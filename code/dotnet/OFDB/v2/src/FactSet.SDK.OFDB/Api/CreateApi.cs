@@ -100,7 +100,8 @@ namespace FactSet.SDK.OFDB.Api
         private FactSet.SDK.OFDB.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CreateDatabaseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CreateDatabaseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(CreateDatabase) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
@@ -114,7 +115,7 @@ namespace FactSet.SDK.OFDB.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

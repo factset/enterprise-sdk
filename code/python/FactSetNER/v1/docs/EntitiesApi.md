@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**post_entities_entities**](EntitiesApi.md#post_entities_entities) | **POST** /cognitive/ner/v1/entities | 
 
 
+
 # **post_entities_entities**
 > Response post_entities_entities()
 

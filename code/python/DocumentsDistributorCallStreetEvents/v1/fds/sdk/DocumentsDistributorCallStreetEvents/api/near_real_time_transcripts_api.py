@@ -49,6 +49,7 @@ class NearRealTimeTranscriptsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_bulk_documents_nrt_v1_calls_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -157,6 +158,7 @@ class NearRealTimeTranscriptsApi(object):
             },
             api_client=api_client
         )
+
         self.get_bulk_documents_nrt_v1_indexed_nrt_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -233,6 +235,7 @@ class NearRealTimeTranscriptsApi(object):
             },
             api_client=api_client
         )
+
         self.get_bulk_documents_nrt_v1_list_snippets_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -309,6 +312,7 @@ class NearRealTimeTranscriptsApi(object):
             },
             api_client=api_client
         )
+
         self.get_bulk_documents_nrt_v1_speakerids_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -392,6 +396,7 @@ class NearRealTimeTranscriptsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -403,6 +408,7 @@ class NearRealTimeTranscriptsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_bulk_documents_nrt_v1_calls(
         self,
@@ -602,6 +608,7 @@ class NearRealTimeTranscriptsApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_bulk_documents_nrt_v1_calls_endpoint.call_with_http_info(**kwargs)
 
+
     def get_bulk_documents_nrt_v1_indexed_nrt(
         self,
         audio_source_id,
@@ -799,6 +806,7 @@ class NearRealTimeTranscriptsApi(object):
         kwargs['audio_source_id'] = \
             audio_source_id
         return self.get_bulk_documents_nrt_v1_indexed_nrt_endpoint.call_with_http_info(**kwargs)
+
 
     def get_bulk_documents_nrt_v1_list_snippets(
         self,
@@ -998,6 +1006,7 @@ class NearRealTimeTranscriptsApi(object):
             audio_source_id
         return self.get_bulk_documents_nrt_v1_list_snippets_endpoint.call_with_http_info(**kwargs)
 
+
     def get_bulk_documents_nrt_v1_speakerids(
         self,
         audio_source_id,
@@ -1195,4 +1204,5 @@ class NearRealTimeTranscriptsApi(object):
         kwargs['audio_source_id'] = \
             audio_source_id
         return self.get_bulk_documents_nrt_v1_speakerids_endpoint.call_with_http_info(**kwargs)
+
 

@@ -43,69 +43,83 @@ public class NewsApi {
   public NewsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getNewsArticleGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getNewsArticleGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNewsArticleGetResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
   }
+
   private static final Map<Integer, GenericType> getNewsArticleTypeGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNewsArticleTypeGetResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
   }
+
   private static final Map<Integer, GenericType> getNewsArticleTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNewsArticleTypeListResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
   }
+
   private static final Map<Integer, GenericType> getNewsDistributorGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNewsDistributorGetResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
   }
+
   private static final Map<Integer, GenericType> getNewsDistributorListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNewsDistributorListResponseTypeMap.put(200, new GenericType<InlineResponse2008>(){});
   }
+
   private static final Map<Integer, GenericType> getNewsPublisherGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNewsPublisherGetResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
   }
+
   private static final Map<Integer, GenericType> getNewsPublisherListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNewsPublisherListResponseTypeMap.put(200, new GenericType<InlineResponse20010>(){});
   }
+
   private static final Map<Integer, GenericType> getNewsPublisherListByDistributorResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNewsPublisherListByDistributorResponseTypeMap.put(200, new GenericType<InlineResponse20011>(){});
   }
+
   private static final Map<Integer, GenericType> postNewsArticleListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNewsArticleListResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
   }
+
   private static final Map<Integer, GenericType> postNewsArticleListByChainResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNewsArticleListByChainResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
   }
+
   private static final Map<Integer, GenericType> postNewsArticleListByIndexResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNewsArticleListByIndexResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
   }
+
   private static final Map<Integer, GenericType> postNewsArticleListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNewsArticleListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
   }
+
   private static final Map<Integer, GenericType> postNewsArticleListByMediaKindResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNewsArticleListByMediaKindResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
   }
+
   private static final Map<Integer, GenericType> postNewsArticleSearchByTextResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNewsArticleSearchByTextResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
   }
+
   private static final Map<Integer, GenericType> postNewsPublisherSearchByNameResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNewsPublisherSearchByNameResponseTypeMap.put(200, new GenericType<InlineResponse20011>(){});
   }
 
-   
+  
 
 
   /**

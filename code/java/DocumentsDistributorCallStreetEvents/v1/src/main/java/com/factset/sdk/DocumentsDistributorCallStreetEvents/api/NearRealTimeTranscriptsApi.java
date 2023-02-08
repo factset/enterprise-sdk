@@ -31,8 +31,8 @@ public class NearRealTimeTranscriptsApi {
   public NearRealTimeTranscriptsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBulkDocumentsNrtV1CallsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBulkDocumentsNrtV1CallsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBulkDocumentsNrtV1CallsResponseTypeMap.put(200, new GenericType<NRTCalls>(){});
     getBulkDocumentsNrtV1CallsResponseTypeMap.put(400, new GenericType<NRTCalls400Response>(){});
@@ -40,6 +40,7 @@ public class NearRealTimeTranscriptsApi {
     getBulkDocumentsNrtV1CallsResponseTypeMap.put(403, new GenericType<Error>(){});
     getBulkDocumentsNrtV1CallsResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> getBulkDocumentsNrtV1IndexedNrtResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBulkDocumentsNrtV1IndexedNrtResponseTypeMap.put(200, new GenericType<IndexedNRT>(){});
@@ -48,6 +49,7 @@ public class NearRealTimeTranscriptsApi {
     getBulkDocumentsNrtV1IndexedNrtResponseTypeMap.put(403, new GenericType<Error>(){});
     getBulkDocumentsNrtV1IndexedNrtResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> getBulkDocumentsNrtV1ListSnippetsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBulkDocumentsNrtV1ListSnippetsResponseTypeMap.put(200, new GenericType<NRTSnippets>(){});
@@ -56,6 +58,7 @@ public class NearRealTimeTranscriptsApi {
     getBulkDocumentsNrtV1ListSnippetsResponseTypeMap.put(403, new GenericType<Error>(){});
     getBulkDocumentsNrtV1ListSnippetsResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> getBulkDocumentsNrtV1SpeakeridsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBulkDocumentsNrtV1SpeakeridsResponseTypeMap.put(200, new GenericType<NRTSpeakerids>(){});
@@ -65,7 +68,7 @@ public class NearRealTimeTranscriptsApi {
     getBulkDocumentsNrtV1SpeakeridsResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

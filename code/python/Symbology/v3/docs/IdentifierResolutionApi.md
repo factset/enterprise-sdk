@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**identifier_resolution**](IdentifierResolutionApi.md#identifier_resolution) | **GET** /symbology/v3/identifier-resolution | Returns the specified output identifiers for the specified input identifier.
 
 
+
 # **batch_identifier_resolution**
 > IdentifierResolutionResponse batch_identifier_resolution(identifier_resolution_request)
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**generate_id_mapping**](OperationsApi.md#generate_id_mapping) | **POST** /linear/{version}/generate/id-mapping | Generate risk model ID mapping
 
 
+
 # **calculate_from_holdings**
 > InlineResponse2004 calculate_from_holdings(version, calculate_from_holdings_request_body)
 

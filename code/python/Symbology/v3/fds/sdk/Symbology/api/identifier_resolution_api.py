@@ -44,6 +44,7 @@ class IdentifierResolutionApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.batch_identifier_resolution_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -100,6 +101,7 @@ class IdentifierResolutionApi(object):
             },
             api_client=api_client
         )
+
         self.identifier_resolution_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -234,6 +236,7 @@ class IdentifierResolutionApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -245,6 +248,7 @@ class IdentifierResolutionApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def batch_identifier_resolution(
         self,
@@ -431,6 +435,7 @@ class IdentifierResolutionApi(object):
         kwargs['identifier_resolution_request'] = \
             identifier_resolution_request
         return self.batch_identifier_resolution_endpoint.call_with_http_info(**kwargs)
+
 
     def identifier_resolution(
         self,
@@ -649,4 +654,5 @@ class IdentifierResolutionApi(object):
         kwargs['output_symbol_types'] = \
             output_symbol_types
         return self.identifier_resolution_endpoint.call_with_http_info(**kwargs)
+
 

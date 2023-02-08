@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**PostOwnershipHoldings**](FundHoldingsApi.md#postownershipholdings) | **POST** /factset-ownership/v1/fund-holdings | Get holdings for a list of funds.
 
 
+
 <a name="getownershipholdings"></a>
 # **GetOwnershipHoldings**
 > FundHoldingsResponse GetOwnershipHoldings (List<string> ids, string date = null, string topn = null, string assetType = null, string currency = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postownershipholdings"></a>
 # **PostOwnershipHoldings**
 > FundHoldingsResponse PostOwnershipHoldings (FundHoldingsRequest fundHoldingsRequest)
@@ -203,4 +205,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

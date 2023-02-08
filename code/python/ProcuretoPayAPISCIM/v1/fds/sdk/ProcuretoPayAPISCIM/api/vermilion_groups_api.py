@@ -43,6 +43,7 @@ class VermilionGroupsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.vermilion_groups_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -116,6 +117,7 @@ class VermilionGroupsApi(object):
             },
             api_client=api_client
         )
+
         self.vermilion_groups_id_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -171,6 +173,7 @@ class VermilionGroupsApi(object):
             },
             api_client=api_client
         )
+
         self.vermilion_groups_id_patch_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -232,6 +235,7 @@ class VermilionGroupsApi(object):
             },
             api_client=api_client
         )
+
         self.vermilion_groups_id_put_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -295,6 +299,7 @@ class VermilionGroupsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -306,6 +311,7 @@ class VermilionGroupsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def vermilion_groups_get(
         self,
@@ -489,6 +495,7 @@ class VermilionGroupsApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.vermilion_groups_get_endpoint.call_with_http_info(**kwargs)
 
+
     def vermilion_groups_id_get(
         self,
         id,
@@ -670,6 +677,7 @@ class VermilionGroupsApi(object):
         kwargs['id'] = \
             id
         return self.vermilion_groups_id_get_endpoint.call_with_http_info(**kwargs)
+
 
     def vermilion_groups_id_patch(
         self,
@@ -856,6 +864,7 @@ class VermilionGroupsApi(object):
         kwargs['id'] = \
             id
         return self.vermilion_groups_id_patch_endpoint.call_with_http_info(**kwargs)
+
 
     def vermilion_groups_id_put(
         self,
@@ -1054,4 +1063,5 @@ class VermilionGroupsApi(object):
         kwargs['vermilion_group_resource'] = \
             vermilion_group_resource
         return self.vermilion_groups_id_put_endpoint.call_with_http_info(**kwargs)
+
 

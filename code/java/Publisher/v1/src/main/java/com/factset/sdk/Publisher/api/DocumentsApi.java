@@ -24,13 +24,13 @@ public class DocumentsApi {
   public DocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPubDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPubDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPubDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectories>(){});
   }
 
-   
+  
 
 
   /**

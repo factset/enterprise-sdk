@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**patch_contact**](ContactsApi.md#patch_contact) | **PATCH** /v1/contacts/{contactId} | Edit a contact’s standard field and custom field data
 
 
+
 # **create_contact**
 > NewItemDto create_contact()
 

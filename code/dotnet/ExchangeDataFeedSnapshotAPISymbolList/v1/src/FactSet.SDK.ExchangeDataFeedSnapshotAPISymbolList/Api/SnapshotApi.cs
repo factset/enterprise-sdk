@@ -192,12 +192,14 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
         private FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetDFSnapshotResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetDFSnapshotResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(DFSnapshotResponse) },
             { (HttpStatusCode)402, typeof(ErrorResponse) },
             { (HttpStatusCode)403, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostDFSnapshotResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(DFSnapshotResponse) },
@@ -208,7 +210,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

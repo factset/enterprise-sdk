@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**SendTransactions**](DSOTMApi.md#sendtransactions) | **POST** /analytics/dsotm/v1/transactions | Push transactions data into FactSet&#39;s systems.
 
 
+
 <a name="sendtransactions"></a>
 # **SendTransactions**
 > void SendTransactions (Transactions transactions = null)
@@ -101,4 +102,5 @@ void (empty response body)
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

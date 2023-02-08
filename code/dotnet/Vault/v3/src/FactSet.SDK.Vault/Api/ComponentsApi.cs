@@ -144,12 +144,14 @@ namespace FactSet.SDK.Vault.Api
         private FactSet.SDK.Vault.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetVaultComponentByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetVaultComponentByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(VaultComponentRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetVaultComponentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ComponentSummaryRoot) },
@@ -160,7 +162,7 @@ namespace FactSet.SDK.Vault.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -92,7 +92,8 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
         private FactSet.SDK.ProcuretoPayAPISCIM.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> ServiceProviderConfigGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> ServiceProviderConfigGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ServiceProviderConfig) },
             { (HttpStatusCode)401, typeof(Error) },
@@ -102,7 +103,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

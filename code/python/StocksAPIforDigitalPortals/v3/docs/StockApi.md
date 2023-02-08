@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**post_stock_notation_screener_value_ranges_get**](StockApi.md#post_stock_notation_screener_value_ranges_get) | **POST** /stock/notation/screener/valueRanges/get | Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
 
 
+
 # **get_stock_composite_profile_get_by_notation**
 > InlineResponse2009 get_stock_composite_profile_get_by_notation(identifier, identifier_type)
 

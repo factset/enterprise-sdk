@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**UpdateLinkedPATemplates**](LinkedPATemplatesApi.md#updatelinkedpatemplates) | **PUT** /analytics/engines/pa/v3/linked-templates/{id} | Update a linked PA template
 
 
+
 <a name="createlinkedpatemplates"></a>
 # **CreateLinkedPATemplates**
 > LinkedPATemplatePostSummaryRoot CreateLinkedPATemplates (LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="deletelinkedpatemplates"></a>
 # **DeleteLinkedPATemplates**
 > void DeleteLinkedPATemplates (string id)
@@ -203,6 +205,7 @@ void (empty response body)
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getlinkedpatemplates"></a>
 # **GetLinkedPATemplates**
@@ -305,6 +308,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getlinkedpatemplatesbyid"></a>
 # **GetLinkedPATemplatesById**
 > LinkedPATemplateRoot GetLinkedPATemplatesById (string id)
@@ -401,6 +405,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="updatelinkedpatemplates"></a>
 # **UpdateLinkedPATemplates**
@@ -500,4 +505,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**patch_standard_symbol**](HybridSymbolsApi.md#patch_standard_symbol) | **PATCH** /v1/custom-symbols/standard-symbol-metadata/{standardSymbolId} | Edit a standard symbol’s standard field and custom field data
 
 
+
 # **create_standard_symbol_metadata**
 > NewItemDto create_standard_symbol_metadata()
 

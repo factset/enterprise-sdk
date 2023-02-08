@@ -404,7 +404,8 @@ namespace FactSet.SDK.OFDB.Api
         private FactSet.SDK.OFDB.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetAuditResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAuditResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse200) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
@@ -414,6 +415,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)406, typeof(InlineResponse406) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2005) },
@@ -424,6 +426,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)406, typeof(InlineResponse406) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2004) },
@@ -434,6 +437,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)406, typeof(InlineResponse406) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFieldsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2002) },
@@ -444,6 +448,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)406, typeof(InlineResponse406) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2001) },
@@ -454,6 +459,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)406, typeof(InlineResponse406) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSymbolsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2003) },
@@ -468,7 +474,7 @@ namespace FactSet.SDK.OFDB.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -29,8 +29,8 @@ public class DeleteApi {
   public DeleteApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> deleteDateResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> deleteDateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     deleteDateResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     deleteDateResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
@@ -39,6 +39,7 @@ public class DeleteApi {
     deleteDateResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
     deleteDateResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> deleteDateFromSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     deleteDateFromSymbolResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
@@ -48,6 +49,7 @@ public class DeleteApi {
     deleteDateFromSymbolResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
     deleteDateFromSymbolResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> deleteSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     deleteSymbolResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
@@ -58,7 +60,7 @@ public class DeleteApi {
     deleteSymbolResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
 
-   
+  
 
 
   /**

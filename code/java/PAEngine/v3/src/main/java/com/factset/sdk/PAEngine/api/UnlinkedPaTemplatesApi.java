@@ -31,34 +31,40 @@ public class UnlinkedPaTemplatesApi {
   public UnlinkedPaTemplatesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createUnlinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createUnlinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createUnlinkedPATemplatesResponseTypeMap.put(201, new GenericType<UnlinkedPATemplatePostSummaryRoot>(){});
     createUnlinkedPATemplatesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> deleteUnlinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getDefaultUnlinkedPATemplateTypesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDefaultUnlinkedPATemplateTypesResponseTypeMap.put(200, new GenericType<UnlinkedPATemplateCategoryAndTypeRoot>(){});
   }
+
   private static final Map<Integer, GenericType> getDetailsTypeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDetailsTypeResponseTypeMap.put(200, new GenericType<UnlinkedPATemplateCategoryAndTypeDetailsRoot>(){});
     getDetailsTypeResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getDetailsTypeResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getUnlinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getUnlinkedPATemplatesResponseTypeMap.put(200, new GenericType<UnlinkedPATemplateSummaryRoot>(){});
     getUnlinkedPATemplatesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getUnlinkedPATemplatesByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getUnlinkedPATemplatesByIdResponseTypeMap.put(200, new GenericType<UnlinkedPATemplateRoot>(){});
     getUnlinkedPATemplatesByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getUnlinkedPATemplatesByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> updateUnlinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     updateUnlinkedPATemplatesResponseTypeMap.put(200, new GenericType<UnlinkedPATemplatePostSummaryRoot>(){});
@@ -66,7 +72,7 @@ public class UnlinkedPaTemplatesApi {
     updateUnlinkedPATemplatesResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

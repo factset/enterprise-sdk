@@ -28,8 +28,8 @@ public class ReferenceApi {
   public ReferenceApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getOptionsDatesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getOptionsDatesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptionsDatesForListResponseTypeMap.put(200, new GenericType<OptionsDatesResponse>(){});
     getOptionsDatesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class ReferenceApi {
     getOptionsDatesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getOptionsDatesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getOptionsReferencesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptionsReferencesForListResponseTypeMap.put(200, new GenericType<OptionsReferencesResponse>(){});
@@ -48,7 +49,7 @@ public class ReferenceApi {
     getOptionsReferencesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

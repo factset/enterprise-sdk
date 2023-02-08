@@ -144,7 +144,8 @@ namespace FactSet.SDK.FactSetOptions.Api
         private FactSet.SDK.FactSetOptions.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetOptionsDatesForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetOptionsDatesForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(OptionsDatesResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -153,6 +154,7 @@ namespace FactSet.SDK.FactSetOptions.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetOptionsReferencesForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(OptionsReferencesResponse) },
@@ -166,7 +168,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

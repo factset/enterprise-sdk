@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**get_estimates_valuation**](AllEstimatesApi.md#get_estimates_valuation) | **GET** /valuation | Valuation
 
 
+
 # **get_estimates_balance_sheet**
 > Response get_estimates_balance_sheet(id)
 

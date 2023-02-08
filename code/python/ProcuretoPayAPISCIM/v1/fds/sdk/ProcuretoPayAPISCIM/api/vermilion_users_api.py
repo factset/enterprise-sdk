@@ -43,6 +43,7 @@ class VermilionUsersApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.vermilion_users_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -116,6 +117,7 @@ class VermilionUsersApi(object):
             },
             api_client=api_client
         )
+
         self.vermilion_users_id_delete_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -168,6 +170,7 @@ class VermilionUsersApi(object):
             },
             api_client=api_client
         )
+
         self.vermilion_users_id_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -223,6 +226,7 @@ class VermilionUsersApi(object):
             },
             api_client=api_client
         )
+
         self.vermilion_users_id_patch_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -284,6 +288,7 @@ class VermilionUsersApi(object):
             },
             api_client=api_client
         )
+
         self.vermilion_users_id_put_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -346,6 +351,7 @@ class VermilionUsersApi(object):
             },
             api_client=api_client
         )
+
         self.vermilion_users_post_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -403,6 +409,7 @@ class VermilionUsersApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -414,6 +421,7 @@ class VermilionUsersApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def vermilion_users_get(
         self,
@@ -597,6 +605,7 @@ class VermilionUsersApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.vermilion_users_get_endpoint.call_with_http_info(**kwargs)
 
+
     def vermilion_users_id_delete(
         self,
         id,
@@ -779,6 +788,7 @@ class VermilionUsersApi(object):
             id
         return self.vermilion_users_id_delete_endpoint.call_with_http_info(**kwargs)
 
+
     def vermilion_users_id_get(
         self,
         id,
@@ -960,6 +970,7 @@ class VermilionUsersApi(object):
         kwargs['id'] = \
             id
         return self.vermilion_users_id_get_endpoint.call_with_http_info(**kwargs)
+
 
     def vermilion_users_id_patch(
         self,
@@ -1146,6 +1157,7 @@ class VermilionUsersApi(object):
         kwargs['id'] = \
             id
         return self.vermilion_users_id_patch_endpoint.call_with_http_info(**kwargs)
+
 
     def vermilion_users_id_put(
         self,
@@ -1345,6 +1357,7 @@ class VermilionUsersApi(object):
             vermilion_user_resource
         return self.vermilion_users_id_put_endpoint.call_with_http_info(**kwargs)
 
+
     def vermilion_users_post(
         self,
         vermilion_user_resource,
@@ -1526,4 +1539,5 @@ class VermilionUsersApi(object):
         kwargs['vermilion_user_resource'] = \
             vermilion_user_resource
         return self.vermilion_users_post_endpoint.call_with_http_info(**kwargs)
+
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_currencies**](CurrenciesApi.md#get_currencies) | **GET** /analytics/lookups/v3/currencies | Get currencies
 
 
+
 # **get_currencies**
 > CurrencyRoot get_currencies()
 

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetFundsFlowsForList**](FundFlowsAUMApi.md#getfundsflowsforlist) | **POST** /factset-funds/v1/flows | Get Fund Flows for a requested date range and large list of ids
 
 
+
 <a name="getfundsaum"></a>
 # **GetFundsAum**
 > AumResponse GetFundsAum (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string currency = null, string dataType = null)
@@ -114,6 +115,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundsaumforlist"></a>
 # **GetFundsAumForList**
 > AumResponse GetFundsAumForList (AumRequest aumRequest)
@@ -207,6 +209,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfundsflows"></a>
 # **GetFundsFlows**
@@ -310,6 +313,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundsflowsforlist"></a>
 # **GetFundsFlowsForList**
 > FlowsResponse GetFundsFlowsForList (FlowsRequest flowsRequest)
@@ -403,4 +407,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

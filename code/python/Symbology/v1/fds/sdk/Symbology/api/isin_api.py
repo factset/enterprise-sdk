@@ -46,6 +46,7 @@ class ISINApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.batch_isin_history_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -102,6 +103,7 @@ class ISINApi(object):
             },
             api_client=api_client
         )
+
         self.batch_translate_isin_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -158,6 +160,7 @@ class ISINApi(object):
             },
             api_client=api_client
         )
+
         self.isin_history_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -214,6 +217,7 @@ class ISINApi(object):
             },
             api_client=api_client
         )
+
         self.translate_isin_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -276,6 +280,7 @@ class ISINApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -287,6 +292,7 @@ class ISINApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def batch_isin_history(
         self,
@@ -474,6 +480,7 @@ class ISINApi(object):
             isin_history_translation_request
         return self.batch_isin_history_endpoint.call_with_http_info(**kwargs)
 
+
     def batch_translate_isin(
         self,
         isin_translation_request,
@@ -660,6 +667,7 @@ class ISINApi(object):
             isin_translation_request
         return self.batch_translate_isin_endpoint.call_with_http_info(**kwargs)
 
+
     def isin_history(
         self,
         ids,
@@ -845,6 +853,7 @@ class ISINApi(object):
         kwargs['ids'] = \
             ids
         return self.isin_history_endpoint.call_with_http_info(**kwargs)
+
 
     def translate_isin(
         self,
@@ -1035,4 +1044,5 @@ class ISINApi(object):
         kwargs['ids'] = \
             ids
         return self.translate_isin_endpoint.call_with_http_info(**kwargs)
+
 

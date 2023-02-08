@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetOptionsSnapshotForList**](SnapshotApi.md#getoptionssnapshotforlist) | **POST** /factset-options/v1/snapshot | Returns all the profile information for the list of identifiers as of a specific date
 
 
+
 <a name="getoptionssnapshotforlist"></a>
 # **GetOptionsSnapshotForList**
 > SnapshotResponse GetOptionsSnapshotForList (SnapshotRequest snapshotRequest)
@@ -100,4 +101,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

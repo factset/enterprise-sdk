@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_data_poll_id_result_get**](RetrieveRefreshedDataApi.md#get_data_poll_id_result_get) | **GET** /get-data/{poll_id}/result | Retrieve data for desired report.
 
 
+
 # **get_data_poll_id_result_get**
 > ReportDataHeader get_data_poll_id_result_get(poll_id)
 

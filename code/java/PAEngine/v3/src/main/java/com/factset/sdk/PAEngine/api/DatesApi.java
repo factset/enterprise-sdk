@@ -25,15 +25,15 @@ public class DatesApi {
   public DatesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> convertPADatesToAbsoluteFormatResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> convertPADatesToAbsoluteFormatResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     convertPADatesToAbsoluteFormatResponseTypeMap.put(200, new GenericType<DateParametersSummaryRoot>(){});
     convertPADatesToAbsoluteFormatResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     convertPADatesToAbsoluteFormatResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

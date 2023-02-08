@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetFixedIncomeUseOfProceedsForList**](UseOfProceedsApi.md#getfixedincomeuseofproceedsforlist) | **POST** /factset-terms-and-conditions/v1/use-of-proceeds | Return Use of Proceeds for a list of Fixed Income securities.
 
 
+
 <a name="getfixedincomeuseofproceeds"></a>
 # **GetFixedIncomeUseOfProceeds**
 > UseOfProceedsResponse GetFixedIncomeUseOfProceeds (List<string> ids)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfixedincomeuseofproceedsforlist"></a>
 # **GetFixedIncomeUseOfProceedsForList**
 > UseOfProceedsResponse GetFixedIncomeUseOfProceedsForList (TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

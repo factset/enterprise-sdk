@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetOwnershipHolders**](OwnershipApi.md#getownershipholders) | **GET** /holders | Holders of a company or fund
 
 
+
 <a name="getownershipholders"></a>
 # **GetOwnershipHolders**
 > Response GetOwnershipHolders (string id, string assetType = null, string holderType = null, string topn = null, string date = null)
@@ -110,4 +111,5 @@ Name | Type | Description  | Notes
 | **503** | Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet request ID <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

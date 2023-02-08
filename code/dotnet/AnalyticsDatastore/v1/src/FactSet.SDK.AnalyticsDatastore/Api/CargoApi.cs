@@ -103,7 +103,8 @@ namespace FactSet.SDK.AnalyticsDatastore.Api
         private FactSet.SDK.AnalyticsDatastore.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetCargoEndpointResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCargoEndpointResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<string>) },
         };
@@ -111,7 +112,7 @@ namespace FactSet.SDK.AnalyticsDatastore.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

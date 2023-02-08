@@ -28,8 +28,8 @@ public class IsinApi {
   public IsinApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> batchIsinHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> batchIsinHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchIsinHistoryResponseTypeMap.put(200, new GenericType<IsinHistoryTranslationResponse>(){});
     batchIsinHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class IsinApi {
     batchIsinHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchIsinHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> batchTranslateIsinResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchTranslateIsinResponseTypeMap.put(200, new GenericType<IsinTranslationResponse>(){});
@@ -47,6 +48,7 @@ public class IsinApi {
     batchTranslateIsinResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchTranslateIsinResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> isinHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     isinHistoryResponseTypeMap.put(200, new GenericType<IsinHistoryTranslationResponse>(){});
@@ -56,6 +58,7 @@ public class IsinApi {
     isinHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     isinHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> translateIsinResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     translateIsinResponseTypeMap.put(200, new GenericType<IsinTranslationResponse>(){});
@@ -66,7 +69,7 @@ public class IsinApi {
     translateIsinResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

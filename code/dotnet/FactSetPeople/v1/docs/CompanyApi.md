@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**GetCompanyStatsForList**](CompanyApi.md#getcompanystatsforlist) | **POST** /factset-people/v1/company-stats | Returns statistics about top leadership of a company.
 
 
+
 <a name="getcompanycompensation"></a>
 # **GetCompanyCompensation**
 > CompanyCompensationResponse GetCompanyCompensation (List<string> ids)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcompanycompensationforlist"></a>
 # **GetCompanyCompensationForList**
 > CompanyCompensationResponse GetCompanyCompensationForList (CompanyCompensationRequest companyCompensationRequest)
@@ -201,6 +203,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcompanypeople"></a>
 # **GetCompanyPeople**
@@ -298,6 +301,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcompanypeopleforlist"></a>
 # **GetCompanyPeopleForList**
 > CompanyPeopleResponse GetCompanyPeopleForList (CompanyPeopleRequest companyPeopleRequest)
@@ -391,6 +395,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcompanypositions"></a>
 # **GetCompanyPositions**
@@ -488,6 +493,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcompanypositionsforlist"></a>
 # **GetCompanyPositionsForList**
 > CompanyPositionsResponse GetCompanyPositionsForList (CompanyPositionsRequest companyPositionsRequest)
@@ -581,6 +587,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcompanystats"></a>
 # **GetCompanyStats**
@@ -678,6 +685,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcompanystatsforlist"></a>
 # **GetCompanyStatsForList**
 > CompanyStatsResponse GetCompanyStatsForList (CompanyStatsRequest companyStatsRequest)
@@ -771,4 +779,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

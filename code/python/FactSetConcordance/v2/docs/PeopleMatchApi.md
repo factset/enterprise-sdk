@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_people_match_for_list**](PeopleMatchApi.md#get_people_match_for_list) | **POST** /factset-concordance/v2/people-match | Find potential people matches given a person&#39;s name.
 
 
+
 # **get_people_match**
 > PeopleMatchesResponse get_people_match(entity)
 

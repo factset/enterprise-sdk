@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.FixedIncomeCalculation
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FixedIncomeCalculation
 from fds.sdk.FixedIncomeCalculation.api import discount_curves_api
 from fds.sdk.FixedIncomeCalculation.models import *

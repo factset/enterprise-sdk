@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSPARReturnsType**](AccountsApi.md#getsparreturnstype) | **GET** /analytics/engines/spar/v3/accounts/{accountPath}/returns-type | Get SPAR account returns type details
 
 
+
 <a name="getaccounts"></a>
 # **GetAccounts**
 > AccountDirectoriesRoot GetAccounts (string path)
@@ -105,6 +106,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsparreturnstype"></a>
 # **GetSPARReturnsType**
 > SPARAccountsRoot GetSPARReturnsType (string accountPath)
@@ -201,4 +203,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

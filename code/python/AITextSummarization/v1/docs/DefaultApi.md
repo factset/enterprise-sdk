@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**post_summary_v1_summary**](DefaultApi.md#post_summary_v1_summary) | **POST** /summary | POST request to create a headline and summary from input text
 
 
+
 # **get_result_v1_result_result_id**
 > SuccessResponse get_result_v1_result_result_id(result_id)
 

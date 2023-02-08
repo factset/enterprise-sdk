@@ -47,6 +47,7 @@ class DeleteApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.delete_date_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -108,6 +109,7 @@ class DeleteApi(object):
             },
             api_client=api_client
         )
+
         self.delete_date_from_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -175,6 +177,7 @@ class DeleteApi(object):
             },
             api_client=api_client
         )
+
         self.delete_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -237,6 +240,7 @@ class DeleteApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -248,6 +252,7 @@ class DeleteApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def delete_date(
         self,
@@ -450,6 +455,7 @@ class DeleteApi(object):
         kwargs['date'] = \
             date
         return self.delete_date_endpoint.call_with_http_info(**kwargs)
+
 
     def delete_date_from_symbol(
         self,
@@ -669,6 +675,7 @@ class DeleteApi(object):
             symbol
         return self.delete_date_from_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_symbol(
         self,
         path,
@@ -870,4 +877,5 @@ class DeleteApi(object):
         kwargs['symbol'] = \
             symbol
         return self.delete_symbol_endpoint.call_with_http_info(**kwargs)
+
 

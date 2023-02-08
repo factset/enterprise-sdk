@@ -46,6 +46,7 @@ class MeetingsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_meeting_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -103,6 +104,7 @@ class MeetingsApi(object):
             },
             api_client=api_client
         )
+
         self.delete_meeting_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -155,6 +157,7 @@ class MeetingsApi(object):
             },
             api_client=api_client
         )
+
         self.get_meeting_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -210,6 +213,7 @@ class MeetingsApi(object):
             },
             api_client=api_client
         )
+
         self.get_meetings_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -289,6 +293,7 @@ class MeetingsApi(object):
             },
             api_client=api_client
         )
+
         self.update_meeting_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -351,6 +356,7 @@ class MeetingsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -362,6 +368,7 @@ class MeetingsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_meeting(
         self,
@@ -528,6 +535,7 @@ class MeetingsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.create_meeting_endpoint.call_with_http_info(**kwargs)
+
 
     def delete_meeting(
         self,
@@ -711,6 +719,7 @@ class MeetingsApi(object):
             meeting_id
         return self.delete_meeting_endpoint.call_with_http_info(**kwargs)
 
+
     def get_meeting(
         self,
         meeting_id,
@@ -892,6 +901,7 @@ class MeetingsApi(object):
         kwargs['meeting_id'] = \
             meeting_id
         return self.get_meeting_endpoint.call_with_http_info(**kwargs)
+
 
     def get_meetings(
         self,
@@ -1079,6 +1089,7 @@ class MeetingsApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_meetings_endpoint.call_with_http_info(**kwargs)
 
+
     def update_meeting(
         self,
         meeting_id,
@@ -1264,4 +1275,5 @@ class MeetingsApi(object):
         kwargs['meeting_id'] = \
             meeting_id
         return self.update_meeting_endpoint.call_with_http_info(**kwargs)
+
 

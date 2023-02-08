@@ -26,8 +26,8 @@ public class CouponApi {
   public CouponApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBondCouponResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBondCouponResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondCouponResponseTypeMap.put(200, new GenericType<BondCouponResponse>(){});
     getBondCouponResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class CouponApi {
     getBondCouponResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBondCouponResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getBondCouponForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondCouponForListResponseTypeMap.put(200, new GenericType<BondCouponResponse>(){});
@@ -46,7 +47,7 @@ public class CouponApi {
     getBondCouponForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

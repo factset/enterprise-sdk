@@ -50,6 +50,7 @@ class PricesReturnsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_funds_prices_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -167,6 +168,7 @@ class PricesReturnsApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_prices_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -223,6 +225,7 @@ class PricesReturnsApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_returns_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -329,6 +332,7 @@ class PricesReturnsApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_returns_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -385,6 +389,7 @@ class PricesReturnsApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_returns_range_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -468,6 +473,7 @@ class PricesReturnsApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_returns_range_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -524,6 +530,7 @@ class PricesReturnsApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_returns_snapshot_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -602,6 +609,7 @@ class PricesReturnsApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_returns_snapshot_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -659,6 +667,7 @@ class PricesReturnsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -670,6 +679,7 @@ class PricesReturnsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_funds_prices(
         self,
@@ -881,6 +891,7 @@ class PricesReturnsApi(object):
             ids
         return self.get_funds_prices_endpoint.call_with_http_info(**kwargs)
 
+
     def get_funds_prices_for_list(
         self,
         funds_prices_request,
@@ -1066,6 +1077,7 @@ class PricesReturnsApi(object):
         kwargs['funds_prices_request'] = \
             funds_prices_request
         return self.get_funds_prices_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_funds_returns(
         self,
@@ -1273,6 +1285,7 @@ class PricesReturnsApi(object):
             ids
         return self.get_funds_returns_endpoint.call_with_http_info(**kwargs)
 
+
     def get_funds_returns_for_list(
         self,
         funds_returns_request,
@@ -1458,6 +1471,7 @@ class PricesReturnsApi(object):
         kwargs['funds_returns_request'] = \
             funds_returns_request
         return self.get_funds_returns_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_funds_returns_range(
         self,
@@ -1657,6 +1671,7 @@ class PricesReturnsApi(object):
             ids
         return self.get_funds_returns_range_endpoint.call_with_http_info(**kwargs)
 
+
     def get_funds_returns_range_for_list(
         self,
         returns_range_request,
@@ -1842,6 +1857,7 @@ class PricesReturnsApi(object):
         kwargs['returns_range_request'] = \
             returns_range_request
         return self.get_funds_returns_range_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_funds_returns_snapshot(
         self,
@@ -2037,6 +2053,7 @@ class PricesReturnsApi(object):
             ids
         return self.get_funds_returns_snapshot_endpoint.call_with_http_info(**kwargs)
 
+
     def get_funds_returns_snapshot_for_list(
         self,
         funds_returns_snapshot_request,
@@ -2222,4 +2239,5 @@ class PricesReturnsApi(object):
         kwargs['funds_returns_snapshot_request'] = \
             funds_returns_snapshot_request
         return self.get_funds_returns_snapshot_for_list_endpoint.call_with_http_info(**kwargs)
+
 

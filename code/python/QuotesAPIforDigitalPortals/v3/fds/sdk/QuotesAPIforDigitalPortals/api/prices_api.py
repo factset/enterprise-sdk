@@ -49,6 +49,7 @@ class PricesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_prices_bid_ask_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -166,6 +167,7 @@ class PricesApi(object):
             },
             api_client=api_client
         )
+
         self.get_prices_bid_ask_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -272,6 +274,7 @@ class PricesApi(object):
             },
             api_client=api_client
         )
+
         self.get_prices_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -389,6 +392,7 @@ class PricesApi(object):
             },
             api_client=api_client
         )
+
         self.get_prices_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -495,6 +499,7 @@ class PricesApi(object):
             },
             api_client=api_client
         )
+
         self.get_prices_orderbook_aggregated_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -617,6 +622,7 @@ class PricesApi(object):
             },
             api_client=api_client
         )
+
         self.get_prices_orderbook_full_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -739,6 +745,7 @@ class PricesApi(object):
             },
             api_client=api_client
         )
+
         self.get_prices_trading_schedule_event_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -798,6 +805,7 @@ class PricesApi(object):
             },
             api_client=api_client
         )
+
         self.post_prices_trading_schedule_event_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -853,6 +861,7 @@ class PricesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -864,6 +873,7 @@ class PricesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_prices_bid_ask_get(
         self,
@@ -1079,6 +1089,7 @@ class PricesApi(object):
             identifier_type
         return self.get_prices_bid_ask_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_prices_bid_ask_list(
         self,
         identifiers,
@@ -1292,6 +1303,7 @@ class PricesApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_prices_bid_ask_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_prices_get(
         self,
@@ -1507,6 +1519,7 @@ class PricesApi(object):
             identifier_type
         return self.get_prices_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_prices_list(
         self,
         identifiers,
@@ -1720,6 +1733,7 @@ class PricesApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_prices_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_prices_orderbook_aggregated_get(
         self,
@@ -1935,6 +1949,7 @@ class PricesApi(object):
             identifier_type
         return self.get_prices_orderbook_aggregated_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_prices_orderbook_full_get(
         self,
         identifier,
@@ -2149,6 +2164,7 @@ class PricesApi(object):
             identifier_type
         return self.get_prices_orderbook_full_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_prices_trading_schedule_event_type_list(
         self,
         **kwargs
@@ -2319,6 +2335,7 @@ class PricesApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_prices_trading_schedule_event_type_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_prices_trading_schedule_event_list(
         self,
         **kwargs
@@ -2488,4 +2505,5 @@ class PricesApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_prices_trading_schedule_event_list_endpoint.call_with_http_info(**kwargs)
+
 

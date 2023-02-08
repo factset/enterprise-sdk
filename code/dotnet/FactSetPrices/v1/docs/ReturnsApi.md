@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetSecurityReturnsForList**](ReturnsApi.md#getsecurityreturnsforlist) | **POST** /factset-prices/v1/returns | Requests security returns for the given date range and rollingPeriod.
 
 
+
 <a name="getreturnssnapshot"></a>
 # **GetReturnsSnapshot**
 > ReturnsSnapshotResponse GetReturnsSnapshot (List<string> ids, string date = null, string calendar = null, string currency = null, string dividendAdjust = null)
@@ -112,6 +113,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getreturnssnapshotforlist"></a>
 # **GetReturnsSnapshotForList**
 > ReturnsSnapshotResponse GetReturnsSnapshotForList (ReturnsSnapshotRequest returnsSnapshotRequest)
@@ -205,6 +207,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getsecurityreturns"></a>
 # **GetSecurityReturns**
@@ -314,6 +317,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsecurityreturnsforlist"></a>
 # **GetSecurityReturnsForList**
 > ReturnsResponse GetSecurityReturnsForList (ReturnsRequest returnsRequest)
@@ -407,4 +411,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

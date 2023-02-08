@@ -27,26 +27,30 @@ public class FiCalculationsApi {
   public FiCalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> cancelCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> cancelCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> getCalculationParametersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCalculationParametersResponseTypeMap.put(200, new GenericType<FICalculationParametersRoot>(){});
     getCalculationParametersResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getCalculationParametersResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCalculationResultResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCalculationResultResponseTypeMap.put(200, new GenericType<ObjectRoot>(){});
     getCalculationResultResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getCalculationResultResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCalculationStatusByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCalculationStatusByIdResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
     getCalculationStatusByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getCalculationStatusByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postAndCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postAndCalculateResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
@@ -54,6 +58,7 @@ public class FiCalculationsApi {
     postAndCalculateResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     postAndCalculateResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> putAndCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     putAndCalculateResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
@@ -63,7 +68,7 @@ public class FiCalculationsApi {
     putAndCalculateResponseTypeMap.put(409, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
  /**
    * Wrapper to support POST /analytics/engines/fi/v3/calculations returning different types
    * per status code.

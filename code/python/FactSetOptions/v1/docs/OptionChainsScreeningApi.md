@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_options_screening_for_list**](OptionChainsScreeningApi.md#get_options_screening_for_list) | **POST** /factset-options/v1/option-screening | Returns all the option identifiers based on the conditions provided as input in the request
 
 
+
 # **get_options_chains_for_list**
 > ChainsResponse get_options_chains_for_list(chains_request)
 

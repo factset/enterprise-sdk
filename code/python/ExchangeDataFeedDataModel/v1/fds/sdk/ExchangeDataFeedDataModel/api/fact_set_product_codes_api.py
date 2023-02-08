@@ -42,6 +42,7 @@ class FactSetProductCodesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_products_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -104,6 +105,7 @@ class FactSetProductCodesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -115,6 +117,7 @@ class FactSetProductCodesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_products(
         self,
@@ -285,4 +288,5 @@ class FactSetProductCodesApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_products_endpoint.call_with_http_info(**kwargs)
+
 

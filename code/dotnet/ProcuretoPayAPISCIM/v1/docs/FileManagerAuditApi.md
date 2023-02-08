@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**FileManagerAuditGet**](FileManagerAuditApi.md#filemanagerauditget) | **GET** /FileManagerAudit | Get File Manager audit data.
 
 
+
 <a name="filemanagerauditget"></a>
 # **FileManagerAuditGet**
 > List&lt;Object&gt; FileManagerAuditGet ()
@@ -90,4 +91,5 @@ This endpoint does not need any parameter.
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

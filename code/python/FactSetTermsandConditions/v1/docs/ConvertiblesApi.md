@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**get_convertible_triggers_for_list**](ConvertiblesApi.md#get_convertible_triggers_for_list) | **POST** /factset-terms-and-conditions/v1/convertible-triggers | Return Convertible Trigger data for a large list of Fixed Income securities.
 
 
+
 # **get_convertible_details**
 > ConvertibleDetailsResponse get_convertible_details(ids)
 

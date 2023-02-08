@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetFixedIncomeRedemptionPricesForList**](RedemptionsApi.md#getfixedincomeredemptionpricesforlist) | **POST** /factset-terms-and-conditions/v1/redemption-prices | Return Redemption Prices for a list of Fixed Income securities.
 
 
+
 <a name="getfixedincomeredemptionprices"></a>
 # **GetFixedIncomeRedemptionPrices**
 > RedemptionPricesResponse GetFixedIncomeRedemptionPrices (List<string> ids, string categories)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfixedincomeredemptionpricesforlist"></a>
 # **GetFixedIncomeRedemptionPricesForList**
 > RedemptionPricesResponse GetFixedIncomeRedemptionPricesForList (RedemptionPricesRequest redemptionPricesRequest)
@@ -197,4 +199,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

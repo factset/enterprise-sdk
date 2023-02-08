@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetRbicsStructureForList**](StructureApi.md#getrbicsstructureforlist) | **POST** /factset-rbics/v1/structure | Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
 
 
+
 <a name="getrbicsstructure"></a>
 # **GetRbicsStructure**
 > StructureResponse GetRbicsStructure (List<string> rbicsIds = null, int? level = null, bool? includeNames = null, string date = null)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getrbicsstructureforlist"></a>
 # **GetRbicsStructureForList**
 > StructureResponse GetRbicsStructureForList (StructureRequest structureRequest)
@@ -201,4 +203,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

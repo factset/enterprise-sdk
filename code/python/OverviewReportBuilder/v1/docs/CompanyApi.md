@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**transactions_get**](CompanyApi.md#transactions_get) | **GET** /transactions | Transactions
 
 
+
 # **current_cap_get**
 > StachTableResponse current_cap_get(id)
 

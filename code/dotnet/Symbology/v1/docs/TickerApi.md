@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**TranslateTicker**](TickerApi.md#translateticker) | **GET** /symbology/v1/ticker | Returns the Ticker-Exchange or Ticker-Region for a given security.
 
 
+
 <a name="batchtickerhistory"></a>
 # **BatchTickerHistory**
 > TickerHistoryTranslationResponse BatchTickerHistory (TickerHistoryTranslationRequest tickerHistoryTranslationRequest)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="batchtranslateticker"></a>
 # **BatchTranslateTicker**
 > TickerTranslationResponse BatchTranslateTicker (TickerTranslationRequest tickerTranslationRequest)
@@ -197,6 +199,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="tickerhistory"></a>
 # **TickerHistory**
@@ -293,6 +296,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="translateticker"></a>
 # **TranslateTicker**
@@ -391,4 +395,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

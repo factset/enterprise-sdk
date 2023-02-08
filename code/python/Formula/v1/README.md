@@ -78,6 +78,7 @@ pip install fds.sdk.utils fds.sdk.Formula
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.Formula
 from fds.sdk.Formula.api import batch_processing_api
 from fds.sdk.Formula.models import *

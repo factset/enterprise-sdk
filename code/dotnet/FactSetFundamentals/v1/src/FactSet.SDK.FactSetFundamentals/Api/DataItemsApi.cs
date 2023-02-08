@@ -148,7 +148,8 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         private FactSet.SDK.FactSetFundamentals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetFdsFundamentalsMetricsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFdsFundamentalsMetricsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(MetricsResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -157,6 +158,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFdsFundamentalsMetricsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(MetricsResponse) },
@@ -170,7 +172,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

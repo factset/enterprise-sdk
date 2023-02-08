@@ -44,6 +44,7 @@ class EntitySecuritiesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_entity_securities_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -118,6 +119,7 @@ class EntitySecuritiesApi(object):
             },
             api_client=api_client
         )
+
         self.post_entity_securities_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -175,6 +177,7 @@ class EntitySecuritiesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -186,6 +189,7 @@ class EntitySecuritiesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_entity_securities(
         self,
@@ -377,6 +381,7 @@ class EntitySecuritiesApi(object):
             ids
         return self.get_entity_securities_endpoint.call_with_http_info(**kwargs)
 
+
     def post_entity_securities(
         self,
         entity_securities_request,
@@ -562,4 +567,5 @@ class EntitySecuritiesApi(object):
         kwargs['entity_securities_request'] = \
             entity_securities_request
         return self.post_entity_securities_endpoint.call_with_http_info(**kwargs)
+
 

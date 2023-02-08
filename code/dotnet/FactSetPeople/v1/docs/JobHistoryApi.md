@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetPeopleJobsForList**](JobHistoryApi.md#getpeoplejobsforlist) | **POST** /factset-people/v1/jobs | Returns the Job history for the large list of people.
 
 
+
 <a name="getpeoplejobs"></a>
 # **GetPeopleJobs**
 > PeopleJobsResponse GetPeopleJobs (List<string> ids, string status = null, string level = null, string type = null)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getpeoplejobsforlist"></a>
 # **GetPeopleJobsForList**
 > PeopleJobsResponse GetPeopleJobsForList (PeopleJobsRequest peopleJobsRequest)
@@ -201,4 +203,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

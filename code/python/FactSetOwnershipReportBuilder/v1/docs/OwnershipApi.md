@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_ownership_holders**](OwnershipApi.md#get_ownership_holders) | **GET** /holders | Holders of a company or fund
 
 
+
 # **get_ownership_holders**
 > Response get_ownership_holders(id)
 

@@ -27,17 +27,19 @@ public class EventsApi {
   public EventsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getAllEventsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getAllEventsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAllEventsResponseTypeMap.put(200, new GenericType<java.util.List<EventSnippetDto>>(){});
   }
+
   private static final Map<Integer, GenericType> getEventsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEventsResponseTypeMap.put(200, new GenericType<java.util.List<RecordEventSummaryDto>>(){});
     getEventsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getEventsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getRecordEventResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRecordEventResponseTypeMap.put(200, new GenericType<NoteEventDto>(){});
@@ -45,7 +47,7 @@ public class EventsApi {
     getRecordEventResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
   }
 
-   
+  
 
 
   /**

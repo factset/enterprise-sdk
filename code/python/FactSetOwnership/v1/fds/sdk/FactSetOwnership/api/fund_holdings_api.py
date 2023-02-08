@@ -44,6 +44,7 @@ class FundHoldingsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_ownership_holdings_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -133,6 +134,7 @@ class FundHoldingsApi(object):
             },
             api_client=api_client
         )
+
         self.post_ownership_holdings_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -190,6 +192,7 @@ class FundHoldingsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -201,6 +204,7 @@ class FundHoldingsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_ownership_holdings(
         self,
@@ -404,6 +408,7 @@ class FundHoldingsApi(object):
             ids
         return self.get_ownership_holdings_endpoint.call_with_http_info(**kwargs)
 
+
     def post_ownership_holdings(
         self,
         fund_holdings_request,
@@ -589,4 +594,5 @@ class FundHoldingsApi(object):
         kwargs['fund_holdings_request'] = \
             fund_holdings_request
         return self.post_ownership_holdings_endpoint.call_with_http_info(**kwargs)
+
 

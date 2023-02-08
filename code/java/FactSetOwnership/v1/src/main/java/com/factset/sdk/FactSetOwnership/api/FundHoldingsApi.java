@@ -26,8 +26,8 @@ public class FundHoldingsApi {
   public FundHoldingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getOwnershipHoldingsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getOwnershipHoldingsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOwnershipHoldingsResponseTypeMap.put(200, new GenericType<FundHoldingsResponse>(){});
     getOwnershipHoldingsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class FundHoldingsApi {
     getOwnershipHoldingsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getOwnershipHoldingsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postOwnershipHoldingsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postOwnershipHoldingsResponseTypeMap.put(200, new GenericType<FundHoldingsResponse>(){});
@@ -46,7 +47,7 @@ public class FundHoldingsApi {
     postOwnershipHoldingsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -27,21 +27,24 @@ public class CustomSymbolsRelationshipsApi {
   public CustomSymbolsRelationshipsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createSymbolRelationshipTypeResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createSymbolRelationshipTypeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createSymbolRelationshipTypeResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createSymbolRelationshipTypeResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createSymbolRelationshipTypeResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteSymbolsRelationshipResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> editSymbolsRelationshipResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getSymbolsRelationshipsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSymbolsRelationshipsResponseTypeMap.put(200, new GenericType<java.util.List<SymbolsRelationshipDto>>(){});
   }
 
-   
+  
 
 
   /**

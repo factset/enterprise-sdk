@@ -164,7 +164,8 @@ namespace FactSet.SDK.FactSetGeoRev.Api
         private FactSet.SDK.FactSetGeoRev.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetRegionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRegionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(RegionResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -173,6 +174,7 @@ namespace FactSet.SDK.FactSetGeoRev.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetRegionsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(RegionResponse) },
@@ -186,7 +188,7 @@ namespace FactSet.SDK.FactSetGeoRev.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -26,8 +26,8 @@ public class EntitySecuritiesApi {
   public EntitySecuritiesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEntitySecuritiesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEntitySecuritiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntitySecuritiesResponseTypeMap.put(200, new GenericType<EntitySecuritiesResponse>(){});
     getEntitySecuritiesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class EntitySecuritiesApi {
     getEntitySecuritiesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntitySecuritiesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postEntitySecuritiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEntitySecuritiesResponseTypeMap.put(200, new GenericType<EntitySecuritiesResponse>(){});
@@ -46,7 +47,7 @@ public class EntitySecuritiesApi {
     postEntitySecuritiesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

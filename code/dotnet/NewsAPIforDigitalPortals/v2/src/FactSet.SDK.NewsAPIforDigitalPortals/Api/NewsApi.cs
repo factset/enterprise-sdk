@@ -779,62 +779,77 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         private FactSet.SDK.NewsAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsArticleGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsArticleGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse200) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsArticleTypeGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2005) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsArticleTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2006) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsDistributorGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2007) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsDistributorListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2008) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsPublisherGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2009) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsPublisherListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20010) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsPublisherListByDistributorResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20011) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2001) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleListByChainResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2002) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleListByIndexResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2003) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2004) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleListByMediaKindResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2001) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleSearchByTextResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2001) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsPublisherSearchByNameResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20011) },
@@ -843,7 +858,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

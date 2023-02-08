@@ -272,30 +272,35 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
         private FactSet.SDK.OverviewReportBuilder.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CurrentCapGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CurrentCapGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(StachTableResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
             { (HttpStatusCode)404, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> FinancialHighlightsGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(StachTableResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
             { (HttpStatusCode)404, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetProfileProfileResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ProfileResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
             { (HttpStatusCode)404, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PeerListGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PeerListResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
             { (HttpStatusCode)404, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> TransactionsGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(StachTableResponse) },
@@ -306,7 +311,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

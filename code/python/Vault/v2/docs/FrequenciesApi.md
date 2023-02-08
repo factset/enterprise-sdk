@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_vault_frequencies**](FrequenciesApi.md#get_vault_frequencies) | **GET** /analytics/lookups/v2/engines/vault/frequencies | Get Vault frequencies
 
 
+
 # **get_vault_frequencies**
 > {str: (Frequency,)} get_vault_frequencies()
 

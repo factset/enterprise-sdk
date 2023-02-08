@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.FactSetOwnershipReportBuilder
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetOwnershipReportBuilder
 from fds.sdk.FactSetOwnershipReportBuilder.api import ownership_api
 from fds.sdk.FactSetOwnershipReportBuilder.models import *

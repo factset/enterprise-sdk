@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**PostEntityReferences**](EntityReferenceApi.md#postentityreferences) | **POST** /factset-entity/v1/entity-references | Returns an entity reference data for a list of ids.
 
 
+
 <a name="getentityreferences"></a>
 # **GetEntityReferences**
 > EntityReferenceResponse GetEntityReferences (List<string> ids)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postentityreferences"></a>
 # **PostEntityReferences**
 > EntityReferenceResponse PostEntityReferences (EntityReferenceRequest entityReferenceRequest)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

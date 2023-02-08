@@ -231,24 +231,28 @@ namespace FactSet.SDK.AITextSummarization.Api
         private FactSet.SDK.AITextSummarization.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetResultV1ResultResultIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResultV1ResultResultIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SuccessResponse) },
             { (HttpStatusCode)400, typeof(BadRequestResponse) },
             { (HttpStatusCode)500, typeof(InternalServerErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostHeadlineAndSummaryV1HeadlineAndSummaryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(string) },
             { (HttpStatusCode)400, typeof(BadRequestResponse) },
             { (HttpStatusCode)500, typeof(InternalServerErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostHeadlineV1HeadlineResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(string) },
             { (HttpStatusCode)400, typeof(BadRequestResponse) },
             { (HttpStatusCode)500, typeof(InternalServerErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostSummaryV1SummaryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(string) },
@@ -259,7 +263,7 @@ namespace FactSet.SDK.AITextSummarization.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

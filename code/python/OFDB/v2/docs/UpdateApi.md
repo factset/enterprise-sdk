@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**update_symbols**](UpdateApi.md#update_symbols) | **PUT** /database/{path}/symbols | 
 
 
+
 # **update_date**
 > SuccessPostResponse update_date(path, date, update_date)
 

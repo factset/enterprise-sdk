@@ -27,8 +27,8 @@ public class QuestionAnswerApi {
   public QuestionAnswerApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> qnaGetAnswersResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> qnaGetAnswersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     qnaGetAnswersResponseTypeMap.put(200, new GenericType<QnAAnswerRoot>(){});
     qnaGetAnswersResponseTypeMap.put(202, new GenericType<QnATaskRoot>(){});
@@ -36,6 +36,7 @@ public class QuestionAnswerApi {
     qnaGetAnswersResponseTypeMap.put(404, new GenericType<QnAHTTPErrorRoot>(){});
     qnaGetAnswersResponseTypeMap.put(500, new GenericType<QnAHTTPErrorRoot>(){});
   }
+
   private static final Map<Integer, GenericType> qnaGetStatusResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     qnaGetStatusResponseTypeMap.put(201, new GenericType<QnATaskRoot>(){});
@@ -44,6 +45,7 @@ public class QuestionAnswerApi {
     qnaGetStatusResponseTypeMap.put(404, new GenericType<QnAHTTPErrorRoot>(){});
     qnaGetStatusResponseTypeMap.put(500, new GenericType<QnAHTTPErrorRoot>(){});
   }
+
   private static final Map<Integer, GenericType> qnaPostQuestionResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     qnaPostQuestionResponseTypeMap.put(202, new GenericType<QnATaskRoot>(){});
@@ -52,7 +54,7 @@ public class QuestionAnswerApi {
     qnaPostQuestionResponseTypeMap.put(500, new GenericType<QnAHTTPErrorRoot>(){});
   }
 
-   
+  
  /**
    * Wrapper to support GET /qna/answers/{id} returning different types
    * per status code.

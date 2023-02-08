@@ -26,8 +26,8 @@ public class FactSetFundamentalsApi {
   public FactSetFundamentalsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFdsFundamentalsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFdsFundamentalsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFdsFundamentalsResponseTypeMap.put(200, new GenericType<FundamentalsResponse>(){});
     getFdsFundamentalsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class FactSetFundamentalsApi {
     getFdsFundamentalsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFdsFundamentalsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFdsFundamentalsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFdsFundamentalsForListResponseTypeMap.put(200, new GenericType<FundamentalsResponse>(){});
@@ -46,7 +47,7 @@ public class FactSetFundamentalsApi {
     getFdsFundamentalsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

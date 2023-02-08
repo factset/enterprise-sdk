@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**update_custom_symbol_type_order**](CustomSymbolsTypesApi.md#update_custom_symbol_type_order) | **POST** /v1/custom-symbol-types/reorder | 
 
 
+
 # **create_custom_symbol_type**
 > NewItemDto create_custom_symbol_type()
 

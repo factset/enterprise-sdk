@@ -26,8 +26,8 @@ public class PricesApi {
   public PricesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getGPDPricesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getGPDPricesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getGPDPricesResponseTypeMap.put(200, new GenericType<GlobalPricesResponse>(){});
     getGPDPricesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,12 +36,13 @@ public class PricesApi {
     getGPDPricesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getGPDPricesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSecurityPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecurityPricesForListResponseTypeMap.put(200, new GenericType<GlobalPricesResponse>(){});
   }
 
-   
+  
 
 
   /**

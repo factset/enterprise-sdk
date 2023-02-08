@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_data_report_id_get**](RetrieveRefreshedReportApi.md#get_data_report_id_get) | **GET** /get-data/{report_id} | Retrieve data for desired report.
 
 
+
 # **get_data_report_id_get**
 > FetchReportPollID get_data_report_id_get(report_id)
 

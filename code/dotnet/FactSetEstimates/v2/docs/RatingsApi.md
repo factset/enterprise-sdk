@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetDetailRatingsForList**](RatingsApi.md#getdetailratingsforlist) | **POST** /factset-estimates/v2/detail-ratings | Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
 
 
+
 <a name="getconsensusratings"></a>
 # **GetConsensusRatings**
 > ConsensusRatingsResponse GetConsensusRatings (List<string> ids, string startDate = null, string endDate = null, string frequency = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getconsensusratingsforlist"></a>
 # **GetConsensusRatingsForList**
 > ConsensusRatingsResponse GetConsensusRatingsForList (ConsensusRatingsRequest consensusRatingsRequest)
@@ -203,6 +205,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getdetailratings"></a>
 # **GetDetailRatings**
@@ -302,6 +305,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getdetailratingsforlist"></a>
 # **GetDetailRatingsForList**
 > DetailRatingsResponse GetDetailRatingsForList (DetailRatingsRequest detailRatingsRequest)
@@ -395,4 +399,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

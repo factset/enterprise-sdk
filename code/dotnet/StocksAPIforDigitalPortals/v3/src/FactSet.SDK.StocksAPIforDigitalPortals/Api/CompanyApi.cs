@@ -335,26 +335,32 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         private FactSet.SDK.StocksAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyBoardListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyBoardListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2005) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyBoardOfficerFunctionDeliveryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2006) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyBoardTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2007) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostCompanyEstimatesListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2002) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostCompanyKeyItemsCurrentGetByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse200) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostCompanyKeyItemsFiscalYearListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2001) },
@@ -363,7 +369,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

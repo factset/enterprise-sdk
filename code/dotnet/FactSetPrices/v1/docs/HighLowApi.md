@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetHighLowForList**](HighLowApi.md#gethighlowforlist) | **POST** /factset-prices/v1/high-low | Requests the price high and price low of securities for a list of &#x60;ids&#x60; as of given date, period and frequency.
 
 
+
 <a name="gethighlow"></a>
 # **GetHighLow**
 > HighLowResponse GetHighLow (List<string> ids, string date = null, string period = null, string priceType = null, string calendar = null, string currency = null, string adjust = null)
@@ -114,6 +115,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="gethighlowforlist"></a>
 # **GetHighLowForList**
 > HighLowResponse GetHighLowForList (HighLowRequest highLowRequest)
@@ -207,4 +209,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

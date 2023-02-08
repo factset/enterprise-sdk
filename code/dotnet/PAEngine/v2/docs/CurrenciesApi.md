@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetPACurrencies**](CurrenciesApi.md#getpacurrencies) | **GET** /analytics/lookups/v2/engines/pa/currencies | Get PA currencies
 
 
+
 <a name="getpacurrencies"></a>
 # **GetPACurrencies**
 > Dictionary&lt;string, Currency&gt; GetPACurrencies ()
@@ -97,4 +98,5 @@ This endpoint does not need any parameter.
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

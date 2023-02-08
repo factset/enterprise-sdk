@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_vault_frequencies**](FrequenciesApi.md#get_vault_frequencies) | **GET** /analytics/engines/vault/v3/frequencies | Get Vault frequencies
 
 
+
 # **get_vault_frequencies**
 > FrequencyRoot get_vault_frequencies()
 

@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**patch_custom_symbol**](CustomSymbolsApi.md#patch_custom_symbol) | **PATCH** /v1/custom-symbols/{customSymbolId} | Edit a custom symbol’s standard field and custom field data
 
 
+
 # **create_custom_symbol**
 > NewItemDto create_custom_symbol()
 

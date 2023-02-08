@@ -49,6 +49,7 @@ class CompanyApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_company_board_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -125,6 +126,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.get_company_board_officer_function_delivery_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -194,6 +196,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.get_company_board_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -263,6 +266,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.post_company_estimates_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -317,6 +321,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.post_company_key_items_current_get_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -371,6 +376,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.post_company_key_items_fiscal_year_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -426,6 +432,7 @@ class CompanyApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -437,6 +444,7 @@ class CompanyApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_company_board_list_by_instrument(
         self,
@@ -632,6 +640,7 @@ class CompanyApi(object):
             id
         return self.get_company_board_list_by_instrument_endpoint.call_with_http_info(**kwargs)
 
+
     def get_company_board_officer_function_delivery_list(
         self,
         **kwargs
@@ -805,6 +814,7 @@ class CompanyApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_company_board_officer_function_delivery_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_company_board_type_list(
         self,
@@ -980,6 +990,7 @@ class CompanyApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_company_board_type_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_company_estimates_list_by_instrument(
         self,
         **kwargs
@@ -1149,6 +1160,7 @@ class CompanyApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_company_estimates_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+
 
     def post_company_key_items_current_get_by_instrument(
         self,
@@ -1320,6 +1332,7 @@ class CompanyApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_company_key_items_current_get_by_instrument_endpoint.call_with_http_info(**kwargs)
 
+
     def post_company_key_items_fiscal_year_list_by_instrument(
         self,
         **kwargs
@@ -1489,4 +1502,5 @@ class CompanyApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_company_key_items_fiscal_year_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+
 

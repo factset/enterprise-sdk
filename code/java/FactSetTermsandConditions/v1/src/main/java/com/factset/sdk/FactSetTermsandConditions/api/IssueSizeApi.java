@@ -26,8 +26,8 @@ public class IssueSizeApi {
   public IssueSizeApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getIssueSizeResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getIssueSizeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getIssueSizeResponseTypeMap.put(200, new GenericType<IssueSizeResponse>(){});
     getIssueSizeResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class IssueSizeApi {
     getIssueSizeResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getIssueSizeResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getIssueSizeForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getIssueSizeForListResponseTypeMap.put(200, new GenericType<IssueSizeResponse>(){});
@@ -46,7 +47,7 @@ public class IssueSizeApi {
     getIssueSizeForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

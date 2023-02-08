@@ -183,7 +183,8 @@ namespace FactSet.SDK.Formula.Api
         private FactSet.SDK.Formula.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetTimeSeriesDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetTimeSeriesDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(TimeSeriesResponse) },
             { (HttpStatusCode)202, typeof(BatchStatusResponse) },
@@ -200,6 +201,7 @@ namespace FactSet.SDK.Formula.Api
             { (HttpStatusCode)501, typeof(ErrorDetail) },
             { (HttpStatusCode)503, typeof(ErrorDetail) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetTimeSeriesDataForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(TimeSeriesResponse) },
@@ -221,7 +223,7 @@ namespace FactSet.SDK.Formula.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
         /// <summary>
         /// Wrapper to support GET /v1/time-series returning different types
         /// per status code.

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_v1_list_schemas**](SchemaApi.md#get_v1_list_schemas) | **GET** /v1/list-schemas | schemas
 
 
+
 # **get_v1_list_schemas**
 > ListSchema200Response get_v1_list_schemas()
 

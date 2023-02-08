@@ -68,6 +68,7 @@ pip install fds.sdk.utils fds.sdk.DocumentsDistributorDocuments
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.DocumentsDistributorDocuments
 from fds.sdk.DocumentsDistributorDocuments.api import global_filings_api_api
 from fds.sdk.DocumentsDistributorDocuments.models import *

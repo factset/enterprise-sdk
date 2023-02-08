@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**get_company_stats_for_list**](CompanyApi.md#get_company_stats_for_list) | **POST** /factset-people/v1/company-stats | Returns statistics about top leadership of a company.
 
 
+
 # **get_company_compensation**
 > CompanyCompensationResponse get_company_compensation(ids)
 

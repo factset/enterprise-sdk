@@ -100,7 +100,8 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
         private FactSet.SDK.BarraPortfolioOptimizer.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(AccountDirectoriesRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
@@ -110,7 +111,7 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

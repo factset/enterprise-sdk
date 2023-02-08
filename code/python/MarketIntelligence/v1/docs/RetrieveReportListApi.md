@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_reports_get**](RetrieveReportListApi.md#get_reports_get) | **GET** /get-reports | Retrieve a list of previously created reports and associated report metadata.
 
 
+
 # **get_reports_get**
 > GetReportInfo get_reports_get()
 

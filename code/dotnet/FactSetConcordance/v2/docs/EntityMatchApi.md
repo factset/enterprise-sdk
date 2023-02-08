@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetEntityMatchForList**](EntityMatchApi.md#getentitymatchforlist) | **POST** /factset-concordance/v2/entity-match | Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
 
 
+
 <a name="getentitymatch"></a>
 # **GetEntityMatch**
 > EntityMatchesResponse GetEntityMatch (string name, string country = null, string state = null, string url = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, bool? includeParent = null, string bic = null, string bbgTicker = null, string cik = null, string crd = null, string cusip = null, string duns = null, string ein = null, string rssd = null, string fitch = null, string isin = null, string lei = null, string bbgFigi = null, string md = null, string ticker = null, string spr = null, string sedol = null, string tickerExchange = null, string tickerRegion = null, string ukch = null, string valoren = null, string wkn = null)
@@ -160,6 +161,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getentitymatchforlist"></a>
 # **GetEntityMatchForList**
 > EntityMatchesResponse GetEntityMatchForList (EntityMatchRequest entityMatchRequest)
@@ -253,4 +255,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -29,33 +29,38 @@ public class NavigatorApi {
   public NavigatorApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> navigatorBasicSearchPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> navigatorBasicSearchPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     navigatorBasicSearchPostResponseTypeMap.put(200, new GenericType<BasicSearchResponse>(){});
   }
+
   private static final Map<Integer, GenericType> navigatorDataItemsProductIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     navigatorDataItemsProductIdGetResponseTypeMap.put(200, new GenericType<java.util.List<DataItem>>(){});
   }
+
   private static final Map<Integer, GenericType> navigatorProductsGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     navigatorProductsGetResponseTypeMap.put(200, new GenericType<java.util.List<Product>>(){});
   }
+
   private static final Map<Integer, GenericType> navigatorSourcesDataItemIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     navigatorSourcesDataItemIdGetResponseTypeMap.put(200, new GenericType<NavigatorSourcesResponse>(){});
   }
+
   private static final Map<Integer, GenericType> navigatorSourcesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     navigatorSourcesGetResponseTypeMap.put(200, new GenericType<NavigatorSourcesResponse>(){});
   }
+
   private static final Map<Integer, GenericType> navigatorTableFieldsTableIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     navigatorTableFieldsTableIdGetResponseTypeMap.put(200, new GenericType<TableCodeFieldInfoResponse>(){});
   }
 
-   
+  
 
 
   /**

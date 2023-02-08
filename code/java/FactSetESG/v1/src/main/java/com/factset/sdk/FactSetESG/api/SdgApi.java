@@ -26,8 +26,8 @@ public class SdgApi {
   public SdgApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSdgScoresResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSdgScoresResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSdgScoresResponseTypeMap.put(200, new GenericType<SdgScoresResponse>(){});
     getSdgScoresResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class SdgApi {
     getSdgScoresResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSdgScoresResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSdgScoresPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSdgScoresPostResponseTypeMap.put(200, new GenericType<SdgScoresResponse>(){});
@@ -46,7 +47,7 @@ public class SdgApi {
     getSdgScoresPostResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

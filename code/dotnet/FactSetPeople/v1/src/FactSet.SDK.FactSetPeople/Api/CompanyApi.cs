@@ -420,7 +420,8 @@ namespace FactSet.SDK.FactSetPeople.Api
         private FactSet.SDK.FactSetPeople.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyCompensationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyCompensationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CompanyCompensationResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -429,6 +430,7 @@ namespace FactSet.SDK.FactSetPeople.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyCompensationForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CompanyCompensationResponse) },
@@ -438,6 +440,7 @@ namespace FactSet.SDK.FactSetPeople.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyPeopleResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CompanyPeopleResponse) },
@@ -447,6 +450,7 @@ namespace FactSet.SDK.FactSetPeople.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyPeopleForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CompanyPeopleResponse) },
@@ -456,6 +460,7 @@ namespace FactSet.SDK.FactSetPeople.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyPositionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CompanyPositionsResponse) },
@@ -465,6 +470,7 @@ namespace FactSet.SDK.FactSetPeople.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyPositionsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CompanyPositionsResponse) },
@@ -474,6 +480,7 @@ namespace FactSet.SDK.FactSetPeople.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CompanyStatsResponse) },
@@ -483,6 +490,7 @@ namespace FactSet.SDK.FactSetPeople.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyStatsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CompanyStatsResponse) },
@@ -496,7 +504,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

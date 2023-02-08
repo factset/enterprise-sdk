@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetFdsFundamentalsForList**](FactSetFundamentalsApi.md#getfdsfundamentalsforlist) | **POST** /factset-fundamentals/v1/fundamentals | Returns the Company Fundamental Data.
 
 
+
 <a name="getfdsfundamentals"></a>
 # **GetFdsFundamentals**
 > FundamentalsResponse GetFdsFundamentals (List<string> ids, List<string> metrics, string periodicity = null, string fiscalPeriodStart = null, string fiscalPeriodEnd = null, string currency = null, string restated = null)
@@ -114,6 +115,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfdsfundamentalsforlist"></a>
 # **GetFdsFundamentalsForList**
 > FundamentalsResponse GetFdsFundamentalsForList (FundamentalsRequest fundamentalsRequest)
@@ -207,4 +209,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

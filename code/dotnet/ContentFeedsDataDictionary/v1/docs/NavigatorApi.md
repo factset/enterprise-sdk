@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**NavigatorTableFieldsTableIdGet**](NavigatorApi.md#navigatortablefieldstableidget) | **GET** /navigator/table_fields/{Table_id} | Get the list of fields associated with a table for Navigator, and the code information for the specified data item, if applicable.
 
 
+
 <a name="navigatorbasicsearchpost"></a>
 # **NavigatorBasicSearchPost**
 > BasicSearchResponse NavigatorBasicSearchPost (BasicSearchRequest basicSearchRequest)
@@ -100,6 +101,7 @@ Name | Type | Description  | Notes
 | **401** | You are not authorized to view this page. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="navigatordataitemsproductidget"></a>
 # **NavigatorDataItemsProductIdGet**
@@ -190,6 +192,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="navigatorproductsget"></a>
 # **NavigatorProductsGet**
 > List&lt;Product&gt; NavigatorProductsGet ()
@@ -273,6 +276,7 @@ This endpoint does not need any parameter.
 | **401** | You are not authorized to view this page. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="navigatorsourcesdataitemidget"></a>
 # **NavigatorSourcesDataItemIdGet**
@@ -365,6 +369,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="navigatorsourcesget"></a>
 # **NavigatorSourcesGet**
 > NavigatorSourcesResponse NavigatorSourcesGet (string productId)
@@ -453,6 +458,7 @@ Name | Type | Description  | Notes
 | **404** | The specified DataItem_id was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="navigatortablefieldstableidget"></a>
 # **NavigatorTableFieldsTableIdGet**
@@ -544,4 +550,5 @@ Name | Type | Description  | Notes
 | **404** | The specified Table_id was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

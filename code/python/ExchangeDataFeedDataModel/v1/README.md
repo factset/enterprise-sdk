@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.ExchangeDataFeedDataModel
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.ExchangeDataFeedDataModel
 from fds.sdk.ExchangeDataFeedDataModel.api import fact_set_product_codes_api
 from fds.sdk.ExchangeDataFeedDataModel.models import *

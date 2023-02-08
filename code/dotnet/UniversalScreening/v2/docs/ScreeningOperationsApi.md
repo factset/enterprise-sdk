@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**SubmitCalculate**](ScreeningOperationsApi.md#submitcalculate) | **POST** /v2/job/calculate | 
 
 
+
 <a name="getcalculateresults"></a>
 # **GetCalculateResults**
 > PaginatedCalculationResponse GetCalculateResults (string id, int? paginationLimit = null, int? paginationCursor = null)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="pollcalculate"></a>
 # **PollCalculate**
 > ResourceStatusResponse PollCalculate (string id)
@@ -201,6 +203,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="submitarchiveofdb"></a>
 # **SubmitArchiveOFDB**
 > ResourceStatusResponse SubmitArchiveOFDB (ScreenArchiveOFDBParameters screenArchiveOFDBParameters = null)
@@ -293,6 +296,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="submitcalculate"></a>
 # **SubmitCalculate**
 > ResourceStatusResponse SubmitCalculate (ScreenCalcParameters screenCalcParameters = null)
@@ -384,4 +388,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

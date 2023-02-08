@@ -26,8 +26,8 @@ public class MarketValueApi {
   public MarketValueApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getMarketValueResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getMarketValueResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getMarketValueResponseTypeMap.put(200, new GenericType<MarketValueResponse>(){});
     getMarketValueResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class MarketValueApi {
     getMarketValueResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getMarketValueResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getMarketValueForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getMarketValueForListResponseTypeMap.put(200, new GenericType<MarketValueResponse>(){});
@@ -46,7 +47,7 @@ public class MarketValueApi {
     getMarketValueForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetSymbolsRelationships**](CustomSymbolsRelationshipsApi.md#getsymbolsrelationships) | **GET** /v1/symbols-relationships | Get all the Symbols Relationships
 
 
+
 <a name="createsymbolrelationshiptype"></a>
 # **CreateSymbolRelationshipType**
 > NewItemDto CreateSymbolRelationshipType (SymbolsRelationShipSaveDto symbolsRelationShipSaveDto = null)
@@ -99,6 +100,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="deletesymbolsrelationship"></a>
 # **DeleteSymbolsRelationship**
 > void DeleteSymbolsRelationship (Guid symbolsRelationshipId)
@@ -187,6 +189,7 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="editsymbolsrelationship"></a>
 # **EditSymbolsRelationship**
@@ -279,6 +282,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsymbolsrelationships"></a>
 # **GetSymbolsRelationships**
 > List&lt;SymbolsRelationshipDto&gt; GetSymbolsRelationships ()
@@ -361,4 +365,5 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

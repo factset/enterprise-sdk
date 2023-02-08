@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ServiceProviderConfigGet**](ServerConfigurationApi.md#serviceproviderconfigget) | **GET** /ServiceProviderConfig | Get server configuration.
 
 
+
 <a name="serviceproviderconfigget"></a>
 # **ServiceProviderConfigGet**
 > ServiceProviderConfig ServiceProviderConfigGet ()
@@ -91,4 +92,5 @@ This endpoint does not need any parameter.
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

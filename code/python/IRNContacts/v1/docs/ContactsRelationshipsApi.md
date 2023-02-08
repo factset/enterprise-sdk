@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**patch_contact_relationship**](ContactsRelationshipsApi.md#patch_contact_relationship) | **PATCH** /v1/contact-relationships/{contactRelationshipId} | Update a contact relationship
 
 
+
 # **create_contact_relationship**
 > NewItemDto create_contact_relationship()
 

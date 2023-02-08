@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetPeopleTaskStatus**](PeopleMatchBulkApi.md#getpeopletaskstatus) | **GET** /factset-concordance/v2/people-task-status | Get the Status of the People Tasks.
 
 
+
 <a name="getpeopledecisions"></a>
 # **GetPeopleDecisions**
 > PeopleDecisionsResponse GetPeopleDecisions (int taskId, int? offset = null, int? limit = null)
@@ -106,6 +107,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getpeopletaskforlist"></a>
 # **GetPeopleTaskForList**
@@ -223,6 +225,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getpeopletaskstatus"></a>
 # **GetPeopleTaskStatus**
 > PeopleTaskStatusResponse GetPeopleTaskStatus (int? taskId = null, int? offset = null, int? limit = null, List<string> status = null)
@@ -322,4 +325,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

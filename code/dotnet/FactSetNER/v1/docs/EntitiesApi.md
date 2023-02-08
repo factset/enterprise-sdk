@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**PostEntitiesEntities**](EntitiesApi.md#postentitiesentities) | **POST** /cognitive/ner/v1/entities | 
 
 
+
 <a name="postentitiesentities"></a>
 # **PostEntitiesEntities**
 > Response PostEntitiesEntities (Request payload = null)
@@ -96,4 +97,5 @@ Name | Type | Description  | Notes
 | **500** | Server-side Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

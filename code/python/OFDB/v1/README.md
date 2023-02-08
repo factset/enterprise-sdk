@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.OFDB
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import create_api
 from fds.sdk.OFDB.models import *

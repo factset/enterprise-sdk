@@ -26,8 +26,8 @@ public class SpreadApi {
   public SpreadApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBondSpreadResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBondSpreadResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondSpreadResponseTypeMap.put(200, new GenericType<BondSpreadResponse>(){});
     getBondSpreadResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class SpreadApi {
     getBondSpreadResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBondSpreadResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getBondSpreadForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondSpreadForListResponseTypeMap.put(200, new GenericType<BondSpreadResponse>(){});
@@ -46,7 +47,7 @@ public class SpreadApi {
     getBondSpreadForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

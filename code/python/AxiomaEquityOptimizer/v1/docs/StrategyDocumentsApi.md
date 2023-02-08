@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_axioma_equity_strategy_documents**](StrategyDocumentsApi.md#get_axioma_equity_strategy_documents) | **GET** /analytics/engines/axp/v1/strategies/{path} | Get Axioma Equity strategy documents and sub-directories in a directory
 
 
+
 # **get_axioma_equity_strategy_documents**
 > DocumentDirectories get_axioma_equity_strategy_documents()
 

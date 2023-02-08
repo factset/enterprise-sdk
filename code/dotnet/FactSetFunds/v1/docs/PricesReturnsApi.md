@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**GetFundsReturnsSnapshotForList**](PricesReturnsApi.md#getfundsreturnssnapshotforlist) | **POST** /factset-funds/v1/returns-snapshot | Get Fund Returns over pre-defined time horizons as of a specific date.
 
 
+
 <a name="getfundsprices"></a>
 # **GetFundsPrices**
 > FundsPricesResponse GetFundsPrices (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string currency = null, string dataType = null, string splitAdjust = null)
@@ -120,6 +121,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundspricesforlist"></a>
 # **GetFundsPricesForList**
 > FundsPricesResponse GetFundsPricesForList (FundsPricesRequest fundsPricesRequest)
@@ -213,6 +215,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfundsreturns"></a>
 # **GetFundsReturns**
@@ -318,6 +321,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundsreturnsforlist"></a>
 # **GetFundsReturnsForList**
 > FundsReturnsResponse GetFundsReturnsForList (FundsReturnsRequest fundsReturnsRequest)
@@ -411,6 +415,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfundsreturnsrange"></a>
 # **GetFundsReturnsRange**
@@ -512,6 +517,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundsreturnsrangeforlist"></a>
 # **GetFundsReturnsRangeForList**
 > ReturnsRangeResponse GetFundsReturnsRangeForList (ReturnsRangeRequest returnsRangeRequest)
@@ -605,6 +611,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfundsreturnssnapshot"></a>
 # **GetFundsReturnsSnapshot**
@@ -704,6 +711,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundsreturnssnapshotforlist"></a>
 # **GetFundsReturnsSnapshotForList**
 > FundsReturnsSnapshotResponse GetFundsReturnsSnapshotForList (FundsReturnsSnapshotRequest fundsReturnsSnapshotRequest)
@@ -797,4 +805,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

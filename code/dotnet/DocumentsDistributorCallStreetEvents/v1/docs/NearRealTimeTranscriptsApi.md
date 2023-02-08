@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetBulkDocumentsNrtV1Speakerids**](NearRealTimeTranscriptsApi.md#getbulkdocumentsnrtv1speakerids) | **GET** /bulk-documents/nrt/v1/speakerids | Returns the latest speakerIds with the confidence scores generated for an active call.
 
 
+
 <a name="getbulkdocumentsnrtv1calls"></a>
 # **GetBulkDocumentsNrtV1Calls**
 > NRTCalls GetBulkDocumentsNrtV1Calls (int? paginationLimit = null, int? paginationOffset = null, int? audioSourceId = null, int? reportId = null, string sort = null, string entityId = null, string ticker = null, string callStatus = null)
@@ -117,6 +118,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbulkdocumentsnrtv1indexednrt"></a>
 # **GetBulkDocumentsNrtV1IndexedNrt**
 > IndexedNRT GetBulkDocumentsNrtV1IndexedNrt (int audioSourceId, int? paginationLimit = null, int? paginationOffset = null, int? reportId = null)
@@ -215,6 +217,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbulkdocumentsnrtv1listsnippets"></a>
 # **GetBulkDocumentsNrtV1ListSnippets**
@@ -315,6 +318,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbulkdocumentsnrtv1speakerids"></a>
 # **GetBulkDocumentsNrtV1Speakerids**
 > NRTSpeakerids GetBulkDocumentsNrtV1Speakerids (int audioSourceId, int? paginationLimit = null, int? paginationOffset = null, string sort = null)
@@ -413,4 +417,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

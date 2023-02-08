@@ -25,15 +25,15 @@ public class DocumentsApi {
   public DocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSPAR3DocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSPAR3DocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSPAR3DocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectoriesRoot>(){});
     getSPAR3DocumentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getSPAR3DocumentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

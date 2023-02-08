@@ -26,8 +26,8 @@ public class ReturnsApi {
   public ReturnsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getReturnsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getReturnsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getReturnsResponseTypeMap.put(200, new GenericType<ReturnsResponse>(){});
     getReturnsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,12 +36,13 @@ public class ReturnsApi {
     getReturnsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getReturnsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getReturnsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getReturnsForListResponseTypeMap.put(200, new GenericType<ReturnsResponse>(){});
   }
 
-   
+  
 
 
   /**

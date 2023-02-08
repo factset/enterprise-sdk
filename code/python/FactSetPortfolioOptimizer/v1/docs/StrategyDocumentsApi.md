@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_fpo_strategy_documents**](StrategyDocumentsApi.md#get_fpo_strategy_documents) | **GET** /analytics/engines/fpo/v1/strategies/{path} | Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
 
 
+
 # **get_fpo_strategy_documents**
 > DocumentDirectories get_fpo_strategy_documents()
 

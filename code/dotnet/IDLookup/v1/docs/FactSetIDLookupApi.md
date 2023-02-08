@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**SearchCompanyname**](FactSetIDLookupApi.md#searchcompanyname) | **POST** /v1/idsearch | Search funtionality to return tickers, company names and unique identifiers for FactSet data
 
 
+
 <a name="searchcompanyname"></a>
 # **SearchCompanyname**
 > LookupResponse SearchCompanyname (LookupRequest lookupRequest)
@@ -99,4 +100,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

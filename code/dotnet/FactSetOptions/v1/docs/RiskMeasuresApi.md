@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetOptionsVolatilityForList**](RiskMeasuresApi.md#getoptionsvolatilityforlist) | **POST** /factset-options/v1/implied-volatility | Returns the implied volatility information for the specified option identifier
 
 
+
 <a name="getoptionsatmimpliedvolatilityforlist"></a>
 # **GetOptionsATMImpliedVolatilityForList**
 > AtmImpliedVolatilityResponse GetOptionsATMImpliedVolatilityForList (AtmImpliedVolatilityRequest atmImpliedVolatilityRequest)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getoptionsgreeksforlist"></a>
 # **GetOptionsGreeksForList**
@@ -197,6 +199,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getoptionsvolatilityforlist"></a>
 # **GetOptionsVolatilityForList**
 > ImpliedVolatilityResponse GetOptionsVolatilityForList (ImpliedVolatilityRequest impliedVolatilityRequest)
@@ -290,4 +293,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -27,8 +27,8 @@ public class TermsConditionsApi {
   public TermsConditionsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getTermsAndConditionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getTermsAndConditionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getTermsAndConditionsResponseTypeMap.put(200, new GenericType<TermsAndConditionsResponse>(){});
     getTermsAndConditionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -37,6 +37,7 @@ public class TermsConditionsApi {
     getTermsAndConditionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getTermsAndConditionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getTermsAndConditionsFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getTermsAndConditionsFieldsResponseTypeMap.put(200, new GenericType<FieldsResponse>(){});
@@ -46,6 +47,7 @@ public class TermsConditionsApi {
     getTermsAndConditionsFieldsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getTermsAndConditionsFieldsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getTermsAndConditionsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getTermsAndConditionsForListResponseTypeMap.put(200, new GenericType<TermsAndConditionsResponse>(){});
@@ -56,7 +58,7 @@ public class TermsConditionsApi {
     getTermsAndConditionsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

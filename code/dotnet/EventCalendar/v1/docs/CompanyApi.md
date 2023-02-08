@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetCompanyEvent**](CompanyApi.md#getcompanyevent) | **POST** /company/event/list | Retrieve Company Event data
 
 
+
 <a name="getcompanyevent"></a>
 # **GetCompanyEvent**
 > CompanyEventResponse GetCompanyEvent (CompanyEventRequest companyEventRequest)
@@ -99,4 +100,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -49,6 +49,7 @@ pip install fds.sdk.utils fds.sdk.FactSetGeoRev
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetGeoRev
 from fds.sdk.FactSetGeoRev.api import countries_api
 from fds.sdk.FactSetGeoRev.models import *

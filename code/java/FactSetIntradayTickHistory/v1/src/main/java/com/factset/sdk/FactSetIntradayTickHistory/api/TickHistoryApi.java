@@ -24,8 +24,8 @@ public class TickHistoryApi {
   public TickHistoryApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getTickHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getTickHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getTickHistoryResponseTypeMap.put(200, new GenericType<TickhistoryResponse>(){});
     getTickHistoryResponseTypeMap.put(401, new GenericType<Object>(){});
@@ -33,7 +33,7 @@ public class TickHistoryApi {
     getTickHistoryResponseTypeMap.put(405, new GenericType<Object>(){});
   }
 
-   
+  
 
 
   /**

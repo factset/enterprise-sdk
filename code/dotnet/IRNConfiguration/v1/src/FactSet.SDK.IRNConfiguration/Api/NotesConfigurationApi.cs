@@ -494,54 +494,65 @@ namespace FactSet.SDK.IRNConfiguration.Api
         private FactSet.SDK.IRNConfiguration.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetAssignedFactSetUsersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAssignedFactSetUsersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<UserConfigDto>) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAuthorsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<AuthorConfigDto>) },
             { (HttpStatusCode)403, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetClientsSalesRepresentativeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ClientSalesRepresentativeDto) },
             { (HttpStatusCode)404, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCustomFieldsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<CustomFieldConfigDto>) },
             { (HttpStatusCode)403, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetGroupResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(GroupConfigDto) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetRecommendationsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<RecommendationConfigDto>) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSentimentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<SentimentConfigDto>) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSubjectResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SubjectConfigDto) },
             { (HttpStatusCode)403, typeof(ProblemDetails) },
             { (HttpStatusCode)404, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSubjectsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<SubjectSummaryDto>) },
             { (HttpStatusCode)403, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetTeamResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(TeamConfigDto) },
             { (HttpStatusCode)403, typeof(ProblemDetails) },
             { (HttpStatusCode)404, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetTeamsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<TeamSummaryDto>) },
@@ -551,7 +562,7 @@ namespace FactSet.SDK.IRNConfiguration.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

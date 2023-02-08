@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**summarization_summary**](AITextSummarizationApi.md#summarization_summary) | **POST** /summarization/summary | Endpoint to summarize text
 
 
+
 # **summarization_headline**
 > SummarizationResultID summarization_headline()
 

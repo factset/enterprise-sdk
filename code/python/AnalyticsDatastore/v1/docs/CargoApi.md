@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_cargo_endpoint**](CargoApi.md#get_cargo_endpoint) | **GET** /analytics/pub-datastore/cargo/v1/groups/{groupId}/objects/{objectId} | Get Cargo endpoint, gets an object given an ID. In this case ID retrieved from Swivel Location header, results in json response body of the report.
 
 
+
 # **get_cargo_endpoint**
 > [str] get_cargo_endpoint()
 

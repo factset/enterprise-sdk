@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**GetCategorySystemTypeList**](CategoryApi.md#getcategorysystemtypelist) | **GET** /category/system/type/list | List of category system types.
 
 
+
 <a name="getcategorydatasetlist"></a>
 # **GetCategoryDatasetList**
 > InlineResponse20035 GetCategoryDatasetList (List<string> attributes = null, string language = null)
@@ -107,6 +108,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcategoryget"></a>
 # **GetCategoryGet**
@@ -200,6 +202,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcategoryinstrumentlist"></a>
 # **GetCategoryInstrumentList**
@@ -298,6 +301,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcategorylevelget"></a>
 # **GetCategoryLevelGet**
 > InlineResponse20037 GetCategoryLevelGet (decimal id, List<string> attributes = null, string language = null)
@@ -391,6 +395,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcategorylist"></a>
 # **GetCategoryList**
 > InlineResponse20032 GetCategoryList (List<decimal> ids, List<string> attributes = null, string language = null)
@@ -483,6 +488,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcategorylistbylevel"></a>
 # **GetCategoryListByLevel**
@@ -581,6 +587,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcategorylistbysystem"></a>
 # **GetCategoryListBySystem**
 > InlineResponse20034 GetCategoryListBySystem (decimal id, List<string> attributes = null, string language = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
@@ -678,6 +685,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcategorypathget"></a>
 # **GetCategoryPathGet**
 > InlineResponse20038 GetCategoryPathGet (decimal id, List<string> attributes = null, string language = null)
@@ -770,6 +778,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcategorysystemget"></a>
 # **GetCategorySystemGet**
@@ -864,6 +873,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcategorysystemlist"></a>
 # **GetCategorySystemList**
 > InlineResponse20040 GetCategorySystemList (decimal? idType = null, List<string> attributes = null, string language = null)
@@ -957,6 +967,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcategorysystemtypelist"></a>
 # **GetCategorySystemTypeList**
 > InlineResponse20041 GetCategorySystemTypeList (List<string> attributes = null, string language = null)
@@ -1047,4 +1058,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

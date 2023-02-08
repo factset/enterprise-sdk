@@ -24,8 +24,8 @@ public class LastTradeApi {
   public LastTradeApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> tickHistoryLasttradeGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> tickHistoryLasttradeGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     tickHistoryLasttradeGetResponseTypeMap.put(200, new GenericType<TickhistoryResponse>(){});
     tickHistoryLasttradeGetResponseTypeMap.put(401, new GenericType<Object>(){});
@@ -33,7 +33,7 @@ public class LastTradeApi {
     tickHistoryLasttradeGetResponseTypeMap.put(405, new GenericType<Object>(){});
   }
 
-   
+  
 
 
   /**

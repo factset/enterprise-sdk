@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_financials_for_list**](FinancialsApi.md#get_financials_for_list) | **POST** /factset-private-markets/v1/financials | Returns Private Company Financials for a list of ids.
 
 
+
 # **get_financials**
 > FinancialsResponse get_financials(ids, fields, start_date)
 

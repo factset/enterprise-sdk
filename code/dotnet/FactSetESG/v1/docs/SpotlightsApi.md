@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetSdgSpotlightsForList**](SpotlightsApi.md#getsdgspotlightsforlist) | **POST** /factset-esg/v1/sdg-spotlights | Gets Spotlight data for the most important positive and negative ESG events to enable timely and systematic trading strategies and portfolio management
 
 
+
 <a name="getsasbspotlights"></a>
 # **GetSasbSpotlights**
 > SpotlightsResponse GetSasbSpotlights (List<string> ids, string startDate, string endDate, List<string> fields = null, List<string> categories = null, bool? primaryOnly = null, bool? isRemoved = null)
@@ -117,6 +118,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsasbspotlightsforlist"></a>
 # **GetSasbSpotlightsForList**
 > SpotlightsResponse GetSasbSpotlightsForList (SasbSpotlightsRequest sasbSpotlightsRequest)
@@ -211,6 +213,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getsdgspotlights"></a>
 # **GetSdgSpotlights**
@@ -319,6 +322,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsdgspotlightsforlist"></a>
 # **GetSdgSpotlightsForList**
 > SpotlightsResponse GetSdgSpotlightsForList (SdgSpotlightsRequest sdgSpotlightsRequest)
@@ -413,4 +417,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

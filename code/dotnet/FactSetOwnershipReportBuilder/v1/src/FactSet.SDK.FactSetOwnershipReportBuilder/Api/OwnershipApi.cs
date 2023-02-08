@@ -115,7 +115,8 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Api
         private FactSet.SDK.FactSetOwnershipReportBuilder.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetOwnershipHoldersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetOwnershipHoldersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -127,7 +128,7 @@ namespace FactSet.SDK.FactSetOwnershipReportBuilder.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

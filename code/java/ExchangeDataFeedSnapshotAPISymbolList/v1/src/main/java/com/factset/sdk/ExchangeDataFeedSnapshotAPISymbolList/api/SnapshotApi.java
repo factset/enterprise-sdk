@@ -25,13 +25,14 @@ public class SnapshotApi {
   public SnapshotApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getDFSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getDFSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDFSnapshotResponseTypeMap.put(200, new GenericType<DFSnapshotResponse>(){});
     getDFSnapshotResponseTypeMap.put(402, new GenericType<ErrorResponse>(){});
     getDFSnapshotResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postDFSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postDFSnapshotResponseTypeMap.put(200, new GenericType<DFSnapshotResponse>(){});
@@ -39,7 +40,7 @@ public class SnapshotApi {
     postDFSnapshotResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

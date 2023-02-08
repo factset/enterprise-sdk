@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**groups_get**](GroupsApi.md#groups_get) | **GET** /Groups | Get a list of groups.
 
 
+
 # **group_id_get**
 > GroupResource group_id_get(id)
 

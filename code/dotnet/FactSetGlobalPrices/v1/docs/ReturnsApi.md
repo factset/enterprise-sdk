@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetReturnsForList**](ReturnsApi.md#getreturnsforlist) | **POST** /factset-global-prices/v1/returns | Gets Returns for a list of &#x60;ids&#x60; as of given date range.
 
 
+
 <a name="getreturns"></a>
 # **GetReturns**
 > ReturnsResponse GetReturns (List<string> ids, string startDate, string endDate = null, string currency = null, string frequency = null, string dividendAdjust = null)
@@ -112,6 +113,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getreturnsforlist"></a>
 # **GetReturnsForList**
 > ReturnsResponse GetReturnsForList (ReturnsRequest returnsRequest)
@@ -200,4 +202,5 @@ Name | Type | Description  | Notes
 | **200** | Array of security prices |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -45,6 +45,7 @@ class TermsConditionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_terms_and_conditions_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -127,6 +128,7 @@ class TermsConditionsApi(object):
             },
             api_client=api_client
         )
+
         self.get_terms_and_conditions_fields_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -188,6 +190,7 @@ class TermsConditionsApi(object):
             },
             api_client=api_client
         )
+
         self.get_terms_and_conditions_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -245,6 +248,7 @@ class TermsConditionsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -256,6 +260,7 @@ class TermsConditionsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_terms_and_conditions(
         self,
@@ -451,6 +456,7 @@ class TermsConditionsApi(object):
             ids
         return self.get_terms_and_conditions_endpoint.call_with_http_info(**kwargs)
 
+
     def get_terms_and_conditions_fields(
         self,
         **kwargs
@@ -620,6 +626,7 @@ class TermsConditionsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_terms_and_conditions_fields_endpoint.call_with_http_info(**kwargs)
+
 
     def get_terms_and_conditions_for_list(
         self,
@@ -806,4 +813,5 @@ class TermsConditionsApi(object):
         kwargs['terms_and_conditions_request'] = \
             terms_and_conditions_request
         return self.get_terms_and_conditions_for_list_endpoint.call_with_http_info(**kwargs)
+
 

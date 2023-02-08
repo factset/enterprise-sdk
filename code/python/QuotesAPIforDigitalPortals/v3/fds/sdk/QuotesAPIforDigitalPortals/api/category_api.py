@@ -51,6 +51,7 @@ class CategoryApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_category_dataset_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -120,6 +121,7 @@ class CategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_category_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -196,6 +198,7 @@ class CategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_category_instrument_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -289,6 +292,7 @@ class CategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_category_level_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -365,6 +369,7 @@ class CategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_category_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -448,6 +453,7 @@ class CategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_category_list_by_level_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -545,6 +551,7 @@ class CategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_category_list_by_system_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -642,6 +649,7 @@ class CategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_category_path_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -718,6 +726,7 @@ class CategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_category_system_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -794,6 +803,7 @@ class CategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_category_system_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -868,6 +878,7 @@ class CategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_category_system_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -938,6 +949,7 @@ class CategoryApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -949,6 +961,7 @@ class CategoryApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_category_dataset_list(
         self,
@@ -1123,6 +1136,7 @@ class CategoryApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_category_dataset_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_category_get(
         self,
@@ -1317,6 +1331,7 @@ class CategoryApi(object):
         kwargs['id'] = \
             id
         return self.get_category_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_category_instrument_list(
         self,
@@ -1532,6 +1547,7 @@ class CategoryApi(object):
             id_category_dataset
         return self.get_category_instrument_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_category_level_get(
         self,
         id,
@@ -1726,6 +1742,7 @@ class CategoryApi(object):
             id
         return self.get_category_level_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_category_list(
         self,
         ids,
@@ -1919,6 +1936,7 @@ class CategoryApi(object):
         kwargs['ids'] = \
             ids
         return self.get_category_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_category_list_by_level(
         self,
@@ -2122,6 +2140,7 @@ class CategoryApi(object):
             id
         return self.get_category_list_by_level_endpoint.call_with_http_info(**kwargs)
 
+
     def get_category_list_by_system(
         self,
         id,
@@ -2324,6 +2343,7 @@ class CategoryApi(object):
             id
         return self.get_category_list_by_system_endpoint.call_with_http_info(**kwargs)
 
+
     def get_category_path_get(
         self,
         id,
@@ -2517,6 +2537,7 @@ class CategoryApi(object):
         kwargs['id'] = \
             id
         return self.get_category_path_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_category_system_get(
         self,
@@ -2712,6 +2733,7 @@ class CategoryApi(object):
             id
         return self.get_category_system_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_category_system_list(
         self,
         **kwargs
@@ -2890,6 +2912,7 @@ class CategoryApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_category_system_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_category_system_type_list(
         self,
         **kwargs
@@ -3063,4 +3086,5 @@ class CategoryApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_category_system_type_list_endpoint.call_with_http_info(**kwargs)
+
 

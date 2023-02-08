@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**tick_history_tradesattime_get**](TradesAtTimeApi.md#tick_history_tradesattime_get) | **GET** /TickHistory/tradesattime | Request returns the before and after trade data along with the associated quotes for the specified time
 
 
+
 # **tick_history_tradesattime_get**
 > TickhistoryResponse tick_history_tradesattime_get(id)
 

@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**put_and_calculate**](SPARCalculationsApi.md#put_and_calculate) | **PUT** /analytics/engines/spar/v3/calculations/{id} | Create or Update SPAR calculation and run it.
 
 
+
 # **cancel_calculation_by_id**
 > cancel_calculation_by_id(id)
 

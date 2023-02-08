@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_sdg_scores_post**](SDGApi.md#get_sdg_scores_post) | **POST** /factset-esg/v1/sdg-scores | Gets short-term, long-term, and momentum scores based on the 16 Sustainable Development Goals categories defined by United Nations.
 
 
+
 # **get_sdg_scores**
 > SdgScoresResponse get_sdg_scores(ids, start_date, end_date)
 

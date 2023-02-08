@@ -368,35 +368,42 @@ namespace FactSet.SDK.PAEngine.Api
         private FactSet.SDK.PAEngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CreateUnlinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CreateUnlinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(UnlinkedPATemplatePostSummaryRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteUnlinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDefaultUnlinkedPATemplateTypesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UnlinkedPATemplateCategoryAndTypeRoot) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDetailsTypeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UnlinkedPATemplateCategoryAndTypeDetailsRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetUnlinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UnlinkedPATemplateSummaryRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetUnlinkedPATemplatesByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UnlinkedPATemplateRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateUnlinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UnlinkedPATemplatePostSummaryRoot) },
@@ -407,7 +414,7 @@ namespace FactSet.SDK.PAEngine.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

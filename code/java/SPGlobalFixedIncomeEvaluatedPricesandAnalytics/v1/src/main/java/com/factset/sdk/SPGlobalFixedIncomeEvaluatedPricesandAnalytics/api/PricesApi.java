@@ -26,8 +26,8 @@ public class PricesApi {
   public PricesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBondPricesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBondPricesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondPricesResponseTypeMap.put(200, new GenericType<BondPricesResponse>(){});
     getBondPricesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class PricesApi {
     getBondPricesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBondPricesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getBondPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondPricesForListResponseTypeMap.put(200, new GenericType<BondPricesResponse>(){});
@@ -46,7 +47,7 @@ public class PricesApi {
     getBondPricesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

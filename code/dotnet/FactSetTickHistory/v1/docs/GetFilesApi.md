@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**V1GetFilesGet**](GetFilesApi.md#v1getfilesget) | **GET** /v1/get-files | Returns the files from tickhistory endpoint for the specified date range
 
 
+
 <a name="v1getfilesget"></a>
 # **V1GetFilesGet**
 > GetFilesResponse V1GetFilesGet (string requestId, int? paginationLimit = null, int? paginationOffset = null)
@@ -98,4 +99,5 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

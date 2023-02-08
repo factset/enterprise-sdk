@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_bond_meta_for_list**](MetaApi.md#get_bond_meta_for_list) | **POST** /markit-bond-prices-and-analytics/v1/meta | Get bond meta data for a list of securities.
 
 
+
 # **get_bond_meta**
 > BondMetaResponse get_bond_meta(ids)
 

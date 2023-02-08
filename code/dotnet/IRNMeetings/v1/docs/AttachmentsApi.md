@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**SoftDeleteMeetingAttachment**](AttachmentsApi.md#softdeletemeetingattachment) | **DELETE** /v1/meetings/{meetingId}/attachments/{attachmentId} | Delete attachment from meeting
 
 
+
 <a name="createattachment"></a>
 # **CreateAttachment**
 > NewItemDto CreateAttachment (Guid meetingId, System.IO.Stream file)
@@ -100,6 +101,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="downloadattachment"></a>
 # **DownloadAttachment**
@@ -192,6 +194,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getattachments"></a>
 # **GetAttachments**
 > List&lt;AttachmentSummaryDto&gt; GetAttachments (Guid meetingId)
@@ -280,6 +283,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="softdeletemeetingattachment"></a>
 # **SoftDeleteMeetingAttachment**
@@ -371,4 +375,5 @@ void (empty response body)
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSecurityDividendsForList**](DividendsApi.md#getsecuritydividendsforlist) | **POST** /factset-prices/v1/dividends | Requests dividend information for a given date range and list of securities
 
 
+
 <a name="getsecuritydividends"></a>
 # **GetSecurityDividends**
 > DividendsResponse GetSecurityDividends (List<string> ids, string startDate = null, string endDate = null, string currency = null, string adjust = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsecuritydividendsforlist"></a>
 # **GetSecurityDividendsForList**
 > DividendsResponse GetSecurityDividendsForList (DividendsRequest dividendsRequest)
@@ -203,4 +205,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

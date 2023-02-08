@@ -324,13 +324,15 @@ namespace FactSet.SDK.OpenRisk.Api
         private FactSet.SDK.OpenRisk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> DocumentationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> DocumentationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse200) },
             { (HttpStatusCode)401, typeof(string) },
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> HealthStatusResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2003) },
@@ -338,6 +340,7 @@ namespace FactSet.SDK.OpenRisk.Api
             { (HttpStatusCode)403, typeof(InlineResponse403) },
             { (HttpStatusCode)404, typeof(InlineResponse404) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> ListRiskModelsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2001) },
@@ -345,6 +348,7 @@ namespace FactSet.SDK.OpenRisk.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> RiskModelMetadataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2002) },
@@ -352,12 +356,14 @@ namespace FactSet.SDK.OpenRisk.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> StatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SupportedStats) },
             { (HttpStatusCode)401, typeof(string) },
             { (HttpStatusCode)404, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> StatsNamesOnlyResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SupportedStatsNamesOnly) },
@@ -368,7 +374,7 @@ namespace FactSet.SDK.OpenRisk.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

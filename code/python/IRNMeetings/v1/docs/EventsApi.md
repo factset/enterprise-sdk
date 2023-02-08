@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_record_event**](EventsApi.md#get_record_event) | **GET** /v1/meetings/{meetingId}/events/{recordEventId} | Get details of a record event of a meeting
 
 
+
 # **get_events**
 > [RecordEventSummaryDto] get_events(meeting_id)
 

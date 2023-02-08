@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_sdg_spotlights_for_list**](SpotlightsApi.md#get_sdg_spotlights_for_list) | **POST** /factset-esg/v1/sdg-spotlights | Gets Spotlight data for the most important positive and negative ESG events to enable timely and systematic trading strategies and portfolio management
 
 
+
 # **get_sasb_spotlights**
 > SpotlightsResponse get_sasb_spotlights(ids, start_date, end_date)
 

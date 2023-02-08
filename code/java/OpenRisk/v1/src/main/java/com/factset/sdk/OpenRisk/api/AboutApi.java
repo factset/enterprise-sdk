@@ -32,14 +32,15 @@ public class AboutApi {
   public AboutApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> documentationResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> documentationResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     documentationResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
     documentationResponseTypeMap.put(401, new GenericType<String>(){});
     documentationResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     documentationResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> healthStatusResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     healthStatusResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
@@ -47,6 +48,7 @@ public class AboutApi {
     healthStatusResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
     healthStatusResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
   }
+
   private static final Map<Integer, GenericType> listRiskModelsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     listRiskModelsResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
@@ -54,6 +56,7 @@ public class AboutApi {
     listRiskModelsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     listRiskModelsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> riskModelMetadataResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     riskModelMetadataResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
@@ -61,12 +64,14 @@ public class AboutApi {
     riskModelMetadataResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     riskModelMetadataResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> statsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     statsResponseTypeMap.put(200, new GenericType<SupportedStats>(){});
     statsResponseTypeMap.put(401, new GenericType<String>(){});
     statsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> statsNamesOnlyResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     statsNamesOnlyResponseTypeMap.put(200, new GenericType<SupportedStatsNamesOnly>(){});
@@ -74,7 +79,7 @@ public class AboutApi {
     statsNamesOnlyResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

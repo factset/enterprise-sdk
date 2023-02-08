@@ -33,6 +33,7 @@ Method | HTTP request | Description
 [**post_instrument_rating_grade_list**](InstrumentApi.md#post_instrument_rating_grade_list) | **POST** /instrument/rating/grade/list | List of rating grades for a list of instruments.
 
 
+
 # **get_instrument_background_text_list_by_instrument**
 > InlineResponse20044 get_instrument_background_text_list_by_instrument(id)
 

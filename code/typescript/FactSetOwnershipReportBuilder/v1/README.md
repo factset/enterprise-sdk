@@ -46,6 +46,7 @@ yarn add @factset/sdk-utils @factset/sdk-factsetownershipreportbuilder
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, OwnershipApi } = require('@factset/sdk-factsetownershipreportbuilder');
 const { ConfidentialClient } = require('@factset/sdk-utils');

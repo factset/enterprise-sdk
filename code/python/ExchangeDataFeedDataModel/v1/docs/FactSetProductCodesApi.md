@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_products**](FactSetProductCodesApi.md#get_products) | **GET** /products | Request the enumeration table for FactSet product codes.
 
 
+
 # **get_products**
 > RTDataModelProducts get_products()
 

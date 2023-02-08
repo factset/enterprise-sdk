@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_regions_for_list**](RegionsApi.md#get_regions_for_list) | **POST** /factset-georev/v1/regions | Gets the revenue details for the requested Regions. Use for large lists of company ids.
 
 
+
 # **get_regions**
 > RegionResponse get_regions(ids)
 

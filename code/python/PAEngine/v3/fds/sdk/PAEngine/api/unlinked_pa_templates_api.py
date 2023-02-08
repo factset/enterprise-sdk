@@ -49,6 +49,7 @@ class UnlinkedPATemplatesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_unlinked_pa_templates_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -105,6 +106,7 @@ class UnlinkedPATemplatesApi(object):
             },
             api_client=api_client
         )
+
         self.delete_unlinked_pa_templates_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -157,6 +159,7 @@ class UnlinkedPATemplatesApi(object):
             },
             api_client=api_client
         )
+
         self.get_default_unlinked_pa_template_types_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -205,6 +208,7 @@ class UnlinkedPATemplatesApi(object):
             },
             api_client=api_client
         )
+
         self.get_details_type_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -260,6 +264,7 @@ class UnlinkedPATemplatesApi(object):
             },
             api_client=api_client
         )
+
         self.get_unlinked_pa_templates_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -318,6 +323,7 @@ class UnlinkedPATemplatesApi(object):
             },
             api_client=api_client
         )
+
         self.get_unlinked_pa_templates_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -373,6 +379,7 @@ class UnlinkedPATemplatesApi(object):
             },
             api_client=api_client
         )
+
         self.update_unlinked_pa_templates_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -436,6 +443,7 @@ class UnlinkedPATemplatesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -447,6 +455,7 @@ class UnlinkedPATemplatesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_unlinked_pa_templates(
         self,
@@ -634,6 +643,7 @@ class UnlinkedPATemplatesApi(object):
             unlinked_pa_template_parameters_root
         return self.create_unlinked_pa_templates_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_unlinked_pa_templates(
         self,
         id="01234567890123456789012345678901",
@@ -820,6 +830,7 @@ class UnlinkedPATemplatesApi(object):
             id
         return self.delete_unlinked_pa_templates_endpoint.call_with_http_info(**kwargs)
 
+
     def get_default_unlinked_pa_template_types(
         self,
         **kwargs
@@ -985,6 +996,7 @@ class UnlinkedPATemplatesApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_default_unlinked_pa_template_types_endpoint.call_with_http_info(**kwargs)
+
 
     def get_details_type(
         self,
@@ -1172,6 +1184,7 @@ class UnlinkedPATemplatesApi(object):
             id
         return self.get_details_type_endpoint.call_with_http_info(**kwargs)
 
+
     def get_unlinked_pa_templates(
         self,
         **kwargs
@@ -1345,6 +1358,7 @@ class UnlinkedPATemplatesApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_unlinked_pa_templates_endpoint.call_with_http_info(**kwargs)
+
 
     def get_unlinked_pa_templates_by_id(
         self,
@@ -1531,6 +1545,7 @@ class UnlinkedPATemplatesApi(object):
         kwargs['id'] = \
             id
         return self.get_unlinked_pa_templates_by_id_endpoint.call_with_http_info(**kwargs)
+
 
     def update_unlinked_pa_templates(
         self,
@@ -1733,4 +1748,5 @@ class UnlinkedPATemplatesApi(object):
         kwargs['unlinked_pa_template_update_parameters_root'] = \
             unlinked_pa_template_update_parameters_root
         return self.update_unlinked_pa_templates_endpoint.call_with_http_info(**kwargs)
+
 

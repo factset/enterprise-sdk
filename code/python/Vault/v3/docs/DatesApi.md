@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**convert_vault_dates_to_absolute_format**](DatesApi.md#convert_vault_dates_to_absolute_format) | **GET** /analytics/engines/vault/v3/dates | Convert Vault dates to absolute format
 
 
+
 # **convert_vault_dates_to_absolute_format**
 > DateParametersSummaryRoot convert_vault_dates_to_absolute_format(enddate, componentid, account)
 

@@ -60,6 +60,7 @@ pip install fds.sdk.utils fds.sdk.FactSetFunds
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import fund_flows__aum_api
 from fds.sdk.FactSetFunds.models import *

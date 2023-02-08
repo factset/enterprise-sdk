@@ -30,8 +30,8 @@ public class PricesVolumeApi {
   public PricesVolumeApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getOptionsPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getOptionsPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptionsPricesForListResponseTypeMap.put(200, new GenericType<OptionsPricesResponse>(){});
     getOptionsPricesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -40,6 +40,7 @@ public class PricesVolumeApi {
     getOptionsPricesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getOptionsPricesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getOptionsVolumeForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptionsVolumeForListResponseTypeMap.put(200, new GenericType<OptionsVolumeResponse>(){});
@@ -49,6 +50,7 @@ public class PricesVolumeApi {
     getOptionsVolumeForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getOptionsVolumeForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getUnderlyingVolumeForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getUnderlyingVolumeForListResponseTypeMap.put(200, new GenericType<UnderlyingVolumeResponse>(){});
@@ -59,7 +61,7 @@ public class PricesVolumeApi {
     getUnderlyingVolumeForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

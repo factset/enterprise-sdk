@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**get_related_funds_for_list**](ReferenceApi.md#get_related_funds_for_list) | **POST** /factset-funds/v1/related-funds | Get a list of Related Funds for a large list of Fund ids.
 
 
+
 # **get_funds_benchmark_details**
 > BenchmarkDetailsResponse get_funds_benchmark_details(ids)
 

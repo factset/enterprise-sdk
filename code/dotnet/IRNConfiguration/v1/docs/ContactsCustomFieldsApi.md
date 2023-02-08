@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**PatchContactCustomField**](ContactsCustomFieldsApi.md#patchcontactcustomfield) | **PATCH** /v1/contact-custom-fields/{contactCustomFieldId} | Edit a contact custom field
 
 
+
 <a name="createcontactcustomfield"></a>
 # **CreateContactCustomField**
 > NewItemDto CreateContactCustomField (ContactCustomFieldSaveDto contactCustomFieldSaveDto = null)
@@ -99,6 +100,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletecontactcustomfield"></a>
 # **DeleteContactCustomField**
@@ -189,6 +191,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcontactcustomfield"></a>
 # **GetContactCustomField**
 > ContactCustomFieldDto GetContactCustomField (Guid contactCustomFieldId)
@@ -278,6 +281,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcontactcustomfields"></a>
 # **GetContactCustomFields**
 > List&lt;ContactCustomFieldDto&gt; GetContactCustomFields ()
@@ -360,6 +364,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="patchcontactcustomfield"></a>
 # **PatchContactCustomField**
@@ -451,4 +456,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

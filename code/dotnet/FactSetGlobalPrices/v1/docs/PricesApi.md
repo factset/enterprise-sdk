@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSecurityPricesForList**](PricesApi.md#getsecuritypricesforlist) | **POST** /factset-global-prices/v1/prices | Requests end-of-day Open, High, Low, Close for a large list of securities.
 
 
+
 <a name="getgpdprices"></a>
 # **GetGPDPrices**
 > GlobalPricesResponse GetGPDPrices (List<string> ids, string startDate, List<string> fields = null, string endDate = null, string frequency = null, string calendar = null, string currency = null, string adjust = null)
@@ -116,6 +117,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsecuritypricesforlist"></a>
 # **GetSecurityPricesForList**
 > GlobalPricesResponse GetSecurityPricesForList (GlobalPricesRequest globalPricesRequest)
@@ -204,4 +206,5 @@ Name | Type | Description  | Notes
 | **200** | Array of security prices |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

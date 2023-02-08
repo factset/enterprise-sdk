@@ -29,8 +29,8 @@ public class PricesApi {
   public PricesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFixedSecurityPricesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFixedSecurityPricesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFixedSecurityPricesResponseTypeMap.put(200, new GenericType<PricesFixedIncomeResponse>(){});
     getFixedSecurityPricesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -39,6 +39,7 @@ public class PricesApi {
     getFixedSecurityPricesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFixedSecurityPricesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFixedSecurityPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFixedSecurityPricesForListResponseTypeMap.put(200, new GenericType<PricesFixedIncomeResponse>(){});
@@ -48,6 +49,7 @@ public class PricesApi {
     getFixedSecurityPricesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFixedSecurityPricesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSecurityPricesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecurityPricesResponseTypeMap.put(200, new GenericType<PricesResponse>(){});
@@ -58,6 +60,7 @@ public class PricesApi {
     getSecurityPricesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSecurityPricesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSecurityPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecurityPricesForListResponseTypeMap.put(200, new GenericType<PricesResponse>(){});
@@ -69,7 +72,7 @@ public class PricesApi {
     getSecurityPricesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
  /**
    * Wrapper to support GET /factset-prices/v1/prices returning different types
    * per status code.

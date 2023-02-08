@@ -24,13 +24,13 @@ public class AccountsApi {
   public AccountsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getAccountsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getAccountsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountsResponseTypeMap.put(200, new GenericType<AccountDirectoriesRoot>(){});
   }
 
-   
+  
 
 
   /**

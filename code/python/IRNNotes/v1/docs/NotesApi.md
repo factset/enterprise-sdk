@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**update_note**](NotesApi.md#update_note) | **PUT** /v1/notes/{noteId} | Update a note
 
 
+
 # **create_note**
 > NewItemDto create_note(create_note_dto)
 

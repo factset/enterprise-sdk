@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_security_references**](ReferenceApi.md#get_security_references) | **GET** /factset-prices/v1/references | Gets security reference details for a list of securities
 
 
+
 # **get_security_reference_for_list**
 > ReferencesResponse get_security_reference_for_list(references_request)
 

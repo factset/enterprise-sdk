@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**patch_contact_custom_field**](ContactsCustomFieldsApi.md#patch_contact_custom_field) | **PATCH** /v1/contact-custom-fields/{contactCustomFieldId} | Edit a contact custom field
 
 
+
 # **create_contact_custom_field**
 > NewItemDto create_contact_custom_field()
 

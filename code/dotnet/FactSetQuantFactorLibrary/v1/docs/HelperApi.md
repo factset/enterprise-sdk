@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetFactorLibraryList**](HelperApi.md#getfactorlibrarylist) | **POST** /factset-quant-factor-library/v1/library | Retrieves a list of all available factors with relevant meta data.
 
 
+
 <a name="getfactorlibrary"></a>
 # **GetFactorLibrary**
 > LibraryResponse GetFactorLibrary (List<string> factors = null, List<string> factorGroups = null)
@@ -99,6 +100,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactorlibrarylist"></a>
 # **GetFactorLibraryList**
 > LibraryResponse GetFactorLibraryList (LibraryRequest libraryRequest)
@@ -187,4 +189,5 @@ Name | Type | Description  | Notes
 | **200** | Library Response Object |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

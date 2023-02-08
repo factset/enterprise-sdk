@@ -26,8 +26,8 @@ public class GicsApi {
   public GicsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getGicsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getGicsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getGicsResponseTypeMap.put(200, new GenericType<GicsResponse>(){});
     getGicsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class GicsApi {
     getGicsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getGicsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postGicsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postGicsResponseTypeMap.put(200, new GenericType<GicsResponse>(){});
@@ -46,7 +47,7 @@ public class GicsApi {
     postGicsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

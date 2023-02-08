@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetVaultConfigurations**](ConfigurationsApi.md#getvaultconfigurations) | **GET** /analytics/lookups/v2/engines/vault/configurations | Get Vault configurations
 
 
+
 <a name="getvaultconfigurationbyid"></a>
 # **GetVaultConfigurationById**
 > VaultConfiguration GetVaultConfigurationById (string id)
@@ -105,6 +106,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getvaultconfigurations"></a>
 # **GetVaultConfigurations**
 > Dictionary&lt;string, VaultConfigurationSummary&gt; GetVaultConfigurations (string account)
@@ -201,4 +203,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

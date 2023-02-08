@@ -35,62 +35,72 @@ public class NotesConfigurationApi {
   public NotesConfigurationApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getAssignedFactSetUsersResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getAssignedFactSetUsersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAssignedFactSetUsersResponseTypeMap.put(200, new GenericType<java.util.List<UserConfigDto>>(){});
   }
+
   private static final Map<Integer, GenericType> getAuthorsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAuthorsResponseTypeMap.put(200, new GenericType<java.util.List<AuthorConfigDto>>(){});
     getAuthorsResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getClientsSalesRepresentativeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getClientsSalesRepresentativeResponseTypeMap.put(200, new GenericType<ClientSalesRepresentativeDto>(){});
     getClientsSalesRepresentativeResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getCustomFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCustomFieldsResponseTypeMap.put(200, new GenericType<java.util.List<CustomFieldConfigDto>>(){});
     getCustomFieldsResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getGroupResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getGroupResponseTypeMap.put(200, new GenericType<GroupConfigDto>(){});
   }
+
   private static final Map<Integer, GenericType> getRecommendationsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRecommendationsResponseTypeMap.put(200, new GenericType<java.util.List<RecommendationConfigDto>>(){});
   }
+
   private static final Map<Integer, GenericType> getSentimentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSentimentsResponseTypeMap.put(200, new GenericType<java.util.List<SentimentConfigDto>>(){});
   }
+
   private static final Map<Integer, GenericType> getSubjectResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSubjectResponseTypeMap.put(200, new GenericType<SubjectConfigDto>(){});
     getSubjectResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
     getSubjectResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getSubjectsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSubjectsResponseTypeMap.put(200, new GenericType<java.util.List<SubjectSummaryDto>>(){});
     getSubjectsResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getTeamResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getTeamResponseTypeMap.put(200, new GenericType<TeamConfigDto>(){});
     getTeamResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
     getTeamResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getTeamsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getTeamsResponseTypeMap.put(200, new GenericType<java.util.List<TeamSummaryDto>>(){});
     getTeamsResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
   }
 
-   
+  
 
 
   /**

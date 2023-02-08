@@ -104,7 +104,8 @@ namespace FactSet.SDK.FactSetTickHistory.Api
         private FactSet.SDK.FactSetTickHistory.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> V1GetFilesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> V1GetFilesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(GetFilesResponse) },
             { (HttpStatusCode)400, typeof(GetFilesStatus) },
@@ -113,7 +114,7 @@ namespace FactSet.SDK.FactSetTickHistory.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

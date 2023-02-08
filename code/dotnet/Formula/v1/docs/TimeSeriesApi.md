@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetTimeSeriesDataForList**](TimeSeriesApi.md#gettimeseriesdataforlist) | **POST** /v1/time-series | Retrieve data items (FQL formulas) for a list of identifiers or defined universe.
 
 
+
 <a name="gettimeseriesdata"></a>
 # **GetTimeSeriesData**
 > TimeSeriesResponse GetTimeSeriesData (List<string> formulas, List<string> ids = null, string symbolType = null, string universe = null, string universeType = null, string calendar = null, string fsymId = null, List<string> displayName = null, string flatten = null, string dates = null, string batch = null)
@@ -143,6 +144,7 @@ GetTimeSeriesDataResponseWrapper
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="gettimeseriesdataforlist"></a>
 # **GetTimeSeriesDataForList**
 > TimeSeriesResponse GetTimeSeriesDataForList (TimeSeriesRequest timeSeriesRequest)
@@ -257,4 +259,5 @@ GetTimeSeriesDataForListResponseWrapper
 | **503** | Service Temporarily Unavailable |  * api-version -  <br>  * api-supported-versions -  <br>  * api-deprecated-versions -  <br>  * chain-id -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

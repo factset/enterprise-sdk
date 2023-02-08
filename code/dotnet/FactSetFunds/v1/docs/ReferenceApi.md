@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**GetRelatedFundsForList**](ReferenceApi.md#getrelatedfundsforlist) | **POST** /factset-funds/v1/related-funds | Get a list of Related Funds for a large list of Fund ids.
 
 
+
 <a name="getfundsbenchmarkdetails"></a>
 # **GetFundsBenchmarkDetails**
 > BenchmarkDetailsResponse GetFundsBenchmarkDetails (List<string> ids)
@@ -111,6 +112,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfundsbenchmarkdetailsforlist"></a>
 # **GetFundsBenchmarkDetailsForList**
@@ -206,6 +208,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundsclassifications"></a>
 # **GetFundsClassifications**
 > ClassificationsResponse GetFundsClassifications (List<string> ids)
@@ -300,6 +303,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundsclassificationsforlist"></a>
 # **GetFundsClassificationsForList**
 > ClassificationsResponse GetFundsClassificationsForList (ClassificationsRequest classificationsRequest)
@@ -393,6 +397,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfundscostsfees"></a>
 # **GetFundsCostsFees**
@@ -492,6 +497,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundscostsfeesforlist"></a>
 # **GetFundsCostsFeesForList**
 > CostsFeesResponse GetFundsCostsFeesForList (CostsFeesRequest costsFeesRequest)
@@ -585,6 +591,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfundsmanagers"></a>
 # **GetFundsManagers**
@@ -680,6 +687,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundsmanagersforlist"></a>
 # **GetFundsManagersForList**
 > ManagersResponse GetFundsManagersForList (ManagersRequest managersRequest)
@@ -773,6 +781,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfundssummary"></a>
 # **GetFundsSummary**
@@ -868,6 +877,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfundssummaryforlist"></a>
 # **GetFundsSummaryForList**
 > SummariesResponse GetFundsSummaryForList (SummariesRequest summariesRequest)
@@ -961,6 +971,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getrelatedfunds"></a>
 # **GetRelatedFunds**
@@ -1056,6 +1067,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getrelatedfundsforlist"></a>
 # **GetRelatedFundsForList**
 > RelatedFundsResponse GetRelatedFundsForList (RelatedFundsRequest relatedFundsRequest)
@@ -1149,4 +1161,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

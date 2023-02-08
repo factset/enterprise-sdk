@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_agents_for_list**](AgentsApi.md#get_agents_for_list) | **POST** /factset-terms-and-conditions/v1/agents | Return Agents items for a list of Fixed Income securities.
 
 
+
 # **get_agents**
 > AgentsResponse get_agents(ids)
 

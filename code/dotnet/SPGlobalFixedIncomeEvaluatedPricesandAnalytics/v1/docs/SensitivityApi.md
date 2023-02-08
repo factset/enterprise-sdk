@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetBondSensitivityForList**](SensitivityApi.md#getbondsensitivityforlist) | **POST** /markit-bond-prices-and-analytics/v1/sensitivity | Request the bond sensitivity data for a list of securities
 
 
+
 <a name="getbondsensitivity"></a>
 # **GetBondSensitivity**
 > BondSensitivityResponse GetBondSensitivity (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string calendar = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbondsensitivityforlist"></a>
 # **GetBondSensitivityForList**
 > BondSensitivityResponse GetBondSensitivityForList (BondSensitivityRequest bondSensitivityRequest)
@@ -203,4 +205,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

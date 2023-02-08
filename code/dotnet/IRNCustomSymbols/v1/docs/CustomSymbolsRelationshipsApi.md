@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**GetSymbolRelationships**](CustomSymbolsRelationshipsApi.md#getsymbolrelationships) | **GET** /v1/symbol-relationships/{symbolId}/relationships | Returns a list of a symbol’s relationships
 
 
+
 <a name="createsymbolrelationship"></a>
 # **CreateSymbolRelationship**
 > void CreateSymbolRelationship (List<SymbolRelationshipSaveDto> symbolRelationshipSaveDto = null)
@@ -98,6 +99,7 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletesymbolrelationship"></a>
 # **DeleteSymbolRelationship**
@@ -188,6 +190,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="editandaddsymbolrelationship"></a>
 # **EditAndAddSymbolRelationship**
 > void EditAndAddSymbolRelationship (string symbol, List<SymbolRelationshipUpdateDto> symbolRelationshipUpdateDto = null)
@@ -275,6 +278,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getsymbolrelationship"></a>
 # **GetSymbolRelationship**
@@ -365,6 +369,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsymbolrelationships"></a>
 # **GetSymbolRelationships**
 > List&lt;SymbolRelationshipDto&gt; GetSymbolRelationships (Guid symbolId)
@@ -453,4 +458,5 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

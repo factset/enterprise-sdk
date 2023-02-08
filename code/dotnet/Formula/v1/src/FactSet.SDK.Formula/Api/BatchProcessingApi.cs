@@ -231,24 +231,28 @@ namespace FactSet.SDK.Formula.Api
         private FactSet.SDK.Formula.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetBatchDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBatchDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(BatchDataResponse) },
             { (HttpStatusCode)202, typeof(BatchStatusResponse) },
             { (HttpStatusCode)404, typeof(ErrorDetail) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBatchDataWithPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(BatchDataResponse) },
             { (HttpStatusCode)202, typeof(BatchStatusResponse) },
             { (HttpStatusCode)404, typeof(ErrorDetail) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBatchStatusResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(BatchStatusResponse) },
             { (HttpStatusCode)202, typeof(BatchStatusResponse) },
             { (HttpStatusCode)404, typeof(ErrorDetail) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBatchStatusWithPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(BatchStatusResponse) },
@@ -259,7 +263,7 @@ namespace FactSet.SDK.Formula.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
         /// <summary>
         /// Wrapper to support GET /v1/batch-result returning different types
         /// per status code.

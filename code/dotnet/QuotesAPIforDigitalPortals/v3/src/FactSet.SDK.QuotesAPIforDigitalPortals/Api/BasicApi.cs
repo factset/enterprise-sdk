@@ -1615,130 +1615,162 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         private FactSet.SDK.QuotesAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicAssetClassListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicAssetClassListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse200) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicBenchmarkTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2002) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicFrequencyTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2004) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicLanguageGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2005) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicLanguageGetByCodeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2006) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicLanguageListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2007) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicMarketGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2008) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicMarketGroupListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20010) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicMarketTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20011) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicMediaKindListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20012) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicRegionContinentGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20017) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicRegionContinentListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20018) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicRegionCountryGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20019) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicRegionCountryGetByCodeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20020) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicRegionCountryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20021) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicRegionGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20015) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicRegionListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20016) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicTimezoneGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20022) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicTimezoneGetByNameResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20022) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicValueUnitAlternativeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20026) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicValueUnitCurrencyFractionalGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20028) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicValueUnitCurrencyFractionalListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20029) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBasicValueUnitGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20024) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostBasicBackgroundTextTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2001) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostBasicDeliveryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2003) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostBasicMarketListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2009) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostBasicMediaTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20013) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostBasicMicOperatingListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20014) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostBasicTimezoneListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20023) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostBasicValueUnitCurrencyListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20027) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostBasicValueUnitCurrencyMainListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20030) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostBasicValueUnitListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20025) },
@@ -1747,7 +1779,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

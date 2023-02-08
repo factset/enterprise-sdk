@@ -98,6 +98,7 @@ class QuestionAnswerApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.qna_get_answers_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -153,6 +154,7 @@ class QuestionAnswerApi(object):
             },
             api_client=api_client
         )
+
         self.qna_get_status_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -208,6 +210,7 @@ class QuestionAnswerApi(object):
             },
             api_client=api_client
         )
+
         self.qna_post_question_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -265,6 +268,7 @@ class QuestionAnswerApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -276,6 +280,7 @@ class QuestionAnswerApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def qna_get_answers(
         self,
@@ -463,6 +468,7 @@ class QuestionAnswerApi(object):
             id
         return self.qna_get_answers_endpoint.call_with_http_info(**kwargs)
 
+
     def qna_get_status(
         self,
         id,
@@ -649,6 +655,7 @@ class QuestionAnswerApi(object):
             id
         return self.qna_get_status_endpoint.call_with_http_info(**kwargs)
 
+
     def qna_post_question(
         self,
         qn_a_answer_parameters_root,
@@ -834,4 +841,5 @@ class QuestionAnswerApi(object):
         kwargs['qn_a_answer_parameters_root'] = \
             qn_a_answer_parameters_root
         return self.qna_post_question_endpoint.call_with_http_info(**kwargs)
+
 

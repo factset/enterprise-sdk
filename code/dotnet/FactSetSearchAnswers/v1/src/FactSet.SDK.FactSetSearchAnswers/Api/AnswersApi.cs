@@ -152,13 +152,15 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
         private FactSet.SDK.FactSetSearchAnswers.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> SearchForAdaptiveCardAnswerResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> SearchForAdaptiveCardAnswerResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(AdaptiveCardAnswerSuccessResponse) },
             { (HttpStatusCode)400, typeof(AnswerFailureResponse) },
             { (HttpStatusCode)401, typeof(AnswerFailureResponse) },
             { (HttpStatusCode)500, typeof(AnswerFailureResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> SearchForDataAnswerResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(DataAnswerSuccessResponse) },
@@ -170,7 +172,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -24,13 +24,13 @@ public class FrequenciesApi {
   public FrequenciesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSPARFrequenciesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSPARFrequenciesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSPARFrequenciesResponseTypeMap.put(200, new GenericType<java.util.Map<String, Frequency>>(){});
   }
 
-   
+  
 
 
   /**

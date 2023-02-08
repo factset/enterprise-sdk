@@ -26,8 +26,8 @@ public class SecurityHoldersApi {
   public SecurityHoldersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSecurityHoldersResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSecurityHoldersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecurityHoldersResponseTypeMap.put(200, new GenericType<SecurityHoldersResponse>(){});
     getSecurityHoldersResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class SecurityHoldersApi {
     getSecurityHoldersResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSecurityHoldersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postSecurityHoldersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postSecurityHoldersResponseTypeMap.put(200, new GenericType<SecurityHoldersResponse>(){});
@@ -46,7 +47,7 @@ public class SecurityHoldersApi {
     postSecurityHoldersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

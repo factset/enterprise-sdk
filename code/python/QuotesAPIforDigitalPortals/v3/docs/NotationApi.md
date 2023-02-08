@@ -40,6 +40,7 @@ Method | HTTP request | Description
 [**post_notation_search_by_text**](NotationApi.md#post_notation_search_by_text) | **POST** /notation/searchByText | Text-based search for notations.
 
 
+
 # **get_notation_cross_reference_fact_set_identifier_get**
 > InlineResponse20071 get_notation_cross_reference_fact_set_identifier_get(identifier, identifier_type)
 

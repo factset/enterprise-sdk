@@ -26,8 +26,8 @@ public class RedemptionsApi {
   public RedemptionsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFixedIncomeRedemptionPricesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFixedIncomeRedemptionPricesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFixedIncomeRedemptionPricesResponseTypeMap.put(200, new GenericType<RedemptionPricesResponse>(){});
     getFixedIncomeRedemptionPricesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class RedemptionsApi {
     getFixedIncomeRedemptionPricesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFixedIncomeRedemptionPricesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFixedIncomeRedemptionPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFixedIncomeRedemptionPricesForListResponseTypeMap.put(200, new GenericType<RedemptionPricesResponse>(){});
@@ -46,7 +47,7 @@ public class RedemptionsApi {
     getFixedIncomeRedemptionPricesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

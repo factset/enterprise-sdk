@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**global_filings_v1_list_files_get**](GlobalFilingsAPIApi.md#global_filings_v1_list_files_get) | **GET** /global-filings/v1/list-files | Retrieve filings within FactSet coverage
 
 
+
 # **global_filings_v1_list_files_get**
 > FilingsResponse global_filings_v1_list_files_get(start_date, end_date)
 

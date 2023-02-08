@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GlobalFilingsV1ListFilesGet**](GlobalFilingsAPIApi.md#globalfilingsv1listfilesget) | **GET** /global-filings/v1/list-files | Retrieve filings within FactSet coverage
 
 
+
 <a name="globalfilingsv1listfilesget"></a>
 # **GlobalFilingsV1ListFilesGet**
 > List&lt;FilingsFiles&gt; GlobalFilingsV1ListFilesGet (string dataset, DateTime startDate, DateTime endDate)
@@ -100,4 +101,5 @@ Name | Type | Description  | Notes
 | **400** | Bad request- invalid or missing parameter |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

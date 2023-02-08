@@ -25,8 +25,8 @@ public class EstimateTablesApi {
   public EstimateTablesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEstimateTablesTableResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEstimateTablesTableResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimateTablesTableResponseTypeMap.put(200, new GenericType<Response>(){});
     getEstimateTablesTableResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -35,7 +35,7 @@ public class EstimateTablesApi {
     getEstimateTablesTableResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -243,7 +243,8 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
         private FactSet.SDK.ProcuretoPayAPISCIM.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GroupIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GroupIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(GroupResource) },
             { (HttpStatusCode)401, typeof(Error) },
@@ -251,6 +252,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
             { (HttpStatusCode)404, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GroupIdPatchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(GroupResource) },
@@ -259,6 +261,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
             { (HttpStatusCode)403, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GroupIdPutResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(GroupResource) },
@@ -268,6 +271,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
             { (HttpStatusCode)404, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GroupsGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(GroupResourceList) },
@@ -280,7 +284,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

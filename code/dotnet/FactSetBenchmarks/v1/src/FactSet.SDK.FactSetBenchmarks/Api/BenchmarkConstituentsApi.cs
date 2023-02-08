@@ -248,7 +248,8 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
         private FactSet.SDK.FactSetBenchmarks.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetBenchmarkConstituentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBenchmarkConstituentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(BenchmarkConstituentsResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -257,6 +258,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBenchmarkConstituentsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(BenchmarkConstituentsResponse) },
@@ -266,6 +268,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFIBenchmarkConstituentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(FixedIncomeBenchmarkConstituentsResponse) },
@@ -275,6 +278,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFIBenchmarkConstituentsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(FixedIncomeBenchmarkConstituentsResponse) },
@@ -288,7 +292,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

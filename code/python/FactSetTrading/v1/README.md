@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.FactSetTrading
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetTrading
 from fds.sdk.FactSetTrading.api import orders_api
 from fds.sdk.FactSetTrading.models import *

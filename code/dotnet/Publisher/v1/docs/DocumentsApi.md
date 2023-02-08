@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetPubDocuments**](DocumentsApi.md#getpubdocuments) | **GET** /analytics/lookups/v2/engines/pub/documents/{path} | Gets Publisher documents and sub-directories in a directory
 
 
+
 <a name="getpubdocuments"></a>
 # **GetPubDocuments**
 > DocumentDirectories GetPubDocuments (string path)
@@ -103,4 +104,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

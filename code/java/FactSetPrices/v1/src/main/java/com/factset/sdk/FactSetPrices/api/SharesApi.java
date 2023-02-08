@@ -26,8 +26,8 @@ public class SharesApi {
   public SharesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSecuritySharesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSecuritySharesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecuritySharesResponseTypeMap.put(200, new GenericType<SharesResponse>(){});
     getSecuritySharesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class SharesApi {
     getSecuritySharesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSecuritySharesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSecuritySharesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecuritySharesForListResponseTypeMap.put(200, new GenericType<SharesResponse>(){});
@@ -46,7 +47,7 @@ public class SharesApi {
     getSecuritySharesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

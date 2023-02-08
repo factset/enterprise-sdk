@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateDatabase**](CreateApi.md#createdatabase) | **POST** /database | 
 
 
+
 <a name="createdatabase"></a>
 # **CreateDatabase**
 > CreateDatabase CreateDatabase (DatabaseSchema databaseSchema = null)
@@ -102,4 +103,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

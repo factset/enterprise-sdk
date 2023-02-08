@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetRollingDetailForList**](BrokerDetailApi.md#getrollingdetailforlist) | **POST** /factset-estimates/v2/rolling-detail | FactSet estimates detail data for rolling fiscal periods
 
 
+
 <a name="getfixeddetail"></a>
 # **GetFixedDetail**
 > DetailResponse GetFixedDetail (List<string> ids, List<string> metrics, string startDate = null, string endDate = null, string frequency = null, string periodicity = null, bool? includeAll = null, string fiscalPeriodStart = null, string fiscalPeriodEnd = null, string currency = null)
@@ -122,6 +123,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfixeddetailforlist"></a>
 # **GetFixedDetailForList**
 > DetailResponse GetFixedDetailForList (FixedDetailRequest fixedDetailRequest)
@@ -215,6 +217,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getrollingdetail"></a>
 # **GetRollingDetail**
@@ -328,6 +331,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getrollingdetailforlist"></a>
 # **GetRollingDetailForList**
 > DetailResponse GetRollingDetailForList (RollingDetailRequest rollingDetailRequest)
@@ -421,4 +425,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

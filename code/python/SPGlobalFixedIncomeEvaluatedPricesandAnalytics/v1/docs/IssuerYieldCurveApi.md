@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_bond_issuer_yield_curve_for_list**](IssuerYieldCurveApi.md#get_bond_issuer_yield_curve_for_list) | **POST** /markit-bond-prices-and-analytics/v1/issuer-yield-curve | Request yield curve data for given date range and list of securities
 
 
+
 # **get_bond_issuer_yield_curve**
 > BondIssuerYieldCurveResponse get_bond_issuer_yield_curve(ids)
 

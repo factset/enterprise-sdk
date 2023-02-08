@@ -46,6 +46,7 @@ class EntityStructureApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_entity_structure_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -124,6 +125,7 @@ class EntityStructureApi(object):
             },
             api_client=api_client
         )
+
         self.get_ultimate_entity_structure_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -202,6 +204,7 @@ class EntityStructureApi(object):
             },
             api_client=api_client
         )
+
         self.post_entity_structure_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -258,6 +261,7 @@ class EntityStructureApi(object):
             },
             api_client=api_client
         )
+
         self.post_ultimate_entity_structure_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -315,6 +319,7 @@ class EntityStructureApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -326,6 +331,7 @@ class EntityStructureApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_entity_structure(
         self,
@@ -521,6 +527,7 @@ class EntityStructureApi(object):
             ids
         return self.get_entity_structure_endpoint.call_with_http_info(**kwargs)
 
+
     def get_ultimate_entity_structure(
         self,
         ids,
@@ -715,6 +722,7 @@ class EntityStructureApi(object):
             ids
         return self.get_ultimate_entity_structure_endpoint.call_with_http_info(**kwargs)
 
+
     def post_entity_structure(
         self,
         entity_structure_request,
@@ -901,6 +909,7 @@ class EntityStructureApi(object):
             entity_structure_request
         return self.post_entity_structure_endpoint.call_with_http_info(**kwargs)
 
+
     def post_ultimate_entity_structure(
         self,
         ultimate_entity_structure_request,
@@ -1086,4 +1095,5 @@ class EntityStructureApi(object):
         kwargs['ultimate_entity_structure_request'] = \
             ultimate_entity_structure_request
         return self.post_ultimate_entity_structure_endpoint.call_with_http_info(**kwargs)
+
 

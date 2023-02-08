@@ -919,66 +919,82 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         private FactSet.SDK.StocksAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetStockCompositeProfileGetByNotationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetStockCompositeProfileGetByNotationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2009) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockDividendTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20011) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20012) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20012) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkMonth6GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20012) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20012) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkYear1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20012) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkYear3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20012) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkYear5GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20012) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockOwnerListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2008) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockRecommendationAggregateGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2003) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockRecommendationAggregateHistoryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2004) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostStockDividendListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20010) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostStockNotationRankingIntradayListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20013) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostStockNotationScreenerSearchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20014) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostStockNotationScreenerValueRangesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20015) },
@@ -987,7 +1003,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSdgScoresPost**](SDGApi.md#getsdgscorespost) | **POST** /factset-esg/v1/sdg-scores | Gets short-term, long-term, and momentum scores based on the 16 Sustainable Development Goals categories defined by United Nations.
 
 
+
 <a name="getsdgscores"></a>
 # **GetSdgScores**
 > SdgScoresResponse GetSdgScores (List<string> ids, string startDate, string endDate, List<string> scoreTypes = null, List<string> categories = null, string frequency = null)
@@ -112,6 +113,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsdgscorespost"></a>
 # **GetSdgScoresPost**
 > SdgScoresResponse GetSdgScoresPost (SdgScoresRequest sdgScoresRequest)
@@ -205,4 +207,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

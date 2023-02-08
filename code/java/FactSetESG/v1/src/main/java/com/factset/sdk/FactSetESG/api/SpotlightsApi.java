@@ -27,8 +27,8 @@ public class SpotlightsApi {
   public SpotlightsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSasbSpotlightsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSasbSpotlightsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSasbSpotlightsResponseTypeMap.put(200, new GenericType<SpotlightsResponse>(){});
     getSasbSpotlightsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class SpotlightsApi {
     getSasbSpotlightsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSasbSpotlightsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSasbSpotlightsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSasbSpotlightsForListResponseTypeMap.put(200, new GenericType<SpotlightsResponse>(){});
@@ -48,6 +49,7 @@ public class SpotlightsApi {
     getSasbSpotlightsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSasbSpotlightsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSdgSpotlightsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSdgSpotlightsResponseTypeMap.put(200, new GenericType<SpotlightsResponse>(){});
@@ -58,6 +60,7 @@ public class SpotlightsApi {
     getSdgSpotlightsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSdgSpotlightsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSdgSpotlightsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSdgSpotlightsForListResponseTypeMap.put(200, new GenericType<SpotlightsResponse>(){});
@@ -69,7 +72,7 @@ public class SpotlightsApi {
     getSdgSpotlightsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

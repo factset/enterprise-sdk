@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**UpdateRelationshipCategoryOrder**](ContactsRelationshipCategoryApi.md#updaterelationshipcategoryorder) | **POST** /v1/relationship-categories/reorder | Reorder relationship categories
 
 
+
 <a name="createrelationshipcategory"></a>
 # **CreateRelationshipCategory**
 > NewItemDto CreateRelationshipCategory (RelationshipCategorySaveDto relationshipCategorySaveDto = null)
@@ -100,6 +101,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="deleterelationshipcategory"></a>
 # **DeleteRelationshipCategory**
 > void DeleteRelationshipCategory (Guid relationshipCategoryId)
@@ -188,6 +190,7 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="editrelationshipcategory"></a>
 # **EditRelationshipCategory**
@@ -280,6 +283,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getrelationshipcategories"></a>
 # **GetRelationshipCategories**
 > List&lt;RelationshipCategoryDto&gt; GetRelationshipCategories ()
@@ -362,6 +366,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="updaterelationshipcategoryorder"></a>
 # **UpdateRelationshipCategoryOrder**
@@ -451,4 +456,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

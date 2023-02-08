@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_issue_size_for_list**](IssueSizeApi.md#get_issue_size_for_list) | **POST** /factset-terms-and-conditions/v1/issue-size | Return Issue Size data for a large list of Fixed Income securities.
 
 
+
 # **get_issue_size**
 > IssueSizeResponse get_issue_size(ids)
 

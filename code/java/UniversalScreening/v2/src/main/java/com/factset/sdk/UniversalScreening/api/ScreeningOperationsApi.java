@@ -28,8 +28,8 @@ public class ScreeningOperationsApi {
   public ScreeningOperationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCalculateResultsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCalculateResultsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCalculateResultsResponseTypeMap.put(200, new GenericType<PaginatedCalculationResponse>(){});
     getCalculateResultsResponseTypeMap.put(202, new GenericType<ResourceStatusResponse>(){});
@@ -38,6 +38,7 @@ public class ScreeningOperationsApi {
     getCalculateResultsResponseTypeMap.put(404, new GenericType<ErrorArray>(){});
     getCalculateResultsResponseTypeMap.put(410, new GenericType<ErrorArray>(){});
   }
+
   private static final Map<Integer, GenericType> pollCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     pollCalculateResponseTypeMap.put(201, new GenericType<ResourceStatusResponse>(){});
@@ -46,6 +47,7 @@ public class ScreeningOperationsApi {
     pollCalculateResponseTypeMap.put(404, new GenericType<ErrorArray>(){});
     pollCalculateResponseTypeMap.put(410, new GenericType<ErrorArray>(){});
   }
+
   private static final Map<Integer, GenericType> submitArchiveOFDBResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     submitArchiveOFDBResponseTypeMap.put(202, new GenericType<ResourceStatusResponse>(){});
@@ -53,6 +55,7 @@ public class ScreeningOperationsApi {
     submitArchiveOFDBResponseTypeMap.put(401, new GenericType<ErrorArray>(){});
     submitArchiveOFDBResponseTypeMap.put(429, new GenericType<ErrorArray>(){});
   }
+
   private static final Map<Integer, GenericType> submitCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     submitCalculateResponseTypeMap.put(202, new GenericType<ResourceStatusResponse>(){});
@@ -61,7 +64,7 @@ public class ScreeningOperationsApi {
     submitCalculateResponseTypeMap.put(429, new GenericType<ErrorArray>(){});
   }
 
-   
+  
 
 
   /**

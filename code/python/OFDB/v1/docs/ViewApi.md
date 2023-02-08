@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_symbols**](ViewApi.md#get_symbols) | **GET** /v1/database/{path}/symbols | 
 
 
+
 # **get_database**
 > get_database(path)
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**TickHistoryTradesattimeGet**](TradesAtTimeApi.md#tickhistorytradesattimeget) | **GET** /TickHistory/tradesattime | Request returns the before and after trade data along with the associated quotes for the specified time
 
 
+
 <a name="tickhistorytradesattimeget"></a>
 # **TickHistoryTradesattimeGet**
 > TickhistoryResponse TickHistoryTradesattimeGet (string id, string reqId = null, string format = null, string date = null, string time = null)
@@ -104,4 +105,5 @@ Name | Type | Description  | Notes
 | **405** | Invalid HTTP method. Either the method is not GET or exceeds the maximum request lenght (currently set at 5000 bytes. The description field will indicate the exact reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

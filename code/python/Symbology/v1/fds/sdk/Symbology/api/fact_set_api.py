@@ -44,6 +44,7 @@ class FactSetApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.batch_translate_factset_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -100,6 +101,7 @@ class FactSetApi(object):
             },
             api_client=api_client
         )
+
         self.translate_factset_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -157,6 +159,7 @@ class FactSetApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -168,6 +171,7 @@ class FactSetApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def batch_translate_factset(
         self,
@@ -355,6 +359,7 @@ class FactSetApi(object):
             factset_translation_request
         return self.batch_translate_factset_endpoint.call_with_http_info(**kwargs)
 
+
     def translate_factset(
         self,
         ids,
@@ -540,4 +545,5 @@ class FactSetApi(object):
         kwargs['ids'] = \
             ids
         return self.translate_factset_endpoint.call_with_http_info(**kwargs)
+
 

@@ -30,12 +30,13 @@ public class UniversesApi {
   public UniversesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEntityUniverseStatisticsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEntityUniverseStatisticsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityUniverseStatisticsResponseTypeMap.put(200, new GenericType<EntityUniverseStatisticsResponse>(){});
     getEntityUniverseStatisticsResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getUniverseForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getUniverseForListResponseTypeMap.put(200, new GenericType<UniverseMetaResponse>(){});
@@ -46,16 +47,19 @@ public class UniversesApi {
     getUniverseForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
     getUniverseForListResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getUniverseStatisticsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getUniverseStatisticsResponseTypeMap.put(200, new GenericType<UniverseStatisticsResponse>(){});
     getUniverseStatisticsResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getUniversesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getUniversesResponseTypeMap.put(200, new GenericType<UniversesResponse>(){});
     getUniversesResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getUpdateUniverseForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getUpdateUniverseForListResponseTypeMap.put(200, new GenericType<UniverseMetaResponse>(){});
@@ -67,7 +71,7 @@ public class UniversesApi {
     getUpdateUniverseForListResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

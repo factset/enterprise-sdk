@@ -52,6 +52,7 @@ class AddApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.add_dates_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -114,6 +115,7 @@ class AddApi(object):
             },
             api_client=api_client
         )
+
         self.add_fields_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -176,6 +178,7 @@ class AddApi(object):
             },
             api_client=api_client
         )
+
         self.add_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -239,6 +242,7 @@ class AddApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -250,6 +254,7 @@ class AddApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def add_dates(
         self,
@@ -453,6 +458,7 @@ class AddApi(object):
             add_dates
         return self.add_dates_endpoint.call_with_http_info(**kwargs)
 
+
     def add_fields(
         self,
         path,
@@ -655,6 +661,7 @@ class AddApi(object):
             add_fields
         return self.add_fields_endpoint.call_with_http_info(**kwargs)
 
+
     def add_symbols(
         self,
         path,
@@ -856,4 +863,5 @@ class AddApi(object):
         kwargs['add_symbols'] = \
             add_symbols
         return self.add_symbols_endpoint.call_with_http_info(**kwargs)
+
 

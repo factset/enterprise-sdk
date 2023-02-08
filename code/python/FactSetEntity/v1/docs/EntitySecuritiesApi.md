@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**post_entity_securities**](EntitySecuritiesApi.md#post_entity_securities) | **POST** /factset-entity/v1/entity-securities | Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
 
 
+
 # **get_entity_securities**
 > EntitySecuritiesResponse get_entity_securities(ids)
 

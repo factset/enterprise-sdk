@@ -40,6 +40,7 @@ Method | HTTP request | Description
 [**PostNotationSearchByText**](NotationApi.md#postnotationsearchbytext) | **POST** /notation/searchByText | Text-based search for notations.
 
 
+
 <a name="getnotationcrossreferencefactsetidentifierget"></a>
 # **GetNotationCrossReferenceFactSetIdentifierGet**
 > InlineResponse20071 GetNotationCrossReferenceFactSetIdentifierGet (string identifier, string identifierType, List<string> attributes = null)
@@ -133,6 +134,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationcrossreferencegetbyfactsetmarketsymbol"></a>
 # **GetNotationCrossReferenceGetByFactSetMarketSymbol**
 > InlineResponse20067 GetNotationCrossReferenceGetByFactSetMarketSymbol (string factSetMarketSymbol, List<string> attributes = null, string language = null)
@@ -225,6 +227,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationget"></a>
 # **GetNotationGet**
@@ -321,6 +324,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresmonth1get"></a>
 # **GetNotationKeyFiguresMonth1Get**
 > InlineResponse20076 GetNotationKeyFiguresMonth1Get (string identifier, string identifierType, List<string> attributes = null)
@@ -413,6 +417,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationkeyfiguresmonth1list"></a>
 # **GetNotationKeyFiguresMonth1List**
@@ -507,6 +512,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresmonth3get"></a>
 # **GetNotationKeyFiguresMonth3Get**
 > InlineResponse20074 GetNotationKeyFiguresMonth3Get (string identifier, string identifierType, List<string> attributes = null)
@@ -599,6 +605,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationkeyfiguresmonth3list"></a>
 # **GetNotationKeyFiguresMonth3List**
@@ -693,6 +700,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresmonth6get"></a>
 # **GetNotationKeyFiguresMonth6Get**
 > InlineResponse20074 GetNotationKeyFiguresMonth6Get (string identifier, string identifierType, List<string> attributes = null)
@@ -785,6 +793,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationkeyfiguresmonth6list"></a>
 # **GetNotationKeyFiguresMonth6List**
@@ -879,6 +888,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresweek1get"></a>
 # **GetNotationKeyFiguresWeek1Get**
 > InlineResponse20076 GetNotationKeyFiguresWeek1Get (string identifier, string identifierType, List<string> attributes = null)
@@ -971,6 +981,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationkeyfiguresweek1list"></a>
 # **GetNotationKeyFiguresWeek1List**
@@ -1065,6 +1076,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresyear10get"></a>
 # **GetNotationKeyFiguresYear10Get**
 > InlineResponse20074 GetNotationKeyFiguresYear10Get (string identifier, string identifierType, List<string> attributes = null)
@@ -1157,6 +1169,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationkeyfiguresyear10list"></a>
 # **GetNotationKeyFiguresYear10List**
@@ -1251,6 +1264,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresyear1get"></a>
 # **GetNotationKeyFiguresYear1Get**
 > InlineResponse20076 GetNotationKeyFiguresYear1Get (string identifier, string identifierType, List<string> attributes = null)
@@ -1343,6 +1357,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationkeyfiguresyear1list"></a>
 # **GetNotationKeyFiguresYear1List**
@@ -1437,6 +1452,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresyear3get"></a>
 # **GetNotationKeyFiguresYear3Get**
 > InlineResponse20074 GetNotationKeyFiguresYear3Get (string identifier, string identifierType, List<string> attributes = null)
@@ -1529,6 +1545,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationkeyfiguresyear3list"></a>
 # **GetNotationKeyFiguresYear3List**
@@ -1623,6 +1640,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresyear5get"></a>
 # **GetNotationKeyFiguresYear5Get**
 > InlineResponse20074 GetNotationKeyFiguresYear5Get (string identifier, string identifierType, List<string> attributes = null)
@@ -1715,6 +1733,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationkeyfiguresyear5list"></a>
 # **GetNotationKeyFiguresYear5List**
@@ -1809,6 +1828,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresyear7get"></a>
 # **GetNotationKeyFiguresYear7Get**
 > InlineResponse20074 GetNotationKeyFiguresYear7Get (string identifier, string identifierType, List<string> attributes = null)
@@ -1901,6 +1921,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationkeyfiguresyear7list"></a>
 # **GetNotationKeyFiguresYear7List**
@@ -1995,6 +2016,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresyeartodateget"></a>
 # **GetNotationKeyFiguresYearToDateGet**
 > InlineResponse20078 GetNotationKeyFiguresYearToDateGet (string identifier, string identifierType, List<string> attributes = null)
@@ -2088,6 +2110,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationkeyfiguresyeartodatelist"></a>
 # **GetNotationKeyFiguresYearToDateList**
 > InlineResponse20079 GetNotationKeyFiguresYearToDateList (List<string> identifiers, string identifierType, List<string> attributes = null)
@@ -2180,6 +2203,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationlist"></a>
 # **GetNotationList**
@@ -2275,6 +2299,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotationsearchbasic"></a>
 # **GetNotationSearchBasic**
@@ -2381,6 +2406,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationsearchbytextrankedbyvolume"></a>
 # **GetNotationSearchByTextRankedByVolume**
 > InlineResponse20093 GetNotationSearchByTextRankedByVolume (string searchValue, List<decimal> idMarkets = null, List<string> nsins = null, List<string> assetClass = null, bool? onlyActive = null, List<string> attributes = null, string language = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
@@ -2486,6 +2512,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnotationstatusget"></a>
 # **GetNotationStatusGet**
 > InlineResponse20081 GetNotationStatusGet (string identifier, string identifierType, string quality = null, List<string> attributes = null)
@@ -2581,6 +2608,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postnotationcrossreferencefactsetidentifierlistbyfactsetidentifier"></a>
 # **PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier**
 > InlineResponse20072 PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = null)
@@ -2669,6 +2697,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postnotationcrossreferencefactsetidentifierlistbyinstrument"></a>
 # **PostNotationCrossReferenceFactSetIdentifierListByInstrument**
@@ -2759,6 +2788,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postnotationcrossreferencelistbyisin"></a>
 # **PostNotationCrossReferenceListByISIN**
 > InlineResponse20069 PostNotationCrossReferenceListByISIN (PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = null)
@@ -2847,6 +2877,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postnotationcrossreferencelistbyinstrument"></a>
 # **PostNotationCrossReferenceListByInstrument**
@@ -2937,6 +2968,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postnotationcrossreferencelistbysymbol"></a>
 # **PostNotationCrossReferenceListBySymbol**
 > InlineResponse20070 PostNotationCrossReferenceListBySymbol (PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = null)
@@ -3025,6 +3057,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postnotationmarketlist"></a>
 # **PostNotationMarketList**
@@ -3115,6 +3148,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postnotationsearchbytext"></a>
 # **PostNotationSearchByText**
 > InlineResponse20092 PostNotationSearchByText (PostNotationSearchByTextRequest postNotationSearchByTextRequest = null)
@@ -3203,4 +3237,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

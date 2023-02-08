@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**locations_id_put**](LocationsApi.md#locations_id_put) | **PUT** /Locations/{id} | Replace a location.
 
 
+
 # **locations_get**
 > LocationResourceList locations_get()
 

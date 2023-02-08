@@ -100,7 +100,8 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         private FactSet.SDK.FixedIncomeCalculation.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetAllFIDiscountCurvesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAllFIDiscountCurvesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(FIDiscountCurveInfoRoot) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
@@ -109,7 +110,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

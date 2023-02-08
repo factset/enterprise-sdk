@@ -42,6 +42,7 @@ class OptimizationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.cancel_axioma_optimization_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -92,6 +93,7 @@ class OptimizationsApi(object):
             },
             api_client=api_client
         )
+
         self.get_axioma_optimization_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -142,6 +144,7 @@ class OptimizationsApi(object):
             },
             api_client=api_client
         )
+
         self.run_axioma_optimization_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -192,6 +195,7 @@ class OptimizationsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -203,6 +207,7 @@ class OptimizationsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def cancel_axioma_optimization_by_id(
         self,
@@ -390,6 +395,7 @@ class OptimizationsApi(object):
             id
         return self.cancel_axioma_optimization_by_id_endpoint.call_with_http_info(**kwargs)
 
+
     def get_axioma_optimization_by_id(
         self,
         id,
@@ -576,6 +582,7 @@ class OptimizationsApi(object):
             id
         return self.get_axioma_optimization_by_id_endpoint.call_with_http_info(**kwargs)
 
+
     def run_axioma_optimization(
         self,
         **kwargs
@@ -745,4 +752,5 @@ class OptimizationsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.run_axioma_optimization_endpoint.call_with_http_info(**kwargs)
+
 

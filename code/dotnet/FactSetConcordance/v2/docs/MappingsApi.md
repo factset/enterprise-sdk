@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetEntityUniverseForList**](MappingsApi.md#getentityuniverseforlist) | **POST** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe or large list of client ids
 
 
+
 <a name="getentitymappingdeleteforlist"></a>
 # **GetEntityMappingDeleteForList**
 > EntityMappingDeleteResponse GetEntityMappingDeleteForList (EntityMappingDeleteRequest entityMappingDeleteRequest)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getentitymappingforlist"></a>
 # **GetEntityMappingForList**
 > EntityResponse GetEntityMappingForList (EntityMappingRequest entityMappingRequest)
@@ -197,6 +199,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getentityuniverse"></a>
 # **GetEntityUniverse**
@@ -302,6 +305,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getentityuniverseforlist"></a>
 # **GetEntityUniverseForList**
 > EntityUniverseResponse GetEntityUniverseForList (EntityUniverseRequest entityUniverseRequest)
@@ -395,4 +399,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

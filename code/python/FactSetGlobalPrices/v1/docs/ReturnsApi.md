@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_returns_for_list**](ReturnsApi.md#get_returns_for_list) | **POST** /factset-global-prices/v1/returns | Gets Returns for a list of &#x60;ids&#x60; as of given date range.
 
 
+
 # **get_returns**
 > ReturnsResponse get_returns(ids, start_date)
 

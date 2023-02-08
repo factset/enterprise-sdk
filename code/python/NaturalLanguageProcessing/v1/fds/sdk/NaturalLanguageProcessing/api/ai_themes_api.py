@@ -44,6 +44,7 @@ class AIThemesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.themes_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -101,6 +102,7 @@ class AIThemesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -112,6 +114,7 @@ class AIThemesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def themes(
         self,
@@ -298,4 +301,5 @@ class AIThemesApi(object):
         kwargs['theme_parameters_root'] = \
             theme_parameters_root
         return self.themes_endpoint.call_with_http_info(**kwargs)
+
 

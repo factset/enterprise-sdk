@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Images**](ChartTemplatesApi.md#images) | **GET** /v1/image | Get chart image back in PNG or JPEG formats
 
 
+
 <a name="getcategorylist"></a>
 # **GetCategoryList**
 > List&lt;string&gt; GetCategoryList ()
@@ -92,6 +93,7 @@ This endpoint does not need any parameter.
 | **400** | Bad Input |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getchartlist"></a>
 # **GetChartList**
@@ -184,6 +186,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Input |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="images"></a>
 # **Images**
@@ -301,4 +304,5 @@ Name | Type | Description  | Notes
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

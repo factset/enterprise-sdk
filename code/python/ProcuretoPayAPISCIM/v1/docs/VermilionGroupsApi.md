@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**vermilion_groups_id_put**](VermilionGroupsApi.md#vermilion_groups_id_put) | **PUT** /VermilionGroups/{id} | Replace a Vermilion group.
 
 
+
 # **vermilion_groups_get**
 > VermilionGroupResource vermilion_groups_get()
 

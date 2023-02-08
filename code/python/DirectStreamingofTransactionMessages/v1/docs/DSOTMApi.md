@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**send_transactions**](DSOTMApi.md#send_transactions) | **POST** /analytics/dsotm/v1/transactions | Push transactions data into FactSet&#39;s systems.
 
 
+
 # **send_transactions**
 > send_transactions()
 

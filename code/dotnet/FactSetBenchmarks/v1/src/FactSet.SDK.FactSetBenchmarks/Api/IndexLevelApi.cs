@@ -392,7 +392,8 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
         private FactSet.SDK.FactSetBenchmarks.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetBenchmarkRatiosResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBenchmarkRatiosResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(BenchmarkRatiosResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -401,6 +402,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBenchmarkRatiosForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(BenchmarkRatiosResponse) },
@@ -410,6 +412,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetIndexHistoryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(IndexHistoryResponse) },
@@ -419,6 +422,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetIndexHistoryForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(IndexHistoryResponse) },
@@ -428,6 +432,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetIndexSnapshotResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(IndexSnapshotResponse) },
@@ -437,6 +442,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetIndexSnapshotForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(IndexSnapshotResponse) },
@@ -450,7 +456,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_security_shares_for_list**](SharesApi.md#get_security_shares_for_list) | **POST** /factset-prices/v1/shares | Requests shares for a list of &#x60;ids&#x60; as of given date range.
 
 
+
 # **get_security_shares**
 > SharesResponse get_security_shares(ids)
 

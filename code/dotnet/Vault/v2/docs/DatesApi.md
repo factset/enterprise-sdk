@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ConvertVaultDatesToAbsoluteFormat**](DatesApi.md#convertvaultdatestoabsoluteformat) | **GET** /analytics/lookups/v2/engines/vault/dates | Convert Vault dates to absolute format
 
 
+
 <a name="convertvaultdatestoabsoluteformat"></a>
 # **ConvertVaultDatesToAbsoluteFormat**
 > DateParametersSummary ConvertVaultDatesToAbsoluteFormat (string enddate, string componentid, string account, string startdate = null)
@@ -109,4 +110,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

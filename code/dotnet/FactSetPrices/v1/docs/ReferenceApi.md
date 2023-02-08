@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSecurityReferences**](ReferenceApi.md#getsecurityreferences) | **GET** /factset-prices/v1/references | Gets security reference details for a list of securities
 
 
+
 <a name="getsecurityreferenceforlist"></a>
 # **GetSecurityReferenceForList**
 > ReferencesResponse GetSecurityReferenceForList (ReferencesRequest referencesRequest)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsecurityreferences"></a>
 # **GetSecurityReferences**
 > ReferencesResponse GetSecurityReferences (List<string> ids)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

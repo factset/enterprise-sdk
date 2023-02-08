@@ -1415,110 +1415,137 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         private FactSet.SDK.QuotesAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentBackgroundTextListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentBackgroundTextListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20044) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentCompliancePropertyListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20049) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentCompositeGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20050) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentCouponDayCountConventionTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20052) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentCouponInterestRateTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20053) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentCouponKeyDataGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20054) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentCouponListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20051) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentCrossReferenceGetByISINResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20055) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentCrossReferenceGetByWKNResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20055) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentCrossReferenceHistoryGetByISINResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20058) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentCrossReferenceHistoryGetByWKNResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20058) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentExchangeRateGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20059) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentExchangeRateGetByISOCodeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20059) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20042) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentGetByNotationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20043) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentLegalEntityBackgroundTextListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20060) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentLegalEntityCompliancePropertyListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20061) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentMifidGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20062) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentSearchBasicResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20090) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostInstrumentBackgroundTextTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20045) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostInstrumentBenchmarkListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20046) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostInstrumentCategoryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20047) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostInstrumentCompliancePropertyListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20048) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostInstrumentCrossReferenceListByISINResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20056) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostInstrumentCrossReferenceListByWKNResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20057) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostInstrumentNotationListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20063) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostInstrumentRatingGradeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20064) },
@@ -1527,7 +1554,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

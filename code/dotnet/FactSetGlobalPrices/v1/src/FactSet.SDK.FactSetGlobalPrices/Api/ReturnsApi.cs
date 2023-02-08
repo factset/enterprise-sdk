@@ -164,7 +164,8 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         private FactSet.SDK.FactSetGlobalPrices.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetReturnsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetReturnsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ReturnsResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -173,6 +174,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetReturnsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ReturnsResponse) },
@@ -181,7 +183,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

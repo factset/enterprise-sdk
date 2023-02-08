@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.NorthfieldPortfolioOptimizer
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.NorthfieldPortfolioOptimizer
 from fds.sdk.NorthfieldPortfolioOptimizer.api import accounts_api
 from fds.sdk.NorthfieldPortfolioOptimizer.models import *

@@ -24,12 +24,14 @@ public class OptimizationsApi {
   public OptimizationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> cancelAxiomaOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> cancelAxiomaOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> getAxiomaOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> runAxiomaOptimizationResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_rbics_entity_focus_for_list**](EntityFocusApi.md#get_rbics_entity_focus_for_list) | **POST** /factset-rbics/v1/entity-focus | Get RBICS classification for the Focus industry
 
 
+
 # **get_rbics_entity_focus**
 > EntityFocusResponse get_rbics_entity_focus(ids)
 

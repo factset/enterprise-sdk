@@ -49,6 +49,7 @@ pip install fds.sdk.utils fds.sdk.FactSetEstimates
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import broker_detail_api
 from fds.sdk.FactSetEstimates.models import *

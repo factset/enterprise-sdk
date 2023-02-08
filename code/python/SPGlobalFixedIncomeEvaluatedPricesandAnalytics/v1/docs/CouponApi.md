@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_bond_coupon_for_list**](CouponApi.md#get_bond_coupon_for_list) | **POST** /markit-bond-prices-and-analytics/v1/coupon | Request coupon data for given date range and list of securities
 
 
+
 # **get_bond_coupon**
 > BondCouponResponse get_bond_coupon(ids)
 

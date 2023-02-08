@@ -188,12 +188,15 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         private FactSet.SDK.AxiomaEquityOptimizer.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CancelAxiomaOptimizationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CancelAxiomaOptimizationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAxiomaOptimizationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> RunAxiomaOptimizationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
@@ -201,7 +204,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

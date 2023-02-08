@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**PatchCustomSymbol**](CustomSymbolsApi.md#patchcustomsymbol) | **PATCH** /v1/custom-symbols/{customSymbolId} | Edit a custom symbol’s standard field and custom field data
 
 
+
 <a name="createcustomsymbol"></a>
 # **CreateCustomSymbol**
 > NewItemDto CreateCustomSymbol (CreateCustomSymbolDto createCustomSymbolDto = null)
@@ -101,6 +102,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletecustomsymbol"></a>
 # **DeleteCustomSymbol**
@@ -191,6 +193,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcustomsymbol"></a>
 # **GetCustomSymbol**
 > CustomSymbolDto GetCustomSymbol (Guid customSymbolId, bool? includeEvent = null)
@@ -280,6 +283,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcustomsymbolrecords"></a>
 # **GetCustomSymbolRecords**
 > List&lt;RecordPreviewDto&gt; GetCustomSymbolRecords (Guid customSymbolId)
@@ -368,6 +372,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcustomsymbols"></a>
 # **GetCustomSymbols**
@@ -466,6 +471,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="linkcustomsymboltostandardsymbol"></a>
 # **LinkCustomSymbolToStandardSymbol**
 > void LinkCustomSymbolToStandardSymbol (Guid customSymbolId, StandardSymbolDto standardSymbolDto = null)
@@ -553,6 +559,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="patchcustomsymbol"></a>
 # **PatchCustomSymbol**
@@ -644,4 +651,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

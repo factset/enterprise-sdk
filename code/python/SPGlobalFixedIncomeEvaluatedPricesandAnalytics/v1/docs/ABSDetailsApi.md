@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_abs_details_for_list**](ABSDetailsApi.md#get_abs_details_for_list) | **POST** /markit-bond-prices-and-analytics/v1/abs-details | Request Asset Backed Security Details for a list of securities
 
 
+
 # **get_abs_details**
 > AbsDetailsResponse get_abs_details(ids)
 

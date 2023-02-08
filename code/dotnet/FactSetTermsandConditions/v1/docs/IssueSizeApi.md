@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetIssueSizeForList**](IssueSizeApi.md#getissuesizeforlist) | **POST** /factset-terms-and-conditions/v1/issue-size | Return Issue Size data for a large list of Fixed Income securities.
 
 
+
 <a name="getissuesize"></a>
 # **GetIssueSize**
 > IssueSizeResponse GetIssueSize (List<string> ids)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getissuesizeforlist"></a>
 # **GetIssueSizeForList**
 > IssueSizeResponse GetIssueSizeForList (TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

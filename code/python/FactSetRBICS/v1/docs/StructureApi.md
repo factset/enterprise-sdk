@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_rbics_structure_for_list**](StructureApi.md#get_rbics_structure_for_list) | **POST** /factset-rbics/v1/structure | Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
 
 
+
 # **get_rbics_structure**
 > StructureResponse get_rbics_structure()
 

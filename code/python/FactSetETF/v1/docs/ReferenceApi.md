@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_etf_reference_data_for_list**](ReferenceApi.md#get_etf_reference_data_for_list) | **POST** /factset-etf/v1/reference | Fetch Reference Data for a large list of ETF securities.
 
 
+
 # **get_etf_reference_data**
 > EtfReferenceDataResponse get_etf_reference_data(ids)
 

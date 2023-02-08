@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_axioma_fi_strategy_documents**](StrategyDocumentsApi.md#get_axioma_fi_strategy_documents) | **GET** /analytics/engines/afi/v3/strategies/{path} | Get Axioma FI strategy documents and sub-directories in a directory
 
 
+
 # **get_axioma_fi_strategy_documents**
 > DocumentDirectoriesRoot get_axioma_fi_strategy_documents()
 

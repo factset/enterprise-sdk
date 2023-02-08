@@ -44,6 +44,7 @@ class NewsAPIApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.asynch_news_v1_check_status_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -121,6 +122,7 @@ class NewsAPIApi(object):
             },
             api_client=api_client
         )
+
         self.asynch_news_v1_get_files_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -198,6 +200,7 @@ class NewsAPIApi(object):
             },
             api_client=api_client
         )
+
         self.asynch_news_v1_request_files_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -272,6 +275,7 @@ class NewsAPIApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -283,6 +287,7 @@ class NewsAPIApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def asynch_news_v1_check_status_get(
         self,
@@ -494,6 +499,7 @@ class NewsAPIApi(object):
             source
         return self.asynch_news_v1_check_status_get_endpoint.call_with_http_info(**kwargs)
 
+
     def asynch_news_v1_get_files_get(
         self,
         job_id,
@@ -703,6 +709,7 @@ class NewsAPIApi(object):
         kwargs['source'] = \
             source
         return self.asynch_news_v1_get_files_get_endpoint.call_with_http_info(**kwargs)
+
 
     def asynch_news_v1_request_files_get(
         self,
@@ -921,4 +928,5 @@ class NewsAPIApi(object):
         kwargs['source'] = \
             source
         return self.asynch_news_v1_request_files_get_endpoint.call_with_http_info(**kwargs)
+
 

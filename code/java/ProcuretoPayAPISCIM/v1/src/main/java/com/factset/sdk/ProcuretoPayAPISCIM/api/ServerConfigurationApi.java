@@ -25,15 +25,15 @@ public class ServerConfigurationApi {
   public ServerConfigurationApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> serviceProviderConfigGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> serviceProviderConfigGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     serviceProviderConfigGetResponseTypeMap.put(200, new GenericType<ServiceProviderConfig>(){});
     serviceProviderConfigGetResponseTypeMap.put(401, new GenericType<Error>(){});
     serviceProviderConfigGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_fixed_income_use_of_proceeds_for_list**](UseOfProceedsApi.md#get_fixed_income_use_of_proceeds_for_list) | **POST** /factset-terms-and-conditions/v1/use-of-proceeds | Return Use of Proceeds for a list of Fixed Income securities.
 
 
+
 # **get_fixed_income_use_of_proceeds**
 > UseOfProceedsResponse get_fixed_income_use_of_proceeds(ids)
 

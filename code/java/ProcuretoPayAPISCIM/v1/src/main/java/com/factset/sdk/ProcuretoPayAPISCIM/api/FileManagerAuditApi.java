@@ -24,14 +24,14 @@ public class FileManagerAuditApi {
   public FileManagerAuditApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> fileManagerAuditGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> fileManagerAuditGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     fileManagerAuditGetResponseTypeMap.put(200, new GenericType<java.util.List<Object>>(){});
     fileManagerAuditGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

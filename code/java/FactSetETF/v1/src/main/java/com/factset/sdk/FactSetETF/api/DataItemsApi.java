@@ -25,13 +25,13 @@ public class DataItemsApi {
   public DataItemsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEtfMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEtfMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEtfMetricsResponseTypeMap.put(200, new GenericType<MetricsResponse>(){});
   }
 
-   
+  
 
 
   /**

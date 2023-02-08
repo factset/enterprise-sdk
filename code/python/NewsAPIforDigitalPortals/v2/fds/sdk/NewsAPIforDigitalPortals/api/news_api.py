@@ -59,6 +59,7 @@ class NewsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_news_article_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -148,6 +149,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.get_news_article_type_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -224,6 +226,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.get_news_article_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -293,6 +296,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.get_news_distributor_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -359,6 +363,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.get_news_distributor_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -448,6 +453,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.get_news_publisher_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -514,6 +520,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.get_news_publisher_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -624,6 +631,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.get_news_publisher_list_by_distributor_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -709,6 +717,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.post_news_article_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -763,6 +772,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.post_news_article_list_by_chain_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -817,6 +827,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.post_news_article_list_by_index_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -871,6 +882,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.post_news_article_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -925,6 +937,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.post_news_article_list_by_media_kind_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -979,6 +992,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.post_news_article_search_by_text_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1033,6 +1047,7 @@ class NewsApi(object):
             },
             api_client=api_client
         )
+
         self.post_news_publisher_search_by_name_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1088,6 +1103,7 @@ class NewsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -1099,6 +1115,7 @@ class NewsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_news_article_get(
         self,
@@ -1298,6 +1315,7 @@ class NewsApi(object):
             code
         return self.get_news_article_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_news_article_type_get(
         self,
         id,
@@ -1492,6 +1510,7 @@ class NewsApi(object):
             id
         return self.get_news_article_type_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_news_article_type_list(
         self,
         **kwargs
@@ -1665,6 +1684,7 @@ class NewsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_news_article_type_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_news_distributor_get(
         self,
@@ -1856,6 +1876,7 @@ class NewsApi(object):
             id
         return self.get_news_distributor_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_news_distributor_list(
         self,
         **kwargs
@@ -2033,6 +2054,7 @@ class NewsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_news_distributor_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_news_publisher_get(
         self,
@@ -2224,6 +2246,7 @@ class NewsApi(object):
             id
         return self.get_news_publisher_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_news_publisher_list(
         self,
         **kwargs
@@ -2409,6 +2432,7 @@ class NewsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_news_publisher_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_news_publisher_list_by_distributor(
         self,
@@ -2604,6 +2628,7 @@ class NewsApi(object):
             id
         return self.get_news_publisher_list_by_distributor_endpoint.call_with_http_info(**kwargs)
 
+
     def post_news_article_list(
         self,
         **kwargs
@@ -2773,6 +2798,7 @@ class NewsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_news_article_list_endpoint.call_with_http_info(**kwargs)
+
 
     def post_news_article_list_by_chain(
         self,
@@ -2944,6 +2970,7 @@ class NewsApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_news_article_list_by_chain_endpoint.call_with_http_info(**kwargs)
 
+
     def post_news_article_list_by_index(
         self,
         **kwargs
@@ -3113,6 +3140,7 @@ class NewsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_news_article_list_by_index_endpoint.call_with_http_info(**kwargs)
+
 
     def post_news_article_list_by_instrument(
         self,
@@ -3284,6 +3312,7 @@ class NewsApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_news_article_list_by_instrument_endpoint.call_with_http_info(**kwargs)
 
+
     def post_news_article_list_by_media_kind(
         self,
         **kwargs
@@ -3453,6 +3482,7 @@ class NewsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_news_article_list_by_media_kind_endpoint.call_with_http_info(**kwargs)
+
 
     def post_news_article_search_by_text(
         self,
@@ -3624,6 +3654,7 @@ class NewsApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_news_article_search_by_text_endpoint.call_with_http_info(**kwargs)
 
+
     def post_news_publisher_search_by_name(
         self,
         **kwargs
@@ -3793,4 +3824,5 @@ class NewsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_news_publisher_search_by_name_endpoint.call_with_http_info(**kwargs)
+
 

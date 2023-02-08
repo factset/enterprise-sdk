@@ -27,16 +27,20 @@ public class CustomSymbolsRelationshipsApi {
   public CustomSymbolsRelationshipsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> createSymbolRelationshipResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> createSymbolRelationshipResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> deleteSymbolRelationshipResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> editAndAddSymbolRelationshipResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getSymbolRelationshipResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSymbolRelationshipResponseTypeMap.put(200, new GenericType<SymbolRelationshipDto>(){});
     getSymbolRelationshipResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getSymbolRelationshipResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getSymbolRelationshipsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSymbolRelationshipsResponseTypeMap.put(200, new GenericType<java.util.List<SymbolRelationshipDto>>(){});
@@ -44,7 +48,7 @@ public class CustomSymbolsRelationshipsApi {
     getSymbolRelationshipsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
 
-   
+  
 
 
   /**

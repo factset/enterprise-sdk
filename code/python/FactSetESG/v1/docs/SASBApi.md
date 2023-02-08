@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**get_sasb_scores_post**](SASBApi.md#get_sasb_scores_post) | **POST** /factset-esg/v1/sasb-scores | For a large list of ids, gets short-term, long-term, and momentum scores based on the 26 ESG categories defined by the Sustainability Accounting Standards Board (SASB).
 
 
+
 # **get_sasb_ranks**
 > SasbRanksResponse get_sasb_ranks(ids)
 

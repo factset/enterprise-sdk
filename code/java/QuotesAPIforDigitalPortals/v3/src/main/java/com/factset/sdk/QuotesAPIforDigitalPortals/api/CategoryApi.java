@@ -35,53 +35,63 @@ public class CategoryApi {
   public CategoryApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCategoryDatasetListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCategoryDatasetListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoryDatasetListResponseTypeMap.put(200, new GenericType<InlineResponse20035>(){});
   }
+
   private static final Map<Integer, GenericType> getCategoryGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoryGetResponseTypeMap.put(200, new GenericType<InlineResponse20031>(){});
   }
+
   private static final Map<Integer, GenericType> getCategoryInstrumentListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoryInstrumentListResponseTypeMap.put(200, new GenericType<InlineResponse20036>(){});
   }
+
   private static final Map<Integer, GenericType> getCategoryLevelGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoryLevelGetResponseTypeMap.put(200, new GenericType<InlineResponse20037>(){});
   }
+
   private static final Map<Integer, GenericType> getCategoryListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoryListResponseTypeMap.put(200, new GenericType<InlineResponse20032>(){});
   }
+
   private static final Map<Integer, GenericType> getCategoryListByLevelResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoryListByLevelResponseTypeMap.put(200, new GenericType<InlineResponse20033>(){});
   }
+
   private static final Map<Integer, GenericType> getCategoryListBySystemResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoryListBySystemResponseTypeMap.put(200, new GenericType<InlineResponse20034>(){});
   }
+
   private static final Map<Integer, GenericType> getCategoryPathGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoryPathGetResponseTypeMap.put(200, new GenericType<InlineResponse20038>(){});
   }
+
   private static final Map<Integer, GenericType> getCategorySystemGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategorySystemGetResponseTypeMap.put(200, new GenericType<InlineResponse20039>(){});
   }
+
   private static final Map<Integer, GenericType> getCategorySystemListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategorySystemListResponseTypeMap.put(200, new GenericType<InlineResponse20040>(){});
   }
+
   private static final Map<Integer, GenericType> getCategorySystemTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategorySystemTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20041>(){});
   }
 
-   
+  
 
 
   /**

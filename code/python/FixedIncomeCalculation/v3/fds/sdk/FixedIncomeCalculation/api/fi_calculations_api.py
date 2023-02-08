@@ -151,6 +151,7 @@ class FICalculationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.cancel_calculation_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -205,6 +206,7 @@ class FICalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.get_calculation_parameters_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -260,6 +262,7 @@ class FICalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.get_calculation_result_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -316,6 +319,7 @@ class FICalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.get_calculation_status_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -372,6 +376,7 @@ class FICalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.post_and_calculate_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -437,6 +442,7 @@ class FICalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.put_and_calculate_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -510,6 +516,7 @@ class FICalculationsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -521,6 +528,7 @@ class FICalculationsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def cancel_calculation_by_id(
         self,
@@ -708,6 +716,7 @@ class FICalculationsApi(object):
             id
         return self.cancel_calculation_by_id_endpoint.call_with_http_info(**kwargs)
 
+
     def get_calculation_parameters(
         self,
         id,
@@ -893,6 +902,7 @@ class FICalculationsApi(object):
         kwargs['id'] = \
             id
         return self.get_calculation_parameters_endpoint.call_with_http_info(**kwargs)
+
 
     def get_calculation_result(
         self,
@@ -1080,6 +1090,7 @@ class FICalculationsApi(object):
             id
         return self.get_calculation_result_endpoint.call_with_http_info(**kwargs)
 
+
     def get_calculation_status_by_id(
         self,
         id,
@@ -1266,6 +1277,7 @@ class FICalculationsApi(object):
             id
         return self.get_calculation_status_by_id_endpoint.call_with_http_info(**kwargs)
 
+
     def post_and_calculate(
         self,
         **kwargs
@@ -1443,6 +1455,7 @@ class FICalculationsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_and_calculate_endpoint.call_with_http_info(**kwargs)
+
 
     def put_and_calculate(
         self,
@@ -1641,4 +1654,5 @@ class FICalculationsApi(object):
         kwargs['id'] = \
             id
         return self.put_and_calculate_endpoint.call_with_http_info(**kwargs)
+
 

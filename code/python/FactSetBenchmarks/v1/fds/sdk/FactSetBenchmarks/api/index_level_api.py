@@ -48,6 +48,7 @@ class IndexLevelApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_benchmark_ratios_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -171,6 +172,7 @@ class IndexLevelApi(object):
             },
             api_client=api_client
         )
+
         self.get_benchmark_ratios_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -227,6 +229,7 @@ class IndexLevelApi(object):
             },
             api_client=api_client
         )
+
         self.get_index_history_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -364,6 +367,7 @@ class IndexLevelApi(object):
             },
             api_client=api_client
         )
+
         self.get_index_history_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -420,6 +424,7 @@ class IndexLevelApi(object):
             },
             api_client=api_client
         )
+
         self.get_index_snapshot_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -514,6 +519,7 @@ class IndexLevelApi(object):
             },
             api_client=api_client
         )
+
         self.get_index_snapshot_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -571,6 +577,7 @@ class IndexLevelApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -582,6 +589,7 @@ class IndexLevelApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_benchmark_ratios(
         self,
@@ -805,6 +813,7 @@ class IndexLevelApi(object):
             metrics
         return self.get_benchmark_ratios_endpoint.call_with_http_info(**kwargs)
 
+
     def get_benchmark_ratios_for_list(
         self,
         benchmark_ratios_request,
@@ -990,6 +999,7 @@ class IndexLevelApi(object):
         kwargs['benchmark_ratios_request'] = \
             benchmark_ratios_request
         return self.get_benchmark_ratios_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_index_history(
         self,
@@ -1209,6 +1219,7 @@ class IndexLevelApi(object):
             ids
         return self.get_index_history_endpoint.call_with_http_info(**kwargs)
 
+
     def get_index_history_for_list(
         self,
         index_history_request,
@@ -1394,6 +1405,7 @@ class IndexLevelApi(object):
         kwargs['index_history_request'] = \
             index_history_request
         return self.get_index_history_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_index_snapshot(
         self,
@@ -1597,6 +1609,7 @@ class IndexLevelApi(object):
             ids
         return self.get_index_snapshot_endpoint.call_with_http_info(**kwargs)
 
+
     def get_index_snapshot_for_list(
         self,
         index_snapshot_request,
@@ -1782,4 +1795,5 @@ class IndexLevelApi(object):
         kwargs['index_snapshot_request'] = \
             index_snapshot_request
         return self.get_index_snapshot_for_list_endpoint.call_with_http_info(**kwargs)
+
 

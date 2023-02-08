@@ -42,6 +42,7 @@ class CalculationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.analytics_quant_qre_v1_calculations_id_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -97,6 +98,7 @@ class CalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.analytics_quant_qre_v1_calculations_id_log_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -152,6 +154,7 @@ class CalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.analytics_quant_qre_v1_calculations_id_output_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -207,6 +210,7 @@ class CalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.analytics_quant_qre_v1_calculations_post_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -262,6 +266,7 @@ class CalculationsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -273,6 +278,7 @@ class CalculationsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def analytics_quant_qre_v1_calculations_id_get(
         self,
@@ -460,6 +466,7 @@ class CalculationsApi(object):
             id
         return self.analytics_quant_qre_v1_calculations_id_get_endpoint.call_with_http_info(**kwargs)
 
+
     def analytics_quant_qre_v1_calculations_id_log_get(
         self,
         id,
@@ -645,6 +652,7 @@ class CalculationsApi(object):
         kwargs['id'] = \
             id
         return self.analytics_quant_qre_v1_calculations_id_log_get_endpoint.call_with_http_info(**kwargs)
+
 
     def analytics_quant_qre_v1_calculations_id_output_get(
         self,
@@ -832,6 +840,7 @@ class CalculationsApi(object):
             id
         return self.analytics_quant_qre_v1_calculations_id_output_get_endpoint.call_with_http_info(**kwargs)
 
+
     def analytics_quant_qre_v1_calculations_post(
         self,
         **kwargs
@@ -1001,4 +1010,5 @@ class CalculationsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.analytics_quant_qre_v1_calculations_post_endpoint.call_with_http_info(**kwargs)
+
 

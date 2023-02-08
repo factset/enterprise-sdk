@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_time_series_data_for_list**](TimeSeriesApi.md#get_time_series_data_for_list) | **POST** /v1/time-series | Retrieve data items (FQL formulas) for a list of identifiers or defined universe.
 
 
+
 # **get_time_series_data**
 > TimeSeriesResponse get_time_series_data(formulas)
 

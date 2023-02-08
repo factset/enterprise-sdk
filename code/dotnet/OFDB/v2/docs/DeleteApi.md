@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**DeleteSymbol**](DeleteApi.md#deletesymbol) | **DELETE** /database/{path}/symbols/{symbol} | 
 
 
+
 <a name="deletedate"></a>
 # **DeleteDate**
 > InlineResponse202 DeleteDate (string path, int date)
@@ -106,6 +107,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletedatefromsymbol"></a>
 # **DeleteDateFromSymbol**
@@ -207,6 +209,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="deletesymbol"></a>
 # **DeleteSymbol**
 > InlineResponse202 DeleteSymbol (string path, string symbol)
@@ -304,4 +307,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

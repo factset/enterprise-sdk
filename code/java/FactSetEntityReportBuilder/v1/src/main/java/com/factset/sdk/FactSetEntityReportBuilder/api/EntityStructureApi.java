@@ -25,8 +25,8 @@ public class EntityStructureApi {
   public EntityStructureApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEntityStructureStructureResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEntityStructureStructureResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityStructureStructureResponseTypeMap.put(200, new GenericType<Response>(){});
     getEntityStructureStructureResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -35,7 +35,7 @@ public class EntityStructureApi {
     getEntityStructureStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -26,8 +26,8 @@ public class StructureApi {
   public StructureApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getRbicsStructureResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getRbicsStructureResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRbicsStructureResponseTypeMap.put(200, new GenericType<StructureResponse>(){});
     getRbicsStructureResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class StructureApi {
     getRbicsStructureResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getRbicsStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getRbicsStructureForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRbicsStructureForListResponseTypeMap.put(200, new GenericType<StructureResponse>(){});
@@ -46,7 +47,7 @@ public class StructureApi {
     getRbicsStructureForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

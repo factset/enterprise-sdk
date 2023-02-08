@@ -26,13 +26,14 @@ public class ComponentsApi {
   public ComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPAComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPAComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPAComponentByIdResponseTypeMap.put(200, new GenericType<PAComponentRoot>(){});
     getPAComponentByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getPAComponentByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPAComponentsResponseTypeMap.put(200, new GenericType<ComponentSummaryRoot>(){});
@@ -40,7 +41,7 @@ public class ComponentsApi {
     getPAComponentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

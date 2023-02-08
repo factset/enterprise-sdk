@@ -260,22 +260,27 @@ namespace FactSet.SDK.IRNConfiguration.Api
         private FactSet.SDK.IRNConfiguration.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CreateRelationshipCategoryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CreateRelationshipCategoryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(NewItemDto) },
             { (HttpStatusCode)400, typeof(ProblemDetails) },
             { (HttpStatusCode)0, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteRelationshipCategoryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> EditRelationshipCategoryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetRelationshipCategoriesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<RelationshipCategoryDto>) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateRelationshipCategoryOrderResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
@@ -283,7 +288,7 @@ namespace FactSet.SDK.IRNConfiguration.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

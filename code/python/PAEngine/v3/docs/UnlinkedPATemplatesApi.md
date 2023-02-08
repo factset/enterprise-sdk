@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**update_unlinked_pa_templates**](UnlinkedPATemplatesApi.md#update_unlinked_pa_templates) | **PUT** /analytics/engines/pa/v3/unlinked-templates/{id} | Update unlinked PA template
 
 
+
 # **create_unlinked_pa_templates**
 > UnlinkedPATemplatePostSummaryRoot create_unlinked_pa_templates(unlinked_pa_template_parameters_root)
 

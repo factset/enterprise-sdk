@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetRelationships**](ContactsRelationshipsApi.md#getrelationships) | **GET** /v1/relationships | Get list of the relationships configured in your group
 
 
+
 <a name="createcontactrelationshiptype"></a>
 # **CreateContactRelationshipType**
 > NewItemDto CreateContactRelationshipType (RelationshipSaveDto relationshipSaveDto = null)
@@ -99,6 +100,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="deleterelationship"></a>
 # **DeleteRelationship**
 > void DeleteRelationship (Guid relationshipId)
@@ -187,6 +189,7 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="editrelationship"></a>
 # **EditRelationship**
@@ -279,6 +282,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getrelationships"></a>
 # **GetRelationships**
 > List&lt;RelationshipDto&gt; GetRelationships (RelationshipType? type = null)
@@ -365,4 +369,5 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

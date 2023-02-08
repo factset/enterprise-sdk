@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSfdrPaiForList**](SFDRApi.md#getsfdrpaiforlist) | **POST** /factset-esg/v1/sfdr-pai | Gets Principle Adverse Impact (PAI) data to support compliant SFDR Sustainable Finance Disclosure Regulation (SFDR) reporting
 
 
+
 <a name="getsfdrpai"></a>
 # **GetSfdrPai**
 > SfdrPaiResponse GetSfdrPai (List<string> ids, bool? feelback = null, string fiscalPeriodStart = null, string fiscalPeriodEnd = null, List<string> indicators = null, bool? calculation = null)
@@ -113,6 +114,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsfdrpaiforlist"></a>
 # **GetSfdrPaiForList**
 > SfdrPaiResponse GetSfdrPaiForList (SfdrPaiRequest sfdrPaiRequest)
@@ -207,4 +209,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

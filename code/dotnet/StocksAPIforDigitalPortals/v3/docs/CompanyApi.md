@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**PostCompanyKeyItemsFiscalYearListByInstrument**](CompanyApi.md#postcompanykeyitemsfiscalyearlistbyinstrument) | **POST** /company/keyItems/fiscalYear/listByInstrument | Selected fundamentals for a stock with values as of the end of a fiscal year.
 
 
+
 <a name="getcompanyboardlistbyinstrument"></a>
 # **GetCompanyBoardListByInstrument**
 > InlineResponse2005 GetCompanyBoardListByInstrument (string id, List<string> attributes = null, string language = null)
@@ -105,6 +106,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcompanyboardofficerfunctiondeliverylist"></a>
 # **GetCompanyBoardOfficerFunctionDeliveryList**
 > InlineResponse2006 GetCompanyBoardOfficerFunctionDeliveryList (List<string> attributes = null, string language = null)
@@ -195,6 +197,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcompanyboardtypelist"></a>
 # **GetCompanyBoardTypeList**
@@ -287,6 +290,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postcompanyestimateslistbyinstrument"></a>
 # **PostCompanyEstimatesListByInstrument**
 > InlineResponse2002 PostCompanyEstimatesListByInstrument (PostCompanyEstimatesListByInstrumentRequest postCompanyEstimatesListByInstrumentRequest = null)
@@ -375,6 +379,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postcompanykeyitemscurrentgetbyinstrument"></a>
 # **PostCompanyKeyItemsCurrentGetByInstrument**
@@ -465,6 +470,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postcompanykeyitemsfiscalyearlistbyinstrument"></a>
 # **PostCompanyKeyItemsFiscalYearListByInstrument**
 > InlineResponse2001 PostCompanyKeyItemsFiscalYearListByInstrument (PostCompanyKeyItemsFiscalYearListByInstrumentRequest postCompanyKeyItemsFiscalYearListByInstrumentRequest = null)
@@ -553,4 +559,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

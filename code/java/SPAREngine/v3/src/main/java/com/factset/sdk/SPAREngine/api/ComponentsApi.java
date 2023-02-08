@@ -25,15 +25,15 @@ public class ComponentsApi {
   public ComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSPARComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSPARComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSPARComponentsResponseTypeMap.put(200, new GenericType<ComponentSummaryRoot>(){});
     getSPARComponentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getSPARComponentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

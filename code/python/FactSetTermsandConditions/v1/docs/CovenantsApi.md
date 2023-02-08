@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_covenant_details_for_list**](CovenantsApi.md#get_covenant_details_for_list) | **POST** /factset-terms-and-conditions/v1/covenant-details | Return Covenant Details for a list of Fixed Income securities.
 
 
+
 # **get_covenant_details**
 > CovenantDetailsResponse get_covenant_details(ids)
 

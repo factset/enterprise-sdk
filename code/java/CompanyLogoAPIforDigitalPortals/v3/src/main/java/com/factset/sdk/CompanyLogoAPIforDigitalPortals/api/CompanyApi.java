@@ -24,13 +24,13 @@ public class CompanyApi {
   public CompanyApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCompanyLogoGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCompanyLogoGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyLogoGetResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
   }
 
-   
+  
 
 
   /**

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_security_returns_for_list**](ReturnsApi.md#get_security_returns_for_list) | **POST** /factset-prices/v1/returns | Requests security returns for the given date range and rollingPeriod.
 
 
+
 # **get_returns_snapshot**
 > ReturnsSnapshotResponse get_returns_snapshot(ids)
 

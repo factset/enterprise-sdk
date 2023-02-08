@@ -160,7 +160,8 @@ namespace FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.Api
         private FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetBondIssuerYieldCurveResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBondIssuerYieldCurveResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(BondIssuerYieldCurveResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -169,6 +170,7 @@ namespace FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBondIssuerYieldCurveForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(BondIssuerYieldCurveResponse) },
@@ -182,7 +184,7 @@ namespace FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

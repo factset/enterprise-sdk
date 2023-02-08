@@ -231,19 +231,23 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         private FactSet.SDK.QuantitativeResearchEnvironment.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1CalculationsIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1CalculationsIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CalculationStatus) },
             { (HttpStatusCode)202, typeof(CalculationStatus) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1CalculationsIdLogGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(System.IO.Stream) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1CalculationsIdOutputGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(System.IO.Stream) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1CalculationsPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(CalculationStatus) },
@@ -252,7 +256,7 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

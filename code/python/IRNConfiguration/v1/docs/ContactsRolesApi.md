@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**update_contact_role**](ContactsRolesApi.md#update_contact_role) | **PUT** /v1/contact-roles/{contactRoleId} | Edit a contact role
 
 
+
 # **create_contact_role**
 > NewItemDto create_contact_role(body)
 

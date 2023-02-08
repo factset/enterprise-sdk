@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**PostStockNotationScreenerValueRangesGet**](StockApi.md#poststocknotationscreenervaluerangesget) | **POST** /stock/notation/screener/valueRanges/get | Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
 
 
+
 <a name="getstockcompositeprofilegetbynotation"></a>
 # **GetStockCompositeProfileGetByNotation**
 > InlineResponse2009 GetStockCompositeProfileGetByNotation (string identifier, string identifierType, List<string> attributes = null, string language = null)
@@ -117,6 +118,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getstockdividendtypelist"></a>
 # **GetStockDividendTypeList**
 > InlineResponse20011 GetStockDividendTypeList (List<string> attributes = null, string language = null)
@@ -207,6 +209,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getstocknotationkeyfiguresbenchmarkmonth1get"></a>
 # **GetStockNotationKeyFiguresBenchmarkMonth1Get**
@@ -305,6 +308,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getstocknotationkeyfiguresbenchmarkmonth3get"></a>
 # **GetStockNotationKeyFiguresBenchmarkMonth3Get**
 > InlineResponse20012 GetStockNotationKeyFiguresBenchmarkMonth3Get (string identifier, string identifierType, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
@@ -401,6 +405,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getstocknotationkeyfiguresbenchmarkmonth6get"></a>
 # **GetStockNotationKeyFiguresBenchmarkMonth6Get**
@@ -499,6 +504,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getstocknotationkeyfiguresbenchmarkweek1get"></a>
 # **GetStockNotationKeyFiguresBenchmarkWeek1Get**
 > InlineResponse20012 GetStockNotationKeyFiguresBenchmarkWeek1Get (string identifier, string identifierType, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
@@ -595,6 +601,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getstocknotationkeyfiguresbenchmarkyear1get"></a>
 # **GetStockNotationKeyFiguresBenchmarkYear1Get**
@@ -693,6 +700,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getstocknotationkeyfiguresbenchmarkyear3get"></a>
 # **GetStockNotationKeyFiguresBenchmarkYear3Get**
 > InlineResponse20012 GetStockNotationKeyFiguresBenchmarkYear3Get (string identifier, string identifierType, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
@@ -789,6 +797,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getstocknotationkeyfiguresbenchmarkyear5get"></a>
 # **GetStockNotationKeyFiguresBenchmarkYear5Get**
@@ -887,6 +896,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getstockownerlist"></a>
 # **GetStockOwnerList**
 > InlineResponse2008 GetStockOwnerList (string identifier, string identifierType, List<string> attributes = null, string language = null)
@@ -982,6 +992,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getstockrecommendationaggregateget"></a>
 # **GetStockRecommendationAggregateGet**
 > InlineResponse2003 GetStockRecommendationAggregateGet (string identifier, string identifierType, List<string> attributes = null)
@@ -1074,6 +1085,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getstockrecommendationaggregatehistorylist"></a>
 # **GetStockRecommendationAggregateHistoryList**
@@ -1170,6 +1182,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="poststockdividendlist"></a>
 # **PostStockDividendList**
 > InlineResponse20010 PostStockDividendList (PostStockDividendListRequest postStockDividendListRequest = null)
@@ -1258,6 +1271,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="poststocknotationrankingintradaylist"></a>
 # **PostStockNotationRankingIntradayList**
@@ -1348,6 +1362,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="poststocknotationscreenersearch"></a>
 # **PostStockNotationScreenerSearch**
 > InlineResponse20014 PostStockNotationScreenerSearch (PostStockNotationScreenerSearchRequest postStockNotationScreenerSearchRequest = null)
@@ -1437,6 +1452,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="poststocknotationscreenervaluerangesget"></a>
 # **PostStockNotationScreenerValueRangesGet**
 > InlineResponse20015 PostStockNotationScreenerValueRangesGet (PostStockNotationScreenerValueRangesGetRequest postStockNotationScreenerValueRangesGetRequest = null)
@@ -1525,4 +1541,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

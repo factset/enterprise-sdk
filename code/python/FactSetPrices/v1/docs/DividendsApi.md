@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_security_dividends_for_list**](DividendsApi.md#get_security_dividends_for_list) | **POST** /factset-prices/v1/dividends | Requests dividend information for a given date range and list of securities
 
 
+
 # **get_security_dividends**
 > DividendsResponse get_security_dividends(ids)
 

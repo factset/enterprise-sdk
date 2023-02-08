@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GroupsGet**](GroupsApi.md#groupsget) | **GET** /Groups | Get a list of groups.
 
 
+
 <a name="groupidget"></a>
 # **GroupIdGet**
 > GroupResource GroupIdGet (string id)
@@ -100,6 +101,7 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="groupidpatch"></a>
 # **GroupIdPatch**
@@ -194,6 +196,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="groupidput"></a>
 # **GroupIdPut**
 > GroupResource GroupIdPut (string id, GroupResource groupResource)
@@ -287,6 +290,7 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="groupsget"></a>
 # **GroupsGet**
@@ -386,4 +390,5 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

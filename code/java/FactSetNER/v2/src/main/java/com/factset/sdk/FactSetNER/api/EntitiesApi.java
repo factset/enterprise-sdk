@@ -25,13 +25,13 @@ public class EntitiesApi {
   public EntitiesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> postEntitiesEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> postEntitiesEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEntitiesEntitiesResponseTypeMap.put(200, new GenericType<Response>(){});
   }
 
-   
+  
 
 
   /**

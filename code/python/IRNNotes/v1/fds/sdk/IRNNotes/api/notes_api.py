@@ -46,6 +46,7 @@ class NotesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_note_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -125,6 +126,7 @@ class NotesApi(object):
             },
             api_client=api_client
         )
+
         self.delete_note_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -177,6 +179,7 @@ class NotesApi(object):
             },
             api_client=api_client
         )
+
         self.get_note_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -232,6 +235,7 @@ class NotesApi(object):
             },
             api_client=api_client
         )
+
         self.get_notes_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -351,6 +355,7 @@ class NotesApi(object):
             },
             api_client=api_client
         )
+
         self.update_note_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -413,6 +418,7 @@ class NotesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -424,6 +430,7 @@ class NotesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_note(
         self,
@@ -615,6 +622,7 @@ class NotesApi(object):
             create_note_dto
         return self.create_note_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_note(
         self,
         note_id,
@@ -797,6 +805,7 @@ class NotesApi(object):
             note_id
         return self.delete_note_endpoint.call_with_http_info(**kwargs)
 
+
     def get_note(
         self,
         note_id,
@@ -978,6 +987,7 @@ class NotesApi(object):
         kwargs['note_id'] = \
             note_id
         return self.get_note_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notes(
         self,
@@ -1193,6 +1203,7 @@ class NotesApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_notes_endpoint.call_with_http_info(**kwargs)
 
+
     def update_note(
         self,
         note_id,
@@ -1378,4 +1389,5 @@ class NotesApi(object):
         kwargs['note_id'] = \
             note_id
         return self.update_note_endpoint.call_with_http_info(**kwargs)
+
 

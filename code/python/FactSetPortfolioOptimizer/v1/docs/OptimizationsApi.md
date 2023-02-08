@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**run_fpo_optimization**](OptimizationsApi.md#run_fpo_optimization) | **POST** /analytics/engines/fpo/v1/optimizations | Run FPO optimization
 
 
+
 # **cancel_fpo_optimization_by_id**
 > cancel_fpo_optimization_by_id(id)
 

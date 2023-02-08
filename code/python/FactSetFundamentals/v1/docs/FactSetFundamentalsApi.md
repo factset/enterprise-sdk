@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_fds_fundamentals_for_list**](FactSetFundamentalsApi.md#get_fds_fundamentals_for_list) | **POST** /factset-fundamentals/v1/fundamentals | Returns the Company Fundamental Data.
 
 
+
 # **get_fds_fundamentals**
 > FundamentalsResponse get_fds_fundamentals(ids, metrics)
 

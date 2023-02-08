@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**patch_custom_symbol_custom_field**](CustomSymbolsCustomFieldsApi.md#patch_custom_symbol_custom_field) | **PATCH** /v1/custom-symbol-custom-fields/{customSymbolCustomFieldId} | Edit a Custom symbol custom field
 
 
+
 # **create_custom_symbol_custom_field**
 > NewItemDto create_custom_symbol_custom_field()
 

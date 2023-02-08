@@ -27,8 +27,8 @@ public class GroupsApi {
   public GroupsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> groupIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> groupIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     groupIdGetResponseTypeMap.put(200, new GenericType<GroupResource>(){});
     groupIdGetResponseTypeMap.put(401, new GenericType<Error>(){});
@@ -36,6 +36,7 @@ public class GroupsApi {
     groupIdGetResponseTypeMap.put(404, new GenericType<Error>(){});
     groupIdGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> groupIdPatchResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     groupIdPatchResponseTypeMap.put(200, new GenericType<GroupResource>(){});
@@ -44,6 +45,7 @@ public class GroupsApi {
     groupIdPatchResponseTypeMap.put(403, new GenericType<Error>(){});
     groupIdPatchResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> groupIdPutResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     groupIdPutResponseTypeMap.put(200, new GenericType<GroupResource>(){});
@@ -53,6 +55,7 @@ public class GroupsApi {
     groupIdPutResponseTypeMap.put(404, new GenericType<Error>(){});
     groupIdPutResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> groupsGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     groupsGetResponseTypeMap.put(200, new GenericType<GroupResourceList>(){});
@@ -62,7 +65,7 @@ public class GroupsApi {
     groupsGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

@@ -24,13 +24,13 @@ public class RetrieveRefreshedDataApi {
   public RetrieveRefreshedDataApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getDataPollIdResultGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getDataPollIdResultGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDataPollIdResultGetResponseTypeMap.put(200, new GenericType<ReportDataHeader>(){});
   }
 
-   
+  
 
 
   /**

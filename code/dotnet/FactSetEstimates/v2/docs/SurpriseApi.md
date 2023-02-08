@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSurpriseForList**](SurpriseApi.md#getsurpriseforlist) | **POST** /factset-estimates/v2/surprise | Surprise estimates for rolling fiscal periods
 
 
+
 <a name="getsurprise"></a>
 # **GetSurprise**
 > SurpriseResponse GetSurprise (List<string> ids, List<string> metrics, string startDate = null, string endDate = null, string frequency = null, string periodicity = null, string statistic = null, string currency = null)
@@ -116,6 +117,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsurpriseforlist"></a>
 # **GetSurpriseForList**
 > SurpriseResponse GetSurpriseForList (SurpriseRequest surpriseRequest)
@@ -209,4 +211,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

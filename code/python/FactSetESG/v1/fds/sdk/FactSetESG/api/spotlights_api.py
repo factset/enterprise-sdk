@@ -45,6 +45,7 @@ class SpotlightsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_sasb_spotlights_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -135,6 +136,7 @@ class SpotlightsApi(object):
             },
             api_client=api_client
         )
+
         self.get_sasb_spotlights_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -191,6 +193,7 @@ class SpotlightsApi(object):
             },
             api_client=api_client
         )
+
         self.get_sdg_spotlights_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -281,6 +284,7 @@ class SpotlightsApi(object):
             },
             api_client=api_client
         )
+
         self.get_sdg_spotlights_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -338,6 +342,7 @@ class SpotlightsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -349,6 +354,7 @@ class SpotlightsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_sasb_spotlights(
         self,
@@ -584,6 +590,7 @@ class SpotlightsApi(object):
             end_date
         return self.get_sasb_spotlights_endpoint.call_with_http_info(**kwargs)
 
+
     def get_sasb_spotlights_for_list(
         self,
         sasb_spotlights_request,
@@ -769,6 +776,7 @@ class SpotlightsApi(object):
         kwargs['sasb_spotlights_request'] = \
             sasb_spotlights_request
         return self.get_sasb_spotlights_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_sdg_spotlights(
         self,
@@ -1004,6 +1012,7 @@ class SpotlightsApi(object):
             end_date
         return self.get_sdg_spotlights_endpoint.call_with_http_info(**kwargs)
 
+
     def get_sdg_spotlights_for_list(
         self,
         sdg_spotlights_request,
@@ -1189,4 +1198,5 @@ class SpotlightsApi(object):
         kwargs['sdg_spotlights_request'] = \
             sdg_spotlights_request
         return self.get_sdg_spotlights_for_list_endpoint.call_with_http_info(**kwargs)
+
 

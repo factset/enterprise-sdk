@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetEstimateMetricsForList**](DataItemsApi.md#getestimatemetricsforlist) | **POST** /factset-estimates/v2/metrics | Available Estimate metrics or ratios.
 
 
+
 <a name="getestimatemetrics"></a>
 # **GetEstimateMetrics**
 > MetricsResponse GetEstimateMetrics (string category = null, string subcategory = null)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getestimatemetricsforlist"></a>
 # **GetEstimateMetricsForList**
 > MetricsResponse GetEstimateMetricsForList (MetricsRequest metricsRequest)
@@ -197,4 +199,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

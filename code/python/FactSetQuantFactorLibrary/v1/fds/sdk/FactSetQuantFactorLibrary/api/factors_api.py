@@ -44,6 +44,7 @@ class FactorsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_factors_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -160,6 +161,7 @@ class FactorsApi(object):
             },
             api_client=api_client
         )
+
         self.get_factors_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -217,6 +219,7 @@ class FactorsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -228,6 +231,7 @@ class FactorsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_factors(
         self,
@@ -471,6 +475,7 @@ class FactorsApi(object):
             end_date
         return self.get_factors_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factors_for_list(
         self,
         factors_request,
@@ -656,4 +661,5 @@ class FactorsApi(object):
         kwargs['factors_request'] = \
             factors_request
         return self.get_factors_for_list_endpoint.call_with_http_info(**kwargs)
+
 

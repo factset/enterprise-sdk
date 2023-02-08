@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_database**](CreateApi.md#create_database) | **POST** /database | 
 
 
+
 # **create_database**
 > CreateDatabase create_database()
 

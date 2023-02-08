@@ -79,6 +79,7 @@ yarn add @factset/sdk-utils @factset/sdk-newsapifordigitalportals
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-newsapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');

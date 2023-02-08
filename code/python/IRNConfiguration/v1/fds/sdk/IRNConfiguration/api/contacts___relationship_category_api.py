@@ -45,6 +45,7 @@ class ContactsRelationshipCategoryApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_relationship_category_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -102,6 +103,7 @@ class ContactsRelationshipCategoryApi(object):
             },
             api_client=api_client
         )
+
         self.delete_relationship_category_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -154,6 +156,7 @@ class ContactsRelationshipCategoryApi(object):
             },
             api_client=api_client
         )
+
         self.edit_relationship_category_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -215,6 +218,7 @@ class ContactsRelationshipCategoryApi(object):
             },
             api_client=api_client
         )
+
         self.get_relationship_categories_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -263,6 +267,7 @@ class ContactsRelationshipCategoryApi(object):
             },
             api_client=api_client
         )
+
         self.update_relationship_category_order_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -318,6 +323,7 @@ class ContactsRelationshipCategoryApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -329,6 +335,7 @@ class ContactsRelationshipCategoryApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_relationship_category(
         self,
@@ -495,6 +502,7 @@ class ContactsRelationshipCategoryApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.create_relationship_category_endpoint.call_with_http_info(**kwargs)
+
 
     def delete_relationship_category(
         self,
@@ -677,6 +685,7 @@ class ContactsRelationshipCategoryApi(object):
         kwargs['relationship_category_id'] = \
             relationship_category_id
         return self.delete_relationship_category_endpoint.call_with_http_info(**kwargs)
+
 
     def edit_relationship_category(
         self,
@@ -864,6 +873,7 @@ class ContactsRelationshipCategoryApi(object):
             relationship_category_id
         return self.edit_relationship_category_endpoint.call_with_http_info(**kwargs)
 
+
     def get_relationship_categories(
         self,
         **kwargs
@@ -1025,6 +1035,7 @@ class ContactsRelationshipCategoryApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_relationship_categories_endpoint.call_with_http_info(**kwargs)
+
 
     def update_relationship_category_order(
         self,
@@ -1191,4 +1202,5 @@ class ContactsRelationshipCategoryApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.update_relationship_category_order_endpoint.call_with_http_info(**kwargs)
+
 

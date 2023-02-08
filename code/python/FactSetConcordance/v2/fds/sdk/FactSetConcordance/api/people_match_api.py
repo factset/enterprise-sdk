@@ -44,6 +44,7 @@ class PeopleMatchApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_people_match_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -130,6 +131,7 @@ class PeopleMatchApi(object):
             },
             api_client=api_client
         )
+
         self.get_people_match_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -188,6 +190,7 @@ class PeopleMatchApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -199,6 +202,7 @@ class PeopleMatchApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_people_match(
         self,
@@ -410,6 +414,7 @@ class PeopleMatchApi(object):
             entity
         return self.get_people_match_endpoint.call_with_http_info(**kwargs)
 
+
     def get_people_match_for_list(
         self,
         people_match_request,
@@ -595,4 +600,5 @@ class PeopleMatchApi(object):
         kwargs['people_match_request'] = \
             people_match_request
         return self.get_people_match_for_list_endpoint.call_with_http_info(**kwargs)
+
 

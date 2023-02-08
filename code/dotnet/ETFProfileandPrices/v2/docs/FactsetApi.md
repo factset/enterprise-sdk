@@ -40,6 +40,7 @@ Method | HTTP request | Description
 [**GetFactsetEtfTimeSeriesListBySymbol**](FactsetApi.md#getfactsetetftimeserieslistbysymbol) | **GET** /factset/etf/timeSeries/listBySymbol | Retrieve historical NAV data for a specified ETP.
 
 
+
 <a name="getfactsetetfallocationassetlistbysymbol"></a>
 # **GetFactsetEtfAllocationAssetListBySymbol**
 > InlineResponse2001 GetFactsetEtfAllocationAssetListBySymbol (string symbol, List<string> attributes = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
@@ -134,6 +135,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfallocationcountrylistbysymbol"></a>
 # **GetFactsetEtfAllocationCountryListBySymbol**
@@ -230,6 +232,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfallocationcurrencylistbysymbol"></a>
 # **GetFactsetEtfAllocationCurrencyListBySymbol**
 > InlineResponse2003 GetFactsetEtfAllocationCurrencyListBySymbol (string symbol, List<string> attributes = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
@@ -324,6 +327,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfallocationeconomicdevelopmentlistbysymbol"></a>
 # **GetFactsetEtfAllocationEconomicDevelopmentListBySymbol**
@@ -420,6 +424,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfallocationexchangelistbysymbol"></a>
 # **GetFactsetEtfAllocationExchangeListBySymbol**
 > InlineResponse2005 GetFactsetEtfAllocationExchangeListBySymbol (string symbol, List<string> attributes = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
@@ -514,6 +519,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfallocationindustrylistbysymbol"></a>
 # **GetFactsetEtfAllocationIndustryListBySymbol**
@@ -610,6 +616,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfallocationmarketcapitalizationlistbysymbol"></a>
 # **GetFactsetEtfAllocationMarketCapitalizationListBySymbol**
 > InlineResponse2007 GetFactsetEtfAllocationMarketCapitalizationListBySymbol (string symbol, List<string> attributes = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
@@ -704,6 +711,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfallocationregionlistbysymbol"></a>
 # **GetFactsetEtfAllocationRegionListBySymbol**
@@ -800,6 +808,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfallocationsectorlistbysymbol"></a>
 # **GetFactsetEtfAllocationSectorListBySymbol**
 > InlineResponse2009 GetFactsetEtfAllocationSectorListBySymbol (string symbol, List<string> attributes = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
@@ -895,6 +904,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfanalyticsgetbysymbol"></a>
 # **GetFactsetEtfAnalyticsGetBySymbol**
 > InlineResponse20010 GetFactsetEtfAnalyticsGetBySymbol (string symbol, List<string> attributes = null)
@@ -985,6 +995,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfanalyticsholdingsstatisticsgetbysymbol"></a>
 # **GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbol**
@@ -1077,6 +1088,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfanalyticsscoregetbysymbol"></a>
 # **GetFactsetEtfAnalyticsScoreGetBySymbol**
 > InlineResponse20012 GetFactsetEtfAnalyticsScoreGetBySymbol (string symbol, List<string> attributes = null)
@@ -1167,6 +1179,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfanalyticstradegetbysymbol"></a>
 # **GetFactsetEtfAnalyticsTradeGetBySymbol**
@@ -1259,6 +1272,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfcharacteristicsgetbysymbol"></a>
 # **GetFactsetEtfCharacteristicsGetBySymbol**
 > InlineResponse20014 GetFactsetEtfCharacteristicsGetBySymbol (string symbol, List<string> attributes = null)
@@ -1350,6 +1364,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfclasscategorybroadlist"></a>
 # **GetFactsetEtfClassCategoryBroadList**
 > InlineResponse20016 GetFactsetEtfClassCategoryBroadList (List<string> attributes = null)
@@ -1438,6 +1453,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfclasscategoryfocuslist"></a>
 # **GetFactsetEtfClassCategoryFocusList**
@@ -1532,6 +1548,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfclasscategorynichelist"></a>
 # **GetFactsetEtfClassCategoryNicheList**
 > InlineResponse20018 GetFactsetEtfClassCategoryNicheList (List<string> attributes = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
@@ -1625,6 +1642,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfclassgeographylist"></a>
 # **GetFactsetEtfClassGeographyList**
 > InlineResponse20019 GetFactsetEtfClassGeographyList (List<string> attributes = null)
@@ -1713,6 +1731,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfclassgetbysymbol"></a>
 # **GetFactsetEtfClassGetBySymbol**
@@ -1805,6 +1824,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfcompetitorslistbysymbol"></a>
 # **GetFactsetEtfCompetitorsListBySymbol**
 > InlineResponse20020 GetFactsetEtfCompetitorsListBySymbol (string symbol, List<string> attributes = null)
@@ -1895,6 +1915,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfdistributiongetbysymbol"></a>
 # **GetFactsetEtfDistributionGetBySymbol**
@@ -1987,6 +2008,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetffundflowsgetbysymbol"></a>
 # **GetFactsetEtfFundFlowsGetBySymbol**
 > InlineResponse20022 GetFactsetEtfFundFlowsGetBySymbol (string symbol, List<string> attributes = null)
@@ -2078,6 +2100,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfgetbysymbol"></a>
 # **GetFactsetEtfGetBySymbol**
 > InlineResponse200 GetFactsetEtfGetBySymbol (string symbol, List<string> attributes = null)
@@ -2168,6 +2191,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfgrowthoftenklistbysymbol"></a>
 # **GetFactsetEtfGrowthOfTenKListBySymbol**
@@ -2270,6 +2294,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfholdingslistbysymbol"></a>
 # **GetFactsetEtfHoldingsListBySymbol**
 > InlineResponse20024 GetFactsetEtfHoldingsListBySymbol (string symbol, List<string> attributes = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
@@ -2365,6 +2390,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfmarketaggregatesgetbysymbol"></a>
 # **GetFactsetEtfMarketAggregatesGetBySymbol**
 > InlineResponse20025 GetFactsetEtfMarketAggregatesGetBySymbol (string symbol, List<string> attributes = null)
@@ -2455,6 +2481,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfpremiumdiscountsummarylistbysymbol"></a>
 # **GetFactsetEtfPremiumDiscountSummaryListBySymbol**
@@ -2555,6 +2582,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfpricegetbysymbol"></a>
 # **GetFactsetEtfPriceGetBySymbol**
 > InlineResponse20027 GetFactsetEtfPriceGetBySymbol (string symbol, List<string> attributes = null)
@@ -2645,6 +2673,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfreturnsgetbysymbol"></a>
 # **GetFactsetEtfReturnsGetBySymbol**
@@ -2739,6 +2768,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfstrategygetbysymbol"></a>
 # **GetFactsetEtfStrategyGetBySymbol**
 > InlineResponse20029 GetFactsetEtfStrategyGetBySymbol (string symbol, List<string> attributes = null)
@@ -2829,6 +2859,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetfstrategysegmentlist"></a>
 # **GetFactsetEtfStrategySegmentList**
@@ -2923,6 +2954,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetfstructuregetbysymbol"></a>
 # **GetFactsetEtfStructureGetBySymbol**
 > InlineResponse20031 GetFactsetEtfStructureGetBySymbol (string symbol, List<string> attributes = null)
@@ -3014,6 +3046,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactsetetftaxesandfeesusgetbysymbol"></a>
 # **GetFactsetEtfTaxesAndFeesUsGetBySymbol**
 > InlineResponse20032 GetFactsetEtfTaxesAndFeesUsGetBySymbol (string symbol, List<string> attributes = null)
@@ -3104,6 +3137,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfactsetetftimeserieslistbysymbol"></a>
 # **GetFactsetEtfTimeSeriesListBySymbol**
@@ -3203,4 +3237,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

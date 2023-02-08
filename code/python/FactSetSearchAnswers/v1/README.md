@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.FactSetSearchAnswers
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetSearchAnswers
 from fds.sdk.FactSetSearchAnswers.api import answers_api
 from fds.sdk.FactSetSearchAnswers.models import *

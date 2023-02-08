@@ -26,8 +26,8 @@ public class EntityMatchApi {
   public EntityMatchApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEntityMatchResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEntityMatchResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityMatchResponseTypeMap.put(200, new GenericType<EntityMatchesResponse>(){});
     getEntityMatchResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class EntityMatchApi {
     getEntityMatchResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntityMatchResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEntityMatchForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityMatchForListResponseTypeMap.put(200, new GenericType<EntityMatchesResponse>(){});
@@ -46,7 +47,7 @@ public class EntityMatchApi {
     getEntityMatchForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

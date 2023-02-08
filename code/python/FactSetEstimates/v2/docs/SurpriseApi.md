@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_surprise_for_list**](SurpriseApi.md#get_surprise_for_list) | **POST** /factset-estimates/v2/surprise | Surprise estimates for rolling fiscal periods
 
 
+
 # **get_surprise**
 > SurpriseResponse get_surprise(ids, metrics)
 

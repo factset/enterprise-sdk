@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetRollingConsensusForList**](ConsensusApi.md#getrollingconsensusforlist) | **POST** /factset-estimates/v2/rolling-consensus | Retrieves consensus estimates for a requested list of ids and rolling fiscal periods
 
 
+
 <a name="getfixedconsensus"></a>
 # **GetFixedConsensus**
 > ConsensusResponse GetFixedConsensus (List<string> ids, List<string> metrics, string startDate = null, string endDate = null, string frequency = null, string fiscalPeriodStart = null, string fiscalPeriodEnd = null, string periodicity = null, string currency = null)
@@ -120,6 +121,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfixedconsensusforlist"></a>
 # **GetFixedConsensusForList**
 > ConsensusResponse GetFixedConsensusForList (FixedConsensusRequest fixedConsensusRequest)
@@ -213,6 +215,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getrollingconsensus"></a>
 # **GetRollingConsensus**
@@ -324,6 +327,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getrollingconsensusforlist"></a>
 # **GetRollingConsensusForList**
 > ConsensusResponse GetRollingConsensusForList (RollingConsensusRequest rollingConsensusRequest)
@@ -417,4 +421,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

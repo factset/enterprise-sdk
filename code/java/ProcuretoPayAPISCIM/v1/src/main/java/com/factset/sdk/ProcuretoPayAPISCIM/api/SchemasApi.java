@@ -26,14 +26,15 @@ public class SchemasApi {
   public SchemasApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> schemasGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> schemasGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     schemasGetResponseTypeMap.put(200, new GenericType<SchemaList>(){});
     schemasGetResponseTypeMap.put(401, new GenericType<Error>(){});
     schemasGetResponseTypeMap.put(403, new GenericType<Error>(){});
     schemasGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> schemasIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     schemasIdGetResponseTypeMap.put(200, new GenericType<Schema>(){});
@@ -42,7 +43,7 @@ public class SchemasApi {
     schemasIdGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

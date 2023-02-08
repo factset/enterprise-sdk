@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.SecurityModeling
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.SecurityModeling
 from fds.sdk.SecurityModeling.api import security_modeling_api
 from fds.sdk.SecurityModeling.models import *

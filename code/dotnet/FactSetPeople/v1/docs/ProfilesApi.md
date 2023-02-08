@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetPeopleProfilesForList**](ProfilesApi.md#getpeopleprofilesforlist) | **POST** /factset-people/v1/profiles | Returns profile information for a large list of people.
 
 
+
 <a name="getpeopleprofiles"></a>
 # **GetPeopleProfiles**
 > PeopleProfilesResponse GetPeopleProfiles (List<string> ids)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getpeopleprofilesforlist"></a>
 # **GetPeopleProfilesForList**
 > PeopleProfilesResponse GetPeopleProfilesForList (PeopleProfilesRequest peopleProfilesRequest)
@@ -193,4 +195,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

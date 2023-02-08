@@ -58,145 +58,178 @@ public class FactsetApi {
   public FactsetApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFactsetEtfAllocationAssetListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFactsetEtfAllocationAssetListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAllocationAssetListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAllocationCountryListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAllocationCountryListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAllocationCurrencyListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAllocationCurrencyListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAllocationEconomicDevelopmentListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAllocationEconomicDevelopmentListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAllocationExchangeListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAllocationExchangeListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAllocationIndustryListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAllocationIndustryListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAllocationMarketCapitalizationListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAllocationMarketCapitalizationListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAllocationRegionListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAllocationRegionListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse2008>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAllocationSectorListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAllocationSectorListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAnalyticsGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAnalyticsGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20010>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20011>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAnalyticsScoreGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAnalyticsScoreGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20012>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfAnalyticsTradeGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfAnalyticsTradeGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20013>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfCharacteristicsGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfCharacteristicsGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20014>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfClassCategoryBroadListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfClassCategoryBroadListResponseTypeMap.put(200, new GenericType<InlineResponse20016>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfClassCategoryFocusListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfClassCategoryFocusListResponseTypeMap.put(200, new GenericType<InlineResponse20017>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfClassCategoryNicheListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfClassCategoryNicheListResponseTypeMap.put(200, new GenericType<InlineResponse20018>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfClassGeographyListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfClassGeographyListResponseTypeMap.put(200, new GenericType<InlineResponse20019>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfClassGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfClassGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20015>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfCompetitorsListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfCompetitorsListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20020>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfDistributionGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfDistributionGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20021>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfFundFlowsGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfFundFlowsGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20022>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfGrowthOfTenKListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfGrowthOfTenKListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20023>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfHoldingsListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfHoldingsListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20024>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfMarketAggregatesGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfMarketAggregatesGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20025>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfPremiumDiscountSummaryListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfPremiumDiscountSummaryListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20026>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfPriceGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfPriceGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20027>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfReturnsGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfReturnsGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20028>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfStrategyGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfStrategyGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20029>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfStrategySegmentListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfStrategySegmentListResponseTypeMap.put(200, new GenericType<InlineResponse20030>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfStructureGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfStructureGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20031>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfTaxesAndFeesUsGetBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfTaxesAndFeesUsGetBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20032>(){});
   }
+
   private static final Map<Integer, GenericType> getFactsetEtfTimeSeriesListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactsetEtfTimeSeriesListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20033>(){});
   }
 
-   
+  
 
 
   /**

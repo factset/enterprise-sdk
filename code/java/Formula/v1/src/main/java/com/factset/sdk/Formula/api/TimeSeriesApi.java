@@ -27,8 +27,8 @@ public class TimeSeriesApi {
   public TimeSeriesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getTimeSeriesDataResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getTimeSeriesDataResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getTimeSeriesDataResponseTypeMap.put(200, new GenericType<TimeSeriesResponse>(){});
     getTimeSeriesDataResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
@@ -45,6 +45,7 @@ public class TimeSeriesApi {
     getTimeSeriesDataResponseTypeMap.put(501, new GenericType<ErrorDetail>(){});
     getTimeSeriesDataResponseTypeMap.put(503, new GenericType<ErrorDetail>(){});
   }
+
   private static final Map<Integer, GenericType> getTimeSeriesDataForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getTimeSeriesDataForListResponseTypeMap.put(200, new GenericType<TimeSeriesResponse>(){});
@@ -63,7 +64,7 @@ public class TimeSeriesApi {
     getTimeSeriesDataForListResponseTypeMap.put(503, new GenericType<ErrorDetail>(){});
   }
 
-   
+  
  /**
    * Wrapper to support GET /v1/time-series returning different types
    * per status code.

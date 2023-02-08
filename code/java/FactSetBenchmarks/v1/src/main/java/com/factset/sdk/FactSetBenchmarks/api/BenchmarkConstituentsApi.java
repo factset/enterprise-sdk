@@ -28,8 +28,8 @@ public class BenchmarkConstituentsApi {
   public BenchmarkConstituentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBenchmarkConstituentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBenchmarkConstituentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBenchmarkConstituentsResponseTypeMap.put(200, new GenericType<BenchmarkConstituentsResponse>(){});
     getBenchmarkConstituentsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class BenchmarkConstituentsApi {
     getBenchmarkConstituentsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBenchmarkConstituentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getBenchmarkConstituentsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBenchmarkConstituentsForListResponseTypeMap.put(200, new GenericType<BenchmarkConstituentsResponse>(){});
@@ -47,6 +48,7 @@ public class BenchmarkConstituentsApi {
     getBenchmarkConstituentsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBenchmarkConstituentsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFIBenchmarkConstituentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFIBenchmarkConstituentsResponseTypeMap.put(200, new GenericType<FixedIncomeBenchmarkConstituentsResponse>(){});
@@ -56,6 +58,7 @@ public class BenchmarkConstituentsApi {
     getFIBenchmarkConstituentsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFIBenchmarkConstituentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFIBenchmarkConstituentsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFIBenchmarkConstituentsForListResponseTypeMap.put(200, new GenericType<FixedIncomeBenchmarkConstituentsResponse>(){});
@@ -66,7 +69,7 @@ public class BenchmarkConstituentsApi {
     getFIBenchmarkConstituentsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

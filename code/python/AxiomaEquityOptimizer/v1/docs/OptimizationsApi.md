@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**run_axioma_optimization**](OptimizationsApi.md#run_axioma_optimization) | **POST** /analytics/engines/axp/v1/optimizations | Run Axioma optimization
 
 
+
 # **cancel_axioma_optimization_by_id**
 > cancel_axioma_optimization_by_id(id)
 

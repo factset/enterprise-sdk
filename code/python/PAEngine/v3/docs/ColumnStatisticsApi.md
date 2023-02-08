@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_pa_column_statistics**](ColumnStatisticsApi.md#get_pa_column_statistics) | **GET** /analytics/engines/pa/v3/columnstatistics | Get PA column statistics
 
 
+
 # **get_pa_column_statistics**
 > ColumnStatisticRoot get_pa_column_statistics()
 

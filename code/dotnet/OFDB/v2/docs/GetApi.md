@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**GetSymbols**](GetApi.md#getsymbols) | **GET** /database/{path}/symbols | 
 
 
+
 <a name="getaudit"></a>
 # **GetAudit**
 > InlineResponse200 GetAudit (string path)
@@ -107,6 +108,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getdata"></a>
 # **GetData**
@@ -226,6 +228,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getdates"></a>
 # **GetDates**
 > InlineResponse2004 GetDates (string path, string between = null, string equals = null, string before = null, string after = null, string orderBy = null)
@@ -332,6 +335,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfields"></a>
 # **GetFields**
 > InlineResponse2002 GetFields (string path)
@@ -428,6 +432,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getstats"></a>
 # **GetStats**
 > InlineResponse2001 GetStats (string path)
@@ -523,6 +528,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getsymbols"></a>
 # **GetSymbols**
@@ -629,4 +635,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

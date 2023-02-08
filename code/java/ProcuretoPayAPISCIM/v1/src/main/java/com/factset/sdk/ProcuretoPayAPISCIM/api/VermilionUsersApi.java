@@ -26,8 +26,8 @@ public class VermilionUsersApi {
   public VermilionUsersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> vermilionUsersGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> vermilionUsersGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     vermilionUsersGetResponseTypeMap.put(200, new GenericType<VermilionUserResource>(){});
     vermilionUsersGetResponseTypeMap.put(400, new GenericType<Error>(){});
@@ -35,7 +35,9 @@ public class VermilionUsersApi {
     vermilionUsersGetResponseTypeMap.put(403, new GenericType<Error>(){});
     vermilionUsersGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> vermilionUsersIdDeleteResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> vermilionUsersIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     vermilionUsersIdGetResponseTypeMap.put(200, new GenericType<VermilionUserResource>(){});
@@ -44,6 +46,7 @@ public class VermilionUsersApi {
     vermilionUsersIdGetResponseTypeMap.put(404, new GenericType<Error>(){});
     vermilionUsersIdGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> vermilionUsersIdPatchResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     vermilionUsersIdPatchResponseTypeMap.put(200, new GenericType<VermilionUserResource>(){});
@@ -52,6 +55,7 @@ public class VermilionUsersApi {
     vermilionUsersIdPatchResponseTypeMap.put(403, new GenericType<Error>(){});
     vermilionUsersIdPatchResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> vermilionUsersIdPutResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     vermilionUsersIdPutResponseTypeMap.put(200, new GenericType<VermilionUserResource>(){});
@@ -61,6 +65,7 @@ public class VermilionUsersApi {
     vermilionUsersIdPutResponseTypeMap.put(404, new GenericType<Error>(){});
     vermilionUsersIdPutResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> vermilionUsersPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     vermilionUsersPostResponseTypeMap.put(201, new GenericType<VermilionUserResource>(){});
@@ -70,7 +75,7 @@ public class VermilionUsersApi {
     vermilionUsersPostResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

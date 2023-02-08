@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetDataPollIdResultGet**](RetrieveRefreshedDataApi.md#getdatapollidresultget) | **GET** /get-data/{poll_id}/result | Retrieve data for desired report.
 
 
+
 <a name="getdatapollidresultget"></a>
 # **GetDataPollIdResultGet**
 > ReportDataHeader GetDataPollIdResultGet (string pollId)
@@ -97,4 +98,5 @@ Name | Type | Description  | Notes
 | **401** | Missing/invalid Credentials or authentication failure |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

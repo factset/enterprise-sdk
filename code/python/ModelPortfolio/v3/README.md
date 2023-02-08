@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.ModelPortfolio
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.ModelPortfolio
 from fds.sdk.ModelPortfolio.api import model_accounts_api
 from fds.sdk.ModelPortfolio.models import *

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_spar_frequencies**](FrequenciesApi.md#get_spar_frequencies) | **GET** /analytics/engines/spar/v3/frequencies | Get SPAR frequencies
 
 
+
 # **get_spar_frequencies**
 > FrequencyRoot get_spar_frequencies()
 

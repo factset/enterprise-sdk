@@ -45,6 +45,7 @@ class ConsensusApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_fixed_consensus_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -172,6 +173,7 @@ class ConsensusApi(object):
             },
             api_client=api_client
         )
+
         self.get_fixed_consensus_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -228,6 +230,7 @@ class ConsensusApi(object):
             },
             api_client=api_client
         )
+
         self.get_rolling_consensus_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -355,6 +358,7 @@ class ConsensusApi(object):
             },
             api_client=api_client
         )
+
         self.get_rolling_consensus_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -412,6 +416,7 @@ class ConsensusApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -423,6 +428,7 @@ class ConsensusApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_fixed_consensus(
         self,
@@ -654,6 +660,7 @@ class ConsensusApi(object):
             metrics
         return self.get_fixed_consensus_endpoint.call_with_http_info(**kwargs)
 
+
     def get_fixed_consensus_for_list(
         self,
         fixed_consensus_request,
@@ -839,6 +846,7 @@ class ConsensusApi(object):
         kwargs['fixed_consensus_request'] = \
             fixed_consensus_request
         return self.get_fixed_consensus_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_rolling_consensus(
         self,
@@ -1070,6 +1078,7 @@ class ConsensusApi(object):
             metrics
         return self.get_rolling_consensus_endpoint.call_with_http_info(**kwargs)
 
+
     def get_rolling_consensus_for_list(
         self,
         rolling_consensus_request,
@@ -1255,4 +1264,5 @@ class ConsensusApi(object):
         kwargs['rolling_consensus_request'] = \
             rolling_consensus_request
         return self.get_rolling_consensus_for_list_endpoint.call_with_http_info(**kwargs)
+
 

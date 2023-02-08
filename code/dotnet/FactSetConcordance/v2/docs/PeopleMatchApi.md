@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetPeopleMatchForList**](PeopleMatchApi.md#getpeoplematchforlist) | **POST** /factset-concordance/v2/people-match | Find potential people matches given a person&#39;s name.
 
 
+
 <a name="getpeoplematch"></a>
 # **GetPeopleMatch**
 > PeopleMatchesResponse GetPeopleMatch (string entity, string personName = null, string salutation = null, string firstName = null, string middleName = null, string lastName = null, string suffix = null)
@@ -114,6 +115,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getpeoplematchforlist"></a>
 # **GetPeopleMatchForList**
 > PeopleMatchesResponse GetPeopleMatchForList (PeopleMatchRequest peopleMatchRequest)
@@ -207,4 +209,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

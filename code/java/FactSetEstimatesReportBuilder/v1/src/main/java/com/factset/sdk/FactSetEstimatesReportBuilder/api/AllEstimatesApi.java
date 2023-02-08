@@ -25,8 +25,8 @@ public class AllEstimatesApi {
   public AllEstimatesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEstimatesBalanceSheetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEstimatesBalanceSheetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimatesBalanceSheetResponseTypeMap.put(200, new GenericType<Response>(){});
     getEstimatesBalanceSheetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -34,6 +34,7 @@ public class AllEstimatesApi {
     getEstimatesBalanceSheetResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getEstimatesBalanceSheetResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEstimatesCashFlowResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimatesCashFlowResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -42,6 +43,7 @@ public class AllEstimatesApi {
     getEstimatesCashFlowResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getEstimatesCashFlowResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEstimatesGeographicSegmentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimatesGeographicSegmentsResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -50,6 +52,7 @@ public class AllEstimatesApi {
     getEstimatesGeographicSegmentsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getEstimatesGeographicSegmentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEstimatesIncomeStatementResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimatesIncomeStatementResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -58,6 +61,7 @@ public class AllEstimatesApi {
     getEstimatesIncomeStatementResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getEstimatesIncomeStatementResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEstimatesIndustryMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimatesIndustryMetricsResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -66,6 +70,7 @@ public class AllEstimatesApi {
     getEstimatesIndustryMetricsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getEstimatesIndustryMetricsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEstimatesPerShareResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimatesPerShareResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -74,6 +79,7 @@ public class AllEstimatesApi {
     getEstimatesPerShareResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getEstimatesPerShareResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEstimatesProductSegmentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimatesProductSegmentsResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -82,6 +88,7 @@ public class AllEstimatesApi {
     getEstimatesProductSegmentsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getEstimatesProductSegmentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEstimatesValuationResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimatesValuationResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -91,7 +98,7 @@ public class AllEstimatesApi {
     getEstimatesValuationResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -44,6 +44,7 @@ class CountriesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_countries_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -152,6 +153,7 @@ class CountriesApi(object):
             },
             api_client=api_client
         )
+
         self.get_countries_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -209,6 +211,7 @@ class CountriesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -220,6 +223,7 @@ class CountriesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_countries(
         self,
@@ -427,6 +431,7 @@ class CountriesApi(object):
             ids
         return self.get_countries_endpoint.call_with_http_info(**kwargs)
 
+
     def get_countries_for_list(
         self,
         country_request,
@@ -612,4 +617,5 @@ class CountriesApi(object):
         kwargs['country_request'] = \
             country_request
         return self.get_countries_for_list_endpoint.call_with_http_info(**kwargs)
+
 

@@ -99,7 +99,8 @@ namespace FactSet.SDK.FactSetNER.Api
         private FactSet.SDK.FactSetNER.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> PostEntitiesEntitiesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostEntitiesEntitiesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
         };
@@ -107,7 +108,7 @@ namespace FactSet.SDK.FactSetNER.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

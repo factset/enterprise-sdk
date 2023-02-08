@@ -30,8 +30,8 @@ public class MappingsApi {
   public MappingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEntityMappingDeleteForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEntityMappingDeleteForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityMappingDeleteForListResponseTypeMap.put(200, new GenericType<EntityMappingDeleteResponse>(){});
     getEntityMappingDeleteForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -40,6 +40,7 @@ public class MappingsApi {
     getEntityMappingDeleteForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntityMappingDeleteForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEntityMappingForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityMappingForListResponseTypeMap.put(200, new GenericType<EntityResponse>(){});
@@ -49,6 +50,7 @@ public class MappingsApi {
     getEntityMappingForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntityMappingForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEntityUniverseResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityUniverseResponseTypeMap.put(200, new GenericType<EntityUniverseResponse>(){});
@@ -58,6 +60,7 @@ public class MappingsApi {
     getEntityUniverseResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntityUniverseResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEntityUniverseForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityUniverseForListResponseTypeMap.put(200, new GenericType<EntityUniverseResponse>(){});
@@ -68,7 +71,7 @@ public class MappingsApi {
     getEntityUniverseForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

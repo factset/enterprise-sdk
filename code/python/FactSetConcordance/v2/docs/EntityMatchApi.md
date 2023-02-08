@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_entity_match_for_list**](EntityMatchApi.md#get_entity_match_for_list) | **POST** /factset-concordance/v2/entity-match | Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
 
 
+
 # **get_entity_match**
 > EntityMatchesResponse get_entity_match(name)
 

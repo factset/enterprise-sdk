@@ -27,25 +27,28 @@ public class BatchProcessingApi {
   public BatchProcessingApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBatchDataResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBatchDataResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBatchDataResponseTypeMap.put(200, new GenericType<BatchDataResponse>(){});
     getBatchDataResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     getBatchDataResponseTypeMap.put(404, new GenericType<ErrorDetail>(){});
   }
+
   private static final Map<Integer, GenericType> getBatchDataWithPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBatchDataWithPostResponseTypeMap.put(200, new GenericType<BatchDataResponse>(){});
     getBatchDataWithPostResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     getBatchDataWithPostResponseTypeMap.put(404, new GenericType<ErrorDetail>(){});
   }
+
   private static final Map<Integer, GenericType> getBatchStatusResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBatchStatusResponseTypeMap.put(201, new GenericType<BatchStatusResponse>(){});
     getBatchStatusResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     getBatchStatusResponseTypeMap.put(404, new GenericType<ErrorDetail>(){});
   }
+
   private static final Map<Integer, GenericType> getBatchStatusWithPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBatchStatusWithPostResponseTypeMap.put(201, new GenericType<BatchStatusResponse>(){});
@@ -53,7 +56,7 @@ public class BatchProcessingApi {
     getBatchStatusWithPostResponseTypeMap.put(404, new GenericType<ErrorDetail>(){});
   }
 
-   
+  
  /**
    * Wrapper to support GET /v1/batch-result returning different types
    * per status code.

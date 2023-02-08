@@ -44,6 +44,7 @@ class EntityFocusApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_rbics_entity_focus_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -127,6 +128,7 @@ class EntityFocusApi(object):
             },
             api_client=api_client
         )
+
         self.get_rbics_entity_focus_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -184,6 +186,7 @@ class EntityFocusApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -195,6 +198,7 @@ class EntityFocusApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_rbics_entity_focus(
         self,
@@ -394,6 +398,7 @@ class EntityFocusApi(object):
             ids
         return self.get_rbics_entity_focus_endpoint.call_with_http_info(**kwargs)
 
+
     def get_rbics_entity_focus_for_list(
         self,
         entity_focus_request,
@@ -579,4 +584,5 @@ class EntityFocusApi(object):
         kwargs['entity_focus_request'] = \
             entity_focus_request
         return self.get_rbics_entity_focus_for_list_endpoint.call_with_http_info(**kwargs)
+
 

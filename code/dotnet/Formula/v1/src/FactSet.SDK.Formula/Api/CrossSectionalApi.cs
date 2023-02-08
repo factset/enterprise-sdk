@@ -183,7 +183,8 @@ namespace FactSet.SDK.Formula.Api
         private FactSet.SDK.Formula.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetCrossSectionalDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCrossSectionalDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CrossSectionalResponse) },
             { (HttpStatusCode)202, typeof(BatchStatusResponse) },
@@ -200,6 +201,7 @@ namespace FactSet.SDK.Formula.Api
             { (HttpStatusCode)501, typeof(ErrorDetail) },
             { (HttpStatusCode)503, typeof(ErrorDetail) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCrossSectionalDataForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CrossSectionalResponse) },
@@ -221,7 +223,7 @@ namespace FactSet.SDK.Formula.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
         /// <summary>
         /// Wrapper to support GET /v1/cross-sectional returning different types
         /// per status code.

@@ -25,8 +25,8 @@ public class CapitalStructureApi {
   public CapitalStructureApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getDcsDetailResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getDcsDetailResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDcsDetailResponseTypeMap.put(200, new GenericType<Response>(){});
     getDcsDetailResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -34,6 +34,7 @@ public class CapitalStructureApi {
     getDcsDetailResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getDcsDetailResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getDcsSummaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDcsSummaryResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -42,6 +43,7 @@ public class CapitalStructureApi {
     getDcsSummaryResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getDcsSummaryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSourceOfCapitalResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSourceOfCapitalResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -51,7 +53,7 @@ public class CapitalStructureApi {
     getSourceOfCapitalResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

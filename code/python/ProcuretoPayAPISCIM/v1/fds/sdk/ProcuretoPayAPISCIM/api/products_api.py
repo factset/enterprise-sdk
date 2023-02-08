@@ -43,6 +43,7 @@ class ProductsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.products_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -116,6 +117,7 @@ class ProductsApi(object):
             },
             api_client=api_client
         )
+
         self.products_id_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -172,6 +174,7 @@ class ProductsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -183,6 +186,7 @@ class ProductsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def products_get(
         self,
@@ -366,6 +370,7 @@ class ProductsApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.products_get_endpoint.call_with_http_info(**kwargs)
 
+
     def products_id_get(
         self,
         id,
@@ -547,4 +552,5 @@ class ProductsApi(object):
         kwargs['id'] = \
             id
         return self.products_id_get_endpoint.call_with_http_info(**kwargs)
+
 

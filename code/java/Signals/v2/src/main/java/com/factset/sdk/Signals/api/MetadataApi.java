@@ -26,30 +26,33 @@ public class MetadataApi {
   public MetadataApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCategoriesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCategoriesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoriesResponseTypeMap.put(200, new GenericType<SignalMetaData>(){});
     getCategoriesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getDataDictionaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDataDictionaryResponseTypeMap.put(200, new GenericType<SignalMetaData>(){});
     getDataDictionaryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getDataDictionaryByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDataDictionaryByIdResponseTypeMap.put(200, new GenericType<SignalDefinition>(){});
     getDataDictionaryByIdResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getDataDictionaryByIdResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getThemesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getThemesResponseTypeMap.put(200, new GenericType<SignalMetaData>(){});
     getThemesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

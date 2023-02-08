@@ -67,6 +67,7 @@ class NotationApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_notation_cross_reference_fact_set_identifier_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -156,6 +157,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_cross_reference_get_by_fact_set_market_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -237,6 +239,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -336,6 +339,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_month_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -425,6 +429,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_month_1_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -513,6 +518,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_month_3_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -602,6 +608,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_month_3_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -690,6 +697,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_month_6_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -779,6 +787,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_month_6_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -867,6 +876,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_week_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -956,6 +966,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_week_1_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1044,6 +1055,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_10_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1133,6 +1145,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_10_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1221,6 +1234,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1310,6 +1324,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_1_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1398,6 +1413,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_3_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1487,6 +1503,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_3_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1575,6 +1592,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_5_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1664,6 +1682,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_5_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1752,6 +1771,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_7_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1841,6 +1861,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_7_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1929,6 +1950,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_to_date_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2018,6 +2040,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_key_figures_year_to_date_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2106,6 +2129,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2204,6 +2228,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_search_basic_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2359,6 +2384,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_search_by_text_ranked_by_volume_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2521,6 +2547,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.get_notation_status_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2622,6 +2649,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2676,6 +2704,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2730,6 +2759,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.post_notation_cross_reference_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2784,6 +2814,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.post_notation_cross_reference_list_by_isin_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2838,6 +2869,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.post_notation_cross_reference_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2892,6 +2924,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.post_notation_market_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2946,6 +2979,7 @@ class NotationApi(object):
             },
             api_client=api_client
         )
+
         self.post_notation_search_by_text_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -3001,6 +3035,7 @@ class NotationApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -3012,6 +3047,7 @@ class NotationApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_notation_cross_reference_fact_set_identifier_get(
         self,
@@ -3219,6 +3255,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_cross_reference_fact_set_identifier_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_cross_reference_get_by_fact_set_market_symbol(
         self,
         fact_set_market_symbol,
@@ -3412,6 +3449,7 @@ class NotationApi(object):
         kwargs['fact_set_market_symbol'] = \
             fact_set_market_symbol
         return self.get_notation_cross_reference_get_by_fact_set_market_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_get(
         self,
@@ -3623,6 +3661,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_month_1_get(
         self,
         identifier,
@@ -3828,6 +3867,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_key_figures_month_1_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_key_figures_month_1_list(
         self,
@@ -4035,6 +4075,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_key_figures_month_1_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_month_3_get(
         self,
         identifier,
@@ -4240,6 +4281,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_key_figures_month_3_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_key_figures_month_3_list(
         self,
@@ -4447,6 +4489,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_key_figures_month_3_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_month_6_get(
         self,
         identifier,
@@ -4652,6 +4695,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_key_figures_month_6_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_key_figures_month_6_list(
         self,
@@ -4859,6 +4903,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_key_figures_month_6_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_week_1_get(
         self,
         identifier,
@@ -5064,6 +5109,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_key_figures_week_1_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_key_figures_week_1_list(
         self,
@@ -5271,6 +5317,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_key_figures_week_1_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_year_10_get(
         self,
         identifier,
@@ -5476,6 +5523,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_key_figures_year_10_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_key_figures_year_10_list(
         self,
@@ -5683,6 +5731,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_key_figures_year_10_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_year_1_get(
         self,
         identifier,
@@ -5888,6 +5937,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_key_figures_year_1_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_key_figures_year_1_list(
         self,
@@ -6095,6 +6145,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_key_figures_year_1_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_year_3_get(
         self,
         identifier,
@@ -6300,6 +6351,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_key_figures_year_3_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_key_figures_year_3_list(
         self,
@@ -6507,6 +6559,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_key_figures_year_3_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_year_5_get(
         self,
         identifier,
@@ -6712,6 +6765,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_key_figures_year_5_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_key_figures_year_5_list(
         self,
@@ -6919,6 +6973,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_key_figures_year_5_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_year_7_get(
         self,
         identifier,
@@ -7124,6 +7179,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_key_figures_year_7_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_key_figures_year_7_list(
         self,
@@ -7331,6 +7387,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_key_figures_year_7_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_year_to_date_get(
         self,
         identifier,
@@ -7537,6 +7594,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_key_figures_year_to_date_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_key_figures_year_to_date_list(
         self,
         identifiers,
@@ -7742,6 +7800,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_key_figures_year_to_date_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_list(
         self,
@@ -7952,6 +8011,7 @@ class NotationApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_notation_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_notation_search_basic(
         self,
@@ -8171,6 +8231,7 @@ class NotationApi(object):
             search_value
         return self.get_notation_search_basic_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_search_by_text_ranked_by_volume(
         self,
         search_value,
@@ -8389,6 +8450,7 @@ class NotationApi(object):
             search_value
         return self.get_notation_search_by_text_ranked_by_volume_endpoint.call_with_http_info(**kwargs)
 
+
     def get_notation_status_get(
         self,
         identifier,
@@ -8599,6 +8661,7 @@ class NotationApi(object):
             identifier_type
         return self.get_notation_status_get_endpoint.call_with_http_info(**kwargs)
 
+
     def post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier(
         self,
         **kwargs
@@ -8768,6 +8831,7 @@ class NotationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint.call_with_http_info(**kwargs)
+
 
     def post_notation_cross_reference_fact_set_identifier_list_by_instrument(
         self,
@@ -8939,6 +9003,7 @@ class NotationApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint.call_with_http_info(**kwargs)
 
+
     def post_notation_cross_reference_list_by_instrument(
         self,
         **kwargs
@@ -9108,6 +9173,7 @@ class NotationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_notation_cross_reference_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+
 
     def post_notation_cross_reference_list_by_isin(
         self,
@@ -9279,6 +9345,7 @@ class NotationApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_notation_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
 
+
     def post_notation_cross_reference_list_by_symbol(
         self,
         **kwargs
@@ -9448,6 +9515,7 @@ class NotationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_notation_cross_reference_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def post_notation_market_list(
         self,
@@ -9619,6 +9687,7 @@ class NotationApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_notation_market_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_notation_search_by_text(
         self,
         **kwargs
@@ -9788,4 +9857,5 @@ class NotationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_notation_search_by_text_endpoint.call_with_http_info(**kwargs)
+
 

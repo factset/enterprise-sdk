@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_symbols_relationships**](CustomSymbolsRelationshipsApi.md#get_symbols_relationships) | **GET** /v1/symbols-relationships | Get all the Symbols Relationships
 
 
+
 # **create_symbol_relationship_type**
 > NewItemDto create_symbol_relationship_type()
 

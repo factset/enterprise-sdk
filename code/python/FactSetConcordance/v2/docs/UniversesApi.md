@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_update_universe_for_list**](UniversesApi.md#get_update_universe_for_list) | **POST** /factset-concordance/v2/update-universe | Update metadata for an existing universe
 
 
+
 # **get_entity_universe_statistics**
 > EntityUniverseStatisticsResponse get_entity_universe_statistics(universe_id)
 

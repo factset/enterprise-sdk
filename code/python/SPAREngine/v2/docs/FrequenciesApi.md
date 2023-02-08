@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_spar_frequencies**](FrequenciesApi.md#get_spar_frequencies) | **GET** /analytics/lookups/v2/engines/spar/frequencies | Get SPAR frequencies
 
 
+
 # **get_spar_frequencies**
 > {str: (Frequency,)} get_spar_frequencies()
 

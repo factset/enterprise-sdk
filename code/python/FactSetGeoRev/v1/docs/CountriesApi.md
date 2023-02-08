@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_countries_for_list**](CountriesApi.md#get_countries_for_list) | **POST** /factset-georev/v1/countries | Gets the revenue details for the requested Countries. Use for large lists of ids.
 
 
+
 # **get_countries**
 > CountryResponse get_countries(ids)
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetEntityTaskStatus**](EntityMatchBulkApi.md#getentitytaskstatus) | **GET** /factset-concordance/v2/entity-task-status | Gets the status of the requested taskId or all tasks for a User
 
 
+
 <a name="getentitydecisions"></a>
 # **GetEntityDecisions**
 > EntityDecisionsResponse GetEntityDecisions (int taskId, int? offset = null, int? limit = null)
@@ -106,6 +107,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getentitytaskforlist"></a>
 # **GetEntityTaskForList**
@@ -267,6 +269,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getentitytaskstatus"></a>
 # **GetEntityTaskStatus**
 > EntityTaskStatusResponse GetEntityTaskStatus (int? taskId = null, int? offset = null, int? limit = null, List<string> status = null)
@@ -366,4 +369,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

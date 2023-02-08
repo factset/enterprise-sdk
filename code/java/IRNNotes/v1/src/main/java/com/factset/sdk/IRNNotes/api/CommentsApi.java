@@ -31,14 +31,15 @@ public class CommentsApi {
   public CommentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createCommentResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createCommentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createCommentResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createCommentResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createCommentResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
     createCommentResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> createCommentAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createCommentAttachmentResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
@@ -46,8 +47,11 @@ public class CommentsApi {
     createCommentAttachmentResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
     createCommentAttachmentResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteCommentResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> downloadCommentAttachmentForCommentResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getCommentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCommentResponseTypeMap.put(200, new GenericType<CommentDto>(){});
@@ -55,6 +59,7 @@ public class CommentsApi {
     getCommentResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
     getCommentResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getCommentAttachmentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCommentAttachmentsResponseTypeMap.put(200, new GenericType<java.util.List<AttachmentSummaryDto>>(){});
@@ -62,6 +67,7 @@ public class CommentsApi {
     getCommentAttachmentsResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
     getCommentAttachmentsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getCommentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCommentsResponseTypeMap.put(200, new GenericType<java.util.List<CommentSummaryDto>>(){});
@@ -69,9 +75,10 @@ public class CommentsApi {
     getCommentsResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
     getCommentsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> patchCommentResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

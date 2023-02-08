@@ -36,8 +36,8 @@ public class ReferenceApi {
   public ReferenceApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFundsBenchmarkDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFundsBenchmarkDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsBenchmarkDetailsResponseTypeMap.put(200, new GenericType<BenchmarkDetailsResponse>(){});
     getFundsBenchmarkDetailsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -46,6 +46,7 @@ public class ReferenceApi {
     getFundsBenchmarkDetailsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsBenchmarkDetailsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsBenchmarkDetailsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsBenchmarkDetailsForListResponseTypeMap.put(200, new GenericType<BenchmarkDetailsResponse>(){});
@@ -55,6 +56,7 @@ public class ReferenceApi {
     getFundsBenchmarkDetailsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsBenchmarkDetailsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsClassificationsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsClassificationsResponseTypeMap.put(200, new GenericType<ClassificationsResponse>(){});
@@ -64,6 +66,7 @@ public class ReferenceApi {
     getFundsClassificationsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsClassificationsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsClassificationsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsClassificationsForListResponseTypeMap.put(200, new GenericType<ClassificationsResponse>(){});
@@ -73,6 +76,7 @@ public class ReferenceApi {
     getFundsClassificationsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsClassificationsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsCostsFeesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsCostsFeesResponseTypeMap.put(200, new GenericType<CostsFeesResponse>(){});
@@ -82,6 +86,7 @@ public class ReferenceApi {
     getFundsCostsFeesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsCostsFeesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsCostsFeesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsCostsFeesForListResponseTypeMap.put(200, new GenericType<CostsFeesResponse>(){});
@@ -91,6 +96,7 @@ public class ReferenceApi {
     getFundsCostsFeesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsCostsFeesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsManagersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsManagersResponseTypeMap.put(200, new GenericType<ManagersResponse>(){});
@@ -100,6 +106,7 @@ public class ReferenceApi {
     getFundsManagersResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsManagersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsManagersForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsManagersForListResponseTypeMap.put(200, new GenericType<ManagersResponse>(){});
@@ -109,6 +116,7 @@ public class ReferenceApi {
     getFundsManagersForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsManagersForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsSummaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsSummaryResponseTypeMap.put(200, new GenericType<SummariesResponse>(){});
@@ -118,6 +126,7 @@ public class ReferenceApi {
     getFundsSummaryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsSummaryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsSummaryForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsSummaryForListResponseTypeMap.put(200, new GenericType<SummariesResponse>(){});
@@ -127,6 +136,7 @@ public class ReferenceApi {
     getFundsSummaryForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsSummaryForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getRelatedFundsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRelatedFundsResponseTypeMap.put(200, new GenericType<RelatedFundsResponse>(){});
@@ -136,6 +146,7 @@ public class ReferenceApi {
     getRelatedFundsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getRelatedFundsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getRelatedFundsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRelatedFundsForListResponseTypeMap.put(200, new GenericType<RelatedFundsResponse>(){});
@@ -146,7 +157,7 @@ public class ReferenceApi {
     getRelatedFundsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

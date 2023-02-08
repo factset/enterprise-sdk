@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GenerateIdMapping**](OperationsApi.md#generateidmapping) | **POST** /linear/{version}/generate/id-mapping | Generate risk model ID mapping
 
 
+
 <a name="calculatefromholdings"></a>
 # **CalculateFromHoldings**
 > InlineResponse2004 CalculateFromHoldings (string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody)
@@ -105,6 +106,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="generateidmapping"></a>
 # **GenerateIdMapping**
 > InlineResponse2005 GenerateIdMapping (string version, GenerateIDMappingRequestBody generateIDMappingRequestBody)
@@ -200,4 +202,5 @@ Name | Type | Description  | Notes
 | **500** | Internal server error occurred |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

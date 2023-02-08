@@ -25,9 +25,11 @@ public class JobManagementApi {
   public JobManagementApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> deleteActiveJobResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> deleteActiveJobResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> deleteAllActiveJobsResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getAllActiveJobsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAllActiveJobsResponseTypeMap.put(200, new GenericType<ActiveJobsData>(){});
@@ -35,7 +37,7 @@ public class JobManagementApi {
     getAllActiveJobsResponseTypeMap.put(404, new GenericType<ErrorArray>(){});
   }
 
-   
+  
 
 
   /**

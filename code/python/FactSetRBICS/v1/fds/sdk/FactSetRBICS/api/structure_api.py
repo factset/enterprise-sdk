@@ -44,6 +44,7 @@ class StructureApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_rbics_structure_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -124,6 +125,7 @@ class StructureApi(object):
             },
             api_client=api_client
         )
+
         self.get_rbics_structure_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -181,6 +183,7 @@ class StructureApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -192,6 +195,7 @@ class StructureApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_rbics_structure(
         self,
@@ -374,6 +378,7 @@ class StructureApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_rbics_structure_endpoint.call_with_http_info(**kwargs)
+
 
     def get_rbics_structure_for_list(
         self,
@@ -560,4 +565,5 @@ class StructureApi(object):
         kwargs['structure_request'] = \
             structure_request
         return self.get_rbics_structure_for_list_endpoint.call_with_http_info(**kwargs)
+
 

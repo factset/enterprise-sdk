@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**UpdateContactRole**](ContactsRolesApi.md#updatecontactrole) | **PUT** /v1/contact-roles/{contactRoleId} | Edit a contact role
 
 
+
 <a name="createcontactrole"></a>
 # **CreateContactRole**
 > NewItemDto CreateContactRole (string body)
@@ -98,6 +99,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletecontactrole"></a>
 # **DeleteContactRole**
@@ -188,6 +190,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcontactroles"></a>
 # **GetContactRoles**
 > List&lt;ContactRoleDto&gt; GetContactRoles ()
@@ -270,6 +273,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="updatecontactrole"></a>
 # **UpdateContactRole**
@@ -361,4 +365,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

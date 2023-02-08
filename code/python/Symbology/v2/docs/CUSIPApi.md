@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**translate_cusip**](CUSIPApi.md#translate_cusip) | **GET** /symbology/v2/cusip | Translate market security symbols into CUSIPs - Current Only
 
 
+
 # **batch_cusip_history**
 > CusipHistoryResponse batch_cusip_history(cusip_history_translation_request)
 

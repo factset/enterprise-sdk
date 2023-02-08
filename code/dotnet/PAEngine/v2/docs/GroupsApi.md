@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetPAGroups**](GroupsApi.md#getpagroups) | **GET** /analytics/lookups/v2/engines/pa/groups | Get PA groups
 
 
+
 <a name="getpagroups"></a>
 # **GetPAGroups**
 > Dictionary&lt;string, Group&gt; GetPAGroups ()
@@ -97,4 +98,5 @@ This endpoint does not need any parameter.
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * Age - Standard HTTP header. Header will specify the age of groupings list cached response. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

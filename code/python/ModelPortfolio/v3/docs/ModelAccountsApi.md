@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**get_account_schema**](ModelAccountsApi.md#get_account_schema) | **GET** /analytics/accounts/v3/models/{name}/schema | Get account schema endpoint, takes an account name and returns its schema
 
 
+
 # **create_or_update_model_account**
 > create_or_update_model_account(name)
 

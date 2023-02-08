@@ -26,15 +26,15 @@ public class AiThemesApi {
   public AiThemesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> themesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> themesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     themesResponseTypeMap.put(200, new GenericType<ThemesRoot>(){});
     themesResponseTypeMap.put(400, new GenericType<ErrorsRoot>(){});
     themesResponseTypeMap.put(404, new GenericType<ErrorsRoot>(){});
   }
 
-   
+  
 
 
   /**

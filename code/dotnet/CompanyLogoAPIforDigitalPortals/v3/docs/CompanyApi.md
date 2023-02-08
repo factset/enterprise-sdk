@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetCompanyLogoGet**](CompanyApi.md#getcompanylogoget) | **GET** /company/logo/get | List of URLs of company logos.
 
 
+
 <a name="getcompanylogoget"></a>
 # **GetCompanyLogoGet**
 > InlineResponse200 GetCompanyLogoGet (string identifier, string identifierType, string format = null, List<string> attributes = null)
@@ -101,4 +102,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

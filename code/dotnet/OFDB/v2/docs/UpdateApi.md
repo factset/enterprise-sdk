@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**UpdateSymbols**](UpdateApi.md#updatesymbols) | **PUT** /database/{path}/symbols | 
 
 
+
 <a name="updatedate"></a>
 # **UpdateDate**
 > SuccessPostResponse UpdateDate (string path, int date, UpdateDate updateDate)
@@ -111,6 +112,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="updatedates"></a>
 # **UpdateDates**
 > SuccessPostResponse UpdateDates (string path, UpdateDates updateDates)
@@ -209,6 +211,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="updatesymbol"></a>
 # **UpdateSymbol**
@@ -311,6 +314,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="updatesymbols"></a>
 # **UpdateSymbols**
 > SuccessPostResponse UpdateSymbols (string path, UpdateSymbols updateSymbols)
@@ -409,4 +413,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

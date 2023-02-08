@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_swivel_endpoint**](SwivelApi.md#get_swivel_endpoint) | **GET** /analytics/pub-datastore/swivel/v1/{pubDoc}/{assetName}/{reportId}/{tileId}/{accountId} | Get Swivel endpoint, takes report parameter inputs and returns the Cargo location for the specified report via a 302 redirect.
 
 
+
 # **get_swivel_endpoint**
 > [str] get_swivel_endpoint()
 

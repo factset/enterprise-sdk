@@ -160,7 +160,8 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
         private FactSet.SDK.ForeignExchangeRate.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetFXForwardsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFXForwardsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ForwardsResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -169,6 +170,7 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFXForwardsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ForwardsResponse) },
@@ -182,7 +184,7 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

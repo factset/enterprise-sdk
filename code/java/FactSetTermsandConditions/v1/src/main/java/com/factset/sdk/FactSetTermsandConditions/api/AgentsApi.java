@@ -26,8 +26,8 @@ public class AgentsApi {
   public AgentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getAgentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getAgentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAgentsResponseTypeMap.put(200, new GenericType<AgentsResponse>(){});
     getAgentsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class AgentsApi {
     getAgentsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getAgentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getAgentsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAgentsForListResponseTypeMap.put(200, new GenericType<AgentsResponse>(){});
@@ -46,7 +47,7 @@ public class AgentsApi {
     getAgentsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

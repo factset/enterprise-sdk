@@ -144,7 +144,8 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         private FactSet.SDK.FactSetTermsandConditions.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetCovenantDetailsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCovenantDetailsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CovenantDetailsResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -153,6 +154,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCovenantDetailsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CovenantDetailsResponse) },
@@ -166,7 +168,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

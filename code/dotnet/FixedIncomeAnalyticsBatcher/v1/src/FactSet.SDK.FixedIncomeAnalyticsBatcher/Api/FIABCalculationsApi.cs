@@ -184,15 +184,18 @@ namespace FactSet.SDK.FixedIncomeAnalyticsBatcher.Api
         private FactSet.SDK.FixedIncomeAnalyticsBatcher.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetFIABCalculationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFIABCalculationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(FIABCalculationStatus) },
             { (HttpStatusCode)202, typeof(FIABCalculationStatus) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFIABCalculationStatusSummariesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Dictionary<string, FIABCalculationStatusSummary>) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> RunFIABCalculationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
@@ -200,7 +203,7 @@ namespace FactSet.SDK.FixedIncomeAnalyticsBatcher.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

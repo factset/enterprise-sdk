@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_rolling_consensus_for_list**](ConsensusApi.md#get_rolling_consensus_for_list) | **POST** /factset-estimates/v2/rolling-consensus | Retrieves consensus estimates for a requested list of ids and rolling fiscal periods
 
 
+
 # **get_fixed_consensus**
 > ConsensusResponse get_fixed_consensus(ids, metrics)
 

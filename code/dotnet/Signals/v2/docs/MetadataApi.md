@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetThemes**](MetadataApi.md#getthemes) | **GET** /themes | 
 
 
+
 <a name="getcategories"></a>
 # **GetCategories**
 > SignalMetaData GetCategories ()
@@ -95,6 +96,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getdatadictionary"></a>
 # **GetDataDictionary**
 > SignalMetaData GetDataDictionary ()
@@ -179,6 +181,7 @@ This endpoint does not need any parameter.
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getdatadictionarybyid"></a>
 # **GetDataDictionaryById**
@@ -270,6 +273,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getthemes"></a>
 # **GetThemes**
 > SignalMetaData GetThemes ()
@@ -354,4 +358,5 @@ This endpoint does not need any parameter.
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_pa_components**](ComponentsApi.md#get_pa_components) | **GET** /analytics/lookups/v2/engines/pa/components | Get PA components
 
 
+
 # **get_pa_component_by_id**
 > PAComponent get_pa_component_by_id()
 

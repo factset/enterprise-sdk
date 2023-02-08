@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_pa_columns**](ColumnsApi.md#get_pa_columns) | **GET** /analytics/engines/pa/v3/columns | Get PA columns
 
 
+
 # **get_pa_column_by_id**
 > ColumnRoot get_pa_column_by_id()
 

@@ -26,8 +26,8 @@ public class HelperApi {
   public HelperApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getStatusesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getStatusesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStatusesResponseTypeMap.put(200, new GenericType<StatusesResponse>(){});
     getStatusesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class HelperApi {
     getStatusesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getStatusesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getStatusesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStatusesForListResponseTypeMap.put(200, new GenericType<StatusesResponse>(){});
@@ -46,7 +47,7 @@ public class HelperApi {
     getStatusesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -43,6 +43,7 @@ class ConfigurationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_vault_configuration_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -98,6 +99,7 @@ class ConfigurationsApi(object):
             },
             api_client=api_client
         )
+
         self.get_vault_configurations_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -154,6 +156,7 @@ class ConfigurationsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -165,6 +168,7 @@ class ConfigurationsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_vault_configuration_by_id(
         self,
@@ -352,6 +356,7 @@ class ConfigurationsApi(object):
             id
         return self.get_vault_configuration_by_id_endpoint.call_with_http_info(**kwargs)
 
+
     def get_vault_configurations(
         self,
         account="Client:Foo/Bar/myaccount.acct",
@@ -537,4 +542,5 @@ class ConfigurationsApi(object):
         kwargs['account'] = \
             account
         return self.get_vault_configurations_endpoint.call_with_http_info(**kwargs)
+
 

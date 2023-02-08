@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**v1_get_files_get**](GetFilesApi.md#v1_get_files_get) | **GET** /v1/get-files | Returns the files from tickhistory endpoint for the specified date range
 
 
+
 # **v1_get_files_get**
 > GetFilesResponse v1_get_files_get(request_id)
 

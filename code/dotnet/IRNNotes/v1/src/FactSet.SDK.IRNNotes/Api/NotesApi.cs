@@ -320,25 +320,30 @@ namespace FactSet.SDK.IRNNotes.Api
         private FactSet.SDK.IRNNotes.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CreateNoteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CreateNoteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(NewItemDto) },
             { (HttpStatusCode)400, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteNoteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNoteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(NoteDto) },
             { (HttpStatusCode)404, typeof(ProblemDetails) },
             { (HttpStatusCode)0, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<NoteSummaryDto>) },
             { (HttpStatusCode)400, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateNoteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
@@ -346,7 +351,7 @@ namespace FactSet.SDK.IRNNotes.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

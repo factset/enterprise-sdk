@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.OpenRisk
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.OpenRisk
 from fds.sdk.OpenRisk.api import about_api
 from fds.sdk.OpenRisk.models import *

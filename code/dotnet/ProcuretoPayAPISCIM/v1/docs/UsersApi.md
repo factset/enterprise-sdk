@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**UsersPost**](UsersApi.md#userspost) | **POST** /Users | Create a user.
 
 
+
 <a name="usersget"></a>
 # **UsersGet**
 > UserResourceList UsersGet (string filter = null, int? startIndex = null, int? count = null, string attributes = null, string excludedAttributes = null)
@@ -111,6 +112,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="usersiddelete"></a>
 # **UsersIdDelete**
 > void UsersIdDelete (string id)
@@ -200,6 +202,7 @@ void (empty response body)
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="usersidget"></a>
 # **UsersIdGet**
@@ -291,6 +294,7 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="usersidpatch"></a>
 # **UsersIdPatch**
@@ -384,6 +388,7 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="usersidput"></a>
 # **UsersIdPut**
@@ -479,6 +484,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="userspost"></a>
 # **UsersPost**
 > UserResource UsersPost (UserResource userResource)
@@ -569,4 +575,5 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

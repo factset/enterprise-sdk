@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetStatusesForList**](HelperApi.md#getstatusesforlist) | **POST** /factset-funds/v1/status | Get Fund&#39;s current status and database availability for large list of ids.
 
 
+
 <a name="getstatuses"></a>
 # **GetStatuses**
 > StatusesResponse GetStatuses (List<string> ids)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getstatusesforlist"></a>
 # **GetStatusesForList**
 > StatusesResponse GetStatusesForList (StatusesRequest statusesRequest)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

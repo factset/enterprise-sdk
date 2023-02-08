@@ -23,13 +23,13 @@ public class SwivelApi {
   public SwivelApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSwivelEndpointResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSwivelEndpointResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSwivelEndpointResponseTypeMap.put(200, new GenericType<java.util.List<String>>(){});
   }
 
-   
+  
 
 
   /**

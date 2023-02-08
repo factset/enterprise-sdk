@@ -156,10 +156,12 @@ namespace FactSet.SDK.FactSetConcordance.Api
         private FactSet.SDK.FactSetConcordance.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetSnowflakeEntityMatchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSnowflakeEntityMatchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SnowflakeEntityMatchResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSnowflakeEntityMatchForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SnowflakeEntityMatchResponse) },
@@ -168,7 +170,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

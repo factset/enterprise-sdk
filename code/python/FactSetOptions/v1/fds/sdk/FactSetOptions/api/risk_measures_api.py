@@ -48,6 +48,7 @@ class RiskMeasuresApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_options_atm_implied_volatility_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -104,6 +105,7 @@ class RiskMeasuresApi(object):
             },
             api_client=api_client
         )
+
         self.get_options_greeks_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -160,6 +162,7 @@ class RiskMeasuresApi(object):
             },
             api_client=api_client
         )
+
         self.get_options_volatility_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -217,6 +220,7 @@ class RiskMeasuresApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -228,6 +232,7 @@ class RiskMeasuresApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_options_atm_implied_volatility_for_list(
         self,
@@ -415,6 +420,7 @@ class RiskMeasuresApi(object):
             atm_implied_volatility_request
         return self.get_options_atm_implied_volatility_for_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_options_greeks_for_list(
         self,
         greeks_request,
@@ -601,6 +607,7 @@ class RiskMeasuresApi(object):
             greeks_request
         return self.get_options_greeks_for_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_options_volatility_for_list(
         self,
         implied_volatility_request,
@@ -786,4 +793,5 @@ class RiskMeasuresApi(object):
         kwargs['implied_volatility_request'] = \
             implied_volatility_request
         return self.get_options_volatility_for_list_endpoint.call_with_http_info(**kwargs)
+
 

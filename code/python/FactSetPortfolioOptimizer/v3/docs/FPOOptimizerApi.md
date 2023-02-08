@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**put_and_optimize**](FPOOptimizerApi.md#put_and_optimize) | **PUT** /analytics/engines/fpo/v3/optimizations/{id} | Create or Update FPO optimization and run it.
 
 
+
 # **cancel_optimization_by_id**
 > cancel_optimization_by_id(id)
 

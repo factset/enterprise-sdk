@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**service_provider_config_get**](ServerConfigurationApi.md#service_provider_config_get) | **GET** /ServiceProviderConfig | Get server configuration.
 
 
+
 # **service_provider_config_get**
 > ServiceProviderConfig service_provider_config_get()
 

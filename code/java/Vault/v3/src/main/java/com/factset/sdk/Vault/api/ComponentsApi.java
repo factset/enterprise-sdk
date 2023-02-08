@@ -26,13 +26,14 @@ public class ComponentsApi {
   public ComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getVaultComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getVaultComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getVaultComponentByIdResponseTypeMap.put(200, new GenericType<VaultComponentRoot>(){});
     getVaultComponentByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getVaultComponentByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getVaultComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getVaultComponentsResponseTypeMap.put(200, new GenericType<ComponentSummaryRoot>(){});
@@ -40,7 +41,7 @@ public class ComponentsApi {
     getVaultComponentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -47,6 +47,7 @@ class TemplatedPAComponentsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_templated_pa_components_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -105,6 +106,7 @@ class TemplatedPAComponentsApi(object):
             },
             api_client=api_client
         )
+
         self.delete_templated_pa_components_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -159,6 +161,7 @@ class TemplatedPAComponentsApi(object):
             },
             api_client=api_client
         )
+
         self.get_templated_pa_component_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -214,6 +217,7 @@ class TemplatedPAComponentsApi(object):
             },
             api_client=api_client
         )
+
         self.get_templated_pa_components_in_path_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -269,6 +273,7 @@ class TemplatedPAComponentsApi(object):
             },
             api_client=api_client
         )
+
         self.update_templated_pa_components_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -332,6 +337,7 @@ class TemplatedPAComponentsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -343,6 +349,7 @@ class TemplatedPAComponentsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_templated_pa_components(
         self,
@@ -530,6 +537,7 @@ class TemplatedPAComponentsApi(object):
             templated_pa_component_parameters_root
         return self.create_templated_pa_components_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_templated_pa_components(
         self,
         id="01234567890123456789012345678901",
@@ -715,6 +723,7 @@ class TemplatedPAComponentsApi(object):
         kwargs['id'] = \
             id
         return self.delete_templated_pa_components_endpoint.call_with_http_info(**kwargs)
+
 
     def get_templated_pa_component_by_id(
         self,
@@ -902,6 +911,7 @@ class TemplatedPAComponentsApi(object):
             id
         return self.get_templated_pa_component_by_id_endpoint.call_with_http_info(**kwargs)
 
+
     def get_templated_pa_components_in_path(
         self,
         directory="Personal:TemplatedPAComponents/",
@@ -1087,6 +1097,7 @@ class TemplatedPAComponentsApi(object):
         kwargs['directory'] = \
             directory
         return self.get_templated_pa_components_in_path_endpoint.call_with_http_info(**kwargs)
+
 
     def update_templated_pa_components(
         self,
@@ -1289,4 +1300,5 @@ class TemplatedPAComponentsApi(object):
         kwargs['templated_pa_component_update_parameters_root'] = \
             templated_pa_component_update_parameters_root
         return self.update_templated_pa_components_endpoint.call_with_http_info(**kwargs)
+
 

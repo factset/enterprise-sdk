@@ -28,24 +28,26 @@ public class OrdersApi {
   public OrdersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> cancelResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> cancelResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     cancelResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseRoot>(){});
     cancelResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> createResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseRoot>(){});
     createResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> replaceResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     replaceResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseRoot>(){});
     replaceResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

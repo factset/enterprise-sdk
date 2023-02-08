@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**AnalyticsQuantQreV1CalculationsPost**](CalculationsApi.md#analyticsquantqrev1calculationspost) | **POST** /analytics/quant/qre/v1/calculations | Starts a new script calculation
 
 
+
 <a name="analyticsquantqrev1calculationsidget"></a>
 # **AnalyticsQuantQreV1CalculationsIdGet**
 > CalculationStatus AnalyticsQuantQreV1CalculationsIdGet (string id)
@@ -101,6 +102,7 @@ Name | Type | Description  | Notes
 | **503** | Request timeout. Retry the request later |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="analyticsquantqrev1calculationsidlogget"></a>
 # **AnalyticsQuantQreV1CalculationsIdLogGet**
@@ -194,6 +196,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="analyticsquantqrev1calculationsidoutputget"></a>
 # **AnalyticsQuantQreV1CalculationsIdOutputGet**
 > System.IO.Stream AnalyticsQuantQreV1CalculationsIdOutputGet (string id)
@@ -286,6 +289,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="analyticsquantqrev1calculationspost"></a>
 # **AnalyticsQuantQreV1CalculationsPost**
 > CalculationStatus AnalyticsQuantQreV1CalculationsPost (Calculation calculation = null)
@@ -377,4 +381,5 @@ Name | Type | Description  | Notes
 | **503** | Request timeout. Retry the request later |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

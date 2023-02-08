@@ -26,8 +26,8 @@ public class SensitivityApi {
   public SensitivityApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBondSensitivityResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBondSensitivityResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondSensitivityResponseTypeMap.put(200, new GenericType<BondSensitivityResponse>(){});
     getBondSensitivityResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class SensitivityApi {
     getBondSensitivityResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBondSensitivityResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getBondSensitivityForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondSensitivityForListResponseTypeMap.put(200, new GenericType<BondSensitivityResponse>(){});
@@ -46,7 +47,7 @@ public class SensitivityApi {
     getBondSensitivityForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

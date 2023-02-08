@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.QuantEngine
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.QuantEngine
 from fds.sdk.QuantEngine.api import quant_calculations_api
 from fds.sdk.QuantEngine.models import *

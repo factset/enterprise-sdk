@@ -28,8 +28,8 @@ public class OperationsApi {
   public OperationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> calculateFromHoldingsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> calculateFromHoldingsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     calculateFromHoldingsResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
     calculateFromHoldingsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class OperationsApi {
     calculateFromHoldingsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     calculateFromHoldingsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> generateIdMappingResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     generateIdMappingResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
@@ -47,7 +48,7 @@ public class OperationsApi {
     generateIdMappingResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

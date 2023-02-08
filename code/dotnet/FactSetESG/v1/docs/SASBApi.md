@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**GetSasbScoresPost**](SASBApi.md#getsasbscorespost) | **POST** /factset-esg/v1/sasb-scores | For a large list of ids, gets short-term, long-term, and momentum scores based on the 26 ESG categories defined by the Sustainability Accounting Standards Board (SASB).
 
 
+
 <a name="getsasbranks"></a>
 # **GetSasbRanks**
 > SasbRanksResponse GetSasbRanks (List<string> ids, List<string> categories = null, string startDate = null, string endDate = null, string frequency = null)
@@ -114,6 +115,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsasbrankspost"></a>
 # **GetSasbRanksPost**
 > SasbRanksResponse GetSasbRanksPost (SasbRanksRequest sasbRanksRequest)
@@ -207,6 +209,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getsasbscores"></a>
 # **GetSasbScores**
@@ -312,6 +315,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsasbscoresall"></a>
 # **GetSasbScoresAll**
 > SasbScoresAllResponse GetSasbScoresAll (List<string> ids, List<string> scoreTypes = null, string startDate = null, string endDate = null, string frequency = null)
@@ -414,6 +418,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsasbscoresallpost"></a>
 # **GetSasbScoresAllPost**
 > SasbScoresAllResponse GetSasbScoresAllPost (SasbScoresAllRequest sasbScoresAllRequest)
@@ -508,6 +513,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsasbscorespost"></a>
 # **GetSasbScoresPost**
 > SasbScoresResponse GetSasbScoresPost (SasbScoresRequest sasbScoresRequest)
@@ -601,4 +607,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

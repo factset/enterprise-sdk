@@ -160,7 +160,8 @@ namespace FactSet.SDK.FactSetOwnership.Api
         private FactSet.SDK.FactSetOwnership.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetOwnershipHoldingsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetOwnershipHoldingsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(FundHoldingsResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -169,6 +170,7 @@ namespace FactSet.SDK.FactSetOwnership.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostOwnershipHoldingsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(FundHoldingsResponse) },
@@ -182,7 +184,7 @@ namespace FactSet.SDK.FactSetOwnership.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

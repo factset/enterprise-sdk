@@ -31,34 +31,40 @@ public class CustomSymbolsTypesApi {
   public CustomSymbolsTypesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createCustomSymbolTypeResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createCustomSymbolTypeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createCustomSymbolTypeResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createCustomSymbolTypeResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createCustomSymbolTypeResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteCustomSymbolTypeAsyncResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getCustomSymbolTypeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCustomSymbolTypeResponseTypeMap.put(200, new GenericType<CustomSymbolTypeDetailDto>(){});
     getCustomSymbolTypeResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getCustomSymbolTypeResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getCustomSymbolTypesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCustomSymbolTypesResponseTypeMap.put(200, new GenericType<java.util.List<CustomSymbolTypeDto>>(){});
   }
+
   private static final Map<Integer, GenericType> getSymbolCustomFieldsForCustomSymbolTypeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSymbolCustomFieldsForCustomSymbolTypeResponseTypeMap.put(200, new GenericType<java.util.List<CustomSymbolCustomFieldConfigDto>>(){});
     getSymbolCustomFieldsForCustomSymbolTypeResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getSymbolCustomFieldsForCustomSymbolTypeResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> updateCustomSymbolTypeResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> updateCustomSymbolTypeOrderResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

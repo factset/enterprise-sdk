@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**UpdatePhoneNumberType**](ContactsPhoneNumberTypesApi.md#updatephonenumbertype) | **PUT** /v1/phone-number-types/{phoneNumberTypeId} | Edit a phone type
 
 
+
 <a name="createphonenumbertype"></a>
 # **CreatePhoneNumberType**
 > NewItemDto CreatePhoneNumberType (string body)
@@ -98,6 +99,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletephonenumbertype"></a>
 # **DeletePhoneNumberType**
@@ -188,6 +190,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getphonenumbertypes"></a>
 # **GetPhoneNumberTypes**
 > List&lt;PhoneNumberTypeDto&gt; GetPhoneNumberTypes ()
@@ -270,6 +273,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="updatephonenumbertype"></a>
 # **UpdatePhoneNumberType**
@@ -361,4 +365,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

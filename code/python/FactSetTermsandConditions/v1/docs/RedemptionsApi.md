@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_fixed_income_redemption_prices_for_list**](RedemptionsApi.md#get_fixed_income_redemption_prices_for_list) | **POST** /factset-terms-and-conditions/v1/redemption-prices | Return Redemption Prices for a list of Fixed Income securities.
 
 
+
 # **get_fixed_income_redemption_prices**
 > RedemptionPricesResponse get_fixed_income_redemption_prices(ids, )
 

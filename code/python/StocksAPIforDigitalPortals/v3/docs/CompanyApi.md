@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**post_company_key_items_fiscal_year_list_by_instrument**](CompanyApi.md#post_company_key_items_fiscal_year_list_by_instrument) | **POST** /company/keyItems/fiscalYear/listByInstrument | Selected fundamentals for a stock with values as of the end of a fiscal year.
 
 
+
 # **get_company_board_list_by_instrument**
 > InlineResponse2005 get_company_board_list_by_instrument(id)
 

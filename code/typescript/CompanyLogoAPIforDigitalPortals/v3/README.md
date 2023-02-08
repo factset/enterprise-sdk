@@ -46,6 +46,7 @@ yarn add @factset/sdk-utils @factset/sdk-companylogoapifordigitalportals
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-companylogoapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');

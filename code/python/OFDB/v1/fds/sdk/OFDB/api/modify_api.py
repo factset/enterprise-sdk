@@ -51,6 +51,7 @@ class ModifyApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.delete_dates_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -112,6 +113,7 @@ class ModifyApi(object):
             },
             api_client=api_client
         )
+
         self.delete_symbol_date3_d_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -179,6 +181,7 @@ class ModifyApi(object):
             },
             api_client=api_client
         )
+
         self.delete_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -240,6 +243,7 @@ class ModifyApi(object):
             },
             api_client=api_client
         )
+
         self.update_symbol_date_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -308,6 +312,7 @@ class ModifyApi(object):
             },
             api_client=api_client
         )
+
         self.update_symbol_date3_d_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -382,6 +387,7 @@ class ModifyApi(object):
             },
             api_client=api_client
         )
+
         self.update_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -451,6 +457,7 @@ class ModifyApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -462,6 +469,7 @@ class ModifyApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def delete_dates(
         self,
@@ -664,6 +672,7 @@ class ModifyApi(object):
         kwargs['date'] = \
             date
         return self.delete_dates_endpoint.call_with_http_info(**kwargs)
+
 
     def delete_symbol_date3_d(
         self,
@@ -883,6 +892,7 @@ class ModifyApi(object):
             symbol
         return self.delete_symbol_date3_d_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_symbols(
         self,
         path,
@@ -1084,6 +1094,7 @@ class ModifyApi(object):
         kwargs['symbol'] = \
             symbol
         return self.delete_symbols_endpoint.call_with_http_info(**kwargs)
+
 
     def update_symbol_date(
         self,
@@ -1302,6 +1313,7 @@ class ModifyApi(object):
         kwargs['update_symbol_date'] = \
             update_symbol_date
         return self.update_symbol_date_endpoint.call_with_http_info(**kwargs)
+
 
     def update_symbol_date3_d(
         self,
@@ -1537,6 +1549,7 @@ class ModifyApi(object):
             update_symbol_date3_d
         return self.update_symbol_date3_d_endpoint.call_with_http_info(**kwargs)
 
+
     def update_symbols(
         self,
         path,
@@ -1754,4 +1767,5 @@ class ModifyApi(object):
         kwargs['update_symbols'] = \
             update_symbols
         return self.update_symbols_endpoint.call_with_http_info(**kwargs)
+
 

@@ -26,8 +26,8 @@ public class CovenantsApi {
   public CovenantsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCovenantDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCovenantDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCovenantDetailsResponseTypeMap.put(200, new GenericType<CovenantDetailsResponse>(){});
     getCovenantDetailsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class CovenantsApi {
     getCovenantDetailsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCovenantDetailsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCovenantDetailsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCovenantDetailsForListResponseTypeMap.put(200, new GenericType<CovenantDetailsResponse>(){});
@@ -46,7 +47,7 @@ public class CovenantsApi {
     getCovenantDetailsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

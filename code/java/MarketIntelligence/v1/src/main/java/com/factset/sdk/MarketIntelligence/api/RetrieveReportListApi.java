@@ -24,13 +24,13 @@ public class RetrieveReportListApi {
   public RetrieveReportListApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getReportsGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getReportsGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getReportsGetResponseTypeMap.put(200, new GenericType<GetReportInfo>(){});
   }
 
-   
+  
 
 
   /**

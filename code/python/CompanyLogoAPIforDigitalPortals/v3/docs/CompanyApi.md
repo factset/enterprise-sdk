@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_company_logo_get**](CompanyApi.md#get_company_logo_get) | **GET** /company/logo/get | List of URLs of company logos.
 
 
+
 # **get_company_logo_get**
 > InlineResponse200 get_company_logo_get(identifier, identifier_type)
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetV1ListSchemas**](SchemaApi.md#getv1listschemas) | **GET** /v1/list-schemas | schemas
 
 
+
 <a name="getv1listschemas"></a>
 # **GetV1ListSchemas**
 > ListSchema200Response GetV1ListSchemas (string schema = null, int? sequence = null)
@@ -98,4 +99,5 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

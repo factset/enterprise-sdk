@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetTermsAndConditionsForList**](TermsConditionsApi.md#gettermsandconditionsforlist) | **POST** /factset-terms-and-conditions/v1/terms-and-conditions | Return Terms and Conditions for a list of Fixed Income securities.
 
 
+
 <a name="gettermsandconditions"></a>
 # **GetTermsAndConditions**
 > TermsAndConditionsResponse GetTermsAndConditions (List<string> ids, List<string> fields = null, List<string> categories = null)
@@ -107,6 +108,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="gettermsandconditionsfields"></a>
 # **GetTermsAndConditionsFields**
 > FieldsResponse GetTermsAndConditionsFields (string category = null)
@@ -201,6 +203,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="gettermsandconditionsforlist"></a>
 # **GetTermsAndConditionsForList**
 > TermsAndConditionsResponse GetTermsAndConditionsForList (TermsAndConditionsRequest termsAndConditionsRequest)
@@ -294,4 +297,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

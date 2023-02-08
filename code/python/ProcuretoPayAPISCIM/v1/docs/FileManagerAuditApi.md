@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**file_manager_audit_get**](FileManagerAuditApi.md#file_manager_audit_get) | **GET** /FileManagerAudit | Get File Manager audit data.
 
 
+
 # **file_manager_audit_get**
 > FileManagerAudit file_manager_audit_get()
 

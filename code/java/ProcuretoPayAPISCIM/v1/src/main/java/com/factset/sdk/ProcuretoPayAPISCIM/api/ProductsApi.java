@@ -26,8 +26,8 @@ public class ProductsApi {
   public ProductsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> productsGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> productsGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     productsGetResponseTypeMap.put(200, new GenericType<ProductResourceList>(){});
     productsGetResponseTypeMap.put(400, new GenericType<Error>(){});
@@ -35,6 +35,7 @@ public class ProductsApi {
     productsGetResponseTypeMap.put(403, new GenericType<Error>(){});
     productsGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> productsIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     productsIdGetResponseTypeMap.put(200, new GenericType<ProductResource>(){});
@@ -44,7 +45,7 @@ public class ProductsApi {
     productsIdGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

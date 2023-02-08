@@ -26,8 +26,8 @@ public class FactorsApi {
   public FactorsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFactorsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFactorsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactorsResponseTypeMap.put(200, new GenericType<FactorsResponse>(){});
     getFactorsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class FactorsApi {
     getFactorsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFactorsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFactorsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactorsForListResponseTypeMap.put(200, new GenericType<FactorsResponse>(){});
@@ -46,7 +47,7 @@ public class FactorsApi {
     getFactorsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

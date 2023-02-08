@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetBondIssuerYieldCurveForList**](IssuerYieldCurveApi.md#getbondissueryieldcurveforlist) | **POST** /markit-bond-prices-and-analytics/v1/issuer-yield-curve | Request yield curve data for given date range and list of securities
 
 
+
 <a name="getbondissueryieldcurve"></a>
 # **GetBondIssuerYieldCurve**
 > BondIssuerYieldCurveResponse GetBondIssuerYieldCurve (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string calendar = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbondissueryieldcurveforlist"></a>
 # **GetBondIssuerYieldCurveForList**
 > BondIssuerYieldCurveResponse GetBondIssuerYieldCurveForList (BondIssuerYieldCurveRequest bondIssuerYieldCurveRequest)
@@ -203,4 +205,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

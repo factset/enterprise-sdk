@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**post_gics**](GICSApi.md#post_gics) | **POST** /classifications/v1/gics | Returns the GICS classifications for the requested &#39;ids&#39; and date range.
 
 
+
 # **get_gics**
 > GicsResponse get_gics(ids)
 

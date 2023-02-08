@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_source_of_capital**](CapitalStructureApi.md#get_source_of_capital) | **GET** /source-of-capital | Source of Capital
 
 
+
 # **get_dcs_detail**
 > Response get_dcs_detail(id)
 

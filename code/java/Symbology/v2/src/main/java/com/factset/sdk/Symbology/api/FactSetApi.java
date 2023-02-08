@@ -28,8 +28,8 @@ public class FactSetApi {
   public FactSetApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> batchTranslateFactSetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> batchTranslateFactSetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchTranslateFactSetResponseTypeMap.put(200, new GenericType<FactsetTranslationResponse>(){});
     batchTranslateFactSetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class FactSetApi {
     batchTranslateFactSetResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchTranslateFactSetResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> batchTranslateFactSetAdvancedResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchTranslateFactSetAdvancedResponseTypeMap.put(200, new GenericType<FactsetTranslationAdvancedResponse>(){});
@@ -47,6 +48,7 @@ public class FactSetApi {
     batchTranslateFactSetAdvancedResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchTranslateFactSetAdvancedResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> translateFactsetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     translateFactsetResponseTypeMap.put(200, new GenericType<FactsetTranslationResponse>(){});
@@ -56,6 +58,7 @@ public class FactSetApi {
     translateFactsetResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     translateFactsetResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> translateFactsetAdvancedResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     translateFactsetAdvancedResponseTypeMap.put(200, new GenericType<FactsetTranslationAdvancedResponse>(){});
@@ -66,7 +69,7 @@ public class FactSetApi {
     translateFactsetAdvancedResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

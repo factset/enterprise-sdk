@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**delete_symbol**](DeleteApi.md#delete_symbol) | **DELETE** /database/{path}/symbols/{symbol} | 
 
 
+
 # **delete_date**
 > InlineResponse202 delete_date(path, date)
 

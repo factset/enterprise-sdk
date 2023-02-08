@@ -41,6 +41,7 @@ class SwivelApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_swivel_endpoint_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -121,6 +122,7 @@ class SwivelApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -132,6 +134,7 @@ class SwivelApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_swivel_endpoint(
         self,
@@ -382,4 +385,5 @@ class SwivelApi(object):
         kwargs['account_id'] = \
             account_id
         return self.get_swivel_endpoint_endpoint.call_with_http_info(**kwargs)
+
 

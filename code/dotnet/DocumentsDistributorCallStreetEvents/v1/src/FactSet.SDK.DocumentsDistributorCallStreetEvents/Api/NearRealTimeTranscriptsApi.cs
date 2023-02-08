@@ -296,7 +296,8 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         private FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetBulkDocumentsNrtV1CallsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBulkDocumentsNrtV1CallsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(NRTCalls) },
             { (HttpStatusCode)400, typeof(NRTCalls400Response) },
@@ -304,6 +305,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             { (HttpStatusCode)403, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBulkDocumentsNrtV1IndexedNrtResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(IndexedNRT) },
@@ -312,6 +314,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             { (HttpStatusCode)403, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBulkDocumentsNrtV1ListSnippetsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(NRTSnippets) },
@@ -320,6 +323,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             { (HttpStatusCode)403, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBulkDocumentsNrtV1SpeakeridsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(NRTSpeakerids) },
@@ -332,7 +336,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

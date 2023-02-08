@@ -24,14 +24,14 @@ public class IdentifiersApi {
   public IdentifiersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getIdentifiersResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getIdentifiersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getIdentifiersResponseTypeMap.put(200, new GenericType<java.util.List<Object>>(){});
     getIdentifiersResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
   }
 
-   
+  
 
 
   /**

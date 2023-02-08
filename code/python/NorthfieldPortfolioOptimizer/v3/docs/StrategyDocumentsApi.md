@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_northfield_strategy_documents**](StrategyDocumentsApi.md#get_northfield_strategy_documents) | **GET** /analytics/engines/npo/v3/strategies/{path} | Get Northfield strategy documents and sub-directories in a directory
 
 
+
 # **get_northfield_strategy_documents**
 > DocumentDirectoriesRoot get_northfield_strategy_documents()
 

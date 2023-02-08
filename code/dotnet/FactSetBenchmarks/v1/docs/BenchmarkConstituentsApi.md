@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetFIBenchmarkConstituentsForList**](BenchmarkConstituentsApi.md#getfibenchmarkconstituentsforlist) | **POST** /factset-benchmarks/v1/fixed-income-constituents | Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
 
 
+
 <a name="getbenchmarkconstituents"></a>
 # **GetBenchmarkConstituents**
 > BenchmarkConstituentsResponse GetBenchmarkConstituents (List<string> ids, string date = null, string currency = null)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbenchmarkconstituentsforlist"></a>
 # **GetBenchmarkConstituentsForList**
 > BenchmarkConstituentsResponse GetBenchmarkConstituentsForList (BenchmarkConstituentsRequest benchmarkConstituentsRequest)
@@ -201,6 +203,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getfibenchmarkconstituents"></a>
 # **GetFIBenchmarkConstituents**
@@ -300,6 +303,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfibenchmarkconstituentsforlist"></a>
 # **GetFIBenchmarkConstituentsForList**
 > FixedIncomeBenchmarkConstituentsResponse GetFIBenchmarkConstituentsForList (FixedIncomeBenchmarkConstituentsRequest fixedIncomeBenchmarkConstituentsRequest)
@@ -393,4 +397,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

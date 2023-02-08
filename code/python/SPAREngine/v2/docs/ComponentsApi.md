@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_spar_components**](ComponentsApi.md#get_spar_components) | **GET** /analytics/lookups/v2/engines/spar/components | Get SPAR components
 
 
+
 # **get_spar_components**
 > {str: (ComponentSummary,)} get_spar_components()
 

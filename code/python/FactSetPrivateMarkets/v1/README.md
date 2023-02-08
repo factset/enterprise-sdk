@@ -49,6 +49,7 @@ pip install fds.sdk.utils fds.sdk.FactSetPrivateMarkets
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetPrivateMarkets
 from fds.sdk.FactSetPrivateMarkets.api import data_items_api
 from fds.sdk.FactSetPrivateMarkets.models import *

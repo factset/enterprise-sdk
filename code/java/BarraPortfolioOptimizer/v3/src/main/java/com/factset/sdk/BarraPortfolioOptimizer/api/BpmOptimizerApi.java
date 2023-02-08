@@ -27,26 +27,30 @@ public class BpmOptimizerApi {
   public BpmOptimizerApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> cancelOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> cancelOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> getOptimizationParametersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptimizationParametersResponseTypeMap.put(200, new GenericType<BPMOptimizationParametersRoot>(){});
     getOptimizationParametersResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getOptimizationParametersResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getOptimizationResultResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptimizationResultResponseTypeMap.put(200, new GenericType<ObjectRoot>(){});
     getOptimizationResultResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getOptimizationResultResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getOptimizationStatusByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptimizationStatusByIdResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
     getOptimizationStatusByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getOptimizationStatusByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postAndOptimizeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postAndOptimizeResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
@@ -54,6 +58,7 @@ public class BpmOptimizerApi {
     postAndOptimizeResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     postAndOptimizeResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> putAndOptimizeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     putAndOptimizeResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
@@ -63,7 +68,7 @@ public class BpmOptimizerApi {
     putAndOptimizeResponseTypeMap.put(409, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
  /**
    * Wrapper to support POST /analytics/engines/bpm/v3/optimizations returning different types
    * per status code.

@@ -26,8 +26,8 @@ public class FactSetIdLookupApi {
   public FactSetIdLookupApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> searchCompanynameResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> searchCompanynameResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     searchCompanynameResponseTypeMap.put(200, new GenericType<LookupResponse>(){});
     searchCompanynameResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,7 +36,7 @@ public class FactSetIdLookupApi {
     searchCompanynameResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

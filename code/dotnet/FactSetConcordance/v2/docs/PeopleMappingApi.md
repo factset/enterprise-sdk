@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetPeopleUniverseForList**](PeopleMappingApi.md#getpeopleuniverseforlist) | **POST** /factset-concordance/v2/people-universe | Retrieve all saved mappings within a requested universe or large list of client ids
 
 
+
 <a name="getpeoplemappingdeleteforlist"></a>
 # **GetPeopleMappingDeleteForList**
 > PeopleMappingDeleteResponse GetPeopleMappingDeleteForList (EntityMappingDeleteRequest entityMappingDeleteRequest)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getpeoplemappingforlist"></a>
 # **GetPeopleMappingForList**
 > PeopleMappingResponse GetPeopleMappingForList (PeopleMappingRequest peopleMappingRequest)
@@ -197,6 +199,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getpeopleuniverse"></a>
 # **GetPeopleUniverse**
@@ -302,6 +305,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getpeopleuniverseforlist"></a>
 # **GetPeopleUniverseForList**
 > PeopleUniverseResponse GetPeopleUniverseForList (PeopleUniverseRequest peopleUniverseRequest)
@@ -395,4 +399,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

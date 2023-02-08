@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**get_symbols**](GetApi.md#get_symbols) | **GET** /database/{path}/symbols | 
 
 
+
 # **get_audit**
 > InlineResponse200 get_audit(path)
 

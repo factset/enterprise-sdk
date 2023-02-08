@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**RunCalculation**](CalculationsApi.md#runcalculation) | **POST** /analytics/engines/v2/calculations | Run calculation
 
 
+
 <a name="cancelcalculationbyid"></a>
 # **CancelCalculationById**
 > void CancelCalculationById (string id)
@@ -104,6 +105,7 @@ void (empty response body)
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcalculationstatusbyid"></a>
 # **GetCalculationStatusById**
@@ -202,6 +204,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcalculationstatussummaries"></a>
 # **GetCalculationStatusSummaries**
 > Dictionary&lt;string, CalculationStatusSummary&gt; GetCalculationStatusSummaries ()
@@ -292,6 +295,7 @@ This endpoint does not need any parameter.
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="runcalculation"></a>
 # **RunCalculation**
@@ -387,4 +391,5 @@ void (empty response body)
 | **503** | Request timed out. Retry the request in sometime. |  * Location - URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Points-Limit - Maximum points limit across all batches. <br>  * X-FactSet-Api-Points-Remaining - Number of points remaining till points limit reached. <br>  * X-FactSet-Api-Units-Limit - Maximum units limit across all batches. <br>  * X-FactSet-Api-Units-Remaining - Number of units remaining till units limit reached. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

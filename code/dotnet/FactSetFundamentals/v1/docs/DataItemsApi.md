@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetFdsFundamentalsMetricsForList**](DataItemsApi.md#getfdsfundamentalsmetricsforlist) | **POST** /factset-fundamentals/v1/metrics | Available fundamental metrics or ratios.
 
 
+
 <a name="getfdsfundamentalsmetrics"></a>
 # **GetFdsFundamentalsMetrics**
 > MetricsResponse GetFdsFundamentalsMetrics (string category = null, string subcategory = null)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfdsfundamentalsmetricsforlist"></a>
 # **GetFdsFundamentalsMetricsForList**
 > MetricsResponse GetFdsFundamentalsMetricsForList (MetricsRequest metricsRequest)
@@ -197,4 +199,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

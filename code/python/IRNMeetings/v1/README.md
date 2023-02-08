@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.IRNMeetings
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.IRNMeetings
 from fds.sdk.IRNMeetings.api import attachments_api
 from fds.sdk.IRNMeetings.models import *

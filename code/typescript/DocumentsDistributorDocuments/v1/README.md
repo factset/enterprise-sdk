@@ -66,6 +66,7 @@ yarn add @factset/sdk-utils @factset/sdk-documentsdistributordocuments
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, GlobalFilingsAPIApi } = require('@factset/sdk-documentsdistributordocuments');
 const { ConfidentialClient } = require('@factset/sdk-utils');

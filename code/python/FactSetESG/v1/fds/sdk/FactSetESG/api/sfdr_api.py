@@ -44,6 +44,7 @@ class SFDRApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_sfdr_pai_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -126,6 +127,7 @@ class SFDRApi(object):
             },
             api_client=api_client
         )
+
         self.get_sfdr_pai_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -183,6 +185,7 @@ class SFDRApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -194,6 +197,7 @@ class SFDRApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_sfdr_pai(
         self,
@@ -401,6 +405,7 @@ class SFDRApi(object):
             ids
         return self.get_sfdr_pai_endpoint.call_with_http_info(**kwargs)
 
+
     def get_sfdr_pai_for_list(
         self,
         sfdr_pai_request,
@@ -586,4 +591,5 @@ class SFDRApi(object):
         kwargs['sfdr_pai_request'] = \
             sfdr_pai_request
         return self.get_sfdr_pai_for_list_endpoint.call_with_http_info(**kwargs)
+
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_pa_frequencies**](FrequenciesApi.md#get_pa_frequencies) | **GET** /analytics/lookups/v2/engines/pa/frequencies | Get PA frequencies
 
 
+
 # **get_pa_frequencies**
 > {str: (Frequency,)} get_pa_frequencies()
 

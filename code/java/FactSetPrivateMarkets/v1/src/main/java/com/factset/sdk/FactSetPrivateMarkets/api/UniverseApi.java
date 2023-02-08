@@ -26,8 +26,8 @@ public class UniverseApi {
   public UniverseApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getUniverseResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getUniverseResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getUniverseResponseTypeMap.put(200, new GenericType<EntityMatchesResponse>(){});
     getUniverseResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class UniverseApi {
     getUniverseResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getUniverseResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getUniverseForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getUniverseForListResponseTypeMap.put(200, new GenericType<EntityMatchesResponse>(){});
@@ -46,7 +47,7 @@ public class UniverseApi {
     getUniverseForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

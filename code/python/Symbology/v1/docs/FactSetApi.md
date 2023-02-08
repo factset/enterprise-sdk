@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**translate_factset**](FactSetApi.md#translate_factset) | **GET** /symbology/v1/factset | Translate market security symbols into FactSet Permanent Identifiers.
 
 
+
 # **batch_translate_factset**
 > FactsetTranslationResponse batch_translate_factset(factset_translation_request)
 

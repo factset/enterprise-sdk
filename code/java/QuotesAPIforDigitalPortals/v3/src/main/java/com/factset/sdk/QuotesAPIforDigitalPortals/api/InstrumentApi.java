@@ -56,117 +56,143 @@ public class InstrumentApi {
   public InstrumentApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getInstrumentBackgroundTextListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getInstrumentBackgroundTextListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentBackgroundTextListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse20044>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentCompliancePropertyListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentCompliancePropertyListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse20049>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentCompositeGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentCompositeGetResponseTypeMap.put(200, new GenericType<InlineResponse20050>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentCouponDayCountConventionTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentCouponDayCountConventionTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20052>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentCouponInterestRateTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentCouponInterestRateTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20053>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentCouponKeyDataGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentCouponKeyDataGetResponseTypeMap.put(200, new GenericType<InlineResponse20054>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentCouponListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentCouponListResponseTypeMap.put(200, new GenericType<InlineResponse20051>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentCrossReferenceGetByISINResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentCrossReferenceGetByISINResponseTypeMap.put(200, new GenericType<InlineResponse20055>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentCrossReferenceGetByWKNResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentCrossReferenceGetByWKNResponseTypeMap.put(200, new GenericType<InlineResponse20055>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentCrossReferenceHistoryGetByISINResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentCrossReferenceHistoryGetByISINResponseTypeMap.put(200, new GenericType<InlineResponse20058>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentCrossReferenceHistoryGetByWKNResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentCrossReferenceHistoryGetByWKNResponseTypeMap.put(200, new GenericType<InlineResponse20058>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentExchangeRateGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentExchangeRateGetResponseTypeMap.put(200, new GenericType<InlineResponse20059>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentExchangeRateGetByISOCodeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentExchangeRateGetByISOCodeResponseTypeMap.put(200, new GenericType<InlineResponse20059>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentGetResponseTypeMap.put(200, new GenericType<InlineResponse20042>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentGetByNotationResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentGetByNotationResponseTypeMap.put(200, new GenericType<InlineResponse20043>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentLegalEntityBackgroundTextListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentLegalEntityBackgroundTextListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse20060>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentLegalEntityCompliancePropertyListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentLegalEntityCompliancePropertyListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse20061>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentMifidGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentMifidGetResponseTypeMap.put(200, new GenericType<InlineResponse20062>(){});
   }
+
   private static final Map<Integer, GenericType> getInstrumentSearchBasicResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getInstrumentSearchBasicResponseTypeMap.put(200, new GenericType<InlineResponse20090>(){});
   }
+
   private static final Map<Integer, GenericType> postInstrumentBackgroundTextTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postInstrumentBackgroundTextTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20045>(){});
   }
+
   private static final Map<Integer, GenericType> postInstrumentBenchmarkListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postInstrumentBenchmarkListResponseTypeMap.put(200, new GenericType<InlineResponse20046>(){});
   }
+
   private static final Map<Integer, GenericType> postInstrumentCategoryListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postInstrumentCategoryListResponseTypeMap.put(200, new GenericType<InlineResponse20047>(){});
   }
+
   private static final Map<Integer, GenericType> postInstrumentCompliancePropertyListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postInstrumentCompliancePropertyListResponseTypeMap.put(200, new GenericType<InlineResponse20048>(){});
   }
+
   private static final Map<Integer, GenericType> postInstrumentCrossReferenceListByISINResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postInstrumentCrossReferenceListByISINResponseTypeMap.put(200, new GenericType<InlineResponse20056>(){});
   }
+
   private static final Map<Integer, GenericType> postInstrumentCrossReferenceListByWKNResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postInstrumentCrossReferenceListByWKNResponseTypeMap.put(200, new GenericType<InlineResponse20057>(){});
   }
+
   private static final Map<Integer, GenericType> postInstrumentNotationListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postInstrumentNotationListResponseTypeMap.put(200, new GenericType<InlineResponse20063>(){});
   }
+
   private static final Map<Integer, GenericType> postInstrumentRatingGradeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postInstrumentRatingGradeListResponseTypeMap.put(200, new GenericType<InlineResponse20064>(){});
   }
 
-   
+  
 
 
   /**

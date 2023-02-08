@@ -503,34 +503,42 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         private FactSet.SDK.QuotesAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesBidAskGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesBidAskGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20084) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesBidAskListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20085) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20082) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20083) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesOrderbookAggregatedGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20086) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesOrderbookFullGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20087) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesTradingScheduleEventTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20089) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostPricesTradingScheduleEventListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20088) },
@@ -539,7 +547,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

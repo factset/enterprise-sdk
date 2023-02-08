@@ -43,6 +43,7 @@ class SnapshotApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_v1_list_files_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -140,6 +141,7 @@ class SnapshotApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -151,6 +153,7 @@ class SnapshotApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_v1_list_files(
         self,
@@ -405,4 +408,5 @@ class SnapshotApi(object):
         kwargs['end_time'] = \
             end_time
         return self.get_v1_list_files_endpoint.call_with_http_info(**kwargs)
+
 

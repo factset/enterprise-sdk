@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.CompanyLogoAPIforDigitalPortals
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.CompanyLogoAPIforDigitalPortals
 from fds.sdk.CompanyLogoAPIforDigitalPortals.api import company_api
 from fds.sdk.CompanyLogoAPIforDigitalPortals.models import *

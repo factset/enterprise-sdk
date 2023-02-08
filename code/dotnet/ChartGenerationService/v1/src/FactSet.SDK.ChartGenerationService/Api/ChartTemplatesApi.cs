@@ -237,16 +237,19 @@ namespace FactSet.SDK.ChartGenerationService.Api
         private FactSet.SDK.ChartGenerationService.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<string>) },
             { (HttpStatusCode)400, typeof(CategoriesErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetChartListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<Object>) },
             { (HttpStatusCode)400, typeof(ChartListErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> ImagesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(string) },
@@ -257,7 +260,7 @@ namespace FactSet.SDK.ChartGenerationService.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -25,13 +25,13 @@ public class CreateReportApi {
   public CreateReportApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createPostResponseTypeMap.put(200, new GenericType<PostResponseInfo>(){});
   }
 
-   
+  
 
 
   /**

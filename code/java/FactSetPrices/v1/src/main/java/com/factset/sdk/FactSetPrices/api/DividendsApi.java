@@ -26,8 +26,8 @@ public class DividendsApi {
   public DividendsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSecurityDividendsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSecurityDividendsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecurityDividendsResponseTypeMap.put(200, new GenericType<DividendsResponse>(){});
     getSecurityDividendsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class DividendsApi {
     getSecurityDividendsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSecurityDividendsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSecurityDividendsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecurityDividendsForListResponseTypeMap.put(200, new GenericType<DividendsResponse>(){});
@@ -46,7 +47,7 @@ public class DividendsApi {
     getSecurityDividendsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

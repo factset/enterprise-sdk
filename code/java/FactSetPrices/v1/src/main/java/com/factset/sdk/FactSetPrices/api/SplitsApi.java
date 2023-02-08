@@ -26,8 +26,8 @@ public class SplitsApi {
   public SplitsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSecuritySplitsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSecuritySplitsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecuritySplitsResponseTypeMap.put(200, new GenericType<SplitsResponse>(){});
     getSecuritySplitsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class SplitsApi {
     getSecuritySplitsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSecuritySplitsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSecuritySplitsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecuritySplitsForListResponseTypeMap.put(200, new GenericType<SplitsResponse>(){});
@@ -46,7 +47,7 @@ public class SplitsApi {
     getSecuritySplitsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

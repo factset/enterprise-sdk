@@ -26,14 +26,15 @@ public class AnswersApi {
   public AnswersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> searchForAdaptiveCardAnswerResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> searchForAdaptiveCardAnswerResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     searchForAdaptiveCardAnswerResponseTypeMap.put(200, new GenericType<AdaptiveCardAnswerSuccessResponse>(){});
     searchForAdaptiveCardAnswerResponseTypeMap.put(400, new GenericType<AnswerFailureResponse>(){});
     searchForAdaptiveCardAnswerResponseTypeMap.put(401, new GenericType<AnswerFailureResponse>(){});
     searchForAdaptiveCardAnswerResponseTypeMap.put(500, new GenericType<AnswerFailureResponse>(){});
   }
+
   private static final Map<Integer, GenericType> searchForDataAnswerResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     searchForDataAnswerResponseTypeMap.put(200, new GenericType<DataAnswerSuccessResponse>(){});
@@ -42,7 +43,7 @@ public class AnswersApi {
     searchForDataAnswerResponseTypeMap.put(500, new GenericType<AnswerFailureResponse>(){});
   }
 
-   
+  
 
 
   /**

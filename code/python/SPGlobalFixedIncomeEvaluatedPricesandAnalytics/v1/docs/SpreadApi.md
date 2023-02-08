@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_bond_spread_for_list**](SpreadApi.md#get_bond_spread_for_list) | **POST** /markit-bond-prices-and-analytics/v1/spread | Request the Spread and OAS data for a list of securities
 
 
+
 # **get_bond_spread**
 > BondSpreadResponse get_bond_spread(ids)
 

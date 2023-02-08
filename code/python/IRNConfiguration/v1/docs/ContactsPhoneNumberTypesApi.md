@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**update_phone_number_type**](ContactsPhoneNumberTypesApi.md#update_phone_number_type) | **PUT** /v1/phone-number-types/{phoneNumberTypeId} | Edit a phone type
 
 
+
 # **create_phone_number_type**
 > NewItemDto create_phone_number_type(body)
 

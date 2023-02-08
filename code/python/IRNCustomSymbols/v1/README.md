@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.IRNCustomSymbols
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols_api
 from fds.sdk.IRNCustomSymbols.models import *

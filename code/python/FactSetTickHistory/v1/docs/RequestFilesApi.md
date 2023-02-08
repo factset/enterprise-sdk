@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**v1_request_files_get**](RequestFilesApi.md#v1_request_files_get) | **GET** /v1/request-files | Returns the requestId and status
 
 
+
 # **v1_request_files_get**
 > RequestFilesResponse v1_request_files_get(start_date, end_date)
 

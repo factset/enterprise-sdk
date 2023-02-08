@@ -43,6 +43,7 @@ class AttachmentsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_attachment_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -106,6 +107,7 @@ class AttachmentsApi(object):
             },
             api_client=api_client
         )
+
         self.download_attachment_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -164,6 +166,7 @@ class AttachmentsApi(object):
             },
             api_client=api_client
         )
+
         self.get_attachments_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -219,6 +222,7 @@ class AttachmentsApi(object):
             },
             api_client=api_client
         )
+
         self.soft_delete_meeting_attachment_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -278,6 +282,7 @@ class AttachmentsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -289,6 +294,7 @@ class AttachmentsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_attachment(
         self,
@@ -488,6 +494,7 @@ class AttachmentsApi(object):
             file
         return self.create_attachment_endpoint.call_with_http_info(**kwargs)
 
+
     def download_attachment(
         self,
         meeting_id,
@@ -686,6 +693,7 @@ class AttachmentsApi(object):
             attachment_id
         return self.download_attachment_endpoint.call_with_http_info(**kwargs)
 
+
     def get_attachments(
         self,
         meeting_id,
@@ -867,6 +875,7 @@ class AttachmentsApi(object):
         kwargs['meeting_id'] = \
             meeting_id
         return self.get_attachments_endpoint.call_with_http_info(**kwargs)
+
 
     def soft_delete_meeting_attachment(
         self,
@@ -1065,4 +1074,5 @@ class AttachmentsApi(object):
         kwargs['attachment_id'] = \
             attachment_id
         return self.soft_delete_meeting_attachment_endpoint.call_with_http_info(**kwargs)
+
 

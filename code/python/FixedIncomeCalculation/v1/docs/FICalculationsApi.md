@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**run_fi_calculation**](FICalculationsApi.md#run_fi_calculation) | **POST** /analytics/engines/fi/v1/calculations | Run FI calculation
 
 
+
 # **cancel_fi_calculation_by_id**
 > cancel_fi_calculation_by_id(id)
 

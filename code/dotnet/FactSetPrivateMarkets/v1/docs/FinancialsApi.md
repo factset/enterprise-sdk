@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetFinancialsForList**](FinancialsApi.md#getfinancialsforlist) | **POST** /factset-private-markets/v1/financials | Returns Private Company Financials for a list of ids.
 
 
+
 <a name="getfinancials"></a>
 # **GetFinancials**
 > FinancialsResponse GetFinancials (List<string> ids, List<string> fields, string startDate, string endDate = null)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfinancialsforlist"></a>
 # **GetFinancialsForList**
 > FinancialsResponse GetFinancialsForList (FinancialsRequest financialsRequest)
@@ -201,4 +203,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

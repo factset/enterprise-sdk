@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_identifiers**](IdentifiersApi.md#get_identifiers) | **GET** /v1/identifiers | Get all the identifier details for given identifiers
 
 
+
 # **get_identifiers**
 > [dict] get_identifiers()
 

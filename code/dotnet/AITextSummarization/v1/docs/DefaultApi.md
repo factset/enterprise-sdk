@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**PostSummaryV1Summary**](DefaultApi.md#postsummaryv1summary) | **POST** /summary | POST request to create a headline and summary from input text
 
 
+
 <a name="getresultv1resultresultid"></a>
 # **GetResultV1ResultResultId**
 > SuccessResponse GetResultV1ResultResultId (string resultId)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postheadlineandsummaryv1headlineandsummary"></a>
 # **PostHeadlineAndSummaryV1HeadlineAndSummary**
 > string PostHeadlineAndSummaryV1HeadlineAndSummary (Request payload)
@@ -195,6 +197,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postheadlinev1headline"></a>
 # **PostHeadlineV1Headline**
@@ -288,6 +291,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postsummaryv1summary"></a>
 # **PostSummaryV1Summary**
 > string PostSummaryV1Summary (Request payload)
@@ -379,4 +383,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

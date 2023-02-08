@@ -48,6 +48,7 @@ class SASBApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_sasb_ranks_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -146,6 +147,7 @@ class SASBApi(object):
             },
             api_client=api_client
         )
+
         self.get_sasb_ranks_post_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -202,6 +204,7 @@ class SASBApi(object):
             },
             api_client=api_client
         )
+
         self.get_sasb_scores_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -312,6 +315,7 @@ class SASBApi(object):
             },
             api_client=api_client
         )
+
         self.get_sasb_scores_all_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -410,6 +414,7 @@ class SASBApi(object):
             },
             api_client=api_client
         )
+
         self.get_sasb_scores_all_post_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -466,6 +471,7 @@ class SASBApi(object):
             },
             api_client=api_client
         )
+
         self.get_sasb_scores_post_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -523,6 +529,7 @@ class SASBApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -534,6 +541,7 @@ class SASBApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_sasb_ranks(
         self,
@@ -737,6 +745,7 @@ class SASBApi(object):
             ids
         return self.get_sasb_ranks_endpoint.call_with_http_info(**kwargs)
 
+
     def get_sasb_ranks_post(
         self,
         sasb_ranks_request,
@@ -922,6 +931,7 @@ class SASBApi(object):
         kwargs['sasb_ranks_request'] = \
             sasb_ranks_request
         return self.get_sasb_ranks_post_endpoint.call_with_http_info(**kwargs)
+
 
     def get_sasb_scores(
         self,
@@ -1129,6 +1139,7 @@ class SASBApi(object):
             ids
         return self.get_sasb_scores_endpoint.call_with_http_info(**kwargs)
 
+
     def get_sasb_scores_all(
         self,
         ids,
@@ -1331,6 +1342,7 @@ class SASBApi(object):
             ids
         return self.get_sasb_scores_all_endpoint.call_with_http_info(**kwargs)
 
+
     def get_sasb_scores_all_post(
         self,
         sasb_scores_all_request,
@@ -1517,6 +1529,7 @@ class SASBApi(object):
             sasb_scores_all_request
         return self.get_sasb_scores_all_post_endpoint.call_with_http_info(**kwargs)
 
+
     def get_sasb_scores_post(
         self,
         sasb_scores_request,
@@ -1702,4 +1715,5 @@ class SASBApi(object):
         kwargs['sasb_scores_request'] = \
             sasb_scores_request
         return self.get_sasb_scores_post_endpoint.call_with_http_info(**kwargs)
+
 

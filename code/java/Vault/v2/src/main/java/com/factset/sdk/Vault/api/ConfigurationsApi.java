@@ -25,17 +25,18 @@ public class ConfigurationsApi {
   public ConfigurationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getVaultConfigurationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getVaultConfigurationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getVaultConfigurationByIdResponseTypeMap.put(200, new GenericType<VaultConfiguration>(){});
   }
+
   private static final Map<Integer, GenericType> getVaultConfigurationsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getVaultConfigurationsResponseTypeMap.put(200, new GenericType<java.util.Map<String, VaultConfigurationSummary>>(){});
   }
 
-   
+  
 
 
   /**

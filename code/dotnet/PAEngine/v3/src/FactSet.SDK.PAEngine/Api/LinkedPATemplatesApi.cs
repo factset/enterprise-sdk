@@ -288,26 +288,31 @@ namespace FactSet.SDK.PAEngine.Api
         private FactSet.SDK.PAEngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CreateLinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CreateLinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(LinkedPATemplatePostSummaryRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteLinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetLinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(LinkedPATemplateSummaryRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetLinkedPATemplatesByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(LinkedPATemplateRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateLinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(LinkedPATemplatePostSummaryRoot) },
@@ -318,7 +323,7 @@ namespace FactSet.SDK.PAEngine.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

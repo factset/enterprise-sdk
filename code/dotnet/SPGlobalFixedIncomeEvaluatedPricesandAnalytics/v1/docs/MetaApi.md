@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetBondMetaForList**](MetaApi.md#getbondmetaforlist) | **POST** /markit-bond-prices-and-analytics/v1/meta | Get bond meta data for a list of securities.
 
 
+
 <a name="getbondmeta"></a>
 # **GetBondMeta**
 > BondMetaResponse GetBondMeta (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string calendar = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbondmetaforlist"></a>
 # **GetBondMetaForList**
 > BondMetaResponse GetBondMetaForList (BondMetaRequest bondMetaRequest)
@@ -203,4 +205,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

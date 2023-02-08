@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_pa_column_statistics**](ColumnStatisticsApi.md#get_pa_column_statistics) | **GET** /analytics/lookups/v2/engines/pa/columnstatistics | Get PA column statistics
 
 
+
 # **get_pa_column_statistics**
 > {str: (ColumnStatistic,)} get_pa_column_statistics()
 

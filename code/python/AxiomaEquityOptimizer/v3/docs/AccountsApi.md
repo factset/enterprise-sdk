@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_accounts**](AccountsApi.md#get_accounts) | **GET** /analytics/lookups/v3/accounts/{path} | Get accounts and sub-directories in a directory
 
 
+
 # **get_accounts**
 > AccountDirectoriesRoot get_accounts()
 

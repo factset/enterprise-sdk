@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_people_profiles_for_list**](ProfilesApi.md#get_people_profiles_for_list) | **POST** /factset-people/v1/profiles | Returns profile information for a large list of people.
 
 
+
 # **get_people_profiles**
 > PeopleProfilesResponse get_people_profiles(ids)
 

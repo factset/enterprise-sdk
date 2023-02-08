@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**put_and_optimize**](BPMOptimizerApi.md#put_and_optimize) | **PUT** /analytics/engines/bpm/v3/optimizations/{id} | Create or Update BPM optimization and run it.
 
 
+
 # **cancel_optimization_by_id**
 > cancel_optimization_by_id(id)
 

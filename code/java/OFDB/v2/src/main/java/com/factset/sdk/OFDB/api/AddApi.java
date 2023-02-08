@@ -34,8 +34,8 @@ public class AddApi {
   public AddApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> addDatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> addDatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     addDatesResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
     addDatesResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
@@ -46,6 +46,7 @@ public class AddApi {
     addDatesResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
     addDatesResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> addFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     addFieldsResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
@@ -56,6 +57,7 @@ public class AddApi {
     addFieldsResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
     addFieldsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> addSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     addSymbolsResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
@@ -68,7 +70,7 @@ public class AddApi {
     addSymbolsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
 
-   
+  
 
 
   /**

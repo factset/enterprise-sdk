@@ -28,31 +28,35 @@ public class CompanyApi {
   public CompanyApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> currentCapGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> currentCapGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     currentCapGetResponseTypeMap.put(200, new GenericType<StachTableResponse>(){});
     currentCapGetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     currentCapGetResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> financialHighlightsGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     financialHighlightsGetResponseTypeMap.put(200, new GenericType<StachTableResponse>(){});
     financialHighlightsGetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     financialHighlightsGetResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getProfileProfileResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getProfileProfileResponseTypeMap.put(200, new GenericType<ProfileResponse>(){});
     getProfileProfileResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     getProfileProfileResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> peerListGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     peerListGetResponseTypeMap.put(200, new GenericType<PeerListResponse>(){});
     peerListGetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     peerListGetResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> transactionsGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     transactionsGetResponseTypeMap.put(200, new GenericType<StachTableResponse>(){});
@@ -60,7 +64,7 @@ public class CompanyApi {
     transactionsGetResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

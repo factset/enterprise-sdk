@@ -26,8 +26,8 @@ public class YieldApi {
   public YieldApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBondYieldResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBondYieldResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondYieldResponseTypeMap.put(200, new GenericType<BondYieldResponse>(){});
     getBondYieldResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class YieldApi {
     getBondYieldResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBondYieldResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getBondYieldForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondYieldForListResponseTypeMap.put(200, new GenericType<BondYieldResponse>(){});
@@ -46,7 +47,7 @@ public class YieldApi {
     getBondYieldForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

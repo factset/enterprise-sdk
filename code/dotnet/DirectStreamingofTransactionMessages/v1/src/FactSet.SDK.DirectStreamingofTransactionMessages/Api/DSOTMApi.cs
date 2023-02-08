@@ -100,14 +100,15 @@ namespace FactSet.SDK.DirectStreamingofTransactionMessages.Api
         private FactSet.SDK.DirectStreamingofTransactionMessages.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> SendTransactionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> SendTransactionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
 
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

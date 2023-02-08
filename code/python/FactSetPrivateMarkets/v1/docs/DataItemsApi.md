@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_fields**](DataItemsApi.md#get_fields) | **GET** /factset-private-markets/v1/fields | Available private company fields, metrics, and ratios.
 
 
+
 # **get_fields**
 > FieldsResponse get_fields()
 

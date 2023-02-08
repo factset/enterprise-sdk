@@ -27,8 +27,8 @@ public class BrokerDetailApi {
   public BrokerDetailApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFixedDetailResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFixedDetailResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFixedDetailResponseTypeMap.put(200, new GenericType<DetailResponse>(){});
     getFixedDetailResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -37,6 +37,7 @@ public class BrokerDetailApi {
     getFixedDetailResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFixedDetailResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFixedDetailForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFixedDetailForListResponseTypeMap.put(200, new GenericType<DetailResponse>(){});
@@ -46,6 +47,7 @@ public class BrokerDetailApi {
     getFixedDetailForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFixedDetailForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getRollingDetailResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRollingDetailResponseTypeMap.put(200, new GenericType<DetailResponse>(){});
@@ -55,6 +57,7 @@ public class BrokerDetailApi {
     getRollingDetailResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getRollingDetailResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getRollingDetailForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRollingDetailForListResponseTypeMap.put(200, new GenericType<DetailResponse>(){});
@@ -65,7 +68,7 @@ public class BrokerDetailApi {
     getRollingDetailForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

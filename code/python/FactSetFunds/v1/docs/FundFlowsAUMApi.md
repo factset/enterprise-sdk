@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_funds_flows_for_list**](FundFlowsAUMApi.md#get_funds_flows_for_list) | **POST** /factset-funds/v1/flows | Get Fund Flows for a requested date range and large list of ids
 
 
+
 # **get_funds_aum**
 > AumResponse get_funds_aum(ids)
 

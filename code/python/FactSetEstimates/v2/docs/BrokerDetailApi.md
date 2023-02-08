@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_rolling_detail_for_list**](BrokerDetailApi.md#get_rolling_detail_for_list) | **POST** /factset-estimates/v2/rolling-detail | FactSet estimates detail data for rolling fiscal periods
 
 
+
 # **get_fixed_detail**
 > DetailResponse get_fixed_detail(ids, metrics)
 

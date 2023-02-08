@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**stats_names_only**](AboutApi.md#stats_names_only) | **GET** /linear/{version}/stats-names-only | Get available risk statistics names
 
 
+
 # **documentation**
 > InlineResponse200 documentation(version)
 

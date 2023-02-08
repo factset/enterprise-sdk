@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.Publisher
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.Publisher
 from fds.sdk.Publisher.api import accounts_api
 from fds.sdk.Publisher.models import *

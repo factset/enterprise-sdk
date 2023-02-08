@@ -152,12 +152,14 @@ namespace FactSet.SDK.PAEngine.Api
         private FactSet.SDK.PAEngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetPAColumnByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPAColumnByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ColumnRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPAColumnsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ColumnSummaryRoot) },
@@ -166,7 +168,7 @@ namespace FactSet.SDK.PAEngine.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

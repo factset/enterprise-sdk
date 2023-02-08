@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.FactSetContentAPIBatch
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetContentAPIBatch
 from fds.sdk.FactSetContentAPIBatch.api import batch_processing_api
 from fds.sdk.FactSetContentAPIBatch.models import *

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_fx_forwards_for_list**](ForwardsApi.md#get_fx_forwards_for_list) | **POST** /foreign-exchange/v1/forwards | Gets Forwards for a list of currency pairs
 
 
+
 # **get_fx_forwards**
 > ForwardsResponse get_fx_forwards(ids)
 

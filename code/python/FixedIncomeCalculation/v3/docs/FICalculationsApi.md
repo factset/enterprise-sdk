@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**put_and_calculate**](FICalculationsApi.md#put_and_calculate) | **PUT** /analytics/engines/fi/v3/calculations/{id} | Create or Update FI calculation and run it.
 
 
+
 # **cancel_calculation_by_id**
 > cancel_calculation_by_id(id)
 

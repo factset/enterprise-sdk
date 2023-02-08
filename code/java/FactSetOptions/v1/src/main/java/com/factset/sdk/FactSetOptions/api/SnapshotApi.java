@@ -26,8 +26,8 @@ public class SnapshotApi {
   public SnapshotApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getOptionsSnapshotForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getOptionsSnapshotForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptionsSnapshotForListResponseTypeMap.put(200, new GenericType<SnapshotResponse>(){});
     getOptionsSnapshotForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -37,7 +37,7 @@ public class SnapshotApi {
     getOptionsSnapshotForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

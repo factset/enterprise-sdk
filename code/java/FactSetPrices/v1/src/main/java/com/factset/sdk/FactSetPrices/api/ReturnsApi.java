@@ -28,8 +28,8 @@ public class ReturnsApi {
   public ReturnsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getReturnsSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getReturnsSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getReturnsSnapshotResponseTypeMap.put(200, new GenericType<ReturnsSnapshotResponse>(){});
     getReturnsSnapshotResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class ReturnsApi {
     getReturnsSnapshotResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getReturnsSnapshotResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getReturnsSnapshotForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getReturnsSnapshotForListResponseTypeMap.put(200, new GenericType<ReturnsSnapshotResponse>(){});
@@ -47,6 +48,7 @@ public class ReturnsApi {
     getReturnsSnapshotForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getReturnsSnapshotForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSecurityReturnsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecurityReturnsResponseTypeMap.put(200, new GenericType<ReturnsResponse>(){});
@@ -56,6 +58,7 @@ public class ReturnsApi {
     getSecurityReturnsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSecurityReturnsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSecurityReturnsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecurityReturnsForListResponseTypeMap.put(200, new GenericType<ReturnsResponse>(){});
@@ -66,7 +69,7 @@ public class ReturnsApi {
     getSecurityReturnsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -34,65 +34,46 @@ public class EventsApi {
   public EventsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEventAdaptiveCardByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEventAdaptiveCardByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEventAdaptiveCardByIdResponseTypeMap.put(200, new GenericType<EventAdaptiveCard>(){});
     getEventAdaptiveCardByIdResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getEventAdaptiveCardByIdResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
-  private static final Map<Integer, GenericType> getEventAdaptiveCardsResponseTypeMap = new HashMap<Integer, GenericType>();
-  static {
-    getEventAdaptiveCardsResponseTypeMap.put(200, new GenericType<EventAdaptiveCards>(){});
-    getEventAdaptiveCardsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
-    getEventAdaptiveCardsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
-  }
+
   private static final Map<Integer, GenericType> getEventDetailByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEventDetailByIdResponseTypeMap.put(200, new GenericType<EventDetail>(){});
     getEventDetailByIdResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getEventDetailByIdResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
-  private static final Map<Integer, GenericType> getEventDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
-  static {
-    getEventDetailsResponseTypeMap.put(200, new GenericType<EventDetails>(){});
-    getEventDetailsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
-    getEventDetailsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
-  }
-  private static final Map<Integer, GenericType> getEventEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
-  static {
-    getEventEntitiesResponseTypeMap.put(200, new GenericType<EventsEntities>(){});
-    getEventEntitiesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
-    getEventEntitiesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
-  }
-  private static final Map<Integer, GenericType> getEventHeadlinesResponseTypeMap = new HashMap<Integer, GenericType>();
-  static {
-    getEventHeadlinesResponseTypeMap.put(200, new GenericType<EventHeadlines>(){});
-    getEventHeadlinesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
-    getEventHeadlinesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
-  }
+
   private static final Map<Integer, GenericType> postEventAdaptiveCardsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEventAdaptiveCardsResponseTypeMap.put(200, new GenericType<EventAdaptiveCards>(){});
     postEventAdaptiveCardsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     postEventAdaptiveCardsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postEventDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEventDetailsResponseTypeMap.put(200, new GenericType<EventDetails>(){});
   }
+
   private static final Map<Integer, GenericType> postEventEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEventEntitiesResponseTypeMap.put(200, new GenericType<EventsEntities>(){});
     postEventEntitiesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     postEventEntitiesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postEventHeadlinesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEventHeadlinesResponseTypeMap.put(200, new GenericType<EventHeadlines>(){});
   }
 
-   
+  
 
 
   /**
@@ -193,106 +174,6 @@ public class EventsApi {
   }
   /**
    * 
-   * Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
-   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param signalIds  (optional)
-   * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
-   * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
-   * @param themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
-   * @param categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
-   * @param userRelevanceScore A range for filtering signal events based on their relevancy score. (optional)
-   * @param sort Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
-   * @param resolveIdentifiers The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional)
-   * @return EventAdaptiveCards
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-   */
-  public EventAdaptiveCards getEventAdaptiveCards(DateTimeInterval created, DateTimeInterval updated, String signalIds, String ids, String portfolios, String themes, String categories, RelevanceScoreRange userRelevanceScore, String sort, Boolean resolveIdentifiers) throws ApiException {
-    return getEventAdaptiveCardsWithHttpInfo(created, updated, signalIds, ids, portfolios, themes, categories, userRelevanceScore, sort, resolveIdentifiers).getData();
-  }
-
-  /**
-   * 
-   * Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
-   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param signalIds  (optional)
-   * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
-   * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
-   * @param themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
-   * @param categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
-   * @param userRelevanceScore A range for filtering signal events based on their relevancy score. (optional)
-   * @param sort Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
-   * @param resolveIdentifiers The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional)
-   * @return ApiResponse&lt;EventAdaptiveCards&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<EventAdaptiveCards> getEventAdaptiveCardsWithHttpInfo(DateTimeInterval created, DateTimeInterval updated, String signalIds, String ids, String portfolios, String themes, String categories, RelevanceScoreRange userRelevanceScore, String sort, Boolean resolveIdentifiers) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/events/adaptive-cards";
-
-    // query params
-    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
-    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "created", created));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "updated", updated));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "signalIds", signalIds));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ids", ids));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "portfolios", portfolios));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "themes", themes));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "categories", categories));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "userRelevanceScore", userRelevanceScore));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "resolveIdentifiers", resolveIdentifiers));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
-
-
-    ApiResponse<
-        
-        EventAdaptiveCards
-      
-    > apiResponse = apiClient.invokeAPI("EventsApi.getEventAdaptiveCards", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, getEventAdaptiveCardsResponseTypeMap, false);
-
-    return apiResponse;
-
-  }
-  /**
-   * 
    * Fetch Signals event headlines plus all additional event details for a single requested Signal event
    * @param eventId The UUID of the event to return. (required)
    * @return EventDetail
@@ -365,294 +246,6 @@ public class EventsApi {
     > apiResponse = apiClient.invokeAPI("EventsApi.getEventDetailById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getEventDetailByIdResponseTypeMap, false);
-
-    return apiResponse;
-
-  }
-  /**
-   * 
-   * Fetch Signals event headlines plus all additional event details based on the filtering criteria
-   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param signalIds  (optional)
-   * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
-   * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
-   * @param themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
-   * @param categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
-   * @param userRelevanceScore A range for filtering signal events based on their relevancy score. (optional)
-   * @param sort Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
-   * @param resolveIdentifiers The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional)
-   * @return EventDetails
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-   */
-  public EventDetails getEventDetails(DateTimeInterval created, DateTimeInterval updated, String signalIds, String ids, String portfolios, String themes, String categories, RelevanceScoreRange userRelevanceScore, String sort, Boolean resolveIdentifiers) throws ApiException {
-    return getEventDetailsWithHttpInfo(created, updated, signalIds, ids, portfolios, themes, categories, userRelevanceScore, sort, resolveIdentifiers).getData();
-  }
-
-  /**
-   * 
-   * Fetch Signals event headlines plus all additional event details based on the filtering criteria
-   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param signalIds  (optional)
-   * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
-   * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
-   * @param themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
-   * @param categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
-   * @param userRelevanceScore A range for filtering signal events based on their relevancy score. (optional)
-   * @param sort Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
-   * @param resolveIdentifiers The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional)
-   * @return ApiResponse&lt;EventDetails&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<EventDetails> getEventDetailsWithHttpInfo(DateTimeInterval created, DateTimeInterval updated, String signalIds, String ids, String portfolios, String themes, String categories, RelevanceScoreRange userRelevanceScore, String sort, Boolean resolveIdentifiers) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/events/details";
-
-    // query params
-    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
-    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "created", created));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "updated", updated));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "signalIds", signalIds));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ids", ids));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "portfolios", portfolios));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "themes", themes));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "categories", categories));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "userRelevanceScore", userRelevanceScore));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "resolveIdentifiers", resolveIdentifiers));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
-
-
-    ApiResponse<
-        
-        EventDetails
-      
-    > apiResponse = apiClient.invokeAPI("EventsApi.getEventDetails", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, getEventDetailsResponseTypeMap, false);
-
-    return apiResponse;
-
-  }
-  /**
-   * 
-   * Fetch FactSet entity IDs for events that match the filtering criteria
-   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param signalIds  (optional)
-   * @param themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
-   * @param categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
-   * @param userRelevanceScore A range for filtering signal events based on their relevancy score. (optional)
-   * @return EventsEntities
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-   */
-  public EventsEntities getEventEntities(DateTimeInterval created, DateTimeInterval updated, String signalIds, String themes, String categories, RelevanceScoreRange userRelevanceScore) throws ApiException {
-    return getEventEntitiesWithHttpInfo(created, updated, signalIds, themes, categories, userRelevanceScore).getData();
-  }
-
-  /**
-   * 
-   * Fetch FactSet entity IDs for events that match the filtering criteria
-   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param signalIds  (optional)
-   * @param themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
-   * @param categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
-   * @param userRelevanceScore A range for filtering signal events based on their relevancy score. (optional)
-   * @return ApiResponse&lt;EventsEntities&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<EventsEntities> getEventEntitiesWithHttpInfo(DateTimeInterval created, DateTimeInterval updated, String signalIds, String themes, String categories, RelevanceScoreRange userRelevanceScore) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/events/entities";
-
-    // query params
-    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
-    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "created", created));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "updated", updated));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "signalIds", signalIds));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "themes", themes));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "categories", categories));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "userRelevanceScore", userRelevanceScore));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
-
-
-    ApiResponse<
-        
-        EventsEntities
-      
-    > apiResponse = apiClient.invokeAPI("EventsApi.getEventEntities", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, getEventEntitiesResponseTypeMap, false);
-
-    return apiResponse;
-
-  }
-  /**
-   * 
-   * Fetch Signals event headlines based on the filtering criteria
-   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param signalIds  (optional)
-   * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
-   * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
-   * @param themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
-   * @param categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
-   * @param userRelevanceScore A range for filtering signal events based on their relevancy score. (optional)
-   * @param sort Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
-   * @param resolveIdentifiers The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional)
-   * @return EventHeadlines
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-   */
-  public EventHeadlines getEventHeadlines(DateTimeInterval created, DateTimeInterval updated, String signalIds, String ids, String portfolios, String themes, String categories, RelevanceScoreRange userRelevanceScore, String sort, Boolean resolveIdentifiers) throws ApiException {
-    return getEventHeadlinesWithHttpInfo(created, updated, signalIds, ids, portfolios, themes, categories, userRelevanceScore, sort, resolveIdentifiers).getData();
-  }
-
-  /**
-   * 
-   * Fetch Signals event headlines based on the filtering criteria
-   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param signalIds  (optional)
-   * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
-   * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
-   * @param themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
-   * @param categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
-   * @param userRelevanceScore A range for filtering signal events based on their relevancy score. (optional)
-   * @param sort Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
-   * @param resolveIdentifiers The api will return resolved identifiers in the meta section of the response by default (true). If the parameter is false, the api will not attempt to resolve the identifiers. (optional)
-   * @return ApiResponse&lt;EventHeadlines&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<EventHeadlines> getEventHeadlinesWithHttpInfo(DateTimeInterval created, DateTimeInterval updated, String signalIds, String ids, String portfolios, String themes, String categories, RelevanceScoreRange userRelevanceScore, String sort, Boolean resolveIdentifiers) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/events/headlines";
-
-    // query params
-    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
-    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "created", created));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "updated", updated));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "signalIds", signalIds));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ids", ids));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "portfolios", portfolios));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "themes", themes));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "categories", categories));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "userRelevanceScore", userRelevanceScore));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "resolveIdentifiers", resolveIdentifiers));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
-
-
-    ApiResponse<
-        
-        EventHeadlines
-      
-    > apiResponse = apiClient.invokeAPI("EventsApi.getEventHeadlines", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, getEventHeadlinesResponseTypeMap, false);
 
     return apiResponse;
 

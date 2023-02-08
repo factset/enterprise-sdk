@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**PatchStandardSymbol**](HybridSymbolsApi.md#patchstandardsymbol) | **PATCH** /v1/custom-symbols/standard-symbol-metadata/{standardSymbolId} | Edit a standard symbol’s standard field and custom field data
 
 
+
 <a name="createstandardsymbolmetadata"></a>
 # **CreateStandardSymbolMetadata**
 > NewItemDto CreateStandardSymbolMetadata (CreateStandardSymbolMetadataDto createStandardSymbolMetadataDto = null)
@@ -98,6 +99,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getstandardsymbolmetadataguid"></a>
 # **GetStandardSymbolMetadataGuid**
 > Guid GetStandardSymbolMetadataGuid (string standardSymbol)
@@ -186,6 +188,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="patchstandardsymbol"></a>
 # **PatchStandardSymbol**
@@ -277,4 +280,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

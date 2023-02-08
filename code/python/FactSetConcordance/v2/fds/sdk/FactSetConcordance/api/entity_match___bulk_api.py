@@ -45,6 +45,7 @@ class EntityMatchBulkApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_entity_decisions_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -116,6 +117,7 @@ class EntityMatchBulkApi(object):
             },
             api_client=api_client
         )
+
         self.get_entity_task_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -347,6 +349,7 @@ class EntityMatchBulkApi(object):
             },
             api_client=api_client
         )
+
         self.get_entity_task_status_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -433,6 +436,7 @@ class EntityMatchBulkApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -444,6 +448,7 @@ class EntityMatchBulkApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_entity_decisions(
         self,
@@ -638,6 +643,7 @@ class EntityMatchBulkApi(object):
         kwargs['task_id'] = \
             task_id
         return self.get_entity_decisions_endpoint.call_with_http_info(**kwargs)
+
 
     def get_entity_task_for_list(
         self,
@@ -1005,6 +1011,7 @@ class EntityMatchBulkApi(object):
             name_column
         return self.get_entity_task_for_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_entity_task_status(
         self,
         **kwargs
@@ -1186,4 +1193,5 @@ class EntityMatchBulkApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_entity_task_status_endpoint.call_with_http_info(**kwargs)
+
 

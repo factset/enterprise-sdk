@@ -43,6 +43,7 @@ class GroupsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_pa_grouping_frequencies_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -91,6 +92,7 @@ class GroupsApi(object):
             },
             api_client=api_client
         )
+
         self.get_pa_groups_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -140,6 +142,7 @@ class GroupsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -151,6 +154,7 @@ class GroupsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_pa_grouping_frequencies(
         self,
@@ -318,6 +322,7 @@ class GroupsApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_pa_grouping_frequencies_endpoint.call_with_http_info(**kwargs)
 
+
     def get_pa_groups(
         self,
         **kwargs
@@ -483,4 +488,5 @@ class GroupsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_pa_groups_endpoint.call_with_http_info(**kwargs)
+
 

@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.Signals",
   "projectName": "fds.sdk.Signals",
-  "packageVersion": "0.21.2",
+  "packageVersion": "0.22.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Signals client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/Signals/v2",
-  "httpUserAgent": "fds-sdk/python/Signals/0.21.2",
+  "httpUserAgent": "fds-sdk/python/Signals/0.22.0",
   "files": {
     "LICENSE": {}
   }

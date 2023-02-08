@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_sfdr_pai_for_list**](SFDRApi.md#get_sfdr_pai_for_list) | **POST** /factset-esg/v1/sfdr-pai | Gets Principle Adverse Impact (PAI) data to support compliant SFDR Sustainable Finance Disclosure Regulation (SFDR) reporting
 
 
+
 # **get_sfdr_pai**
 > SfdrPaiResponse get_sfdr_pai(ids)
 

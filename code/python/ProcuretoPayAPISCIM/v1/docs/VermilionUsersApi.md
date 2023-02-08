@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**vermilion_users_post**](VermilionUsersApi.md#vermilion_users_post) | **POST** /VermilionUsers | Create a Vermilion user.
 
 
+
 # **vermilion_users_get**
 > VermilionUserResource vermilion_users_get()
 

@@ -477,42 +477,51 @@ namespace FactSet.SDK.Portfolio.Api
         private FactSet.SDK.Portfolio.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CreateOrUpdateModelAccountResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CreateOrUpdateModelAccountResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteAModelAccountResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteModelAccountByDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteModelAccountBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(DataAndMetaModel) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountForDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(DataAndMetaModel) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountForDateAndSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(DataAndMetaModel) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountForSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(DataAndMetaModel) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
             { (HttpStatusCode)404, typeof(ClientErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountSchemaResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(DataAndMetaModel) },
@@ -523,7 +532,7 @@ namespace FactSet.SDK.Portfolio.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

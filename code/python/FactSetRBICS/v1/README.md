@@ -51,6 +51,7 @@ pip install fds.sdk.utils fds.sdk.FactSetRBICS
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetRBICS
 from fds.sdk.FactSetRBICS.api import entity_focus_api
 from fds.sdk.FactSetRBICS.models import *

@@ -100,7 +100,8 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         private FactSet.SDK.NaturalLanguageProcessing.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> ThemesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> ThemesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ThemesRoot) },
             { (HttpStatusCode)400, typeof(ErrorsRoot) },
@@ -110,7 +111,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

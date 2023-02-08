@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_people_universe_for_list**](PeopleMappingApi.md#get_people_universe_for_list) | **POST** /factset-concordance/v2/people-universe | Retrieve all saved mappings within a requested universe or large list of client ids
 
 
+
 # **get_people_mapping_delete_for_list**
 > PeopleMappingDeleteResponse get_people_mapping_delete_for_list(entity_mapping_delete_request)
 

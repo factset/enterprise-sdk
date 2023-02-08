@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_cross_sectional_data_for_list**](CrossSectionalApi.md#get_cross_sectional_data_for_list) | **POST** /v1/cross-sectional | Retrieve data items (Screening formulas) for a list of identifiers or defined universe.
 
 
+
 # **get_cross_sectional_data**
 > CrossSectionalResponse get_cross_sectional_data(formulas)
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetOptionsScreeningForList**](OptionChainsScreeningApi.md#getoptionsscreeningforlist) | **POST** /factset-options/v1/option-screening | Returns all the option identifiers based on the conditions provided as input in the request
 
 
+
 <a name="getoptionschainsforlist"></a>
 # **GetOptionsChainsForList**
 > ChainsResponse GetOptionsChainsForList (ChainsRequest chainsRequest)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getoptionsscreeningforlist"></a>
 # **GetOptionsScreeningForList**
 > OptionScreeningResponse GetOptionsScreeningForList (OptionScreeningRequest optionScreeningRequest)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

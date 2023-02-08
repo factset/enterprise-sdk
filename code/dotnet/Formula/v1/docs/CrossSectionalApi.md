@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetCrossSectionalDataForList**](CrossSectionalApi.md#getcrosssectionaldataforlist) | **POST** /v1/cross-sectional | Retrieve data items (Screening formulas) for a list of identifiers or defined universe.
 
 
+
 <a name="getcrosssectionaldata"></a>
 # **GetCrossSectionalData**
 > CrossSectionalResponse GetCrossSectionalData (List<string> formulas, List<string> ids = null, string symbolType = null, string universe = null, string universeType = null, string backTestDate = null, string calendar = null, string fsymId = null, List<string> displayName = null, string flatten = null, string batch = null)
@@ -143,6 +144,7 @@ GetCrossSectionalDataResponseWrapper
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcrosssectionaldataforlist"></a>
 # **GetCrossSectionalDataForList**
 > CrossSectionalResponse GetCrossSectionalDataForList (CrossSectionalRequest crossSectionalRequest)
@@ -257,4 +259,5 @@ GetCrossSectionalDataForListResponseWrapper
 | **503** | Service Temporarily Unavailable |  * api-version -  <br>  * api-supported-versions -  <br>  * api-deprecated-versions -  <br>  * chain-id -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

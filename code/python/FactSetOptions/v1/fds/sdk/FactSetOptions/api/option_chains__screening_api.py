@@ -46,6 +46,7 @@ class OptionChainsScreeningApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_options_chains_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -102,6 +103,7 @@ class OptionChainsScreeningApi(object):
             },
             api_client=api_client
         )
+
         self.get_options_screening_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -159,6 +161,7 @@ class OptionChainsScreeningApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -170,6 +173,7 @@ class OptionChainsScreeningApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_options_chains_for_list(
         self,
@@ -357,6 +361,7 @@ class OptionChainsScreeningApi(object):
             chains_request
         return self.get_options_chains_for_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_options_screening_for_list(
         self,
         option_screening_request,
@@ -542,4 +547,5 @@ class OptionChainsScreeningApi(object):
         kwargs['option_screening_request'] = \
             option_screening_request
         return self.get_options_screening_for_list_endpoint.call_with_http_info(**kwargs)
+
 

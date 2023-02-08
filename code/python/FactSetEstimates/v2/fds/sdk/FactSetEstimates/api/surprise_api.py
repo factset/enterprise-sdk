@@ -44,6 +44,7 @@ class SurpriseApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_surprise_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -174,6 +175,7 @@ class SurpriseApi(object):
             },
             api_client=api_client
         )
+
         self.get_surprise_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -231,6 +233,7 @@ class SurpriseApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -242,6 +245,7 @@ class SurpriseApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_surprise(
         self,
@@ -469,6 +473,7 @@ class SurpriseApi(object):
             metrics
         return self.get_surprise_endpoint.call_with_http_info(**kwargs)
 
+
     def get_surprise_for_list(
         self,
         surprise_request,
@@ -654,4 +659,5 @@ class SurpriseApi(object):
         kwargs['surprise_request'] = \
             surprise_request
         return self.get_surprise_for_list_endpoint.call_with_http_info(**kwargs)
+
 

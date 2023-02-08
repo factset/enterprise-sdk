@@ -26,8 +26,8 @@ public class ForwardsApi {
   public ForwardsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFXForwardsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFXForwardsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFXForwardsResponseTypeMap.put(200, new GenericType<ForwardsResponse>(){});
     getFXForwardsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class ForwardsApi {
     getFXForwardsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFXForwardsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFXForwardsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFXForwardsForListResponseTypeMap.put(200, new GenericType<ForwardsResponse>(){});
@@ -46,7 +47,7 @@ public class ForwardsApi {
     getFXForwardsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

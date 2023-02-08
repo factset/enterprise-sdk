@@ -252,7 +252,8 @@ namespace FactSet.SDK.FactSetConcordance.Api
         private FactSet.SDK.FactSetConcordance.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleMappingDeleteForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleMappingDeleteForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PeopleMappingDeleteResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -261,6 +262,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleMappingForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PeopleMappingResponse) },
@@ -270,6 +272,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleUniverseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PeopleUniverseResponse) },
@@ -279,6 +282,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleUniverseForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PeopleUniverseResponse) },
@@ -292,7 +296,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

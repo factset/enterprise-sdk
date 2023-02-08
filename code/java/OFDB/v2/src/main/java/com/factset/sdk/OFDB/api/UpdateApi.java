@@ -35,8 +35,8 @@ public class UpdateApi {
   public UpdateApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> updateDateResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> updateDateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     updateDateResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
     updateDateResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
@@ -47,6 +47,7 @@ public class UpdateApi {
     updateDateResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
     updateDateResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> updateDatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     updateDatesResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
@@ -58,6 +59,7 @@ public class UpdateApi {
     updateDatesResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
     updateDatesResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> updateSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     updateSymbolResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
@@ -69,6 +71,7 @@ public class UpdateApi {
     updateSymbolResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
     updateSymbolResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> updateSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     updateSymbolsResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
@@ -81,7 +84,7 @@ public class UpdateApi {
     updateSymbolsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
 
-   
+  
 
 
   /**

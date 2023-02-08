@@ -30,8 +30,8 @@ public class RiskMeasuresApi {
   public RiskMeasuresApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getOptionsATMImpliedVolatilityForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getOptionsATMImpliedVolatilityForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptionsATMImpliedVolatilityForListResponseTypeMap.put(200, new GenericType<AtmImpliedVolatilityResponse>(){});
     getOptionsATMImpliedVolatilityForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -40,6 +40,7 @@ public class RiskMeasuresApi {
     getOptionsATMImpliedVolatilityForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getOptionsATMImpliedVolatilityForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getOptionsGreeksForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptionsGreeksForListResponseTypeMap.put(200, new GenericType<GreeksResponse>(){});
@@ -49,6 +50,7 @@ public class RiskMeasuresApi {
     getOptionsGreeksForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getOptionsGreeksForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getOptionsVolatilityForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptionsVolatilityForListResponseTypeMap.put(200, new GenericType<ImpliedVolatilityResponse>(){});
@@ -59,7 +61,7 @@ public class RiskMeasuresApi {
     getOptionsVolatilityForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

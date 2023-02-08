@@ -51,145 +51,178 @@ public class NotationApi {
   public NotationApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getNotationCrossReferenceFactSetIdentifierGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getNotationCrossReferenceFactSetIdentifierGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationCrossReferenceFactSetIdentifierGetResponseTypeMap.put(200, new GenericType<InlineResponse20071>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeMap.put(200, new GenericType<InlineResponse20067>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationGetResponseTypeMap.put(200, new GenericType<InlineResponse20065>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresMonth1GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresMonth1GetResponseTypeMap.put(200, new GenericType<InlineResponse20076>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresMonth1ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresMonth1ListResponseTypeMap.put(200, new GenericType<InlineResponse20077>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresMonth3GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresMonth3GetResponseTypeMap.put(200, new GenericType<InlineResponse20074>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresMonth3ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresMonth3ListResponseTypeMap.put(200, new GenericType<InlineResponse20075>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresMonth6GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresMonth6GetResponseTypeMap.put(200, new GenericType<InlineResponse20074>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresMonth6ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresMonth6ListResponseTypeMap.put(200, new GenericType<InlineResponse20075>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresWeek1GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresWeek1GetResponseTypeMap.put(200, new GenericType<InlineResponse20076>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresWeek1ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresWeek1ListResponseTypeMap.put(200, new GenericType<InlineResponse20077>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear10GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYear10GetResponseTypeMap.put(200, new GenericType<InlineResponse20074>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear10ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYear10ListResponseTypeMap.put(200, new GenericType<InlineResponse20075>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear1GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYear1GetResponseTypeMap.put(200, new GenericType<InlineResponse20076>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear1ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYear1ListResponseTypeMap.put(200, new GenericType<InlineResponse20077>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear3GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYear3GetResponseTypeMap.put(200, new GenericType<InlineResponse20074>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear3ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYear3ListResponseTypeMap.put(200, new GenericType<InlineResponse20075>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear5GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYear5GetResponseTypeMap.put(200, new GenericType<InlineResponse20074>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear5ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYear5ListResponseTypeMap.put(200, new GenericType<InlineResponse20075>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear7GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYear7GetResponseTypeMap.put(200, new GenericType<InlineResponse20074>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYear7ListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYear7ListResponseTypeMap.put(200, new GenericType<InlineResponse20075>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYearToDateGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYearToDateGetResponseTypeMap.put(200, new GenericType<InlineResponse20078>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationKeyFiguresYearToDateListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationKeyFiguresYearToDateListResponseTypeMap.put(200, new GenericType<InlineResponse20079>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationListResponseTypeMap.put(200, new GenericType<InlineResponse20066>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationSearchBasicResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationSearchBasicResponseTypeMap.put(200, new GenericType<InlineResponse20091>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationSearchByTextRankedByVolumeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationSearchByTextRankedByVolumeResponseTypeMap.put(200, new GenericType<InlineResponse20093>(){});
   }
+
   private static final Map<Integer, GenericType> getNotationStatusGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotationStatusGetResponseTypeMap.put(200, new GenericType<InlineResponse20081>(){});
   }
+
   private static final Map<Integer, GenericType> postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeMap.put(200, new GenericType<InlineResponse20072>(){});
   }
+
   private static final Map<Integer, GenericType> postNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse20073>(){});
   }
+
   private static final Map<Integer, GenericType> postNotationCrossReferenceListByISINResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNotationCrossReferenceListByISINResponseTypeMap.put(200, new GenericType<InlineResponse20069>(){});
   }
+
   private static final Map<Integer, GenericType> postNotationCrossReferenceListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNotationCrossReferenceListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse20068>(){});
   }
+
   private static final Map<Integer, GenericType> postNotationCrossReferenceListBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNotationCrossReferenceListBySymbolResponseTypeMap.put(200, new GenericType<InlineResponse20070>(){});
   }
+
   private static final Map<Integer, GenericType> postNotationMarketListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNotationMarketListResponseTypeMap.put(200, new GenericType<InlineResponse20080>(){});
   }
+
   private static final Map<Integer, GenericType> postNotationSearchByTextResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postNotationSearchByTextResponseTypeMap.put(200, new GenericType<InlineResponse20092>(){});
   }
 
-   
+  
 
 
   /**

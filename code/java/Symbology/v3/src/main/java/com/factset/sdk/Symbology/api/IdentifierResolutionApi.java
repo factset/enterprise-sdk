@@ -26,8 +26,8 @@ public class IdentifierResolutionApi {
   public IdentifierResolutionApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> batchIdentifierResolutionResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> batchIdentifierResolutionResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchIdentifierResolutionResponseTypeMap.put(200, new GenericType<IdentifierResolutionResponse>(){});
     batchIdentifierResolutionResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class IdentifierResolutionApi {
     batchIdentifierResolutionResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchIdentifierResolutionResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> identifierResolutionResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     identifierResolutionResponseTypeMap.put(200, new GenericType<IdentifierResolutionResponse>(){});
@@ -46,7 +47,7 @@ public class IdentifierResolutionApi {
     identifierResolutionResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

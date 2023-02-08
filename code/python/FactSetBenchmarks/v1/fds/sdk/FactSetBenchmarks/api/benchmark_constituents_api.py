@@ -46,6 +46,7 @@ class BenchmarkConstituentsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_benchmark_constituents_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -118,6 +119,7 @@ class BenchmarkConstituentsApi(object):
             },
             api_client=api_client
         )
+
         self.get_benchmark_constituents_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -174,6 +176,7 @@ class BenchmarkConstituentsApi(object):
             },
             api_client=api_client
         )
+
         self.get_fi_benchmark_constituents_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -246,6 +249,7 @@ class BenchmarkConstituentsApi(object):
             },
             api_client=api_client
         )
+
         self.get_fi_benchmark_constituents_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -303,6 +307,7 @@ class BenchmarkConstituentsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -314,6 +319,7 @@ class BenchmarkConstituentsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_benchmark_constituents(
         self,
@@ -509,6 +515,7 @@ class BenchmarkConstituentsApi(object):
             ids
         return self.get_benchmark_constituents_endpoint.call_with_http_info(**kwargs)
 
+
     def get_benchmark_constituents_for_list(
         self,
         benchmark_constituents_request,
@@ -694,6 +701,7 @@ class BenchmarkConstituentsApi(object):
         kwargs['benchmark_constituents_request'] = \
             benchmark_constituents_request
         return self.get_benchmark_constituents_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_fi_benchmark_constituents(
         self,
@@ -889,6 +897,7 @@ class BenchmarkConstituentsApi(object):
             ids
         return self.get_fi_benchmark_constituents_endpoint.call_with_http_info(**kwargs)
 
+
     def get_fi_benchmark_constituents_for_list(
         self,
         fixed_income_benchmark_constituents_request,
@@ -1074,4 +1083,5 @@ class BenchmarkConstituentsApi(object):
         kwargs['fixed_income_benchmark_constituents_request'] = \
             fixed_income_benchmark_constituents_request
         return self.get_fi_benchmark_constituents_for_list_endpoint.call_with_http_info(**kwargs)
+
 

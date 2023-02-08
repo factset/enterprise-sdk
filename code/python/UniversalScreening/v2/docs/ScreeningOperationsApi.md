@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**submit_calculate**](ScreeningOperationsApi.md#submit_calculate) | **POST** /v2/job/calculate | 
 
 
+
 # **get_calculate_results**
 > PaginatedCalculationResponse get_calculate_results(id)
 

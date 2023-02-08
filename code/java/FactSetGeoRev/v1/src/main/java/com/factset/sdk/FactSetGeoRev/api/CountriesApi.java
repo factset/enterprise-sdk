@@ -26,8 +26,8 @@ public class CountriesApi {
   public CountriesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCountriesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCountriesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCountriesResponseTypeMap.put(200, new GenericType<CountryResponse>(){});
     getCountriesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class CountriesApi {
     getCountriesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCountriesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCountriesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCountriesForListResponseTypeMap.put(200, new GenericType<CountryResponse>(){});
@@ -46,7 +47,7 @@ public class CountriesApi {
     getCountriesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

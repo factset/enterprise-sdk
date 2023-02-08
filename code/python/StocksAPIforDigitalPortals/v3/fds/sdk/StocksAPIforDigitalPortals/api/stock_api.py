@@ -54,6 +54,7 @@ class StockApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_stock_composite_profile_get_by_notation_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -153,6 +154,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_dividend_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -222,6 +224,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_notation_key_figures_benchmark_month_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -334,6 +337,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_notation_key_figures_benchmark_month_3_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -446,6 +450,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_notation_key_figures_benchmark_month_6_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -558,6 +563,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_notation_key_figures_benchmark_week_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -670,6 +676,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_notation_key_figures_benchmark_year_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -782,6 +789,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_notation_key_figures_benchmark_year_3_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -894,6 +902,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_notation_key_figures_benchmark_year_5_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1006,6 +1015,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_owner_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1112,6 +1122,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_recommendation_aggregate_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1208,6 +1219,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.get_stock_recommendation_aggregate_history_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1327,6 +1339,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.post_stock_dividend_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1381,6 +1394,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.post_stock_notation_ranking_intraday_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1435,6 +1449,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.post_stock_notation_screener_search_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1489,6 +1504,7 @@ class StockApi(object):
             },
             api_client=api_client
         )
+
         self.post_stock_notation_screener_value_ranges_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1544,6 +1560,7 @@ class StockApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -1555,6 +1572,7 @@ class StockApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_stock_composite_profile_get_by_notation(
         self,
@@ -1766,6 +1784,7 @@ class StockApi(object):
             identifier_type
         return self.get_stock_composite_profile_get_by_notation_endpoint.call_with_http_info(**kwargs)
 
+
     def get_stock_dividend_type_list(
         self,
         **kwargs
@@ -1939,6 +1958,7 @@ class StockApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_stock_dividend_type_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_stock_notation_key_figures_benchmark_month_1_get(
         self,
@@ -2166,6 +2186,7 @@ class StockApi(object):
             id_notation_benchmark
         return self.get_stock_notation_key_figures_benchmark_month_1_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_stock_notation_key_figures_benchmark_month_3_get(
         self,
         identifier,
@@ -2391,6 +2412,7 @@ class StockApi(object):
         kwargs['id_notation_benchmark'] = \
             id_notation_benchmark
         return self.get_stock_notation_key_figures_benchmark_month_3_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_stock_notation_key_figures_benchmark_month_6_get(
         self,
@@ -2618,6 +2640,7 @@ class StockApi(object):
             id_notation_benchmark
         return self.get_stock_notation_key_figures_benchmark_month_6_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_stock_notation_key_figures_benchmark_week_1_get(
         self,
         identifier,
@@ -2843,6 +2866,7 @@ class StockApi(object):
         kwargs['id_notation_benchmark'] = \
             id_notation_benchmark
         return self.get_stock_notation_key_figures_benchmark_week_1_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_stock_notation_key_figures_benchmark_year_1_get(
         self,
@@ -3070,6 +3094,7 @@ class StockApi(object):
             id_notation_benchmark
         return self.get_stock_notation_key_figures_benchmark_year_1_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_stock_notation_key_figures_benchmark_year_3_get(
         self,
         identifier,
@@ -3295,6 +3320,7 @@ class StockApi(object):
         kwargs['id_notation_benchmark'] = \
             id_notation_benchmark
         return self.get_stock_notation_key_figures_benchmark_year_3_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_stock_notation_key_figures_benchmark_year_5_get(
         self,
@@ -3522,6 +3548,7 @@ class StockApi(object):
             id_notation_benchmark
         return self.get_stock_notation_key_figures_benchmark_year_5_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_stock_owner_list(
         self,
         identifier,
@@ -3732,6 +3759,7 @@ class StockApi(object):
             identifier_type
         return self.get_stock_owner_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_stock_recommendation_aggregate_get(
         self,
         identifier,
@@ -3937,6 +3965,7 @@ class StockApi(object):
         kwargs['identifier_type'] = \
             identifier_type
         return self.get_stock_recommendation_aggregate_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_stock_recommendation_aggregate_history_list(
         self,
@@ -4160,6 +4189,7 @@ class StockApi(object):
             snapshots
         return self.get_stock_recommendation_aggregate_history_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_stock_dividend_list(
         self,
         **kwargs
@@ -4329,6 +4359,7 @@ class StockApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_stock_dividend_list_endpoint.call_with_http_info(**kwargs)
+
 
     def post_stock_notation_ranking_intraday_list(
         self,
@@ -4500,6 +4531,7 @@ class StockApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_stock_notation_ranking_intraday_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_stock_notation_screener_search(
         self,
         **kwargs
@@ -4670,6 +4702,7 @@ class StockApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_stock_notation_screener_search_endpoint.call_with_http_info(**kwargs)
 
+
     def post_stock_notation_screener_value_ranges_get(
         self,
         **kwargs
@@ -4839,4 +4872,5 @@ class StockApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_stock_notation_screener_value_ranges_get_endpoint.call_with_http_info(**kwargs)
+
 

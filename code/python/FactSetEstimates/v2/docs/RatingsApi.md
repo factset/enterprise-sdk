@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_detail_ratings_for_list**](RatingsApi.md#get_detail_ratings_for_list) | **POST** /factset-estimates/v2/detail-ratings | Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
 
 
+
 # **get_consensus_ratings**
 > ConsensusRatingsResponse get_consensus_ratings(ids)
 

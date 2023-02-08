@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_pa_currencies**](CurrenciesApi.md#get_pa_currencies) | **GET** /analytics/lookups/v2/engines/pa/currencies | Get PA currencies
 
 
+
 # **get_pa_currencies**
 > {str: (Currency,)} get_pa_currencies()
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_terms_and_conditions_for_list**](TermsConditionsApi.md#get_terms_and_conditions_for_list) | **POST** /factset-terms-and-conditions/v1/terms-and-conditions | Return Terms and Conditions for a list of Fixed Income securities.
 
 
+
 # **get_terms_and_conditions**
 > TermsAndConditionsResponse get_terms_and_conditions(ids)
 

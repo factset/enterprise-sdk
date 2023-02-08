@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetRbicsEntityFocusForList**](EntityFocusApi.md#getrbicsentityfocusforlist) | **POST** /factset-rbics/v1/entity-focus | Get RBICS classification for the Focus industry
 
 
+
 <a name="getrbicsentityfocus"></a>
 # **GetRbicsEntityFocus**
 > EntityFocusResponse GetRbicsEntityFocus (List<string> ids, string date = null, List<int> levels = null, bool? includeNames = null)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getrbicsentityfocusforlist"></a>
 # **GetRbicsEntityFocusForList**
 > EntityFocusResponse GetRbicsEntityFocusForList (EntityFocusRequest entityFocusRequest)
@@ -196,4 +198,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response producing an array of Entity Focus Objects |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

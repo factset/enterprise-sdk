@@ -29,27 +29,31 @@ public class NotesApi {
   public NotesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createNoteResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createNoteResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createNoteResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createNoteResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteNoteResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getNoteResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNoteResponseTypeMap.put(200, new GenericType<NoteDto>(){});
     getNoteResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getNoteResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getNotesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNotesResponseTypeMap.put(200, new GenericType<java.util.List<NoteSummaryDto>>(){});
     getNotesResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> updateNoteResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

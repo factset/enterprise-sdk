@@ -26,13 +26,14 @@ public class AccountsApi {
   public AccountsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getAccountsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getAccountsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountsResponseTypeMap.put(200, new GenericType<AccountDirectoriesRoot>(){});
     getAccountsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getAccountsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSPARReturnsTypeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSPARReturnsTypeResponseTypeMap.put(200, new GenericType<SPARAccountsRoot>(){});
@@ -40,7 +41,7 @@ public class AccountsApi {
     getSPARReturnsTypeResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -54,6 +54,7 @@ class ReferenceApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_funds_benchmark_details_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -116,6 +117,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_benchmark_details_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -172,6 +174,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_classifications_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -234,6 +237,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_classifications_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -290,6 +294,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_costs_fees_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -362,6 +367,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_costs_fees_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -418,6 +424,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_managers_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -480,6 +487,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_managers_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -536,6 +544,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_summary_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -598,6 +607,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_funds_summary_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -654,6 +664,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_related_funds_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -716,6 +727,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_related_funds_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -773,6 +785,7 @@ class ReferenceApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -784,6 +797,7 @@ class ReferenceApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_funds_benchmark_details(
         self,
@@ -971,6 +985,7 @@ class ReferenceApi(object):
             ids
         return self.get_funds_benchmark_details_endpoint.call_with_http_info(**kwargs)
 
+
     def get_funds_benchmark_details_for_list(
         self,
         benchmark_details_request,
@@ -1156,6 +1171,7 @@ class ReferenceApi(object):
         kwargs['benchmark_details_request'] = \
             benchmark_details_request
         return self.get_funds_benchmark_details_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_funds_classifications(
         self,
@@ -1343,6 +1359,7 @@ class ReferenceApi(object):
             ids
         return self.get_funds_classifications_endpoint.call_with_http_info(**kwargs)
 
+
     def get_funds_classifications_for_list(
         self,
         classifications_request,
@@ -1528,6 +1545,7 @@ class ReferenceApi(object):
         kwargs['classifications_request'] = \
             classifications_request
         return self.get_funds_classifications_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_funds_costs_fees(
         self,
@@ -1723,6 +1741,7 @@ class ReferenceApi(object):
             ids
         return self.get_funds_costs_fees_endpoint.call_with_http_info(**kwargs)
 
+
     def get_funds_costs_fees_for_list(
         self,
         costs_fees_request,
@@ -1908,6 +1927,7 @@ class ReferenceApi(object):
         kwargs['costs_fees_request'] = \
             costs_fees_request
         return self.get_funds_costs_fees_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_funds_managers(
         self,
@@ -2095,6 +2115,7 @@ class ReferenceApi(object):
             ids
         return self.get_funds_managers_endpoint.call_with_http_info(**kwargs)
 
+
     def get_funds_managers_for_list(
         self,
         managers_request,
@@ -2280,6 +2301,7 @@ class ReferenceApi(object):
         kwargs['managers_request'] = \
             managers_request
         return self.get_funds_managers_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_funds_summary(
         self,
@@ -2467,6 +2489,7 @@ class ReferenceApi(object):
             ids
         return self.get_funds_summary_endpoint.call_with_http_info(**kwargs)
 
+
     def get_funds_summary_for_list(
         self,
         summaries_request,
@@ -2652,6 +2675,7 @@ class ReferenceApi(object):
         kwargs['summaries_request'] = \
             summaries_request
         return self.get_funds_summary_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_related_funds(
         self,
@@ -2839,6 +2863,7 @@ class ReferenceApi(object):
             ids
         return self.get_related_funds_endpoint.call_with_http_info(**kwargs)
 
+
     def get_related_funds_for_list(
         self,
         related_funds_request,
@@ -3024,4 +3049,5 @@ class ReferenceApi(object):
         kwargs['related_funds_request'] = \
             related_funds_request
         return self.get_related_funds_for_list_endpoint.call_with_http_info(**kwargs)
+
 

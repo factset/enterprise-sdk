@@ -26,8 +26,8 @@ public class UnderwritersApi {
   public UnderwritersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getLeadUnderwritersResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getLeadUnderwritersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getLeadUnderwritersResponseTypeMap.put(200, new GenericType<LeadUnderwritersResponse>(){});
     getLeadUnderwritersResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class UnderwritersApi {
     getLeadUnderwritersResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getLeadUnderwritersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getLeadUnderwritersForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getLeadUnderwritersForListResponseTypeMap.put(200, new GenericType<LeadUnderwritersResponse>(){});
@@ -46,7 +47,7 @@ public class UnderwritersApi {
     getLeadUnderwritersForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

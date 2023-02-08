@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**TranslateCusip**](CUSIPApi.md#translatecusip) | **GET** /symbology/v1/cusip | Translate market security symbols into CUSIP.
 
 
+
 <a name="batchcusiphistory"></a>
 # **BatchCusipHistory**
 > CusipHistoryTranslationResponse BatchCusipHistory (CusipHistoryTranslationRequest cusipHistoryTranslationRequest)
@@ -103,6 +104,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="batchtranslatecusips"></a>
 # **BatchTranslateCusips**
@@ -198,6 +200,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="cusiphistory"></a>
 # **CusipHistory**
 > CusipHistoryTranslationResponse CusipHistory (List<string> ids)
@@ -291,6 +294,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="translatecusip"></a>
 # **TranslateCusip**
@@ -387,4 +391,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

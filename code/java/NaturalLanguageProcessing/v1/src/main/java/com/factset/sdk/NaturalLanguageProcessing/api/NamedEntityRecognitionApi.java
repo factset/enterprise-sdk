@@ -26,14 +26,14 @@ public class NamedEntityRecognitionApi {
   public NamedEntityRecognitionApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> nerEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> nerEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     nerEntitiesResponseTypeMap.put(200, new GenericType<NERResponseSchema>(){});
     nerEntitiesResponseTypeMap.put(400, new GenericType<NERValidationError>(){});
   }
 
-   
+  
 
 
   /**

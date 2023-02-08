@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetEtfReferenceDataForList**](ReferenceApi.md#getetfreferencedataforlist) | **POST** /factset-etf/v1/reference | Fetch Reference Data for a large list of ETF securities.
 
 
+
 <a name="getetfreferencedata"></a>
 # **GetEtfReferenceData**
 > EtfReferenceDataResponse GetEtfReferenceData (List<string> ids, List<string> metrics = null, List<Category> categories = null)
@@ -106,6 +107,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getetfreferencedataforlist"></a>
 # **GetEtfReferenceDataForList**
 > EtfReferenceDataResponse GetEtfReferenceDataForList (EtfReferenceDataRequest etfReferenceDataRequest)
@@ -199,4 +201,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

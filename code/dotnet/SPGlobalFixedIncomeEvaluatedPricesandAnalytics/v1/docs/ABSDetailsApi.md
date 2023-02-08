@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetABSDetailsForList**](ABSDetailsApi.md#getabsdetailsforlist) | **POST** /markit-bond-prices-and-analytics/v1/abs-details | Request Asset Backed Security Details for a list of securities
 
 
+
 <a name="getabsdetails"></a>
 # **GetABSDetails**
 > AbsDetailsResponse GetABSDetails (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string calendar = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getabsdetailsforlist"></a>
 # **GetABSDetailsForList**
 > AbsDetailsResponse GetABSDetailsForList (AbsDetailsRequest absDetailsRequest)
@@ -203,4 +205,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

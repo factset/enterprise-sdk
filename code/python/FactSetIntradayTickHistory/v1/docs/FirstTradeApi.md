@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**tick_history_firsttrade_get**](FirstTradeApi.md#tick_history_firsttrade_get) | **GET** /TickHistory/firsttrade | Request returns data for the first trade (official and unofficial) after the specified time
 
 
+
 # **tick_history_firsttrade_get**
 > TickhistoryResponse tick_history_firsttrade_get(id)
 

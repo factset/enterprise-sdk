@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**upsert_securities**](SecurityModelingApi.md#upsert_securities) | **POST** /analytics/security-modeling/v3/securities/upsert | Create or update securities
 
 
+
 # **upsert_securities**
 > SMCreateResponseRoot upsert_securities()
 

@@ -29,28 +29,32 @@ public class MeetingsApi {
   public MeetingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createMeetingResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createMeetingResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createMeetingResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createMeetingResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createMeetingResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteMeetingResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getMeetingResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getMeetingResponseTypeMap.put(200, new GenericType<MeetingDto>(){});
     getMeetingResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getMeetingResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getMeetingsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getMeetingsResponseTypeMap.put(200, new GenericType<java.util.List<MeetingSummaryDto>>(){});
     getMeetingsResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> updateMeetingResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

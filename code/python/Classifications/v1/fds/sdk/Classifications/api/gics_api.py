@@ -44,6 +44,7 @@ class GICSApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_gics_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -143,6 +144,7 @@ class GICSApi(object):
             },
             api_client=api_client
         )
+
         self.post_gics_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -200,6 +202,7 @@ class GICSApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -211,6 +214,7 @@ class GICSApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_gics(
         self,
@@ -414,6 +418,7 @@ class GICSApi(object):
             ids
         return self.get_gics_endpoint.call_with_http_info(**kwargs)
 
+
     def post_gics(
         self,
         gics_request,
@@ -599,4 +604,5 @@ class GICSApi(object):
         kwargs['gics_request'] = \
             gics_request
         return self.post_gics_endpoint.call_with_http_info(**kwargs)
+
 

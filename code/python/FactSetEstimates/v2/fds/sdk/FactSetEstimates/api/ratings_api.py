@@ -46,6 +46,7 @@ class RatingsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_consensus_ratings_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -132,6 +133,7 @@ class RatingsApi(object):
             },
             api_client=api_client
         )
+
         self.get_consensus_ratings_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -188,6 +190,7 @@ class RatingsApi(object):
             },
             api_client=api_client
         )
+
         self.get_detail_ratings_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -260,6 +263,7 @@ class RatingsApi(object):
             },
             api_client=api_client
         )
+
         self.get_detail_ratings_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -317,6 +321,7 @@ class RatingsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -328,6 +333,7 @@ class RatingsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_consensus_ratings(
         self,
@@ -527,6 +533,7 @@ class RatingsApi(object):
             ids
         return self.get_consensus_ratings_endpoint.call_with_http_info(**kwargs)
 
+
     def get_consensus_ratings_for_list(
         self,
         consensus_ratings_request,
@@ -712,6 +719,7 @@ class RatingsApi(object):
         kwargs['consensus_ratings_request'] = \
             consensus_ratings_request
         return self.get_consensus_ratings_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_detail_ratings(
         self,
@@ -907,6 +915,7 @@ class RatingsApi(object):
             ids
         return self.get_detail_ratings_endpoint.call_with_http_info(**kwargs)
 
+
     def get_detail_ratings_for_list(
         self,
         detail_ratings_request,
@@ -1092,4 +1101,5 @@ class RatingsApi(object):
         kwargs['detail_ratings_request'] = \
             detail_ratings_request
         return self.get_detail_ratings_for_list_endpoint.call_with_http_info(**kwargs)
+
 

@@ -25,8 +25,8 @@ public class DataItemsApi {
   public DataItemsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFieldsResponseTypeMap.put(200, new GenericType<FieldsResponse>(){});
     getFieldsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,7 +36,7 @@ public class DataItemsApi {
     getFieldsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

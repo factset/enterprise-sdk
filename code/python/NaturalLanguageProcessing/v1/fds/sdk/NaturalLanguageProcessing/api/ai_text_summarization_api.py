@@ -46,6 +46,7 @@ class AITextSummarizationApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.summarization_headline_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -100,6 +101,7 @@ class AITextSummarizationApi(object):
             },
             api_client=api_client
         )
+
         self.summarization_headline_and_summary_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -154,6 +156,7 @@ class AITextSummarizationApi(object):
             },
             api_client=api_client
         )
+
         self.summarization_result_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -209,6 +212,7 @@ class AITextSummarizationApi(object):
             },
             api_client=api_client
         )
+
         self.summarization_summary_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -264,6 +268,7 @@ class AITextSummarizationApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -275,6 +280,7 @@ class AITextSummarizationApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def summarization_headline(
         self,
@@ -446,6 +452,7 @@ class AITextSummarizationApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.summarization_headline_endpoint.call_with_http_info(**kwargs)
 
+
     def summarization_headline_and_summary(
         self,
         **kwargs
@@ -615,6 +622,7 @@ class AITextSummarizationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.summarization_headline_and_summary_endpoint.call_with_http_info(**kwargs)
+
 
     def summarization_result(
         self,
@@ -802,6 +810,7 @@ class AITextSummarizationApi(object):
             result_id
         return self.summarization_result_endpoint.call_with_http_info(**kwargs)
 
+
     def summarization_summary(
         self,
         **kwargs
@@ -971,4 +980,5 @@ class AITextSummarizationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.summarization_summary_endpoint.call_with_http_info(**kwargs)
+
 

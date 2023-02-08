@@ -164,7 +164,8 @@ namespace FactSet.SDK.FactSetESG.Api
         private FactSet.SDK.FactSetESG.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetSfdrPaiResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSfdrPaiResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SfdrPaiResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -174,6 +175,7 @@ namespace FactSet.SDK.FactSetESG.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSfdrPaiForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SfdrPaiResponse) },
@@ -188,7 +190,7 @@ namespace FactSet.SDK.FactSetESG.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

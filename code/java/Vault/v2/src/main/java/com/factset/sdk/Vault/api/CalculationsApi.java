@@ -26,19 +26,22 @@ public class CalculationsApi {
   public CalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> cancelCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> cancelCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> getCalculationStatusByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCalculationStatusByIdResponseTypeMap.put(200, new GenericType<CalculationStatus>(){});
   }
+
   private static final Map<Integer, GenericType> getCalculationStatusSummariesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCalculationStatusSummariesResponseTypeMap.put(200, new GenericType<java.util.Map<String, CalculationStatusSummary>>(){});
   }
+
   private static final Map<Integer, GenericType> runCalculationResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

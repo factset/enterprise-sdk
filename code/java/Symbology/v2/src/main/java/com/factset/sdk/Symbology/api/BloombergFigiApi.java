@@ -26,8 +26,8 @@ public class BloombergFigiApi {
   public BloombergFigiApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> batchTranslateBloombergResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> batchTranslateBloombergResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchTranslateBloombergResponseTypeMap.put(200, new GenericType<BloombergTranslationResponse>(){});
     batchTranslateBloombergResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class BloombergFigiApi {
     batchTranslateBloombergResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchTranslateBloombergResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> translateBloombergResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     translateBloombergResponseTypeMap.put(200, new GenericType<BloombergTranslationResponse>(){});
@@ -46,7 +47,7 @@ public class BloombergFigiApi {
     translateBloombergResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

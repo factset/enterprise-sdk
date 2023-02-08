@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**get_funds_returns_snapshot_for_list**](PricesReturnsApi.md#get_funds_returns_snapshot_for_list) | **POST** /factset-funds/v1/returns-snapshot | Get Fund Returns over pre-defined time horizons as of a specific date.
 
 
+
 # **get_funds_prices**
 > FundsPricesResponse get_funds_prices(ids)
 

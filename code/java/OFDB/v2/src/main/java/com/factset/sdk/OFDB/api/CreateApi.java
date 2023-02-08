@@ -31,8 +31,8 @@ public class CreateApi {
   public CreateApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createDatabaseResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createDatabaseResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createDatabaseResponseTypeMap.put(201, new GenericType<CreateDatabase>(){});
     createDatabaseResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
@@ -43,7 +43,7 @@ public class CreateApi {
     createDatabaseResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
 
-   
+  
 
 
   /**

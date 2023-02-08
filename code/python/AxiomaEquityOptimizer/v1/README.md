@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.AxiomaEquityOptimizer
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.AxiomaEquityOptimizer
 from fds.sdk.AxiomaEquityOptimizer.api import optimizations_api
 from fds.sdk.AxiomaEquityOptimizer.models import *

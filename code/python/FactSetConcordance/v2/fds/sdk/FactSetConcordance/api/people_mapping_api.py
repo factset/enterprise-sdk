@@ -48,6 +48,7 @@ class PeopleMappingApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_people_mapping_delete_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -104,6 +105,7 @@ class PeopleMappingApi(object):
             },
             api_client=api_client
         )
+
         self.get_people_mapping_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -160,6 +162,7 @@ class PeopleMappingApi(object):
             },
             api_client=api_client
         )
+
         self.get_people_universe_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -255,6 +258,7 @@ class PeopleMappingApi(object):
             },
             api_client=api_client
         )
+
         self.get_people_universe_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -312,6 +316,7 @@ class PeopleMappingApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -323,6 +328,7 @@ class PeopleMappingApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_people_mapping_delete_for_list(
         self,
@@ -510,6 +516,7 @@ class PeopleMappingApi(object):
             entity_mapping_delete_request
         return self.get_people_mapping_delete_for_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_people_mapping_for_list(
         self,
         people_mapping_request,
@@ -695,6 +702,7 @@ class PeopleMappingApi(object):
         kwargs['people_mapping_request'] = \
             people_mapping_request
         return self.get_people_mapping_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_people_universe(
         self,
@@ -902,6 +910,7 @@ class PeopleMappingApi(object):
             universe_id
         return self.get_people_universe_endpoint.call_with_http_info(**kwargs)
 
+
     def get_people_universe_for_list(
         self,
         people_universe_request,
@@ -1087,4 +1096,5 @@ class PeopleMappingApi(object):
         kwargs['people_universe_request'] = \
             people_universe_request
         return self.get_people_universe_for_list_endpoint.call_with_http_info(**kwargs)
+
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_high_low_for_list**](HighLowApi.md#get_high_low_for_list) | **POST** /factset-prices/v1/high-low | Requests the price high and price low of securities for a list of &#x60;ids&#x60; as of given date, period and frequency.
 
 
+
 # **get_high_low**
 > HighLowResponse get_high_low(ids)
 

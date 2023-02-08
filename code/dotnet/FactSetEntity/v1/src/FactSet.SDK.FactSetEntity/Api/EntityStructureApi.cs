@@ -248,7 +248,8 @@ namespace FactSet.SDK.FactSetEntity.Api
         private FactSet.SDK.FactSetEntity.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityStructureResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityStructureResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(EntityStructureResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -257,6 +258,7 @@ namespace FactSet.SDK.FactSetEntity.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetUltimateEntityStructureResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UltimateEntityStructureResponse) },
@@ -266,6 +268,7 @@ namespace FactSet.SDK.FactSetEntity.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostEntityStructureResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(EntityStructureResponse) },
@@ -275,6 +278,7 @@ namespace FactSet.SDK.FactSetEntity.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostUltimateEntityStructureResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UltimateEntityStructureResponse) },
@@ -288,7 +292,7 @@ namespace FactSet.SDK.FactSetEntity.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

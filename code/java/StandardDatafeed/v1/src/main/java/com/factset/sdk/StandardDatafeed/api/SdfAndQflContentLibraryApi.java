@@ -25,14 +25,14 @@ public class SdfAndQflContentLibraryApi {
   public SdfAndQflContentLibraryApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getV1ListFilesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getV1ListFilesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getV1ListFilesResponseTypeMap.put(200, new GenericType<ListFiles200Response>(){});
     getV1ListFilesResponseTypeMap.put(400, new GenericType<ListFiles400Response>(){});
   }
 
-   
+  
 
 
   /**

@@ -28,24 +28,26 @@ public class StreetAccountXmlApiApi {
   public StreetAccountXmlApiApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> asynchStreetaccountV1CheckStatusGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> asynchStreetaccountV1CheckStatusGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     asynchStreetaccountV1CheckStatusGetResponseTypeMap.put(200, new GenericType<CheckstatusResponse>(){});
     asynchStreetaccountV1CheckStatusGetResponseTypeMap.put(400, new GenericType<StreetAccountStatus>(){});
   }
+
   private static final Map<Integer, GenericType> asynchStreetaccountV1GetFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     asynchStreetaccountV1GetFilesGetResponseTypeMap.put(200, new GenericType<GetfilesResponse>(){});
     asynchStreetaccountV1GetFilesGetResponseTypeMap.put(400, new GenericType<StreetAccountStatus>(){});
   }
+
   private static final Map<Integer, GenericType> asynchStreetaccountV1RequestFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     asynchStreetaccountV1RequestFilesGetResponseTypeMap.put(200, new GenericType<RequestfilesResponse>(){});
     asynchStreetaccountV1RequestFilesGetResponseTypeMap.put(400, new GenericType<StreetAccountStatus>(){});
   }
 
-   
+  
 
 
   /**

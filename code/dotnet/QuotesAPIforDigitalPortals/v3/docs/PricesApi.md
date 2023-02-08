@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**PostPricesTradingScheduleEventList**](PricesApi.md#postpricestradingscheduleeventlist) | **POST** /prices/tradingSchedule/event/list | Sequence of market-related events.
 
 
+
 <a name="getpricesbidaskget"></a>
 # **GetPricesBidAskGet**
 > InlineResponse20084 GetPricesBidAskGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getpricesbidasklist"></a>
 # **GetPricesBidAskList**
@@ -208,6 +210,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getpricesget"></a>
 # **GetPricesGet**
 > InlineResponse20082 GetPricesGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
@@ -304,6 +307,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getpriceslist"></a>
 # **GetPricesList**
@@ -402,6 +406,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getpricesorderbookaggregatedget"></a>
 # **GetPricesOrderbookAggregatedGet**
 > InlineResponse20086 GetPricesOrderbookAggregatedGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
@@ -498,6 +503,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getpricesorderbookfullget"></a>
 # **GetPricesOrderbookFullGet**
@@ -596,6 +602,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getpricestradingscheduleeventtypelist"></a>
 # **GetPricesTradingScheduleEventTypeList**
 > InlineResponse20089 GetPricesTradingScheduleEventTypeList (List<string> attributes = null)
@@ -685,6 +692,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postpricestradingscheduleeventlist"></a>
 # **PostPricesTradingScheduleEventList**
 > InlineResponse20088 PostPricesTradingScheduleEventList (PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = null)
@@ -773,4 +781,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

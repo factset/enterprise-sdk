@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_pa_frequencies**](FrequenciesApi.md#get_pa_frequencies) | **GET** /analytics/engines/pa/v3/frequencies | Get PA frequencies
 
 
+
 # **get_pa_frequencies**
 > FrequencyRoot get_pa_frequencies()
 

@@ -44,6 +44,7 @@ class FactSetFundamentalsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_fds_fundamentals_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -162,6 +163,7 @@ class FactSetFundamentalsApi(object):
             },
             api_client=api_client
         )
+
         self.get_fds_fundamentals_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -219,6 +221,7 @@ class FactSetFundamentalsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -230,6 +233,7 @@ class FactSetFundamentalsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_fds_fundamentals(
         self,
@@ -453,6 +457,7 @@ class FactSetFundamentalsApi(object):
             metrics
         return self.get_fds_fundamentals_endpoint.call_with_http_info(**kwargs)
 
+
     def get_fds_fundamentals_for_list(
         self,
         fundamentals_request,
@@ -638,4 +643,5 @@ class FactSetFundamentalsApi(object):
         kwargs['fundamentals_request'] = \
             fundamentals_request
         return self.get_fds_fundamentals_for_list_endpoint.call_with_http_info(**kwargs)
+
 

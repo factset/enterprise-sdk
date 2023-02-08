@@ -44,6 +44,7 @@ class DefaultApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_result_v1_result_result_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -99,6 +100,7 @@ class DefaultApi(object):
             },
             api_client=api_client
         )
+
         self.post_headline_and_summary_v1_headline_and_summary_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -155,6 +157,7 @@ class DefaultApi(object):
             },
             api_client=api_client
         )
+
         self.post_headline_v1_headline_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -211,6 +214,7 @@ class DefaultApi(object):
             },
             api_client=api_client
         )
+
         self.post_summary_v1_summary_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -268,6 +272,7 @@ class DefaultApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -279,6 +284,7 @@ class DefaultApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_result_v1_result_result_id(
         self,
@@ -466,6 +472,7 @@ class DefaultApi(object):
             result_id
         return self.get_result_v1_result_result_id_endpoint.call_with_http_info(**kwargs)
 
+
     def post_headline_and_summary_v1_headline_and_summary(
         self,
         payload,
@@ -651,6 +658,7 @@ class DefaultApi(object):
         kwargs['payload'] = \
             payload
         return self.post_headline_and_summary_v1_headline_and_summary_endpoint.call_with_http_info(**kwargs)
+
 
     def post_headline_v1_headline(
         self,
@@ -838,6 +846,7 @@ class DefaultApi(object):
             payload
         return self.post_headline_v1_headline_endpoint.call_with_http_info(**kwargs)
 
+
     def post_summary_v1_summary(
         self,
         payload,
@@ -1023,4 +1032,5 @@ class DefaultApi(object):
         kwargs['payload'] = \
             payload
         return self.post_summary_v1_summary_endpoint.call_with_http_info(**kwargs)
+
 

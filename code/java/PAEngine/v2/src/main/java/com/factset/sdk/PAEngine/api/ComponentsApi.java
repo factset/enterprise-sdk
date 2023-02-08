@@ -25,17 +25,18 @@ public class ComponentsApi {
   public ComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPAComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPAComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPAComponentByIdResponseTypeMap.put(200, new GenericType<PAComponent>(){});
   }
+
   private static final Map<Integer, GenericType> getPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPAComponentsResponseTypeMap.put(200, new GenericType<java.util.Map<String, ComponentSummary>>(){});
   }
 
-   
+  
 
 
   /**

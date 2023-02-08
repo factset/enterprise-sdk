@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetPAPricingSources**](PricingSourcesApi.md#getpapricingsources) | **GET** /analytics/engines/pa/v3/pricing-sources | Get PA pricing sources
 
 
+
 <a name="getpapricingsources"></a>
 # **GetPAPricingSources**
 > PAPricingSourceRoot GetPAPricingSources (string name = null, string category = null, string directory = null)
@@ -107,4 +108,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

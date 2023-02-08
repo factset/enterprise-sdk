@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetReportsGet**](RetrieveReportListApi.md#getreportsget) | **GET** /get-reports | Retrieve a list of previously created reports and associated report metadata.
 
 
+
 <a name="getreportsget"></a>
 # **GetReportsGet**
 > GetReportInfo GetReportsGet ()
@@ -93,4 +94,5 @@ This endpoint does not need any parameter.
 | **401** | Missing/invalid Credentials  or authentication failure |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

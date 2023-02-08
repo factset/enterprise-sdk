@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSecuritySharesForList**](SharesApi.md#getsecuritysharesforlist) | **POST** /factset-prices/v1/shares | Requests shares for a list of &#x60;ids&#x60; as of given date range.
 
 
+
 <a name="getsecurityshares"></a>
 # **GetSecurityShares**
 > SharesResponse GetSecurityShares (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string calendar = null, string splitAdjust = null)
@@ -112,6 +113,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsecuritysharesforlist"></a>
 # **GetSecuritySharesForList**
 > SharesResponse GetSecuritySharesForList (SharesRequest sharesRequest)
@@ -205,4 +207,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

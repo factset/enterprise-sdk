@@ -28,8 +28,8 @@ public class ConvertiblesApi {
   public ConvertiblesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getConvertibleDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getConvertibleDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getConvertibleDetailsResponseTypeMap.put(200, new GenericType<ConvertibleDetailsResponse>(){});
     getConvertibleDetailsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class ConvertiblesApi {
     getConvertibleDetailsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getConvertibleDetailsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getConvertibleDetailsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getConvertibleDetailsForListResponseTypeMap.put(200, new GenericType<ConvertibleDetailsResponse>(){});
@@ -47,6 +48,7 @@ public class ConvertiblesApi {
     getConvertibleDetailsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getConvertibleDetailsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getConvertibleHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getConvertibleHistoryResponseTypeMap.put(200, new GenericType<ConvertibleHistoryResponse>(){});
@@ -56,6 +58,7 @@ public class ConvertiblesApi {
     getConvertibleHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getConvertibleHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getConvertibleHistoryForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getConvertibleHistoryForListResponseTypeMap.put(200, new GenericType<ConvertibleHistoryResponse>(){});
@@ -65,6 +68,7 @@ public class ConvertiblesApi {
     getConvertibleHistoryForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getConvertibleHistoryForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getConvertibleTriggersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getConvertibleTriggersResponseTypeMap.put(200, new GenericType<ConvertibleTriggersResponse>(){});
@@ -74,6 +78,7 @@ public class ConvertiblesApi {
     getConvertibleTriggersResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getConvertibleTriggersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getConvertibleTriggersForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getConvertibleTriggersForListResponseTypeMap.put(200, new GenericType<ConvertibleTriggersResponse>(){});
@@ -84,7 +89,7 @@ public class ConvertiblesApi {
     getConvertibleTriggersForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_all_active_jobs**](JobManagementApi.md#get_all_active_jobs) | **GET** /v2/jobs | 
 
 
+
 # **delete_active_job**
 > delete_active_job(id)
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**add_symbols**](AddApi.md#add_symbols) | **POST** /database/{path}/symbols | 
 
 
+
 # **add_dates**
 > SuccessPostResponse add_dates(path, add_dates)
 

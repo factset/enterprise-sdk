@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**post_entity_references**](EntityReferenceApi.md#post_entity_references) | **POST** /factset-entity/v1/entity-references | Returns an entity reference data for a list of ids.
 
 
+
 # **get_entity_references**
 > EntityReferenceResponse get_entity_references(ids)
 

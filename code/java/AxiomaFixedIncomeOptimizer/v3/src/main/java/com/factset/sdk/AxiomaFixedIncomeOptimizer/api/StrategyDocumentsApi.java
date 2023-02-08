@@ -25,15 +25,15 @@ public class StrategyDocumentsApi {
   public StrategyDocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getAxiomaFIStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getAxiomaFIStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAxiomaFIStrategyDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectoriesRoot>(){});
     getAxiomaFIStrategyDocumentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getAxiomaFIStrategyDocumentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

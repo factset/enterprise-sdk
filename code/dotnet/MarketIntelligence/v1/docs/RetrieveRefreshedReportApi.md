@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetDataReportIdGet**](RetrieveRefreshedReportApi.md#getdatareportidget) | **GET** /get-data/{report_id} | Retrieve data for desired report.
 
 
+
 <a name="getdatareportidget"></a>
 # **GetDataReportIdGet**
 > FetchReportPollID GetDataReportIdGet (string reportId)
@@ -99,4 +100,5 @@ Name | Type | Description  | Notes
 | **503** | Unrecognized report_id |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_all_fi_discount_curves**](DiscountCurvesApi.md#get_all_fi_discount_curves) | **GET** /analytics/engines/fi/v3/discount-curves | Get Discount Curves
 
 
+
 # **get_all_fi_discount_curves**
 > FIDiscountCurveInfoRoot get_all_fi_discount_curves()
 

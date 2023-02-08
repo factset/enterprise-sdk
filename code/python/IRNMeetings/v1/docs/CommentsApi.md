@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**patch_comment**](CommentsApi.md#patch_comment) | **PATCH** /v1/meetings/{meetingId}/comments/{commentId} | Edit a comment for a meeting
 
 
+
 # **create_comment**
 > NewItemDto create_comment(meeting_id)
 

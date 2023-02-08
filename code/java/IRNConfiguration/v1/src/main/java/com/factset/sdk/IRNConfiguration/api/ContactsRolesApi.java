@@ -26,21 +26,24 @@ public class ContactsRolesApi {
   public ContactsRolesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createContactRoleResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createContactRoleResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createContactRoleResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createContactRoleResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createContactRoleResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteContactRoleResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getContactRolesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getContactRolesResponseTypeMap.put(200, new GenericType<java.util.List<ContactRoleDto>>(){});
   }
+
   private static final Map<Integer, GenericType> updateContactRoleResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

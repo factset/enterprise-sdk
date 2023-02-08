@@ -26,21 +26,24 @@ public class ContactsPhoneNumberTypesApi {
   public ContactsPhoneNumberTypesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createPhoneNumberTypeResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createPhoneNumberTypeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createPhoneNumberTypeResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createPhoneNumberTypeResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createPhoneNumberTypeResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deletePhoneNumberTypeResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getPhoneNumberTypesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPhoneNumberTypesResponseTypeMap.put(200, new GenericType<java.util.List<PhoneNumberTypeDto>>(){});
   }
+
   private static final Map<Integer, GenericType> updatePhoneNumberTypeResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

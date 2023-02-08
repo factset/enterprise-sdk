@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**run_fiab_calculation**](FIABCalculationsApi.md#run_fiab_calculation) | **POST** /analytics/engines/fiab/v1/calculations | Run FIAB calculation
 
 
+
 # **get_fiab_calculation_by_id**
 > FIABCalculationStatus get_fiab_calculation_by_id(id)
 

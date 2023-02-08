@@ -23,13 +23,13 @@ public class CargoApi {
   public CargoApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCargoEndpointResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCargoEndpointResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCargoEndpointResponseTypeMap.put(200, new GenericType<java.util.List<String>>(){});
   }
 
-   
+  
 
 
   /**

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**TranslateIsin**](ISINApi.md#translateisin) | **GET** /symbology/v2/isin | Translate market security symbols into ISIN. - Current Only
 
 
+
 <a name="batchisinhistory"></a>
 # **BatchIsinHistory**
 > IsinHistoryTranslationResponse BatchIsinHistory (IsinHistoryTranslationRequest isinHistoryTranslationRequest)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="batchtranslateisin"></a>
 # **BatchTranslateIsin**
 > IsinTranslationResponse BatchTranslateIsin (IsinTranslationRequest isinTranslationRequest)
@@ -197,6 +199,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="isinhistory"></a>
 # **IsinHistory**
@@ -294,6 +297,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="translateisin"></a>
 # **TranslateIsin**
 > IsinTranslationResponse TranslateIsin (List<string> ids)
@@ -387,4 +391,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

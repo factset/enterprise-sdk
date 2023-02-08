@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_docs_distributor_audio_v1_list_files**](EventsAudioApi.md#get_docs_distributor_audio_v1_list_files) | **GET** /docs-distributor/audio/v1/list-files | Retrieve latest audio recordings and related metadata within FactSet coverage.
 
 
+
 # **get_docs_distributor_audio_v1_history_files**
 > EventsAudioHistory get_docs_distributor_audio_v1_history_files()
 

@@ -25,8 +25,8 @@ public class FinancialsApi {
   public FinancialsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFinancialsBalanceSheetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFinancialsBalanceSheetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFinancialsBalanceSheetResponseTypeMap.put(200, new GenericType<Response>(){});
     getFinancialsBalanceSheetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -34,6 +34,7 @@ public class FinancialsApi {
     getFinancialsBalanceSheetResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getFinancialsBalanceSheetResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFinancialsCashFlowResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFinancialsCashFlowResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -42,6 +43,7 @@ public class FinancialsApi {
     getFinancialsCashFlowResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getFinancialsCashFlowResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFinancialsIncomeStatementResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFinancialsIncomeStatementResponseTypeMap.put(200, new GenericType<Response>(){});
@@ -51,7 +53,7 @@ public class FinancialsApi {
     getFinancialsIncomeStatementResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

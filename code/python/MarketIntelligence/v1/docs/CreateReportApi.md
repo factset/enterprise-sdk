@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_post**](CreateReportApi.md#create_post) | **POST** /create | Create new report templates including portfolio or market news and data.
 
 
+
 # **create_post**
 > PostResponseInfo create_post(miapi_post_request)
 

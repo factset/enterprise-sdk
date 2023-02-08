@@ -38,6 +38,7 @@ Method | HTTP request | Description
 [**PostBasicValueUnitList**](BasicApi.md#postbasicvalueunitlist) | **POST** /basic/valueUnit/list | List of value units.
 
 
+
 <a name="getbasicassetclasslist"></a>
 # **GetBasicAssetClassList**
 > InlineResponse200 GetBasicAssetClassList (List<string> attributes = null)
@@ -126,6 +127,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbasicbenchmarktypelist"></a>
 # **GetBasicBenchmarkTypeList**
@@ -218,6 +220,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasicfrequencytypelist"></a>
 # **GetBasicFrequencyTypeList**
 > InlineResponse2004 GetBasicFrequencyTypeList (List<string> attributes = null, string language = null)
@@ -308,6 +311,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbasiclanguageget"></a>
 # **GetBasicLanguageGet**
@@ -402,6 +406,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasiclanguagegetbycode"></a>
 # **GetBasicLanguageGetByCode**
 > InlineResponse2006 GetBasicLanguageGetByCode (string code, List<string> attributes = null, string language = null)
@@ -494,6 +499,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbasiclanguagelist"></a>
 # **GetBasicLanguageList**
@@ -588,6 +594,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasicmarketget"></a>
 # **GetBasicMarketGet**
 > InlineResponse2008 GetBasicMarketGet (decimal id, List<string> attributes = null, string language = null)
@@ -680,6 +687,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbasicmarketgrouplist"></a>
 # **GetBasicMarketGroupList**
@@ -774,6 +782,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasicmarkettypelist"></a>
 # **GetBasicMarketTypeList**
 > InlineResponse20011 GetBasicMarketTypeList (List<string> attributes = null, string language = null, List<string> sort = null)
@@ -867,6 +876,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasicmediakindlist"></a>
 # **GetBasicMediaKindList**
 > InlineResponse20012 GetBasicMediaKindList (List<string> attributes = null)
@@ -955,6 +965,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbasicregioncontinentget"></a>
 # **GetBasicRegionContinentGet**
@@ -1049,6 +1060,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasicregioncontinentlist"></a>
 # **GetBasicRegionContinentList**
 > InlineResponse20018 GetBasicRegionContinentList (List<string> attributes = null, string language = null, List<string> sort = null)
@@ -1141,6 +1153,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbasicregioncountryget"></a>
 # **GetBasicRegionCountryGet**
@@ -1235,6 +1248,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasicregioncountrygetbycode"></a>
 # **GetBasicRegionCountryGetByCode**
 > InlineResponse20020 GetBasicRegionCountryGetByCode (string code, List<string> attributes = null, string language = null)
@@ -1327,6 +1341,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbasicregioncountrylist"></a>
 # **GetBasicRegionCountryList**
@@ -1421,6 +1436,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasicregionget"></a>
 # **GetBasicRegionGet**
 > InlineResponse20015 GetBasicRegionGet (decimal id, List<string> attributes = null, string language = null)
@@ -1513,6 +1529,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbasicregionlist"></a>
 # **GetBasicRegionList**
@@ -1607,6 +1624,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasictimezoneget"></a>
 # **GetBasicTimezoneGet**
 > InlineResponse20022 GetBasicTimezoneGet (decimal id, List<string> attributes = null)
@@ -1698,6 +1716,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasictimezonegetbyname"></a>
 # **GetBasicTimezoneGetByName**
 > InlineResponse20022 GetBasicTimezoneGetByName (string name, List<string> attributes = null)
@@ -1788,6 +1807,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbasicvalueunitalternativelist"></a>
 # **GetBasicValueUnitAlternativeList**
@@ -1882,6 +1902,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasicvalueunitcurrencyfractionalget"></a>
 # **GetBasicValueUnitCurrencyFractionalGet**
 > InlineResponse20028 GetBasicValueUnitCurrencyFractionalGet (decimal id, List<string> attributes = null, string language = null)
@@ -1974,6 +1995,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbasicvalueunitcurrencyfractionallist"></a>
 # **GetBasicValueUnitCurrencyFractionalList**
@@ -2068,6 +2090,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbasicvalueunitget"></a>
 # **GetBasicValueUnitGet**
 > InlineResponse20024 GetBasicValueUnitGet (decimal id, List<string> attributes = null, string language = null)
@@ -2161,6 +2184,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postbasicbackgroundtexttypelist"></a>
 # **PostBasicBackgroundTextTypeList**
 > InlineResponse2001 PostBasicBackgroundTextTypeList (PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = null)
@@ -2249,6 +2273,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postbasicdeliverylist"></a>
 # **PostBasicDeliveryList**
@@ -2339,6 +2364,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postbasicmarketlist"></a>
 # **PostBasicMarketList**
 > InlineResponse2009 PostBasicMarketList (PostBasicMarketListRequest postBasicMarketListRequest = null)
@@ -2427,6 +2453,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postbasicmediatypelist"></a>
 # **PostBasicMediaTypeList**
@@ -2517,6 +2544,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postbasicmicoperatinglist"></a>
 # **PostBasicMicOperatingList**
 > InlineResponse20014 PostBasicMicOperatingList (PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = null)
@@ -2605,6 +2633,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postbasictimezonelist"></a>
 # **PostBasicTimezoneList**
@@ -2695,6 +2724,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postbasicvalueunitcurrencylist"></a>
 # **PostBasicValueUnitCurrencyList**
 > InlineResponse20027 PostBasicValueUnitCurrencyList (PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = null)
@@ -2783,6 +2813,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postbasicvalueunitcurrencymainlist"></a>
 # **PostBasicValueUnitCurrencyMainList**
@@ -2873,6 +2904,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postbasicvalueunitlist"></a>
 # **PostBasicValueUnitList**
 > InlineResponse20025 PostBasicValueUnitList (PostBasicValueUnitListRequest postBasicValueUnitListRequest = null)
@@ -2961,4 +2993,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

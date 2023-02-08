@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_entity_reference_chi_for_list**](EntityReferenceChineseApi.md#get_entity_reference_chi_for_list) | **POST** /factset-entity/v1/entity-reference-chi | Returns entity reference data in Chinese for an individual entity.
 
 
+
 # **get_entity_reference_chi**
 > EntityReferenceChiResponse get_entity_reference_chi(ids)
 

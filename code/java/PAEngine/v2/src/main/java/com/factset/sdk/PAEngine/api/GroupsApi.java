@@ -24,13 +24,13 @@ public class GroupsApi {
   public GroupsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPAGroupsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPAGroupsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPAGroupsResponseTypeMap.put(200, new GenericType<java.util.Map<String, Group>>(){});
   }
 
-   
+  
 
 
   /**

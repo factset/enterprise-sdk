@@ -45,6 +45,7 @@ class BrokerDetailApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_fixed_detail_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -175,6 +176,7 @@ class BrokerDetailApi(object):
             },
             api_client=api_client
         )
+
         self.get_fixed_detail_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -231,6 +233,7 @@ class BrokerDetailApi(object):
             },
             api_client=api_client
         )
+
         self.get_rolling_detail_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -361,6 +364,7 @@ class BrokerDetailApi(object):
             },
             api_client=api_client
         )
+
         self.get_rolling_detail_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -418,6 +422,7 @@ class BrokerDetailApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -429,6 +434,7 @@ class BrokerDetailApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_fixed_detail(
         self,
@@ -664,6 +670,7 @@ class BrokerDetailApi(object):
             metrics
         return self.get_fixed_detail_endpoint.call_with_http_info(**kwargs)
 
+
     def get_fixed_detail_for_list(
         self,
         fixed_detail_request,
@@ -849,6 +856,7 @@ class BrokerDetailApi(object):
         kwargs['fixed_detail_request'] = \
             fixed_detail_request
         return self.get_fixed_detail_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_rolling_detail(
         self,
@@ -1084,6 +1092,7 @@ class BrokerDetailApi(object):
             metrics
         return self.get_rolling_detail_endpoint.call_with_http_info(**kwargs)
 
+
     def get_rolling_detail_for_list(
         self,
         rolling_detail_request,
@@ -1269,4 +1278,5 @@ class BrokerDetailApi(object):
         kwargs['rolling_detail_request'] = \
             rolling_detail_request
         return self.get_rolling_detail_for_list_endpoint.call_with_http_info(**kwargs)
+
 

@@ -51,6 +51,7 @@ pip install fds.sdk.utils fds.sdk.FactSetIntradayTickHistory
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetIntradayTickHistory
 from fds.sdk.FactSetIntradayTickHistory.api import first_trade_api
 from fds.sdk.FactSetIntradayTickHistory.models import *

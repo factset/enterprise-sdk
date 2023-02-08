@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.Vault
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.Vault
 from fds.sdk.Vault.api import components_api
 from fds.sdk.Vault.models import *

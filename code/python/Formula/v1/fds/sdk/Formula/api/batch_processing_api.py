@@ -150,6 +150,7 @@ class BatchProcessingApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_batch_data_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -205,6 +206,7 @@ class BatchProcessingApi(object):
             },
             api_client=api_client
         )
+
         self.get_batch_data_with_post_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -261,6 +263,7 @@ class BatchProcessingApi(object):
             },
             api_client=api_client
         )
+
         self.get_batch_status_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -316,6 +319,7 @@ class BatchProcessingApi(object):
             },
             api_client=api_client
         )
+
         self.get_batch_status_with_post_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -373,6 +377,7 @@ class BatchProcessingApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -384,6 +389,7 @@ class BatchProcessingApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_batch_data(
         self,
@@ -571,6 +577,7 @@ class BatchProcessingApi(object):
             id
         return self.get_batch_data_endpoint.call_with_http_info(**kwargs)
 
+
     def get_batch_data_with_post(
         self,
         batch_data_request,
@@ -756,6 +763,7 @@ class BatchProcessingApi(object):
         kwargs['batch_data_request'] = \
             batch_data_request
         return self.get_batch_data_with_post_endpoint.call_with_http_info(**kwargs)
+
 
     def get_batch_status(
         self,
@@ -943,6 +951,7 @@ class BatchProcessingApi(object):
             id
         return self.get_batch_status_endpoint.call_with_http_info(**kwargs)
 
+
     def get_batch_status_with_post(
         self,
         batch_data_request,
@@ -1128,4 +1137,5 @@ class BatchProcessingApi(object):
         kwargs['batch_data_request'] = \
             batch_data_request
         return self.get_batch_status_with_post_endpoint.call_with_http_info(**kwargs)
+
 

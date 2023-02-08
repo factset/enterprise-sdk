@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**asynch_news_v1_request_files_get**](NewsAPIApi.md#asynch_news_v1_request_files_get) | **GET** /asynch/news/v1/request-files | Returns the jobID
 
 
+
 # **asynch_news_v1_check_status_get**
 > NewscheckstatusResponse asynch_news_v1_check_status_get(job_id, source)
 

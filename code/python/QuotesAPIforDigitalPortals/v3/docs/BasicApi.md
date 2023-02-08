@@ -38,6 +38,7 @@ Method | HTTP request | Description
 [**post_basic_value_unit_list**](BasicApi.md#post_basic_value_unit_list) | **POST** /basic/valueUnit/list | List of value units.
 
 
+
 # **get_basic_asset_class_list**
 > InlineResponse200 get_basic_asset_class_list()
 

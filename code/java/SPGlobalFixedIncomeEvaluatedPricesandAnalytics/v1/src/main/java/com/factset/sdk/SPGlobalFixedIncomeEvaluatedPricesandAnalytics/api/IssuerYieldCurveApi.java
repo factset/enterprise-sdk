@@ -26,8 +26,8 @@ public class IssuerYieldCurveApi {
   public IssuerYieldCurveApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBondIssuerYieldCurveResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBondIssuerYieldCurveResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondIssuerYieldCurveResponseTypeMap.put(200, new GenericType<BondIssuerYieldCurveResponse>(){});
     getBondIssuerYieldCurveResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class IssuerYieldCurveApi {
     getBondIssuerYieldCurveResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBondIssuerYieldCurveResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getBondIssuerYieldCurveForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondIssuerYieldCurveForListResponseTypeMap.put(200, new GenericType<BondIssuerYieldCurveResponse>(){});
@@ -46,7 +47,7 @@ public class IssuerYieldCurveApi {
     getBondIssuerYieldCurveForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

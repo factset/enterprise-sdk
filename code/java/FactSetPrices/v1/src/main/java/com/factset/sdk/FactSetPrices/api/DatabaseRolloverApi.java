@@ -25,8 +25,8 @@ public class DatabaseRolloverApi {
   public DatabaseRolloverApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getDatabaseRolloverResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getDatabaseRolloverResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDatabaseRolloverResponseTypeMap.put(200, new GenericType<RolloverResponse>(){});
     getDatabaseRolloverResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -35,6 +35,7 @@ public class DatabaseRolloverApi {
     getDatabaseRolloverResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getDatabaseRolloverResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getDatabaseRolloverForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDatabaseRolloverForListResponseTypeMap.put(200, new GenericType<RolloverResponse>(){});
@@ -45,7 +46,7 @@ public class DatabaseRolloverApi {
     getDatabaseRolloverForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

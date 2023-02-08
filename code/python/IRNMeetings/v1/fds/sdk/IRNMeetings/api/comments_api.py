@@ -47,6 +47,7 @@ class CommentsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_comment_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -111,6 +112,7 @@ class CommentsApi(object):
             },
             api_client=api_client
         )
+
         self.create_comment_attachment_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -180,6 +182,7 @@ class CommentsApi(object):
             },
             api_client=api_client
         )
+
         self.delete_comment_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -238,6 +241,7 @@ class CommentsApi(object):
             },
             api_client=api_client
         )
+
         self.download_comment_attachment_for_comment_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -302,6 +306,7 @@ class CommentsApi(object):
             },
             api_client=api_client
         )
+
         self.get_comment_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -363,6 +368,7 @@ class CommentsApi(object):
             },
             api_client=api_client
         )
+
         self.get_comment_attachments_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -424,6 +430,7 @@ class CommentsApi(object):
             },
             api_client=api_client
         )
+
         self.get_comments_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -479,6 +486,7 @@ class CommentsApi(object):
             },
             api_client=api_client
         )
+
         self.patch_comment_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -547,6 +555,7 @@ class CommentsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -558,6 +567,7 @@ class CommentsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_comment(
         self,
@@ -744,6 +754,7 @@ class CommentsApi(object):
         kwargs['meeting_id'] = \
             meeting_id
         return self.create_comment_endpoint.call_with_http_info(**kwargs)
+
 
     def create_comment_attachment(
         self,
@@ -959,6 +970,7 @@ class CommentsApi(object):
             file
         return self.create_comment_attachment_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_comment(
         self,
         meeting_id,
@@ -1156,6 +1168,7 @@ class CommentsApi(object):
         kwargs['comment_id'] = \
             comment_id
         return self.delete_comment_endpoint.call_with_http_info(**kwargs)
+
 
     def download_comment_attachment_for_comment(
         self,
@@ -1371,6 +1384,7 @@ class CommentsApi(object):
             attachment_id
         return self.download_comment_attachment_for_comment_endpoint.call_with_http_info(**kwargs)
 
+
     def get_comment(
         self,
         meeting_id,
@@ -1568,6 +1582,7 @@ class CommentsApi(object):
         kwargs['comment_id'] = \
             comment_id
         return self.get_comment_endpoint.call_with_http_info(**kwargs)
+
 
     def get_comment_attachments(
         self,
@@ -1767,6 +1782,7 @@ class CommentsApi(object):
             comment_id
         return self.get_comment_attachments_endpoint.call_with_http_info(**kwargs)
 
+
     def get_comments(
         self,
         meeting_id,
@@ -1948,6 +1964,7 @@ class CommentsApi(object):
         kwargs['meeting_id'] = \
             meeting_id
         return self.get_comments_endpoint.call_with_http_info(**kwargs)
+
 
     def patch_comment(
         self,
@@ -2150,4 +2167,5 @@ class CommentsApi(object):
         kwargs['comment_id'] = \
             comment_id
         return self.patch_comment_endpoint.call_with_http_info(**kwargs)
+
 

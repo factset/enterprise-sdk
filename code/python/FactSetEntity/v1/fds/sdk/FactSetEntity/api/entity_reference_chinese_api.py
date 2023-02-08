@@ -44,6 +44,7 @@ class EntityReferenceChineseApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_entity_reference_chi_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -106,6 +107,7 @@ class EntityReferenceChineseApi(object):
             },
             api_client=api_client
         )
+
         self.get_entity_reference_chi_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -163,6 +165,7 @@ class EntityReferenceChineseApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -174,6 +177,7 @@ class EntityReferenceChineseApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_entity_reference_chi(
         self,
@@ -361,6 +365,7 @@ class EntityReferenceChineseApi(object):
             ids
         return self.get_entity_reference_chi_endpoint.call_with_http_info(**kwargs)
 
+
     def get_entity_reference_chi_for_list(
         self,
         entity_reference_chi_request,
@@ -546,4 +551,5 @@ class EntityReferenceChineseApi(object):
         kwargs['entity_reference_chi_request'] = \
             entity_reference_chi_request
         return self.get_entity_reference_chi_for_list_endpoint.call_with_http_info(**kwargs)
+
 

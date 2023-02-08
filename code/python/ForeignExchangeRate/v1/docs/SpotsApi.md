@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_spots_for_list**](SpotsApi.md#get_spots_for_list) | **POST** /foreign-exchange/v1/spots | Gets spots for a list of currency pairs
 
 
+
 # **get_spots**
 > SpotsResponse get_spots(ids)
 

@@ -25,17 +25,18 @@ public class ComponentsApi {
   public ComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getVaultComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getVaultComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getVaultComponentByIdResponseTypeMap.put(200, new GenericType<VaultComponent>(){});
   }
+
   private static final Map<Integer, GenericType> getVaultComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getVaultComponentsResponseTypeMap.put(200, new GenericType<java.util.Map<String, ComponentSummary>>(){});
   }
 
-   
+  
 
 
   /**

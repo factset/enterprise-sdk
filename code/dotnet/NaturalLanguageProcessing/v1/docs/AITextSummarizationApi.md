@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**SummarizationSummary**](AITextSummarizationApi.md#summarizationsummary) | **POST** /summarization/summary | Endpoint to summarize text
 
 
+
 <a name="summarizationheadline"></a>
 # **SummarizationHeadline**
 > SummarizationResultID SummarizationHeadline (SummarizationRequest summarizationRequest = null)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="summarizationheadlineandsummary"></a>
 # **SummarizationHeadlineAndSummary**
 > SummarizationResultID SummarizationHeadlineAndSummary (SummarizationRequest summarizationRequest = null)
@@ -193,6 +195,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="summarizationresult"></a>
 # **SummarizationResult**
@@ -287,6 +290,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="summarizationsummary"></a>
 # **SummarizationSummary**
 > SummarizationResultID SummarizationSummary (SummarizationRequest summarizationRequest = null)
@@ -378,4 +382,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

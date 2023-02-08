@@ -26,8 +26,8 @@ public class SegmentsApi {
   public SegmentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSegmentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSegmentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSegmentsResponseTypeMap.put(200, new GenericType<SegmentsResponse>(){});
     getSegmentsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class SegmentsApi {
     getSegmentsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSegmentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSegmentsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSegmentsForListResponseTypeMap.put(200, new GenericType<SegmentsResponse>(){});
@@ -46,7 +47,7 @@ public class SegmentsApi {
     getSegmentsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

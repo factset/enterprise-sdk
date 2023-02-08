@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_bond_yield_for_list**](YieldApi.md#get_bond_yield_for_list) | **POST** /markit-bond-prices-and-analytics/v1/yield | Request yield information for given date range and list of securities
 
 
+
 # **get_bond_yield**
 > BondYieldResponse get_bond_yield(ids)
 

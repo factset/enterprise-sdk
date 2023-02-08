@@ -96,7 +96,8 @@ namespace FactSet.SDK.IRNNotes.Api
         private FactSet.SDK.IRNNotes.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetIdentifiersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetIdentifiersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<Object>) },
             { (HttpStatusCode)400, typeof(ProblemDetails) },
@@ -105,7 +106,7 @@ namespace FactSet.SDK.IRNNotes.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

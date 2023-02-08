@@ -44,6 +44,7 @@ class RedemptionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_fixed_income_redemption_prices_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -120,6 +121,7 @@ class RedemptionsApi(object):
             },
             api_client=api_client
         )
+
         self.get_fixed_income_redemption_prices_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -177,6 +179,7 @@ class RedemptionsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -188,6 +191,7 @@ class RedemptionsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_fixed_income_redemption_prices(
         self,
@@ -391,6 +395,7 @@ class RedemptionsApi(object):
             categories
         return self.get_fixed_income_redemption_prices_endpoint.call_with_http_info(**kwargs)
 
+
     def get_fixed_income_redemption_prices_for_list(
         self,
         redemption_prices_request,
@@ -576,4 +581,5 @@ class RedemptionsApi(object):
         kwargs['redemption_prices_request'] = \
             redemption_prices_request
         return self.get_fixed_income_redemption_prices_for_list_endpoint.call_with_http_info(**kwargs)
+
 

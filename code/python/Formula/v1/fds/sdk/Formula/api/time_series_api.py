@@ -150,6 +150,7 @@ class TimeSeriesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_time_series_data_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -295,6 +296,7 @@ class TimeSeriesApi(object):
             },
             api_client=api_client
         )
+
         self.get_time_series_data_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -352,6 +354,7 @@ class TimeSeriesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -363,6 +366,7 @@ class TimeSeriesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_time_series_data(
         self,
@@ -590,6 +594,7 @@ class TimeSeriesApi(object):
             formulas
         return self.get_time_series_data_endpoint.call_with_http_info(**kwargs)
 
+
     def get_time_series_data_for_list(
         self,
         time_series_request,
@@ -775,4 +780,5 @@ class TimeSeriesApi(object):
         kwargs['time_series_request'] = \
             time_series_request
         return self.get_time_series_data_for_list_endpoint.call_with_http_info(**kwargs)
+
 

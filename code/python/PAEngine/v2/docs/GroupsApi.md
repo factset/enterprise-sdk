@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_pa_groups**](GroupsApi.md#get_pa_groups) | **GET** /analytics/lookups/v2/engines/pa/groups | Get PA groups
 
 
+
 # **get_pa_groups**
 > {str: (Group,)} get_pa_groups()
 

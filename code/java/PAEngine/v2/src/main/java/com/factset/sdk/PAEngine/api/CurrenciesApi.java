@@ -24,13 +24,13 @@ public class CurrenciesApi {
   public CurrenciesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPACurrenciesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPACurrenciesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPACurrenciesResponseTypeMap.put(200, new GenericType<java.util.Map<String, Currency>>(){});
   }
 
-   
+  
 
 
   /**

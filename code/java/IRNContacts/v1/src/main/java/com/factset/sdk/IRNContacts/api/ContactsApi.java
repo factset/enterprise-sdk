@@ -32,51 +32,59 @@ public class ContactsApi {
   public ContactsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createContactResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createContactResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createContactResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createContactResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createContactResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteContactResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getContactResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getContactResponseTypeMap.put(200, new GenericType<ContactDto>(){});
     getContactResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getContactResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getContactEventsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getContactEventsResponseTypeMap.put(200, new GenericType<java.util.List<ContactEventDto>>(){});
     getContactEventsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getContactEventsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getContactNotesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getContactNotesResponseTypeMap.put(200, new GenericType<String>(){});
     getContactNotesResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getContactNotesResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getContactRecordsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getContactRecordsResponseTypeMap.put(200, new GenericType<java.util.List<RecordPreviewDto>>(){});
     getContactRecordsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getContactRecordsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getContactRelationshipsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getContactRelationshipsResponseTypeMap.put(200, new GenericType<java.util.List<ContactRelationshipDto>>(){});
     getContactRelationshipsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getContactRelationshipsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getContactsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getContactsResponseTypeMap.put(200, new GenericType<java.util.List<ContactSummaryDto>>(){});
   }
+
   private static final Map<Integer, GenericType> patchContactResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

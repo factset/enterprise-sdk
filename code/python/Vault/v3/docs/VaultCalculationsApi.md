@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**put_and_calculate**](VaultCalculationsApi.md#put_and_calculate) | **PUT** /analytics/engines/vault/v3/calculations/{id} | Create or Update Vault calculation and run it.
 
 
+
 # **cancel_calculation_by_id**
 > cancel_calculation_by_id(id)
 

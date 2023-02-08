@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_pa_pricing_sources**](PricingSourcesApi.md#get_pa_pricing_sources) | **GET** /analytics/engines/pa/v3/pricing-sources | Get PA pricing sources
 
 
+
 # **get_pa_pricing_sources**
 > PAPricingSourceRoot get_pa_pricing_sources()
 

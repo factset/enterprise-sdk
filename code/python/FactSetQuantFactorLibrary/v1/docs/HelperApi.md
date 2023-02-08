@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_factor_library_list**](HelperApi.md#get_factor_library_list) | **POST** /factset-quant-factor-library/v1/library | Retrieves a list of all available factors with relevant meta data.
 
 
+
 # **get_factor_library**
 > LibraryResponse get_factor_library()
 

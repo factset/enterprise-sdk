@@ -46,6 +46,7 @@ yarn add @factset/sdk-utils @factset/sdk-openrisk
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, AboutApi } = require('@factset/sdk-openrisk');
 const { ConfidentialClient } = require('@factset/sdk-utils');

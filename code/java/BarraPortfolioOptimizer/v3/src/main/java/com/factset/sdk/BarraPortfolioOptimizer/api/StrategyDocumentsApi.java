@@ -25,15 +25,15 @@ public class StrategyDocumentsApi {
   public StrategyDocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBarraStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBarraStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBarraStrategyDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectoriesRoot>(){});
     getBarraStrategyDocumentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getBarraStrategyDocumentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

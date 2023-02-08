@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_fi_benchmark_constituents_for_list**](BenchmarkConstituentsApi.md#get_fi_benchmark_constituents_for_list) | **POST** /factset-benchmarks/v1/fixed-income-constituents | Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
 
 
+
 # **get_benchmark_constituents**
 > BenchmarkConstituentsResponse get_benchmark_constituents(ids)
 

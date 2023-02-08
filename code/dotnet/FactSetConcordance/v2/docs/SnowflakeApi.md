@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetSnowflakeEntityMatchForList**](SnowflakeApi.md#getsnowflakeentitymatchforlist) | **POST** /factset-concordance/v2/snowflake-entity-match | Perform an entity search and return a snowflake-friendly response. Up to 25 Names per request.
 
 
+
 <a name="getsnowflakeentitymatchforlist"></a>
 # **GetSnowflakeEntityMatchForList**
 > SnowflakeEntityMatchResponse GetSnowflakeEntityMatchForList (SnowflakeEntityMatchRequest snowflakeEntityMatchRequest)
@@ -95,4 +96,5 @@ Name | Type | Description  | Notes
 | **200** | Response object for the entity-match object in a snowflake friendly response model. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

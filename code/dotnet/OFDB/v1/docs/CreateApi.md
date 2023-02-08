@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**CreateDatabase**](CreateApi.md#createdatabase) | **POST** /v1/database/ | 
 
 
+
 <a name="addsymboldate"></a>
 # **AddSymbolDate**
 > SuccessPostResponse AddSymbolDate (string path, AddSymbolDate addSymbolDate)
@@ -107,6 +108,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="addsymboldate3d"></a>
 # **AddSymbolDate3D**
@@ -207,6 +209,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="addsymbols"></a>
 # **AddSymbols**
 > SuccessPostResponse AddSymbols (string path, AddSymbols addSymbols)
@@ -305,6 +308,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="createdatabase"></a>
 # **CreateDatabase**
 > AddDatabase CreateDatabase (DatabaseSchema databaseSchema = null)
@@ -399,4 +403,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

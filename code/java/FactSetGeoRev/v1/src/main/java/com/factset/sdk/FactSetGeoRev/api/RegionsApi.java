@@ -26,8 +26,8 @@ public class RegionsApi {
   public RegionsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getRegionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getRegionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRegionsResponseTypeMap.put(200, new GenericType<RegionResponse>(){});
     getRegionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class RegionsApi {
     getRegionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getRegionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getRegionsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRegionsForListResponseTypeMap.put(200, new GenericType<RegionResponse>(){});
@@ -46,7 +47,7 @@ public class RegionsApi {
     getRegionsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

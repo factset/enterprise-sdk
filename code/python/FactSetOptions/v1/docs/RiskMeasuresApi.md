@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_options_volatility_for_list**](RiskMeasuresApi.md#get_options_volatility_for_list) | **POST** /factset-options/v1/implied-volatility | Returns the implied volatility information for the specified option identifier
 
 
+
 # **get_options_atm_implied_volatility_for_list**
 > AtmImpliedVolatilityResponse get_options_atm_implied_volatility_for_list(atm_implied_volatility_request)
 

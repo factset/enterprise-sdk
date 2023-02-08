@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_spar3_documents**](DocumentsApi.md#get_spar3_documents) | **GET** /analytics/engines/spar/v3/documents/{path} | Gets SPAR3 documents and sub-directories in a directory
 
 
+
 # **get_spar3_documents**
 > DocumentDirectoriesRoot get_spar3_documents()
 

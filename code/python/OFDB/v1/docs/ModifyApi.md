@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**update_symbols**](ModifyApi.md#update_symbols) | **PUT** /v1/database/{path}/symbols/{symbol} | 
 
 
+
 # **delete_dates**
 > InlineResponse202 delete_dates(path, date)
 

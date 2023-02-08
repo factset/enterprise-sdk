@@ -26,8 +26,8 @@ public class EntityFocusApi {
   public EntityFocusApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getRbicsEntityFocusResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getRbicsEntityFocusResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRbicsEntityFocusResponseTypeMap.put(200, new GenericType<EntityFocusResponse>(){});
     getRbicsEntityFocusResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,12 +36,13 @@ public class EntityFocusApi {
     getRbicsEntityFocusResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getRbicsEntityFocusResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getRbicsEntityFocusForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRbicsEntityFocusForListResponseTypeMap.put(200, new GenericType<EntityFocusResponse>(){});
   }
 
-   
+  
 
 
   /**

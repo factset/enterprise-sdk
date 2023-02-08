@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**post_ultimate_entity_structure**](EntityStructureApi.md#post_ultimate_entity_structure) | **POST** /factset-entity/v1/ultimate-entity-structures | Returns all active or inactive entities and respective levels below the requested entity id.
 
 
+
 # **get_entity_structure**
 > EntityStructureResponse get_entity_structure(ids)
 

@@ -325,7 +325,8 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
         private FactSet.SDK.ProcuretoPayAPISCIM.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> UsersGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> UsersGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UserResourceList) },
             { (HttpStatusCode)400, typeof(Error) },
@@ -333,9 +334,11 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
             { (HttpStatusCode)403, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> UsersIdDeleteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> UsersIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UserResource) },
@@ -344,6 +347,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
             { (HttpStatusCode)404, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> UsersIdPatchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UserResource) },
@@ -352,6 +356,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
             { (HttpStatusCode)403, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> UsersIdPutResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(UserResource) },
@@ -361,6 +366,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
             { (HttpStatusCode)404, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> UsersPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(UserResource) },
@@ -373,7 +379,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

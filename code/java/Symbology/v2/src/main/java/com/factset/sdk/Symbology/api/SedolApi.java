@@ -28,8 +28,8 @@ public class SedolApi {
   public SedolApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> batchSedolHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> batchSedolHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchSedolHistoryResponseTypeMap.put(200, new GenericType<SedolHistoryTranslationResponse>(){});
     batchSedolHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class SedolApi {
     batchSedolHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchSedolHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> batchTranslateSedolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchTranslateSedolResponseTypeMap.put(200, new GenericType<SedolTranslationResponse>(){});
@@ -47,6 +48,7 @@ public class SedolApi {
     batchTranslateSedolResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchTranslateSedolResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> sedolHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     sedolHistoryResponseTypeMap.put(200, new GenericType<SedolHistoryTranslationResponse>(){});
@@ -56,6 +58,7 @@ public class SedolApi {
     sedolHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     sedolHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> translateSedolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     translateSedolResponseTypeMap.put(200, new GenericType<SedolTranslationResponse>(){});
@@ -66,7 +69,7 @@ public class SedolApi {
     translateSedolResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

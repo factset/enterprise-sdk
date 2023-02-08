@@ -28,8 +28,8 @@ public class EntityStructureApi {
   public EntityStructureApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEntityStructureResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEntityStructureResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityStructureResponseTypeMap.put(200, new GenericType<EntityStructureResponse>(){});
     getEntityStructureResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class EntityStructureApi {
     getEntityStructureResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntityStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getUltimateEntityStructureResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getUltimateEntityStructureResponseTypeMap.put(200, new GenericType<UltimateEntityStructureResponse>(){});
@@ -47,6 +48,7 @@ public class EntityStructureApi {
     getUltimateEntityStructureResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getUltimateEntityStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postEntityStructureResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEntityStructureResponseTypeMap.put(200, new GenericType<EntityStructureResponse>(){});
@@ -56,6 +58,7 @@ public class EntityStructureApi {
     postEntityStructureResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     postEntityStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postUltimateEntityStructureResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postUltimateEntityStructureResponseTypeMap.put(200, new GenericType<UltimateEntityStructureResponse>(){});
@@ -66,7 +69,7 @@ public class EntityStructureApi {
     postUltimateEntityStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

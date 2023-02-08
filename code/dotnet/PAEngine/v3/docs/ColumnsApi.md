@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetPAColumns**](ColumnsApi.md#getpacolumns) | **GET** /analytics/engines/pa/v3/columns | Get PA columns
 
 
+
 <a name="getpacolumnbyid"></a>
 # **GetPAColumnById**
 > ColumnRoot GetPAColumnById (string id)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getpacolumns"></a>
 # **GetPAColumns**
@@ -203,4 +205,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

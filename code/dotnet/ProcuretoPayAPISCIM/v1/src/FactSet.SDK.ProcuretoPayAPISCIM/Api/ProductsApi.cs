@@ -153,7 +153,8 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
         private FactSet.SDK.ProcuretoPayAPISCIM.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> ProductsGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> ProductsGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ProductResourceList) },
             { (HttpStatusCode)400, typeof(Error) },
@@ -161,6 +162,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
             { (HttpStatusCode)403, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> ProductsIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ProductResource) },
@@ -173,7 +175,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -26,8 +26,8 @@ public class CompanyApi {
   public CompanyApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCompanyEventResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCompanyEventResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyEventResponseTypeMap.put(200, new GenericType<CompanyEventResponse>(){});
     getCompanyEventResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,7 +36,7 @@ public class CompanyApi {
     getCompanyEventResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

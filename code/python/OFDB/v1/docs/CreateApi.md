@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**create_database**](CreateApi.md#create_database) | **POST** /v1/database/ | 
 
 
+
 # **add_symbol_date**
 > SuccessPostResponse add_symbol_date(path, add_symbol_date)
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_record_event**](EventsApi.md#get_record_event) | **GET** /v1/notes/{noteId}/events/{recordEventId} | Get details of a record event of a note
 
 
+
 # **get_all_events**
 > [EventSnippetDto] get_all_events(start_date)
 

@@ -26,8 +26,8 @@ public class ProfilesApi {
   public ProfilesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPeopleProfilesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPeopleProfilesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleProfilesResponseTypeMap.put(200, new GenericType<PeopleProfilesResponse>(){});
     getPeopleProfilesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class ProfilesApi {
     getPeopleProfilesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getPeopleProfilesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getPeopleProfilesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleProfilesForListResponseTypeMap.put(200, new GenericType<PeopleProfilesResponse>(){});
@@ -46,7 +47,7 @@ public class ProfilesApi {
     getPeopleProfilesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

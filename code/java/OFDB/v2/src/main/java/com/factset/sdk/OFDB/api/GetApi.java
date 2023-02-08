@@ -35,8 +35,8 @@ public class GetApi {
   public GetApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getAuditResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getAuditResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAuditResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
     getAuditResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
@@ -46,6 +46,7 @@ public class GetApi {
     getAuditResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
     getAuditResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> getDataResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDataResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
@@ -56,6 +57,7 @@ public class GetApi {
     getDataResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
     getDataResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> getDatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDatesResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
@@ -66,6 +68,7 @@ public class GetApi {
     getDatesResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
     getDatesResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> getFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFieldsResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
@@ -76,6 +79,7 @@ public class GetApi {
     getFieldsResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
     getFieldsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> getStatsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStatsResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
@@ -86,6 +90,7 @@ public class GetApi {
     getStatsResponseTypeMap.put(406, new GenericType<InlineResponse406>(){});
     getStatsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> getSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSymbolsResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
@@ -97,7 +102,7 @@ public class GetApi {
     getSymbolsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
 
-   
+  
 
 
   /**

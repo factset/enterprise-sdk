@@ -1827,138 +1827,172 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         private FactSet.SDK.QuotesAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationCrossReferenceFactSetIdentifierGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationCrossReferenceFactSetIdentifierGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20071) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20067) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20065) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20076) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth1ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20077) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20074) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth3ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth6GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20074) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth6ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresWeek1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20076) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresWeek1ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20077) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear10GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20074) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear10ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20076) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear1ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20077) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20074) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear3ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear5GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20074) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear5ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear7GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20074) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear7ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYearToDateGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20078) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYearToDateListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20079) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20066) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationSearchBasicResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20091) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationSearchByTextRankedByVolumeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20093) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationStatusGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20081) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20072) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20073) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceListByISINResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20069) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20068) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20070) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationMarketListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20080) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationSearchByTextResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20092) },
@@ -1967,7 +2001,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

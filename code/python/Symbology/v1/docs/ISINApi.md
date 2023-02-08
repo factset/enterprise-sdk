@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**translate_isin**](ISINApi.md#translate_isin) | **GET** /symbology/v1/isin | Translate market security symbols into ISIN.
 
 
+
 # **batch_isin_history**
 > IsinHistoryTranslationResponse batch_isin_history(isin_history_translation_request)
 

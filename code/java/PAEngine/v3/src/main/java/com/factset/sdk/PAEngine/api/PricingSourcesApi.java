@@ -25,15 +25,15 @@ public class PricingSourcesApi {
   public PricingSourcesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPAPricingSourcesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPAPricingSourcesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPAPricingSourcesResponseTypeMap.put(200, new GenericType<PAPricingSourceRoot>(){});
     getPAPricingSourcesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getPAPricingSourcesResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

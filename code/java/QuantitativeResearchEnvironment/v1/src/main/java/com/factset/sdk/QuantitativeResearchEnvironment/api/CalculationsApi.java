@@ -26,26 +26,29 @@ public class CalculationsApi {
   public CalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> analyticsQuantQreV1CalculationsIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> analyticsQuantQreV1CalculationsIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     analyticsQuantQreV1CalculationsIdGetResponseTypeMap.put(200, new GenericType<CalculationStatus>(){});
     analyticsQuantQreV1CalculationsIdGetResponseTypeMap.put(202, new GenericType<CalculationStatus>(){});
   }
+
   private static final Map<Integer, GenericType> analyticsQuantQreV1CalculationsIdLogGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     analyticsQuantQreV1CalculationsIdLogGetResponseTypeMap.put(200, new GenericType<File>(){});
   }
+
   private static final Map<Integer, GenericType> analyticsQuantQreV1CalculationsIdOutputGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     analyticsQuantQreV1CalculationsIdOutputGetResponseTypeMap.put(200, new GenericType<File>(){});
   }
+
   private static final Map<Integer, GenericType> analyticsQuantQreV1CalculationsPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     analyticsQuantQreV1CalculationsPostResponseTypeMap.put(202, new GenericType<CalculationStatus>(){});
   }
 
-   
+  
 
 
   /**

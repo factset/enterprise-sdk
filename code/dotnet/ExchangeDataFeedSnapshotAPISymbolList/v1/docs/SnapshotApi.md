@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**PostDFSnapshot**](SnapshotApi.md#postdfsnapshot) | **POST** /DFSnapshot | Snap exchange data. Use if URL lengh of 2,048 is exceeded.
 
 
+
 <a name="getdfsnapshot"></a>
 # **GetDFSnapshot**
 > DFSnapshotResponse GetDFSnapshot (string ids = null, string oc = null, string fields = null, string sf = null, string format = null, string serv = null, string reqId = null)
@@ -111,6 +112,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postdfsnapshot"></a>
 # **PostDFSnapshot**
 > DFSnapshotResponse PostDFSnapshot (string ids = null, string oc = null, string fields = null, string sf = null, string format = null, string serv = null, string reqId = null)
@@ -213,4 +215,5 @@ Name | Type | Description  | Notes
 | **403** | Invalid HTTP URL. Necessary query parameters are missing in the request. The description field will indicate the exact reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

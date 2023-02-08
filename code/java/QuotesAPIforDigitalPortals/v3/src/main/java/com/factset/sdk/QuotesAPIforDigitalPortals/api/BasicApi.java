@@ -64,137 +64,168 @@ public class BasicApi {
   public BasicApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBasicAssetClassListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBasicAssetClassListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicAssetClassListResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicBenchmarkTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicBenchmarkTypeListResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicFrequencyTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicFrequencyTypeListResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicLanguageGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicLanguageGetResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicLanguageGetByCodeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicLanguageGetByCodeResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicLanguageListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicLanguageListResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicMarketGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicMarketGetResponseTypeMap.put(200, new GenericType<InlineResponse2008>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicMarketGroupListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicMarketGroupListResponseTypeMap.put(200, new GenericType<InlineResponse20010>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicMarketTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicMarketTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20011>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicMediaKindListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicMediaKindListResponseTypeMap.put(200, new GenericType<InlineResponse20012>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicRegionContinentGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicRegionContinentGetResponseTypeMap.put(200, new GenericType<InlineResponse20017>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicRegionContinentListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicRegionContinentListResponseTypeMap.put(200, new GenericType<InlineResponse20018>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicRegionCountryGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicRegionCountryGetResponseTypeMap.put(200, new GenericType<InlineResponse20019>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicRegionCountryGetByCodeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicRegionCountryGetByCodeResponseTypeMap.put(200, new GenericType<InlineResponse20020>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicRegionCountryListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicRegionCountryListResponseTypeMap.put(200, new GenericType<InlineResponse20021>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicRegionGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicRegionGetResponseTypeMap.put(200, new GenericType<InlineResponse20015>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicRegionListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicRegionListResponseTypeMap.put(200, new GenericType<InlineResponse20016>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicTimezoneGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicTimezoneGetResponseTypeMap.put(200, new GenericType<InlineResponse20022>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicTimezoneGetByNameResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicTimezoneGetByNameResponseTypeMap.put(200, new GenericType<InlineResponse20022>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicValueUnitAlternativeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicValueUnitAlternativeListResponseTypeMap.put(200, new GenericType<InlineResponse20026>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicValueUnitCurrencyFractionalGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicValueUnitCurrencyFractionalGetResponseTypeMap.put(200, new GenericType<InlineResponse20028>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicValueUnitCurrencyFractionalListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicValueUnitCurrencyFractionalListResponseTypeMap.put(200, new GenericType<InlineResponse20029>(){});
   }
+
   private static final Map<Integer, GenericType> getBasicValueUnitGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBasicValueUnitGetResponseTypeMap.put(200, new GenericType<InlineResponse20024>(){});
   }
+
   private static final Map<Integer, GenericType> postBasicBackgroundTextTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postBasicBackgroundTextTypeListResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
   }
+
   private static final Map<Integer, GenericType> postBasicDeliveryListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postBasicDeliveryListResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
   }
+
   private static final Map<Integer, GenericType> postBasicMarketListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postBasicMarketListResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
   }
+
   private static final Map<Integer, GenericType> postBasicMediaTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postBasicMediaTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20013>(){});
   }
+
   private static final Map<Integer, GenericType> postBasicMicOperatingListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postBasicMicOperatingListResponseTypeMap.put(200, new GenericType<InlineResponse20014>(){});
   }
+
   private static final Map<Integer, GenericType> postBasicTimezoneListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postBasicTimezoneListResponseTypeMap.put(200, new GenericType<InlineResponse20023>(){});
   }
+
   private static final Map<Integer, GenericType> postBasicValueUnitCurrencyListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postBasicValueUnitCurrencyListResponseTypeMap.put(200, new GenericType<InlineResponse20027>(){});
   }
+
   private static final Map<Integer, GenericType> postBasicValueUnitCurrencyMainListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postBasicValueUnitCurrencyMainListResponseTypeMap.put(200, new GenericType<InlineResponse20030>(){});
   }
+
   private static final Map<Integer, GenericType> postBasicValueUnitListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postBasicValueUnitListResponseTypeMap.put(200, new GenericType<InlineResponse20025>(){});
   }
 
-   
+  
 
 
   /**

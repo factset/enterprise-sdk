@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetCovenantDetailsForList**](CovenantsApi.md#getcovenantdetailsforlist) | **POST** /factset-terms-and-conditions/v1/covenant-details | Return Covenant Details for a list of Fixed Income securities.
 
 
+
 <a name="getcovenantdetails"></a>
 # **GetCovenantDetails**
 > CovenantDetailsResponse GetCovenantDetails (List<string> ids)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcovenantdetailsforlist"></a>
 # **GetCovenantDetailsForList**
 > CovenantDetailsResponse GetCovenantDetailsForList (TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

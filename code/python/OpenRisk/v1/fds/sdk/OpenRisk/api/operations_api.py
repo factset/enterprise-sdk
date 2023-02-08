@@ -46,6 +46,7 @@ class OperationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.calculate_from_holdings_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -117,6 +118,7 @@ class OperationsApi(object):
             },
             api_client=api_client
         )
+
         self.generate_id_mapping_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -188,6 +190,7 @@ class OperationsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -199,6 +202,7 @@ class OperationsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def calculate_from_holdings(
         self,
@@ -402,6 +406,7 @@ class OperationsApi(object):
             calculate_from_holdings_request_body
         return self.calculate_from_holdings_endpoint.call_with_http_info(**kwargs)
 
+
     def generate_id_mapping(
         self,
         version,
@@ -603,4 +608,5 @@ class OperationsApi(object):
         kwargs['generate_id_mapping_request_body'] = \
             generate_id_mapping_request_body
         return self.generate_id_mapping_endpoint.call_with_http_info(**kwargs)
+
 

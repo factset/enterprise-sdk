@@ -53,6 +53,7 @@ pip install fds.sdk.utils fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics
 from fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.api import abs_details_api
 from fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.models import *

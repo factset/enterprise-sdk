@@ -49,6 +49,7 @@ class ViewApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_database_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -162,6 +163,7 @@ class ViewApi(object):
             },
             api_client=api_client
         )
+
         self.get_dates_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -248,6 +250,7 @@ class ViewApi(object):
             },
             api_client=api_client
         )
+
         self.get_fields_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -303,6 +306,7 @@ class ViewApi(object):
             },
             api_client=api_client
         )
+
         self.get_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -390,6 +394,7 @@ class ViewApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -401,6 +406,7 @@ class ViewApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_database(
         self,
@@ -632,6 +638,7 @@ class ViewApi(object):
             path
         return self.get_database_endpoint.call_with_http_info(**kwargs)
 
+
     def get_dates(
         self,
         path,
@@ -838,6 +845,7 @@ class ViewApi(object):
             path
         return self.get_dates_endpoint.call_with_http_info(**kwargs)
 
+
     def get_fields(
         self,
         path,
@@ -1023,6 +1031,7 @@ class ViewApi(object):
         kwargs['path'] = \
             path
         return self.get_fields_endpoint.call_with_http_info(**kwargs)
+
 
     def get_symbols(
         self,
@@ -1229,4 +1238,5 @@ class ViewApi(object):
         kwargs['path'] = \
             path
         return self.get_symbols_endpoint.call_with_http_info(**kwargs)
+
 

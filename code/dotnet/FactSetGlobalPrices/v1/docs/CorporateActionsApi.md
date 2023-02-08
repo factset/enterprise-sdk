@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**PostCorporateActions**](CorporateActionsApi.md#postcorporateactions) | **POST** /factset-global-prices/v1/corporate-actions | Requests Corporate Actions information.
 
 
+
 <a name="getgpdcorporateactions"></a>
 # **GetGPDCorporateActions**
 > CorporateActionsResponse GetGPDCorporateActions (List<string> ids, string eventCategory = null, List<string> fields = null, string startDate = null, string endDate = null, string currency = null, string cancelledDividend = null)
@@ -116,6 +117,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getannualizeddividends"></a>
 # **GetannualizedDividends**
 > AnnualizedDividendResponse GetannualizedDividends (List<string> ids, string currency = null)
@@ -212,6 +214,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getannualizeddividendsforlist"></a>
 # **GetannualizedDividendsForList**
 > AnnualizedDividendResponse GetannualizedDividendsForList (AnnualizedDividendsRequest annualizedDividendsRequest)
@@ -301,6 +304,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postcorporateactions"></a>
 # **PostCorporateActions**
 > CorporateActionsResponse PostCorporateActions (CorporateActionsRequest corporateActionsRequest)
@@ -389,4 +393,5 @@ Name | Type | Description  | Notes
 | **200** | Array of security prices |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

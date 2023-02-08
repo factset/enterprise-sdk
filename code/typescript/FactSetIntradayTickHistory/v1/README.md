@@ -49,6 +49,7 @@ yarn add @factset/sdk-utils @factset/sdk-factsetintradaytickhistory
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, FirstTradeApi } = require('@factset/sdk-factsetintradaytickhistory');
 const { ConfidentialClient } = require('@factset/sdk-utils');

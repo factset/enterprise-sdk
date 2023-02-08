@@ -27,8 +27,8 @@ public class ManageMappingsApi {
   public ManageMappingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEntityUniverseResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEntityUniverseResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityUniverseResponseTypeMap.put(200, new GenericType<EntityUniverseResponse>(){});
     getEntityUniverseResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -37,6 +37,7 @@ public class ManageMappingsApi {
     getEntityUniverseResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntityUniverseResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> saveEntityMappingResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     saveEntityMappingResponseTypeMap.put(200, new GenericType<EntityResponse>(){});
@@ -47,7 +48,7 @@ public class ManageMappingsApi {
     saveEntityMappingResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

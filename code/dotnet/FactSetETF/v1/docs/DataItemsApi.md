@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetEtfMetrics**](DataItemsApi.md#getetfmetrics) | **GET** /factset-etf/v1/metrics | Available ETF metrics
 
 
+
 <a name="getetfmetrics"></a>
 # **GetEtfMetrics**
 > MetricsResponse GetEtfMetrics (Category? category = null)
@@ -95,4 +96,5 @@ Name | Type | Description  | Notes
 | **200** | Metrics Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

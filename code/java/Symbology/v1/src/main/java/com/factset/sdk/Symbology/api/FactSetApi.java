@@ -26,8 +26,8 @@ public class FactSetApi {
   public FactSetApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> batchTranslateFactsetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> batchTranslateFactsetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchTranslateFactsetResponseTypeMap.put(200, new GenericType<FactsetTranslationResponse>(){});
     batchTranslateFactsetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class FactSetApi {
     batchTranslateFactsetResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchTranslateFactsetResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> translateFactsetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     translateFactsetResponseTypeMap.put(200, new GenericType<FactsetTranslationResponse>(){});
@@ -46,7 +47,7 @@ public class FactSetApi {
     translateFactsetResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

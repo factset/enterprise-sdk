@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**post_security_holders**](SecurityHoldersApi.md#post_security_holders) | **POST** /factset-ownership/v1/security-holders | Get security ownership data for a list of requested securities.
 
 
+
 # **get_security_holders**
 > SecurityHoldersResponse get_security_holders(ids)
 

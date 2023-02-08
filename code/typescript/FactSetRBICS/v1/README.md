@@ -49,6 +49,7 @@ yarn add @factset/sdk-utils @factset/sdk-factsetrbics
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, EntityFocusApi } = require('@factset/sdk-factsetrbics');
 const { ConfidentialClient } = require('@factset/sdk-utils');

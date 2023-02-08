@@ -46,6 +46,7 @@ class NavigatorApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.navigator_basic_search_post_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -102,6 +103,7 @@ class NavigatorApi(object):
             },
             api_client=api_client
         )
+
         self.navigator_data_items_product_id_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -157,6 +159,7 @@ class NavigatorApi(object):
             },
             api_client=api_client
         )
+
         self.navigator_products_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -205,6 +208,7 @@ class NavigatorApi(object):
             },
             api_client=api_client
         )
+
         self.navigator_sources_data_item_id_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -266,6 +270,7 @@ class NavigatorApi(object):
             },
             api_client=api_client
         )
+
         self.navigator_sources_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -321,6 +326,7 @@ class NavigatorApi(object):
             },
             api_client=api_client
         )
+
         self.navigator_table_fields_table_id_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -382,6 +388,7 @@ class NavigatorApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -393,6 +400,7 @@ class NavigatorApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def navigator_basic_search_post(
         self,
@@ -576,6 +584,7 @@ class NavigatorApi(object):
             basic_search_request
         return self.navigator_basic_search_post_endpoint.call_with_http_info(**kwargs)
 
+
     def navigator_data_items_product_id_get(
         self,
         product_id,
@@ -758,6 +767,7 @@ class NavigatorApi(object):
             product_id
         return self.navigator_data_items_product_id_get_endpoint.call_with_http_info(**kwargs)
 
+
     def navigator_products_get(
         self,
         **kwargs
@@ -919,6 +929,7 @@ class NavigatorApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.navigator_products_get_endpoint.call_with_http_info(**kwargs)
+
 
     def navigator_sources_data_item_id_get(
         self,
@@ -1118,6 +1129,7 @@ class NavigatorApi(object):
             product_id
         return self.navigator_sources_data_item_id_get_endpoint.call_with_http_info(**kwargs)
 
+
     def navigator_sources_get(
         self,
         product_id,
@@ -1299,6 +1311,7 @@ class NavigatorApi(object):
         kwargs['product_id'] = \
             product_id
         return self.navigator_sources_get_endpoint.call_with_http_info(**kwargs)
+
 
     def navigator_table_fields_table_id_get(
         self,
@@ -1485,4 +1498,5 @@ class NavigatorApi(object):
         kwargs['table_id'] = \
             table_id
         return self.navigator_table_fields_table_id_get_endpoint.call_with_http_info(**kwargs)
+
 

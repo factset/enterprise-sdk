@@ -248,7 +248,8 @@ namespace FactSet.SDK.OFDB.Api
         private FactSet.SDK.OFDB.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> AddSymbolDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> AddSymbolDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(SuccessPostResponse) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
@@ -258,6 +259,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)413, typeof(InlineResponse413) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> AddSymbolDate3DResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(SuccessPostResponse) },
@@ -267,6 +269,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)404, typeof(InlineResponse404) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> AddSymbolsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(SuccessPostResponse) },
@@ -277,6 +280,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)413, typeof(InlineResponse413) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> CreateDatabaseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(AddDatabase) },
@@ -290,7 +294,7 @@ namespace FactSet.SDK.OFDB.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

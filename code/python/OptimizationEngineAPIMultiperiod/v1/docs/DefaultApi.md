@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**mpo_v1_optimize_fpo_post**](DefaultApi.md#mpo_v1_optimize_fpo_post) | **POST** /mpo/v1/optimizeFPO | 
 
 
+
 # **mpo_v1_optimize_fpo_post**
 > OptimizerOutputsMultiPeriodOutput mpo_v1_optimize_fpo_post()
 

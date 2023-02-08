@@ -25,17 +25,18 @@ public class HelperApi {
   public HelperApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFactorLibraryResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFactorLibraryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactorLibraryResponseTypeMap.put(200, new GenericType<LibraryResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFactorLibraryListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFactorLibraryListResponseTypeMap.put(200, new GenericType<LibraryResponse>(){});
   }
 
-   
+  
 
 
   /**

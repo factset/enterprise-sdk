@@ -26,8 +26,8 @@ public class DataItemsApi {
   public DataItemsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEstimateMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEstimateMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimateMetricsResponseTypeMap.put(200, new GenericType<MetricsResponse>(){});
     getEstimateMetricsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class DataItemsApi {
     getEstimateMetricsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEstimateMetricsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEstimateMetricsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEstimateMetricsForListResponseTypeMap.put(200, new GenericType<MetricsResponse>(){});
@@ -46,7 +47,7 @@ public class DataItemsApi {
     getEstimateMetricsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

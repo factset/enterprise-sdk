@@ -37,73 +37,88 @@ public class StockApi {
   public StockApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getStockCompositeProfileGetByNotationResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getStockCompositeProfileGetByNotationResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockCompositeProfileGetByNotationResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
   }
+
   private static final Map<Integer, GenericType> getStockDividendTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockDividendTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20011>(){});
   }
+
   private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeMap.put(200, new GenericType<InlineResponse20012>(){});
   }
+
   private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeMap.put(200, new GenericType<InlineResponse20012>(){});
   }
+
   private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkMonth6GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockNotationKeyFiguresBenchmarkMonth6GetResponseTypeMap.put(200, new GenericType<InlineResponse20012>(){});
   }
+
   private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeMap.put(200, new GenericType<InlineResponse20012>(){});
   }
+
   private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkYear1GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockNotationKeyFiguresBenchmarkYear1GetResponseTypeMap.put(200, new GenericType<InlineResponse20012>(){});
   }
+
   private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkYear3GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockNotationKeyFiguresBenchmarkYear3GetResponseTypeMap.put(200, new GenericType<InlineResponse20012>(){});
   }
+
   private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkYear5GetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockNotationKeyFiguresBenchmarkYear5GetResponseTypeMap.put(200, new GenericType<InlineResponse20012>(){});
   }
+
   private static final Map<Integer, GenericType> getStockOwnerListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockOwnerListResponseTypeMap.put(200, new GenericType<InlineResponse2008>(){});
   }
+
   private static final Map<Integer, GenericType> getStockRecommendationAggregateGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockRecommendationAggregateGetResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
   }
+
   private static final Map<Integer, GenericType> getStockRecommendationAggregateHistoryListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStockRecommendationAggregateHistoryListResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
   }
+
   private static final Map<Integer, GenericType> postStockDividendListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postStockDividendListResponseTypeMap.put(200, new GenericType<InlineResponse20010>(){});
   }
+
   private static final Map<Integer, GenericType> postStockNotationRankingIntradayListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postStockNotationRankingIntradayListResponseTypeMap.put(200, new GenericType<InlineResponse20013>(){});
   }
+
   private static final Map<Integer, GenericType> postStockNotationScreenerSearchResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postStockNotationScreenerSearchResponseTypeMap.put(200, new GenericType<InlineResponse20014>(){});
   }
+
   private static final Map<Integer, GenericType> postStockNotationScreenerValueRangesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postStockNotationScreenerValueRangesGetResponseTypeMap.put(200, new GenericType<InlineResponse20015>(){});
   }
 
-   
+  
 
 
   /**

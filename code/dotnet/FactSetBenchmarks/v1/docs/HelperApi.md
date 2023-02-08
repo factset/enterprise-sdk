@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetBenchmarkIdsForList**](HelperApi.md#getbenchmarkidsforlist) | **POST** /factset-benchmarks/v1/id-list | Returns a sample list of Benchmark Identifiers and the benchmark categorization to use in other Benchmark API endpoints.
 
 
+
 <a name="getbenchmarkids"></a>
 # **GetBenchmarkIds**
 > BenchmarkIdListResponse GetBenchmarkIds (string familyFilter = null)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbenchmarkidsforlist"></a>
 # **GetBenchmarkIdsForList**
 > BenchmarkIdListResponse GetBenchmarkIdsForList (BenchmarkIdListRequest benchmarkIdListRequest)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

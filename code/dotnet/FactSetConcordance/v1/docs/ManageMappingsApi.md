@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**SaveEntityMapping**](ManageMappingsApi.md#saveentitymapping) | **POST** /factset-concordance/v1/entity-mapping | Saves a single-mapping specified by the client.
 
 
+
 <a name="getentityuniverse"></a>
 # **GetEntityUniverse**
 > EntityUniverseResponse GetEntityUniverse (List<string> clientId = null, List<string> mapStatus = null, int? offset = null, int? limit = null)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="saveentitymapping"></a>
 # **SaveEntityMapping**
 > EntityResponse SaveEntityMapping (EntityMappingRequest entityMappingRequest)
@@ -201,4 +203,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

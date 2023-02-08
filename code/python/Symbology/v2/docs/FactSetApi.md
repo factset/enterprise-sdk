@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**translate_factset_advanced**](FactSetApi.md#translate_factset_advanced) | **GET** /symbology/v2/factset-advanced | Translate advanced symbol types into FactSet Permanent Identifiers
 
 
+
 # **batch_translate_fact_set**
 > FactsetTranslationResponse batch_translate_fact_set(factset_translation_request)
 

@@ -49,6 +49,7 @@ pip install fds.sdk.utils fds.sdk.FactSetPrices
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import batch_processing_api
 from fds.sdk.FactSetPrices.models import *

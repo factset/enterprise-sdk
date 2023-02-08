@@ -28,8 +28,8 @@ public class TickerApi {
   public TickerApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> batchTickerHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> batchTickerHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchTickerHistoryResponseTypeMap.put(200, new GenericType<TickerHistoryTranslationResponse>(){});
     batchTickerHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class TickerApi {
     batchTickerHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchTickerHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> batchTranslateTickerResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchTranslateTickerResponseTypeMap.put(200, new GenericType<TickerTranslationResponse>(){});
@@ -47,6 +48,7 @@ public class TickerApi {
     batchTranslateTickerResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchTranslateTickerResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> tickerHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     tickerHistoryResponseTypeMap.put(200, new GenericType<TickerHistoryTranslationResponse>(){});
@@ -56,6 +58,7 @@ public class TickerApi {
     tickerHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     tickerHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> translateTickerResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     translateTickerResponseTypeMap.put(200, new GenericType<TickerTranslationResponse>(){});
@@ -66,7 +69,7 @@ public class TickerApi {
     translateTickerResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -32,8 +32,8 @@ public class PricesReturnsApi {
   public PricesReturnsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFundsPricesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFundsPricesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsPricesResponseTypeMap.put(200, new GenericType<FundsPricesResponse>(){});
     getFundsPricesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -42,6 +42,7 @@ public class PricesReturnsApi {
     getFundsPricesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsPricesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsPricesForListResponseTypeMap.put(200, new GenericType<FundsPricesResponse>(){});
@@ -51,6 +52,7 @@ public class PricesReturnsApi {
     getFundsPricesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsPricesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsReturnsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsReturnsResponseTypeMap.put(200, new GenericType<FundsReturnsResponse>(){});
@@ -60,6 +62,7 @@ public class PricesReturnsApi {
     getFundsReturnsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsReturnsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsReturnsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsReturnsForListResponseTypeMap.put(200, new GenericType<FundsReturnsResponse>(){});
@@ -69,6 +72,7 @@ public class PricesReturnsApi {
     getFundsReturnsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsReturnsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsReturnsRangeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsReturnsRangeResponseTypeMap.put(200, new GenericType<ReturnsRangeResponse>(){});
@@ -78,6 +82,7 @@ public class PricesReturnsApi {
     getFundsReturnsRangeResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsReturnsRangeResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsReturnsRangeForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsReturnsRangeForListResponseTypeMap.put(200, new GenericType<ReturnsRangeResponse>(){});
@@ -87,6 +92,7 @@ public class PricesReturnsApi {
     getFundsReturnsRangeForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsReturnsRangeForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsReturnsSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsReturnsSnapshotResponseTypeMap.put(200, new GenericType<FundsReturnsSnapshotResponse>(){});
@@ -96,6 +102,7 @@ public class PricesReturnsApi {
     getFundsReturnsSnapshotResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsReturnsSnapshotResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsReturnsSnapshotForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsReturnsSnapshotForListResponseTypeMap.put(200, new GenericType<FundsReturnsSnapshotResponse>(){});
@@ -106,7 +113,7 @@ public class PricesReturnsApi {
     getFundsReturnsSnapshotForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

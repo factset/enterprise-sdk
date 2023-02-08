@@ -28,8 +28,8 @@ public class EventsAudioApi {
   public EventsAudioApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getDocsDistributorAudioV1HistoryFilesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getDocsDistributorAudioV1HistoryFilesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDocsDistributorAudioV1HistoryFilesResponseTypeMap.put(200, new GenericType<EventsAudioHistory>(){});
     getDocsDistributorAudioV1HistoryFilesResponseTypeMap.put(400, new GenericType<EventsAudioHistory400Response>(){});
@@ -37,6 +37,7 @@ public class EventsAudioApi {
     getDocsDistributorAudioV1HistoryFilesResponseTypeMap.put(403, new GenericType<Error>(){});
     getDocsDistributorAudioV1HistoryFilesResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> getDocsDistributorAudioV1ListFilesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDocsDistributorAudioV1ListFilesResponseTypeMap.put(200, new GenericType<EventsAudio>(){});
@@ -46,7 +47,7 @@ public class EventsAudioApi {
     getDocsDistributorAudioV1ListFilesResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

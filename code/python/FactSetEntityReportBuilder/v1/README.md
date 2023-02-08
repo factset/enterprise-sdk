@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.FactSetEntityReportBuilder
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetEntityReportBuilder
 from fds.sdk.FactSetEntityReportBuilder.api import entity_structure_api
 from fds.sdk.FactSetEntityReportBuilder.models import *

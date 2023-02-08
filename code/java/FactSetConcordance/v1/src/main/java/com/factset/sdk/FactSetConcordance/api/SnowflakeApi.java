@@ -25,17 +25,18 @@ public class SnowflakeApi {
   public SnowflakeApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSnowflakeEntityMatchResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSnowflakeEntityMatchResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSnowflakeEntityMatchResponseTypeMap.put(200, new GenericType<SnowflakeEntityMatchResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSnowflakeEntityMatchForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSnowflakeEntityMatchForListResponseTypeMap.put(200, new GenericType<SnowflakeEntityMatchResponse>(){});
   }
 
-   
+  
 
 
   /**

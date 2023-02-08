@@ -25,8 +25,8 @@ public class OwnershipApi {
   public OwnershipApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getOwnershipHoldersResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getOwnershipHoldersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOwnershipHoldersResponseTypeMap.put(200, new GenericType<Response>(){});
     getOwnershipHoldersResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -35,7 +35,7 @@ public class OwnershipApi {
     getOwnershipHoldersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

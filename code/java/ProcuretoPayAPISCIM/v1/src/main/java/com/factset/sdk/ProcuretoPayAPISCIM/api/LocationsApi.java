@@ -27,8 +27,8 @@ public class LocationsApi {
   public LocationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> locationsGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> locationsGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     locationsGetResponseTypeMap.put(200, new GenericType<LocationResourceList>(){});
     locationsGetResponseTypeMap.put(400, new GenericType<Error>(){});
@@ -36,6 +36,7 @@ public class LocationsApi {
     locationsGetResponseTypeMap.put(403, new GenericType<Error>(){});
     locationsGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> locationsIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     locationsIdGetResponseTypeMap.put(200, new GenericType<LocationResource>(){});
@@ -44,6 +45,7 @@ public class LocationsApi {
     locationsIdGetResponseTypeMap.put(404, new GenericType<Error>(){});
     locationsIdGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> locationsIdPatchResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     locationsIdPatchResponseTypeMap.put(200, new GenericType<LocationResource>(){});
@@ -52,6 +54,7 @@ public class LocationsApi {
     locationsIdPatchResponseTypeMap.put(403, new GenericType<Error>(){});
     locationsIdPatchResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> locationsIdPutResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     locationsIdPutResponseTypeMap.put(200, new GenericType<LocationResource>(){});
@@ -62,7 +65,7 @@ public class LocationsApi {
     locationsIdPutResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

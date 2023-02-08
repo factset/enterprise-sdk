@@ -80,6 +80,7 @@ class BasicApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_basic_asset_class_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -139,6 +140,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_benchmark_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -208,6 +210,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_frequency_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -277,6 +280,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_language_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -353,6 +357,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_language_get_by_code_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -433,6 +438,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_language_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -521,6 +527,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_market_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -597,6 +604,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_market_group_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -685,6 +693,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_market_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -771,6 +780,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_media_kind_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -830,6 +840,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_region_continent_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -906,6 +917,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_region_continent_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -992,6 +1004,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_region_country_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1068,6 +1081,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_region_country_get_by_code_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1148,6 +1162,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_region_country_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1236,6 +1251,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_region_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1312,6 +1328,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_region_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1400,6 +1417,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_timezone_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1466,6 +1484,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_timezone_get_by_name_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1540,6 +1559,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_value_unit_alternative_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1626,6 +1646,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_value_unit_currency_fractional_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1702,6 +1723,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_value_unit_currency_fractional_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1788,6 +1810,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.get_basic_value_unit_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1864,6 +1887,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.post_basic_background_text_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1918,6 +1942,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.post_basic_delivery_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1972,6 +1997,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.post_basic_market_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2026,6 +2052,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.post_basic_media_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2080,6 +2107,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.post_basic_mic_operating_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2134,6 +2162,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.post_basic_timezone_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2188,6 +2217,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.post_basic_value_unit_currency_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2242,6 +2272,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.post_basic_value_unit_currency_main_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2296,6 +2327,7 @@ class BasicApi(object):
             },
             api_client=api_client
         )
+
         self.post_basic_value_unit_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2351,6 +2383,7 @@ class BasicApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -2362,6 +2395,7 @@ class BasicApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_basic_asset_class_list(
         self,
@@ -2532,6 +2566,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_asset_class_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_basic_benchmark_type_list(
         self,
@@ -2707,6 +2742,7 @@ class BasicApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_benchmark_type_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_frequency_type_list(
         self,
         **kwargs
@@ -2880,6 +2916,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_frequency_type_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_basic_language_get(
         self,
@@ -3075,6 +3112,7 @@ class BasicApi(object):
             id
         return self.get_basic_language_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_language_get_by_code(
         self,
         code,
@@ -3269,6 +3307,7 @@ class BasicApi(object):
             code
         return self.get_basic_language_get_by_code_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_language_list(
         self,
         **kwargs
@@ -3446,6 +3485,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_language_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_basic_market_get(
         self,
@@ -3641,6 +3681,7 @@ class BasicApi(object):
             id
         return self.get_basic_market_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_market_group_list(
         self,
         **kwargs
@@ -3818,6 +3859,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_market_group_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_basic_market_type_list(
         self,
@@ -3997,6 +4039,7 @@ class BasicApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_market_type_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_media_kind_list(
         self,
         **kwargs
@@ -4166,6 +4209,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_media_kind_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_basic_region_continent_get(
         self,
@@ -4361,6 +4405,7 @@ class BasicApi(object):
             id
         return self.get_basic_region_continent_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_region_continent_list(
         self,
         **kwargs
@@ -4538,6 +4583,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_region_continent_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_basic_region_country_get(
         self,
@@ -4733,6 +4779,7 @@ class BasicApi(object):
             id
         return self.get_basic_region_country_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_region_country_get_by_code(
         self,
         code,
@@ -4927,6 +4974,7 @@ class BasicApi(object):
             code
         return self.get_basic_region_country_get_by_code_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_region_country_list(
         self,
         **kwargs
@@ -5104,6 +5152,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_region_country_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_basic_region_get(
         self,
@@ -5299,6 +5348,7 @@ class BasicApi(object):
             id
         return self.get_basic_region_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_region_list(
         self,
         **kwargs
@@ -5476,6 +5526,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_region_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_basic_timezone_get(
         self,
@@ -5667,6 +5718,7 @@ class BasicApi(object):
             id
         return self.get_basic_timezone_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_timezone_get_by_name(
         self,
         name,
@@ -5857,6 +5909,7 @@ class BasicApi(object):
             name
         return self.get_basic_timezone_get_by_name_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_value_unit_alternative_list(
         self,
         **kwargs
@@ -6034,6 +6087,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_value_unit_alternative_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_basic_value_unit_currency_fractional_get(
         self,
@@ -6229,6 +6283,7 @@ class BasicApi(object):
             id
         return self.get_basic_value_unit_currency_fractional_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_basic_value_unit_currency_fractional_list(
         self,
         **kwargs
@@ -6406,6 +6461,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_basic_value_unit_currency_fractional_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_basic_value_unit_get(
         self,
@@ -6601,6 +6657,7 @@ class BasicApi(object):
             id
         return self.get_basic_value_unit_get_endpoint.call_with_http_info(**kwargs)
 
+
     def post_basic_background_text_type_list(
         self,
         **kwargs
@@ -6770,6 +6827,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_basic_background_text_type_list_endpoint.call_with_http_info(**kwargs)
+
 
     def post_basic_delivery_list(
         self,
@@ -6941,6 +6999,7 @@ class BasicApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_basic_delivery_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_basic_market_list(
         self,
         **kwargs
@@ -7110,6 +7169,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_basic_market_list_endpoint.call_with_http_info(**kwargs)
+
 
     def post_basic_media_type_list(
         self,
@@ -7281,6 +7341,7 @@ class BasicApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_basic_media_type_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_basic_mic_operating_list(
         self,
         **kwargs
@@ -7450,6 +7511,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_basic_mic_operating_list_endpoint.call_with_http_info(**kwargs)
+
 
     def post_basic_timezone_list(
         self,
@@ -7621,6 +7683,7 @@ class BasicApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_basic_timezone_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_basic_value_unit_currency_list(
         self,
         **kwargs
@@ -7790,6 +7853,7 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_basic_value_unit_currency_list_endpoint.call_with_http_info(**kwargs)
+
 
     def post_basic_value_unit_currency_main_list(
         self,
@@ -7961,6 +8025,7 @@ class BasicApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_basic_value_unit_currency_main_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_basic_value_unit_list(
         self,
         **kwargs
@@ -8130,4 +8195,5 @@ class BasicApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_basic_value_unit_list_endpoint.call_with_http_info(**kwargs)
+
 

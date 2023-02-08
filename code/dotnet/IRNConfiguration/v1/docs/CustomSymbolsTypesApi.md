@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**UpdateCustomSymbolTypeOrder**](CustomSymbolsTypesApi.md#updatecustomsymboltypeorder) | **POST** /v1/custom-symbol-types/reorder | 
 
 
+
 <a name="createcustomsymboltype"></a>
 # **CreateCustomSymbolType**
 > NewItemDto CreateCustomSymbolType (SaveCustomSymbolTypeDto saveCustomSymbolTypeDto = null)
@@ -101,6 +102,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletecustomsymboltypeasync"></a>
 # **DeleteCustomSymbolTypeAsync**
@@ -191,6 +193,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcustomsymboltype"></a>
 # **GetCustomSymbolType**
 > CustomSymbolTypeDetailDto GetCustomSymbolType (Guid customSymbolTypeId)
@@ -280,6 +283,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcustomsymboltypes"></a>
 # **GetCustomSymbolTypes**
 > List&lt;CustomSymbolTypeDto&gt; GetCustomSymbolTypes ()
@@ -362,6 +366,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getsymbolcustomfieldsforcustomsymboltype"></a>
 # **GetSymbolCustomFieldsForCustomSymbolType**
@@ -451,6 +456,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="updatecustomsymboltype"></a>
 # **UpdateCustomSymbolType**
@@ -543,6 +549,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="updatecustomsymboltypeorder"></a>
 # **UpdateCustomSymbolTypeOrder**
 > void UpdateCustomSymbolTypeOrder (ReorderCustomSymbolTypeDto reorderCustomSymbolTypeDto = null)
@@ -630,4 +637,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

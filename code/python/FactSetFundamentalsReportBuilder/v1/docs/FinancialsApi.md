@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_financials_income_statement**](FinancialsApi.md#get_financials_income_statement) | **GET** /income-statement | Income Statement
 
 
+
 # **get_financials_balance_sheet**
 > Response get_financials_balance_sheet(id)
 

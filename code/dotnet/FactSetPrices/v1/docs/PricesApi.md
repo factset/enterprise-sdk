@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetSecurityPricesForList**](PricesApi.md#getsecuritypricesforlist) | **POST** /factset-prices/v1/prices | Requests end-of-day Open, High, Low, Close for a large list of securities.
 
 
+
 <a name="getfixedsecurityprices"></a>
 # **GetFixedSecurityPrices**
 > PricesFixedIncomeResponse GetFixedSecurityPrices (List<string> ids, string startDate = null, string endDate = null, string frequency = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfixedsecuritypricesforlist"></a>
 # **GetFixedSecurityPricesForList**
 > PricesFixedIncomeResponse GetFixedSecurityPricesForList (PricesFixedIncomeRequest pricesFixedIncomeRequest)
@@ -203,6 +205,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getsecurityprices"></a>
 # **GetSecurityPrices**
@@ -326,6 +329,7 @@ GetSecurityPricesResponseWrapper
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsecuritypricesforlist"></a>
 # **GetSecurityPricesForList**
 > PricesResponse GetSecurityPricesForList (PricesRequest pricesRequest)
@@ -433,4 +437,5 @@ GetSecurityPricesForListResponseWrapper
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

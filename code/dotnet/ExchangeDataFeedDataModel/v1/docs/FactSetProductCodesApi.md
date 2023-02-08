@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetProducts**](FactSetProductCodesApi.md#getproducts) | **GET** /products | Request the enumeration table for FactSet product codes.
 
 
+
 <a name="getproducts"></a>
 # **GetProducts**
 > RTDataModelProducts GetProducts (string format = null)
@@ -98,4 +99,5 @@ Name | Type | Description  | Notes
 | **404** | The provided report name is not valid. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -24,10 +24,10 @@ public class DsotmApi {
   public DsotmApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> sendTransactionsResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> sendTransactionsResponseTypeMap = new HashMap<Integer, GenericType>();
-
-   
+  
 
 
   /**

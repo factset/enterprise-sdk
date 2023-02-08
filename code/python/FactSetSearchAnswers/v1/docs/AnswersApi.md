@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**search_for_data_answer**](AnswersApi.md#search_for_data_answer) | **GET** /search/answers/v1/data | Fetch FactSet answer in data format
 
 
+
 # **search_for_adaptive_card_answer**
 > AdaptiveCardAnswerSuccessResponse search_for_adaptive_card_answer(query)
 

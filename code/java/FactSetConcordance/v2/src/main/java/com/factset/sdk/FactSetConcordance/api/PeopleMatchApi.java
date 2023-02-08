@@ -26,8 +26,8 @@ public class PeopleMatchApi {
   public PeopleMatchApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPeopleMatchResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPeopleMatchResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleMatchResponseTypeMap.put(200, new GenericType<PeopleMatchesResponse>(){});
     getPeopleMatchResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class PeopleMatchApi {
     getPeopleMatchResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getPeopleMatchResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getPeopleMatchForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleMatchForListResponseTypeMap.put(200, new GenericType<PeopleMatchesResponse>(){});
@@ -46,7 +47,7 @@ public class PeopleMatchApi {
     getPeopleMatchForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

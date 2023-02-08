@@ -260,7 +260,8 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         private FactSet.SDK.FactSetGlobalPrices.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetGPDCorporateActionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetGPDCorporateActionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CorporateActionsResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -269,6 +270,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetannualizedDividendsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(AnnualizedDividendResponse) },
@@ -278,10 +280,12 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetannualizedDividendsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(AnnualizedDividendResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PostCorporateActionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CorporateActionsResponse) },
@@ -290,7 +294,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

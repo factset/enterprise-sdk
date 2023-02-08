@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**UpdateContactType**](ContactsTypesApi.md#updatecontacttype) | **PUT** /v1/contact-types/{contactTypeId} | Edit a contact type
 
 
+
 <a name="createcontacttype"></a>
 # **CreateContactType**
 > NewItemDto CreateContactType (string body)
@@ -98,6 +99,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletecontacttype"></a>
 # **DeleteContactType**
@@ -188,6 +190,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcontacttypes"></a>
 # **GetContactTypes**
 > List&lt;ContactTypeDto&gt; GetContactTypes ()
@@ -270,6 +273,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="updatecontacttype"></a>
 # **UpdateContactType**
@@ -361,4 +365,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

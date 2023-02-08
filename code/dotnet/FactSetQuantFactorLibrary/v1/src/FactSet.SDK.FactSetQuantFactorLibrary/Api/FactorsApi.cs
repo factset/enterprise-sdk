@@ -164,7 +164,8 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
         private FactSet.SDK.FactSetQuantFactorLibrary.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetFactorsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactorsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(FactorsResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -173,6 +174,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactorsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(FactorsResponse) },
@@ -186,7 +188,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**AsynchStreetaccountV1RequestFilesGet**](StreetAccountXMLAPIApi.md#asynchstreetaccountv1requestfilesget) | **GET** /asynch/streetaccount/v1/request-files | Returns the jobID
 
 
+
 <a name="asynchstreetaccountv1checkstatusget"></a>
 # **AsynchStreetaccountV1CheckStatusGet**
 > CheckstatusResponse AsynchStreetaccountV1CheckStatusGet (string jobID, int? paginationLimit = null, int? paginationOffset = null)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 | **400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="asynchstreetaccountv1getfilesget"></a>
 # **AsynchStreetaccountV1GetFilesGet**
@@ -197,6 +199,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="asynchstreetaccountv1requestfilesget"></a>
 # **AsynchStreetaccountV1RequestFilesGet**
 > RequestfilesResponse AsynchStreetaccountV1RequestFilesGet (DateTime startDate, DateTime endDate)
@@ -288,4 +291,5 @@ Name | Type | Description  | Notes
 | **400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

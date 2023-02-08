@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_snowflake_entity_match_for_list**](SnowflakeApi.md#get_snowflake_entity_match_for_list) | **POST** /factset-concordance/v1/snowflake-entity-match | Perform an entity search and return a snowflake-friendly response. Up to 25 Names per request.
 
 
+
 # **get_snowflake_entity_match**
 > SnowflakeEntityMatchResponse get_snowflake_entity_match(name)
 

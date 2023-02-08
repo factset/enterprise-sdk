@@ -48,6 +48,7 @@ class CustomSymbolsTypesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_custom_symbol_type_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -105,6 +106,7 @@ class CustomSymbolsTypesApi(object):
             },
             api_client=api_client
         )
+
         self.delete_custom_symbol_type_async_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -157,6 +159,7 @@ class CustomSymbolsTypesApi(object):
             },
             api_client=api_client
         )
+
         self.get_custom_symbol_type_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -212,6 +215,7 @@ class CustomSymbolsTypesApi(object):
             },
             api_client=api_client
         )
+
         self.get_custom_symbol_types_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -260,6 +264,7 @@ class CustomSymbolsTypesApi(object):
             },
             api_client=api_client
         )
+
         self.get_symbol_custom_fields_for_custom_symbol_type_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -315,6 +320,7 @@ class CustomSymbolsTypesApi(object):
             },
             api_client=api_client
         )
+
         self.update_custom_symbol_type_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -376,6 +382,7 @@ class CustomSymbolsTypesApi(object):
             },
             api_client=api_client
         )
+
         self.update_custom_symbol_type_order_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -431,6 +438,7 @@ class CustomSymbolsTypesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -442,6 +450,7 @@ class CustomSymbolsTypesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_custom_symbol_type(
         self,
@@ -608,6 +617,7 @@ class CustomSymbolsTypesApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.create_custom_symbol_type_endpoint.call_with_http_info(**kwargs)
+
 
     def delete_custom_symbol_type_async(
         self,
@@ -791,6 +801,7 @@ class CustomSymbolsTypesApi(object):
             custom_symbol_type_id
         return self.delete_custom_symbol_type_async_endpoint.call_with_http_info(**kwargs)
 
+
     def get_custom_symbol_type(
         self,
         custom_symbol_type_id,
@@ -973,6 +984,7 @@ class CustomSymbolsTypesApi(object):
             custom_symbol_type_id
         return self.get_custom_symbol_type_endpoint.call_with_http_info(**kwargs)
 
+
     def get_custom_symbol_types(
         self,
         **kwargs
@@ -1134,6 +1146,7 @@ class CustomSymbolsTypesApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_custom_symbol_types_endpoint.call_with_http_info(**kwargs)
+
 
     def get_symbol_custom_fields_for_custom_symbol_type(
         self,
@@ -1316,6 +1329,7 @@ class CustomSymbolsTypesApi(object):
         kwargs['custom_symbol_type_id'] = \
             custom_symbol_type_id
         return self.get_symbol_custom_fields_for_custom_symbol_type_endpoint.call_with_http_info(**kwargs)
+
 
     def update_custom_symbol_type(
         self,
@@ -1503,6 +1517,7 @@ class CustomSymbolsTypesApi(object):
             custom_symbol_type_id
         return self.update_custom_symbol_type_endpoint.call_with_http_info(**kwargs)
 
+
     def update_custom_symbol_type_order(
         self,
         **kwargs
@@ -1668,4 +1683,5 @@ class CustomSymbolsTypesApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.update_custom_symbol_type_order_endpoint.call_with_http_info(**kwargs)
+
 

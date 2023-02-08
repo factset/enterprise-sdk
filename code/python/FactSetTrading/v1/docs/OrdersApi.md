@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**replace**](OrdersApi.md#replace) | **POST** /trading/ems/v1/orders/replace | Replace the orders on EMS system.
 
 
+
 # **cancel**
 > EMSOrdersCreateResponseRoot cancel()
 

@@ -24,18 +24,20 @@ public class FiCalculationsApi {
   public FiCalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> cancelFICalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> cancelFICalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> getFICalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFICalculationByIdResponseTypeMap.put(200, new GenericType<Object>(){});
   }
+
   private static final Map<Integer, GenericType> runFICalculationResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     runFICalculationResponseTypeMap.put(201, new GenericType<Object>(){});
   }
 
-   
+  
 
 
   /**

@@ -26,14 +26,14 @@ public class GlobalFilingsApiApi {
   public GlobalFilingsApiApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> globalFilingsV1ListFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> globalFilingsV1ListFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     globalFilingsV1ListFilesGetResponseTypeMap.put(200, new GenericType<java.util.List<FilingsFiles>>(){});
     globalFilingsV1ListFilesGetResponseTypeMap.put(400, new GenericType<Status>(){});
   }
 
-   
+  
 
 
   /**

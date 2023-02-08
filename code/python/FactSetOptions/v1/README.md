@@ -52,6 +52,7 @@ pip install fds.sdk.utils fds.sdk.FactSetOptions
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import option_chains__screening_api
 from fds.sdk.FactSetOptions.models import *

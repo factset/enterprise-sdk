@@ -188,7 +188,8 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         private FactSet.SDK.NaturalLanguageProcessing.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> QnaGetAnswersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> QnaGetAnswersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(QnAAnswerRoot) },
             { (HttpStatusCode)202, typeof(QnATaskRoot) },
@@ -196,6 +197,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
             { (HttpStatusCode)404, typeof(QnAHTTPErrorRoot) },
             { (HttpStatusCode)500, typeof(QnAHTTPErrorRoot) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> QnaGetStatusResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(QnATaskRoot) },
@@ -204,6 +206,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
             { (HttpStatusCode)404, typeof(QnAHTTPErrorRoot) },
             { (HttpStatusCode)500, typeof(QnAHTTPErrorRoot) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> QnaPostQuestionResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(QnATaskRoot) },
@@ -215,7 +218,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
         /// <summary>
         /// Wrapper to support GET /qna/answers/{id} returning different types
         /// per status code.

@@ -49,6 +49,7 @@ pip install fds.sdk.utils fds.sdk.ForeignExchangeRate
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.ForeignExchangeRate
 from fds.sdk.ForeignExchangeRate.api import forwards_api
 from fds.sdk.ForeignExchangeRate.models import *

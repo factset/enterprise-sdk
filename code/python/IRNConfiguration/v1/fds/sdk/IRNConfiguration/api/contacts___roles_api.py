@@ -43,6 +43,7 @@ class ContactsRolesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_contact_role_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -107,6 +108,7 @@ class ContactsRolesApi(object):
             },
             api_client=api_client
         )
+
         self.delete_contact_role_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -159,6 +161,7 @@ class ContactsRolesApi(object):
             },
             api_client=api_client
         )
+
         self.get_contact_roles_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -207,6 +210,7 @@ class ContactsRolesApi(object):
             },
             api_client=api_client
         )
+
         self.update_contact_role_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -275,6 +279,7 @@ class ContactsRolesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -286,6 +291,7 @@ class ContactsRolesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_contact_role(
         self,
@@ -469,6 +475,7 @@ class ContactsRolesApi(object):
             body
         return self.create_contact_role_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_contact_role(
         self,
         contact_role_id,
@@ -651,6 +658,7 @@ class ContactsRolesApi(object):
             contact_role_id
         return self.delete_contact_role_endpoint.call_with_http_info(**kwargs)
 
+
     def get_contact_roles(
         self,
         **kwargs
@@ -812,6 +820,7 @@ class ContactsRolesApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_contact_roles_endpoint.call_with_http_info(**kwargs)
+
 
     def update_contact_role(
         self,
@@ -1010,4 +1019,5 @@ class ContactsRolesApi(object):
         kwargs['body'] = \
             body
         return self.update_contact_role_endpoint.call_with_http_info(**kwargs)
+
 

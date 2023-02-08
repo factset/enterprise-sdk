@@ -43,6 +43,7 @@ class SnowflakeApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_snowflake_entity_match_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -100,6 +101,7 @@ class SnowflakeApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -111,6 +113,7 @@ class SnowflakeApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_snowflake_entity_match_for_list(
         self,
@@ -297,4 +300,5 @@ class SnowflakeApi(object):
         kwargs['snowflake_entity_match_request'] = \
             snowflake_entity_match_request
         return self.get_snowflake_entity_match_for_list_endpoint.call_with_http_info(**kwargs)
+
 

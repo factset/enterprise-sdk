@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**NerEntities**](NamedEntityRecognitionApi.md#nerentities) | **POST** /ner/entities | Endpoint to detect entities from text
 
 
+
 <a name="nerentities"></a>
 # **NerEntities**
 > NERResponseSchema NerEntities (NERInputSchema nERInputSchema = null)
@@ -96,4 +97,5 @@ Name | Type | Description  | Notes
 | **400** | Validation error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

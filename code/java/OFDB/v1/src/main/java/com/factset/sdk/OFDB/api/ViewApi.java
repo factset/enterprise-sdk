@@ -28,8 +28,9 @@ public class ViewApi {
   public ViewApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> getDatabaseResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> getDatabaseResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> getDatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDatesResponseTypeMap.put(200, new GenericType<java.util.List<Integer>>(){});
@@ -39,6 +40,7 @@ public class ViewApi {
     getDatesResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
     getDatesResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> getFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFieldsResponseTypeMap.put(200, new GenericType<java.util.List<Object>>(){});
@@ -48,6 +50,7 @@ public class ViewApi {
     getFieldsResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
     getFieldsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
+
   private static final Map<Integer, GenericType> getSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSymbolsResponseTypeMap.put(200, new GenericType<java.util.List<String>>(){});
@@ -58,7 +61,7 @@ public class ViewApi {
     getSymbolsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
 
-   
+  
 
 
   /**

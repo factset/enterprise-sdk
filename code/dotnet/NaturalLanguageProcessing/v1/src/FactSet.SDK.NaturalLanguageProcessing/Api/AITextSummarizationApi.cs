@@ -232,13 +232,15 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         private FactSet.SDK.NaturalLanguageProcessing.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> SummarizationHeadlineResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> SummarizationHeadlineResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(SummarizationResultID) },
             { (HttpStatusCode)400, typeof(ValidationError) },
             { (HttpStatusCode)401, typeof(HTTPError) },
             { (HttpStatusCode)500, typeof(HTTPError) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> SummarizationHeadlineAndSummaryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(SummarizationResultID) },
@@ -246,6 +248,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
             { (HttpStatusCode)401, typeof(HTTPError) },
             { (HttpStatusCode)500, typeof(HTTPError) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> SummarizationResultResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SummarizationResult) },
@@ -254,6 +257,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
             { (HttpStatusCode)404, typeof(HTTPError) },
             { (HttpStatusCode)500, typeof(HTTPError) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> SummarizationSummaryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(SummarizationResultID) },
@@ -265,7 +269,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

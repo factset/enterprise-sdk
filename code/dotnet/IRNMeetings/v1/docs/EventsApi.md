@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetRecordEvent**](EventsApi.md#getrecordevent) | **GET** /v1/meetings/{meetingId}/events/{recordEventId} | Get details of a record event of a meeting
 
 
+
 <a name="getevents"></a>
 # **GetEvents**
 > List&lt;RecordEventSummaryDto&gt; GetEvents (Guid meetingId)
@@ -96,6 +97,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getrecordevent"></a>
 # **GetRecordEvent**
@@ -187,4 +189,5 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

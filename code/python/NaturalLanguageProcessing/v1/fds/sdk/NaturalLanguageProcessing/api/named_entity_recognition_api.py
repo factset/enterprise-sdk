@@ -44,6 +44,7 @@ class NamedEntityRecognitionApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.ner_entities_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -99,6 +100,7 @@ class NamedEntityRecognitionApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -110,6 +112,7 @@ class NamedEntityRecognitionApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def ner_entities(
         self,
@@ -280,4 +283,5 @@ class NamedEntityRecognitionApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.ner_entities_endpoint.call_with_http_info(**kwargs)
+
 

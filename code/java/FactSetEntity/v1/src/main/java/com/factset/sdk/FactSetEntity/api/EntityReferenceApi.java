@@ -26,8 +26,8 @@ public class EntityReferenceApi {
   public EntityReferenceApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEntityReferencesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEntityReferencesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityReferencesResponseTypeMap.put(200, new GenericType<EntityReferenceResponse>(){});
     getEntityReferencesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class EntityReferenceApi {
     getEntityReferencesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntityReferencesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postEntityReferencesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEntityReferencesResponseTypeMap.put(200, new GenericType<EntityReferenceResponse>(){});
@@ -46,7 +47,7 @@ public class EntityReferenceApi {
     postEntityReferencesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

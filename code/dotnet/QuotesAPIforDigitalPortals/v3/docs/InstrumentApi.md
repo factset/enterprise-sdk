@@ -33,6 +33,7 @@ Method | HTTP request | Description
 [**PostInstrumentRatingGradeList**](InstrumentApi.md#postinstrumentratinggradelist) | **POST** /instrument/rating/grade/list | List of rating grades for a list of instruments.
 
 
+
 <a name="getinstrumentbackgroundtextlistbyinstrument"></a>
 # **GetInstrumentBackgroundTextListByInstrument**
 > InlineResponse20044 GetInstrumentBackgroundTextListByInstrument (string id, List<string> attributes = null, string language = null)
@@ -125,6 +126,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getinstrumentcompliancepropertylistbyinstrument"></a>
 # **GetInstrumentCompliancePropertyListByInstrument**
@@ -219,6 +221,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentcompositeget"></a>
 # **GetInstrumentCompositeGet**
 > InlineResponse20050 GetInstrumentCompositeGet (string id, List<string> attributes = null, string language = null)
@@ -312,6 +315,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentcoupondaycountconventiontypelist"></a>
 # **GetInstrumentCouponDayCountConventionTypeList**
 > InlineResponse20052 GetInstrumentCouponDayCountConventionTypeList (List<string> attributes = null, string language = null)
@@ -403,6 +407,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentcouponinterestratetypelist"></a>
 # **GetInstrumentCouponInterestRateTypeList**
 > InlineResponse20053 GetInstrumentCouponInterestRateTypeList (List<string> attributes = null, string language = null)
@@ -493,6 +498,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getinstrumentcouponkeydataget"></a>
 # **GetInstrumentCouponKeyDataGet**
@@ -587,6 +593,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentcouponlist"></a>
 # **GetInstrumentCouponList**
 > InlineResponse20051 GetInstrumentCouponList (string id, List<string> attributes = null, string language = null)
@@ -680,6 +687,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentcrossreferencegetbyisin"></a>
 # **GetInstrumentCrossReferenceGetByISIN**
 > InlineResponse20055 GetInstrumentCrossReferenceGetByISIN (string isin, List<string> attributes = null)
@@ -771,6 +779,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentcrossreferencegetbywkn"></a>
 # **GetInstrumentCrossReferenceGetByWKN**
 > InlineResponse20055 GetInstrumentCrossReferenceGetByWKN (string wkn, List<string> attributes = null)
@@ -861,6 +870,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getinstrumentcrossreferencehistorygetbyisin"></a>
 # **GetInstrumentCrossReferenceHistoryGetByISIN**
@@ -957,6 +967,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentcrossreferencehistorygetbywkn"></a>
 # **GetInstrumentCrossReferenceHistoryGetByWKN**
 > InlineResponse20058 GetInstrumentCrossReferenceHistoryGetByWKN (string wkn, List<string> attributes = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
@@ -1051,6 +1062,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getinstrumentexchangerateget"></a>
 # **GetInstrumentExchangeRateGet**
@@ -1147,6 +1159,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentexchangerategetbyisocode"></a>
 # **GetInstrumentExchangeRateGetByISOCode**
 > InlineResponse20059 GetInstrumentExchangeRateGetByISOCode (string target, string source, List<string> attributes = null, string language = null)
@@ -1242,6 +1255,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentget"></a>
 # **GetInstrumentGet**
 > InlineResponse20042 GetInstrumentGet (string id, List<string> attributes = null, string language = null)
@@ -1334,6 +1348,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getinstrumentgetbynotation"></a>
 # **GetInstrumentGetByNotation**
@@ -1428,6 +1443,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentlegalentitybackgroundtextlistbyinstrument"></a>
 # **GetInstrumentLegalEntityBackgroundTextListByInstrument**
 > InlineResponse20060 GetInstrumentLegalEntityBackgroundTextListByInstrument (string id, List<string> attributes = null, string language = null)
@@ -1520,6 +1536,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getinstrumentlegalentitycompliancepropertylistbyinstrument"></a>
 # **GetInstrumentLegalEntityCompliancePropertyListByInstrument**
@@ -1614,6 +1631,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getinstrumentmifidget"></a>
 # **GetInstrumentMifidGet**
 > InlineResponse20062 GetInstrumentMifidGet (string id, List<string> attributes = null, string language = null)
@@ -1706,6 +1724,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getinstrumentsearchbasic"></a>
 # **GetInstrumentSearchBasic**
@@ -1810,6 +1829,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postinstrumentbackgroundtexttypelist"></a>
 # **PostInstrumentBackgroundTextTypeList**
 > InlineResponse20045 PostInstrumentBackgroundTextTypeList (PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = null)
@@ -1898,6 +1918,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postinstrumentbenchmarklist"></a>
 # **PostInstrumentBenchmarkList**
@@ -1988,6 +2009,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postinstrumentcategorylist"></a>
 # **PostInstrumentCategoryList**
 > InlineResponse20047 PostInstrumentCategoryList (PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = null)
@@ -2076,6 +2098,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postinstrumentcompliancepropertylist"></a>
 # **PostInstrumentCompliancePropertyList**
@@ -2166,6 +2189,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postinstrumentcrossreferencelistbyisin"></a>
 # **PostInstrumentCrossReferenceListByISIN**
 > InlineResponse20056 PostInstrumentCrossReferenceListByISIN (PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = null)
@@ -2254,6 +2278,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postinstrumentcrossreferencelistbywkn"></a>
 # **PostInstrumentCrossReferenceListByWKN**
@@ -2344,6 +2369,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postinstrumentnotationlist"></a>
 # **PostInstrumentNotationList**
 > InlineResponse20063 PostInstrumentNotationList (PostInstrumentNotationListRequest postInstrumentNotationListRequest = null)
@@ -2433,6 +2459,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postinstrumentratinggradelist"></a>
 # **PostInstrumentRatingGradeList**
 > InlineResponse20064 PostInstrumentRatingGradeList (PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = null)
@@ -2521,4 +2548,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

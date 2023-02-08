@@ -74,6 +74,7 @@ class FactsetApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_factset_etf_allocation_asset_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -165,6 +166,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_allocation_country_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -256,6 +258,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_allocation_currency_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -347,6 +350,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_allocation_economic_development_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -438,6 +442,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_allocation_exchange_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -529,6 +534,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_allocation_industry_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -620,6 +626,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_allocation_market_capitalization_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -711,6 +718,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_allocation_region_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -802,6 +810,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_allocation_sector_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -893,6 +902,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_analytics_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -963,6 +973,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_analytics_holdings_statistics_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1033,6 +1044,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_analytics_score_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1103,6 +1115,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_analytics_trade_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1173,6 +1186,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_characteristics_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1243,6 +1257,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_class_category_broad_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1302,6 +1317,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_class_category_focus_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1382,6 +1398,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_class_category_niche_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1462,6 +1479,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_class_geography_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1521,6 +1539,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_class_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1591,6 +1610,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_competitors_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1661,6 +1681,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_distribution_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1731,6 +1752,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_fund_flows_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1801,6 +1823,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1871,6 +1894,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_growth_of_ten_k_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2003,6 +2027,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_holdings_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2094,6 +2119,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_market_aggregates_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2164,6 +2190,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_premium_discount_summary_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2280,6 +2307,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_price_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2350,6 +2378,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_returns_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2435,6 +2464,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_strategy_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2505,6 +2535,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_strategy_segment_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2585,6 +2616,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_structure_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2655,6 +2687,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_taxes_and_fees_us_get_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2725,6 +2758,7 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
+
         self.get_factset_etf_time_series_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2848,6 +2882,7 @@ class FactsetApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -2859,6 +2894,7 @@ class FactsetApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_factset_etf_allocation_asset_list_by_symbol(
         self,
@@ -3058,6 +3094,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_allocation_asset_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_allocation_country_list_by_symbol(
         self,
         symbol,
@@ -3255,6 +3292,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_allocation_country_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_allocation_currency_list_by_symbol(
         self,
@@ -3454,6 +3492,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_allocation_currency_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_allocation_economic_development_list_by_symbol(
         self,
         symbol,
@@ -3651,6 +3690,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_allocation_economic_development_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_allocation_exchange_list_by_symbol(
         self,
@@ -3850,6 +3890,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_allocation_exchange_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_allocation_industry_list_by_symbol(
         self,
         symbol,
@@ -4047,6 +4088,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_allocation_industry_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_allocation_market_capitalization_list_by_symbol(
         self,
@@ -4246,6 +4288,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_allocation_market_capitalization_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_allocation_region_list_by_symbol(
         self,
         symbol,
@@ -4443,6 +4486,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_allocation_region_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_allocation_sector_list_by_symbol(
         self,
@@ -4642,6 +4686,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_allocation_sector_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_analytics_get_by_symbol(
         self,
         symbol,
@@ -4831,6 +4876,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_analytics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_analytics_holdings_statistics_get_by_symbol(
         self,
@@ -5022,6 +5068,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_analytics_holdings_statistics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_analytics_score_get_by_symbol(
         self,
         symbol,
@@ -5211,6 +5258,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_analytics_score_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_analytics_trade_get_by_symbol(
         self,
@@ -5402,6 +5450,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_analytics_trade_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_characteristics_get_by_symbol(
         self,
         symbol,
@@ -5592,6 +5641,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_characteristics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_class_category_broad_list(
         self,
         **kwargs
@@ -5761,6 +5811,7 @@ class FactsetApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_factset_etf_class_category_broad_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_class_category_focus_list(
         self,
@@ -5940,6 +5991,7 @@ class FactsetApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_factset_etf_class_category_focus_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_class_category_niche_list(
         self,
         **kwargs
@@ -6118,6 +6170,7 @@ class FactsetApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_factset_etf_class_category_niche_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_class_geography_list(
         self,
         **kwargs
@@ -6287,6 +6340,7 @@ class FactsetApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_factset_etf_class_geography_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_class_get_by_symbol(
         self,
@@ -6478,6 +6532,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_class_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_competitors_list_by_symbol(
         self,
         symbol,
@@ -6667,6 +6722,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_competitors_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_distribution_get_by_symbol(
         self,
@@ -6858,6 +6914,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_distribution_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_fund_flows_get_by_symbol(
         self,
         symbol,
@@ -7048,6 +7105,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_fund_flows_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_get_by_symbol(
         self,
         symbol,
@@ -7237,6 +7295,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_growth_of_ten_k_list_by_symbol(
         self,
@@ -7448,6 +7507,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_growth_of_ten_k_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_holdings_list_by_symbol(
         self,
         symbol,
@@ -7646,6 +7706,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_holdings_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_market_aggregates_get_by_symbol(
         self,
         symbol,
@@ -7835,6 +7896,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_market_aggregates_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_premium_discount_summary_list_by_symbol(
         self,
@@ -8042,6 +8104,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_premium_discount_summary_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_price_get_by_symbol(
         self,
         symbol,
@@ -8231,6 +8294,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_price_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_returns_get_by_symbol(
         self,
@@ -8426,6 +8490,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_returns_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_strategy_get_by_symbol(
         self,
         symbol,
@@ -8616,6 +8681,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_strategy_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_strategy_segment_list(
         self,
         **kwargs
@@ -8793,6 +8859,7 @@ class FactsetApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_factset_etf_strategy_segment_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_structure_get_by_symbol(
         self,
@@ -8984,6 +9051,7 @@ class FactsetApi(object):
             symbol
         return self.get_factset_etf_structure_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_factset_etf_taxes_and_fees_us_get_by_symbol(
         self,
         symbol,
@@ -9173,6 +9241,7 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_taxes_and_fees_us_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 
     def get_factset_etf_time_series_list_by_symbol(
         self,
@@ -9379,4 +9448,5 @@ class FactsetApi(object):
         kwargs['symbol'] = \
             symbol
         return self.get_factset_etf_time_series_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
 

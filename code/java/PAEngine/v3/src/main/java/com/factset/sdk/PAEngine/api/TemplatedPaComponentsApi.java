@@ -29,24 +29,28 @@ public class TemplatedPaComponentsApi {
   public TemplatedPaComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createTemplatedPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createTemplatedPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createTemplatedPAComponentsResponseTypeMap.put(201, new GenericType<TemplatedPAComponentPostSummaryRoot>(){});
     createTemplatedPAComponentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> deleteTemplatedPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getTemplatedPAComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getTemplatedPAComponentByIdResponseTypeMap.put(200, new GenericType<TemplatedPAComponentRoot>(){});
     getTemplatedPAComponentByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getTemplatedPAComponentByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getTemplatedPAComponentsInPathResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getTemplatedPAComponentsInPathResponseTypeMap.put(200, new GenericType<TemplatedPAComponentSummaryRoot>(){});
     getTemplatedPAComponentsInPathResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> updateTemplatedPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     updateTemplatedPAComponentsResponseTypeMap.put(200, new GenericType<TemplatedPAComponentPostSummaryRoot>(){});
@@ -54,7 +58,7 @@ public class TemplatedPaComponentsApi {
     updateTemplatedPAComponentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

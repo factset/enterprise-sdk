@@ -44,6 +44,7 @@ class EntityReferenceApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_entity_references_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -106,6 +107,7 @@ class EntityReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.post_entity_references_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -163,6 +165,7 @@ class EntityReferenceApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -174,6 +177,7 @@ class EntityReferenceApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_entity_references(
         self,
@@ -361,6 +365,7 @@ class EntityReferenceApi(object):
             ids
         return self.get_entity_references_endpoint.call_with_http_info(**kwargs)
 
+
     def post_entity_references(
         self,
         entity_reference_request,
@@ -546,4 +551,5 @@ class EntityReferenceApi(object):
         kwargs['entity_reference_request'] = \
             entity_reference_request
         return self.post_entity_references_endpoint.call_with_http_info(**kwargs)
+
 

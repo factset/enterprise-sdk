@@ -46,6 +46,7 @@ class CorporateActionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_gpd_corporate_actions_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -155,6 +156,7 @@ class CorporateActionsApi(object):
             },
             api_client=api_client
         )
+
         self.getannualized_dividends_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -222,6 +224,7 @@ class CorporateActionsApi(object):
             },
             api_client=api_client
         )
+
         self.getannualized_dividends_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -278,6 +281,7 @@ class CorporateActionsApi(object):
             },
             api_client=api_client
         )
+
         self.post_corporate_actions_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -335,6 +339,7 @@ class CorporateActionsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -346,6 +351,7 @@ class CorporateActionsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_gpd_corporate_actions(
         self,
@@ -557,6 +563,7 @@ class CorporateActionsApi(object):
             ids
         return self.get_gpd_corporate_actions_endpoint.call_with_http_info(**kwargs)
 
+
     def getannualized_dividends(
         self,
         ids,
@@ -747,6 +754,7 @@ class CorporateActionsApi(object):
             ids
         return self.getannualized_dividends_endpoint.call_with_http_info(**kwargs)
 
+
     def getannualized_dividends_for_list(
         self,
         annualized_dividends_request,
@@ -933,6 +941,7 @@ class CorporateActionsApi(object):
             annualized_dividends_request
         return self.getannualized_dividends_for_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_corporate_actions(
         self,
         corporate_actions_request,
@@ -1118,4 +1127,5 @@ class CorporateActionsApi(object):
         kwargs['corporate_actions_request'] = \
             corporate_actions_request
         return self.post_corporate_actions_endpoint.call_with_http_info(**kwargs)
+
 

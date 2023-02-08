@@ -28,27 +28,31 @@ public class CustomSymbolsCustomFieldsApi {
   public CustomSymbolsCustomFieldsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createCustomSymbolCustomFieldResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createCustomSymbolCustomFieldResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createCustomSymbolCustomFieldResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createCustomSymbolCustomFieldResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createCustomSymbolCustomFieldResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteCustomSymbolCustomFieldResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getCustomSymbolCustomFieldResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCustomSymbolCustomFieldResponseTypeMap.put(200, new GenericType<CustomSymbolCustomFieldConfigDto>(){});
     getCustomSymbolCustomFieldResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getCustomSymbolCustomFieldResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getCustomSymbolCustomFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCustomSymbolCustomFieldsResponseTypeMap.put(200, new GenericType<java.util.List<CustomSymbolCustomFieldConfigDto>>(){});
   }
+
   private static final Map<Integer, GenericType> patchCustomSymbolCustomFieldResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

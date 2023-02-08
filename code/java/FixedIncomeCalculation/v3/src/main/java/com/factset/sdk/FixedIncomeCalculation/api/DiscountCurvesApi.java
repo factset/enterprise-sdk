@@ -25,14 +25,14 @@ public class DiscountCurvesApi {
   public DiscountCurvesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getAllFIDiscountCurvesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getAllFIDiscountCurvesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAllFIDiscountCurvesResponseTypeMap.put(200, new GenericType<FIDiscountCurveInfoRoot>(){});
     getAllFIDiscountCurvesResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

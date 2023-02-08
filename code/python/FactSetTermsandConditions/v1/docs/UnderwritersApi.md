@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_lead_underwriters_for_list**](UnderwritersApi.md#get_lead_underwriters_for_list) | **POST** /factset-terms-and-conditions/v1/lead-underwriters | Return Lead Underwriters for a list of Fixed Income securities.
 
 
+
 # **get_lead_underwriters**
 > LeadUnderwritersResponse get_lead_underwriters(ids)
 

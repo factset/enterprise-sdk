@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetTickHistory**](TickHistoryApi.md#gettickhistory) | **GET** /TickHistory/history | Tick History service returns trade data and associated quotes for a client specified interval and time period
 
 
+
 <a name="gettickhistory"></a>
 # **GetTickHistory**
 > TickhistoryResponse GetTickHistory (string id, string reqId = null, string format = null, string fields = null, string sd = null, string ed = null, string st = null, string et = null, string interval = null, string includeRequest = null, string dataset = null)
@@ -118,4 +119,5 @@ Name | Type | Description  | Notes
 | **405** | Invalid HTTP method. Either the method is not GET or exceeds the maximum request lenght (currently set at 5000 bytes. The description field will indicate the exact reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

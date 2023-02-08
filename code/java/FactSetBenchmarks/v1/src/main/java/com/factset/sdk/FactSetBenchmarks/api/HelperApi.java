@@ -26,8 +26,8 @@ public class HelperApi {
   public HelperApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBenchmarkIdsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBenchmarkIdsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBenchmarkIdsResponseTypeMap.put(200, new GenericType<BenchmarkIdListResponse>(){});
     getBenchmarkIdsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class HelperApi {
     getBenchmarkIdsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBenchmarkIdsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getBenchmarkIdsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBenchmarkIdsForListResponseTypeMap.put(200, new GenericType<BenchmarkIdListResponse>(){});
@@ -46,7 +47,7 @@ public class HelperApi {
     getBenchmarkIdsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

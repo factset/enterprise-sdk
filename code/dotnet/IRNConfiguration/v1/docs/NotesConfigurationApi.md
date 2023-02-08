@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**GetTeams**](NotesConfigurationApi.md#getteams) | **GET** /v1/teams | Get all Teams
 
 
+
 <a name="getassignedfactsetusers"></a>
 # **GetAssignedFactSetUsers**
 > List&lt;UserConfigDto&gt; GetAssignedFactSetUsers ()
@@ -99,6 +100,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getauthors"></a>
 # **GetAuthors**
@@ -188,6 +190,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getclientssalesrepresentative"></a>
 # **GetClientsSalesRepresentative**
 > ClientSalesRepresentativeDto GetClientsSalesRepresentative ()
@@ -270,6 +273,7 @@ This endpoint does not need any parameter.
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcustomfields"></a>
 # **GetCustomFields**
@@ -359,6 +363,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getgroup"></a>
 # **GetGroup**
 > GroupConfigDto GetGroup ()
@@ -441,6 +446,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getrecommendations"></a>
 # **GetRecommendations**
@@ -525,6 +531,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsentiments"></a>
 # **GetSentiments**
 > List&lt;SentimentConfigDto&gt; GetSentiments ()
@@ -607,6 +614,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getsubject"></a>
 # **GetSubject**
@@ -699,6 +707,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsubjects"></a>
 # **GetSubjects**
 > List&lt;SubjectSummaryDto&gt; GetSubjects (bool? xIRNIgnorePermissions = null)
@@ -786,6 +795,7 @@ Name | Type | Description  | Notes
 | **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getteam"></a>
 # **GetTeam**
@@ -878,6 +888,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getteams"></a>
 # **GetTeams**
 > List&lt;TeamSummaryDto&gt; GetTeams (bool? xIRNIgnorePermissions = null)
@@ -965,4 +976,5 @@ Name | Type | Description  | Notes
 | **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

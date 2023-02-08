@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**PatchCustomSymbolCustomField**](CustomSymbolsCustomFieldsApi.md#patchcustomsymbolcustomfield) | **PATCH** /v1/custom-symbol-custom-fields/{customSymbolCustomFieldId} | Edit a Custom symbol custom field
 
 
+
 <a name="createcustomsymbolcustomfield"></a>
 # **CreateCustomSymbolCustomField**
 > NewItemDto CreateCustomSymbolCustomField (CreateCustomSymbolCustomFieldDto createCustomSymbolCustomFieldDto = null)
@@ -99,6 +100,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletecustomsymbolcustomfield"></a>
 # **DeleteCustomSymbolCustomField**
@@ -189,6 +191,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcustomsymbolcustomfield"></a>
 # **GetCustomSymbolCustomField**
 > CustomSymbolCustomFieldConfigDto GetCustomSymbolCustomField (Guid customSymbolCustomFieldId)
@@ -278,6 +281,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcustomsymbolcustomfields"></a>
 # **GetCustomSymbolCustomFields**
 > List&lt;CustomSymbolCustomFieldConfigDto&gt; GetCustomSymbolCustomFields ()
@@ -360,6 +364,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="patchcustomsymbolcustomfield"></a>
 # **PatchCustomSymbolCustomField**
@@ -451,4 +456,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -28,8 +28,8 @@ public class CorporateActionsApi {
   public CorporateActionsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getGPDCorporateActionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getGPDCorporateActionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getGPDCorporateActionsResponseTypeMap.put(200, new GenericType<CorporateActionsResponse>(){});
     getGPDCorporateActionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class CorporateActionsApi {
     getGPDCorporateActionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getGPDCorporateActionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getannualizedDividendsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getannualizedDividendsResponseTypeMap.put(200, new GenericType<AnnualizedDividendResponse>(){});
@@ -47,16 +48,18 @@ public class CorporateActionsApi {
     getannualizedDividendsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getannualizedDividendsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getannualizedDividendsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getannualizedDividendsForListResponseTypeMap.put(200, new GenericType<AnnualizedDividendResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postCorporateActionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postCorporateActionsResponseTypeMap.put(200, new GenericType<CorporateActionsResponse>(){});
   }
 
-   
+  
 
 
   /**

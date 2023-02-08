@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetUniverseForList**](UniverseApi.md#getuniverseforlist) | **POST** /factset-private-markets/v1/universe | Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
 
 
+
 <a name="getuniverse"></a>
 # **GetUniverse**
 > EntityMatchesResponse GetUniverse (string name, string country = null)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getuniverseforlist"></a>
 # **GetUniverseForList**
 > EntityMatchesResponse GetUniverseForList (EntityMatchRequest entityMatchRequest)
@@ -197,4 +199,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

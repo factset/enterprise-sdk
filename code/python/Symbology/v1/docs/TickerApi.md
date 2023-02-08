@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**translate_ticker**](TickerApi.md#translate_ticker) | **GET** /symbology/v1/ticker | Returns the Ticker-Exchange or Ticker-Region for a given security.
 
 
+
 # **batch_ticker_history**
 > TickerHistoryTranslationResponse batch_ticker_history(ticker_history_translation_request)
 

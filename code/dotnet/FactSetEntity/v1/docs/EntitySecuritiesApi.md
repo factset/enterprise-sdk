@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**PostEntitySecurities**](EntitySecuritiesApi.md#postentitysecurities) | **POST** /factset-entity/v1/entity-securities | Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
 
 
+
 <a name="getentitysecurities"></a>
 # **GetEntitySecurities**
 > EntitySecuritiesResponse GetEntitySecurities (List<string> ids, string securityType = null)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postentitysecurities"></a>
 # **PostEntitySecurities**
 > EntitySecuritiesResponse PostEntitySecurities (EntitySecuritiesRequest entitySecuritiesRequest)
@@ -197,4 +199,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

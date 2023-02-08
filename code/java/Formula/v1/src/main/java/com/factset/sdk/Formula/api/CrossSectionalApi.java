@@ -27,8 +27,8 @@ public class CrossSectionalApi {
   public CrossSectionalApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCrossSectionalDataResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCrossSectionalDataResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCrossSectionalDataResponseTypeMap.put(200, new GenericType<CrossSectionalResponse>(){});
     getCrossSectionalDataResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
@@ -45,6 +45,7 @@ public class CrossSectionalApi {
     getCrossSectionalDataResponseTypeMap.put(501, new GenericType<ErrorDetail>(){});
     getCrossSectionalDataResponseTypeMap.put(503, new GenericType<ErrorDetail>(){});
   }
+
   private static final Map<Integer, GenericType> getCrossSectionalDataForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCrossSectionalDataForListResponseTypeMap.put(200, new GenericType<CrossSectionalResponse>(){});
@@ -63,7 +64,7 @@ public class CrossSectionalApi {
     getCrossSectionalDataForListResponseTypeMap.put(503, new GenericType<ErrorDetail>(){});
   }
 
-   
+  
  /**
    * Wrapper to support GET /v1/cross-sectional returning different types
    * per status code.

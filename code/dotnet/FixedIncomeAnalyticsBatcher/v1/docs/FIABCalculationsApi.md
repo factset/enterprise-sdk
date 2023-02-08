@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**RunFIABCalculation**](FIABCalculationsApi.md#runfiabcalculation) | **POST** /analytics/engines/fiab/v1/calculations | Run FIAB calculation
 
 
+
 <a name="getfiabcalculationbyid"></a>
 # **GetFIABCalculationById**
 > FIABCalculationStatus GetFIABCalculationById (string id)
@@ -105,6 +106,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfiabcalculationstatussummaries"></a>
 # **GetFIABCalculationStatusSummaries**
 > Dictionary&lt;string, FIABCalculationStatusSummary&gt; GetFIABCalculationStatusSummaries ()
@@ -195,6 +197,7 @@ This endpoint does not need any parameter.
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="runfiabcalculation"></a>
 # **RunFIABCalculation**
@@ -290,4 +293,5 @@ void (empty response body)
 | **503** | Request timed out. Retry the request in sometime. |  * Location - URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Calculations-Limit - Maximum FIAB request limit. <br>  * X-FactSet-Api-Calculations-Remaining - Number of FIAB requests remaining till request limit reached. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

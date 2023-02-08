@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetFactorsForList**](FactorsApi.md#getfactorsforlist) | **POST** /factset-quant-factor-library/v1/factors | Retrieves Quant Factors for a large list of ids.
 
 
+
 <a name="getfactors"></a>
 # **GetFactors**
 > FactorsResponse GetFactors (List<string> ids, List<string> factors, string startDate, string endDate, List<string> factorGroups = null, string frequency = null)
@@ -112,6 +113,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfactorsforlist"></a>
 # **GetFactorsForList**
 > FactorsResponse GetFactorsForList (FactorsRequest factorsRequest)
@@ -205,4 +207,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

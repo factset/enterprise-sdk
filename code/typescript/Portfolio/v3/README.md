@@ -48,6 +48,7 @@ yarn add @factset/sdk-utils @factset/sdk-portfolio
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, ModelAccountsApi } = require('@factset/sdk-portfolio');
 const { ConfidentialClient } = require('@factset/sdk-utils');

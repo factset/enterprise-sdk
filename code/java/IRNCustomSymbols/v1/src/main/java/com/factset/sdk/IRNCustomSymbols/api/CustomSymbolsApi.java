@@ -30,34 +30,40 @@ public class CustomSymbolsApi {
   public CustomSymbolsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createCustomSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createCustomSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createCustomSymbolResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createCustomSymbolResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createCustomSymbolResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteCustomSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getCustomSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCustomSymbolResponseTypeMap.put(200, new GenericType<CustomSymbolDto>(){});
   }
+
   private static final Map<Integer, GenericType> getCustomSymbolRecordsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCustomSymbolRecordsResponseTypeMap.put(200, new GenericType<java.util.List<RecordPreviewDto>>(){});
     getCustomSymbolRecordsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getCustomSymbolRecordsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getCustomSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCustomSymbolsResponseTypeMap.put(200, new GenericType<java.util.List<CustomSymbolDto>>(){});
     getCustomSymbolsResponseTypeMap.put(404, new GenericType<String>(){});
     getCustomSymbolsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> linkCustomSymbolToStandardSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> patchCustomSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

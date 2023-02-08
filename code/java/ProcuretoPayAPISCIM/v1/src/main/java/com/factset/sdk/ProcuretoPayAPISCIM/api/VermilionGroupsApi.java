@@ -26,8 +26,8 @@ public class VermilionGroupsApi {
   public VermilionGroupsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> vermilionGroupsGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> vermilionGroupsGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     vermilionGroupsGetResponseTypeMap.put(200, new GenericType<VermilionGroupResource>(){});
     vermilionGroupsGetResponseTypeMap.put(400, new GenericType<Error>(){});
@@ -35,6 +35,7 @@ public class VermilionGroupsApi {
     vermilionGroupsGetResponseTypeMap.put(403, new GenericType<Error>(){});
     vermilionGroupsGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> vermilionGroupsIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     vermilionGroupsIdGetResponseTypeMap.put(200, new GenericType<VermilionGroupResource>(){});
@@ -43,6 +44,7 @@ public class VermilionGroupsApi {
     vermilionGroupsIdGetResponseTypeMap.put(404, new GenericType<Error>(){});
     vermilionGroupsIdGetResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> vermilionGroupsIdPatchResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     vermilionGroupsIdPatchResponseTypeMap.put(200, new GenericType<VermilionGroupResource>(){});
@@ -51,6 +53,7 @@ public class VermilionGroupsApi {
     vermilionGroupsIdPatchResponseTypeMap.put(403, new GenericType<Error>(){});
     vermilionGroupsIdPatchResponseTypeMap.put(500, new GenericType<Error>(){});
   }
+
   private static final Map<Integer, GenericType> vermilionGroupsIdPutResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     vermilionGroupsIdPutResponseTypeMap.put(200, new GenericType<VermilionGroupResource>(){});
@@ -61,7 +64,7 @@ public class VermilionGroupsApi {
     vermilionGroupsIdPutResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-   
+  
 
 
   /**

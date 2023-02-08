@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**translate_bloomberg**](BloombergFIGIApi.md#translate_bloomberg) | **GET** /symbology/v1/bloomberg | Translate FactSet symbols into Bloomberg Identifiers.
 
 
+
 # **batch_translate_bloomberg**
 > BloombergTranslationResponse batch_translate_bloomberg(bloomberg_translation_request)
 

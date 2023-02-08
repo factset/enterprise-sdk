@@ -59,6 +59,7 @@ yarn add @factset/sdk-utils @factset/sdk-standarddatafeed
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, SDFAndQFLContentLibraryApi } = require('@factset/sdk-standarddatafeed');
 const { ConfidentialClient } = require('@factset/sdk-utils');

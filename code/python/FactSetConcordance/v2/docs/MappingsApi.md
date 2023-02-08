@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_entity_universe_for_list**](MappingsApi.md#get_entity_universe_for_list) | **POST** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe or large list of client ids
 
 
+
 # **get_entity_mapping_delete_for_list**
 > EntityMappingDeleteResponse get_entity_mapping_delete_for_list(entity_mapping_delete_request)
 

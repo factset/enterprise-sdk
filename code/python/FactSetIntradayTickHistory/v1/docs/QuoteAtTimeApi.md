@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**tick_history_qat_get**](QuoteAtTimeApi.md#tick_history_qat_get) | **GET** /TickHistory/qat | Request returns a quote at the specified time
 
 
+
 # **tick_history_qat_get**
 > TickhistoryResponse tick_history_qat_get(id)
 

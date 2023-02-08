@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**PatchComment**](CommentsApi.md#patchcomment) | **PATCH** /v1/notes/{noteId}/comments/{commentId} | Edit a comment for a note
 
 
+
 <a name="createcomment"></a>
 # **CreateComment**
 > NewItemDto CreateComment (Guid noteId, CreateCommentDto createCommentDto = null)
@@ -106,6 +107,7 @@ Name | Type | Description  | Notes
 | **500** | Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="createcommentattachment"></a>
 # **CreateCommentAttachment**
@@ -202,6 +204,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="deletecomment"></a>
 # **DeleteComment**
 > void DeleteComment (Guid noteId, Guid commentId)
@@ -292,6 +295,7 @@ void (empty response body)
 | **500** | Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="downloadcommentattachmentforcomment"></a>
 # **DownloadCommentAttachmentForComment**
@@ -386,6 +390,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcomment"></a>
 # **GetComment**
 > CommentDto GetComment (Guid noteId, Guid commentId)
@@ -477,6 +482,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcommentattachments"></a>
 # **GetCommentAttachments**
@@ -570,6 +576,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcomments"></a>
 # **GetComments**
 > List&lt;CommentSummaryDto&gt; GetComments (Guid noteId)
@@ -659,6 +666,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="patchcomment"></a>
 # **PatchComment**
@@ -752,4 +760,5 @@ void (empty response body)
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_pa3_documents**](DocumentsApi.md#get_pa3_documents) | **GET** /analytics/engines/pa/v3/documents/{path} | Get PA3 documents and sub-directories in a directory
 
 
+
 # **get_pa3_documents**
 > DocumentDirectoriesRoot get_pa3_documents()
 

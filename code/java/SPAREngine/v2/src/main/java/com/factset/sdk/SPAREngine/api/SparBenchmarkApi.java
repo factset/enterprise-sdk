@@ -24,13 +24,13 @@ public class SparBenchmarkApi {
   public SparBenchmarkApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSPARBenchmarkByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSPARBenchmarkByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSPARBenchmarkByIdResponseTypeMap.put(200, new GenericType<SPARBenchmark>(){});
   }
 
-   
+  
 
 
   /**

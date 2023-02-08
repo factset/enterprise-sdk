@@ -24,13 +24,13 @@ public class ColumnStatisticsApi {
   public ColumnStatisticsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPAColumnStatisticsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPAColumnStatisticsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPAColumnStatisticsResponseTypeMap.put(200, new GenericType<ColumnStatisticRoot>(){});
   }
 
-   
+  
 
 
   /**

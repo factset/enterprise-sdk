@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**post_corporate_actions**](CorporateActionsApi.md#post_corporate_actions) | **POST** /factset-global-prices/v1/corporate-actions | Requests Corporate Actions information.
 
 
+
 # **get_gpd_corporate_actions**
 > CorporateActionsResponse get_gpd_corporate_actions(ids)
 

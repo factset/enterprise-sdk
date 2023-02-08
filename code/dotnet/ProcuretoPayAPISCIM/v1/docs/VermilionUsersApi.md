@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**VermilionUsersPost**](VermilionUsersApi.md#vermilionuserspost) | **POST** /VermilionUsers | Create a Vermilion user.
 
 
+
 <a name="vermilionusersget"></a>
 # **VermilionUsersGet**
 > VermilionUserResource VermilionUsersGet (string filter = null, int? startIndex = null, int? count = null, string attributes = null, string excludedAttributes = null)
@@ -111,6 +112,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="vermilionusersiddelete"></a>
 # **VermilionUsersIdDelete**
 > void VermilionUsersIdDelete (string id)
@@ -200,6 +202,7 @@ void (empty response body)
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="vermilionusersidget"></a>
 # **VermilionUsersIdGet**
@@ -291,6 +294,7 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="vermilionusersidpatch"></a>
 # **VermilionUsersIdPatch**
@@ -384,6 +388,7 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="vermilionusersidput"></a>
 # **VermilionUsersIdPut**
@@ -479,6 +484,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="vermilionuserspost"></a>
 # **VermilionUsersPost**
 > VermilionUserResource VermilionUsersPost (VermilionUserResource vermilionUserResource)
@@ -569,4 +575,5 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

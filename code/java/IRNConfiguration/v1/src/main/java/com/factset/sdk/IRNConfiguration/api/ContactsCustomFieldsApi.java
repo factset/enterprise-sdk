@@ -28,27 +28,31 @@ public class ContactsCustomFieldsApi {
   public ContactsCustomFieldsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createContactCustomFieldResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createContactCustomFieldResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createContactCustomFieldResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createContactCustomFieldResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createContactCustomFieldResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteContactCustomFieldResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getContactCustomFieldResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getContactCustomFieldResponseTypeMap.put(200, new GenericType<ContactCustomFieldDto>(){});
     getContactCustomFieldResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
     getContactCustomFieldResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getContactCustomFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getContactCustomFieldsResponseTypeMap.put(200, new GenericType<java.util.List<ContactCustomFieldDto>>(){});
   }
+
   private static final Map<Integer, GenericType> patchContactCustomFieldResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

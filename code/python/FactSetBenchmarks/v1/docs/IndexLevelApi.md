@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**get_index_snapshot_for_list**](IndexLevelApi.md#get_index_snapshot_for_list) | **POST** /factset-benchmarks/v1/index-snapshot | Retrieves the Index Level Snapshot of Prices and Returns information for a given identifier and single date.
 
 
+
 # **get_benchmark_ratios**
 > BenchmarkRatiosResponse get_benchmark_ratios(ids, metrics)
 

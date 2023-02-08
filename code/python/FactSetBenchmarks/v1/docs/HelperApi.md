@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_benchmark_ids_for_list**](HelperApi.md#get_benchmark_ids_for_list) | **POST** /factset-benchmarks/v1/id-list | Returns a sample list of Benchmark Identifiers and the benchmark categorization to use in other Benchmark API endpoints.
 
 
+
 # **get_benchmark_ids**
 > BenchmarkIdListResponse get_benchmark_ids()
 

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_security_prices_for_list**](PricesApi.md#get_security_prices_for_list) | **POST** /factset-prices/v1/prices | Requests end-of-day Open, High, Low, Close for a large list of securities.
 
 
+
 # **get_fixed_security_prices**
 > PricesFixedIncomeResponse get_fixed_security_prices(ids)
 

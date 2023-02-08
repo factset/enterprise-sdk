@@ -24,8 +24,8 @@ public class QuoteAtTimeApi {
   public QuoteAtTimeApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> tickHistoryQatGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> tickHistoryQatGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     tickHistoryQatGetResponseTypeMap.put(200, new GenericType<TickhistoryResponse>(){});
     tickHistoryQatGetResponseTypeMap.put(401, new GenericType<Object>(){});
@@ -33,7 +33,7 @@ public class QuoteAtTimeApi {
     tickHistoryQatGetResponseTypeMap.put(405, new GenericType<Object>(){});
   }
 
-   
+  
 
 
   /**

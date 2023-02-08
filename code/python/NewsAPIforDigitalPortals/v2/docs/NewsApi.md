@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**post_news_publisher_search_by_name**](NewsApi.md#post_news_publisher_search_by_name) | **POST** /news/publisher/searchByName | Search for publishers.
 
 
+
 # **get_news_article_get**
 > InlineResponse200 get_news_article_get(code)
 

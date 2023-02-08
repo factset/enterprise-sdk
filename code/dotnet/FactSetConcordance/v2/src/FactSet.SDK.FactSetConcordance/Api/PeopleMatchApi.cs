@@ -168,7 +168,8 @@ namespace FactSet.SDK.FactSetConcordance.Api
         private FactSet.SDK.FactSetConcordance.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleMatchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleMatchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PeopleMatchesResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -177,6 +178,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleMatchForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PeopleMatchesResponse) },
@@ -190,7 +192,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

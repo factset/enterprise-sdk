@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**TranslateBloomberg**](BloombergFIGIApi.md#translatebloomberg) | **GET** /symbology/v1/bloomberg | Translate FactSet symbols into Bloomberg Identifiers.
 
 
+
 <a name="batchtranslatebloomberg"></a>
 # **BatchTranslateBloomberg**
 > BloombergTranslationResponse BatchTranslateBloomberg (BloombergTranslationRequest bloombergTranslationRequest)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="translatebloomberg"></a>
 # **TranslateBloomberg**
 > BloombergTranslationResponse TranslateBloomberg (List<string> ids)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

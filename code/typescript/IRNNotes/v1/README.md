@@ -46,6 +46,7 @@ yarn add @factset/sdk-utils @factset/sdk-irnnotes
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, AttachmentsApi } = require('@factset/sdk-irnnotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');

@@ -46,6 +46,7 @@ yarn add @factset/sdk-utils @factset/sdk-contentfeedsdatadictionary
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, NavigatorApi } = require('@factset/sdk-contentfeedsdatadictionary');
 const { ConfidentialClient } = require('@factset/sdk-utils');

@@ -100,7 +100,8 @@ namespace FactSet.SDK.EventCalendar.Api
         private FactSet.SDK.EventCalendar.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyEventResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyEventResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CompanyEventResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -112,7 +113,7 @@ namespace FactSet.SDK.EventCalendar.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

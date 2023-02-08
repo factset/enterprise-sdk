@@ -46,6 +46,7 @@ yarn add @factset/sdk-utils @factset/sdk-optimizationengineapimultiperiod
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, DefaultApi } = require('@factset/sdk-optimizationengineapimultiperiod');
 const { ConfidentialClient } = require('@factset/sdk-utils');

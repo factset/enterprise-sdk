@@ -178,6 +178,7 @@ class PACalculationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.cancel_calculation_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -232,6 +233,7 @@ class PACalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.get_all_calculations_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -287,6 +289,7 @@ class PACalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.get_calculation_parameters_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -342,6 +345,7 @@ class PACalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.get_calculation_status_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -397,6 +401,7 @@ class PACalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.get_calculation_unit_result_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -459,6 +464,7 @@ class PACalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.post_and_calculate_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -524,6 +530,7 @@ class PACalculationsApi(object):
             },
             api_client=api_client
         )
+
         self.put_and_calculate_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -597,6 +604,7 @@ class PACalculationsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -608,6 +616,7 @@ class PACalculationsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def cancel_calculation_by_id(
         self,
@@ -795,6 +804,7 @@ class PACalculationsApi(object):
             id
         return self.cancel_calculation_by_id_endpoint.call_with_http_info(**kwargs)
 
+
     def get_all_calculations(
         self,
         page_number=1,
@@ -980,6 +990,7 @@ class PACalculationsApi(object):
         kwargs['page_number'] = \
             page_number
         return self.get_all_calculations_endpoint.call_with_http_info(**kwargs)
+
 
     def get_calculation_parameters(
         self,
@@ -1167,6 +1178,7 @@ class PACalculationsApi(object):
             id
         return self.get_calculation_parameters_endpoint.call_with_http_info(**kwargs)
 
+
     def get_calculation_status_by_id(
         self,
         id,
@@ -1352,6 +1364,7 @@ class PACalculationsApi(object):
         kwargs['id'] = \
             id
         return self.get_calculation_status_by_id_endpoint.call_with_http_info(**kwargs)
+
 
     def get_calculation_unit_result_by_id(
         self,
@@ -1555,6 +1568,7 @@ class PACalculationsApi(object):
             unit_id
         return self.get_calculation_unit_result_by_id_endpoint.call_with_http_info(**kwargs)
 
+
     def post_and_calculate(
         self,
         **kwargs
@@ -1732,6 +1746,7 @@ class PACalculationsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_and_calculate_endpoint.call_with_http_info(**kwargs)
+
 
     def put_and_calculate(
         self,
@@ -1930,4 +1945,5 @@ class PACalculationsApi(object):
         kwargs['id'] = \
             id
         return self.put_and_calculate_endpoint.call_with_http_info(**kwargs)
+
 

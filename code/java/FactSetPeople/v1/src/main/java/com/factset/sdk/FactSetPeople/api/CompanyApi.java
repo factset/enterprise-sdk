@@ -32,8 +32,8 @@ public class CompanyApi {
   public CompanyApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCompanyCompensationResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCompanyCompensationResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyCompensationResponseTypeMap.put(200, new GenericType<CompanyCompensationResponse>(){});
     getCompanyCompensationResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -42,6 +42,7 @@ public class CompanyApi {
     getCompanyCompensationResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCompanyCompensationResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCompanyCompensationForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyCompensationForListResponseTypeMap.put(200, new GenericType<CompanyCompensationResponse>(){});
@@ -51,6 +52,7 @@ public class CompanyApi {
     getCompanyCompensationForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCompanyCompensationForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCompanyPeopleResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyPeopleResponseTypeMap.put(200, new GenericType<CompanyPeopleResponse>(){});
@@ -60,6 +62,7 @@ public class CompanyApi {
     getCompanyPeopleResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCompanyPeopleResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCompanyPeopleForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyPeopleForListResponseTypeMap.put(200, new GenericType<CompanyPeopleResponse>(){});
@@ -69,6 +72,7 @@ public class CompanyApi {
     getCompanyPeopleForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCompanyPeopleForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCompanyPositionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyPositionsResponseTypeMap.put(200, new GenericType<CompanyPositionsResponse>(){});
@@ -78,6 +82,7 @@ public class CompanyApi {
     getCompanyPositionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCompanyPositionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCompanyPositionsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyPositionsForListResponseTypeMap.put(200, new GenericType<CompanyPositionsResponse>(){});
@@ -87,6 +92,7 @@ public class CompanyApi {
     getCompanyPositionsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCompanyPositionsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCompanyStatsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyStatsResponseTypeMap.put(200, new GenericType<CompanyStatsResponse>(){});
@@ -96,6 +102,7 @@ public class CompanyApi {
     getCompanyStatsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getCompanyStatsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCompanyStatsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyStatsForListResponseTypeMap.put(200, new GenericType<CompanyStatsResponse>(){});
@@ -106,7 +113,7 @@ public class CompanyApi {
     getCompanyStatsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

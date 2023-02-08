@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**UpdateUnlinkedPATemplates**](UnlinkedPATemplatesApi.md#updateunlinkedpatemplates) | **PUT** /analytics/engines/pa/v3/unlinked-templates/{id} | Update unlinked PA template
 
 
+
 <a name="createunlinkedpatemplates"></a>
 # **CreateUnlinkedPATemplates**
 > UnlinkedPATemplatePostSummaryRoot CreateUnlinkedPATemplates (UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deleteunlinkedpatemplates"></a>
 # **DeleteUnlinkedPATemplates**
@@ -205,6 +207,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getdefaultunlinkedpatemplatetypes"></a>
 # **GetDefaultUnlinkedPATemplateTypes**
 > UnlinkedPATemplateCategoryAndTypeRoot GetDefaultUnlinkedPATemplateTypes ()
@@ -295,6 +298,7 @@ This endpoint does not need any parameter.
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getdetailstype"></a>
 # **GetDetailsType**
@@ -392,6 +396,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getunlinkedpatemplates"></a>
 # **GetUnlinkedPATemplates**
@@ -491,6 +496,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getunlinkedpatemplatesbyid"></a>
 # **GetUnlinkedPATemplatesById**
 > UnlinkedPATemplateRoot GetUnlinkedPATemplatesById (string id)
@@ -587,6 +593,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="updateunlinkedpatemplates"></a>
 # **UpdateUnlinkedPATemplates**
@@ -686,4 +693,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

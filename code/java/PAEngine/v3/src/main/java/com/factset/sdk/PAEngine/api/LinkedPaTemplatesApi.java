@@ -29,25 +29,29 @@ public class LinkedPaTemplatesApi {
   public LinkedPaTemplatesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createLinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createLinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createLinkedPATemplatesResponseTypeMap.put(201, new GenericType<LinkedPATemplatePostSummaryRoot>(){});
     createLinkedPATemplatesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> deleteLinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getLinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getLinkedPATemplatesResponseTypeMap.put(200, new GenericType<LinkedPATemplateSummaryRoot>(){});
     getLinkedPATemplatesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getLinkedPATemplatesResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getLinkedPATemplatesByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getLinkedPATemplatesByIdResponseTypeMap.put(200, new GenericType<LinkedPATemplateRoot>(){});
     getLinkedPATemplatesByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getLinkedPATemplatesByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> updateLinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     updateLinkedPATemplatesResponseTypeMap.put(200, new GenericType<LinkedPATemplatePostSummaryRoot>(){});
@@ -55,7 +59,7 @@ public class LinkedPaTemplatesApi {
     updateLinkedPATemplatesResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

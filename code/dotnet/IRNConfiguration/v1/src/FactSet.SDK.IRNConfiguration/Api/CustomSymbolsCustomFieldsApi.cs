@@ -260,25 +260,30 @@ namespace FactSet.SDK.IRNConfiguration.Api
         private FactSet.SDK.IRNConfiguration.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CreateCustomSymbolCustomFieldResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CreateCustomSymbolCustomFieldResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(NewItemDto) },
             { (HttpStatusCode)400, typeof(ProblemDetails) },
             { (HttpStatusCode)0, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteCustomSymbolCustomFieldResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCustomSymbolCustomFieldResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CustomSymbolCustomFieldConfigDto) },
             { (HttpStatusCode)404, typeof(ProblemDetails) },
             { (HttpStatusCode)0, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCustomSymbolCustomFieldsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<CustomSymbolCustomFieldConfigDto>) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PatchCustomSymbolCustomFieldResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
@@ -286,7 +291,7 @@ namespace FactSet.SDK.IRNConfiguration.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

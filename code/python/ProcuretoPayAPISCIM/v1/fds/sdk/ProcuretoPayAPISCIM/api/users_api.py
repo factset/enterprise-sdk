@@ -44,6 +44,7 @@ class UsersApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.users_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -117,6 +118,7 @@ class UsersApi(object):
             },
             api_client=api_client
         )
+
         self.users_id_delete_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -169,6 +171,7 @@ class UsersApi(object):
             },
             api_client=api_client
         )
+
         self.users_id_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -224,6 +227,7 @@ class UsersApi(object):
             },
             api_client=api_client
         )
+
         self.users_id_patch_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -285,6 +289,7 @@ class UsersApi(object):
             },
             api_client=api_client
         )
+
         self.users_id_put_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -347,6 +352,7 @@ class UsersApi(object):
             },
             api_client=api_client
         )
+
         self.users_post_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -404,6 +410,7 @@ class UsersApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -415,6 +422,7 @@ class UsersApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def users_get(
         self,
@@ -598,6 +606,7 @@ class UsersApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.users_get_endpoint.call_with_http_info(**kwargs)
 
+
     def users_id_delete(
         self,
         id,
@@ -780,6 +789,7 @@ class UsersApi(object):
             id
         return self.users_id_delete_endpoint.call_with_http_info(**kwargs)
 
+
     def users_id_get(
         self,
         id,
@@ -961,6 +971,7 @@ class UsersApi(object):
         kwargs['id'] = \
             id
         return self.users_id_get_endpoint.call_with_http_info(**kwargs)
+
 
     def users_id_patch(
         self,
@@ -1147,6 +1158,7 @@ class UsersApi(object):
         kwargs['id'] = \
             id
         return self.users_id_patch_endpoint.call_with_http_info(**kwargs)
+
 
     def users_id_put(
         self,
@@ -1346,6 +1358,7 @@ class UsersApi(object):
             user_resource
         return self.users_id_put_endpoint.call_with_http_info(**kwargs)
 
+
     def users_post(
         self,
         user_resource,
@@ -1527,4 +1540,5 @@ class UsersApi(object):
         kwargs['user_resource'] = \
             user_resource
         return self.users_post_endpoint.call_with_http_info(**kwargs)
+
 

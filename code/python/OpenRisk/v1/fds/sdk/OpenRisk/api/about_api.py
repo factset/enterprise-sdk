@@ -51,6 +51,7 @@ class AboutApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.documentation_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -115,6 +116,7 @@ class AboutApi(object):
             },
             api_client=api_client
         )
+
         self.health_status_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -179,6 +181,7 @@ class AboutApi(object):
             },
             api_client=api_client
         )
+
         self.list_risk_models_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -243,6 +246,7 @@ class AboutApi(object):
             },
             api_client=api_client
         )
+
         self.risk_model_metadata_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -313,6 +317,7 @@ class AboutApi(object):
             },
             api_client=api_client
         )
+
         self.stats_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -377,6 +382,7 @@ class AboutApi(object):
             },
             api_client=api_client
         )
+
         self.stats_names_only_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -442,6 +448,7 @@ class AboutApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -453,6 +460,7 @@ class AboutApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def documentation(
         self,
@@ -640,6 +648,7 @@ class AboutApi(object):
             version
         return self.documentation_endpoint.call_with_http_info(**kwargs)
 
+
     def health_status(
         self,
         version,
@@ -826,6 +835,7 @@ class AboutApi(object):
             version
         return self.health_status_endpoint.call_with_http_info(**kwargs)
 
+
     def list_risk_models(
         self,
         version,
@@ -1011,6 +1021,7 @@ class AboutApi(object):
         kwargs['version'] = \
             version
         return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
+
 
     def risk_model_metadata(
         self,
@@ -1214,6 +1225,7 @@ class AboutApi(object):
             model_code
         return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
 
+
     def stats(
         self,
         version,
@@ -1400,6 +1412,7 @@ class AboutApi(object):
             version
         return self.stats_endpoint.call_with_http_info(**kwargs)
 
+
     def stats_names_only(
         self,
         version,
@@ -1585,4 +1598,5 @@ class AboutApi(object):
         kwargs['version'] = \
             version
         return self.stats_names_only_endpoint.call_with_http_info(**kwargs)
+
 

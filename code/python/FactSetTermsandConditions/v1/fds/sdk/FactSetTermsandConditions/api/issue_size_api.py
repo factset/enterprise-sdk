@@ -44,6 +44,7 @@ class IssueSizeApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_issue_size_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -106,6 +107,7 @@ class IssueSizeApi(object):
             },
             api_client=api_client
         )
+
         self.get_issue_size_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -163,6 +165,7 @@ class IssueSizeApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -174,6 +177,7 @@ class IssueSizeApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_issue_size(
         self,
@@ -361,6 +365,7 @@ class IssueSizeApi(object):
             ids
         return self.get_issue_size_endpoint.call_with_http_info(**kwargs)
 
+
     def get_issue_size_for_list(
         self,
         terms_and_conditions_scalar_request,
@@ -546,4 +551,5 @@ class IssueSizeApi(object):
         kwargs['terms_and_conditions_scalar_request'] = \
             terms_and_conditions_scalar_request
         return self.get_issue_size_for_list_endpoint.call_with_http_info(**kwargs)
+
 

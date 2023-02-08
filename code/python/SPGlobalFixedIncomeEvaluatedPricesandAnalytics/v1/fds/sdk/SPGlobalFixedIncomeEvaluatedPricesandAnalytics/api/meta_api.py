@@ -44,6 +44,7 @@ class MetaApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_bond_meta_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -146,6 +147,7 @@ class MetaApi(object):
             },
             api_client=api_client
         )
+
         self.get_bond_meta_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -203,6 +205,7 @@ class MetaApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -214,6 +217,7 @@ class MetaApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_bond_meta(
         self,
@@ -417,6 +421,7 @@ class MetaApi(object):
             ids
         return self.get_bond_meta_endpoint.call_with_http_info(**kwargs)
 
+
     def get_bond_meta_for_list(
         self,
         bond_meta_request,
@@ -602,4 +607,5 @@ class MetaApi(object):
         kwargs['bond_meta_request'] = \
             bond_meta_request
         return self.get_bond_meta_for_list_endpoint.call_with_http_info(**kwargs)
+
 

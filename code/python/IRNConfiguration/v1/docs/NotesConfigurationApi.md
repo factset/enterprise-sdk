@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**get_teams**](NotesConfigurationApi.md#get_teams) | **GET** /v1/teams | Get all Teams
 
 
+
 # **get_assigned_fact_set_users**
 > [UserConfigDto] get_assigned_fact_set_users()
 

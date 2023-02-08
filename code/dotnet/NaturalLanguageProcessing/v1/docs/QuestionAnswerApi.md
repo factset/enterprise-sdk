@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**QnaPostQuestion**](QuestionAnswerApi.md#qnapostquestion) | **POST** /qna/answers | Post a question for answer(s)
 
 
+
 <a name="qnagetanswers"></a>
 # **QnaGetAnswers**
 > QnAAnswerRoot QnaGetAnswers (string id)
@@ -115,6 +116,7 @@ QnaGetAnswersResponseWrapper
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="qnagetstatus"></a>
 # **QnaGetStatus**
 > QnATaskRoot QnaGetStatus (string id)
@@ -208,6 +210,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="qnapostquestion"></a>
 # **QnaPostQuestion**
 > QnATaskRoot QnaPostQuestion (QnAAnswerParametersRoot qnAAnswerParametersRoot)
@@ -299,4 +302,5 @@ Name | Type | Description  | Notes
 | **500** | The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

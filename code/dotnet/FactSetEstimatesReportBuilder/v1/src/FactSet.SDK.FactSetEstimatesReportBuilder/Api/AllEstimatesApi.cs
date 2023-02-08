@@ -471,7 +471,8 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         private FactSet.SDK.FactSetEstimatesReportBuilder.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesBalanceSheetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesBalanceSheetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -479,6 +480,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesCashFlowResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
@@ -487,6 +489,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesGeographicSegmentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
@@ -495,6 +498,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesIncomeStatementResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
@@ -503,6 +507,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesIndustryMetricsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
@@ -511,6 +516,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesPerShareResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
@@ -519,6 +525,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesProductSegmentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
@@ -527,6 +534,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesValuationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
@@ -539,7 +547,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

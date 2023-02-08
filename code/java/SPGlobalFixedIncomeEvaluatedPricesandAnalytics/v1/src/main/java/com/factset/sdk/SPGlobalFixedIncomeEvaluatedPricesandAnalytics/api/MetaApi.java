@@ -26,8 +26,8 @@ public class MetaApi {
   public MetaApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBondMetaResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBondMetaResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondMetaResponseTypeMap.put(200, new GenericType<BondMetaResponse>(){});
     getBondMetaResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class MetaApi {
     getBondMetaResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBondMetaResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getBondMetaForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBondMetaForListResponseTypeMap.put(200, new GenericType<BondMetaResponse>(){});
@@ -46,7 +47,7 @@ public class MetaApi {
     getBondMetaForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

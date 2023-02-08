@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_vault_configurations**](ConfigurationsApi.md#get_vault_configurations) | **GET** /analytics/lookups/v2/engines/vault/configurations | Get Vault configurations
 
 
+
 # **get_vault_configuration_by_id**
 > VaultConfiguration get_vault_configuration_by_id()
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**images**](ChartTemplatesApi.md#images) | **GET** /v1/image | Get chart image back in PNG or JPEG formats
 
 
+
 # **get_category_list**
 > CategoryListResponse get_category_list()
 

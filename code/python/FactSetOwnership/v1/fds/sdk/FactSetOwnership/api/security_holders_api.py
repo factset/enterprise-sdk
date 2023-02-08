@@ -44,6 +44,7 @@ class SecurityHoldersApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_security_holders_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -135,6 +136,7 @@ class SecurityHoldersApi(object):
             },
             api_client=api_client
         )
+
         self.post_security_holders_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -192,6 +194,7 @@ class SecurityHoldersApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -203,6 +206,7 @@ class SecurityHoldersApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_security_holders(
         self,
@@ -406,6 +410,7 @@ class SecurityHoldersApi(object):
             ids
         return self.get_security_holders_endpoint.call_with_http_info(**kwargs)
 
+
     def post_security_holders(
         self,
         security_holders_request,
@@ -591,4 +596,5 @@ class SecurityHoldersApi(object):
         kwargs['security_holders_request'] = \
             security_holders_request
         return self.post_security_holders_endpoint.call_with_http_info(**kwargs)
+
 

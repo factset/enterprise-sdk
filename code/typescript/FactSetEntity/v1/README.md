@@ -50,6 +50,7 @@ yarn add @factset/sdk-utils @factset/sdk-factsetentity
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, EntityReferenceApi } = require('@factset/sdk-factsetentity');
 const { ConfidentialClient } = require('@factset/sdk-utils');

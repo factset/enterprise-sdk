@@ -26,21 +26,24 @@ public class ContactsTypesApi {
   public ContactsTypesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createContactTypeResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createContactTypeResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createContactTypeResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createContactTypeResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createContactTypeResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteContactTypeResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getContactTypesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getContactTypesResponseTypeMap.put(200, new GenericType<java.util.List<ContactTypeDto>>(){});
   }
+
   private static final Map<Integer, GenericType> updateContactTypeResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

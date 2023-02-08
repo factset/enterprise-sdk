@@ -219,16 +219,19 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         private FactSet.SDK.DocumentsDistributorDocuments.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> AsynchNewsV1CheckStatusGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> AsynchNewsV1CheckStatusGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(NewscheckstatusResponse) },
             { (HttpStatusCode)400, typeof(NewsStatus) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> AsynchNewsV1GetFilesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(NewsgetfilesResponse) },
             { (HttpStatusCode)400, typeof(NewsStatus) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> AsynchNewsV1RequestFilesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(NewsrequestfilesResponse) },
@@ -238,7 +241,7 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

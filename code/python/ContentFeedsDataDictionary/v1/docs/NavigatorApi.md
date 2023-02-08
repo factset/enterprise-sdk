@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**navigator_table_fields_table_id_get**](NavigatorApi.md#navigator_table_fields_table_id_get) | **GET** /navigator/table_fields/{Table_id} | Get the list of fields associated with a table for Navigator, and the code information for the specified data item, if applicable.
 
 
+
 # **navigator_basic_search_post**
 > BasicSearchResponse navigator_basic_search_post(basic_search_request)
 

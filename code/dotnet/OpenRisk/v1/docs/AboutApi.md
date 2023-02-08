@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**StatsNamesOnly**](AboutApi.md#statsnamesonly) | **GET** /linear/{version}/stats-names-only | Get available risk statistics names
 
 
+
 <a name="documentation"></a>
 # **Documentation**
 > InlineResponse200 Documentation (string version)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 | **500** | Internal server error occurred |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="healthstatus"></a>
 # **HealthStatus**
@@ -198,6 +200,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="listriskmodels"></a>
 # **ListRiskModels**
 > InlineResponse2001 ListRiskModels (string version)
@@ -290,6 +293,7 @@ Name | Type | Description  | Notes
 | **500** | Internal server error occurred |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="riskmodelmetadata"></a>
 # **RiskModelMetadata**
@@ -386,6 +390,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="stats"></a>
 # **Stats**
 > SupportedStats Stats (string version)
@@ -478,6 +483,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="statsnamesonly"></a>
 # **StatsNamesOnly**
 > SupportedStatsNamesOnly StatsNamesOnly (string version)
@@ -569,4 +575,5 @@ Name | Type | Description  | Notes
 | **429** | Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. |  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

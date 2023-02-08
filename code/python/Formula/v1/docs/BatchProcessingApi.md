@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_batch_status_with_post**](BatchProcessingApi.md#get_batch_status_with_post) | **POST** /v1/batch-status | Returns the status for a Batch Request
 
 
+
 # **get_batch_data**
 > BatchDataResponse get_batch_data(id)
 

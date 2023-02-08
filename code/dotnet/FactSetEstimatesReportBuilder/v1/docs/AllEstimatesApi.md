@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**GetEstimatesValuation**](AllEstimatesApi.md#getestimatesvaluation) | **GET** /valuation | Valuation
 
 
+
 <a name="getestimatesbalancesheet"></a>
 # **GetEstimatesBalanceSheet**
 > Response GetEstimatesBalanceSheet (string id, string periodicity = null, string schema = null)
@@ -113,6 +114,7 @@ Name | Type | Description  | Notes
 | **503** | Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet request ID <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getestimatescashflow"></a>
 # **GetEstimatesCashFlow**
@@ -214,6 +216,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getestimatesgeographicsegments"></a>
 # **GetEstimatesGeographicSegments**
 > Response GetEstimatesGeographicSegments (string id, string periodicity = null, string schema = null)
@@ -313,6 +316,7 @@ Name | Type | Description  | Notes
 | **503** | Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet request ID <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getestimatesincomestatement"></a>
 # **GetEstimatesIncomeStatement**
@@ -414,6 +418,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getestimatesindustrymetrics"></a>
 # **GetEstimatesIndustryMetrics**
 > Response GetEstimatesIndustryMetrics (string id, string periodicity = null, string schema = null)
@@ -513,6 +518,7 @@ Name | Type | Description  | Notes
 | **503** | Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet request ID <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getestimatespershare"></a>
 # **GetEstimatesPerShare**
@@ -614,6 +620,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getestimatesproductsegments"></a>
 # **GetEstimatesProductSegments**
 > Response GetEstimatesProductSegments (string id, string periodicity = null, string schema = null)
@@ -714,6 +721,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getestimatesvaluation"></a>
 # **GetEstimatesValuation**
 > Response GetEstimatesValuation (string id, string periodicity = null, string schema = null)
@@ -813,4 +821,5 @@ Name | Type | Description  | Notes
 | **503** | Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet request ID <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

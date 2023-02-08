@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**post_prices_trading_schedule_event_list**](PricesApi.md#post_prices_trading_schedule_event_list) | **POST** /prices/tradingSchedule/event/list | Sequence of market-related events.
 
 
+
 # **get_prices_bid_ask_get**
 > InlineResponse20084 get_prices_bid_ask_get(identifier, identifier_type)
 

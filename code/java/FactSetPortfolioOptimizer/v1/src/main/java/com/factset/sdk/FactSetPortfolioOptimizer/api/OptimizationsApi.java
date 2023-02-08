@@ -24,12 +24,14 @@ public class OptimizationsApi {
   public OptimizationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> cancelFPOOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> cancelFPOOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> getFPOOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> runFPOOptimizationResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetSymbols**](ViewApi.md#getsymbols) | **GET** /v1/database/{path}/symbols | 
 
 
+
 <a name="getdatabase"></a>
 # **GetDatabase**
 > void GetDatabase (string path, string symbol = null, string date = null, string filterFields = null, string filterOps = null, string filterValues = null, string filterDatesOps = null, string filterDatesValues = null, string filterSymbolsOps = null, string filterSymbolsValues = null, string sortFieldName = null, string sortFieldOrder = null)
@@ -126,6 +127,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getdates"></a>
 # **GetDates**
 > List&lt;int&gt; GetDates (string path, string between = null, string equals = null, string before = null, string after = null, string orderBy = null)
@@ -231,6 +233,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfields"></a>
 # **GetFields**
 > List&lt;Object&gt; GetFields (string path)
@@ -325,6 +328,7 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getsymbols"></a>
 # **GetSymbols**
@@ -430,4 +434,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

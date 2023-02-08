@@ -25,13 +25,13 @@ public class DefaultApi {
   public DefaultApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> mpoV1OptimizeFPOPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> mpoV1OptimizeFPOPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     mpoV1OptimizeFPOPostResponseTypeMap.put(200, new GenericType<OptimizerOutputsMultiPeriodOutput>(){});
   }
 
-   
+  
 
 
   /**

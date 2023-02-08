@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**PostSecurityHolders**](SecurityHoldersApi.md#postsecurityholders) | **POST** /factset-ownership/v1/security-holders | Get security ownership data for a list of requested securities.
 
 
+
 <a name="getsecurityholders"></a>
 # **GetSecurityHolders**
 > SecurityHoldersResponse GetSecurityHolders (List<string> ids, string holderType = null, string topn = null, string date = null, string currency = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postsecurityholders"></a>
 # **PostSecurityHolders**
 > SecurityHoldersResponse PostSecurityHolders (SecurityHoldersRequest securityHoldersRequest)
@@ -203,4 +205,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

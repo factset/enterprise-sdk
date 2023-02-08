@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_bulk_documents_nrt_v1_speakerids**](NearRealTimeTranscriptsApi.md#get_bulk_documents_nrt_v1_speakerids) | **GET** /bulk-documents/nrt/v1/speakerids | Returns the latest speakerIds with the confidence scores generated for an active call.
 
 
+
 # **get_bulk_documents_nrt_v1_calls**
 > NRTCalls get_bulk_documents_nrt_v1_calls()
 

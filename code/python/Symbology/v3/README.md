@@ -49,6 +49,7 @@ pip install fds.sdk.utils fds.sdk.Symbology
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import identifier_resolution_api
 from fds.sdk.Symbology.models import *

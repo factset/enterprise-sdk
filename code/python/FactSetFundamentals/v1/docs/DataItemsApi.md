@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_fds_fundamentals_metrics_for_list**](DataItemsApi.md#get_fds_fundamentals_metrics_for_list) | **POST** /factset-fundamentals/v1/metrics | Available fundamental metrics or ratios.
 
 
+
 # **get_fds_fundamentals_metrics**
 > MetricsResponse get_fds_fundamentals_metrics()
 

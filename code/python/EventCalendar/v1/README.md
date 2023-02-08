@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.EventCalendar
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.EventCalendar
 from fds.sdk.EventCalendar.api import company_api
 from fds.sdk.EventCalendar.models import *

@@ -28,8 +28,8 @@ public class EntityMatchBulkApi {
   public EntityMatchBulkApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEntityDecisionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEntityDecisionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityDecisionsResponseTypeMap.put(200, new GenericType<EntityDecisionsResponse>(){});
     getEntityDecisionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class EntityMatchBulkApi {
     getEntityDecisionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntityDecisionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEntityTaskForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityTaskForListResponseTypeMap.put(200, new GenericType<EntityTaskResponse>(){});
@@ -47,6 +48,7 @@ public class EntityMatchBulkApi {
     getEntityTaskForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntityTaskForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEntityTaskStatusResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityTaskStatusResponseTypeMap.put(200, new GenericType<EntityTaskStatusResponse>(){});
@@ -57,7 +59,7 @@ public class EntityMatchBulkApi {
     getEntityTaskStatusResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

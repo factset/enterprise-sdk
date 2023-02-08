@@ -1827,138 +1827,172 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         private FactSet.SDK.ETFProfileandPrices.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationAssetListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationAssetListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2001) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationCountryListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2002) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationCurrencyListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2003) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationEconomicDevelopmentListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2004) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationExchangeListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2005) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationIndustryListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2006) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationMarketCapitalizationListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2007) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationRegionListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2008) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationSectorListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2009) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAnalyticsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20010) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20011) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAnalyticsScoreGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20012) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAnalyticsTradeGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20013) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfCharacteristicsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20014) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfClassCategoryBroadListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20016) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfClassCategoryFocusListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20017) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfClassCategoryNicheListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20018) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfClassGeographyListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20019) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfClassGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20015) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfCompetitorsListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20020) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfDistributionGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20021) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfFundFlowsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20022) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse200) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfGrowthOfTenKListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20023) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfHoldingsListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20024) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfMarketAggregatesGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20025) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfPremiumDiscountSummaryListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20026) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfPriceGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20027) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfReturnsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20028) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfStrategyGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20029) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfStrategySegmentListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20030) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfStructureGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20031) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfTaxesAndFeesUsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20032) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfTimeSeriesListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20033) },
@@ -1967,7 +2001,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

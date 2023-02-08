@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**soft_delete_meeting_attachment**](AttachmentsApi.md#soft_delete_meeting_attachment) | **DELETE** /v1/meetings/{meetingId}/attachments/{attachmentId} | Delete attachment from meeting
 
 
+
 # **create_attachment**
 > NewItemDto create_attachment(meeting_id, file)
 

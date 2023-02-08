@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**put_and_calculate**](PubCalculationsApi.md#put_and_calculate) | **PUT** /analytics/engines/pub/v3/calculations/{id} | Create or Update Pub calculation and run it.
 
 
+
 # **cancel_calculation_by_id**
 > cancel_calculation_by_id(id)
 

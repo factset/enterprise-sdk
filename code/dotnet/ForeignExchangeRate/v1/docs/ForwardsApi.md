@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetFXForwardsForList**](ForwardsApi.md#getfxforwardsforlist) | **POST** /foreign-exchange/v1/forwards | Gets Forwards for a list of currency pairs
 
 
+
 <a name="getfxforwards"></a>
 # **GetFXForwards**
 > ForwardsResponse GetFXForwards (List<string> ids, string forwardPeriod = null, string startDate = null, string endDate = null, string frequency = null)
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getfxforwardsforlist"></a>
 # **GetFXForwardsForList**
 > ForwardsResponse GetFXForwardsForList (ForwardsRequest forwardsRequest)
@@ -203,4 +205,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

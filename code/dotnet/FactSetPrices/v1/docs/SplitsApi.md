@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSecuritySplitsForList**](SplitsApi.md#getsecuritysplitsforlist) | **POST** /factset-prices/v1/splits | Requests splits for a list of &#x60;ids&#x60;
 
 
+
 <a name="getsecuritysplits"></a>
 # **GetSecuritySplits**
 > SplitsResponse GetSecuritySplits (List<string> ids)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsecuritysplitsforlist"></a>
 # **GetSecuritySplitsForList**
 > SplitsResponse GetSecuritySplitsForList (SplitsRequest splitsRequest)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

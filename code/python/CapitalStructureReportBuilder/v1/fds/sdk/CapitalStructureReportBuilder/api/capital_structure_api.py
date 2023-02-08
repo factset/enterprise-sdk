@@ -42,6 +42,7 @@ class CapitalStructureApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_dcs_detail_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -108,6 +109,7 @@ class CapitalStructureApi(object):
             },
             api_client=api_client
         )
+
         self.get_dcs_summary_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -174,6 +176,7 @@ class CapitalStructureApi(object):
             },
             api_client=api_client
         )
+
         self.get_source_of_capital_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -230,6 +233,7 @@ class CapitalStructureApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -241,6 +245,7 @@ class CapitalStructureApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_dcs_detail(
         self,
@@ -428,6 +433,7 @@ class CapitalStructureApi(object):
             id
         return self.get_dcs_detail_endpoint.call_with_http_info(**kwargs)
 
+
     def get_dcs_summary(
         self,
         id,
@@ -614,6 +620,7 @@ class CapitalStructureApi(object):
             id
         return self.get_dcs_summary_endpoint.call_with_http_info(**kwargs)
 
+
     def get_source_of_capital(
         self,
         id,
@@ -795,4 +802,5 @@ class CapitalStructureApi(object):
         kwargs['id'] = \
             id
         return self.get_source_of_capital_endpoint.call_with_http_info(**kwargs)
+
 

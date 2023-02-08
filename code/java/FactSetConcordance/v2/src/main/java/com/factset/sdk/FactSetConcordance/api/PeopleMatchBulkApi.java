@@ -28,8 +28,8 @@ public class PeopleMatchBulkApi {
   public PeopleMatchBulkApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPeopleDecisionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPeopleDecisionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleDecisionsResponseTypeMap.put(200, new GenericType<PeopleDecisionsResponse>(){});
     getPeopleDecisionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class PeopleMatchBulkApi {
     getPeopleDecisionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getPeopleDecisionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getPeopleTaskForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleTaskForListResponseTypeMap.put(200, new GenericType<PeopleTaskResponse>(){});
@@ -47,6 +48,7 @@ public class PeopleMatchBulkApi {
     getPeopleTaskForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getPeopleTaskForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getPeopleTaskStatusResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleTaskStatusResponseTypeMap.put(200, new GenericType<PeopleTaskStatusResponse>(){});
@@ -57,7 +59,7 @@ public class PeopleMatchBulkApi {
     getPeopleTaskStatusResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_etf_metrics**](DataItemsApi.md#get_etf_metrics) | **GET** /factset-etf/v1/metrics | Available ETF metrics
 
 
+
 # **get_etf_metrics**
 > MetricsResponse get_etf_metrics()
 

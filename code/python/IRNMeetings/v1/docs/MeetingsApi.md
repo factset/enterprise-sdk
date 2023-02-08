@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**update_meeting**](MeetingsApi.md#update_meeting) | **PUT** /v1/meetings/{meetingId} | Update meeting
 
 
+
 # **create_meeting**
 > NewItemDto create_meeting()
 

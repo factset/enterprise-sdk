@@ -30,8 +30,8 @@ public class PeopleMappingApi {
   public PeopleMappingApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getPeopleMappingDeleteForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getPeopleMappingDeleteForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleMappingDeleteForListResponseTypeMap.put(200, new GenericType<PeopleMappingDeleteResponse>(){});
     getPeopleMappingDeleteForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -40,6 +40,7 @@ public class PeopleMappingApi {
     getPeopleMappingDeleteForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getPeopleMappingDeleteForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getPeopleMappingForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleMappingForListResponseTypeMap.put(200, new GenericType<PeopleMappingResponse>(){});
@@ -49,6 +50,7 @@ public class PeopleMappingApi {
     getPeopleMappingForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getPeopleMappingForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getPeopleUniverseResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleUniverseResponseTypeMap.put(200, new GenericType<PeopleUniverseResponse>(){});
@@ -58,6 +60,7 @@ public class PeopleMappingApi {
     getPeopleUniverseResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getPeopleUniverseResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getPeopleUniverseForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPeopleUniverseForListResponseTypeMap.put(200, new GenericType<PeopleUniverseResponse>(){});
@@ -68,7 +71,7 @@ public class PeopleMappingApi {
     getPeopleUniverseForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

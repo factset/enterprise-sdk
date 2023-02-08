@@ -47,6 +47,7 @@ class LinkedPATemplatesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_linked_pa_templates_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -103,6 +104,7 @@ class LinkedPATemplatesApi(object):
             },
             api_client=api_client
         )
+
         self.delete_linked_pa_templates_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -157,6 +159,7 @@ class LinkedPATemplatesApi(object):
             },
             api_client=api_client
         )
+
         self.get_linked_pa_templates_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -220,6 +223,7 @@ class LinkedPATemplatesApi(object):
             },
             api_client=api_client
         )
+
         self.get_linked_pa_templates_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -275,6 +279,7 @@ class LinkedPATemplatesApi(object):
             },
             api_client=api_client
         )
+
         self.update_linked_pa_templates_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -338,6 +343,7 @@ class LinkedPATemplatesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -349,6 +355,7 @@ class LinkedPATemplatesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_linked_pa_templates(
         self,
@@ -536,6 +543,7 @@ class LinkedPATemplatesApi(object):
             linked_pa_template_parameters_root
         return self.create_linked_pa_templates_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_linked_pa_templates(
         self,
         id="01234567890123456789012345678901",
@@ -722,6 +730,7 @@ class LinkedPATemplatesApi(object):
             id
         return self.delete_linked_pa_templates_endpoint.call_with_http_info(**kwargs)
 
+
     def get_linked_pa_templates(
         self,
         **kwargs
@@ -899,6 +908,7 @@ class LinkedPATemplatesApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_linked_pa_templates_endpoint.call_with_http_info(**kwargs)
+
 
     def get_linked_pa_templates_by_id(
         self,
@@ -1085,6 +1095,7 @@ class LinkedPATemplatesApi(object):
         kwargs['id'] = \
             id
         return self.get_linked_pa_templates_by_id_endpoint.call_with_http_info(**kwargs)
+
 
     def update_linked_pa_templates(
         self,
@@ -1287,4 +1298,5 @@ class LinkedPATemplatesApi(object):
         kwargs['linked_pa_template_update_parameters_root'] = \
             linked_pa_template_update_parameters_root
         return self.update_linked_pa_templates_endpoint.call_with_http_info(**kwargs)
+
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetAllActiveJobs**](JobManagementApi.md#getallactivejobs) | **GET** /v2/jobs | 
 
 
+
 <a name="deleteactivejob"></a>
 # **DeleteActiveJob**
 > void DeleteActiveJob (string id)
@@ -99,6 +100,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="deleteallactivejobs"></a>
 # **DeleteAllActiveJobs**
 > void DeleteAllActiveJobs ()
@@ -184,6 +186,7 @@ void (empty response body)
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getallactivejobs"></a>
 # **GetAllActiveJobs**
@@ -271,4 +274,5 @@ This endpoint does not need any parameter.
 | **500** | Internal Server Error |  * Request-Key - Provide this key when reporting this issue <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

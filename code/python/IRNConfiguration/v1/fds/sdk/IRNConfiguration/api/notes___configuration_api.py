@@ -52,6 +52,7 @@ class NotesConfigurationApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_assigned_fact_set_users_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -100,6 +101,7 @@ class NotesConfigurationApi(object):
             },
             api_client=api_client
         )
+
         self.get_authors_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -153,6 +155,7 @@ class NotesConfigurationApi(object):
             },
             api_client=api_client
         )
+
         self.get_clients_sales_representative_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -201,6 +204,7 @@ class NotesConfigurationApi(object):
             },
             api_client=api_client
         )
+
         self.get_custom_fields_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -254,6 +258,7 @@ class NotesConfigurationApi(object):
             },
             api_client=api_client
         )
+
         self.get_group_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -302,6 +307,7 @@ class NotesConfigurationApi(object):
             },
             api_client=api_client
         )
+
         self.get_recommendations_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -350,6 +356,7 @@ class NotesConfigurationApi(object):
             },
             api_client=api_client
         )
+
         self.get_sentiments_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -398,6 +405,7 @@ class NotesConfigurationApi(object):
             },
             api_client=api_client
         )
+
         self.get_subject_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -458,6 +466,7 @@ class NotesConfigurationApi(object):
             },
             api_client=api_client
         )
+
         self.get_subjects_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -511,6 +520,7 @@ class NotesConfigurationApi(object):
             },
             api_client=api_client
         )
+
         self.get_team_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -571,6 +581,7 @@ class NotesConfigurationApi(object):
             },
             api_client=api_client
         )
+
         self.get_teams_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -625,6 +636,7 @@ class NotesConfigurationApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -636,6 +648,7 @@ class NotesConfigurationApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_assigned_fact_set_users(
         self,
@@ -798,6 +811,7 @@ class NotesConfigurationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_assigned_fact_set_users_endpoint.call_with_http_info(**kwargs)
+
 
     def get_authors(
         self,
@@ -965,6 +979,7 @@ class NotesConfigurationApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_authors_endpoint.call_with_http_info(**kwargs)
 
+
     def get_clients_sales_representative(
         self,
         **kwargs
@@ -1126,6 +1141,7 @@ class NotesConfigurationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_clients_sales_representative_endpoint.call_with_http_info(**kwargs)
+
 
     def get_custom_fields(
         self,
@@ -1293,6 +1309,7 @@ class NotesConfigurationApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_custom_fields_endpoint.call_with_http_info(**kwargs)
 
+
     def get_group(
         self,
         **kwargs
@@ -1454,6 +1471,7 @@ class NotesConfigurationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_group_endpoint.call_with_http_info(**kwargs)
+
 
     def get_recommendations(
         self,
@@ -1617,6 +1635,7 @@ class NotesConfigurationApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_recommendations_endpoint.call_with_http_info(**kwargs)
 
+
     def get_sentiments(
         self,
         **kwargs
@@ -1778,6 +1797,7 @@ class NotesConfigurationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_sentiments_endpoint.call_with_http_info(**kwargs)
+
 
     def get_subject(
         self,
@@ -1965,6 +1985,7 @@ class NotesConfigurationApi(object):
             subject_id
         return self.get_subject_endpoint.call_with_http_info(**kwargs)
 
+
     def get_subjects(
         self,
         **kwargs
@@ -2130,6 +2151,7 @@ class NotesConfigurationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_subjects_endpoint.call_with_http_info(**kwargs)
+
 
     def get_team(
         self,
@@ -2317,6 +2339,7 @@ class NotesConfigurationApi(object):
             team_id
         return self.get_team_endpoint.call_with_http_info(**kwargs)
 
+
     def get_teams(
         self,
         **kwargs
@@ -2482,4 +2505,5 @@ class NotesConfigurationApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_teams_endpoint.call_with_http_info(**kwargs)
+
 

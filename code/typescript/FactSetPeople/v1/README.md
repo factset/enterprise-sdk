@@ -47,6 +47,7 @@ yarn add @factset/sdk-utils @factset/sdk-factsetpeople
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-factsetpeople');
 const { ConfidentialClient } = require('@factset/sdk-utils');

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**TickHistoryLasttradeGet**](LastTradeApi.md#tickhistorylasttradeget) | **GET** /TickHistory/lasttrade | Request returns data for the last trade and associated quotes before the specified time
 
 
+
 <a name="tickhistorylasttradeget"></a>
 # **TickHistoryLasttradeGet**
 > TickhistoryResponse TickHistoryLasttradeGet (string id, string format = null, string date = null, string time = null)
@@ -102,4 +103,5 @@ Name | Type | Description  | Notes
 | **405** | Invalid HTTP method. Either the method is not GET or exceeds the maximum request lenght (currently set at 5000 bytes. The description field will indicate the exact reason. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

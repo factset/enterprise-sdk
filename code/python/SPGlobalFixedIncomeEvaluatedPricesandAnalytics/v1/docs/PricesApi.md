@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_bond_prices_for_list**](PricesApi.md#get_bond_prices_for_list) | **POST** /markit-bond-prices-and-analytics/v1/prices | Request Bid, Mid and Ask prices for a list of securities
 
 
+
 # **get_bond_prices**
 > BondPricesResponse get_bond_prices(ids)
 

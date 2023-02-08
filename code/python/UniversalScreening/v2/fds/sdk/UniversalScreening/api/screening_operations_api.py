@@ -45,6 +45,7 @@ class ScreeningOperationsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_calculate_results_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -110,6 +111,7 @@ class ScreeningOperationsApi(object):
             },
             api_client=api_client
         )
+
         self.poll_calculate_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -165,6 +167,7 @@ class ScreeningOperationsApi(object):
             },
             api_client=api_client
         )
+
         self.submit_archive_ofdb_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -219,6 +222,7 @@ class ScreeningOperationsApi(object):
             },
             api_client=api_client
         )
+
         self.submit_calculate_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -274,6 +278,7 @@ class ScreeningOperationsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -285,6 +290,7 @@ class ScreeningOperationsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_calculate_results(
         self,
@@ -480,6 +486,7 @@ class ScreeningOperationsApi(object):
             id
         return self.get_calculate_results_endpoint.call_with_http_info(**kwargs)
 
+
     def poll_calculate(
         self,
         id,
@@ -666,6 +673,7 @@ class ScreeningOperationsApi(object):
             id
         return self.poll_calculate_endpoint.call_with_http_info(**kwargs)
 
+
     def submit_archive_ofdb(
         self,
         **kwargs
@@ -836,6 +844,7 @@ class ScreeningOperationsApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.submit_archive_ofdb_endpoint.call_with_http_info(**kwargs)
 
+
     def submit_calculate(
         self,
         **kwargs
@@ -1005,4 +1014,5 @@ class ScreeningOperationsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.submit_calculate_endpoint.call_with_http_info(**kwargs)
+
 

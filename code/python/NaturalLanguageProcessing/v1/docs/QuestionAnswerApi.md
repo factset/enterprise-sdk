@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**qna_post_question**](QuestionAnswerApi.md#qna_post_question) | **POST** /qna/answers | Post a question for answer(s)
 
 
+
 # **qna_get_answers**
 > QnAAnswerRoot qna_get_answers(id)
 

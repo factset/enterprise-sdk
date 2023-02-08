@@ -40,6 +40,7 @@ Method | HTTP request | Description
 [**get_factset_etf_time_series_list_by_symbol**](FactsetApi.md#get_factset_etf_time_series_list_by_symbol) | **GET** /factset/etf/timeSeries/listBySymbol | Retrieve historical NAV data for a specified ETP.
 
 
+
 # **get_factset_etf_allocation_asset_list_by_symbol**
 > InlineResponse2001 get_factset_etf_allocation_asset_list_by_symbol(symbol)
 

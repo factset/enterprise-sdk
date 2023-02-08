@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**PostUltimateEntityStructure**](EntityStructureApi.md#postultimateentitystructure) | **POST** /factset-entity/v1/ultimate-entity-structures | Returns all active or inactive entities and respective levels below the requested entity id.
 
 
+
 <a name="getentitystructure"></a>
 # **GetEntityStructure**
 > EntityStructureResponse GetEntityStructure (List<string> ids, int? level = null, int? active = null)
@@ -107,6 +108,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getultimateentitystructure"></a>
 # **GetUltimateEntityStructure**
@@ -206,6 +208,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postentitystructure"></a>
 # **PostEntityStructure**
 > EntityStructureResponse PostEntityStructure (EntityStructureRequest entityStructureRequest)
@@ -300,6 +303,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postultimateentitystructure"></a>
 # **PostUltimateEntityStructure**
 > UltimateEntityStructureResponse PostUltimateEntityStructure (UltimateEntityStructureRequest ultimateEntityStructureRequest)
@@ -393,4 +397,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

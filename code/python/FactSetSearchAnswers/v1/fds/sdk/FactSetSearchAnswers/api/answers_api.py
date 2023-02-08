@@ -44,6 +44,7 @@ class AnswersApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.search_for_adaptive_card_answer_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -109,6 +110,7 @@ class AnswersApi(object):
             },
             api_client=api_client
         )
+
         self.search_for_data_answer_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -165,6 +167,7 @@ class AnswersApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -176,6 +179,7 @@ class AnswersApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def search_for_adaptive_card_answer(
         self,
@@ -371,6 +375,7 @@ class AnswersApi(object):
             query
         return self.search_for_adaptive_card_answer_endpoint.call_with_http_info(**kwargs)
 
+
     def search_for_data_answer(
         self,
         query,
@@ -556,4 +561,5 @@ class AnswersApi(object):
         kwargs['query'] = \
             query
         return self.search_for_data_answer_endpoint.call_with_http_info(**kwargs)
+
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetCountriesForList**](CountriesApi.md#getcountriesforlist) | **POST** /factset-georev/v1/countries | Gets the revenue details for the requested Countries. Use for large lists of ids.
 
 
+
 <a name="getcountries"></a>
 # **GetCountries**
 > CountryResponse GetCountries (List<string> ids, List<string> countryIds = null, string startDate = null, string endDate = null, string frequency = null, string currency = null)
@@ -112,6 +113,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcountriesforlist"></a>
 # **GetCountriesForList**
 > CountryResponse GetCountriesForList (CountryRequest countryRequest)
@@ -205,4 +207,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

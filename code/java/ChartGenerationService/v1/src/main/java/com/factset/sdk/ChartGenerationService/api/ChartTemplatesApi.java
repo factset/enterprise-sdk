@@ -30,17 +30,19 @@ public class ChartTemplatesApi {
   public ChartTemplatesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCategoryListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCategoryListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoryListResponseTypeMap.put(200, new GenericType<java.util.List<String>>(){});
     getCategoryListResponseTypeMap.put(400, new GenericType<CategoriesErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getChartListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getChartListResponseTypeMap.put(200, new GenericType<java.util.List<Object>>(){});
     getChartListResponseTypeMap.put(400, new GenericType<ChartListErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> imagesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     imagesResponseTypeMap.put(200, new GenericType<String>(){});
@@ -48,7 +50,7 @@ public class ChartTemplatesApi {
     imagesResponseTypeMap.put(401, new GenericType<UnauthorizedResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -30,8 +30,8 @@ public class IndexLevelApi {
   public IndexLevelApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getBenchmarkRatiosResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getBenchmarkRatiosResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBenchmarkRatiosResponseTypeMap.put(200, new GenericType<BenchmarkRatiosResponse>(){});
     getBenchmarkRatiosResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -40,6 +40,7 @@ public class IndexLevelApi {
     getBenchmarkRatiosResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBenchmarkRatiosResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getBenchmarkRatiosForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getBenchmarkRatiosForListResponseTypeMap.put(200, new GenericType<BenchmarkRatiosResponse>(){});
@@ -49,6 +50,7 @@ public class IndexLevelApi {
     getBenchmarkRatiosForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getBenchmarkRatiosForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getIndexHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getIndexHistoryResponseTypeMap.put(200, new GenericType<IndexHistoryResponse>(){});
@@ -58,6 +60,7 @@ public class IndexLevelApi {
     getIndexHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getIndexHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getIndexHistoryForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getIndexHistoryForListResponseTypeMap.put(200, new GenericType<IndexHistoryResponse>(){});
@@ -67,6 +70,7 @@ public class IndexLevelApi {
     getIndexHistoryForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getIndexHistoryForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getIndexSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getIndexSnapshotResponseTypeMap.put(200, new GenericType<IndexSnapshotResponse>(){});
@@ -76,6 +80,7 @@ public class IndexLevelApi {
     getIndexSnapshotResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getIndexSnapshotResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getIndexSnapshotForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getIndexSnapshotForListResponseTypeMap.put(200, new GenericType<IndexSnapshotResponse>(){});
@@ -86,7 +91,7 @@ public class IndexLevelApi {
     getIndexSnapshotForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

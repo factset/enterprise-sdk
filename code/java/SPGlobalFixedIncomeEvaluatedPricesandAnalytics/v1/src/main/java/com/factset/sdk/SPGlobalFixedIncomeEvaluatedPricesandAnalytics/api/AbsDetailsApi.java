@@ -26,8 +26,8 @@ public class AbsDetailsApi {
   public AbsDetailsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getABSDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getABSDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getABSDetailsResponseTypeMap.put(200, new GenericType<AbsDetailsResponse>(){});
     getABSDetailsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class AbsDetailsApi {
     getABSDetailsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getABSDetailsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getABSDetailsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getABSDetailsForListResponseTypeMap.put(200, new GenericType<AbsDetailsResponse>(){});
@@ -46,7 +47,7 @@ public class AbsDetailsApi {
     getABSDetailsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

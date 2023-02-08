@@ -44,6 +44,7 @@ class DividendsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_security_dividends_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -134,6 +135,7 @@ class DividendsApi(object):
             },
             api_client=api_client
         )
+
         self.get_security_dividends_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -191,6 +193,7 @@ class DividendsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -202,6 +205,7 @@ class DividendsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_security_dividends(
         self,
@@ -405,6 +409,7 @@ class DividendsApi(object):
             ids
         return self.get_security_dividends_endpoint.call_with_http_info(**kwargs)
 
+
     def get_security_dividends_for_list(
         self,
         dividends_request,
@@ -590,4 +595,5 @@ class DividendsApi(object):
         kwargs['dividends_request'] = \
             dividends_request
         return self.get_security_dividends_for_list_endpoint.call_with_http_info(**kwargs)
+
 

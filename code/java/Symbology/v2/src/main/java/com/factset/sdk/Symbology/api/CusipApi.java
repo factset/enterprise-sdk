@@ -28,8 +28,8 @@ public class CusipApi {
   public CusipApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> batchCusipHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> batchCusipHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchCusipHistoryResponseTypeMap.put(200, new GenericType<CusipHistoryResponse>(){});
     batchCusipHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class CusipApi {
     batchCusipHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchCusipHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> batchTranslateCusipsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     batchTranslateCusipsResponseTypeMap.put(200, new GenericType<CusipTranslationResponse>(){});
@@ -47,6 +48,7 @@ public class CusipApi {
     batchTranslateCusipsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     batchTranslateCusipsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> cusipHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     cusipHistoryResponseTypeMap.put(200, new GenericType<CusipHistoryResponse>(){});
@@ -56,6 +58,7 @@ public class CusipApi {
     cusipHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     cusipHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> translateCusipResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     translateCusipResponseTypeMap.put(200, new GenericType<CusipTranslationResponse>(){});
@@ -66,7 +69,7 @@ public class CusipApi {
     translateCusipResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -25,15 +25,15 @@ public class StrategyDocumentsApi {
   public StrategyDocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getNorthfieldStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getNorthfieldStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNorthfieldStrategyDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectoriesRoot>(){});
     getNorthfieldStrategyDocumentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getNorthfieldStrategyDocumentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

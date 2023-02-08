@@ -44,6 +44,7 @@ class CompanyApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.current_cap_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -99,6 +100,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.financial_highlights_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -154,6 +156,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.get_profile_profile_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -209,6 +212,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.peer_list_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -269,6 +273,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.transactions_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -355,6 +360,7 @@ class CompanyApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -366,6 +372,7 @@ class CompanyApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def current_cap_get(
         self,
@@ -549,6 +556,7 @@ class CompanyApi(object):
             id
         return self.current_cap_get_endpoint.call_with_http_info(**kwargs)
 
+
     def financial_highlights_get(
         self,
         id,
@@ -731,6 +739,7 @@ class CompanyApi(object):
             id
         return self.financial_highlights_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_profile_profile(
         self,
         id,
@@ -912,6 +921,7 @@ class CompanyApi(object):
         kwargs['id'] = \
             id
         return self.get_profile_profile_endpoint.call_with_http_info(**kwargs)
+
 
     def peer_list_get(
         self,
@@ -1098,6 +1108,7 @@ class CompanyApi(object):
         kwargs['id'] = \
             id
         return self.peer_list_get_endpoint.call_with_http_info(**kwargs)
+
 
     def transactions_get(
         self,
@@ -1288,4 +1299,5 @@ class CompanyApi(object):
         kwargs['id'] = \
             id
         return self.transactions_get_endpoint.call_with_http_info(**kwargs)
+
 

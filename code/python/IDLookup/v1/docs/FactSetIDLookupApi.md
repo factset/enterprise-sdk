@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**search_companyname**](FactSetIDLookupApi.md#search_companyname) | **POST** /v1/idsearch | Search funtionality to return tickers, company names and unique identifiers for FactSet data
 
 
+
 # **search_companyname**
 > LookupResponse search_companyname(lookup_request)
 

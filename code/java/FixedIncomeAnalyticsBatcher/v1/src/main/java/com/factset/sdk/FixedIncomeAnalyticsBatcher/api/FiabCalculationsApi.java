@@ -26,19 +26,21 @@ public class FiabCalculationsApi {
   public FiabCalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFIABCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFIABCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFIABCalculationByIdResponseTypeMap.put(200, new GenericType<FIABCalculationStatus>(){});
     getFIABCalculationByIdResponseTypeMap.put(202, new GenericType<FIABCalculationStatus>(){});
   }
+
   private static final Map<Integer, GenericType> getFIABCalculationStatusSummariesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFIABCalculationStatusSummariesResponseTypeMap.put(200, new GenericType<java.util.Map<String, FIABCalculationStatusSummary>>(){});
   }
+
   private static final Map<Integer, GenericType> runFIABCalculationResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

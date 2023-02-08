@@ -46,6 +46,7 @@ class TickerApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.batch_ticker_history_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -102,6 +103,7 @@ class TickerApi(object):
             },
             api_client=api_client
         )
+
         self.batch_translate_ticker_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -158,6 +160,7 @@ class TickerApi(object):
             },
             api_client=api_client
         )
+
         self.ticker_history_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -236,6 +239,7 @@ class TickerApi(object):
             },
             api_client=api_client
         )
+
         self.translate_ticker_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -310,6 +314,7 @@ class TickerApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -321,6 +326,7 @@ class TickerApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def batch_ticker_history(
         self,
@@ -508,6 +514,7 @@ class TickerApi(object):
             ticker_history_translation_request
         return self.batch_ticker_history_endpoint.call_with_http_info(**kwargs)
 
+
     def batch_translate_ticker(
         self,
         ticker_translation_request,
@@ -693,6 +700,7 @@ class TickerApi(object):
         kwargs['ticker_translation_request'] = \
             ticker_translation_request
         return self.batch_translate_ticker_endpoint.call_with_http_info(**kwargs)
+
 
     def ticker_history(
         self,
@@ -888,6 +896,7 @@ class TickerApi(object):
             ids
         return self.ticker_history_endpoint.call_with_http_info(**kwargs)
 
+
     def translate_ticker(
         self,
         ids,
@@ -1077,4 +1086,5 @@ class TickerApi(object):
         kwargs['ids'] = \
             ids
         return self.translate_ticker_endpoint.call_with_http_info(**kwargs)
+
 

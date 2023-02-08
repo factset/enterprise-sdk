@@ -186,7 +186,8 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         private FactSet.SDK.CapitalStructureReportBuilder.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetDcsDetailResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetDcsDetailResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -194,6 +195,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDcsSummaryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
@@ -202,6 +204,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
             { (HttpStatusCode)404, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSourceOfCapitalResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(Response) },
@@ -214,7 +217,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

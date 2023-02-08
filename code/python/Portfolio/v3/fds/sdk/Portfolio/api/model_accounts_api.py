@@ -44,6 +44,7 @@ class ModelAccountsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_or_update_model_account_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -102,6 +103,7 @@ class ModelAccountsApi(object):
             },
             api_client=api_client
         )
+
         self.delete_a_model_account_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -154,6 +156,7 @@ class ModelAccountsApi(object):
             },
             api_client=api_client
         )
+
         self.delete_model_account_by_date_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -218,6 +221,7 @@ class ModelAccountsApi(object):
             },
             api_client=api_client
         )
+
         self.delete_model_account_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -282,6 +286,7 @@ class ModelAccountsApi(object):
             },
             api_client=api_client
         )
+
         self.get_account_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -342,6 +347,7 @@ class ModelAccountsApi(object):
             },
             api_client=api_client
         )
+
         self.get_account_for_date_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -408,6 +414,7 @@ class ModelAccountsApi(object):
             },
             api_client=api_client
         )
+
         self.get_account_for_date_and_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -480,6 +487,7 @@ class ModelAccountsApi(object):
             },
             api_client=api_client
         )
+
         self.get_account_for_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -546,6 +554,7 @@ class ModelAccountsApi(object):
             },
             api_client=api_client
         )
+
         self.get_account_schema_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -602,6 +611,7 @@ class ModelAccountsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -613,6 +623,7 @@ class ModelAccountsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_or_update_model_account(
         self,
@@ -800,6 +811,7 @@ class ModelAccountsApi(object):
             name
         return self.create_or_update_model_account_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_a_model_account(
         self,
         name,
@@ -981,6 +993,7 @@ class ModelAccountsApi(object):
         kwargs['name'] = \
             name
         return self.delete_a_model_account_endpoint.call_with_http_info(**kwargs)
+
 
     def delete_model_account_by_date(
         self,
@@ -1184,6 +1197,7 @@ class ModelAccountsApi(object):
             date
         return self.delete_model_account_by_date_endpoint.call_with_http_info(**kwargs)
 
+
     def delete_model_account_by_symbol(
         self,
         name,
@@ -1386,6 +1400,7 @@ class ModelAccountsApi(object):
             symbol
         return self.delete_model_account_by_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_account(
         self,
         name,
@@ -1571,6 +1586,7 @@ class ModelAccountsApi(object):
         kwargs['name'] = \
             name
         return self.get_account_endpoint.call_with_http_info(**kwargs)
+
 
     def get_account_for_date(
         self,
@@ -1773,6 +1789,7 @@ class ModelAccountsApi(object):
         kwargs['date'] = \
             date
         return self.get_account_for_date_endpoint.call_with_http_info(**kwargs)
+
 
     def get_account_for_date_and_symbol(
         self,
@@ -1992,6 +2009,7 @@ class ModelAccountsApi(object):
             date
         return self.get_account_for_date_and_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_account_for_symbol(
         self,
         name,
@@ -2194,6 +2212,7 @@ class ModelAccountsApi(object):
             symbol
         return self.get_account_for_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def get_account_schema(
         self,
         name,
@@ -2375,4 +2394,5 @@ class ModelAccountsApi(object):
         kwargs['name'] = \
             name
         return self.get_account_schema_endpoint.call_with_http_info(**kwargs)
+
 

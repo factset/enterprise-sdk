@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreatePost**](CreateReportApi.md#createpost) | **POST** /create | Create new report templates including portfolio or market news and data.
 
 
+
 <a name="createpost"></a>
 # **CreatePost**
 > PostResponseInfo CreatePost (MIAPIPostRequest mIAPIPostRequest)
@@ -97,4 +98,5 @@ Name | Type | Description  | Notes
 | **401** | Missing/invalid Credentials or Authentication failure |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

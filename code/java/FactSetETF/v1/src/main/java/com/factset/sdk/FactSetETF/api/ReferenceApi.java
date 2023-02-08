@@ -27,8 +27,8 @@ public class ReferenceApi {
   public ReferenceApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEtfReferenceDataResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEtfReferenceDataResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEtfReferenceDataResponseTypeMap.put(200, new GenericType<EtfReferenceDataResponse>(){});
     getEtfReferenceDataResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -37,6 +37,7 @@ public class ReferenceApi {
     getEtfReferenceDataResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEtfReferenceDataResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEtfReferenceDataForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEtfReferenceDataForListResponseTypeMap.put(200, new GenericType<EtfReferenceDataResponse>(){});
@@ -47,7 +48,7 @@ public class ReferenceApi {
     getEtfReferenceDataForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

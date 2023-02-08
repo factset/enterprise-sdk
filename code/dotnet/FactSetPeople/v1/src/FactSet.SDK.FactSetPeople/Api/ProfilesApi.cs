@@ -141,7 +141,8 @@ namespace FactSet.SDK.FactSetPeople.Api
         private FactSet.SDK.FactSetPeople.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleProfilesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleProfilesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PeopleProfilesResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
@@ -150,6 +151,7 @@ namespace FactSet.SDK.FactSetPeople.Api
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleProfilesForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PeopleProfilesResponse) },
@@ -163,7 +165,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

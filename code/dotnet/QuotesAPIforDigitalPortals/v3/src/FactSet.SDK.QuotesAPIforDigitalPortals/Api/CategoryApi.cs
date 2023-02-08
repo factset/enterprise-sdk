@@ -643,46 +643,57 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         private FactSet.SDK.QuotesAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryDatasetListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryDatasetListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20035) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20031) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryInstrumentListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20036) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryLevelGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20037) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20032) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryListByLevelResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20033) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryListBySystemResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20034) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryPathGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20038) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCategorySystemGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20039) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCategorySystemListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20040) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCategorySystemTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse20041) },
@@ -691,7 +702,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

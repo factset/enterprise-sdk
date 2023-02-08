@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**post_df_snapshot**](SnapshotApi.md#post_df_snapshot) | **POST** /DFSnapshot | Snap exchange data. Use if URL lengh of 2,048 is exceeded.
 
 
+
 # **get_df_snapshot**
 > DFSnapshotResponse get_df_snapshot()
 

@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.MarketIntelligence
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.MarketIntelligence
 from fds.sdk.MarketIntelligence.api import create_report_api
 from fds.sdk.MarketIntelligence.models import *

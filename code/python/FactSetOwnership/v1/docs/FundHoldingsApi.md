@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**post_ownership_holdings**](FundHoldingsApi.md#post_ownership_holdings) | **POST** /factset-ownership/v1/fund-holdings | Get holdings for a list of funds.
 
 
+
 # **get_ownership_holdings**
 > FundHoldingsResponse get_ownership_holdings(ids)
 

@@ -46,6 +46,7 @@ class SEDOLApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.batch_sedol_history_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -102,6 +103,7 @@ class SEDOLApi(object):
             },
             api_client=api_client
         )
+
         self.batch_translate_sedol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -158,6 +160,7 @@ class SEDOLApi(object):
             },
             api_client=api_client
         )
+
         self.sedol_history_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -225,6 +228,7 @@ class SEDOLApi(object):
             },
             api_client=api_client
         )
+
         self.translate_sedol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -288,6 +292,7 @@ class SEDOLApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -299,6 +304,7 @@ class SEDOLApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def batch_sedol_history(
         self,
@@ -486,6 +492,7 @@ class SEDOLApi(object):
             sedol_history_translation_request
         return self.batch_sedol_history_endpoint.call_with_http_info(**kwargs)
 
+
     def batch_translate_sedol(
         self,
         sedol_translation_request,
@@ -671,6 +678,7 @@ class SEDOLApi(object):
         kwargs['sedol_translation_request'] = \
             sedol_translation_request
         return self.batch_translate_sedol_endpoint.call_with_http_info(**kwargs)
+
 
     def sedol_history(
         self,
@@ -862,6 +870,7 @@ class SEDOLApi(object):
             ids
         return self.sedol_history_endpoint.call_with_http_info(**kwargs)
 
+
     def translate_sedol(
         self,
         ids,
@@ -1047,4 +1056,5 @@ class SEDOLApi(object):
         kwargs['ids'] = \
             ids
         return self.translate_sedol_endpoint.call_with_http_info(**kwargs)
+
 

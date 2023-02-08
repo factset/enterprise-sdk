@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**soft_delete_note_attachment**](AttachmentsApi.md#soft_delete_note_attachment) | **DELETE** /v1/notes/{noteId}/attachments/{attachmentId} | Delete attachment from note
 
 
+
 # **create_attachment**
 > NewItemDto create_attachment(note_id, file)
 

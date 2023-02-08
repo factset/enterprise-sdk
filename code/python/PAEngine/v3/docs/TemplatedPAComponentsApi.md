@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**update_templated_pa_components**](TemplatedPAComponentsApi.md#update_templated_pa_components) | **PUT** /analytics/engines/pa/v3/templated-components/{id} | Update templated PA component
 
 
+
 # **create_templated_pa_components**
 > TemplatedPAComponentPostSummaryRoot create_templated_pa_components(templated_pa_component_parameters_root)
 

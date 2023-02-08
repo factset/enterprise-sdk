@@ -48,6 +48,7 @@ yarn add @factset/sdk-utils @factset/sdk-vault
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, AccountsApi } = require('@factset/sdk-vault');
 const { ConfidentialClient } = require('@factset/sdk-utils');

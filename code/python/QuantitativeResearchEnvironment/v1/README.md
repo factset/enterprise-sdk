@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.QuantitativeResearchEnvironment
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.QuantitativeResearchEnvironment
 from fds.sdk.QuantitativeResearchEnvironment.api import calculations_api
 from fds.sdk.QuantitativeResearchEnvironment.models import *

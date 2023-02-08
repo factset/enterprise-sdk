@@ -112,7 +112,8 @@ namespace FactSet.SDK.PAEngine.Api
         private FactSet.SDK.PAEngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> ConvertPADatesToAbsoluteFormatResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> ConvertPADatesToAbsoluteFormatResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(DateParametersSummary) },
         };
@@ -120,7 +121,7 @@ namespace FactSet.SDK.PAEngine.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

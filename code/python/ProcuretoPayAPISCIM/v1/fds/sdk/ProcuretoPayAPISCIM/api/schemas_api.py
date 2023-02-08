@@ -43,6 +43,7 @@ class SchemasApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.schemas_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -101,6 +102,7 @@ class SchemasApi(object):
             },
             api_client=api_client
         )
+
         self.schemas_id_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -157,6 +159,7 @@ class SchemasApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -168,6 +171,7 @@ class SchemasApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def schemas_get(
         self,
@@ -338,6 +342,7 @@ class SchemasApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.schemas_get_endpoint.call_with_http_info(**kwargs)
+
 
     def schemas_id_get(
         self,
@@ -520,4 +525,5 @@ class SchemasApi(object):
         kwargs['id'] = \
             id
         return self.schemas_id_get_endpoint.call_with_http_info(**kwargs)
+
 

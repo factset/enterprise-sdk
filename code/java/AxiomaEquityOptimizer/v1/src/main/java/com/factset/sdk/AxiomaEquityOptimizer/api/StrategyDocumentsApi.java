@@ -24,13 +24,13 @@ public class StrategyDocumentsApi {
   public StrategyDocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getAxiomaEquityStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getAxiomaEquityStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAxiomaEquityStrategyDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectories>(){});
   }
 
-   
+  
 
 
   /**

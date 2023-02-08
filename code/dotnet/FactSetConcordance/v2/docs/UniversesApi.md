@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**GetUpdateUniverseForList**](UniversesApi.md#getupdateuniverseforlist) | **POST** /factset-concordance/v2/update-universe | Update metadata for an existing universe
 
 
+
 <a name="getentityuniversestatistics"></a>
 # **GetEntityUniverseStatistics**
 > EntityUniverseStatisticsResponse GetEntityUniverseStatistics (int universeId)
@@ -100,6 +101,7 @@ Name | Type | Description  | Notes
 | **0** | Error Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getuniverseforlist"></a>
 # **GetUniverseForList**
@@ -196,6 +198,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getuniversestatistics"></a>
 # **GetUniverseStatistics**
 > UniverseStatisticsResponse GetUniverseStatistics (int universeId)
@@ -285,6 +288,7 @@ Name | Type | Description  | Notes
 | **0** | Error Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getuniverses"></a>
 # **GetUniverses**
@@ -377,6 +381,7 @@ Name | Type | Description  | Notes
 | **0** | Error Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getupdateuniverseforlist"></a>
 # **GetUpdateUniverseForList**
@@ -472,4 +477,5 @@ Name | Type | Description  | Notes
 | **0** | Error Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

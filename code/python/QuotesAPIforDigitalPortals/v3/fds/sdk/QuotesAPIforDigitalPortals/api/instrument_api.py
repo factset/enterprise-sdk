@@ -72,6 +72,7 @@ class InstrumentApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_instrument_background_text_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -148,6 +149,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_compliance_property_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -224,6 +226,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_composite_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -300,6 +303,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_coupon_day_count_convention_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -369,6 +373,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_coupon_interest_rate_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -438,6 +443,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_coupon_key_data_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -514,6 +520,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_coupon_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -590,6 +597,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_cross_reference_get_by_isin_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -656,6 +664,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_cross_reference_get_by_wkn_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -730,6 +739,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_cross_reference_history_get_by_isin_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -817,6 +827,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_cross_reference_history_get_by_wkn_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -912,6 +923,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_exchange_rate_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -994,6 +1006,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_exchange_rate_get_by_iso_code_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1086,6 +1099,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1162,6 +1176,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_get_by_notation_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1238,6 +1253,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_legal_entity_background_text_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1314,6 +1330,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_legal_entity_compliance_property_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1390,6 +1407,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_mifid_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1466,6 +1484,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.get_instrument_search_basic_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1616,6 +1635,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.post_instrument_background_text_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1670,6 +1690,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.post_instrument_benchmark_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1724,6 +1745,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.post_instrument_category_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1778,6 +1800,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.post_instrument_compliance_property_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1832,6 +1855,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.post_instrument_cross_reference_list_by_isin_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1886,6 +1910,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.post_instrument_cross_reference_list_by_wkn_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1940,6 +1965,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.post_instrument_notation_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -1994,6 +2020,7 @@ class InstrumentApi(object):
             },
             api_client=api_client
         )
+
         self.post_instrument_rating_grade_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -2049,6 +2076,7 @@ class InstrumentApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -2060,6 +2088,7 @@ class InstrumentApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_instrument_background_text_list_by_instrument(
         self,
@@ -2255,6 +2284,7 @@ class InstrumentApi(object):
             id
         return self.get_instrument_background_text_list_by_instrument_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_compliance_property_list_by_instrument(
         self,
         id,
@@ -2448,6 +2478,7 @@ class InstrumentApi(object):
         kwargs['id'] = \
             id
         return self.get_instrument_compliance_property_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+
 
     def get_instrument_composite_get(
         self,
@@ -2643,6 +2674,7 @@ class InstrumentApi(object):
             id
         return self.get_instrument_composite_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_coupon_day_count_convention_type_list(
         self,
         **kwargs
@@ -2817,6 +2849,7 @@ class InstrumentApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_instrument_coupon_day_count_convention_type_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_coupon_interest_rate_type_list(
         self,
         **kwargs
@@ -2990,6 +3023,7 @@ class InstrumentApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_instrument_coupon_interest_rate_type_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_instrument_coupon_key_data_get(
         self,
@@ -3185,6 +3219,7 @@ class InstrumentApi(object):
             id
         return self.get_instrument_coupon_key_data_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_coupon_list(
         self,
         id,
@@ -3379,6 +3414,7 @@ class InstrumentApi(object):
             id
         return self.get_instrument_coupon_list_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_cross_reference_get_by_isin(
         self,
         isin,
@@ -3569,6 +3605,7 @@ class InstrumentApi(object):
             isin
         return self.get_instrument_cross_reference_get_by_isin_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_cross_reference_get_by_wkn(
         self,
         wkn,
@@ -3758,6 +3795,7 @@ class InstrumentApi(object):
         kwargs['wkn'] = \
             wkn
         return self.get_instrument_cross_reference_get_by_wkn_endpoint.call_with_http_info(**kwargs)
+
 
     def get_instrument_cross_reference_history_get_by_isin(
         self,
@@ -3957,6 +3995,7 @@ class InstrumentApi(object):
             isin
         return self.get_instrument_cross_reference_history_get_by_isin_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_cross_reference_history_get_by_wkn(
         self,
         wkn,
@@ -4154,6 +4193,7 @@ class InstrumentApi(object):
         kwargs['wkn'] = \
             wkn
         return self.get_instrument_cross_reference_history_get_by_wkn_endpoint.call_with_http_info(**kwargs)
+
 
     def get_instrument_exchange_rate_get(
         self,
@@ -4365,6 +4405,7 @@ class InstrumentApi(object):
             source
         return self.get_instrument_exchange_rate_get_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_exchange_rate_get_by_iso_code(
         self,
         target,
@@ -4575,6 +4616,7 @@ class InstrumentApi(object):
             source
         return self.get_instrument_exchange_rate_get_by_iso_code_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_get(
         self,
         id,
@@ -4768,6 +4810,7 @@ class InstrumentApi(object):
         kwargs['id'] = \
             id
         return self.get_instrument_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_instrument_get_by_notation(
         self,
@@ -4963,6 +5006,7 @@ class InstrumentApi(object):
             id
         return self.get_instrument_get_by_notation_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_legal_entity_background_text_list_by_instrument(
         self,
         id,
@@ -5156,6 +5200,7 @@ class InstrumentApi(object):
         kwargs['id'] = \
             id
         return self.get_instrument_legal_entity_background_text_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+
 
     def get_instrument_legal_entity_compliance_property_list_by_instrument(
         self,
@@ -5351,6 +5396,7 @@ class InstrumentApi(object):
             id
         return self.get_instrument_legal_entity_compliance_property_list_by_instrument_endpoint.call_with_http_info(**kwargs)
 
+
     def get_instrument_mifid_get(
         self,
         id,
@@ -5544,6 +5590,7 @@ class InstrumentApi(object):
         kwargs['id'] = \
             id
         return self.get_instrument_mifid_get_endpoint.call_with_http_info(**kwargs)
+
 
     def get_instrument_search_basic(
         self,
@@ -5759,6 +5806,7 @@ class InstrumentApi(object):
             search_value
         return self.get_instrument_search_basic_endpoint.call_with_http_info(**kwargs)
 
+
     def post_instrument_background_text_type_list(
         self,
         **kwargs
@@ -5928,6 +5976,7 @@ class InstrumentApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_instrument_background_text_type_list_endpoint.call_with_http_info(**kwargs)
+
 
     def post_instrument_benchmark_list(
         self,
@@ -6099,6 +6148,7 @@ class InstrumentApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_instrument_benchmark_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_instrument_category_list(
         self,
         **kwargs
@@ -6268,6 +6318,7 @@ class InstrumentApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_instrument_category_list_endpoint.call_with_http_info(**kwargs)
+
 
     def post_instrument_compliance_property_list(
         self,
@@ -6439,6 +6490,7 @@ class InstrumentApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_instrument_compliance_property_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_instrument_cross_reference_list_by_isin(
         self,
         **kwargs
@@ -6608,6 +6660,7 @@ class InstrumentApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_instrument_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
+
 
     def post_instrument_cross_reference_list_by_wkn(
         self,
@@ -6779,6 +6832,7 @@ class InstrumentApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_instrument_cross_reference_list_by_wkn_endpoint.call_with_http_info(**kwargs)
 
+
     def post_instrument_notation_list(
         self,
         **kwargs
@@ -6949,6 +7003,7 @@ class InstrumentApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_instrument_notation_list_endpoint.call_with_http_info(**kwargs)
 
+
     def post_instrument_rating_grade_list(
         self,
         **kwargs
@@ -7118,4 +7173,5 @@ class InstrumentApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_instrument_rating_grade_list_endpoint.call_with_http_info(**kwargs)
+
 

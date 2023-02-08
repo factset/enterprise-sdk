@@ -25,14 +25,14 @@ public class GetFilesApi {
   public GetFilesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> v1GetFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> v1GetFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     v1GetFilesGetResponseTypeMap.put(200, new GenericType<GetFilesResponse>(){});
     v1GetFilesGetResponseTypeMap.put(400, new GenericType<GetFilesStatus>(){});
   }
 
-   
+  
 
 
   /**

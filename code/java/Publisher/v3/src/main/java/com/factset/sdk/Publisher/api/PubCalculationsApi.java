@@ -27,14 +27,16 @@ public class PubCalculationsApi {
   public PubCalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> cancelCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> cancelCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> getCalculationParametersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCalculationParametersResponseTypeMap.put(200, new GenericType<PubCalculationParametersRoot>(){});
     getCalculationParametersResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getCalculationParametersResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCalculationStatusByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCalculationStatusByIdResponseTypeMap.put(200, new GenericType<CalculationStatusRoot>(){});
@@ -42,12 +44,14 @@ public class PubCalculationsApi {
     getCalculationStatusByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getCalculationStatusByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getCalculationUnitResultByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCalculationUnitResultByIdResponseTypeMap.put(200, new GenericType<ObjectRoot>(){});
     getCalculationUnitResultByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getCalculationUnitResultByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postAndCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postAndCalculateResponseTypeMap.put(200, new GenericType<CalculationStatusRoot>(){});
@@ -56,6 +60,7 @@ public class PubCalculationsApi {
     postAndCalculateResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     postAndCalculateResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> putAndCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     putAndCalculateResponseTypeMap.put(200, new GenericType<CalculationStatusRoot>(){});
@@ -65,7 +70,7 @@ public class PubCalculationsApi {
     putAndCalculateResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
  /**
    * Wrapper to support POST /analytics/engines/pub/v3/calculations returning different types
    * per status code.

@@ -28,24 +28,26 @@ public class NewsApiApi {
   public NewsApiApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> asynchNewsV1CheckStatusGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> asynchNewsV1CheckStatusGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     asynchNewsV1CheckStatusGetResponseTypeMap.put(200, new GenericType<NewscheckstatusResponse>(){});
     asynchNewsV1CheckStatusGetResponseTypeMap.put(400, new GenericType<NewsStatus>(){});
   }
+
   private static final Map<Integer, GenericType> asynchNewsV1GetFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     asynchNewsV1GetFilesGetResponseTypeMap.put(200, new GenericType<NewsgetfilesResponse>(){});
     asynchNewsV1GetFilesGetResponseTypeMap.put(400, new GenericType<NewsStatus>(){});
   }
+
   private static final Map<Integer, GenericType> asynchNewsV1RequestFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     asynchNewsV1RequestFilesGetResponseTypeMap.put(200, new GenericType<NewsrequestfilesResponse>(){});
     asynchNewsV1RequestFilesGetResponseTypeMap.put(400, new GenericType<NewsStatus>(){});
   }
 
-   
+  
 
 
   /**

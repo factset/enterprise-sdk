@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_segments_for_list**](SegmentsApi.md#get_segments_for_list) | **POST** /factset-estimates/v2/segments | Retrieves product segment estimates for a requested list of ids and fiscal periods
 
 
+
 # **get_segments**
 > SegmentsResponse get_segments(ids, metrics)
 

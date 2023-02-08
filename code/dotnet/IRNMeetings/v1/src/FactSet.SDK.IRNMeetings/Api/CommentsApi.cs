@@ -423,13 +423,15 @@ namespace FactSet.SDK.IRNMeetings.Api
         private FactSet.SDK.IRNMeetings.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CreateCommentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CreateCommentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(NewItemDto) },
             { (HttpStatusCode)400, typeof(ProblemDetails) },
             { (HttpStatusCode)403, typeof(ProblemDetails) },
             { (HttpStatusCode)404, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> CreateCommentAttachmentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(NewItemDto) },
@@ -437,12 +439,15 @@ namespace FactSet.SDK.IRNMeetings.Api
             { (HttpStatusCode)403, typeof(ProblemDetails) },
             { (HttpStatusCode)404, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteCommentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DownloadCommentAttachmentForCommentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCommentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CommentDto) },
@@ -450,6 +455,7 @@ namespace FactSet.SDK.IRNMeetings.Api
             { (HttpStatusCode)403, typeof(ProblemDetails) },
             { (HttpStatusCode)404, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCommentAttachmentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<AttachmentSummaryDto>) },
@@ -457,6 +463,7 @@ namespace FactSet.SDK.IRNMeetings.Api
             { (HttpStatusCode)403, typeof(ProblemDetails) },
             { (HttpStatusCode)404, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCommentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<CommentSummaryDto>) },
@@ -464,6 +471,7 @@ namespace FactSet.SDK.IRNMeetings.Api
             { (HttpStatusCode)403, typeof(ProblemDetails) },
             { (HttpStatusCode)404, typeof(ProblemDetails) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PatchCommentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
@@ -471,7 +479,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -26,8 +26,8 @@ public class NonPeriodicApi {
   public NonPeriodicApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getNonPeriodicResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getNonPeriodicResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNonPeriodicResponseTypeMap.put(200, new GenericType<NonPeriodicResponse>(){});
     getNonPeriodicResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class NonPeriodicApi {
     getNonPeriodicResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getNonPeriodicResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getNonPeriodicForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getNonPeriodicForListResponseTypeMap.put(200, new GenericType<NonPeriodicResponse>(){});
@@ -46,7 +47,7 @@ public class NonPeriodicApi {
     getNonPeriodicForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

@@ -25,18 +25,19 @@ public class FilesApi {
   public FilesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> analyticsQuantQreV1FilesServerFilePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> analyticsQuantQreV1FilesServerFilePostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     analyticsQuantQreV1FilesServerFilePostResponseTypeMap.put(202, new GenericType<FileUploadStatus>(){});
   }
+
   private static final Map<Integer, GenericType> analyticsQuantQreV1FilesUploadsIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     analyticsQuantQreV1FilesUploadsIdGetResponseTypeMap.put(200, new GenericType<FileUploadStatus>(){});
     analyticsQuantQreV1FilesUploadsIdGetResponseTypeMap.put(202, new GenericType<FileUploadStatus>(){});
   }
 
-   
+  
 
 
   /**

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**update_linked_pa_templates**](LinkedPATemplatesApi.md#update_linked_pa_templates) | **PUT** /analytics/engines/pa/v3/linked-templates/{id} | Update a linked PA template
 
 
+
 # **create_linked_pa_templates**
 > LinkedPATemplatePostSummaryRoot create_linked_pa_templates(linked_pa_template_parameters_root)
 

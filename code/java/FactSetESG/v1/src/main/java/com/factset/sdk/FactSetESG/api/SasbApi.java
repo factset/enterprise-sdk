@@ -30,8 +30,8 @@ public class SasbApi {
   public SasbApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSasbRanksResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSasbRanksResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSasbRanksResponseTypeMap.put(200, new GenericType<SasbRanksResponse>(){});
     getSasbRanksResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -40,6 +40,7 @@ public class SasbApi {
     getSasbRanksResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSasbRanksResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSasbRanksPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSasbRanksPostResponseTypeMap.put(200, new GenericType<SasbRanksResponse>(){});
@@ -49,6 +50,7 @@ public class SasbApi {
     getSasbRanksPostResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSasbRanksPostResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSasbScoresResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSasbScoresResponseTypeMap.put(200, new GenericType<SasbScoresResponse>(){});
@@ -58,6 +60,7 @@ public class SasbApi {
     getSasbScoresResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSasbScoresResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSasbScoresAllResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSasbScoresAllResponseTypeMap.put(200, new GenericType<SasbScoresAllResponse>(){});
@@ -67,6 +70,7 @@ public class SasbApi {
     getSasbScoresAllResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSasbScoresAllResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSasbScoresAllPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSasbScoresAllPostResponseTypeMap.put(200, new GenericType<SasbScoresAllResponse>(){});
@@ -76,6 +80,7 @@ public class SasbApi {
     getSasbScoresAllPostResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSasbScoresAllPostResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSasbScoresPostResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSasbScoresPostResponseTypeMap.put(200, new GenericType<SasbScoresResponse>(){});
@@ -86,7 +91,7 @@ public class SasbApi {
     getSasbScoresPostResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

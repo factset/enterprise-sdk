@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**SearchForDataAnswer**](AnswersApi.md#searchfordataanswer) | **GET** /search/answers/v1/data | Fetch FactSet answer in data format
 
 
+
 <a name="searchforadaptivecardanswer"></a>
 # **SearchForAdaptiveCardAnswer**
 > AdaptiveCardAnswerSuccessResponse SearchForAdaptiveCardAnswer (string query, bool? includeThumbnail = null, bool? disableNoAnswerResponses = null)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="searchfordataanswer"></a>
 # **SearchForDataAnswer**
 > DataAnswerSuccessResponse SearchForDataAnswer (string query)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Unhandled error occurred while processing the request. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

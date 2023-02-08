@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_spar_returns_type**](AccountsApi.md#get_spar_returns_type) | **GET** /analytics/engines/spar/v3/accounts/{accountPath}/returns-type | Get SPAR account returns type details
 
 
+
 # **get_accounts**
 > AccountDirectoriesRoot get_accounts()
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_entity_structure_structure**](EntityStructureApi.md#get_entity_structure_structure) | **GET** /structure | Entity structure
 
 
+
 # **get_entity_structure_structure**
 > Response get_entity_structure_structure(id)
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_spar_benchmark_by_id**](SPARBenchmarkApi.md#get_spar_benchmark_by_id) | **GET** /analytics/lookups/v2/engines/spar/benchmarks | Get SPAR benchmark details
 
 
+
 # **get_spar_benchmark_by_id**
 > SPARBenchmark get_spar_benchmark_by_id()
 

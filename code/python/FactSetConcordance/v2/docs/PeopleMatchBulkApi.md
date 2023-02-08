@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_people_task_status**](PeopleMatchBulkApi.md#get_people_task_status) | **GET** /factset-concordance/v2/people-task-status | Get the Status of the People Tasks.
 
 
+
 # **get_people_decisions**
 > PeopleDecisionsResponse get_people_decisions(task_id)
 

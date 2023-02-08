@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_pa_groups**](GroupsApi.md#get_pa_groups) | **GET** /analytics/engines/pa/v3/groups | Get PA groups
 
 
+
 # **get_pa_grouping_frequencies**
 > FrequencyRoot get_pa_grouping_frequencies()
 

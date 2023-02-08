@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**users_post**](UsersApi.md#users_post) | **POST** /Users | Create a user.
 
 
+
 # **users_get**
 > UserResourceList users_get()
 

@@ -27,25 +27,28 @@ public class DefaultApi {
   public DefaultApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getResultV1ResultResultIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getResultV1ResultResultIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getResultV1ResultResultIdResponseTypeMap.put(200, new GenericType<SuccessResponse>(){});
     getResultV1ResultResultIdResponseTypeMap.put(400, new GenericType<BadRequestResponse>(){});
     getResultV1ResultResultIdResponseTypeMap.put(500, new GenericType<InternalServerErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postHeadlineAndSummaryV1HeadlineAndSummaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postHeadlineAndSummaryV1HeadlineAndSummaryResponseTypeMap.put(201, new GenericType<String>(){});
     postHeadlineAndSummaryV1HeadlineAndSummaryResponseTypeMap.put(400, new GenericType<BadRequestResponse>(){});
     postHeadlineAndSummaryV1HeadlineAndSummaryResponseTypeMap.put(500, new GenericType<InternalServerErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postHeadlineV1HeadlineResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postHeadlineV1HeadlineResponseTypeMap.put(201, new GenericType<String>(){});
     postHeadlineV1HeadlineResponseTypeMap.put(400, new GenericType<BadRequestResponse>(){});
     postHeadlineV1HeadlineResponseTypeMap.put(500, new GenericType<InternalServerErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> postSummaryV1SummaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postSummaryV1SummaryResponseTypeMap.put(201, new GenericType<String>(){});
@@ -53,7 +56,7 @@ public class DefaultApi {
     postSummaryV1SummaryResponseTypeMap.put(500, new GenericType<InternalServerErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

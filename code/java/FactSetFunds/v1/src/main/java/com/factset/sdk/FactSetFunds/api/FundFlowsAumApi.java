@@ -28,8 +28,8 @@ public class FundFlowsAumApi {
   public FundFlowsAumApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFundsAumResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFundsAumResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsAumResponseTypeMap.put(200, new GenericType<AumResponse>(){});
     getFundsAumResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class FundFlowsAumApi {
     getFundsAumResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsAumResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsAumForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsAumForListResponseTypeMap.put(200, new GenericType<AumResponse>(){});
@@ -47,6 +48,7 @@ public class FundFlowsAumApi {
     getFundsAumForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsAumForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsFlowsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsFlowsResponseTypeMap.put(200, new GenericType<FlowsResponse>(){});
@@ -56,6 +58,7 @@ public class FundFlowsAumApi {
     getFundsFlowsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFundsFlowsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFundsFlowsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFundsFlowsForListResponseTypeMap.put(200, new GenericType<FlowsResponse>(){});
@@ -66,7 +69,7 @@ public class FundFlowsAumApi {
     getFundsFlowsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

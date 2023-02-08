@@ -26,8 +26,8 @@ public class UseOfProceedsApi {
   public UseOfProceedsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFixedIncomeUseOfProceedsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFixedIncomeUseOfProceedsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFixedIncomeUseOfProceedsResponseTypeMap.put(200, new GenericType<UseOfProceedsResponse>(){});
     getFixedIncomeUseOfProceedsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class UseOfProceedsApi {
     getFixedIncomeUseOfProceedsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getFixedIncomeUseOfProceedsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getFixedIncomeUseOfProceedsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFixedIncomeUseOfProceedsForListResponseTypeMap.put(200, new GenericType<UseOfProceedsResponse>(){});
@@ -46,7 +47,7 @@ public class UseOfProceedsApi {
     getFixedIncomeUseOfProceedsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

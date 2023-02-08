@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**asynch_streetaccount_v1_request_files_get**](StreetAccountXMLAPIApi.md#asynch_streetaccount_v1_request_files_get) | **GET** /asynch/streetaccount/v1/request-files | Returns the jobID
 
 
+
 # **asynch_streetaccount_v1_check_status_get**
 > CheckstatusResponse asynch_streetaccount_v1_check_status_get(job_id)
 

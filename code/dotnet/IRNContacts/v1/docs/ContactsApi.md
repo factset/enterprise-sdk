@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**PatchContact**](ContactsApi.md#patchcontact) | **PATCH** /v1/contacts/{contactId} | Edit a contact’s standard field and custom field data
 
 
+
 <a name="createcontact"></a>
 # **CreateContact**
 > NewItemDto CreateContact (ContactSaveDto contactSaveDto = null)
@@ -103,6 +104,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletecontact"></a>
 # **DeleteContact**
@@ -193,6 +195,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcontact"></a>
 # **GetContact**
 > ContactDto GetContact (Guid contactId)
@@ -281,6 +284,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcontactevents"></a>
 # **GetContactEvents**
@@ -371,6 +375,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcontactnotes"></a>
 # **GetContactNotes**
 > string GetContactNotes (Guid contactId)
@@ -459,6 +464,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcontactrecords"></a>
 # **GetContactRecords**
@@ -549,6 +555,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcontactrelationships"></a>
 # **GetContactRelationships**
 > List&lt;ContactRelationshipDto&gt; GetContactRelationships (Guid contactId)
@@ -637,6 +644,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcontacts"></a>
 # **GetContacts**
@@ -741,6 +749,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="patchcontact"></a>
 # **PatchContact**
 > void PatchContact (Guid contactId, List<Operation> operation = null)
@@ -831,4 +840,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

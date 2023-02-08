@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**products_id_get**](ProductsApi.md#products_id_get) | **GET** /Products/{id} | Get a product.
 
 
+
 # **products_get**
 > ProductResourceList products_get()
 

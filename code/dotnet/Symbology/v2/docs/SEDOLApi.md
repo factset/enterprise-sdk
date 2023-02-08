@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**TranslateSedol**](SEDOLApi.md#translatesedol) | **GET** /symbology/v2/sedol | Translate market security symbols into SEDOL. - Current Only
 
 
+
 <a name="batchsedolhistory"></a>
 # **BatchSedolHistory**
 > SedolHistoryTranslationResponse BatchSedolHistory (SedolHistoryTranslationRequest sedolHistoryTranslationRequest)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="batchtranslatesedol"></a>
 # **BatchTranslateSedol**
 > SedolTranslationResponse BatchTranslateSedol (SedolTranslationRequest sedolTranslationRequest)
@@ -197,6 +199,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="sedolhistory"></a>
 # **SedolHistory**
@@ -294,6 +297,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="translatesedol"></a>
 # **TranslateSedol**
 > SedolTranslationResponse TranslateSedol (List<string> ids)
@@ -387,4 +391,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

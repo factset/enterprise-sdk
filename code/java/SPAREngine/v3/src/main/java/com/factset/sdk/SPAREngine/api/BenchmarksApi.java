@@ -25,15 +25,15 @@ public class BenchmarksApi {
   public BenchmarksApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSPARBenchmarkByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSPARBenchmarkByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSPARBenchmarkByIdResponseTypeMap.put(200, new GenericType<SPARBenchmarkRoot>(){});
     getSPARBenchmarkByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getSPARBenchmarkByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

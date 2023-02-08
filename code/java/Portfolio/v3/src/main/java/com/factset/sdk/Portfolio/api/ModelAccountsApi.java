@@ -26,35 +26,43 @@ public class ModelAccountsApi {
   public ModelAccountsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> createOrUpdateModelAccountResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> createOrUpdateModelAccountResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> deleteAModelAccountResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> deleteModelAccountByDateResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> deleteModelAccountBySymbolResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getAccountResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountResponseTypeMap.put(200, new GenericType<DataAndMetaModel>(){});
     getAccountResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getAccountResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getAccountForDateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountForDateResponseTypeMap.put(200, new GenericType<DataAndMetaModel>(){});
     getAccountForDateResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getAccountForDateResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getAccountForDateAndSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountForDateAndSymbolResponseTypeMap.put(200, new GenericType<DataAndMetaModel>(){});
     getAccountForDateAndSymbolResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getAccountForDateAndSymbolResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getAccountForSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountForSymbolResponseTypeMap.put(200, new GenericType<DataAndMetaModel>(){});
     getAccountForSymbolResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getAccountForSymbolResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getAccountSchemaResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountSchemaResponseTypeMap.put(200, new GenericType<DataAndMetaModel>(){});
@@ -62,7 +70,7 @@ public class ModelAccountsApi {
     getAccountSchemaResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

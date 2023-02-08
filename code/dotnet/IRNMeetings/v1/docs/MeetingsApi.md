@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**UpdateMeeting**](MeetingsApi.md#updatemeeting) | **PUT** /v1/meetings/{meetingId} | Update meeting
 
 
+
 <a name="createmeeting"></a>
 # **CreateMeeting**
 > NewItemDto CreateMeeting (CreateMeetingDto createMeetingDto = null)
@@ -99,6 +100,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="deletemeeting"></a>
 # **DeleteMeeting**
@@ -189,6 +191,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getmeeting"></a>
 # **GetMeeting**
 > MeetingDto GetMeeting (Guid meetingId)
@@ -277,6 +280,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getmeetings"></a>
 # **GetMeetings**
@@ -376,6 +380,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="updatemeeting"></a>
 # **UpdateMeeting**
 > void UpdateMeeting (Guid meetingId, UpdateMeetingDto updateMeetingDto = null)
@@ -466,4 +471,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

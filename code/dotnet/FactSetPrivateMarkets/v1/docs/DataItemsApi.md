@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetFields**](DataItemsApi.md#getfields) | **GET** /factset-private-markets/v1/fields | Available private company fields, metrics, and ratios.
 
 
+
 <a name="getfields"></a>
 # **GetFields**
 > FieldsResponse GetFields (string category = null)
@@ -100,4 +101,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

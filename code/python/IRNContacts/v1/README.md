@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.IRNContacts
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts_api
 from fds.sdk.IRNContacts.models import *

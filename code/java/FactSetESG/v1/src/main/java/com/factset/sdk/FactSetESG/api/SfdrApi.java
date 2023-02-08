@@ -26,8 +26,8 @@ public class SfdrApi {
   public SfdrApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSfdrPaiResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSfdrPaiResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSfdrPaiResponseTypeMap.put(200, new GenericType<SfdrPaiResponse>(){});
     getSfdrPaiResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -37,6 +37,7 @@ public class SfdrApi {
     getSfdrPaiResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSfdrPaiResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSfdrPaiForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSfdrPaiForListResponseTypeMap.put(200, new GenericType<SfdrPaiResponse>(){});
@@ -48,7 +49,7 @@ public class SfdrApi {
     getSfdrPaiForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

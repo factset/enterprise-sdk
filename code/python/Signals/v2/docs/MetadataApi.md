@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_themes**](MetadataApi.md#get_themes) | **GET** /themes | 
 
 
+
 # **get_categories**
 > SignalMetaData get_categories()
 

@@ -24,27 +24,32 @@ public class ModelAccountsApi {
   public ModelAccountsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> createOrUpdateModelAccountResponseTypeMap = new HashMap<Integer, GenericType>();
 
-    private static final Map<Integer, GenericType> createOrUpdateModelAccountResponseTypeMap = new HashMap<Integer, GenericType>();
   private static final Map<Integer, GenericType> deleteAModelAccountResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getAccountForDateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountForDateResponseTypeMap.put(200, new GenericType<String>(){});
   }
+
   private static final Map<Integer, GenericType> getAccountForDateAndSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountForDateAndSymbolResponseTypeMap.put(200, new GenericType<String>(){});
   }
+
   private static final Map<Integer, GenericType> getAccountForSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountForSymbolResponseTypeMap.put(200, new GenericType<String>(){});
   }
+
   private static final Map<Integer, GenericType> getAccountSchemaResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountSchemaResponseTypeMap.put(200, new GenericType<String>(){});
   }
 
-   
+  
 
 
   /**

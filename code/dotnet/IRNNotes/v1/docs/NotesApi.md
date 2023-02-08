@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**UpdateNote**](NotesApi.md#updatenote) | **PUT** /v1/notes/{noteId} | Update a note
 
 
+
 <a name="createnote"></a>
 # **CreateNote**
 > NewItemDto CreateNote (CreateNoteDto createNoteDto, string xIRNContributorUsername = null, string xIRNContributorSerial = null)
@@ -103,6 +104,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="deletenote"></a>
 # **DeleteNote**
 > void DeleteNote (Guid noteId)
@@ -192,6 +194,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnote"></a>
 # **GetNote**
 > NoteDto GetNote (Guid noteId)
@@ -280,6 +283,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnotes"></a>
 # **GetNotes**
@@ -393,6 +397,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="updatenote"></a>
 # **UpdateNote**
 > void UpdateNote (Guid noteId, UpdateNoteDto updateNoteDto = null)
@@ -482,4 +487,5 @@ void (empty response body)
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

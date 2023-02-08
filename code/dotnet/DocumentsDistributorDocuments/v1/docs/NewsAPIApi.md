@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**AsynchNewsV1RequestFilesGet**](NewsAPIApi.md#asynchnewsv1requestfilesget) | **GET** /asynch/news/v1/request-files | Returns the jobID
 
 
+
 <a name="asynchnewsv1checkstatusget"></a>
 # **AsynchNewsV1CheckStatusGet**
 > NewscheckstatusResponse AsynchNewsV1CheckStatusGet (string jobID, string source, int? paginationLimit = null, int? paginationOffset = null)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
 | **400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="asynchnewsv1getfilesget"></a>
 # **AsynchNewsV1GetFilesGet**
@@ -201,6 +203,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="asynchnewsv1requestfilesget"></a>
 # **AsynchNewsV1RequestFilesGet**
 > NewsrequestfilesResponse AsynchNewsV1RequestFilesGet (DateTime startDate, DateTime endDate, string source)
@@ -294,4 +297,5 @@ Name | Type | Description  | Notes
 | **400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSpotsForList**](SpotsApi.md#getspotsforlist) | **POST** /foreign-exchange/v1/spots | Gets spots for a list of currency pairs
 
 
+
 <a name="getspots"></a>
 # **GetSpots**
 > SpotsResponse GetSpots (List<string> ids, string startDate = null, string endDate = null, string frequency = null)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getspotsforlist"></a>
 # **GetSpotsForList**
 > SpotsResponse GetSpotsForList (SpotsRequest spotsRequest)
@@ -201,4 +203,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

@@ -25,14 +25,14 @@ public class SchemaApi {
   public SchemaApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getV1ListSchemasResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getV1ListSchemasResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getV1ListSchemasResponseTypeMap.put(200, new GenericType<ListSchema200Response>(){});
     getV1ListSchemasResponseTypeMap.put(400, new GenericType<ListSchema400Response>(){});
   }
 
-   
+  
 
 
   /**

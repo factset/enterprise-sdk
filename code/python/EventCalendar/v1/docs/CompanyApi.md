@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_company_event**](CompanyApi.md#get_company_event) | **POST** /company/event/list | Retrieve Company Event data
 
 
+
 # **get_company_event**
 > CompanyEventResponse get_company_event(company_event_request)
 

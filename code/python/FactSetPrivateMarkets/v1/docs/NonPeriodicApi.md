@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_non_periodic_for_list**](NonPeriodicApi.md#get_non_periodic_for_list) | **POST** /factset-private-markets/v1/non-periodic | Returns Private Company reference data for a list of ids.
 
 
+
 # **get_non_periodic**
 > NonPeriodicResponse get_non_periodic(ids, fields)
 

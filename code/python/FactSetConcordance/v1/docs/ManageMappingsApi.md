@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**save_entity_mapping**](ManageMappingsApi.md#save_entity_mapping) | **POST** /factset-concordance/v1/entity-mapping | Saves a single-mapping specified by the client.
 
 
+
 # **get_entity_universe**
 > EntityUniverseResponse get_entity_universe()
 

@@ -48,6 +48,7 @@ class UniversesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_entity_universe_statistics_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -103,6 +104,7 @@ class UniversesApi(object):
             },
             api_client=api_client
         )
+
         self.get_universe_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -159,6 +161,7 @@ class UniversesApi(object):
             },
             api_client=api_client
         )
+
         self.get_universe_statistics_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -214,6 +217,7 @@ class UniversesApi(object):
             },
             api_client=api_client
         )
+
         self.get_universes_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -278,6 +282,7 @@ class UniversesApi(object):
             },
             api_client=api_client
         )
+
         self.get_update_universe_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -335,6 +340,7 @@ class UniversesApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -346,6 +352,7 @@ class UniversesApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_entity_universe_statistics(
         self,
@@ -533,6 +540,7 @@ class UniversesApi(object):
             universe_id
         return self.get_entity_universe_statistics_endpoint.call_with_http_info(**kwargs)
 
+
     def get_universe_for_list(
         self,
         create_universe_request,
@@ -718,6 +726,7 @@ class UniversesApi(object):
         kwargs['create_universe_request'] = \
             create_universe_request
         return self.get_universe_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_universe_statistics(
         self,
@@ -905,6 +914,7 @@ class UniversesApi(object):
             universe_id
         return self.get_universe_statistics_endpoint.call_with_http_info(**kwargs)
 
+
     def get_universes(
         self,
         **kwargs
@@ -1078,6 +1088,7 @@ class UniversesApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_universes_endpoint.call_with_http_info(**kwargs)
+
 
     def get_update_universe_for_list(
         self,
@@ -1264,4 +1275,5 @@ class UniversesApi(object):
         kwargs['update_universe_request'] = \
             update_universe_request
         return self.get_update_universe_for_list_endpoint.call_with_http_info(**kwargs)
+
 

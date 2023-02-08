@@ -46,6 +46,7 @@ yarn add @factset/sdk-utils @factset/sdk-chartgenerationservice
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, ChartTemplatesApi } = require('@factset/sdk-chartgenerationservice');
 const { ConfidentialClient } = require('@factset/sdk-utils');

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_options_snapshot_for_list**](SnapshotApi.md#get_options_snapshot_for_list) | **POST** /factset-options/v1/snapshot | Returns all the profile information for the list of identifiers as of a specific date
 
 
+
 # **get_options_snapshot_for_list**
 > SnapshotResponse get_options_snapshot_for_list(snapshot_request)
 

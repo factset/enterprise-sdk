@@ -26,8 +26,8 @@ public class SurpriseApi {
   public SurpriseApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSurpriseResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSurpriseResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSurpriseResponseTypeMap.put(200, new GenericType<SurpriseResponse>(){});
     getSurpriseResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class SurpriseApi {
     getSurpriseResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSurpriseResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSurpriseForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSurpriseForListResponseTypeMap.put(200, new GenericType<SurpriseResponse>(){});
@@ -46,7 +47,7 @@ public class SurpriseApi {
     getSurpriseForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

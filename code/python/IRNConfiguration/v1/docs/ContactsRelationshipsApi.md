@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_relationships**](ContactsRelationshipsApi.md#get_relationships) | **GET** /v1/relationships | Get list of the relationships configured in your group
 
 
+
 # **create_contact_relationship_type**
 > NewItemDto create_contact_relationship_type()
 

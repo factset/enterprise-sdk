@@ -26,8 +26,8 @@ public class EntityReferenceChineseApi {
   public EntityReferenceChineseApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getEntityReferenceChiResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getEntityReferenceChiResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityReferenceChiResponseTypeMap.put(200, new GenericType<EntityReferenceChiResponse>(){});
     getEntityReferenceChiResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class EntityReferenceChineseApi {
     getEntityReferenceChiResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getEntityReferenceChiResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getEntityReferenceChiForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getEntityReferenceChiForListResponseTypeMap.put(200, new GenericType<EntityReferenceChiResponse>(){});
@@ -46,7 +47,7 @@ public class EntityReferenceChineseApi {
     getEntityReferenceChiForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

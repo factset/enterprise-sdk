@@ -305,26 +305,32 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Api
         private FactSet.SDK.ContentFeedsDataDictionary.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> NavigatorBasicSearchPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> NavigatorBasicSearchPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(BasicSearchResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> NavigatorDataItemsProductIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<DataItem>) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> NavigatorProductsGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<Product>) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> NavigatorSourcesDataItemIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(NavigatorSourcesResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> NavigatorSourcesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(NavigatorSourcesResponse) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> NavigatorTableFieldsTableIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(TableCodeFieldInfoResponse) },
@@ -333,7 +339,7 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

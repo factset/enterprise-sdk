@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**LocationsIdPut**](LocationsApi.md#locationsidput) | **PUT** /Locations/{id} | Replace a location.
 
 
+
 <a name="locationsget"></a>
 # **LocationsGet**
 > LocationResourceList LocationsGet (string filter = null, int? startIndex = null, int? count = null, string attributes = null, string excludedAttributes = null)
@@ -109,6 +110,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="locationsidget"></a>
 # **LocationsIdGet**
 > LocationResource LocationsIdGet (string id)
@@ -199,6 +201,7 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="locationsidpatch"></a>
 # **LocationsIdPatch**
@@ -293,6 +296,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="locationsidput"></a>
 # **LocationsIdPut**
 > LocationResource LocationsIdPut (string id, LocationResource locationResource)
@@ -386,4 +390,5 @@ Name | Type | Description  | Notes
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

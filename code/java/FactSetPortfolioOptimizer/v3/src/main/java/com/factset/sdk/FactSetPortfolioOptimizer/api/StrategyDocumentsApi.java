@@ -24,13 +24,13 @@ public class StrategyDocumentsApi {
   public StrategyDocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getFPOStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getFPOStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getFPOStrategyDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectoriesRoot>(){});
   }
 
-   
+  
 
 
   /**

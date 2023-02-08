@@ -50,6 +50,7 @@ class CompanyApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_company_compensation_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -112,6 +113,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.get_company_compensation_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -168,6 +170,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.get_company_people_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -242,6 +245,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.get_company_people_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -298,6 +302,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.get_company_positions_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -386,6 +391,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.get_company_positions_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -442,6 +448,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.get_company_stats_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -516,6 +523,7 @@ class CompanyApi(object):
             },
             api_client=api_client
         )
+
         self.get_company_stats_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -573,6 +581,7 @@ class CompanyApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -584,6 +593,7 @@ class CompanyApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_company_compensation(
         self,
@@ -771,6 +781,7 @@ class CompanyApi(object):
             ids
         return self.get_company_compensation_endpoint.call_with_http_info(**kwargs)
 
+
     def get_company_compensation_for_list(
         self,
         company_compensation_request,
@@ -956,6 +967,7 @@ class CompanyApi(object):
         kwargs['company_compensation_request'] = \
             company_compensation_request
         return self.get_company_compensation_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_company_people(
         self,
@@ -1147,6 +1159,7 @@ class CompanyApi(object):
             ids
         return self.get_company_people_endpoint.call_with_http_info(**kwargs)
 
+
     def get_company_people_for_list(
         self,
         company_people_request,
@@ -1332,6 +1345,7 @@ class CompanyApi(object):
         kwargs['company_people_request'] = \
             company_people_request
         return self.get_company_people_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_company_positions(
         self,
@@ -1523,6 +1537,7 @@ class CompanyApi(object):
             ids
         return self.get_company_positions_endpoint.call_with_http_info(**kwargs)
 
+
     def get_company_positions_for_list(
         self,
         company_positions_request,
@@ -1708,6 +1723,7 @@ class CompanyApi(object):
         kwargs['company_positions_request'] = \
             company_positions_request
         return self.get_company_positions_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_company_stats(
         self,
@@ -1899,6 +1915,7 @@ class CompanyApi(object):
             ids
         return self.get_company_stats_endpoint.call_with_http_info(**kwargs)
 
+
     def get_company_stats_for_list(
         self,
         company_stats_request,
@@ -2084,4 +2101,5 @@ class CompanyApi(object):
         kwargs['company_stats_request'] = \
             company_stats_request
         return self.get_company_stats_for_list_endpoint.call_with_http_info(**kwargs)
+
 

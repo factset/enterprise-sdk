@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetCouponSchedulesForList**](CouponsApi.md#getcouponschedulesforlist) | **POST** /factset-terms-and-conditions/v1/coupon-schedules | Return Coupon Schedules information for a list of Fixed Income securities.
 
 
+
 <a name="getcouponhistory"></a>
 # **GetCouponHistory**
 > CouponHistoryResponse GetCouponHistory (List<string> ids)
@@ -103,6 +104,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getcouponhistoryforlist"></a>
 # **GetCouponHistoryForList**
@@ -198,6 +200,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcouponschedules"></a>
 # **GetCouponSchedules**
 > CouponSchedulesResponse GetCouponSchedules (List<string> ids)
@@ -292,6 +295,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcouponschedulesforlist"></a>
 # **GetCouponSchedulesForList**
 > CouponSchedulesResponse GetCouponSchedulesForList (TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
@@ -385,4 +389,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

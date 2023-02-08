@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**V1RequestFilesGet**](RequestFilesApi.md#v1requestfilesget) | **GET** /v1/request-files | Returns the requestId and status
 
 
+
 <a name="v1requestfilesget"></a>
 # **V1RequestFilesGet**
 > RequestFilesResponse V1RequestFilesGet (DateTime startDate, DateTime endDate, string ticker = null, string isoCode = null, string fields = null, string startTime = null, string endTime = null, string single = null, string regionalISOCode = null)
@@ -112,4 +113,5 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

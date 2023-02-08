@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_universe_for_list**](UniverseApi.md#get_universe_for_list) | **POST** /factset-private-markets/v1/universe | Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
 
 
+
 # **get_universe**
 > EntityMatchesResponse get_universe(name)
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**themes**](AIThemesApi.md#themes) | **POST** /themes | Endpoint to extract themes from text
 
 
+
 # **themes**
 > ThemesRoot themes(theme_parameters_root)
 

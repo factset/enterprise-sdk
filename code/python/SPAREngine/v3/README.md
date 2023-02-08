@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.protobuf.stach.extensions fds.sdk.SPAREngine
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import accounts_api
 from fds.sdk.SPAREngine.models import *

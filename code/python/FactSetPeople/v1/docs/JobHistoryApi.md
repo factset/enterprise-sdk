@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_people_jobs_for_list**](JobHistoryApi.md#get_people_jobs_for_list) | **POST** /factset-people/v1/jobs | Returns the Job history for the large list of people.
 
 
+
 # **get_people_jobs**
 > PeopleJobsResponse get_people_jobs(ids)
 

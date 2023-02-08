@@ -44,6 +44,7 @@ class ColumnsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_pa_column_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -99,6 +100,7 @@ class ColumnsApi(object):
             },
             api_client=api_client
         )
+
         self.get_pa_columns_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -163,6 +165,7 @@ class ColumnsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -174,6 +177,7 @@ class ColumnsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_pa_column_by_id(
         self,
@@ -361,6 +365,7 @@ class ColumnsApi(object):
             id
         return self.get_pa_column_by_id_endpoint.call_with_http_info(**kwargs)
 
+
     def get_pa_columns(
         self,
         **kwargs
@@ -538,4 +543,5 @@ class ColumnsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_pa_columns_endpoint.call_with_http_info(**kwargs)
+
 

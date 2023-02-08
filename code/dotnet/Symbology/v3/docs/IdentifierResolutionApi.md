@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**IdentifierResolution**](IdentifierResolutionApi.md#identifierresolution) | **GET** /symbology/v3/identifier-resolution | Returns the specified output identifiers for the specified input identifier.
 
 
+
 <a name="batchidentifierresolution"></a>
 # **BatchIdentifierResolution**
 > IdentifierResolutionResponse BatchIdentifierResolution (IdentifierResolutionRequest identifierResolutionRequest)
@@ -101,6 +102,7 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="identifierresolution"></a>
 # **IdentifierResolution**
@@ -199,4 +201,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

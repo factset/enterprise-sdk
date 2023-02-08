@@ -28,22 +28,26 @@ public class ContactsRelationshipCategoryApi {
   public ContactsRelationshipCategoryApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createRelationshipCategoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createRelationshipCategoryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createRelationshipCategoryResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createRelationshipCategoryResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createRelationshipCategoryResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> deleteRelationshipCategoryResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> editRelationshipCategoryResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getRelationshipCategoriesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getRelationshipCategoriesResponseTypeMap.put(200, new GenericType<java.util.List<RelationshipCategoryDto>>(){});
   }
+
   private static final Map<Integer, GenericType> updateRelationshipCategoryOrderResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

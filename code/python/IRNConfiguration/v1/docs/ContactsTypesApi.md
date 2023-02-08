@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**update_contact_type**](ContactsTypesApi.md#update_contact_type) | **PUT** /v1/contact-types/{contactTypeId} | Edit a contact type
 
 
+
 # **create_contact_type**
 > NewItemDto create_contact_type(body)
 

@@ -26,8 +26,8 @@ public class ReferenceApi {
   public ReferenceApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getSecurityReferenceForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getSecurityReferenceForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecurityReferenceForListResponseTypeMap.put(200, new GenericType<ReferencesResponse>(){});
     getSecurityReferenceForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class ReferenceApi {
     getSecurityReferenceForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSecurityReferenceForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getSecurityReferencesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecurityReferencesResponseTypeMap.put(200, new GenericType<ReferencesResponse>(){});
@@ -46,7 +47,7 @@ public class ReferenceApi {
     getSecurityReferencesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

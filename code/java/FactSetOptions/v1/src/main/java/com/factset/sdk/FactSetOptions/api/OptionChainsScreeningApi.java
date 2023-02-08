@@ -28,8 +28,8 @@ public class OptionChainsScreeningApi {
   public OptionChainsScreeningApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getOptionsChainsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getOptionsChainsForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptionsChainsForListResponseTypeMap.put(200, new GenericType<ChainsResponse>(){});
     getOptionsChainsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -38,6 +38,7 @@ public class OptionChainsScreeningApi {
     getOptionsChainsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getOptionsChainsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getOptionsScreeningForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOptionsScreeningForListResponseTypeMap.put(200, new GenericType<OptionScreeningResponse>(){});
@@ -48,7 +49,7 @@ public class OptionChainsScreeningApi {
     getOptionsScreeningForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

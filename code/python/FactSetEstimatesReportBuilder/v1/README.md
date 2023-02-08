@@ -48,6 +48,7 @@ pip install fds.sdk.utils fds.sdk.FactSetEstimatesReportBuilder
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetEstimatesReportBuilder
 from fds.sdk.FactSetEstimatesReportBuilder.api import all_estimates_api
 from fds.sdk.FactSetEstimatesReportBuilder.models import *

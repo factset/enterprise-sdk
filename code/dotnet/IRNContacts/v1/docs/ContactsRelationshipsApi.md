@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**PatchContactRelationship**](ContactsRelationshipsApi.md#patchcontactrelationship) | **PATCH** /v1/contact-relationships/{contactRelationshipId} | Update a contact relationship
 
 
+
 <a name="createcontactrelationship"></a>
 # **CreateContactRelationship**
 > NewItemDto CreateContactRelationship (ContactRelationshipTwoSidedSaveDto contactRelationshipTwoSidedSaveDto = null)
@@ -100,6 +101,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="deletecontactrelationship"></a>
 # **DeleteContactRelationship**
 > void DeleteContactRelationship (Guid contactRelationshipId)
@@ -188,6 +190,7 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getallrelationshipstaggingacontact"></a>
 # **GetAllRelationshipsTaggingAContact**
@@ -281,6 +284,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getcontactrelationship"></a>
 # **GetContactRelationship**
 > ContactRelationshipTwoSidedDto GetContactRelationship (Guid contactRelationshipId)
@@ -369,6 +373,7 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="patchcontactrelationship"></a>
 # **PatchContactRelationship**
@@ -460,4 +465,5 @@ void (empty response body)
 | **0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

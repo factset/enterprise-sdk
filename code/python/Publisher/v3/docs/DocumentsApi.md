@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_pub_documents**](DocumentsApi.md#get_pub_documents) | **GET** /analytics/engines/pub/v3/documents/{path} | Gets Publisher documents and sub-directories in a directory
 
 
+
 # **get_pub_documents**
 > DocumentDirectoriesRoot get_pub_documents()
 

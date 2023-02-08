@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetSwivelEndpoint**](SwivelApi.md#getswivelendpoint) | **GET** /analytics/pub-datastore/swivel/v1/{pubDoc}/{assetName}/{reportId}/{tileId}/{accountId} | Get Swivel endpoint, takes report parameter inputs and returns the Cargo location for the specified report via a 302 redirect.
 
 
+
 <a name="getswivelendpoint"></a>
 # **GetSwivelEndpoint**
 > List&lt;string&gt; GetSwivelEndpoint (string pubDoc, string assetName, string reportId, string tileId, string accountId)
@@ -110,4 +111,5 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet’s request key header. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

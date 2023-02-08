@@ -239,7 +239,8 @@ namespace FactSet.SDK.UniversalScreening.Api
         private FactSet.SDK.UniversalScreening.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetCalculateResultsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCalculateResultsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PaginatedCalculationResponse) },
             { (HttpStatusCode)202, typeof(ResourceStatusResponse) },
@@ -248,6 +249,7 @@ namespace FactSet.SDK.UniversalScreening.Api
             { (HttpStatusCode)404, typeof(ErrorArray) },
             { (HttpStatusCode)410, typeof(ErrorArray) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PollCalculateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(ResourceStatusResponse) },
@@ -256,6 +258,7 @@ namespace FactSet.SDK.UniversalScreening.Api
             { (HttpStatusCode)404, typeof(ErrorArray) },
             { (HttpStatusCode)410, typeof(ErrorArray) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> SubmitArchiveOFDBResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(ResourceStatusResponse) },
@@ -263,6 +266,7 @@ namespace FactSet.SDK.UniversalScreening.Api
             { (HttpStatusCode)401, typeof(ErrorArray) },
             { (HttpStatusCode)429, typeof(ErrorArray) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> SubmitCalculateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(ResourceStatusResponse) },
@@ -274,7 +278,7 @@ namespace FactSet.SDK.UniversalScreening.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

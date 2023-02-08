@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**tick_history_lasttrade_get**](LastTradeApi.md#tick_history_lasttrade_get) | **GET** /TickHistory/lasttrade | Request returns data for the last trade and associated quotes before the specified time
 
 
+
 # **tick_history_lasttrade_get**
 > TickhistoryResponse tick_history_lasttrade_get(id)
 

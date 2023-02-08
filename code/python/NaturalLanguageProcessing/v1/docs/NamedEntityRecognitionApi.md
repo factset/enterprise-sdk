@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ner_entities**](NamedEntityRecognitionApi.md#ner_entities) | **POST** /ner/entities | Endpoint to detect entities from text
 
 
+
 # **ner_entities**
 > NERResponseSchema ner_entities()
 

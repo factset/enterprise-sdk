@@ -45,6 +45,7 @@ class CouponsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_coupon_history_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -107,6 +108,7 @@ class CouponsApi(object):
             },
             api_client=api_client
         )
+
         self.get_coupon_history_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -163,6 +165,7 @@ class CouponsApi(object):
             },
             api_client=api_client
         )
+
         self.get_coupon_schedules_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -225,6 +228,7 @@ class CouponsApi(object):
             },
             api_client=api_client
         )
+
         self.get_coupon_schedules_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -282,6 +286,7 @@ class CouponsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -293,6 +298,7 @@ class CouponsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_coupon_history(
         self,
@@ -480,6 +486,7 @@ class CouponsApi(object):
             ids
         return self.get_coupon_history_endpoint.call_with_http_info(**kwargs)
 
+
     def get_coupon_history_for_list(
         self,
         terms_and_conditions_scalar_request,
@@ -665,6 +672,7 @@ class CouponsApi(object):
         kwargs['terms_and_conditions_scalar_request'] = \
             terms_and_conditions_scalar_request
         return self.get_coupon_history_for_list_endpoint.call_with_http_info(**kwargs)
+
 
     def get_coupon_schedules(
         self,
@@ -852,6 +860,7 @@ class CouponsApi(object):
             ids
         return self.get_coupon_schedules_endpoint.call_with_http_info(**kwargs)
 
+
     def get_coupon_schedules_for_list(
         self,
         terms_and_conditions_scalar_request,
@@ -1037,4 +1046,5 @@ class CouponsApi(object):
         kwargs['terms_and_conditions_scalar_request'] = \
             terms_and_conditions_scalar_request
         return self.get_coupon_schedules_for_list_endpoint.call_with_http_info(**kwargs)
+
 

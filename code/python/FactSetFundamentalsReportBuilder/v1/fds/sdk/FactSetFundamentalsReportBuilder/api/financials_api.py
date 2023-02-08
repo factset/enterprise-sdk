@@ -42,6 +42,7 @@ class FinancialsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_financials_balance_sheet_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -138,6 +139,7 @@ class FinancialsApi(object):
             },
             api_client=api_client
         )
+
         self.get_financials_cash_flow_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -234,6 +236,7 @@ class FinancialsApi(object):
             },
             api_client=api_client
         )
+
         self.get_financials_income_statement_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -331,6 +334,7 @@ class FinancialsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -342,6 +346,7 @@ class FinancialsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_financials_balance_sheet(
         self,
@@ -545,6 +550,7 @@ class FinancialsApi(object):
             id
         return self.get_financials_balance_sheet_endpoint.call_with_http_info(**kwargs)
 
+
     def get_financials_cash_flow(
         self,
         id,
@@ -747,6 +753,7 @@ class FinancialsApi(object):
             id
         return self.get_financials_cash_flow_endpoint.call_with_http_info(**kwargs)
 
+
     def get_financials_income_statement(
         self,
         id,
@@ -948,4 +955,5 @@ class FinancialsApi(object):
         kwargs['id'] = \
             id
         return self.get_financials_income_statement_endpoint.call_with_http_info(**kwargs)
+
 

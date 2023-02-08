@@ -196,7 +196,8 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         private FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetDocsDistributorAudioV1HistoryFilesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetDocsDistributorAudioV1HistoryFilesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(EventsAudioHistory) },
             { (HttpStatusCode)400, typeof(EventsAudioHistory400Response) },
@@ -204,6 +205,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             { (HttpStatusCode)403, typeof(Error) },
             { (HttpStatusCode)500, typeof(Error) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDocsDistributorAudioV1ListFilesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(EventsAudio) },
@@ -216,7 +218,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

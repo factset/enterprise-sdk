@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**translate_sedol**](SEDOLApi.md#translate_sedol) | **GET** /symbology/v1/sedol | Translate market security symbols into SEDOL.
 
 
+
 # **batch_sedol_history**
 > SedolHistoryTranslationResponse batch_sedol_history(sedol_history_translation_request)
 

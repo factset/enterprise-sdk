@@ -46,6 +46,7 @@ yarn add @factset/sdk-utils @factset/sdk-irnconfiguration
 3. [Install dependencies](#installation).
 4. Run the following:
 
+
 ```javascript
 const { ApiClient, ContactsCustomFieldsApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');

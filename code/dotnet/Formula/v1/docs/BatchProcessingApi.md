@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetBatchStatusWithPost**](BatchProcessingApi.md#getbatchstatuswithpost) | **POST** /v1/batch-status | Returns the status for a Batch Request
 
 
+
 <a name="getbatchdata"></a>
 # **GetBatchData**
 > BatchDataResponse GetBatchData (Guid id)
@@ -113,6 +114,7 @@ GetBatchDataResponseWrapper
 | **404** | Not Found |  * api-version -  <br>  * api-supported-versions -  <br>  * api-deprecated-versions -  <br>  * chain-id -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getbatchdatawithpost"></a>
 # **GetBatchDataWithPost**
@@ -218,6 +220,7 @@ GetBatchDataWithPostResponseWrapper
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbatchstatus"></a>
 # **GetBatchStatus**
 > BatchStatusResponse GetBatchStatus (Guid id)
@@ -309,6 +312,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getbatchstatuswithpost"></a>
 # **GetBatchStatusWithPost**
 > BatchStatusResponse GetBatchStatusWithPost (BatchDataRequest batchDataRequest)
@@ -399,4 +403,5 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  * api-version -  <br>  * api-supported-versions -  <br>  * api-deprecated-versions -  <br>  * chain-id -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

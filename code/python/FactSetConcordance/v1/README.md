@@ -49,6 +49,7 @@ pip install fds.sdk.utils fds.sdk.FactSetConcordance
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import entity_match_api
 from fds.sdk.FactSetConcordance.models import *

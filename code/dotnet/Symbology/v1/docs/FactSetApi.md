@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**TranslateFactset**](FactSetApi.md#translatefactset) | **GET** /symbology/v1/factset | Translate market security symbols into FactSet Permanent Identifiers.
 
 
+
 <a name="batchtranslatefactset"></a>
 # **BatchTranslateFactset**
 > FactsetTranslationResponse BatchTranslateFactset (FactsetTranslationRequest factsetTranslationRequest)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="translatefactset"></a>
 # **TranslateFactset**
 > FactsetTranslationResponse TranslateFactset (List<string> ids)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

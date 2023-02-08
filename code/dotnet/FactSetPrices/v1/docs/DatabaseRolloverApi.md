@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetDatabaseRolloverForList**](DatabaseRolloverApi.md#getdatabaserolloverforlist) | **POST** /factset-prices/v1/database-rollover | Gets the latest relative rollover date for the database.
 
 
+
 <a name="getdatabaserollover"></a>
 # **GetDatabaseRollover**
 > RolloverResponse GetDatabaseRollover ()
@@ -98,6 +99,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getdatabaserolloverforlist"></a>
 # **GetDatabaseRolloverForList**
 > RolloverResponse GetDatabaseRolloverForList ()
@@ -187,4 +189,5 @@ This endpoint does not need any parameter.
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

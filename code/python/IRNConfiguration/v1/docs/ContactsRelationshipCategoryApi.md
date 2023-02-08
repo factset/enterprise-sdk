@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**update_relationship_category_order**](ContactsRelationshipCategoryApi.md#update_relationship_category_order) | **POST** /v1/relationship-categories/reorder | Reorder relationship categories
 
 
+
 # **create_relationship_category**
 > NewItemDto create_relationship_category()
 

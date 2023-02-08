@@ -32,33 +32,38 @@ public class CompanyApi {
   public CompanyApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getCompanyBoardListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getCompanyBoardListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyBoardListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
   }
+
   private static final Map<Integer, GenericType> getCompanyBoardOfficerFunctionDeliveryListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyBoardOfficerFunctionDeliveryListResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
   }
+
   private static final Map<Integer, GenericType> getCompanyBoardTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyBoardTypeListResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
   }
+
   private static final Map<Integer, GenericType> postCompanyEstimatesListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postCompanyEstimatesListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
   }
+
   private static final Map<Integer, GenericType> postCompanyKeyItemsCurrentGetByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postCompanyKeyItemsCurrentGetByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
   }
+
   private static final Map<Integer, GenericType> postCompanyKeyItemsFiscalYearListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postCompanyKeyItemsFiscalYearListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
   }
 
-   
+  
 
 
   /**

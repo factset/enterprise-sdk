@@ -43,6 +43,7 @@ class FactSetIDLookupApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.search_companyname_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -100,6 +101,7 @@ class FactSetIDLookupApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -111,6 +113,7 @@ class FactSetIDLookupApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def search_companyname(
         self,
@@ -297,4 +300,5 @@ class FactSetIDLookupApi(object):
         kwargs['lookup_request'] = \
             lookup_request
         return self.search_companyname_endpoint.call_with_http_info(**kwargs)
+
 

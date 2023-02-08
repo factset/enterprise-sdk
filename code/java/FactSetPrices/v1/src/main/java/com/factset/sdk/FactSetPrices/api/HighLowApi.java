@@ -26,8 +26,8 @@ public class HighLowApi {
   public HighLowApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> getHighLowResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> getHighLowResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getHighLowResponseTypeMap.put(200, new GenericType<HighLowResponse>(){});
     getHighLowResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
@@ -36,6 +36,7 @@ public class HighLowApi {
     getHighLowResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getHighLowResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
+
   private static final Map<Integer, GenericType> getHighLowForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getHighLowForListResponseTypeMap.put(200, new GenericType<HighLowResponse>(){});
@@ -46,7 +47,7 @@ public class HighLowApi {
     getHighLowForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-   
+  
 
 
   /**

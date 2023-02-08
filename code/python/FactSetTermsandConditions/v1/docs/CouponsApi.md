@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_coupon_schedules_for_list**](CouponsApi.md#get_coupon_schedules_for_list) | **POST** /factset-terms-and-conditions/v1/coupon-schedules | Return Coupon Schedules information for a list of Fixed Income securities.
 
 
+
 # **get_coupon_history**
 > CouponHistoryResponse get_coupon_history(ids)
 

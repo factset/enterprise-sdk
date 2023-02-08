@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetSegmentsForList**](SegmentsApi.md#getsegmentsforlist) | **POST** /factset-estimates/v2/segments | Retrieves product segment estimates for a requested list of ids and fiscal periods
 
 
+
 <a name="getsegments"></a>
 # **GetSegments**
 > SegmentsResponse GetSegments (List<string> ids, string segmentType, List<string> metrics, string startDate = null, string endDate = null, int? relativeFiscalStart = null, int? relativeFiscalEnd = null, string periodicity = null, string frequency = null, string currency = null)
@@ -120,6 +121,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getsegmentsforlist"></a>
 # **GetSegmentsForList**
 > SegmentsResponse GetSegmentsForList (SegmentsRequest segmentsRequest)
@@ -213,4 +215,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

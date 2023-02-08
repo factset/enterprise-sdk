@@ -44,6 +44,7 @@ class CustomSymbolsRelationshipsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.create_symbol_relationship_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -98,6 +99,7 @@ class CustomSymbolsRelationshipsApi(object):
             },
             api_client=api_client
         )
+
         self.delete_symbol_relationship_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -150,6 +152,7 @@ class CustomSymbolsRelationshipsApi(object):
             },
             api_client=api_client
         )
+
         self.edit_and_add_symbol_relationship_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -209,6 +212,7 @@ class CustomSymbolsRelationshipsApi(object):
             },
             api_client=api_client
         )
+
         self.get_symbol_relationship_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -264,6 +268,7 @@ class CustomSymbolsRelationshipsApi(object):
             },
             api_client=api_client
         )
+
         self.get_symbol_relationships_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -320,6 +325,7 @@ class CustomSymbolsRelationshipsApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -331,6 +337,7 @@ class CustomSymbolsRelationshipsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def create_symbol_relationship(
         self,
@@ -497,6 +504,7 @@ class CustomSymbolsRelationshipsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.create_symbol_relationship_endpoint.call_with_http_info(**kwargs)
+
 
     def delete_symbol_relationship(
         self,
@@ -679,6 +687,7 @@ class CustomSymbolsRelationshipsApi(object):
         kwargs['symbol_relationship_id'] = \
             symbol_relationship_id
         return self.delete_symbol_relationship_endpoint.call_with_http_info(**kwargs)
+
 
     def edit_and_add_symbol_relationship(
         self,
@@ -866,6 +875,7 @@ class CustomSymbolsRelationshipsApi(object):
             symbol
         return self.edit_and_add_symbol_relationship_endpoint.call_with_http_info(**kwargs)
 
+
     def get_symbol_relationship(
         self,
         symbol_relationship_id,
@@ -1048,6 +1058,7 @@ class CustomSymbolsRelationshipsApi(object):
             symbol_relationship_id
         return self.get_symbol_relationship_endpoint.call_with_http_info(**kwargs)
 
+
     def get_symbol_relationships(
         self,
         symbol_id,
@@ -1229,4 +1240,5 @@ class CustomSymbolsRelationshipsApi(object):
         kwargs['symbol_id'] = \
             symbol_id
         return self.get_symbol_relationships_endpoint.call_with_http_info(**kwargs)
+
 

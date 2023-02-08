@@ -53,6 +53,7 @@ class UpdateApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.update_date_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -121,6 +122,7 @@ class UpdateApi(object):
             },
             api_client=api_client
         )
+
         self.update_dates_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -183,6 +185,7 @@ class UpdateApi(object):
             },
             api_client=api_client
         )
+
         self.update_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -251,6 +254,7 @@ class UpdateApi(object):
             },
             api_client=api_client
         )
+
         self.update_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -314,6 +318,7 @@ class UpdateApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -325,6 +330,7 @@ class UpdateApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def update_date(
         self,
@@ -544,6 +550,7 @@ class UpdateApi(object):
             update_date
         return self.update_date_endpoint.call_with_http_info(**kwargs)
 
+
     def update_dates(
         self,
         path,
@@ -745,6 +752,7 @@ class UpdateApi(object):
         kwargs['update_dates'] = \
             update_dates
         return self.update_dates_endpoint.call_with_http_info(**kwargs)
+
 
     def update_symbol(
         self,
@@ -964,6 +972,7 @@ class UpdateApi(object):
             update_symbol
         return self.update_symbol_endpoint.call_with_http_info(**kwargs)
 
+
     def update_symbols(
         self,
         path,
@@ -1165,4 +1174,5 @@ class UpdateApi(object):
         kwargs['update_symbols'] = \
             update_symbols
         return self.update_symbols_endpoint.call_with_http_info(**kwargs)
+
 

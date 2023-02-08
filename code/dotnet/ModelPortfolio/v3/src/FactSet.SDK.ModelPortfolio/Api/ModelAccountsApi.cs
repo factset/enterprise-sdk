@@ -334,24 +334,30 @@ namespace FactSet.SDK.ModelPortfolio.Api
         private FactSet.SDK.ModelPortfolio.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> CreateOrUpdateModelAccountResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> CreateOrUpdateModelAccountResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteAModelAccountResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountForDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(string) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountForDateAndSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(string) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountForSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(string) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountSchemaResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(string) },
@@ -360,7 +366,7 @@ namespace FactSet.SDK.ModelPortfolio.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**get_category_system_type_list**](CategoryApi.md#get_category_system_type_list) | **GET** /category/system/type/list | List of category system types.
 
 
+
 # **get_category_dataset_list**
 > InlineResponse20035 get_category_dataset_list()
 

@@ -28,14 +28,15 @@ public class AiTextSummarizationApi {
   public AiTextSummarizationApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> summarizationHeadlineResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> summarizationHeadlineResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     summarizationHeadlineResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
     summarizationHeadlineResponseTypeMap.put(400, new GenericType<ValidationError>(){});
     summarizationHeadlineResponseTypeMap.put(401, new GenericType<HTTPError>(){});
     summarizationHeadlineResponseTypeMap.put(500, new GenericType<HTTPError>(){});
   }
+
   private static final Map<Integer, GenericType> summarizationHeadlineAndSummaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     summarizationHeadlineAndSummaryResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
@@ -43,6 +44,7 @@ public class AiTextSummarizationApi {
     summarizationHeadlineAndSummaryResponseTypeMap.put(401, new GenericType<HTTPError>(){});
     summarizationHeadlineAndSummaryResponseTypeMap.put(500, new GenericType<HTTPError>(){});
   }
+
   private static final Map<Integer, GenericType> summarizationResultResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     summarizationResultResponseTypeMap.put(200, new GenericType<SummarizationResult>(){});
@@ -51,6 +53,7 @@ public class AiTextSummarizationApi {
     summarizationResultResponseTypeMap.put(404, new GenericType<HTTPError>(){});
     summarizationResultResponseTypeMap.put(500, new GenericType<HTTPError>(){});
   }
+
   private static final Map<Integer, GenericType> summarizationSummaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     summarizationSummaryResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
@@ -59,7 +62,7 @@ public class AiTextSummarizationApi {
     summarizationSummaryResponseTypeMap.put(500, new GenericType<HTTPError>(){});
   }
 
-   
+  
 
 
   /**

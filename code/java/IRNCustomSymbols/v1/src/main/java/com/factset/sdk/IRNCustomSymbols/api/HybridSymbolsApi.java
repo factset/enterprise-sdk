@@ -27,22 +27,24 @@ public class HybridSymbolsApi {
   public HybridSymbolsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> createStandardSymbolMetadataResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> createStandardSymbolMetadataResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     createStandardSymbolMetadataResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
     createStandardSymbolMetadataResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     createStandardSymbolMetadataResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> getStandardSymbolMetadataGuidResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getStandardSymbolMetadataGuidResponseTypeMap.put(200, new GenericType<java.util.UUID>(){});
     getStandardSymbolMetadataGuidResponseTypeMap.put(404, new GenericType<String>(){});
     getStandardSymbolMetadataGuidResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
+
   private static final Map<Integer, GenericType> patchStandardSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
 
-   
+  
 
 
   /**

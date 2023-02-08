@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**PostNewsPublisherSearchByName**](NewsApi.md#postnewspublishersearchbyname) | **POST** /news/publisher/searchByName | Search for publishers.
 
 
+
 <a name="getnewsarticleget"></a>
 # **GetNewsArticleGet**
 > InlineResponse200 GetNewsArticleGet (string code, bool? includeMedia = null, List<string> attributes = null, string language = null)
@@ -116,6 +117,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnewsarticletypeget"></a>
 # **GetNewsArticleTypeGet**
 > InlineResponse2005 GetNewsArticleTypeGet (decimal id, List<string> attributes = null, string language = null)
@@ -209,6 +211,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnewsarticletypelist"></a>
 # **GetNewsArticleTypeList**
 > InlineResponse2006 GetNewsArticleTypeList (List<string> attributes = null, string language = null)
@@ -300,6 +303,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnewsdistributorget"></a>
 # **GetNewsDistributorGet**
 > InlineResponse2007 GetNewsDistributorGet (decimal id, List<string> attributes = null)
@@ -390,6 +394,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnewsdistributorlist"></a>
 # **GetNewsDistributorList**
@@ -484,6 +489,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnewspublisherget"></a>
 # **GetNewsPublisherGet**
 > InlineResponse2009 GetNewsPublisherGet (decimal id, List<string> attributes = null)
@@ -574,6 +580,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="getnewspublisherlist"></a>
 # **GetNewsPublisherList**
@@ -672,6 +679,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getnewspublisherlistbydistributor"></a>
 # **GetNewsPublisherListByDistributor**
 > InlineResponse20011 GetNewsPublisherListByDistributor (decimal id, List<string> attributes = null, List<string> sort = null)
@@ -765,6 +773,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postnewsarticlelist"></a>
 # **PostNewsArticleList**
 > InlineResponse2001 PostNewsArticleList (PostNewsArticleListRequest postNewsArticleListRequest = null)
@@ -853,6 +862,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postnewsarticlelistbychain"></a>
 # **PostNewsArticleListByChain**
@@ -943,6 +953,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postnewsarticlelistbyindex"></a>
 # **PostNewsArticleListByIndex**
 > InlineResponse2003 PostNewsArticleListByIndex (PostNewsArticleListByIndexRequest postNewsArticleListByIndexRequest = null)
@@ -1031,6 +1042,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postnewsarticlelistbyinstrument"></a>
 # **PostNewsArticleListByInstrument**
@@ -1121,6 +1133,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postnewsarticlelistbymediakind"></a>
 # **PostNewsArticleListByMediaKind**
 > InlineResponse2001 PostNewsArticleListByMediaKind (PostNewsArticleListByMediaKindRequest postNewsArticleListByMediaKindRequest = null)
@@ -1209,6 +1222,7 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 
 <a name="postnewsarticlesearchbytext"></a>
 # **PostNewsArticleSearchByText**
@@ -1299,6 +1313,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="postnewspublishersearchbyname"></a>
 # **PostNewsPublisherSearchByName**
 > InlineResponse20011 PostNewsPublisherSearchByName (PostNewsPublisherSearchByNameRequest postNewsPublisherSearchByNameRequest = null)
@@ -1387,4 +1402,5 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

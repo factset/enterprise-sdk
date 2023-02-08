@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_security_prices_for_list**](PricesApi.md#get_security_prices_for_list) | **POST** /factset-global-prices/v1/prices | Requests end-of-day Open, High, Low, Close for a large list of securities.
 
 
+
 # **get_gpd_prices**
 > GlobalPricesResponse get_gpd_prices(ids, start_date)
 

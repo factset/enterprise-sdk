@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_vault_documents**](DocumentsApi.md#get_vault_documents) | **GET** /analytics/engines/vault/v3/documents/{path} | Get Vault documents and sub-directories in a directory
 
 
+
 # **get_vault_documents**
 > DocumentDirectoriesRoot get_vault_documents()
 

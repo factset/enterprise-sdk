@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetEntityReferenceChiForList**](EntityReferenceChineseApi.md#getentityreferencechiforlist) | **POST** /factset-entity/v1/entity-reference-chi | Returns entity reference data in Chinese for an individual entity.
 
 
+
 <a name="getentityreferencechi"></a>
 # **GetEntityReferenceChi**
 > EntityReferenceChiResponse GetEntityReferenceChi (List<string> ids)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getentityreferencechiforlist"></a>
 # **GetEntityReferenceChiForList**
 > EntityReferenceChiResponse GetEntityReferenceChiForList (EntityReferenceChiRequest entityReferenceChiRequest)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

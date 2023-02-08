@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_market_value_for_list**](MarketValueApi.md#get_market_value_for_list) | **POST** /factset-prices/v1/market-value | Requests the market value for a list of &#x60;ids&#x60; as of given date range.
 
 
+
 # **get_market_value**
 > MarketValueResponse get_market_value(ids)
 

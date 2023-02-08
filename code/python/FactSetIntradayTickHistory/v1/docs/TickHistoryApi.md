@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_tick_history**](TickHistoryApi.md#get_tick_history) | **GET** /TickHistory/history | Tick History service returns trade data and associated quotes for a client specified interval and time period
 
 
+
 # **get_tick_history**
 > TickhistoryResponse get_tick_history(id)
 

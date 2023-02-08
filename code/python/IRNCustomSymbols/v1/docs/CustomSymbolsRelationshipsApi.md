@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_symbol_relationships**](CustomSymbolsRelationshipsApi.md#get_symbol_relationships) | **GET** /v1/symbol-relationships/{symbolId}/relationships | Returns a list of a symbol’s relationships
 
 
+
 # **create_symbol_relationship**
 > create_symbol_relationship()
 

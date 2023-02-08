@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.AxiomaFixedIncomeOptimizer
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
 from fds.sdk.AxiomaFixedIncomeOptimizer.models import *

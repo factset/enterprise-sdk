@@ -316,9 +316,11 @@ namespace FactSet.SDK.OFDB.Api
         private FactSet.SDK.OFDB.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         # region Response Type Disctionaries
-                private static readonly Dictionary<HttpStatusCode, System.Type> GetDatabaseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetDatabaseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<int>) },
@@ -328,6 +330,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)404, typeof(InlineResponse404) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFieldsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<Object>) },
@@ -337,6 +340,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)404, typeof(InlineResponse404) },
             { (HttpStatusCode)429, typeof(InlineResponse429) },
         };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSymbolsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(List<string>) },
@@ -350,7 +354,7 @@ namespace FactSet.SDK.OFDB.Api
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
-         
+        
 
         # endregion Api Response Objects
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetRegionsForList**](RegionsApi.md#getregionsforlist) | **POST** /factset-georev/v1/regions | Gets the revenue details for the requested Regions. Use for large lists of company ids.
 
 
+
 <a name="getregions"></a>
 # **GetRegions**
 > RegionResponse GetRegions (List<string> ids, List<string> regionIds = null, string startDate = null, string endDate = null, string frequency = null, string currency = null)
@@ -112,6 +113,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getregionsforlist"></a>
 # **GetRegionsForList**
 > RegionResponse GetRegionsForList (RegionRequest regionRequest)
@@ -205,4 +207,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

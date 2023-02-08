@@ -25,13 +25,13 @@ public class SecurityModelingApi {
   public SecurityModelingApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
-
-    private static final Map<Integer, GenericType> upsertSecuritiesResponseTypeMap = new HashMap<Integer, GenericType>();
+  
+  private static final Map<Integer, GenericType> upsertSecuritiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     upsertSecuritiesResponseTypeMap.put(200, new GenericType<SMCreateResponseRoot>(){});
   }
 
-   
+  
 
 
   /**

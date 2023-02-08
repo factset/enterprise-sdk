@@ -47,6 +47,7 @@ class ReferenceApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.get_etf_reference_data_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -112,6 +113,7 @@ class ReferenceApi(object):
             },
             api_client=api_client
         )
+
         self.get_etf_reference_data_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -169,6 +171,7 @@ class ReferenceApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -180,6 +183,7 @@ class ReferenceApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def get_etf_reference_data(
         self,
@@ -375,6 +379,7 @@ class ReferenceApi(object):
             ids
         return self.get_etf_reference_data_endpoint.call_with_http_info(**kwargs)
 
+
     def get_etf_reference_data_for_list(
         self,
         etf_reference_data_request,
@@ -560,4 +565,5 @@ class ReferenceApi(object):
         kwargs['etf_reference_data_request'] = \
             etf_reference_data_request
         return self.get_etf_reference_data_for_list_endpoint.call_with_http_info(**kwargs)
+
 

@@ -42,6 +42,7 @@ class LastTradeApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
         self.tick_history_lasttrade_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -123,6 +124,7 @@ class LastTradeApi(object):
             api_client=api_client
         )
 
+
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
         kwargs["async_req"] = async_req
@@ -134,6 +136,7 @@ class LastTradeApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
 
     def tick_history_lasttrade_get(
         self,
@@ -328,4 +331,5 @@ class LastTradeApi(object):
         kwargs['id'] = \
             id
         return self.tick_history_lasttrade_get_endpoint.call_with_http_info(**kwargs)
+
 

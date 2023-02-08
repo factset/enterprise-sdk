@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetLeadUnderwritersForList**](UnderwritersApi.md#getleadunderwritersforlist) | **POST** /factset-terms-and-conditions/v1/lead-underwriters | Return Lead Underwriters for a list of Fixed Income securities.
 
 
+
 <a name="getleadunderwriters"></a>
 # **GetLeadUnderwriters**
 > LeadUnderwritersResponse GetLeadUnderwriters (List<string> ids)
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
 <a name="getleadunderwritersforlist"></a>
 # **GetLeadUnderwritersForList**
 > LeadUnderwritersResponse GetLeadUnderwritersForList (TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
@@ -195,4 +197,5 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

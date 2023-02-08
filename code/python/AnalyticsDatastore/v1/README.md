@@ -50,6 +50,7 @@ pip install fds.sdk.utils fds.sdk.AnalyticsDatastore
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
+
 import fds.sdk.AnalyticsDatastore
 from fds.sdk.AnalyticsDatastore.api import cargo_api
 from fds.sdk.AnalyticsDatastore.models import *
