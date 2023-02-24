@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetQuantFactorLibrary",
   "projectName": "fds.sdk.FactSetQuantFactorLibrary",
-  "packageVersion": "1.0.1",
+  "packageVersion": "1.0.2",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet Quant Factor Library client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetQuantFactorLibrary/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetQuantFactorLibrary/1.0.1",
+  "httpUserAgent": "fds-sdk/python/FactSetQuantFactorLibrary/1.0.2",
   "files": {
     "LICENSE": {}
   }
