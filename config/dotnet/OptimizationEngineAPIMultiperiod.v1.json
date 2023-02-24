@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.OptimizationEngineAPIMultiperiod",
-  "packageVersion": "0.21.1",
+  "packageVersion": "0.21.2",
   "packageGuid": "{d204242f-e5e9-5e43-9ffc-6fca0437b6c0}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/OptimizationEngineAPIMultiperiod/0.21.1",
+  "httpUserAgent": "fds-sdk/dotnet/OptimizationEngineAPIMultiperiod/0.21.2",
   "files": {
     "LICENSE": {}
   },

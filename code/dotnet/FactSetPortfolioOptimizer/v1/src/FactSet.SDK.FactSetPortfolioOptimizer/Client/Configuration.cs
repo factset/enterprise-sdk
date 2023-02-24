@@ -33,7 +33,7 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.8.4";
+        public const string Version = "0.8.5";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/FactSetPortfolioOptimizer/0.8.4";
+            UserAgent = "fds-sdk/dotnet/FactSetPortfolioOptimizer/0.8.5";
             BasePath = "http://localhost";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1\n";
-            report += "    SDK Package Version: 0.8.4\n";
+            report += "    SDK Package Version: 0.8.5\n";
 
             return report;
         }

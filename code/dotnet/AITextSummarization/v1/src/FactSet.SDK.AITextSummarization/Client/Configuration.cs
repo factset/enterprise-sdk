@@ -32,7 +32,7 @@ namespace FactSet.SDK.AITextSummarization.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.21.1";
+        public const string Version = "0.21.2";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -104,7 +104,7 @@ namespace FactSet.SDK.AITextSummarization.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/AITextSummarization/0.21.1";
+            UserAgent = "fds-sdk/dotnet/AITextSummarization/0.21.2";
             BasePath = "http://api.factset.com/cognitive/summarization/v1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -460,7 +460,7 @@ namespace FactSet.SDK.AITextSummarization.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 0.21.1\n";
+            report += "    SDK Package Version: 0.21.2\n";
 
             return report;
         }

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetEstimatesReportBuilder",
-  "packageVersion": "1.0.0",
+  "packageVersion": "1.0.1",
   "packageGuid": "{c832310b-348a-5660-a80c-a1c7982ed332}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetEstimatesReportBuilder/1.0.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetEstimatesReportBuilder/1.0.1",
   "files": {
     "LICENSE": {}
   },

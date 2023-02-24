@@ -411,7 +411,7 @@ const apiInstance = new PACalculationsApi();
 const opts = {
   'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the POST body.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'pACalculationParametersRoot': new paengine.PACalculationParametersRoot() // PACalculationParametersRoot | Calculation Parameters
+  'pACalculationParametersRoot': {"data":{"1":{"componentid":"801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46","accounts":[{"id":"BENCH:DJII","holdingsmode":"B&H"}],"benchmarks":[{"id":"BENCH:SP50","holdingsmode":"B&H"}],"dates":{"startdate":"20210101","enddate":"20210331","frequency":"Monthly"},"currencyisocode":"USD"},"2":{"componentid":"67077F67610EC30675E240A614661176C792A8997C78C9B9D64F738C01F18893","accounts":[{"id":"BENCH:SP100EQ","holdingsmode":"B&H"}],"benchmarks":[{"id":"BENCH:SP50","holdingsmode":"B&H"}],"dates":{"frequency":"Single","enddate":"0"},"currencyisocode":"USD"}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // PACalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -508,7 +508,7 @@ const id = "id_example"; // String | from url, provided from the location header
 const opts = {
   'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the PUT body.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'pACalculationParametersRoot': new paengine.PACalculationParametersRoot() // PACalculationParametersRoot | Calculation Parameters
+  'pACalculationParametersRoot': {"data":{"1":{"componentid":"801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46","accounts":[{"id":"BENCH:DJII","holdingsmode":"B&H"}],"benchmarks":[{"id":"BENCH:SP50","holdingsmode":"B&H"}],"dates":{"startdate":"20210101","enddate":"20220331","frequency":"Monthly"},"currencyisocode":"USD"},"2":{"componentid":"67077F67610EC30675E240A614661176C792A8997C78C9B9D64F738C01F18893","accounts":[{"id":"BENCH:SP100EQ","holdingsmode":"B&H"}],"benchmarks":[{"id":"BENCH:SP50","holdingsmode":"B&H"}],"dates":{"frequency":"Single","enddate":"0"},"currencyisocode":"USD"}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // PACalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetIntradayTickHistory",
-  "packageVersion": "0.21.1",
+  "packageVersion": "0.21.2",
   "packageGuid": "{dbd1debe-69fb-530d-81f9-d03808e0bd17}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetIntradayTickHistory/0.21.1",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetIntradayTickHistory/0.21.2",
   "files": {
     "LICENSE": {}
   },

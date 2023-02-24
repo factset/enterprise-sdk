@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.OverviewReportBuilder",
-  "packageVersion": "1.0.1",
+  "packageVersion": "1.0.2",
   "packageGuid": "{eeabf5f3-2357-5cc7-8f01-fca39d21afef}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/OverviewReportBuilder/1.0.1",
+  "httpUserAgent": "fds-sdk/dotnet/OverviewReportBuilder/1.0.2",
   "files": {
     "LICENSE": {}
   },

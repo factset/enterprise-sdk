@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.StandardDatafeed",
-  "packageVersion": "0.21.1",
+  "packageVersion": "0.21.2",
   "packageGuid": "{40a68982-048a-5b84-ade5-3bd7f4d256c9}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/StandardDatafeed/0.21.1",
+  "httpUserAgent": "fds-sdk/dotnet/StandardDatafeed/0.21.2",
   "files": {
     "LICENSE": {}
   },

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetRBICS",
-  "packageVersion": "0.22.0",
+  "packageVersion": "0.22.1",
   "packageGuid": "{4274cddc-af35-53cc-94e4-d16129b902ea}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetRBICS/0.22.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetRBICS/0.22.1",
   "files": {
     "LICENSE": {}
   },

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.OFDB",
-  "packageVersion": "0.21.2",
+  "packageVersion": "0.21.3",
   "packageGuid": "{0ef69d62-55a8-520d-95e3-9e5c05960eac}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/OFDB/0.21.2",
+  "httpUserAgent": "fds-sdk/dotnet/OFDB/0.21.3",
   "files": {
     "LICENSE": {}
   },

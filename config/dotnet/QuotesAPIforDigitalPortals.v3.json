@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.QuotesAPIforDigitalPortals",
-  "packageVersion": "0.10.3",
+  "packageVersion": "0.10.4",
   "packageGuid": "{bbd230d4-917b-5fe8-afde-c5c0346ef235}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/QuotesAPIforDigitalPortals/0.10.3",
+  "httpUserAgent": "fds-sdk/dotnet/QuotesAPIforDigitalPortals/0.10.4",
   "files": {
     "LICENSE": {}
   },

@@ -4,13 +4,13 @@
     "title": "PA Engine API",
     "description": "Allow clients to fetch Analytics through APIs.",
     "contact": {
-      "name": "Analytics API Support",
+      "name": "FactSet Research Systems",
       "url": "https://developer.factset.com/contact",
-      "email": "analytics.api.support@factset.com"
+      "email": "api@factset.com"
     },
     "license": {
-      "name": "Apache License 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
     "version": "3"
   },
@@ -4917,6 +4917,55 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PACalculationParametersRoot"
+              },
+              "example": {
+                "data": {
+                  "1": {
+                    "componentid": "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46",
+                    "accounts": [
+                      {
+                        "id": "BENCH:DJII",
+                        "holdingsmode": "B&H"
+                      }
+                    ],
+                    "benchmarks": [
+                      {
+                        "id": "BENCH:SP50",
+                        "holdingsmode": "B&H"
+                      }
+                    ],
+                    "dates": {
+                      "startdate": "20210101",
+                      "enddate": "20210331",
+                      "frequency": "Monthly"
+                    },
+                    "currencyisocode": "USD"
+                  },
+                  "2": {
+                    "componentid": "67077F67610EC30675E240A614661176C792A8997C78C9B9D64F738C01F18893",
+                    "accounts": [
+                      {
+                        "id": "BENCH:SP100EQ",
+                        "holdingsmode": "B&H"
+                      }
+                    ],
+                    "benchmarks": [
+                      {
+                        "id": "BENCH:SP50",
+                        "holdingsmode": "B&H"
+                      }
+                    ],
+                    "dates": {
+                      "frequency": "Single",
+                      "enddate": "0"
+                    },
+                    "currencyisocode": "USD"
+                  }
+                },
+                "meta": {
+                  "stachContentorganization": "SimplifiedRow",
+                  "format": "JsonStach"
+                }
               }
             }
           }
@@ -5704,6 +5753,55 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PACalculationParametersRoot"
+              },
+              "example": {
+                "data": {
+                  "1": {
+                    "componentid": "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46",
+                    "accounts": [
+                      {
+                        "id": "BENCH:DJII",
+                        "holdingsmode": "B&H"
+                      }
+                    ],
+                    "benchmarks": [
+                      {
+                        "id": "BENCH:SP50",
+                        "holdingsmode": "B&H"
+                      }
+                    ],
+                    "dates": {
+                      "startdate": "20210101",
+                      "enddate": "20220331",
+                      "frequency": "Monthly"
+                    },
+                    "currencyisocode": "USD"
+                  },
+                  "2": {
+                    "componentid": "67077F67610EC30675E240A614661176C792A8997C78C9B9D64F738C01F18893",
+                    "accounts": [
+                      {
+                        "id": "BENCH:SP100EQ",
+                        "holdingsmode": "B&H"
+                      }
+                    ],
+                    "benchmarks": [
+                      {
+                        "id": "BENCH:SP50",
+                        "holdingsmode": "B&H"
+                      }
+                    ],
+                    "dates": {
+                      "frequency": "Single",
+                      "enddate": "0"
+                    },
+                    "currencyisocode": "USD"
+                  }
+                },
+                "meta": {
+                  "stachContentorganization": "SimplifiedRow",
+                  "format": "JsonStach"
+                }
               }
             }
           }
@@ -6179,7 +6277,7 @@
                 "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
                 "schema": {
                   "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                  "description": "Key to uniquely identify an Analytics API request. Only available after -successful authentication."
                 }
               }
             }
@@ -11509,17 +11607,18 @@
             "items": {
               "type": "string"
             },
-            "description": "List of account and composite files."
+            "description": "List of account and composite files.",
+            "nullable": true
           },
           "directories": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "List of directories."
+            "description": "List of directories.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "AccountDirectoriesRoot": {
         "required": [
@@ -11530,36 +11629,39 @@
           "data": {
             "$ref": "#/components/schemas/AccountDirectories"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "ErrorSource": {
         "type": "object",
         "properties": {
           "pointer": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "parameter": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "Error": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "detail": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "source": {
             "$ref": "#/components/schemas/ErrorSource"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ClientErrorResponse": {
         "type": "object",
@@ -11568,28 +11670,30 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Error"
-            }
+            },
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ColumnSummary": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Column Name"
+            "description": "Column Name",
+            "nullable": true
           },
           "directory": {
             "type": "string",
-            "description": "Column Directory"
+            "description": "Column Directory",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Column Category"
+            "description": "Column Category",
+            "nullable": true
           }
         },
-        "additionalProperties": false,
         "description": "Column settings (name, directory, category)"
       },
       "ColumnSummaryRoot": {
@@ -11604,9 +11708,10 @@
               "$ref": "#/components/schemas/ColumnSummary"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "Column": {
         "type": "object",
@@ -11616,22 +11721,25 @@
             "items": {
               "type": "string"
             },
-            "description": "Column statistic Id"
+            "description": "Column statistic Id",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Column Name"
+            "description": "Column Name",
+            "nullable": true
           },
           "directory": {
             "type": "string",
-            "description": "Column Directory"
+            "description": "Column Directory",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Column Category"
+            "description": "Column Category",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ColumnRoot": {
         "required": [
@@ -11642,19 +11750,20 @@
           "data": {
             "$ref": "#/components/schemas/Column"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "ColumnStatistic": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Column Statistic Name"
+            "description": "Column Statistic Name",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ColumnStatisticRoot": {
         "required": [
@@ -11668,23 +11777,25 @@
               "$ref": "#/components/schemas/ColumnStatistic"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "ComponentSummary": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Component name."
+            "description": "Component name.",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Component category."
+            "description": "Component category.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ComponentSummaryRoot": {
         "required": [
@@ -11698,9 +11809,10 @@
               "$ref": "#/components/schemas/ComponentSummary"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "PAIdentifier": {
         "required": [
@@ -11714,10 +11826,10 @@
           },
           "holdingsmode": {
             "type": "string",
-            "description": "Holdings Mode can be B&H, TBR, OMS or EXT."
+            "description": "Holdings Mode can be B&H, TBR, OMS or EXT.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PADateParameters": {
         "required": [
@@ -11728,7 +11840,8 @@
         "properties": {
           "startdate": {
             "type": "string",
-            "description": "Calculation's start date."
+            "description": "Calculation's start date.",
+            "nullable": true
           },
           "enddate": {
             "type": "string",
@@ -11739,7 +11852,6 @@
             "description": "Calculation's frequency."
           }
         },
-        "additionalProperties": false,
         "description": "The date parameters for PA calculation."
       },
       "PAComponent": {
@@ -11747,24 +11859,28 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Component identifier."
+            "description": "Component identifier.",
+            "nullable": true
           },
           "accounts": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of accounts saved in the PA document."
+            "description": "List of accounts saved in the PA document.",
+            "nullable": true
           },
           "benchmarks": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of benchmarks saved in the PA document."
+            "description": "List of benchmarks saved in the PA document.",
+            "nullable": true
           },
           "currencyisocode": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "dates": {
             "$ref": "#/components/schemas/PADateParameters"
@@ -11775,18 +11891,20 @@
           },
           "path": {
             "type": "string",
-            "description": "The path to the document"
+            "description": "The path to the document",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Component name."
+            "description": "Component name.",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Component category."
+            "description": "Component category.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PAComponentRoot": {
         "required": [
@@ -11797,19 +11915,20 @@
           "data": {
             "$ref": "#/components/schemas/PAComponent"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "Currency": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of currency."
+            "description": "Name of currency.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CurrencyRoot": {
         "required": [
@@ -11823,23 +11942,25 @@
               "$ref": "#/components/schemas/Currency"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "DateParametersSummary": {
         "type": "object",
         "properties": {
           "startdate": {
             "type": "string",
-            "description": "Start date in YYYYMMDD format."
+            "description": "Start date in YYYYMMDD format.",
+            "nullable": true
           },
           "enddate": {
             "type": "string",
-            "description": "End date in YYYYMMDD format."
+            "description": "End date in YYYYMMDD format.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "DateParametersSummaryRoot": {
         "required": [
@@ -11850,9 +11971,10 @@
           "data": {
             "$ref": "#/components/schemas/DateParametersSummary"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "DocumentDirectories": {
         "type": "object",
@@ -11862,17 +11984,18 @@
             "items": {
               "type": "string"
             },
-            "description": "List of documents"
+            "description": "List of documents",
+            "nullable": true
           },
           "directories": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "List of directories."
+            "description": "List of directories.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "DocumentDirectoriesRoot": {
         "required": [
@@ -11883,19 +12006,20 @@
           "data": {
             "$ref": "#/components/schemas/DocumentDirectories"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "Frequency": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Frequency name."
+            "description": "Frequency name.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "FrequencyRoot": {
         "required": [
@@ -11909,27 +12033,30 @@
               "$ref": "#/components/schemas/Frequency"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "Group": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Group Name"
+            "description": "Group Name",
+            "nullable": true
           },
           "directory": {
             "type": "string",
-            "description": "Group Directory"
+            "description": "Group Directory",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Group Category"
+            "description": "Group Category",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "GroupRoot": {
         "required": [
@@ -11943,9 +12070,10 @@
               "$ref": "#/components/schemas/Group"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "TemplateContentTypes": {
         "type": "object",
@@ -11955,24 +12083,26 @@
             "items": {
               "type": "string"
             },
-            "description": "Template mandatory fields"
+            "description": "Template mandatory fields",
+            "nullable": true
           },
           "optional": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "Template optional fields"
+            "description": "Template optional fields",
+            "nullable": true
           },
           "locked": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "Template locked fields"
+            "description": "Template locked fields",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "LinkedPATemplateParameters": {
         "required": [
@@ -11991,13 +12121,13 @@
           },
           "description": {
             "type": "string",
-            "description": "Template description"
+            "description": "Template description",
+            "nullable": true
           },
           "content": {
             "$ref": "#/components/schemas/TemplateContentTypes"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "LinkedPATemplateParametersRoot": {
         "required": [
@@ -12008,31 +12138,35 @@
           "data": {
             "$ref": "#/components/schemas/LinkedPATemplateParameters"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "LinkedPATemplatePostSummary": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "description": "Template id."
+            "description": "Template id.",
+            "nullable": true
           },
           "description": {
             "type": "string",
-            "description": "Template description."
+            "description": "Template description.",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Template name."
+            "description": "Template name.",
+            "nullable": true
           },
           "parentComponentId": {
             "type": "string",
-            "description": "Template parent tile."
+            "description": "Template parent tile.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "LinkedPATemplatePostSummaryRoot": {
         "required": [
@@ -12043,27 +12177,30 @@
           "data": {
             "$ref": "#/components/schemas/LinkedPATemplatePostSummary"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "LinkedPATemplateSummary": {
         "type": "object",
         "properties": {
           "description": {
             "type": "string",
-            "description": "Template description."
+            "description": "Template description.",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Template name."
+            "description": "Template name.",
+            "nullable": true
           },
           "parentComponentId": {
             "type": "string",
-            "description": "Template parent tile."
+            "description": "Template parent tile.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "LinkedPATemplateSummaryRoot": {
         "required": [
@@ -12077,26 +12214,28 @@
               "$ref": "#/components/schemas/LinkedPATemplateSummary"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "LinkedPATemplateUpdateParameters": {
         "type": "object",
         "properties": {
           "parentComponentId": {
             "type": "string",
-            "description": "Parent component id"
+            "description": "Parent component id",
+            "nullable": true
           },
           "description": {
             "type": "string",
-            "description": "Template description"
+            "description": "Template description",
+            "nullable": true
           },
           "content": {
             "$ref": "#/components/schemas/TemplateContentTypes"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "LinkedPATemplateUpdateParametersRoot": {
         "required": [
@@ -12107,16 +12246,18 @@
           "data": {
             "$ref": "#/components/schemas/LinkedPATemplateUpdateParameters"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "LinkedPATemplate": {
         "type": "object",
         "properties": {
           "directory": {
             "type": "string",
-            "description": "Template directory."
+            "description": "Template directory.",
+            "nullable": true
           },
           "snapshot": {
             "type": "boolean",
@@ -12127,22 +12268,25 @@
           },
           "id": {
             "type": "string",
-            "description": "Template id."
+            "description": "Template id.",
+            "nullable": true
           },
           "description": {
             "type": "string",
-            "description": "Template description."
+            "description": "Template description.",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Template name."
+            "description": "Template name.",
+            "nullable": true
           },
           "parentComponentId": {
             "type": "string",
-            "description": "Template parent tile."
+            "description": "Template parent tile.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "LinkedPATemplateRoot": {
         "required": [
@@ -12153,50 +12297,53 @@
           "data": {
             "$ref": "#/components/schemas/LinkedPATemplate"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "PACalculationGroup": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "description": "FactSet-defined or User-defined Group identifier."
+            "description": "FactSet-defined or User-defined Group identifier.",
+            "nullable": true
           },
           "frequency": {
             "type": "string",
-            "description": "Grouping frequency"
+            "description": "Grouping frequency",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PACalculationColumn": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "description": "FactSet-defined or User-defined Column identifier."
+            "description": "FactSet-defined or User-defined Column identifier.",
+            "nullable": true
           },
           "statistics": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "Column Statistic identifier"
+            "description": "Column Statistic identifier",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PACalculationPricingSource": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "description": "Pricing source identifier"
+            "description": "Pricing source identifier",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PACalculationDataSources": {
         "type": "object",
@@ -12206,21 +12353,23 @@
             "items": {
               "$ref": "#/components/schemas/PACalculationPricingSource"
             },
-            "description": "List of portfilio pricing source for the PA calculation"
+            "description": "List of portfilio pricing source for the PA calculation",
+            "nullable": true
           },
           "benchmarkpricingsources": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PACalculationPricingSource"
             },
-            "description": "List of benchmark pricing source for the PA calculation"
+            "description": "List of benchmark pricing source for the PA calculation",
+            "nullable": true
           },
           "useportfoliopricingsourcesforbenchmark": {
             "type": "boolean",
-            "description": "Use portfolio pricing sources for benchmark"
+            "description": "Use portfolio pricing sources for benchmark",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PACalculationParameters": {
         "required": [
@@ -12237,14 +12386,16 @@
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of accounts."
+            "description": "List of accounts.",
+            "nullable": true
           },
           "benchmarks": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of benchmarks."
+            "description": "List of benchmarks.",
+            "nullable": true
           },
           "dates": {
             "$ref": "#/components/schemas/PADateParameters"
@@ -12254,28 +12405,31 @@
             "items": {
               "$ref": "#/components/schemas/PACalculationGroup"
             },
-            "description": "List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document."
+            "description": "List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document.",
+            "nullable": true
           },
           "currencyisocode": {
             "type": "string",
-            "description": "Currency ISO code for calculation."
+            "description": "Currency ISO code for calculation.",
+            "nullable": true
           },
           "columns": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PACalculationColumn"
             },
-            "description": "List of columns for the PA calculation. This will take precedence over the columns saved in the PA document."
+            "description": "List of columns for the PA calculation. This will take precedence over the columns saved in the PA document.",
+            "nullable": true
           },
           "datasources": {
             "$ref": "#/components/schemas/PACalculationDataSources"
           },
           "componentdetail": {
             "type": "string",
-            "description": "Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES."
+            "description": "Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationMeta": {
         "type": "object",
@@ -12325,8 +12479,7 @@
             "type": "string",
             "default": "JsonStach"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PACalculationParametersRoot": {
         "type": "object",
@@ -12336,13 +12489,13 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/PACalculationParameters"
             },
-            "description": "List of calculation parameters."
+            "description": "List of calculation parameters.",
+            "nullable": true
           },
           "meta": {
             "$ref": "#/components/schemas/CalculationMeta"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationUnitStatus": {
         "type": "object",
@@ -12363,30 +12516,34 @@
             "items": {
               "$ref": "#/components/schemas/Error"
             },
-            "description": "The error in a calculation unit."
+            "description": "The error in a calculation unit.",
+            "nullable": true
           },
           "result": {
             "type": "string",
-            "description": "The result URL of the calculation."
+            "description": "The result URL of the calculation.",
+            "nullable": true
           },
           "progress": {
             "type": "string",
-            "description": "The progress of the calculation unit."
+            "description": "The progress of the calculation unit.",
+            "nullable": true
           },
           "points": {
             "type": "integer",
             "description": "The points for the calculation unit.",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationStatus": {
         "type": "object",
         "properties": {
           "calculationid": {
             "type": "string",
-            "description": "Calculation's identifier"
+            "description": "Calculation's identifier",
+            "nullable": true
           },
           "status": {
             "enum": [
@@ -12403,20 +12560,20 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/CalculationUnitStatus"
             },
-            "description": "Number of calculation units in batch."
+            "description": "Number of calculation units in batch.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationUnitStatusMeta": {
         "type": "object",
         "properties": {
           "info": {
             "type": "string",
-            "description": "The Info URL of the calculation."
+            "description": "The Info URL of the calculation.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationStatusMeta": {
         "type": "object",
@@ -12426,10 +12583,10 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/CalculationUnitStatusMeta"
             },
-            "description": "Meta of calculation units in batch."
+            "description": "Meta of calculation units in batch.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationStatusRoot": {
         "required": [
@@ -12443,8 +12600,7 @@
           "meta": {
             "$ref": "#/components/schemas/CalculationStatusMeta"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ObjectRoot": {
         "required": [
@@ -12453,9 +12609,10 @@
         "type": "object",
         "properties": {
           "data": {},
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "CalculationsSummary": {
         "type": "object",
@@ -12485,8 +12642,7 @@
             "description": "Last poll time of calculation.",
             "format": "date-time"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PaginationInfo": {
         "type": "object",
@@ -12508,13 +12664,14 @@
             "format": "int32"
           },
           "nextPage": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "previousPage": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PaginationMeta": {
         "type": "object",
@@ -12522,8 +12679,7 @@
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfo"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationsSummaryRoot": {
         "required": [
@@ -12537,26 +12693,27 @@
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PAPricingSource": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Pricing source Name"
+            "description": "Pricing source Name",
+            "nullable": true
           },
           "directory": {
             "type": "string",
-            "description": "Pricing source directory"
+            "description": "Pricing source directory",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Pricing source category"
+            "description": "Pricing source category",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PAPricingSourceRoot": {
         "required": [
@@ -12570,9 +12727,10 @@
               "$ref": "#/components/schemas/PAPricingSource"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "PAComponentData": {
         "type": "object",
@@ -12582,28 +12740,32 @@
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of accounts."
+            "description": "List of accounts.",
+            "nullable": true
           },
           "benchmarks": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of benchmarks."
+            "description": "List of benchmarks.",
+            "nullable": true
           },
           "groups": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PACalculationGroup"
             },
-            "description": "List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document."
+            "description": "List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document.",
+            "nullable": true
           },
           "columns": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PACalculationColumn"
             },
-            "description": "List of columns for the PA calculation. This will take precedence over the columns saved in the PA document."
+            "description": "List of columns for the PA calculation. This will take precedence over the columns saved in the PA document.",
+            "nullable": true
           },
           "dates": {
             "$ref": "#/components/schemas/PADateParameters"
@@ -12613,14 +12775,15 @@
           },
           "currencyisocode": {
             "type": "string",
-            "description": "Currency ISO code for calculation."
+            "description": "Currency ISO code for calculation.",
+            "nullable": true
           },
           "componentdetail": {
             "type": "string",
-            "description": "PA Storage type. It can be GROUPS or TOTALS or SECURITIES."
+            "description": "PA Storage type. It can be GROUPS or TOTALS or SECURITIES.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "TemplatedPAComponentParameters": {
         "required": [
@@ -12639,13 +12802,13 @@
           },
           "description": {
             "type": "string",
-            "description": "Component description."
+            "description": "Component description.",
+            "nullable": true
           },
           "componentData": {
             "$ref": "#/components/schemas/PAComponentData"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "TemplatedPAComponentParametersRoot": {
         "required": [
@@ -12656,30 +12819,35 @@
           "data": {
             "$ref": "#/components/schemas/TemplatedPAComponentParameters"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "TemplatedPAComponentPostSummary": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "parentTemplateId": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "TemplatedPAComponentPostSummaryRoot": {
         "required": [
@@ -12690,27 +12858,31 @@
           "data": {
             "$ref": "#/components/schemas/TemplatedPAComponentPostSummary"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "TemplatedPAComponentSummary": {
         "type": "object",
         "properties": {
           "description": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "parentTemplateId": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "TemplatedPAComponentSummaryRoot": {
         "required": [
@@ -12724,26 +12896,28 @@
               "$ref": "#/components/schemas/TemplatedPAComponentSummary"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "TemplatedPAComponentUpdateParameters": {
         "type": "object",
         "properties": {
           "parentTemplateId": {
             "type": "string",
-            "description": "Parent template id"
+            "description": "Parent template id",
+            "nullable": true
           },
           "description": {
             "type": "string",
-            "description": "Component description."
+            "description": "Component description.",
+            "nullable": true
           },
           "componentData": {
             "$ref": "#/components/schemas/PAComponentData"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "TemplatedPAComponentUpdateParametersRoot": {
         "required": [
@@ -12754,18 +12928,21 @@
           "data": {
             "$ref": "#/components/schemas/TemplatedPAComponentUpdateParameters"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "TemplatedPAComponent": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "directory": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "snapshot": {
             "type": "boolean"
@@ -12774,19 +12951,22 @@
             "$ref": "#/components/schemas/PAComponentData"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "parentTemplateId": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "TemplatedPAComponentRoot": {
         "required": [
@@ -12797,9 +12977,10 @@
           "data": {
             "$ref": "#/components/schemas/TemplatedPAComponent"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "UnlinkedPATemplateParameters": {
         "required": [
@@ -12818,28 +12999,32 @@
           },
           "description": {
             "type": "string",
-            "description": "Template description"
+            "description": "Template description",
+            "nullable": true
           },
           "accounts": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of accounts"
+            "description": "List of accounts",
+            "nullable": true
           },
           "benchmarks": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of benchmarks"
+            "description": "List of benchmarks",
+            "nullable": true
           },
           "columns": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PACalculationColumn"
             },
-            "description": "List of columns for the PA calculation"
+            "description": "List of columns for the PA calculation",
+            "nullable": true
           },
           "dates": {
             "$ref": "#/components/schemas/PADateParameters"
@@ -12849,24 +13034,26 @@
             "items": {
               "$ref": "#/components/schemas/PACalculationGroup"
             },
-            "description": "List of groupings for the PA calculation"
+            "description": "List of groupings for the PA calculation",
+            "nullable": true
           },
           "datasources": {
             "$ref": "#/components/schemas/PACalculationDataSources"
           },
           "currencyisocode": {
             "type": "string",
-            "description": "Currency ISO code for calculation."
+            "description": "Currency ISO code for calculation.",
+            "nullable": true
           },
           "componentdetail": {
             "type": "string",
-            "description": "PA storage type. It can be GROUPS or TOTALS or SECURITIES."
+            "description": "PA storage type. It can be GROUPS or TOTALS or SECURITIES.",
+            "nullable": true
           },
           "content": {
             "$ref": "#/components/schemas/TemplateContentTypes"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UnlinkedPATemplateParametersRoot": {
         "required": [
@@ -12877,31 +13064,35 @@
           "data": {
             "$ref": "#/components/schemas/UnlinkedPATemplateParameters"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "UnlinkedPATemplatePostSummary": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "description": "Template id."
+            "description": "Template id.",
+            "nullable": true
           },
           "description": {
             "type": "string",
-            "description": "Template description."
+            "description": "Template description.",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Template name."
+            "description": "Template name.",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Unlinked template category"
+            "description": "Unlinked template category",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UnlinkedPATemplatePostSummaryRoot": {
         "required": [
@@ -12912,27 +13103,30 @@
           "data": {
             "$ref": "#/components/schemas/UnlinkedPATemplatePostSummary"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "UnlinkedPATemplateSummary": {
         "type": "object",
         "properties": {
           "description": {
             "type": "string",
-            "description": "Template description."
+            "description": "Template description.",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Template name."
+            "description": "Template name.",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Unlinked template category"
+            "description": "Unlinked template category",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UnlinkedPATemplateSummaryRoot": {
         "required": [
@@ -12946,37 +13140,42 @@
               "$ref": "#/components/schemas/UnlinkedPATemplateSummary"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "UnlinkedPATemplateUpdateParameters": {
         "type": "object",
         "properties": {
           "description": {
             "type": "string",
-            "description": "Template description"
+            "description": "Template description",
+            "nullable": true
           },
           "accounts": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of accounts"
+            "description": "List of accounts",
+            "nullable": true
           },
           "benchmarks": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of benchmarks"
+            "description": "List of benchmarks",
+            "nullable": true
           },
           "columns": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PACalculationColumn"
             },
-            "description": "List of columns for the PA calculation"
+            "description": "List of columns for the PA calculation",
+            "nullable": true
           },
           "dates": {
             "$ref": "#/components/schemas/PADateParameters"
@@ -12986,24 +13185,26 @@
             "items": {
               "$ref": "#/components/schemas/PACalculationGroup"
             },
-            "description": "List of groupings for the PA calculation"
+            "description": "List of groupings for the PA calculation",
+            "nullable": true
           },
           "datasources": {
             "$ref": "#/components/schemas/PACalculationDataSources"
           },
           "currencyisocode": {
             "type": "string",
-            "description": "Currency ISO code for calculation."
+            "description": "Currency ISO code for calculation.",
+            "nullable": true
           },
           "componentdetail": {
             "type": "string",
-            "description": "PA storage type. It can be GROUPS or TOTALS or SECURITIES."
+            "description": "PA storage type. It can be GROUPS or TOTALS or SECURITIES.",
+            "nullable": true
           },
           "content": {
             "$ref": "#/components/schemas/TemplateContentTypes"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UnlinkedPATemplateUpdateParametersRoot": {
         "required": [
@@ -13014,24 +13215,28 @@
           "data": {
             "$ref": "#/components/schemas/UnlinkedPATemplateUpdateParameters"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "UnlinkedPATemplate": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "description": "Template id."
+            "description": "Template id.",
+            "nullable": true
           },
           "directory": {
             "type": "string",
-            "description": "Template directory."
+            "description": "Template directory.",
+            "nullable": true
           },
           "templateTypeId": {
             "type": "string",
-            "description": "Template type id"
+            "description": "Template type id",
+            "nullable": true
           },
           "snapshot": {
             "type": "boolean",
@@ -13042,21 +13247,24 @@
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of accounts"
+            "description": "List of accounts",
+            "nullable": true
           },
           "benchmarks": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PAIdentifier"
             },
-            "description": "List of benchmarks"
+            "description": "List of benchmarks",
+            "nullable": true
           },
           "columns": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PACalculationColumn"
             },
-            "description": "List of columns for the PA calculation"
+            "description": "List of columns for the PA calculation",
+            "nullable": true
           },
           "dates": {
             "$ref": "#/components/schemas/PADateParameters"
@@ -13066,36 +13274,41 @@
             "items": {
               "$ref": "#/components/schemas/PACalculationGroup"
             },
-            "description": "List of groupings for the PA calculation"
+            "description": "List of groupings for the PA calculation",
+            "nullable": true
           },
           "datasources": {
             "$ref": "#/components/schemas/PACalculationDataSources"
           },
           "currencyisocode": {
             "type": "string",
-            "description": "Currency ISO code for calculation."
+            "description": "Currency ISO code for calculation.",
+            "nullable": true
           },
           "componentdetail": {
             "type": "string",
-            "description": "PA storage type. It can be GROUPS or TOTALS or SECURITIES."
+            "description": "PA storage type. It can be GROUPS or TOTALS or SECURITIES.",
+            "nullable": true
           },
           "content": {
             "$ref": "#/components/schemas/TemplateContentTypes"
           },
           "description": {
             "type": "string",
-            "description": "Template description."
+            "description": "Template description.",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Template name."
+            "description": "Template name.",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Unlinked template category"
+            "description": "Unlinked template category",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UnlinkedPATemplateRoot": {
         "required": [
@@ -13106,23 +13319,25 @@
           "data": {
             "$ref": "#/components/schemas/UnlinkedPATemplate"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "UnlinkedPATemplateCategoryAndType": {
         "type": "object",
         "properties": {
           "category": {
             "type": "string",
-            "description": "Unlinked template category"
+            "description": "Unlinked template category",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Unlinked template type"
+            "description": "Unlinked template type",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UnlinkedPATemplateCategoryAndTypeRoot": {
         "required": [
@@ -13136,69 +13351,77 @@
               "$ref": "#/components/schemas/UnlinkedPATemplateCategoryAndType"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "UnlinkedPATemplateColumnDetails": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Unlinked template column name"
+            "description": "Unlinked template column name",
+            "nullable": true
           },
           "id": {
             "type": "string",
-            "description": "FactSet-defined or User-defined Column identifier."
+            "description": "FactSet-defined or User-defined Column identifier.",
+            "nullable": true
           },
           "statistics": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "Column Statistic identifier"
+            "description": "Column Statistic identifier",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UnlinkedPATemplateGroupDetails": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Unlinked template group name"
+            "description": "Unlinked template group name",
+            "nullable": true
           },
           "id": {
             "type": "string",
-            "description": "FactSet-defined or User-defined Group identifier."
+            "description": "FactSet-defined or User-defined Group identifier.",
+            "nullable": true
           },
           "frequency": {
             "type": "string",
-            "description": "Grouping frequency"
+            "description": "Grouping frequency",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UnlinkedPATemplateCategoryAndTypeDetails": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "description": "Type Id"
+            "description": "Type Id",
+            "nullable": true
           },
           "columns": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UnlinkedPATemplateColumnDetails"
             },
-            "description": "List of default columns"
+            "description": "List of default columns",
+            "nullable": true
           },
           "groups": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UnlinkedPATemplateGroupDetails"
             },
-            "description": "List of default groupings"
+            "description": "List of default groupings",
+            "nullable": true
           },
           "snapshot": {
             "type": "boolean",
@@ -13206,14 +13429,15 @@
           },
           "category": {
             "type": "string",
-            "description": "Unlinked template category"
+            "description": "Unlinked template category",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Unlinked template type"
+            "description": "Unlinked template type",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "UnlinkedPATemplateCategoryAndTypeDetailsRoot": {
         "required": [
@@ -13224,9 +13448,10 @@
           "data": {
             "$ref": "#/components/schemas/UnlinkedPATemplateCategoryAndTypeDetails"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -13252,5 +13477,9 @@
     {
       "FactSetOAuth2": []
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/pa-engine-api"
+  }
 }

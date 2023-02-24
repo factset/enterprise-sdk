@@ -1,15 +1,18 @@
 openapi: 3.0.1
 info:
   contact:
-    email: analytics.api.support@factset.com
-    name: Analytics API Support
+    email: api@factset.com
+    name: FactSet Research Systems
     url: https://developer.factset.com/contact
   description: Allow clients to fetch Analytics through APIs.
   license:
-    name: Apache License 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.txt
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: PA Engine API
   version: "3"
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/pa-engine-api
 servers:
 - url: https://api.factset.com
 security:
@@ -5105,6 +5108,36 @@ paths:
       requestBody:
         content:
           application/json:
+            example:
+              data:
+                "1":
+                  componentid: 801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46
+                  accounts:
+                  - id: BENCH:DJII
+                    holdingsmode: B&H
+                  benchmarks:
+                  - id: BENCH:SP50
+                    holdingsmode: B&H
+                  dates:
+                    startdate: "20210101"
+                    enddate: "20210331"
+                    frequency: Monthly
+                  currencyisocode: USD
+                "2":
+                  componentid: 67077F67610EC30675E240A614661176C792A8997C78C9B9D64F738C01F18893
+                  accounts:
+                  - id: BENCH:SP100EQ
+                    holdingsmode: B&H
+                  benchmarks:
+                  - id: BENCH:SP50
+                    holdingsmode: B&H
+                  dates:
+                    frequency: Single
+                    enddate: "0"
+                  currencyisocode: USD
+              meta:
+                stachContentorganization: SimplifiedRow
+                format: JsonStach
             schema:
               $ref: '#/components/schemas/PACalculationParametersRoot'
         description: Calculation Parameters
@@ -6080,6 +6113,36 @@ paths:
       requestBody:
         content:
           application/json:
+            example:
+              data:
+                "1":
+                  componentid: 801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46
+                  accounts:
+                  - id: BENCH:DJII
+                    holdingsmode: B&H
+                  benchmarks:
+                  - id: BENCH:SP50
+                    holdingsmode: B&H
+                  dates:
+                    startdate: "20210101"
+                    enddate: "20220331"
+                    frequency: Monthly
+                  currencyisocode: USD
+                "2":
+                  componentid: 67077F67610EC30675E240A614661176C792A8997C78C9B9D64F738C01F18893
+                  accounts:
+                  - id: BENCH:SP100EQ
+                    holdingsmode: B&H
+                  benchmarks:
+                  - id: BENCH:SP50
+                    holdingsmode: B&H
+                  dates:
+                    frequency: Single
+                    enddate: "0"
+                  currencyisocode: USD
+              meta:
+                stachContentorganization: SimplifiedRow
+                format: JsonStach
             schema:
               $ref: '#/components/schemas/PACalculationParametersRoot'
         description: Calculation Parameters
@@ -6533,7 +6596,7 @@ paths:
               explode: false
               schema:
                 description: Key to uniquely identify an Analytics API request. Only
-                  available after successful authentication.
+                  available after -successful authentication.
                 type: string
               style: simple
       summary: Create or Update PA calculation and run it.
@@ -11141,7 +11204,6 @@ paths:
 components:
   schemas:
     AccountDirectories:
-      additionalProperties: false
       example:
         directories:
         - directories
@@ -11154,15 +11216,16 @@ components:
           description: List of account and composite files.
           items:
             type: string
+          nullable: true
           type: array
         directories:
           description: List of directories.
           items:
             type: string
+          nullable: true
           type: array
       type: object
     AccountDirectoriesRoot:
-      additionalProperties: false
       example:
         data:
           directories:
@@ -11175,23 +11238,24 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/AccountDirectories'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     ErrorSource:
-      additionalProperties: false
       example:
         pointer: pointer
         parameter: parameter
       properties:
         pointer:
+          nullable: true
           type: string
         parameter:
+          nullable: true
           type: string
       type: object
     Error:
-      additionalProperties: false
       example:
         id: id
         detail: detail
@@ -11200,22 +11264,23 @@ components:
           parameter: parameter
       properties:
         id:
+          nullable: true
           type: string
         detail:
+          nullable: true
           type: string
         source:
           $ref: '#/components/schemas/ErrorSource'
       type: object
     ClientErrorResponse:
-      additionalProperties: false
       properties:
         errors:
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
       type: object
     ColumnSummary:
-      additionalProperties: false
       description: Column settings (name, directory, category)
       example:
         name: name
@@ -11224,16 +11289,18 @@ components:
       properties:
         name:
           description: Column Name
+          nullable: true
           type: string
         directory:
           description: Column Directory
+          nullable: true
           type: string
         category:
           description: Column Category
+          nullable: true
           type: string
       type: object
     ColumnSummaryRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -11246,12 +11313,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/ColumnSummary'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     Column:
-      additionalProperties: false
       example:
         defaultstatisticsids:
         - defaultstatisticsids
@@ -11264,19 +11331,22 @@ components:
           description: Column statistic Id
           items:
             type: string
+          nullable: true
           type: array
         name:
           description: Column Name
+          nullable: true
           type: string
         directory:
           description: Column Directory
+          nullable: true
           type: string
         category:
           description: Column Category
+          nullable: true
           type: string
       type: object
     ColumnRoot:
-      additionalProperties: false
       example:
         data:
           defaultstatisticsids:
@@ -11289,21 +11359,21 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/Column'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     ColumnStatistic:
-      additionalProperties: false
       example:
         name: name
       properties:
         name:
           description: Column Statistic Name
+          nullable: true
           type: string
       type: object
     ColumnStatisticRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -11314,25 +11384,26 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/ColumnStatistic'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     ComponentSummary:
-      additionalProperties: false
       example:
         name: name
         category: category
       properties:
         name:
           description: Component name.
+          nullable: true
           type: string
         category:
           description: Component category.
+          nullable: true
           type: string
       type: object
     ComponentSummaryRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -11344,12 +11415,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/ComponentSummary'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     PAIdentifier:
-      additionalProperties: false
       example:
         id: id
         holdingsmode: holdingsmode
@@ -11359,12 +11430,12 @@ components:
           type: string
         holdingsmode:
           description: Holdings Mode can be B&H, TBR, OMS or EXT.
+          nullable: true
           type: string
       required:
       - id
       type: object
     PADateParameters:
-      additionalProperties: false
       description: The date parameters for PA calculation.
       example:
         enddate: enddate
@@ -11373,6 +11444,7 @@ components:
       properties:
         startdate:
           description: Calculation's start date.
+          nullable: true
           type: string
         enddate:
           description: Calculation's end date.
@@ -11385,7 +11457,6 @@ components:
       - frequency
       type: object
     PAComponent:
-      additionalProperties: false
       example:
         currencyisocode: currencyisocode
         path: path
@@ -11410,18 +11481,22 @@ components:
       properties:
         id:
           description: Component identifier.
+          nullable: true
           type: string
         accounts:
           description: List of accounts saved in the PA document.
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         benchmarks:
           description: List of benchmarks saved in the PA document.
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         currencyisocode:
+          nullable: true
           type: string
         dates:
           $ref: '#/components/schemas/PADateParameters'
@@ -11430,16 +11505,18 @@ components:
           type: boolean
         path:
           description: The path to the document
+          nullable: true
           type: string
         name:
           description: Component name.
+          nullable: true
           type: string
         category:
           description: Component category.
+          nullable: true
           type: string
       type: object
     PAComponentRoot:
-      additionalProperties: false
       example:
         data:
           currencyisocode: currencyisocode
@@ -11466,21 +11543,21 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/PAComponent'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     Currency:
-      additionalProperties: false
       example:
         name: name
       properties:
         name:
           description: Name of currency.
+          nullable: true
           type: string
       type: object
     CurrencyRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -11491,25 +11568,26 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/Currency'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     DateParametersSummary:
-      additionalProperties: false
       example:
         enddate: enddate
         startdate: startdate
       properties:
         startdate:
           description: Start date in YYYYMMDD format.
+          nullable: true
           type: string
         enddate:
           description: End date in YYYYMMDD format.
+          nullable: true
           type: string
       type: object
     DateParametersSummaryRoot:
-      additionalProperties: false
       example:
         data:
           enddate: enddate
@@ -11518,12 +11596,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/DateParametersSummary'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     DocumentDirectories:
-      additionalProperties: false
       example:
         documents:
         - documents
@@ -11536,15 +11614,16 @@ components:
           description: List of documents
           items:
             type: string
+          nullable: true
           type: array
         directories:
           description: List of directories.
           items:
             type: string
+          nullable: true
           type: array
       type: object
     DocumentDirectoriesRoot:
-      additionalProperties: false
       example:
         data:
           documents:
@@ -11557,21 +11636,21 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/DocumentDirectories'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     Frequency:
-      additionalProperties: false
       example:
         name: name
       properties:
         name:
           description: Frequency name.
+          nullable: true
           type: string
       type: object
     FrequencyRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -11582,12 +11661,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/Frequency'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     Group:
-      additionalProperties: false
       example:
         name: name
         category: category
@@ -11595,16 +11674,18 @@ components:
       properties:
         name:
           description: Group Name
+          nullable: true
           type: string
         directory:
           description: Group Directory
+          nullable: true
           type: string
         category:
           description: Group Category
+          nullable: true
           type: string
       type: object
     GroupRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -11617,12 +11698,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/Group'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     TemplateContentTypes:
-      additionalProperties: false
       example:
         optional:
         - optional
@@ -11638,20 +11719,22 @@ components:
           description: Template mandatory fields
           items:
             type: string
+          nullable: true
           type: array
         optional:
           description: Template optional fields
           items:
             type: string
+          nullable: true
           type: array
         locked:
           description: Template locked fields
           items:
             type: string
+          nullable: true
           type: array
       type: object
     LinkedPATemplateParameters:
-      additionalProperties: false
       example:
         parentComponentId: parentComponentId
         description: description
@@ -11675,6 +11758,7 @@ components:
           type: string
         description:
           description: Template description
+          nullable: true
           type: string
         content:
           $ref: '#/components/schemas/TemplateContentTypes'
@@ -11683,7 +11767,6 @@ components:
       - parentComponentId
       type: object
     LinkedPATemplateParametersRoot:
-      additionalProperties: false
       example:
         data:
           parentComponentId: parentComponentId
@@ -11703,12 +11786,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/LinkedPATemplateParameters'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     LinkedPATemplatePostSummary:
-      additionalProperties: false
       example:
         parentComponentId: parentComponentId
         name: name
@@ -11717,19 +11800,22 @@ components:
       properties:
         id:
           description: Template id.
+          nullable: true
           type: string
         description:
           description: Template description.
+          nullable: true
           type: string
         name:
           description: Template name.
+          nullable: true
           type: string
         parentComponentId:
           description: Template parent tile.
+          nullable: true
           type: string
       type: object
     LinkedPATemplatePostSummaryRoot:
-      additionalProperties: false
       example:
         data:
           parentComponentId: parentComponentId
@@ -11740,12 +11826,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/LinkedPATemplatePostSummary'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     LinkedPATemplateSummary:
-      additionalProperties: false
       example:
         parentComponentId: parentComponentId
         name: name
@@ -11753,16 +11839,18 @@ components:
       properties:
         description:
           description: Template description.
+          nullable: true
           type: string
         name:
           description: Template name.
+          nullable: true
           type: string
         parentComponentId:
           description: Template parent tile.
+          nullable: true
           type: string
       type: object
     LinkedPATemplateSummaryRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -11775,12 +11863,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/LinkedPATemplateSummary'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     LinkedPATemplateUpdateParameters:
-      additionalProperties: false
       example:
         parentComponentId: parentComponentId
         description: description
@@ -11797,15 +11885,16 @@ components:
       properties:
         parentComponentId:
           description: Parent component id
+          nullable: true
           type: string
         description:
           description: Template description
+          nullable: true
           type: string
         content:
           $ref: '#/components/schemas/TemplateContentTypes'
       type: object
     LinkedPATemplateUpdateParametersRoot:
-      additionalProperties: false
       example:
         data:
           parentComponentId: parentComponentId
@@ -11824,12 +11913,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/LinkedPATemplateUpdateParameters'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     LinkedPATemplate:
-      additionalProperties: false
       example:
         parentComponentId: parentComponentId
         name: name
@@ -11850,6 +11939,7 @@ components:
       properties:
         directory:
           description: Template directory.
+          nullable: true
           type: string
         snapshot:
           description: snapshot.
@@ -11858,19 +11948,22 @@ components:
           $ref: '#/components/schemas/TemplateContentTypes'
         id:
           description: Template id.
+          nullable: true
           type: string
         description:
           description: Template description.
+          nullable: true
           type: string
         name:
           description: Template name.
+          nullable: true
           type: string
         parentComponentId:
           description: Template parent tile.
+          nullable: true
           type: string
       type: object
     LinkedPATemplateRoot:
-      additionalProperties: false
       example:
         data:
           parentComponentId: parentComponentId
@@ -11893,25 +11986,26 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/LinkedPATemplate'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     PACalculationGroup:
-      additionalProperties: false
       example:
         id: id
         frequency: frequency
       properties:
         id:
           description: FactSet-defined or User-defined Group identifier.
+          nullable: true
           type: string
         frequency:
           description: Grouping frequency
+          nullable: true
           type: string
       type: object
     PACalculationColumn:
-      additionalProperties: false
       example:
         id: id
         statistics:
@@ -11920,24 +12014,25 @@ components:
       properties:
         id:
           description: FactSet-defined or User-defined Column identifier.
+          nullable: true
           type: string
         statistics:
           description: Column Statistic identifier
           items:
             type: string
+          nullable: true
           type: array
       type: object
     PACalculationPricingSource:
-      additionalProperties: false
       example:
         id: id
       properties:
         id:
           description: Pricing source identifier
+          nullable: true
           type: string
       type: object
     PACalculationDataSources:
-      additionalProperties: false
       example:
         benchmarkpricingsources:
         - id: id
@@ -11951,18 +12046,20 @@ components:
           description: List of portfilio pricing source for the PA calculation
           items:
             $ref: '#/components/schemas/PACalculationPricingSource'
+          nullable: true
           type: array
         benchmarkpricingsources:
           description: List of benchmark pricing source for the PA calculation
           items:
             $ref: '#/components/schemas/PACalculationPricingSource'
+          nullable: true
           type: array
         useportfoliopricingsourcesforbenchmark:
           description: Use portfolio pricing sources for benchmark
+          nullable: true
           type: boolean
       type: object
     PACalculationParameters:
-      additionalProperties: false
       example:
         currencyisocode: currencyisocode
         componentdetail: componentdetail
@@ -12011,11 +12108,13 @@ components:
           description: List of accounts.
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         benchmarks:
           description: List of benchmarks.
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         dates:
           $ref: '#/components/schemas/PADateParameters'
@@ -12024,27 +12123,30 @@ components:
             over the groupings saved in the PA document.
           items:
             $ref: '#/components/schemas/PACalculationGroup'
+          nullable: true
           type: array
         currencyisocode:
           description: Currency ISO code for calculation.
+          nullable: true
           type: string
         columns:
           description: List of columns for the PA calculation. This will take precedence
             over the columns saved in the PA document.
           items:
             $ref: '#/components/schemas/PACalculationColumn'
+          nullable: true
           type: array
         datasources:
           $ref: '#/components/schemas/PACalculationDataSources'
         componentdetail:
           description: Component detail type for the PA component. It can be GROUPS
             or TOTALS or SECURITIES.
+          nullable: true
           type: string
       required:
       - componentid
       type: object
     CalculationMeta:
-      additionalProperties: false
       example:
         contentorganization: SimplifiedRow
         format: JsonStach
@@ -12090,7 +12192,6 @@ components:
           type: string
       type: object
     PACalculationParametersRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -12143,12 +12244,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/PACalculationParameters'
           description: List of calculation parameters.
+          nullable: true
           type: object
         meta:
           $ref: '#/components/schemas/CalculationMeta'
       type: object
     CalculationUnitStatus:
-      additionalProperties: false
       example:
         result: result
         progress: progress
@@ -12179,20 +12280,23 @@ components:
           description: The error in a calculation unit.
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
         result:
           description: The result URL of the calculation.
+          nullable: true
           type: string
         progress:
           description: The progress of the calculation unit.
+          nullable: true
           type: string
         points:
           description: The points for the calculation unit.
           format: int32
+          nullable: true
           type: integer
       type: object
     CalculationStatus:
-      additionalProperties: false
       example:
         calculationid: calculationid
         units:
@@ -12216,6 +12320,7 @@ components:
       properties:
         calculationid:
           description: Calculation's identifier
+          nullable: true
           type: string
         status:
           description: Calculation's status
@@ -12229,19 +12334,19 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/CalculationUnitStatus'
           description: Number of calculation units in batch.
+          nullable: true
           type: object
       type: object
     CalculationUnitStatusMeta:
-      additionalProperties: false
       example:
         info: info
       properties:
         info:
           description: The Info URL of the calculation.
+          nullable: true
           type: string
       type: object
     CalculationStatusMeta:
-      additionalProperties: false
       example:
         units:
           key:
@@ -12251,10 +12356,10 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/CalculationUnitStatusMeta'
           description: Meta of calculation units in batch.
+          nullable: true
           type: object
       type: object
     CalculationStatusRoot:
-      additionalProperties: false
       example:
         data:
           calculationid: calculationid
@@ -12289,18 +12394,17 @@ components:
       - data
       type: object
     ObjectRoot:
-      additionalProperties: false
       example:
         data: ""
         meta: ""
       properties:
         data: {}
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     CalculationsSummary:
-      additionalProperties: false
       example:
         requestTime: 2000-01-23T04:56:07.000+00:00
         lastPollTime: 2000-01-23T04:56:07.000+00:00
@@ -12329,7 +12433,6 @@ components:
           type: string
       type: object
     PaginationInfo:
-      additionalProperties: false
       example:
         pageNumber: 6
         previousPage: previousPage
@@ -12351,12 +12454,13 @@ components:
           format: int32
           type: integer
         nextPage:
+          nullable: true
           type: string
         previousPage:
+          nullable: true
           type: string
       type: object
     PaginationMeta:
-      additionalProperties: false
       example:
         pagination:
           pageNumber: 6
@@ -12370,7 +12474,6 @@ components:
           $ref: '#/components/schemas/PaginationInfo'
       type: object
     CalculationsSummaryRoot:
-      additionalProperties: false
       example:
         data:
           requestTime: 2000-01-23T04:56:07.000+00:00
@@ -12394,7 +12497,6 @@ components:
       - data
       type: object
     PAPricingSource:
-      additionalProperties: false
       example:
         name: name
         category: category
@@ -12402,16 +12504,18 @@ components:
       properties:
         name:
           description: Pricing source Name
+          nullable: true
           type: string
         directory:
           description: Pricing source directory
+          nullable: true
           type: string
         category:
           description: Pricing source category
+          nullable: true
           type: string
       type: object
     PAPricingSourceRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -12424,12 +12528,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/PAPricingSource'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     PAComponentData:
-      additionalProperties: false
       example:
         currencyisocode: currencyisocode
         componentdetail: componentdetail
@@ -12474,23 +12578,27 @@ components:
           description: List of accounts.
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         benchmarks:
           description: List of benchmarks.
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         groups:
           description: List of groupings for the PA calculation. This will take precedence
             over the groupings saved in the PA document.
           items:
             $ref: '#/components/schemas/PACalculationGroup'
+          nullable: true
           type: array
         columns:
           description: List of columns for the PA calculation. This will take precedence
             over the columns saved in the PA document.
           items:
             $ref: '#/components/schemas/PACalculationColumn'
+          nullable: true
           type: array
         dates:
           $ref: '#/components/schemas/PADateParameters'
@@ -12498,13 +12606,14 @@ components:
           $ref: '#/components/schemas/PACalculationDataSources'
         currencyisocode:
           description: Currency ISO code for calculation.
+          nullable: true
           type: string
         componentdetail:
           description: PA Storage type. It can be GROUPS or TOTALS or SECURITIES.
+          nullable: true
           type: string
       type: object
     TemplatedPAComponentParameters:
-      additionalProperties: false
       example:
         parentTemplateId: parentTemplateId
         description: description
@@ -12557,6 +12666,7 @@ components:
           type: string
         description:
           description: Component description.
+          nullable: true
           type: string
         componentData:
           $ref: '#/components/schemas/PAComponentData'
@@ -12565,7 +12675,6 @@ components:
       - parentTemplateId
       type: object
     TemplatedPAComponentParametersRoot:
-      additionalProperties: false
       example:
         data:
           parentTemplateId: parentTemplateId
@@ -12614,12 +12723,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/TemplatedPAComponentParameters'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     TemplatedPAComponentPostSummary:
-      additionalProperties: false
       example:
         parentTemplateId: parentTemplateId
         name: name
@@ -12628,18 +12737,22 @@ components:
         type: type
       properties:
         id:
+          nullable: true
           type: string
         description:
+          nullable: true
           type: string
         name:
+          nullable: true
           type: string
         parentTemplateId:
+          nullable: true
           type: string
         type:
+          nullable: true
           type: string
       type: object
     TemplatedPAComponentPostSummaryRoot:
-      additionalProperties: false
       example:
         data:
           parentTemplateId: parentTemplateId
@@ -12651,12 +12764,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/TemplatedPAComponentPostSummary'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     TemplatedPAComponentSummary:
-      additionalProperties: false
       example:
         parentTemplateId: parentTemplateId
         name: name
@@ -12664,16 +12777,19 @@ components:
         type: type
       properties:
         description:
+          nullable: true
           type: string
         name:
+          nullable: true
           type: string
         parentTemplateId:
+          nullable: true
           type: string
         type:
+          nullable: true
           type: string
       type: object
     TemplatedPAComponentSummaryRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -12687,12 +12803,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/TemplatedPAComponentSummary'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     TemplatedPAComponentUpdateParameters:
-      additionalProperties: false
       example:
         parentTemplateId: parentTemplateId
         description: description
@@ -12738,15 +12854,16 @@ components:
       properties:
         parentTemplateId:
           description: Parent template id
+          nullable: true
           type: string
         description:
           description: Component description.
+          nullable: true
           type: string
         componentData:
           $ref: '#/components/schemas/PAComponentData'
       type: object
     TemplatedPAComponentUpdateParametersRoot:
-      additionalProperties: false
       example:
         data:
           parentTemplateId: parentTemplateId
@@ -12794,12 +12911,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/TemplatedPAComponentUpdateParameters'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     TemplatedPAComponent:
-      additionalProperties: false
       example:
         parentTemplateId: parentTemplateId
         name: name
@@ -12849,24 +12966,29 @@ components:
         snapshot: true
       properties:
         id:
+          nullable: true
           type: string
         directory:
+          nullable: true
           type: string
         snapshot:
           type: boolean
         componentData:
           $ref: '#/components/schemas/PAComponentData'
         description:
+          nullable: true
           type: string
         name:
+          nullable: true
           type: string
         parentTemplateId:
+          nullable: true
           type: string
         type:
+          nullable: true
           type: string
       type: object
     TemplatedPAComponentRoot:
-      additionalProperties: false
       example:
         data:
           parentTemplateId: parentTemplateId
@@ -12919,12 +13041,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/TemplatedPAComponent'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     UnlinkedPATemplateParameters:
-      additionalProperties: false
       example:
         templateTypeId: templateTypeId
         currencyisocode: currencyisocode
@@ -12986,21 +13108,25 @@ components:
           type: string
         description:
           description: Template description
+          nullable: true
           type: string
         accounts:
           description: List of accounts
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         benchmarks:
           description: List of benchmarks
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         columns:
           description: List of columns for the PA calculation
           items:
             $ref: '#/components/schemas/PACalculationColumn'
+          nullable: true
           type: array
         dates:
           $ref: '#/components/schemas/PADateParameters'
@@ -13008,14 +13134,17 @@ components:
           description: List of groupings for the PA calculation
           items:
             $ref: '#/components/schemas/PACalculationGroup'
+          nullable: true
           type: array
         datasources:
           $ref: '#/components/schemas/PACalculationDataSources'
         currencyisocode:
           description: Currency ISO code for calculation.
+          nullable: true
           type: string
         componentdetail:
           description: PA storage type. It can be GROUPS or TOTALS or SECURITIES.
+          nullable: true
           type: string
         content:
           $ref: '#/components/schemas/TemplateContentTypes'
@@ -13024,7 +13153,6 @@ components:
       - templateTypeId
       type: object
     UnlinkedPATemplateParametersRoot:
-      additionalProperties: false
       example:
         data:
           templateTypeId: templateTypeId
@@ -13082,12 +13210,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/UnlinkedPATemplateParameters'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     UnlinkedPATemplatePostSummary:
-      additionalProperties: false
       example:
         name: name
         description: description
@@ -13096,19 +13224,22 @@ components:
       properties:
         id:
           description: Template id.
+          nullable: true
           type: string
         description:
           description: Template description.
+          nullable: true
           type: string
         name:
           description: Template name.
+          nullable: true
           type: string
         category:
           description: Unlinked template category
+          nullable: true
           type: string
       type: object
     UnlinkedPATemplatePostSummaryRoot:
-      additionalProperties: false
       example:
         data:
           name: name
@@ -13119,12 +13250,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/UnlinkedPATemplatePostSummary'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     UnlinkedPATemplateSummary:
-      additionalProperties: false
       example:
         name: name
         description: description
@@ -13132,16 +13263,18 @@ components:
       properties:
         description:
           description: Template description.
+          nullable: true
           type: string
         name:
           description: Template name.
+          nullable: true
           type: string
         category:
           description: Unlinked template category
+          nullable: true
           type: string
       type: object
     UnlinkedPATemplateSummaryRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -13154,12 +13287,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/UnlinkedPATemplateSummary'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     UnlinkedPATemplateUpdateParameters:
-      additionalProperties: false
       example:
         currencyisocode: currencyisocode
         componentdetail: componentdetail
@@ -13213,21 +13346,25 @@ components:
       properties:
         description:
           description: Template description
+          nullable: true
           type: string
         accounts:
           description: List of accounts
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         benchmarks:
           description: List of benchmarks
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         columns:
           description: List of columns for the PA calculation
           items:
             $ref: '#/components/schemas/PACalculationColumn'
+          nullable: true
           type: array
         dates:
           $ref: '#/components/schemas/PADateParameters'
@@ -13235,20 +13372,22 @@ components:
           description: List of groupings for the PA calculation
           items:
             $ref: '#/components/schemas/PACalculationGroup'
+          nullable: true
           type: array
         datasources:
           $ref: '#/components/schemas/PACalculationDataSources'
         currencyisocode:
           description: Currency ISO code for calculation.
+          nullable: true
           type: string
         componentdetail:
           description: PA storage type. It can be GROUPS or TOTALS or SECURITIES.
+          nullable: true
           type: string
         content:
           $ref: '#/components/schemas/TemplateContentTypes'
       type: object
     UnlinkedPATemplateUpdateParametersRoot:
-      additionalProperties: false
       example:
         data:
           currencyisocode: currencyisocode
@@ -13304,12 +13443,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/UnlinkedPATemplateUpdateParameters'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     UnlinkedPATemplate:
-      additionalProperties: false
       example:
         columns:
         - id: id
@@ -13369,12 +13508,15 @@ components:
       properties:
         id:
           description: Template id.
+          nullable: true
           type: string
         directory:
           description: Template directory.
+          nullable: true
           type: string
         templateTypeId:
           description: Template type id
+          nullable: true
           type: string
         snapshot:
           description: snapshot.
@@ -13383,16 +13525,19 @@ components:
           description: List of accounts
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         benchmarks:
           description: List of benchmarks
           items:
             $ref: '#/components/schemas/PAIdentifier'
+          nullable: true
           type: array
         columns:
           description: List of columns for the PA calculation
           items:
             $ref: '#/components/schemas/PACalculationColumn'
+          nullable: true
           type: array
         dates:
           $ref: '#/components/schemas/PADateParameters'
@@ -13400,29 +13545,34 @@ components:
           description: List of groupings for the PA calculation
           items:
             $ref: '#/components/schemas/PACalculationGroup'
+          nullable: true
           type: array
         datasources:
           $ref: '#/components/schemas/PACalculationDataSources'
         currencyisocode:
           description: Currency ISO code for calculation.
+          nullable: true
           type: string
         componentdetail:
           description: PA storage type. It can be GROUPS or TOTALS or SECURITIES.
+          nullable: true
           type: string
         content:
           $ref: '#/components/schemas/TemplateContentTypes'
         description:
           description: Template description.
+          nullable: true
           type: string
         name:
           description: Template name.
+          nullable: true
           type: string
         category:
           description: Unlinked template category
+          nullable: true
           type: string
       type: object
     UnlinkedPATemplateRoot:
-      additionalProperties: false
       example:
         data:
           columns:
@@ -13484,25 +13634,26 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/UnlinkedPATemplate'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     UnlinkedPATemplateCategoryAndType:
-      additionalProperties: false
       example:
         name: name
         category: category
       properties:
         category:
           description: Unlinked template category
+          nullable: true
           type: string
         name:
           description: Unlinked template type
+          nullable: true
           type: string
       type: object
     UnlinkedPATemplateCategoryAndTypeRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -13514,12 +13665,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/UnlinkedPATemplateCategoryAndType'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     UnlinkedPATemplateColumnDetails:
-      additionalProperties: false
       example:
         name: name
         id: id
@@ -13529,18 +13680,20 @@ components:
       properties:
         name:
           description: Unlinked template column name
+          nullable: true
           type: string
         id:
           description: FactSet-defined or User-defined Column identifier.
+          nullable: true
           type: string
         statistics:
           description: Column Statistic identifier
           items:
             type: string
+          nullable: true
           type: array
       type: object
     UnlinkedPATemplateGroupDetails:
-      additionalProperties: false
       example:
         name: name
         id: id
@@ -13548,16 +13701,18 @@ components:
       properties:
         name:
           description: Unlinked template group name
+          nullable: true
           type: string
         id:
           description: FactSet-defined or User-defined Group identifier.
+          nullable: true
           type: string
         frequency:
           description: Grouping frequency
+          nullable: true
           type: string
       type: object
     UnlinkedPATemplateCategoryAndTypeDetails:
-      additionalProperties: false
       example:
         columns:
         - name: name
@@ -13584,29 +13739,33 @@ components:
       properties:
         id:
           description: Type Id
+          nullable: true
           type: string
         columns:
           description: List of default columns
           items:
             $ref: '#/components/schemas/UnlinkedPATemplateColumnDetails'
+          nullable: true
           type: array
         groups:
           description: List of default groupings
           items:
             $ref: '#/components/schemas/UnlinkedPATemplateGroupDetails'
+          nullable: true
           type: array
         snapshot:
           description: Snapshot
           type: boolean
         category:
           description: Unlinked template category
+          nullable: true
           type: string
         name:
           description: Unlinked template type
+          nullable: true
           type: string
       type: object
     UnlinkedPATemplateCategoryAndTypeDetailsRoot:
-      additionalProperties: false
       example:
         data:
           columns:
@@ -13635,7 +13794,8 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/UnlinkedPATemplateCategoryAndTypeDetails'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object

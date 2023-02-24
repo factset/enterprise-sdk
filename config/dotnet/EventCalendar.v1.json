@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.EventCalendar",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.20.1",
   "packageGuid": "{cb65471b-0319-5b20-aecb-f215c227ae0e}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/EventCalendar/0.20.0",
+  "httpUserAgent": "fds-sdk/dotnet/EventCalendar/0.20.1",
   "files": {
     "LICENSE": {}
   },

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.IRNContacts",
-  "packageVersion": "2.0.0",
+  "packageVersion": "2.0.1",
   "packageGuid": "{d3d23b4e-0164-51ef-b483-2e50944919b3}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/IRNContacts/2.0.0",
+  "httpUserAgent": "fds-sdk/dotnet/IRNContacts/2.0.1",
   "files": {
     "LICENSE": {}
   },

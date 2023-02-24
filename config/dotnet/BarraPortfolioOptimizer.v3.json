@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.BarraPortfolioOptimizer",
-  "packageVersion": "0.21.1",
+  "packageVersion": "0.21.2",
   "packageGuid": "{ff68551e-6604-50a8-8619-f94a84962e6a}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/BarraPortfolioOptimizer/0.21.1",
+  "httpUserAgent": "fds-sdk/dotnet/BarraPortfolioOptimizer/0.21.2",
   "files": {
     "LICENSE": {}
   },

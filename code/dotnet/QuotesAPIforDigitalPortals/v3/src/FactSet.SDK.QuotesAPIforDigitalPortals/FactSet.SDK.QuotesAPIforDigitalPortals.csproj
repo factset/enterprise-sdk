@@ -13,13 +13,15 @@
     <Description>Quotes API for Digital Portals client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.QuotesAPIforDigitalPortals</RootNamespace>
-    <Version>0.10.3</Version>
+    <Version>0.10.4</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.QuotesAPIforDigitalPortals.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>
     <PackageProjectUrl>https://developer.factset.com</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Refer to Changelog on GitHub source repository</PackageReleaseNotes>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageTags>FactSet;API;SDK</PackageTags>
   </PropertyGroup>
 

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.Vault",
-  "packageVersion": "0.8.5",
+  "packageVersion": "0.8.6",
   "packageGuid": "{563393e7-7fa0-5d5b-b76b-d46aa6409c17}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/Vault/0.8.5",
+  "httpUserAgent": "fds-sdk/dotnet/Vault/0.8.6",
   "files": {
     "LICENSE": {}
   },

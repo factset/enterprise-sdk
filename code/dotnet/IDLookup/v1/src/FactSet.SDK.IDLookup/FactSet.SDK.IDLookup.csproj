@@ -13,13 +13,15 @@
     <Description>ID Lookup client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.IDLookup</RootNamespace>
-    <Version>0.21.1</Version>
+    <Version>0.21.2</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.IDLookup.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>
     <PackageProjectUrl>https://developer.factset.com</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Refer to Changelog on GitHub source repository</PackageReleaseNotes>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageTags>FactSet;API;SDK</PackageTags>
   </PropertyGroup>
 

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetTermsandConditions",
-  "packageVersion": "2.0.0",
+  "packageVersion": "2.0.1",
   "packageGuid": "{d769b9ad-76f2-52a8-b8b0-6bf8f5325205}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetTermsandConditions/2.0.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetTermsandConditions/2.0.1",
   "files": {
     "LICENSE": {}
   },
