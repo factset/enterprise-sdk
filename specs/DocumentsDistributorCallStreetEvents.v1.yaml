@@ -1,18 +1,23 @@
 openapi: 3.0.0
 info:
   title: Documents Distributor - CallStreet Events
-  version: 1.8.1
+  version: 1.8.2
   contact:
     name: FactSet Research Systems
-    email: teamustang@factset.com
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   description: >
     CallStreet Events contains all the Documents Distributor APIs that offer
     events data such as Events Audio and Near Real-Time Transcripts.
 
 
-    The  Events Audio API provides access to historical as well as latest audio
-    recordings of various company events covered by FactSet. The events include,
-    but are not limited to: earnings calls, conferences, and investor days. 
+    The  Events Audio API provides access to historical as well as the latest
+    audio recordings of various company events covered by FactSet. The events
+    include, but are not limited to: earnings calls, conferences, and investor
+    days. 
 
 
     This API also provides relevant metadata such as timestamps and identifiers
@@ -29,9 +34,16 @@ info:
     Clients can leverage this API to perform sentiment analysis through natural
     language processing or machine learning. It can also be used to complement
     analysis using FactSet's transcripts service.
+externalDocs:
+  description: API Documentation
+  url: >-
+    https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
 servers:
   - url: https://api.factset.com
     description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
 paths:
   /docs-distributor/audio/v1/history-files:
     get:
@@ -750,24 +762,29 @@ paths:
                     data:
                       - audioSourceId: 471849
                         speakerStartOffset: 0
-                        speakerId: 0HH8QW-E
+                        speakerId: 00797V-E
                         cosineScore: 0.6958988631392222
+                        affiliationId: 0016YD-E
                       - audioSourceId: 471849
                         speakerStartOffset: 61.488
-                        speakerId: 0HH8QW-E
+                        speakerId: 00797V-E
                         cosineScore: 0.7166958724380188
+                        affiliationId: 0016YD-E
                       - audioSourceId: 471849
                         speakerStartOffset: 71.712
-                        speakerId: 0HH8QW-E
+                        speakerId: 00797V-E
                         cosineScore: 0.7045775184563546
+                        affiliationId: 0016YD-E
                       - audioSourceId: 471849
                         speakerStartOffset: 81.712
-                        speakerId: 0HH8QW-E
+                        speakerId: 00797V-E
                         cosineScore: 0.7845775184563546
+                        affiliationId: 0016YD-E
                       - audioSourceId: 471849
                         speakerStartOffset: 91.712
-                        speakerId: 0HH8QW-E
+                        speakerId: 00797V-E
                         cosineScore: 0.7645775184563546
+                        affiliationId: 0016YD-E
                     meta:
                       sort:
                         - startDate
@@ -1516,6 +1533,16 @@ paths:
         - $ref: '#/components/parameters/audioSourceId'
         - $ref: '#/components/parameters/reportId'
 components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
   schemas:
     NRT-Snippets:
       description: >-
@@ -1769,12 +1796,18 @@ components:
                   particular speaker.
 
 
-                  A score > 0.5 while a key-speaker is speaking can be
-                  considered as a high confidence in the predicted speaker.
+                  A score >= 0.49 while a speaker is speaking can be considered
+                  as a high confidence in the predicted speaker.
 
 
-                  Only the Speakerids with the highest cosineScore are rendered
+                  Only the SpeakerIDs with the highest cosineScore are rendered
                   in the result set.
+              affiliationId:
+                type: string
+                nullable: true
+                description: >-
+                  Affiliation ID denotes the company a speaker is associated
+                  with.
         meta:
           type: object
           properties:
@@ -2137,7 +2170,9 @@ components:
       properties:
         id:
           type: string
-        error_message:
+        code:
+          type: string
+        title:
           type: string
         details:
           type: object
@@ -2183,7 +2218,9 @@ components:
       properties:
         id:
           type: string
-        error_message:
+        code:
+          type: string
+        title:
           type: string
         details:
           type: object
@@ -2213,7 +2250,9 @@ components:
       properties:
         id:
           type: string
-        error_message:
+        code:
+          type: string
+        title:
           type: string
         details:
           type: object
@@ -2241,11 +2280,11 @@ components:
       description: ''
       type: object
       properties:
+        id:
+          type: string
         code:
           type: string
         title:
-          type: string
-        id:
           type: string
         details:
           type: object
@@ -2268,11 +2307,11 @@ components:
     Error:
       type: object
       properties:
+        id:
+          type: string
         code:
           type: string
         title:
-          type: string
-        id:
           type: string
     Indexed-NRT:
       description: >-
@@ -2543,19 +2582,12 @@ components:
       description: >-
         Specifies the year for which the historical audio recordings and related
         metadata are to be retrieved.
-  securitySchemes:
-    FactSetOAuth2:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
-          scopes: {}
-    FactSetApiKey:
-      type: http
-      scheme: basic
 tags:
-  - name: Near Real-Time Transcripts
   - name: Events Audio
-security:
-  - FactSetApiKey: []
-  - FactSetOAuth2: []
+    description: >-
+      The Events Audio API provides access to historical as well as the latest
+      audio recordings of various company events covered by FactSet.
+  - name: Near Real-Time Transcripts
+    description: >-
+      The Near Real-Time Transcripts API enables access to Near Real-time
+      Transcripts provided by CallStreet to time-sensitive clients.

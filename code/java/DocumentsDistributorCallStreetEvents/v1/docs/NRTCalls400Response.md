@@ -8,7 +8,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  |  [optional]
-**errorMessage** | **String** |  |  [optional]
+**code** | **String** |  |  [optional]
+**title** | **String** |  |  [optional]
 **details** | [**NRTCalls400ResponseDetails**](NRTCalls400ResponseDetails.md) |  |  [optional]
 
 

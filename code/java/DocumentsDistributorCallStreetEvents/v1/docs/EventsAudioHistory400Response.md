@@ -7,9 +7,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **String** |  |  [optional]
 **code** | **String** |  |  [optional]
 **title** | **String** |  |  [optional]
-**id** | **String** |  |  [optional]
 **details** | [**EventsAudioHistory400ResponseDetails**](EventsAudioHistory400ResponseDetails.md) |  |  [optional]
 
 

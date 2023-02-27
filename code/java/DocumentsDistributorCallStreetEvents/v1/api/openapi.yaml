@@ -1,23 +1,30 @@
 openapi: 3.0.0
 info:
   contact:
-    email: teamustang@factset.com
+    email: api@factset.com
     name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: "CallStreet Events contains all the Documents Distributor APIs that\
     \ offer events data such as Events Audio and Near Real-Time Transcripts.\n\nThe\
-    \  Events Audio API provides access to historical as well as latest audio recordings\
-    \ of various company events covered by FactSet. The events include, but are not\
-    \ limited to: earnings calls, conferences, and investor days. \n\nThis API also\
-    \ provides relevant metadata such as timestamps and identifiers around each audio\
-    \ file.\n\nThe Documents Distributor - Near Real-time Transcripts API enables\
-    \ access to Near Real-time Transcripts provided by CallStreet to time-sensitive\
+    \  Events Audio API provides access to historical as well as the latest audio\
+    \ recordings of various company events covered by FactSet. The events include,\
+    \ but are not limited to: earnings calls, conferences, and investor days. \n\n\
+    This API also provides relevant metadata such as timestamps and identifiers around\
+    \ each audio file.\n\nThe Documents Distributor - Near Real-time Transcripts API\
+    \ enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive\
     \ clients. This API also provides the relevant speaker metadata along with their\
     \ confidence scores. This data caters to quant clients interested in building\
     \ machine learning models.\n\nClients can leverage this API to perform sentiment\
     \ analysis through natural language processing or machine learning. It can also\
     \ be used to complement analysis using FactSet's transcripts service.\n"
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Documents Distributor - CallStreet Events
-  version: 1.8.1
+  version: 1.8.2
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
 servers:
 - description: Production
   url: https://api.factset.com
@@ -25,8 +32,12 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: Near Real-Time Transcripts
-- name: Events Audio
+- description: The Events Audio API provides access to historical as well as the latest
+    audio recordings of various company events covered by FactSet.
+  name: Events Audio
+- description: The Near Real-Time Transcripts API enables access to Near Real-time
+    Transcripts provided by CallStreet to time-sensitive clients.
+  name: Near Real-Time Transcripts
 paths:
   /docs-distributor/audio/v1/history-files:
     get:
@@ -946,24 +957,29 @@ paths:
                     data:
                     - audioSourceId: 471849
                       speakerStartOffset: 0
-                      speakerId: 0HH8QW-E
+                      speakerId: 00797V-E
                       cosineScore: 0.6958988631392222
+                      affiliationId: 0016YD-E
                     - audioSourceId: 471849
                       speakerStartOffset: 61.488
-                      speakerId: 0HH8QW-E
+                      speakerId: 00797V-E
                       cosineScore: 0.7166958724380188
+                      affiliationId: 0016YD-E
                     - audioSourceId: 471849
                       speakerStartOffset: 71.712
-                      speakerId: 0HH8QW-E
+                      speakerId: 00797V-E
                       cosineScore: 0.7045775184563546
+                      affiliationId: 0016YD-E
                     - audioSourceId: 471849
                       speakerStartOffset: 81.712
-                      speakerId: 0HH8QW-E
+                      speakerId: 00797V-E
                       cosineScore: 0.7845775184563546
+                      affiliationId: 0016YD-E
                     - audioSourceId: 471849
                       speakerStartOffset: 91.712
-                      speakerId: 0HH8QW-E
+                      speakerId: 00797V-E
                       cosineScore: 0.7645775184563546
+                      affiliationId: 0016YD-E
                     meta:
                       sort:
                       - startDate
@@ -2013,10 +2029,12 @@ components:
         - cosineScore: 1.4658129805029452
           audioSourceId: 0
           speakerId: speakerId
+          affiliationId: affiliationId
           speakerStartOffset: 6.027456183070403
         - cosineScore: 1.4658129805029452
           audioSourceId: 0
           speakerId: speakerId
+          affiliationId: affiliationId
           speakerStartOffset: 6.027456183070403
         meta:
           pagination:
@@ -2135,7 +2153,9 @@ components:
       properties:
         id:
           type: string
-        error_message:
+        code:
+          type: string
+        title:
           type: string
         details:
           $ref: '#/components/schemas/NRT_Calls_400_Response_details'
@@ -2144,7 +2164,9 @@ components:
       properties:
         id:
           type: string
-        error_message:
+        code:
+          type: string
+        title:
           type: string
         details:
           $ref: '#/components/schemas/NRT_Snippets_400_Response_details'
@@ -2153,29 +2175,31 @@ components:
       properties:
         id:
           type: string
-        error_message:
+        code:
+          type: string
+        title:
           type: string
         details:
           $ref: '#/components/schemas/NRT_Speakerids_400_Response_details'
       type: object
     Events-Audio-History-400-Response:
       properties:
+        id:
+          type: string
         code:
           type: string
         title:
-          type: string
-        id:
           type: string
         details:
           $ref: '#/components/schemas/Events_Audio_History_400_Response_details'
       type: object
     Error:
       properties:
+        id:
+          type: string
         code:
           type: string
         title:
-          type: string
-        id:
           type: string
       type: object
     Indexed-NRT:
@@ -2491,6 +2515,7 @@ components:
         cosineScore: 1.4658129805029452
         audioSourceId: 0
         speakerId: speakerId
+        affiliationId: affiliationId
         speakerStartOffset: 6.027456183070403
       properties:
         audioSourceId:
@@ -2512,11 +2537,16 @@ components:
           description: |-
             The cosine similarity score (Confidence score)  for a particular speaker.
 
-            A score > 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker.
+            A score >= 0.49 while a speaker is speaking can be considered as a high confidence in the predicted speaker.
 
-            Only the Speakerids with the highest cosineScore are rendered in the result set.
+            Only the SpeakerIDs with the highest cosineScore are rendered in the result set.
           nullable: true
           type: number
+        affiliationId:
+          description: Affiliation ID denotes the company a speaker is associated
+            with.
+          nullable: true
+          type: string
       type: object
     NRT_Speakerids_meta_pagination:
       example:

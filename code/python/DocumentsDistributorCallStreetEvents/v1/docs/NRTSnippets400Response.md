@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
-**error_message** | **str** |  | [optional] 
+**code** | **str** |  | [optional] 
+**title** | **str** |  | [optional] 
 **details** | [**NRTSnippets400ResponseDetails**](NRTSnippets400ResponseDetails.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
