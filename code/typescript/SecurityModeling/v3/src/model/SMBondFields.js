@@ -66,8 +66,8 @@ class SMBondFields {
             if (data.hasOwnProperty('businessDayConv')) {
                 obj['businessDayConv'] = ApiClient.convertToType(data['businessDayConv'], 'String');
             }
-            if (data.hasOwnProperty('callAnnounceDate')) {
-                obj['callAnnounceDate'] = ApiClient.convertToType(data['callAnnounceDate'], 'String');
+            if (data.hasOwnProperty('callAnnouncedDate')) {
+                obj['callAnnouncedDate'] = ApiClient.convertToType(data['callAnnouncedDate'], 'String');
             }
             if (data.hasOwnProperty('callDates')) {
                 obj['callDates'] = ApiClient.convertToType(data['callDates'], ['String']);
@@ -273,6 +273,9 @@ class SMBondFields {
             if (data.hasOwnProperty('preferredSecFlag')) {
                 obj['preferredSecFlag'] = ApiClient.convertToType(data['preferredSecFlag'], 'Boolean');
             }
+            if (data.hasOwnProperty('preferredSecType')) {
+                obj['preferredSecType'] = ApiClient.convertToType(data['preferredSecType'], 'String');
+            }
             if (data.hasOwnProperty('principalType')) {
                 obj['principalType'] = ApiClient.convertToType(data['principalType'], 'String');
             }
@@ -332,6 +335,9 @@ class SMBondFields {
             }
             if (data.hasOwnProperty('resetFreq')) {
                 obj['resetFreq'] = ApiClient.convertToType(data['resetFreq'], 'String');
+            }
+            if (data.hasOwnProperty('refIndex')) {
+                obj['refIndex'] = ApiClient.convertToType(data['refIndex'], 'String');
             }
             if (data.hasOwnProperty('secondaryToVendorFlag')) {
                 obj['secondaryToVendorFlag'] = ApiClient.convertToType(data['secondaryToVendorFlag'], 'Boolean');
@@ -450,9 +456,9 @@ SMBondFields.prototype['aperiodicSpreads'] = undefined;
 SMBondFields.prototype['businessDayConv'] = undefined;
 
 /**
- * @member {String} callAnnounceDate
+ * @member {String} callAnnouncedDate
  */
-SMBondFields.prototype['callAnnounceDate'] = undefined;
+SMBondFields.prototype['callAnnouncedDate'] = undefined;
 
 /**
  * @member {Array.<String>} callDates
@@ -795,6 +801,11 @@ SMBondFields.prototype['preferredSecExDateUnits'] = undefined;
 SMBondFields.prototype['preferredSecFlag'] = undefined;
 
 /**
+ * @member {String} preferredSecType
+ */
+SMBondFields.prototype['preferredSecType'] = undefined;
+
+/**
  * @member {String} principalType
  */
 SMBondFields.prototype['principalType'] = undefined;
@@ -893,6 +904,11 @@ SMBondFields.prototype['resetDelay'] = undefined;
  * @member {String} resetFreq
  */
 SMBondFields.prototype['resetFreq'] = undefined;
+
+/**
+ * @member {String} refIndex
+ */
+SMBondFields.prototype['refIndex'] = undefined;
 
 /**
  * @member {Boolean} secondaryToVendorFlag
@@ -1054,7 +1070,13 @@ SMBondFields['SecurityTypeEnum'] = {
      * value: "Bond"
      * @const
      */
-    "Bond": "Bond"
+    "Bond": "Bond",
+
+    /**
+     * value: "CCF"
+     * @const
+     */
+    "CCF": "CCF"
 };
 
 

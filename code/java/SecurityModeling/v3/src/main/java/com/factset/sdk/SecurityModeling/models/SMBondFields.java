@@ -43,7 +43,7 @@ import com.factset.sdk.SecurityModeling.JSON;
   SMBondFields.JSON_PROPERTY_APERIODIC_RESET_DATES,
   SMBondFields.JSON_PROPERTY_APERIODIC_SPREADS,
   SMBondFields.JSON_PROPERTY_BUSINESS_DAY_CONV,
-  SMBondFields.JSON_PROPERTY_CALL_ANNOUNCE_DATE,
+  SMBondFields.JSON_PROPERTY_CALL_ANNOUNCED_DATE,
   SMBondFields.JSON_PROPERTY_CALL_DATES,
   SMBondFields.JSON_PROPERTY_CALL_FREQ,
   SMBondFields.JSON_PROPERTY_CALL_NOTICE_DAYS,
@@ -112,6 +112,7 @@ import com.factset.sdk.SecurityModeling.JSON;
   SMBondFields.JSON_PROPERTY_PREFERRED_SEC_EX_DATE_LEN,
   SMBondFields.JSON_PROPERTY_PREFERRED_SEC_EX_DATE_UNITS,
   SMBondFields.JSON_PROPERTY_PREFERRED_SEC_FLAG,
+  SMBondFields.JSON_PROPERTY_PREFERRED_SEC_TYPE,
   SMBondFields.JSON_PROPERTY_PRINCIPAL_TYPE,
   SMBondFields.JSON_PROPERTY_PUT_DATES,
   SMBondFields.JSON_PROPERTY_PUT_NOTICE_DAYS,
@@ -132,6 +133,7 @@ import com.factset.sdk.SecurityModeling.JSON;
   SMBondFields.JSON_PROPERTY_REINSTATED_DATE,
   SMBondFields.JSON_PROPERTY_RESET_DELAY,
   SMBondFields.JSON_PROPERTY_RESET_FREQ,
+  SMBondFields.JSON_PROPERTY_REF_INDEX,
   SMBondFields.JSON_PROPERTY_SECONDARY_TO_VENDOR_FLAG,
   SMBondFields.JSON_PROPERTY_SECTOR,
   SMBondFields.JSON_PROPERTY_SECTOR_BARCLAY1,
@@ -180,8 +182,8 @@ public class SMBondFields implements Serializable {
   public static final String JSON_PROPERTY_BUSINESS_DAY_CONV = "businessDayConv";
   private JsonNullable<String> businessDayConv = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CALL_ANNOUNCE_DATE = "callAnnounceDate";
-  private JsonNullable<String> callAnnounceDate = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_CALL_ANNOUNCED_DATE = "callAnnouncedDate";
+  private JsonNullable<String> callAnnouncedDate = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CALL_DATES = "callDates";
   private JsonNullable<java.util.List<String>> callDates = JsonNullable.<java.util.List<String>>undefined();
@@ -387,6 +389,9 @@ public class SMBondFields implements Serializable {
   public static final String JSON_PROPERTY_PREFERRED_SEC_FLAG = "preferredSecFlag";
   private JsonNullable<Boolean> preferredSecFlag = JsonNullable.<Boolean>undefined();
 
+  public static final String JSON_PROPERTY_PREFERRED_SEC_TYPE = "preferredSecType";
+  private JsonNullable<String> preferredSecType = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_PRINCIPAL_TYPE = "principalType";
   private JsonNullable<String> principalType = JsonNullable.<String>undefined();
 
@@ -446,6 +451,9 @@ public class SMBondFields implements Serializable {
 
   public static final String JSON_PROPERTY_RESET_FREQ = "resetFreq";
   private JsonNullable<String> resetFreq = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_REF_INDEX = "refIndex";
+  private JsonNullable<String> refIndex = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SECONDARY_TO_VENDOR_FLAG = "secondaryToVendorFlag";
   private JsonNullable<Boolean> secondaryToVendorFlag = JsonNullable.<Boolean>undefined();
@@ -532,7 +540,9 @@ public class SMBondFields implements Serializable {
    * Gets or Sets securityType
    */
   public enum SecurityTypeEnum {
-    BOND("Bond");
+    BOND("Bond"),
+    
+    CCF("CCF");
 
     private String value;
 
@@ -781,37 +791,37 @@ public class SMBondFields implements Serializable {
   }
 
 
-  public SMBondFields callAnnounceDate(String callAnnounceDate) {
-    this.callAnnounceDate = JsonNullable.<String>of(callAnnounceDate);
+  public SMBondFields callAnnouncedDate(String callAnnouncedDate) {
+    this.callAnnouncedDate = JsonNullable.<String>of(callAnnouncedDate);
     return this;
   }
 
    /**
-   * Get callAnnounceDate
-   * @return callAnnounceDate
+   * Get callAnnouncedDate
+   * @return callAnnouncedDate
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
-  public String getCallAnnounceDate() {
-        return callAnnounceDate.orElse(null);
+  public String getCallAnnouncedDate() {
+        return callAnnouncedDate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CALL_ANNOUNCE_DATE)
+  @JsonProperty(JSON_PROPERTY_CALL_ANNOUNCED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getCallAnnounceDate_JsonNullable() {
-    return callAnnounceDate;
+  public JsonNullable<String> getCallAnnouncedDate_JsonNullable() {
+    return callAnnouncedDate;
   }
   
-  @JsonProperty(JSON_PROPERTY_CALL_ANNOUNCE_DATE)
-  public void setCallAnnounceDate_JsonNullable(JsonNullable<String> callAnnounceDate) {
-    this.callAnnounceDate = callAnnounceDate;
+  @JsonProperty(JSON_PROPERTY_CALL_ANNOUNCED_DATE)
+  public void setCallAnnouncedDate_JsonNullable(JsonNullable<String> callAnnouncedDate) {
+    this.callAnnouncedDate = callAnnouncedDate;
   }
 
-  public void setCallAnnounceDate(String callAnnounceDate) {
-    this.callAnnounceDate = JsonNullable.<String>of(callAnnounceDate);
+  public void setCallAnnouncedDate(String callAnnouncedDate) {
+    this.callAnnouncedDate = JsonNullable.<String>of(callAnnouncedDate);
   }
 
 
@@ -3259,6 +3269,40 @@ public class SMBondFields implements Serializable {
   }
 
 
+  public SMBondFields preferredSecType(String preferredSecType) {
+    this.preferredSecType = JsonNullable.<String>of(preferredSecType);
+    return this;
+  }
+
+   /**
+   * Get preferredSecType
+   * @return preferredSecType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getPreferredSecType() {
+        return preferredSecType.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PREFERRED_SEC_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getPreferredSecType_JsonNullable() {
+    return preferredSecType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PREFERRED_SEC_TYPE)
+  public void setPreferredSecType_JsonNullable(JsonNullable<String> preferredSecType) {
+    this.preferredSecType = preferredSecType;
+  }
+
+  public void setPreferredSecType(String preferredSecType) {
+    this.preferredSecType = JsonNullable.<String>of(preferredSecType);
+  }
+
+
   public SMBondFields principalType(String principalType) {
     this.principalType = JsonNullable.<String>of(principalType);
     return this;
@@ -4032,6 +4076,40 @@ public class SMBondFields implements Serializable {
 
   public void setResetFreq(String resetFreq) {
     this.resetFreq = JsonNullable.<String>of(resetFreq);
+  }
+
+
+  public SMBondFields refIndex(String refIndex) {
+    this.refIndex = JsonNullable.<String>of(refIndex);
+    return this;
+  }
+
+   /**
+   * Get refIndex
+   * @return refIndex
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getRefIndex() {
+        return refIndex.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_REF_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getRefIndex_JsonNullable() {
+    return refIndex;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REF_INDEX)
+  public void setRefIndex_JsonNullable(JsonNullable<String> refIndex) {
+    this.refIndex = refIndex;
+  }
+
+  public void setRefIndex(String refIndex) {
+    this.refIndex = JsonNullable.<String>of(refIndex);
   }
 
 
@@ -5092,7 +5170,7 @@ public class SMBondFields implements Serializable {
         equalsNullable(this.aperiodicResetDates, smBondFields.aperiodicResetDates) &&
         equalsNullable(this.aperiodicSpreads, smBondFields.aperiodicSpreads) &&
         equalsNullable(this.businessDayConv, smBondFields.businessDayConv) &&
-        equalsNullable(this.callAnnounceDate, smBondFields.callAnnounceDate) &&
+        equalsNullable(this.callAnnouncedDate, smBondFields.callAnnouncedDate) &&
         equalsNullable(this.callDates, smBondFields.callDates) &&
         equalsNullable(this.callFreq, smBondFields.callFreq) &&
         equalsNullable(this.callNoticeDays, smBondFields.callNoticeDays) &&
@@ -5161,6 +5239,7 @@ public class SMBondFields implements Serializable {
         equalsNullable(this.preferredSecExDateLen, smBondFields.preferredSecExDateLen) &&
         equalsNullable(this.preferredSecExDateUnits, smBondFields.preferredSecExDateUnits) &&
         equalsNullable(this.preferredSecFlag, smBondFields.preferredSecFlag) &&
+        equalsNullable(this.preferredSecType, smBondFields.preferredSecType) &&
         equalsNullable(this.principalType, smBondFields.principalType) &&
         equalsNullable(this.putDates, smBondFields.putDates) &&
         equalsNullable(this.putNoticeDays, smBondFields.putNoticeDays) &&
@@ -5181,6 +5260,7 @@ public class SMBondFields implements Serializable {
         equalsNullable(this.reinstatedDate, smBondFields.reinstatedDate) &&
         equalsNullable(this.resetDelay, smBondFields.resetDelay) &&
         equalsNullable(this.resetFreq, smBondFields.resetFreq) &&
+        equalsNullable(this.refIndex, smBondFields.refIndex) &&
         equalsNullable(this.secondaryToVendorFlag, smBondFields.secondaryToVendorFlag) &&
         equalsNullable(this.sector, smBondFields.sector) &&
         equalsNullable(this.sectorBarclay1, smBondFields.sectorBarclay1) &&
@@ -5217,7 +5297,7 @@ public class SMBondFields implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(_144aFlag), hashCodeNullable(aperiodicMultipliers), hashCodeNullable(aperiodicResetDates), hashCodeNullable(aperiodicSpreads), hashCodeNullable(businessDayConv), hashCodeNullable(callAnnounceDate), hashCodeNullable(callDates), hashCodeNullable(callFreq), hashCodeNullable(callNoticeDays), hashCodeNullable(callPrices), hashCodeNullable(cashRate), hashCodeNullable(cognity), hashCodeNullable(conversionIdentifier), hashCodeNullable(conversionRatio), hashCodeNullable(conversionType), hashCodeNullable(convertibleFlag), hashCodeNullable(country), hashCodeNullable(coupon), hashCodeNullable(couponType), hashCodeNullable(creditSpreadAdjustmentSingle), hashCodeNullable(currency), hashCodeNullable(dayCountBasis), hashCodeNullable(defaultedDate), hashCodeNullable(federalTaxExemptFlag), hashCodeNullable(firstPayDate), hashCodeNullable(firstResetDate), hashCodeNullable(floatFormula), hashCodeNullable(fltDayCountBasis), hashCodeNullable(fltFirstPayDate), hashCodeNullable(fltPayFreq), hashCodeNullable(histCouponDates), hashCodeNullable(histCoupons), hashCodeNullable(histRcvAssumpDates), hashCodeNullable(histRcvAssumpMonths), hashCodeNullable(histRcvAssumpRates), hashCodeNullable(histRcvAssumpTargetDates), hashCodeNullable(inflationType), hashCodeNullable(issueDate), hashCodeNullable(issueName), hashCodeNullable(issuerId), hashCodeNullable(lastModifiedSource), hashCodeNullable(lastModifiedSourceMeta), hashCodeNullable(lastModifiedTime), hashCodeNullable(lifeCap), hashCodeNullable(lifeFloor), hashCodeNullable(lockoutDays), hashCodeNullable(lookBackDays), hashCodeNullable(makeWholeCallFlag), hashCodeNullable(makeWholeExpireDate), hashCodeNullable(makeWholeSpread), hashCodeNullable(matrixDates), hashCodeNullable(matrixMultipliers), hashCodeNullable(matrixPricedFlag), hashCodeNullable(matrixSpreads), hashCodeNullable(matrixUseScheduleFlag), hashCodeNullable(maturityDate), hashCodeNullable(maturityPrice), hashCodeNullable(monthsToRecovery), hashCodeNullable(multiplier), hashCodeNullable(notionalFlag), hashCodeNullable(observationShift), hashCodeNullable(origAmtIssued), hashCodeNullable(parentName), hashCodeNullable(parPrice), hashCodeNullable(parserInfo), hashCodeNullable(paymentDelay), hashCodeNullable(payFreq), hashCodeNullable(periodCap), hashCodeNullable(periodFloor), hashCodeNullable(pikExpDate), hashCodeNullable(pikRate), hashCodeNullable(preferredSecExDateLen), hashCodeNullable(preferredSecExDateUnits), hashCodeNullable(preferredSecFlag), hashCodeNullable(principalType), hashCodeNullable(putDates), hashCodeNullable(putNoticeDays), hashCodeNullable(putFreq), hashCodeNullable(putPrices), hashCodeNullable(pvtPlacementFlag), hashCodeNullable(ratingFitch), hashCodeNullable(ratingFitchDates), hashCodeNullable(ratingFitchValues), hashCodeNullable(ratingMoodysDates), hashCodeNullable(ratingMoodysValues), hashCodeNullable(ratingSpDates), hashCodeNullable(ratingSpValues), hashCodeNullable(recoveryPercentage), hashCodeNullable(redemptionDate), hashCodeNullable(redemptionOpt), hashCodeNullable(redemptionPrice), hashCodeNullable(reinstatedDate), hashCodeNullable(resetDelay), hashCodeNullable(resetFreq), hashCodeNullable(secondaryToVendorFlag), hashCodeNullable(sector), hashCodeNullable(sectorBarclay1), hashCodeNullable(sectorBarclay2), hashCodeNullable(sectorBarclay3), hashCodeNullable(sectorBarclay4), hashCodeNullable(sectorDef), hashCodeNullable(sectorIndustry), hashCodeNullable(sectorMain), hashCodeNullable(sectorMerrill1), hashCodeNullable(sectorMerrill2), hashCodeNullable(sectorMerrill3), hashCodeNullable(sectorMerrill4), hashCodeNullable(sectorSubGroup), hashCodeNullable(sinkAmts), hashCodeNullable(sinkDates), hashCodeNullable(spread), hashCodeNullable(state), hashCodeNullable(status), hashCodeNullable(statusDates), hashCodeNullable(statusValues), hashCodeNullable(stepCashRates), hashCodeNullable(stepCouponDates), hashCodeNullable(stepCoupons), hashCodeNullable(stepPikRates), hashCodeNullable(vendorCoverageDate), hashCodeNullable(vRDNFlag), securityType);
+    return Objects.hash(hashCodeNullable(_144aFlag), hashCodeNullable(aperiodicMultipliers), hashCodeNullable(aperiodicResetDates), hashCodeNullable(aperiodicSpreads), hashCodeNullable(businessDayConv), hashCodeNullable(callAnnouncedDate), hashCodeNullable(callDates), hashCodeNullable(callFreq), hashCodeNullable(callNoticeDays), hashCodeNullable(callPrices), hashCodeNullable(cashRate), hashCodeNullable(cognity), hashCodeNullable(conversionIdentifier), hashCodeNullable(conversionRatio), hashCodeNullable(conversionType), hashCodeNullable(convertibleFlag), hashCodeNullable(country), hashCodeNullable(coupon), hashCodeNullable(couponType), hashCodeNullable(creditSpreadAdjustmentSingle), hashCodeNullable(currency), hashCodeNullable(dayCountBasis), hashCodeNullable(defaultedDate), hashCodeNullable(federalTaxExemptFlag), hashCodeNullable(firstPayDate), hashCodeNullable(firstResetDate), hashCodeNullable(floatFormula), hashCodeNullable(fltDayCountBasis), hashCodeNullable(fltFirstPayDate), hashCodeNullable(fltPayFreq), hashCodeNullable(histCouponDates), hashCodeNullable(histCoupons), hashCodeNullable(histRcvAssumpDates), hashCodeNullable(histRcvAssumpMonths), hashCodeNullable(histRcvAssumpRates), hashCodeNullable(histRcvAssumpTargetDates), hashCodeNullable(inflationType), hashCodeNullable(issueDate), hashCodeNullable(issueName), hashCodeNullable(issuerId), hashCodeNullable(lastModifiedSource), hashCodeNullable(lastModifiedSourceMeta), hashCodeNullable(lastModifiedTime), hashCodeNullable(lifeCap), hashCodeNullable(lifeFloor), hashCodeNullable(lockoutDays), hashCodeNullable(lookBackDays), hashCodeNullable(makeWholeCallFlag), hashCodeNullable(makeWholeExpireDate), hashCodeNullable(makeWholeSpread), hashCodeNullable(matrixDates), hashCodeNullable(matrixMultipliers), hashCodeNullable(matrixPricedFlag), hashCodeNullable(matrixSpreads), hashCodeNullable(matrixUseScheduleFlag), hashCodeNullable(maturityDate), hashCodeNullable(maturityPrice), hashCodeNullable(monthsToRecovery), hashCodeNullable(multiplier), hashCodeNullable(notionalFlag), hashCodeNullable(observationShift), hashCodeNullable(origAmtIssued), hashCodeNullable(parentName), hashCodeNullable(parPrice), hashCodeNullable(parserInfo), hashCodeNullable(paymentDelay), hashCodeNullable(payFreq), hashCodeNullable(periodCap), hashCodeNullable(periodFloor), hashCodeNullable(pikExpDate), hashCodeNullable(pikRate), hashCodeNullable(preferredSecExDateLen), hashCodeNullable(preferredSecExDateUnits), hashCodeNullable(preferredSecFlag), hashCodeNullable(preferredSecType), hashCodeNullable(principalType), hashCodeNullable(putDates), hashCodeNullable(putNoticeDays), hashCodeNullable(putFreq), hashCodeNullable(putPrices), hashCodeNullable(pvtPlacementFlag), hashCodeNullable(ratingFitch), hashCodeNullable(ratingFitchDates), hashCodeNullable(ratingFitchValues), hashCodeNullable(ratingMoodysDates), hashCodeNullable(ratingMoodysValues), hashCodeNullable(ratingSpDates), hashCodeNullable(ratingSpValues), hashCodeNullable(recoveryPercentage), hashCodeNullable(redemptionDate), hashCodeNullable(redemptionOpt), hashCodeNullable(redemptionPrice), hashCodeNullable(reinstatedDate), hashCodeNullable(resetDelay), hashCodeNullable(resetFreq), hashCodeNullable(refIndex), hashCodeNullable(secondaryToVendorFlag), hashCodeNullable(sector), hashCodeNullable(sectorBarclay1), hashCodeNullable(sectorBarclay2), hashCodeNullable(sectorBarclay3), hashCodeNullable(sectorBarclay4), hashCodeNullable(sectorDef), hashCodeNullable(sectorIndustry), hashCodeNullable(sectorMain), hashCodeNullable(sectorMerrill1), hashCodeNullable(sectorMerrill2), hashCodeNullable(sectorMerrill3), hashCodeNullable(sectorMerrill4), hashCodeNullable(sectorSubGroup), hashCodeNullable(sinkAmts), hashCodeNullable(sinkDates), hashCodeNullable(spread), hashCodeNullable(state), hashCodeNullable(status), hashCodeNullable(statusDates), hashCodeNullable(statusValues), hashCodeNullable(stepCashRates), hashCodeNullable(stepCouponDates), hashCodeNullable(stepCoupons), hashCodeNullable(stepPikRates), hashCodeNullable(vendorCoverageDate), hashCodeNullable(vRDNFlag), securityType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -5236,7 +5316,7 @@ public class SMBondFields implements Serializable {
     sb.append("    aperiodicResetDates: ").append(toIndentedString(aperiodicResetDates)).append("\n");
     sb.append("    aperiodicSpreads: ").append(toIndentedString(aperiodicSpreads)).append("\n");
     sb.append("    businessDayConv: ").append(toIndentedString(businessDayConv)).append("\n");
-    sb.append("    callAnnounceDate: ").append(toIndentedString(callAnnounceDate)).append("\n");
+    sb.append("    callAnnouncedDate: ").append(toIndentedString(callAnnouncedDate)).append("\n");
     sb.append("    callDates: ").append(toIndentedString(callDates)).append("\n");
     sb.append("    callFreq: ").append(toIndentedString(callFreq)).append("\n");
     sb.append("    callNoticeDays: ").append(toIndentedString(callNoticeDays)).append("\n");
@@ -5305,6 +5385,7 @@ public class SMBondFields implements Serializable {
     sb.append("    preferredSecExDateLen: ").append(toIndentedString(preferredSecExDateLen)).append("\n");
     sb.append("    preferredSecExDateUnits: ").append(toIndentedString(preferredSecExDateUnits)).append("\n");
     sb.append("    preferredSecFlag: ").append(toIndentedString(preferredSecFlag)).append("\n");
+    sb.append("    preferredSecType: ").append(toIndentedString(preferredSecType)).append("\n");
     sb.append("    principalType: ").append(toIndentedString(principalType)).append("\n");
     sb.append("    putDates: ").append(toIndentedString(putDates)).append("\n");
     sb.append("    putNoticeDays: ").append(toIndentedString(putNoticeDays)).append("\n");
@@ -5325,6 +5406,7 @@ public class SMBondFields implements Serializable {
     sb.append("    reinstatedDate: ").append(toIndentedString(reinstatedDate)).append("\n");
     sb.append("    resetDelay: ").append(toIndentedString(resetDelay)).append("\n");
     sb.append("    resetFreq: ").append(toIndentedString(resetFreq)).append("\n");
+    sb.append("    refIndex: ").append(toIndentedString(refIndex)).append("\n");
     sb.append("    secondaryToVendorFlag: ").append(toIndentedString(secondaryToVendorFlag)).append("\n");
     sb.append("    sector: ").append(toIndentedString(sector)).append("\n");
     sb.append("    sectorBarclay1: ").append(toIndentedString(sectorBarclay1)).append("\n");

@@ -15,6 +15,10 @@
 import ApiClient from "../ApiClient";
 import SMCreateParametersRoot from '../model/SMCreateParametersRoot';
 import SMCreateResponseRoot from '../model/SMCreateResponseRoot';
+import SMDeleteParametersRoot from '../model/SMDeleteParametersRoot';
+import SMDeleteResponseRoot from '../model/SMDeleteResponseRoot';
+import SMRetrieveParametersRoot from '../model/SMRetrieveParametersRoot';
+import SMRetrieveResponseRoot from '../model/SMRetrieveResponseRoot';
 
 /**
 * SecurityModeling service.
@@ -33,6 +37,104 @@ export default class SecurityModelingApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Delete existing securities
+     * This endpoint deletes existing securities.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/SMDeleteParametersRoot} opts.sMDeleteParametersRoot 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SMDeleteResponseRoot} and HTTP response
+     */
+    deleteSecuritiesWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['sMDeleteParametersRoot'];
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = SMDeleteResponseRoot;
+
+      return this.apiClient.callApi(
+        '/analytics/security-modeling/v3/securities/delete', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Delete existing securities
+     * This endpoint deletes existing securities.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/SMDeleteParametersRoot} opts.sMDeleteParametersRoot 
+     * @return { Promise.< module:model/SMDeleteResponseRoot > } a Promise, with data of type {@link module:model/SMDeleteResponseRoot }
+     */
+    deleteSecurities(opts) {
+      return this.deleteSecuritiesWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get existing securities
+     * This endpoint gets all existing securities.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/SMRetrieveParametersRoot} opts.sMRetrieveParametersRoot 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SMRetrieveResponseRoot} and HTTP response
+     */
+    getSecuritiesWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['sMRetrieveParametersRoot'];
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = SMRetrieveResponseRoot;
+
+      return this.apiClient.callApi(
+        '/analytics/security-modeling/v3/securities/retrieve', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get existing securities
+     * This endpoint gets all existing securities.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/SMRetrieveParametersRoot} opts.sMRetrieveParametersRoot 
+     * @return { Promise.< module:model/SMRetrieveResponseRoot > } a Promise, with data of type {@link module:model/SMRetrieveResponseRoot }
+     */
+    getSecurities(opts) {
+      return this.getSecuritiesWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**

@@ -27,6 +27,10 @@ from fds.sdk.SecurityModeling.model_utils import (  # noqa: F401
 from fds.sdk.SecurityModeling.exceptions import ApiException
 from fds.sdk.SecurityModeling.model.sm_create_parameters_root import SMCreateParametersRoot
 from fds.sdk.SecurityModeling.model.sm_create_response_root import SMCreateResponseRoot
+from fds.sdk.SecurityModeling.model.sm_delete_parameters_root import SMDeleteParametersRoot
+from fds.sdk.SecurityModeling.model.sm_delete_response_root import SMDeleteResponseRoot
+from fds.sdk.SecurityModeling.model.sm_retrieve_parameters_root import SMRetrieveParametersRoot
+from fds.sdk.SecurityModeling.model.sm_retrieve_response_root import SMRetrieveResponseRoot
 
 
 
@@ -43,6 +47,116 @@ class SecurityModelingApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+        self.delete_securities_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (SMDeleteResponseRoot,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/analytics/security-modeling/v3/securities/delete',
+                'operation_id': 'delete_securities',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'sm_delete_parameters_root',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'sm_delete_parameters_root':
+                        (SMDeleteParametersRoot,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'sm_delete_parameters_root': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+
+        self.get_securities_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (SMRetrieveResponseRoot,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/analytics/security-modeling/v3/securities/retrieve',
+                'operation_id': 'get_securities',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'sm_retrieve_parameters_root',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'sm_retrieve_parameters_root':
+                        (SMRetrieveParametersRoot,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'sm_retrieve_parameters_root': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
 
         self.upsert_securities_endpoint = _Endpoint(
             settings={
@@ -111,6 +225,348 @@ class SecurityModelingApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
+
+    def delete_securities(
+        self,
+        **kwargs
+    ) -> SMDeleteResponseRoot:
+        """Delete existing securities  # noqa: E501
+
+        This endpoint deletes existing securities.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+
+        Keyword Args:
+            sm_delete_parameters_root (SMDeleteParametersRoot): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            SMDeleteResponseRoot
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.delete_securities_endpoint.call_with_http_info(**kwargs)
+
+    def delete_securities_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[SMDeleteResponseRoot, int, typing.MutableMapping]:
+        """Delete existing securities  # noqa: E501
+
+        This endpoint deletes existing securities.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            sm_delete_parameters_root (SMDeleteParametersRoot): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            SMDeleteResponseRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.delete_securities_endpoint.call_with_http_info(**kwargs)
+
+    def delete_securities_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[SMDeleteResponseRoot]":
+        """Delete existing securities  # noqa: E501
+
+        This endpoint deletes existing securities.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            sm_delete_parameters_root (SMDeleteParametersRoot): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[SMDeleteResponseRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.delete_securities_endpoint.call_with_http_info(**kwargs)
+
+    def delete_securities_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[SMDeleteResponseRoot, int, typing.MutableMapping]]":
+        """Delete existing securities  # noqa: E501
+
+        This endpoint deletes existing securities.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            sm_delete_parameters_root (SMDeleteParametersRoot): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(SMDeleteResponseRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.delete_securities_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_securities(
+        self,
+        **kwargs
+    ) -> SMRetrieveResponseRoot:
+        """Get existing securities  # noqa: E501
+
+        This endpoint gets all existing securities.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+
+        Keyword Args:
+            sm_retrieve_parameters_root (SMRetrieveParametersRoot): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            SMRetrieveResponseRoot
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_securities_endpoint.call_with_http_info(**kwargs)
+
+    def get_securities_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[SMRetrieveResponseRoot, int, typing.MutableMapping]:
+        """Get existing securities  # noqa: E501
+
+        This endpoint gets all existing securities.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            sm_retrieve_parameters_root (SMRetrieveParametersRoot): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            SMRetrieveResponseRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_securities_endpoint.call_with_http_info(**kwargs)
+
+    def get_securities_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[SMRetrieveResponseRoot]":
+        """Get existing securities  # noqa: E501
+
+        This endpoint gets all existing securities.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            sm_retrieve_parameters_root (SMRetrieveParametersRoot): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[SMRetrieveResponseRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_securities_endpoint.call_with_http_info(**kwargs)
+
+    def get_securities_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[SMRetrieveResponseRoot, int, typing.MutableMapping]]":
+        """Get existing securities  # noqa: E501
+
+        This endpoint gets all existing securities.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            sm_retrieve_parameters_root (SMRetrieveParametersRoot): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(SMRetrieveResponseRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.get_securities_endpoint.call_with_http_info(**kwargs)
 
 
     def upsert_securities(

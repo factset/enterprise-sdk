@@ -22,10 +22,11 @@ class SMCreateParametersRoot {
     /**
      * Constructs a new <code>SMCreateParametersRoot</code>.
      * @alias module:model/SMCreateParametersRoot
+     * @param data {Array.<module:model/SMCreateParameters>} 
      */
-    constructor() { 
+    constructor(data) { 
         
-        SMCreateParametersRoot.initialize(this);
+        SMCreateParametersRoot.initialize(this, data);
     }
 
     /**
@@ -33,7 +34,8 @@ class SMCreateParametersRoot {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, data) { 
+        obj['data'] = data;
     }
 
     /**
@@ -50,6 +52,9 @@ class SMCreateParametersRoot {
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SMCreateParameters]);
             }
+            if (data.hasOwnProperty('meta')) {
+                obj['meta'] = ApiClient.convertToType(data['meta'], Object);
+            }
         }
         return obj;
     }
@@ -61,6 +66,11 @@ class SMCreateParametersRoot {
  * @member {Array.<module:model/SMCreateParameters>} data
  */
 SMCreateParametersRoot.prototype['data'] = undefined;
+
+/**
+ * @member {Object} meta
+ */
+SMCreateParametersRoot.prototype['meta'] = undefined;
 
 
 

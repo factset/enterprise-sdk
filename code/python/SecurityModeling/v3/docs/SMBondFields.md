@@ -4,13 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**security_type** | **str** |  | defaults to "Bond"
+**security_type** | **str** |  | 
 **_144a_flag** | **bool, none_type** |  | [optional] 
 **aperiodic_multipliers** | **[float, none_type], none_type** |  | [optional] 
 **aperiodic_reset_dates** | **[str], none_type** |  | [optional] 
 **aperiodic_spreads** | **[float, none_type], none_type** |  | [optional] 
 **business_day_conv** | **str, none_type** |  | [optional] 
-**call_announce_date** | **str, none_type** |  | [optional] 
+**call_announced_date** | **str, none_type** |  | [optional] 
 **call_dates** | **[str], none_type** |  | [optional] 
 **call_freq** | **str, none_type** |  | [optional] 
 **call_notice_days** | **int, none_type** |  | [optional] 
@@ -79,6 +79,7 @@ Name | Type | Description | Notes
 **preferred_sec_ex_date_len** | **int, none_type** |  | [optional] 
 **preferred_sec_ex_date_units** | **str, none_type** |  | [optional] 
 **preferred_sec_flag** | **bool, none_type** |  | [optional] 
+**preferred_sec_type** | **str, none_type** |  | [optional] 
 **principal_type** | **str, none_type** |  | [optional] 
 **put_dates** | **[str], none_type** |  | [optional] 
 **put_notice_days** | **int, none_type** |  | [optional] 
@@ -99,6 +100,7 @@ Name | Type | Description | Notes
 **reinstated_date** | **str, none_type** |  | [optional] 
 **reset_delay** | **int, none_type** |  | [optional] 
 **reset_freq** | **str, none_type** |  | [optional] 
+**ref_index** | **str, none_type** |  | [optional] 
 **secondary_to_vendor_flag** | **bool, none_type** |  | [optional] 
 **sector** | **str, none_type** |  | [optional] 
 **sector_barclay1** | **str, none_type** |  | [optional] 
@@ -126,6 +128,7 @@ Name | Type | Description | Notes
 **step_pik_rates** | **[float, none_type], none_type** |  | [optional] 
 **vendor_coverage_date** | **str, none_type** |  | [optional] 
 **v_rdn_flag** | **bool, none_type** |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

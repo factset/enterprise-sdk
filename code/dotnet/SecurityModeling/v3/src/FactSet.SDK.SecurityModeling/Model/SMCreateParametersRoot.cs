@@ -35,17 +35,34 @@ namespace FactSet.SDK.SecurityModeling.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SMCreateParametersRoot" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
-        public SMCreateParametersRoot(List<SMCreateParameters> data = default(List<SMCreateParameters>))
+        [JsonConstructorAttribute]
+        protected SMCreateParametersRoot() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SMCreateParametersRoot" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
+        /// <param name="meta">meta.</param>
+        public SMCreateParametersRoot(List<SMCreateParameters> data,Object meta = default(Object))
         {
+            // to ensure "data" is required (not null)
+            if (data == null) {
+                throw new ArgumentNullException("data is a required property for SMCreateParametersRoot and cannot be null");
+            }
             this.Data = data;
+            this.Meta = meta;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = true)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public List<SMCreateParameters> Data { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = true)]
+        public Object Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,6 +73,7 @@ namespace FactSet.SDK.SecurityModeling.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class SMCreateParametersRoot {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,6 +114,11 @@ namespace FactSet.SDK.SecurityModeling.Model
                     this.Data != null &&
                     input.Data != null &&
                     this.Data.SequenceEqual(input.Data)
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -111,6 +134,10 @@ namespace FactSet.SDK.SecurityModeling.Model
                 if (this.Data != null)
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
                 return hashCode;
             }

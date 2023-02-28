@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **aperiodicResetDates** | **[String]** |  | [optional] 
 **aperiodicSpreads** | **[Number]** |  | [optional] 
 **businessDayConv** | **String** |  | [optional] 
-**callAnnounceDate** | **String** |  | [optional] 
+**callAnnouncedDate** | **String** |  | [optional] 
 **callDates** | **[String]** |  | [optional] 
 **callFreq** | **String** |  | [optional] 
 **callNoticeDays** | **Number** |  | [optional] 
@@ -78,6 +78,7 @@ Name | Type | Description | Notes
 **preferredSecExDateLen** | **Number** |  | [optional] 
 **preferredSecExDateUnits** | **String** |  | [optional] 
 **preferredSecFlag** | **Boolean** |  | [optional] 
+**preferredSecType** | **String** |  | [optional] 
 **principalType** | **String** |  | [optional] 
 **putDates** | **[String]** |  | [optional] 
 **putNoticeDays** | **Number** |  | [optional] 
@@ -98,6 +99,7 @@ Name | Type | Description | Notes
 **reinstatedDate** | **String** |  | [optional] 
 **resetDelay** | **Number** |  | [optional] 
 **resetFreq** | **String** |  | [optional] 
+**refIndex** | **String** |  | [optional] 
 **secondaryToVendorFlag** | **Boolean** |  | [optional] 
 **sector** | **String** |  | [optional] 
 **sectorBarclay1** | **String** |  | [optional] 
@@ -133,6 +135,8 @@ Name | Type | Description | Notes
 
 
 * `Bond` (value: `"Bond"`)
+
+* `CCF` (value: `"CCF"`)
 
 
 

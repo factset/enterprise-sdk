@@ -38,32 +38,37 @@ import com.factset.sdk.SecurityModeling.JSON;
  * SMCreateParametersRoot
  */
 @JsonPropertyOrder({
-  SMCreateParametersRoot.JSON_PROPERTY_DATA
+  SMCreateParametersRoot.JSON_PROPERTY_DATA,
+  SMCreateParametersRoot.JSON_PROPERTY_META
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SMCreateParametersRoot implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private JsonNullable<java.util.List<SMCreateParameters>> data = JsonNullable.<java.util.List<SMCreateParameters>>undefined();
+  private java.util.List<SMCreateParameters> data = new java.util.ArrayList<>();
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private JsonNullable<Object> meta = JsonNullable.<Object>undefined();
 
   public SMCreateParametersRoot() { 
   }
 
+  @JsonCreator
+  public SMCreateParametersRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<SMCreateParameters> data
+  ) {
+    this();
+    this.data = data;
+  }
+
   public SMCreateParametersRoot data(java.util.List<SMCreateParameters> data) {
-    this.data = JsonNullable.<java.util.List<SMCreateParameters>>of(data);
+    this.data = data;
     return this;
   }
 
   public SMCreateParametersRoot addDataItem(SMCreateParameters dataItem) {
-    if (this.data == null || !this.data.isPresent()) {
-      this.data = JsonNullable.<java.util.List<SMCreateParameters>>of(new java.util.ArrayList<>());
-    }
-    try {
-      this.data.get().add(dataItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.data.add(dataItem);
     return this;
   }
 
@@ -71,28 +76,54 @@ public class SMCreateParametersRoot implements Serializable {
    * Get data
    * @return data
   **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public java.util.List<SMCreateParameters> getData() {
+    return data;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setData(java.util.List<SMCreateParameters> data) {
+    this.data = data;
+  }
+
+
+  public SMCreateParametersRoot meta(Object meta) {
+    this.meta = JsonNullable.<Object>of(meta);
+    return this;
+  }
+
+   /**
+   * Get meta
+   * @return meta
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
-  public java.util.List<SMCreateParameters> getData() {
-        return data.orElse(null);
+  public Object getMeta() {
+        return meta.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<java.util.List<SMCreateParameters>> getData_JsonNullable() {
-    return data;
+  public JsonNullable<Object> getMeta_JsonNullable() {
+    return meta;
   }
   
-  @JsonProperty(JSON_PROPERTY_DATA)
-  public void setData_JsonNullable(JsonNullable<java.util.List<SMCreateParameters>> data) {
-    this.data = data;
+  @JsonProperty(JSON_PROPERTY_META)
+  public void setMeta_JsonNullable(JsonNullable<Object> meta) {
+    this.meta = meta;
   }
 
-  public void setData(java.util.List<SMCreateParameters> data) {
-    this.data = JsonNullable.<java.util.List<SMCreateParameters>>of(data);
+  public void setMeta(Object meta) {
+    this.meta = JsonNullable.<Object>of(meta);
   }
 
 
@@ -108,7 +139,8 @@ public class SMCreateParametersRoot implements Serializable {
       return false;
     }
     SMCreateParametersRoot smCreateParametersRoot = (SMCreateParametersRoot) o;
-    return equalsNullable(this.data, smCreateParametersRoot.data);
+    return Objects.equals(this.data, smCreateParametersRoot.data) &&
+        equalsNullable(this.meta, smCreateParametersRoot.meta);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -117,7 +149,7 @@ public class SMCreateParametersRoot implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(data));
+    return Objects.hash(data, hashCodeNullable(meta));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -132,6 +164,7 @@ public class SMCreateParametersRoot implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class SMCreateParametersRoot {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }

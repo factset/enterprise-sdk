@@ -65,7 +65,14 @@ class SMBondFields(ModelComposed):
     validations = {
     }
 
-    additional_properties_type = None
+    @cached_property
+    def additional_properties_type():
+        """
+        This must be a method because a model may have properties that are
+        of type self, this must run after the class is loaded
+        """
+        lazy_import()
+        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
 
@@ -87,7 +94,7 @@ class SMBondFields(ModelComposed):
             'aperiodic_reset_dates': ([str], none_type,),  # noqa: E501
             'aperiodic_spreads': ([float, none_type], none_type,),  # noqa: E501
             'business_day_conv': (str, none_type,),  # noqa: E501
-            'call_announce_date': (str, none_type,),  # noqa: E501
+            'call_announced_date': (str, none_type,),  # noqa: E501
             'call_dates': ([str], none_type,),  # noqa: E501
             'call_freq': (str, none_type,),  # noqa: E501
             'call_notice_days': (int, none_type,),  # noqa: E501
@@ -156,6 +163,7 @@ class SMBondFields(ModelComposed):
             'preferred_sec_ex_date_len': (int, none_type,),  # noqa: E501
             'preferred_sec_ex_date_units': (str, none_type,),  # noqa: E501
             'preferred_sec_flag': (bool, none_type,),  # noqa: E501
+            'preferred_sec_type': (str, none_type,),  # noqa: E501
             'principal_type': (str, none_type,),  # noqa: E501
             'put_dates': ([str], none_type,),  # noqa: E501
             'put_notice_days': (int, none_type,),  # noqa: E501
@@ -176,6 +184,7 @@ class SMBondFields(ModelComposed):
             'reinstated_date': (str, none_type,),  # noqa: E501
             'reset_delay': (int, none_type,),  # noqa: E501
             'reset_freq': (str, none_type,),  # noqa: E501
+            'ref_index': (str, none_type,),  # noqa: E501
             'secondary_to_vendor_flag': (bool, none_type,),  # noqa: E501
             'sector': (str, none_type,),  # noqa: E501
             'sector_barclay1': (str, none_type,),  # noqa: E501
@@ -217,7 +226,7 @@ class SMBondFields(ModelComposed):
         'aperiodic_reset_dates': 'aperiodicResetDates',  # noqa: E501
         'aperiodic_spreads': 'aperiodicSpreads',  # noqa: E501
         'business_day_conv': 'businessDayConv',  # noqa: E501
-        'call_announce_date': 'callAnnounceDate',  # noqa: E501
+        'call_announced_date': 'callAnnouncedDate',  # noqa: E501
         'call_dates': 'callDates',  # noqa: E501
         'call_freq': 'callFreq',  # noqa: E501
         'call_notice_days': 'callNoticeDays',  # noqa: E501
@@ -286,6 +295,7 @@ class SMBondFields(ModelComposed):
         'preferred_sec_ex_date_len': 'preferredSecExDateLen',  # noqa: E501
         'preferred_sec_ex_date_units': 'preferredSecExDateUnits',  # noqa: E501
         'preferred_sec_flag': 'preferredSecFlag',  # noqa: E501
+        'preferred_sec_type': 'preferredSecType',  # noqa: E501
         'principal_type': 'principalType',  # noqa: E501
         'put_dates': 'putDates',  # noqa: E501
         'put_notice_days': 'putNoticeDays',  # noqa: E501
@@ -306,6 +316,7 @@ class SMBondFields(ModelComposed):
         'reinstated_date': 'reinstatedDate',  # noqa: E501
         'reset_delay': 'resetDelay',  # noqa: E501
         'reset_freq': 'resetFreq',  # noqa: E501
+        'ref_index': 'refIndex',  # noqa: E501
         'secondary_to_vendor_flag': 'secondaryToVendorFlag',  # noqa: E501
         'sector': 'sector',  # noqa: E501
         'sector_barclay1': 'sectorBarclay1',  # noqa: E501
@@ -344,7 +355,7 @@ class SMBondFields(ModelComposed):
         """SMBondFields - a model defined in OpenAPI
 
         Keyword Args:
-            security_type (str): defaults to "Bond", must be one of ["Bond", ]  # noqa: E501
+            security_type (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -380,7 +391,7 @@ class SMBondFields(ModelComposed):
             aperiodic_reset_dates ([str], none_type): [optional]  # noqa: E501
             aperiodic_spreads ([float, none_type], none_type): [optional]  # noqa: E501
             business_day_conv (str, none_type): [optional]  # noqa: E501
-            call_announce_date (str, none_type): [optional]  # noqa: E501
+            call_announced_date (str, none_type): [optional]  # noqa: E501
             call_dates ([str], none_type): [optional]  # noqa: E501
             call_freq (str, none_type): [optional]  # noqa: E501
             call_notice_days (int, none_type): [optional]  # noqa: E501
@@ -449,6 +460,7 @@ class SMBondFields(ModelComposed):
             preferred_sec_ex_date_len (int, none_type): [optional]  # noqa: E501
             preferred_sec_ex_date_units (str, none_type): [optional]  # noqa: E501
             preferred_sec_flag (bool, none_type): [optional]  # noqa: E501
+            preferred_sec_type (str, none_type): [optional]  # noqa: E501
             principal_type (str, none_type): [optional]  # noqa: E501
             put_dates ([str], none_type): [optional]  # noqa: E501
             put_notice_days (int, none_type): [optional]  # noqa: E501
@@ -469,6 +481,7 @@ class SMBondFields(ModelComposed):
             reinstated_date (str, none_type): [optional]  # noqa: E501
             reset_delay (int, none_type): [optional]  # noqa: E501
             reset_freq (str, none_type): [optional]  # noqa: E501
+            ref_index (str, none_type): [optional]  # noqa: E501
             secondary_to_vendor_flag (bool, none_type): [optional]  # noqa: E501
             sector (str, none_type): [optional]  # noqa: E501
             sector_barclay1 (str, none_type): [optional]  # noqa: E501
@@ -498,7 +511,6 @@ class SMBondFields(ModelComposed):
             v_rdn_flag (bool, none_type): [optional]  # noqa: E501
         """
 
-        security_type = kwargs.get('security_type', "Bond")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -566,7 +578,7 @@ class SMBondFields(ModelComposed):
         """SMBondFields - a model defined in OpenAPI
 
         Keyword Args:
-            security_type (str): defaults to "Bond", must be one of ["Bond", ]  # noqa: E501
+            security_type (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -602,7 +614,7 @@ class SMBondFields(ModelComposed):
             aperiodic_reset_dates ([str], none_type): [optional]  # noqa: E501
             aperiodic_spreads ([float, none_type], none_type): [optional]  # noqa: E501
             business_day_conv (str, none_type): [optional]  # noqa: E501
-            call_announce_date (str, none_type): [optional]  # noqa: E501
+            call_announced_date (str, none_type): [optional]  # noqa: E501
             call_dates ([str], none_type): [optional]  # noqa: E501
             call_freq (str, none_type): [optional]  # noqa: E501
             call_notice_days (int, none_type): [optional]  # noqa: E501
@@ -671,6 +683,7 @@ class SMBondFields(ModelComposed):
             preferred_sec_ex_date_len (int, none_type): [optional]  # noqa: E501
             preferred_sec_ex_date_units (str, none_type): [optional]  # noqa: E501
             preferred_sec_flag (bool, none_type): [optional]  # noqa: E501
+            preferred_sec_type (str, none_type): [optional]  # noqa: E501
             principal_type (str, none_type): [optional]  # noqa: E501
             put_dates ([str], none_type): [optional]  # noqa: E501
             put_notice_days (int, none_type): [optional]  # noqa: E501
@@ -691,6 +704,7 @@ class SMBondFields(ModelComposed):
             reinstated_date (str, none_type): [optional]  # noqa: E501
             reset_delay (int, none_type): [optional]  # noqa: E501
             reset_freq (str, none_type): [optional]  # noqa: E501
+            ref_index (str, none_type): [optional]  # noqa: E501
             secondary_to_vendor_flag (bool, none_type): [optional]  # noqa: E501
             sector (str, none_type): [optional]  # noqa: E501
             sector_barclay1 (str, none_type): [optional]  # noqa: E501
@@ -720,7 +734,6 @@ class SMBondFields(ModelComposed):
             v_rdn_flag (bool, none_type): [optional]  # noqa: E501
         """
 
-        security_type = kwargs.get('security_type', "Bond")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())

@@ -20,6 +20,227 @@
     }
   ],
   "paths": {
+    "/analytics/security-modeling/v3/securities/retrieve": {
+      "post": {
+        "tags": [
+          "SecurityModeling"
+        ],
+        "summary": "Get existing securities",
+        "description": "This endpoint gets all existing securities.",
+        "operationId": "getSecurities",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SMRetrieveParametersRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response, returns a list of existing securities.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMRetrieveResponseRoot"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/analytics/security-modeling/v3/securities/upsert": {
       "post": {
         "tags": [
@@ -240,10 +461,429 @@
           }
         }
       }
+    },
+    "/analytics/security-modeling/v3/securities/delete": {
+      "post": {
+        "tags": [
+          "SecurityModeling"
+        ],
+        "summary": "Delete existing securities",
+        "description": "This endpoint deletes existing securities.",
+        "operationId": "deleteSecurities",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SMDeleteParametersRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response, deletes existing securities.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMDeleteResponseRoot"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "SMRetrieveParameters": {
+        "required": [
+          "securityName"
+        ],
+        "type": "object",
+        "properties": {
+          "securityName": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "asofdate": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityType": {
+            "enum": [
+              "Bond",
+              "CCF"
+            ],
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SMRetrieveParametersRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SMRetrieveParameters"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
+        }
+      },
+      "SMCustomCashFlowFields": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SMFields"
+          }
+        ],
+        "properties": {
+          "cashFlowAmounts": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "cashFlowDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "issueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parAmt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "parentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ratingFitch": {
+            "type": "string",
+            "nullable": true
+          },
+          "ratingFitchDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ratingFitchValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ratingMoodysDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ratingMoodysValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ratingSpDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ratingSpValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "secondaryToVendorFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "sector": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorBarclay1": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorBarclay2": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorBarclay3": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorBarclay4": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorDef": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorIndustry": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorMain": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorMerrill1": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorMerrill2": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorMerrill3": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorMerrill4": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorSubGroup": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendorCoverageDate": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
       "SMFields": {
         "required": [
           "securityType"
@@ -252,12 +892,12 @@
         "properties": {
           "securityType": {
             "enum": [
-              "Bond"
+              "Bond",
+              "CCF"
             ],
             "type": "string"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "SMBondFields": {
         "type": "object",
@@ -300,7 +940,7 @@
             "type": "string",
             "nullable": true
           },
-          "callAnnounceDate": {
+          "callAnnouncedDate": {
             "type": "string",
             "nullable": true
           },
@@ -642,6 +1282,10 @@
             "type": "boolean",
             "nullable": true
           },
+          "preferredSecType": {
+            "type": "string",
+            "nullable": true
+          },
           "principalType": {
             "type": "string",
             "nullable": true
@@ -749,6 +1393,10 @@
             "nullable": true
           },
           "resetFreq": {
+            "type": "string",
+            "nullable": true
+          },
+          "refIndex": {
             "type": "string",
             "nullable": true
           },
@@ -893,19 +1541,101 @@
             "type": "boolean",
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
+      },
+      "SMError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "OneOfFieldsFields": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SMBondFields"
+          },
+          {
+            "$ref": "#/components/schemas/SMCustomCashFlowFields"
+          }
+        ],
+        "nullable": true,
+        "discriminator": {
+          "propertyName": "securityType",
+          "mapping": {
+            "Bond": "#/components/schemas/SMBondFields",
+            "CCF": "#/components/schemas/SMCustomCashFlowFields"
+          }
+        }
+      },
+      "SMRetrieveResponse": {
+        "type": "object",
+        "properties": {
+          "securityName": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "enum": [
+              "success",
+              "failure"
+            ],
+            "type": "string"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "asofdate": {
+            "type": "string",
+            "nullable": true
+          },
+          "fields": {
+            "$ref": "#/components/schemas/OneOfFieldsFields"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SMError"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "SMRetrieveResponseRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SMRetrieveResponse"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
+        }
       },
       "OneOfSMFields": {
         "oneOf": [
           {
             "$ref": "#/components/schemas/SMBondFields"
+          },
+          {
+            "$ref": "#/components/schemas/SMCustomCashFlowFields"
           }
         ],
         "discriminator": {
           "propertyName": "securityType",
           "mapping": {
-            "Bond": "#/components/schemas/SMBondFields"
+            "Bond": "#/components/schemas/SMBondFields",
+            "CCF": "#/components/schemas/SMCustomCashFlowFields"
           }
         }
       },
@@ -930,21 +1660,25 @@
           "fields": {
             "$ref": "#/components/schemas/OneOfSMFields"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "SMCreateParametersRoot": {
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SMCreateParameters"
-            },
+            }
+          },
+          "meta": {
+            "type": "object",
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "SMWarning": {
         "type": "object",
@@ -953,18 +1687,7 @@
             "type": "string",
             "nullable": true
           }
-        },
-        "additionalProperties": false
-      },
-      "SMError": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
+        }
       },
       "SMCreateResponse": {
         "type": "object",
@@ -994,8 +1717,7 @@
             },
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "SMCreateResponseRoot": {
         "required": [
@@ -1013,8 +1735,93 @@
             "type": "object",
             "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
+      },
+      "SMDeleteParameters": {
+        "required": [
+          "securityName"
+        ],
+        "type": "object",
+        "properties": {
+          "securityName": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "asofdate": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityType": {
+            "enum": [
+              "Bond",
+              "CCF"
+            ],
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SMDeleteParametersRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SMDeleteParameters"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
+        }
+      },
+      "SMDeleteResponse": {
+        "type": "object",
+        "properties": {
+          "securityName": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "enum": [
+              "success",
+              "failure"
+            ],
+            "type": "string"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SMError"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "SMDeleteResponseRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SMDeleteResponse"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
+        }
       }
     },
     "securitySchemes": {

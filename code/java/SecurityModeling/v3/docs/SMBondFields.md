@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **aperiodicResetDates** | **java.util.List&lt;String&gt;** |  |  [optional]
 **aperiodicSpreads** | **java.util.List&lt;Double&gt;** |  |  [optional]
 **businessDayConv** | **String** |  |  [optional]
-**callAnnounceDate** | **String** |  |  [optional]
+**callAnnouncedDate** | **String** |  |  [optional]
 **callDates** | **java.util.List&lt;String&gt;** |  |  [optional]
 **callFreq** | **String** |  |  [optional]
 **callNoticeDays** | **Integer** |  |  [optional]
@@ -81,6 +81,7 @@ Name | Type | Description | Notes
 **preferredSecExDateLen** | **Integer** |  |  [optional]
 **preferredSecExDateUnits** | **String** |  |  [optional]
 **preferredSecFlag** | **Boolean** |  |  [optional]
+**preferredSecType** | **String** |  |  [optional]
 **principalType** | **String** |  |  [optional]
 **putDates** | **java.util.List&lt;String&gt;** |  |  [optional]
 **putNoticeDays** | **Integer** |  |  [optional]
@@ -101,6 +102,7 @@ Name | Type | Description | Notes
 **reinstatedDate** | **String** |  |  [optional]
 **resetDelay** | **Integer** |  |  [optional]
 **resetFreq** | **String** |  |  [optional]
+**refIndex** | **String** |  |  [optional]
 **secondaryToVendorFlag** | **Boolean** |  |  [optional]
 **sector** | **String** |  |  [optional]
 **sectorBarclay1** | **String** |  |  [optional]
@@ -137,6 +139,7 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 BOND | &quot;Bond&quot;
+CCF | &quot;CCF&quot;
 
 
 ## Implemented Interfaces

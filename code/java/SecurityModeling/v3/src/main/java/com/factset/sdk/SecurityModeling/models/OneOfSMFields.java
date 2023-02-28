@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.SecurityModeling.models.SMBondFields;
+import com.factset.sdk.SecurityModeling.models.SMCustomCashFlowFields;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -100,12 +101,20 @@ public class OneOfSMFields extends AbstractOpenApiSchema implements Serializable
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(SMBondFields.class);
                     newOneOfSMFields.setActualInstance(deserialized);
                     return newOneOfSMFields;
+                case "CCF":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(SMCustomCashFlowFields.class);
+                    newOneOfSMFields.setActualInstance(deserialized);
+                    return newOneOfSMFields;
                 case "SMBondFields":
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(SMBondFields.class);
                     newOneOfSMFields.setActualInstance(deserialized);
                     return newOneOfSMFields;
+                case "SMCustomCashFlowFields":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(SMCustomCashFlowFields.class);
+                    newOneOfSMFields.setActualInstance(deserialized);
+                    return newOneOfSMFields;
                 default:
-                    log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for OneOfSMFields. Possible values: Bond SMBondFields", discriminatorValue));
+                    log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for OneOfSMFields. Possible values: Bond CCF SMBondFields SMCustomCashFlowFields", discriminatorValue));
             }
 
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
@@ -137,6 +146,32 @@ public class OneOfSMFields extends AbstractOpenApiSchema implements Serializable
                 log.log(Level.FINER, "Input data does not match schema 'SMBondFields'", e);
             }
 
+            // deserialize SMCustomCashFlowFields
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (SMCustomCashFlowFields.class.equals(Integer.class) || SMCustomCashFlowFields.class.equals(Long.class) || SMCustomCashFlowFields.class.equals(Float.class) || SMCustomCashFlowFields.class.equals(Double.class) || SMCustomCashFlowFields.class.equals(Boolean.class) || SMCustomCashFlowFields.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((SMCustomCashFlowFields.class.equals(Integer.class) || SMCustomCashFlowFields.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((SMCustomCashFlowFields.class.equals(Float.class) || SMCustomCashFlowFields.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (SMCustomCashFlowFields.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (SMCustomCashFlowFields.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<SMCustomCashFlowFields>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'SMCustomCashFlowFields'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'SMCustomCashFlowFields'", e);
+            }
+
             if (match == 1) {
                 OneOfSMFields ret = new OneOfSMFields();
                 ret.setActualInstance(deserialized);
@@ -165,14 +200,22 @@ public class OneOfSMFields extends AbstractOpenApiSchema implements Serializable
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+    public OneOfSMFields(SMCustomCashFlowFields o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
     static {
         schemas.put("SMBondFields", new GenericType<SMBondFields>() {
+        });
+        schemas.put("SMCustomCashFlowFields", new GenericType<SMCustomCashFlowFields>() {
         });
         JSON.registerDescendants(OneOfSMFields.class, Collections.unmodifiableMap(schemas));
         // Initialize and register the discriminator mappings.
         Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
         mappings.put("Bond", SMBondFields.class);
+        mappings.put("CCF", SMCustomCashFlowFields.class);
         mappings.put("SMBondFields", SMBondFields.class);
+        mappings.put("SMCustomCashFlowFields", SMCustomCashFlowFields.class);
         mappings.put("OneOfSMFields", OneOfSMFields.class);
         JSON.registerDiscriminator(OneOfSMFields.class, "securityType", mappings);
     }
@@ -185,7 +228,7 @@ public class OneOfSMFields extends AbstractOpenApiSchema implements Serializable
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * SMBondFields
+     * SMBondFields, SMCustomCashFlowFields
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -198,14 +241,20 @@ public class OneOfSMFields extends AbstractOpenApiSchema implements Serializable
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be SMBondFields");
+        // SMCustomCashFlowFields
+        if (JSON.isInstanceOf(SMCustomCashFlowFields.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be SMBondFields, SMCustomCashFlowFields");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * SMBondFields
+     * SMBondFields, SMCustomCashFlowFields
      *
-     * @return The actual instance (SMBondFields)
+     * @return The actual instance (SMBondFields, SMCustomCashFlowFields)
      */
     @Override
     public Object getActualInstance() {
@@ -221,6 +270,17 @@ public class OneOfSMFields extends AbstractOpenApiSchema implements Serializable
      */
     public SMBondFields getSMBondFields() throws ClassCastException {
         return (SMBondFields)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `SMCustomCashFlowFields`. If the actual instance is not `SMCustomCashFlowFields`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `SMCustomCashFlowFields`
+     * @throws ClassCastException if the instance is not `SMCustomCashFlowFields`
+     */
+    public SMCustomCashFlowFields getSMCustomCashFlowFields() throws ClassCastException {
+        return (SMCustomCashFlowFields)super.getActualInstance();
     }
     
 }

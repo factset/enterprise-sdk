@@ -42,7 +42,13 @@ namespace FactSet.SDK.SecurityModeling.Model
             /// Enum Bond for value: Bond
             /// </summary>
             [EnumMember(Value = "Bond")]
-            Bond = 1
+            Bond = 1,
+
+            /// <summary>
+            /// Enum CCF for value: CCF
+            /// </summary>
+            [EnumMember(Value = "CCF")]
+            CCF = 2
 
         }
 
@@ -65,7 +71,7 @@ namespace FactSet.SDK.SecurityModeling.Model
         /// <param name="aperiodicResetDates">aperiodicResetDates.</param>
         /// <param name="aperiodicSpreads">aperiodicSpreads.</param>
         /// <param name="businessDayConv">businessDayConv.</param>
-        /// <param name="callAnnounceDate">callAnnounceDate.</param>
+        /// <param name="callAnnouncedDate">callAnnouncedDate.</param>
         /// <param name="callDates">callDates.</param>
         /// <param name="callFreq">callFreq.</param>
         /// <param name="callNoticeDays">callNoticeDays.</param>
@@ -134,6 +140,7 @@ namespace FactSet.SDK.SecurityModeling.Model
         /// <param name="preferredSecExDateLen">preferredSecExDateLen.</param>
         /// <param name="preferredSecExDateUnits">preferredSecExDateUnits.</param>
         /// <param name="preferredSecFlag">preferredSecFlag.</param>
+        /// <param name="preferredSecType">preferredSecType.</param>
         /// <param name="principalType">principalType.</param>
         /// <param name="putDates">putDates.</param>
         /// <param name="putNoticeDays">putNoticeDays.</param>
@@ -154,6 +161,7 @@ namespace FactSet.SDK.SecurityModeling.Model
         /// <param name="reinstatedDate">reinstatedDate.</param>
         /// <param name="resetDelay">resetDelay.</param>
         /// <param name="resetFreq">resetFreq.</param>
+        /// <param name="refIndex">refIndex.</param>
         /// <param name="secondaryToVendorFlag">secondaryToVendorFlag.</param>
         /// <param name="sector">sector.</param>
         /// <param name="sectorBarclay1">sectorBarclay1.</param>
@@ -182,7 +190,7 @@ namespace FactSet.SDK.SecurityModeling.Model
         /// <param name="vendorCoverageDate">vendorCoverageDate.</param>
         /// <param name="vRDNFlag">vRDNFlag.</param>
         /// <param name="securityType">securityType (required).</param>
-        public SMBondFields(SecurityTypeEnum securityType,bool? _144aFlag = default(bool?), List<double?> aperiodicMultipliers = default(List<double?>), List<string> aperiodicResetDates = default(List<string>), List<double?> aperiodicSpreads = default(List<double?>), string businessDayConv = default(string), string callAnnounceDate = default(string), List<string> callDates = default(List<string>), string callFreq = default(string), int? callNoticeDays = default(int?), List<double?> callPrices = default(List<double?>), double? cashRate = default(double?), string cognity = default(string), string conversionIdentifier = default(string), double? conversionRatio = default(double?), string conversionType = default(string), bool? convertibleFlag = default(bool?), string country = default(string), double? coupon = default(double?), string couponType = default(string), double? creditSpreadAdjustmentSingle = default(double?), string currency = default(string), string dayCountBasis = default(string), string defaultedDate = default(string), bool? federalTaxExemptFlag = default(bool?), string firstPayDate = default(string), string firstResetDate = default(string), string floatFormula = default(string), string fltDayCountBasis = default(string), string fltFirstPayDate = default(string), string fltPayFreq = default(string), List<string> histCouponDates = default(List<string>), List<double?> histCoupons = default(List<double?>), List<string> histRcvAssumpDates = default(List<string>), List<int?> histRcvAssumpMonths = default(List<int?>), List<double?> histRcvAssumpRates = default(List<double?>), List<string> histRcvAssumpTargetDates = default(List<string>), string inflationType = default(string), string issueDate = default(string), string issueName = default(string), string issuerId = default(string), string lastModifiedSource = default(string), string lastModifiedSourceMeta = default(string), string lastModifiedTime = default(string), double? lifeCap = default(double?), double? lifeFloor = default(double?), int? lockoutDays = default(int?), int? lookBackDays = default(int?), bool? makeWholeCallFlag = default(bool?), string makeWholeExpireDate = default(string), double? makeWholeSpread = default(double?), List<string> matrixDates = default(List<string>), List<double?> matrixMultipliers = default(List<double?>), bool? matrixPricedFlag = default(bool?), List<double?> matrixSpreads = default(List<double?>), bool? matrixUseScheduleFlag = default(bool?), string maturityDate = default(string), double? maturityPrice = default(double?), double? monthsToRecovery = default(double?), double? multiplier = default(double?), bool? notionalFlag = default(bool?), int? observationShift = default(int?), double? origAmtIssued = default(double?), string parentName = default(string), double? parPrice = default(double?), string parserInfo = default(string), int? paymentDelay = default(int?), string payFreq = default(string), double? periodCap = default(double?), double? periodFloor = default(double?), string pikExpDate = default(string), int? pikRate = default(int?), int? preferredSecExDateLen = default(int?), string preferredSecExDateUnits = default(string), bool? preferredSecFlag = default(bool?), string principalType = default(string), List<string> putDates = default(List<string>), int? putNoticeDays = default(int?), string putFreq = default(string), List<double?> putPrices = default(List<double?>), bool? pvtPlacementFlag = default(bool?), string ratingFitch = default(string), List<string> ratingFitchDates = default(List<string>), List<string> ratingFitchValues = default(List<string>), List<string> ratingMoodysDates = default(List<string>), List<string> ratingMoodysValues = default(List<string>), List<string> ratingSpDates = default(List<string>), List<string> ratingSpValues = default(List<string>), double? recoveryPercentage = default(double?), string redemptionDate = default(string), string redemptionOpt = default(string), double? redemptionPrice = default(double?), string reinstatedDate = default(string), int? resetDelay = default(int?), string resetFreq = default(string), bool? secondaryToVendorFlag = default(bool?), string sector = default(string), string sectorBarclay1 = default(string), string sectorBarclay2 = default(string), string sectorBarclay3 = default(string), string sectorBarclay4 = default(string), string sectorDef = default(string), string sectorIndustry = default(string), string sectorMain = default(string), string sectorMerrill1 = default(string), string sectorMerrill2 = default(string), string sectorMerrill3 = default(string), string sectorMerrill4 = default(string), string sectorSubGroup = default(string), List<double?> sinkAmts = default(List<double?>), List<string> sinkDates = default(List<string>), double? spread = default(double?), string state = default(string), string status = default(string), List<string> statusDates = default(List<string>), List<string> statusValues = default(List<string>), List<double?> stepCashRates = default(List<double?>), List<string> stepCouponDates = default(List<string>), List<double?> stepCoupons = default(List<double?>), List<double?> stepPikRates = default(List<double?>), string vendorCoverageDate = default(string), bool? vRDNFlag = default(bool?))
+        public SMBondFields(SecurityTypeEnum securityType,bool? _144aFlag = default(bool?), List<double?> aperiodicMultipliers = default(List<double?>), List<string> aperiodicResetDates = default(List<string>), List<double?> aperiodicSpreads = default(List<double?>), string businessDayConv = default(string), string callAnnouncedDate = default(string), List<string> callDates = default(List<string>), string callFreq = default(string), int? callNoticeDays = default(int?), List<double?> callPrices = default(List<double?>), double? cashRate = default(double?), string cognity = default(string), string conversionIdentifier = default(string), double? conversionRatio = default(double?), string conversionType = default(string), bool? convertibleFlag = default(bool?), string country = default(string), double? coupon = default(double?), string couponType = default(string), double? creditSpreadAdjustmentSingle = default(double?), string currency = default(string), string dayCountBasis = default(string), string defaultedDate = default(string), bool? federalTaxExemptFlag = default(bool?), string firstPayDate = default(string), string firstResetDate = default(string), string floatFormula = default(string), string fltDayCountBasis = default(string), string fltFirstPayDate = default(string), string fltPayFreq = default(string), List<string> histCouponDates = default(List<string>), List<double?> histCoupons = default(List<double?>), List<string> histRcvAssumpDates = default(List<string>), List<int?> histRcvAssumpMonths = default(List<int?>), List<double?> histRcvAssumpRates = default(List<double?>), List<string> histRcvAssumpTargetDates = default(List<string>), string inflationType = default(string), string issueDate = default(string), string issueName = default(string), string issuerId = default(string), string lastModifiedSource = default(string), string lastModifiedSourceMeta = default(string), string lastModifiedTime = default(string), double? lifeCap = default(double?), double? lifeFloor = default(double?), int? lockoutDays = default(int?), int? lookBackDays = default(int?), bool? makeWholeCallFlag = default(bool?), string makeWholeExpireDate = default(string), double? makeWholeSpread = default(double?), List<string> matrixDates = default(List<string>), List<double?> matrixMultipliers = default(List<double?>), bool? matrixPricedFlag = default(bool?), List<double?> matrixSpreads = default(List<double?>), bool? matrixUseScheduleFlag = default(bool?), string maturityDate = default(string), double? maturityPrice = default(double?), double? monthsToRecovery = default(double?), double? multiplier = default(double?), bool? notionalFlag = default(bool?), int? observationShift = default(int?), double? origAmtIssued = default(double?), string parentName = default(string), double? parPrice = default(double?), string parserInfo = default(string), int? paymentDelay = default(int?), string payFreq = default(string), double? periodCap = default(double?), double? periodFloor = default(double?), string pikExpDate = default(string), int? pikRate = default(int?), int? preferredSecExDateLen = default(int?), string preferredSecExDateUnits = default(string), bool? preferredSecFlag = default(bool?), string preferredSecType = default(string), string principalType = default(string), List<string> putDates = default(List<string>), int? putNoticeDays = default(int?), string putFreq = default(string), List<double?> putPrices = default(List<double?>), bool? pvtPlacementFlag = default(bool?), string ratingFitch = default(string), List<string> ratingFitchDates = default(List<string>), List<string> ratingFitchValues = default(List<string>), List<string> ratingMoodysDates = default(List<string>), List<string> ratingMoodysValues = default(List<string>), List<string> ratingSpDates = default(List<string>), List<string> ratingSpValues = default(List<string>), double? recoveryPercentage = default(double?), string redemptionDate = default(string), string redemptionOpt = default(string), double? redemptionPrice = default(double?), string reinstatedDate = default(string), int? resetDelay = default(int?), string resetFreq = default(string), string refIndex = default(string), bool? secondaryToVendorFlag = default(bool?), string sector = default(string), string sectorBarclay1 = default(string), string sectorBarclay2 = default(string), string sectorBarclay3 = default(string), string sectorBarclay4 = default(string), string sectorDef = default(string), string sectorIndustry = default(string), string sectorMain = default(string), string sectorMerrill1 = default(string), string sectorMerrill2 = default(string), string sectorMerrill3 = default(string), string sectorMerrill4 = default(string), string sectorSubGroup = default(string), List<double?> sinkAmts = default(List<double?>), List<string> sinkDates = default(List<string>), double? spread = default(double?), string state = default(string), string status = default(string), List<string> statusDates = default(List<string>), List<string> statusValues = default(List<string>), List<double?> stepCashRates = default(List<double?>), List<string> stepCouponDates = default(List<string>), List<double?> stepCoupons = default(List<double?>), List<double?> stepPikRates = default(List<double?>), string vendorCoverageDate = default(string), bool? vRDNFlag = default(bool?))
         {
             this.SecurityType = securityType;
             this._144aFlag = _144aFlag;
@@ -190,7 +198,7 @@ namespace FactSet.SDK.SecurityModeling.Model
             this.AperiodicResetDates = aperiodicResetDates;
             this.AperiodicSpreads = aperiodicSpreads;
             this.BusinessDayConv = businessDayConv;
-            this.CallAnnounceDate = callAnnounceDate;
+            this.CallAnnouncedDate = callAnnouncedDate;
             this.CallDates = callDates;
             this.CallFreq = callFreq;
             this.CallNoticeDays = callNoticeDays;
@@ -259,6 +267,7 @@ namespace FactSet.SDK.SecurityModeling.Model
             this.PreferredSecExDateLen = preferredSecExDateLen;
             this.PreferredSecExDateUnits = preferredSecExDateUnits;
             this.PreferredSecFlag = preferredSecFlag;
+            this.PreferredSecType = preferredSecType;
             this.PrincipalType = principalType;
             this.PutDates = putDates;
             this.PutNoticeDays = putNoticeDays;
@@ -279,6 +288,7 @@ namespace FactSet.SDK.SecurityModeling.Model
             this.ReinstatedDate = reinstatedDate;
             this.ResetDelay = resetDelay;
             this.ResetFreq = resetFreq;
+            this.RefIndex = refIndex;
             this.SecondaryToVendorFlag = secondaryToVendorFlag;
             this.Sector = sector;
             this.SectorBarclay1 = sectorBarclay1;
@@ -339,10 +349,10 @@ namespace FactSet.SDK.SecurityModeling.Model
         public string BusinessDayConv { get; set; }
 
         /// <summary>
-        /// Gets or Sets CallAnnounceDate
+        /// Gets or Sets CallAnnouncedDate
         /// </summary>
-        [DataMember(Name = "callAnnounceDate", EmitDefaultValue = true)]
-        public string CallAnnounceDate { get; set; }
+        [DataMember(Name = "callAnnouncedDate", EmitDefaultValue = true)]
+        public string CallAnnouncedDate { get; set; }
 
         /// <summary>
         /// Gets or Sets CallDates
@@ -753,6 +763,12 @@ namespace FactSet.SDK.SecurityModeling.Model
         public bool? PreferredSecFlag { get; set; }
 
         /// <summary>
+        /// Gets or Sets PreferredSecType
+        /// </summary>
+        [DataMember(Name = "preferredSecType", EmitDefaultValue = true)]
+        public string PreferredSecType { get; set; }
+
+        /// <summary>
         /// Gets or Sets PrincipalType
         /// </summary>
         [DataMember(Name = "principalType", EmitDefaultValue = true)]
@@ -871,6 +887,12 @@ namespace FactSet.SDK.SecurityModeling.Model
         /// </summary>
         [DataMember(Name = "resetFreq", EmitDefaultValue = true)]
         public string ResetFreq { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RefIndex
+        /// </summary>
+        [DataMember(Name = "refIndex", EmitDefaultValue = true)]
+        public string RefIndex { get; set; }
 
         /// <summary>
         /// Gets or Sets SecondaryToVendorFlag
@@ -1047,7 +1069,7 @@ namespace FactSet.SDK.SecurityModeling.Model
             sb.Append("  AperiodicResetDates: ").Append(AperiodicResetDates).Append("\n");
             sb.Append("  AperiodicSpreads: ").Append(AperiodicSpreads).Append("\n");
             sb.Append("  BusinessDayConv: ").Append(BusinessDayConv).Append("\n");
-            sb.Append("  CallAnnounceDate: ").Append(CallAnnounceDate).Append("\n");
+            sb.Append("  CallAnnouncedDate: ").Append(CallAnnouncedDate).Append("\n");
             sb.Append("  CallDates: ").Append(CallDates).Append("\n");
             sb.Append("  CallFreq: ").Append(CallFreq).Append("\n");
             sb.Append("  CallNoticeDays: ").Append(CallNoticeDays).Append("\n");
@@ -1116,6 +1138,7 @@ namespace FactSet.SDK.SecurityModeling.Model
             sb.Append("  PreferredSecExDateLen: ").Append(PreferredSecExDateLen).Append("\n");
             sb.Append("  PreferredSecExDateUnits: ").Append(PreferredSecExDateUnits).Append("\n");
             sb.Append("  PreferredSecFlag: ").Append(PreferredSecFlag).Append("\n");
+            sb.Append("  PreferredSecType: ").Append(PreferredSecType).Append("\n");
             sb.Append("  PrincipalType: ").Append(PrincipalType).Append("\n");
             sb.Append("  PutDates: ").Append(PutDates).Append("\n");
             sb.Append("  PutNoticeDays: ").Append(PutNoticeDays).Append("\n");
@@ -1136,6 +1159,7 @@ namespace FactSet.SDK.SecurityModeling.Model
             sb.Append("  ReinstatedDate: ").Append(ReinstatedDate).Append("\n");
             sb.Append("  ResetDelay: ").Append(ResetDelay).Append("\n");
             sb.Append("  ResetFreq: ").Append(ResetFreq).Append("\n");
+            sb.Append("  RefIndex: ").Append(RefIndex).Append("\n");
             sb.Append("  SecondaryToVendorFlag: ").Append(SecondaryToVendorFlag).Append("\n");
             sb.Append("  Sector: ").Append(Sector).Append("\n");
             sb.Append("  SectorBarclay1: ").Append(SectorBarclay1).Append("\n");
@@ -1228,9 +1252,9 @@ namespace FactSet.SDK.SecurityModeling.Model
                     this.BusinessDayConv.Equals(input.BusinessDayConv))
                 ) && 
                 (
-                    this.CallAnnounceDate == input.CallAnnounceDate ||
-                    (this.CallAnnounceDate != null &&
-                    this.CallAnnounceDate.Equals(input.CallAnnounceDate))
+                    this.CallAnnouncedDate == input.CallAnnouncedDate ||
+                    (this.CallAnnouncedDate != null &&
+                    this.CallAnnouncedDate.Equals(input.CallAnnouncedDate))
                 ) && 
                 (
                     this.CallDates == input.CallDates ||
@@ -1584,6 +1608,11 @@ namespace FactSet.SDK.SecurityModeling.Model
                     this.PreferredSecFlag.Equals(input.PreferredSecFlag))
                 ) && 
                 (
+                    this.PreferredSecType == input.PreferredSecType ||
+                    (this.PreferredSecType != null &&
+                    this.PreferredSecType.Equals(input.PreferredSecType))
+                ) && 
+                (
                     this.PrincipalType == input.PrincipalType ||
                     (this.PrincipalType != null &&
                     this.PrincipalType.Equals(input.PrincipalType))
@@ -1690,6 +1719,11 @@ namespace FactSet.SDK.SecurityModeling.Model
                     this.ResetFreq == input.ResetFreq ||
                     (this.ResetFreq != null &&
                     this.ResetFreq.Equals(input.ResetFreq))
+                ) && 
+                (
+                    this.RefIndex == input.RefIndex ||
+                    (this.RefIndex != null &&
+                    this.RefIndex.Equals(input.RefIndex))
                 ) && 
                 (
                     this.SecondaryToVendorFlag == input.SecondaryToVendorFlag ||
@@ -1869,9 +1903,9 @@ namespace FactSet.SDK.SecurityModeling.Model
                 {
                     hashCode = (hashCode * 59) + this.BusinessDayConv.GetHashCode();
                 }
-                if (this.CallAnnounceDate != null)
+                if (this.CallAnnouncedDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.CallAnnounceDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CallAnnouncedDate.GetHashCode();
                 }
                 if (this.CallDates != null)
                 {
@@ -2145,6 +2179,10 @@ namespace FactSet.SDK.SecurityModeling.Model
                 {
                     hashCode = (hashCode * 59) + this.PreferredSecFlag.GetHashCode();
                 }
+                if (this.PreferredSecType != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreferredSecType.GetHashCode();
+                }
                 if (this.PrincipalType != null)
                 {
                     hashCode = (hashCode * 59) + this.PrincipalType.GetHashCode();
@@ -2224,6 +2262,10 @@ namespace FactSet.SDK.SecurityModeling.Model
                 if (this.ResetFreq != null)
                 {
                     hashCode = (hashCode * 59) + this.ResetFreq.GetHashCode();
+                }
+                if (this.RefIndex != null)
+                {
+                    hashCode = (hashCode * 59) + this.RefIndex.GetHashCode();
                 }
                 if (this.SecondaryToVendorFlag != null)
                 {

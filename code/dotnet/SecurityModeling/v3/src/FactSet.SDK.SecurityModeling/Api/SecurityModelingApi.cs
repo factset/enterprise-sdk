@@ -29,6 +29,48 @@ namespace FactSet.SDK.SecurityModeling.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Delete existing securities
+        /// </summary>
+        /// <remarks>
+        /// This endpoint deletes existing securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMDeleteParametersRoot"> (optional)</param>
+        /// <returns>SMDeleteResponseRoot</returns>
+        SMDeleteResponseRoot DeleteSecurities(SMDeleteParametersRoot sMDeleteParametersRoot = default(SMDeleteParametersRoot));
+
+        /// <summary>
+        /// Delete existing securities
+        /// </summary>
+        /// <remarks>
+        /// This endpoint deletes existing securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMDeleteParametersRoot"> (optional)</param>
+        /// <returns>ApiResponse of SMDeleteResponseRoot</returns>
+        ApiResponse<SMDeleteResponseRoot> DeleteSecuritiesWithHttpInfo(SMDeleteParametersRoot sMDeleteParametersRoot = default(SMDeleteParametersRoot));
+        /// <summary>
+        /// Get existing securities
+        /// </summary>
+        /// <remarks>
+        /// This endpoint gets all existing securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMRetrieveParametersRoot"> (optional)</param>
+        /// <returns>SMRetrieveResponseRoot</returns>
+        SMRetrieveResponseRoot GetSecurities(SMRetrieveParametersRoot sMRetrieveParametersRoot = default(SMRetrieveParametersRoot));
+
+        /// <summary>
+        /// Get existing securities
+        /// </summary>
+        /// <remarks>
+        /// This endpoint gets all existing securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMRetrieveParametersRoot"> (optional)</param>
+        /// <returns>ApiResponse of SMRetrieveResponseRoot</returns>
+        ApiResponse<SMRetrieveResponseRoot> GetSecuritiesWithHttpInfo(SMRetrieveParametersRoot sMRetrieveParametersRoot = default(SMRetrieveParametersRoot));
+        /// <summary>
         /// Create or update securities
         /// </summary>
         /// <remarks>
@@ -58,6 +100,52 @@ namespace FactSet.SDK.SecurityModeling.Api
     public interface ISecurityModelingApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Delete existing securities
+        /// </summary>
+        /// <remarks>
+        /// This endpoint deletes existing securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMDeleteParametersRoot"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SMDeleteResponseRoot</returns>
+        System.Threading.Tasks.Task<SMDeleteResponseRoot> DeleteSecuritiesAsync(SMDeleteParametersRoot sMDeleteParametersRoot = default(SMDeleteParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Delete existing securities
+        /// </summary>
+        /// <remarks>
+        /// This endpoint deletes existing securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMDeleteParametersRoot"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SMDeleteResponseRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SMDeleteResponseRoot>> DeleteSecuritiesWithHttpInfoAsync(SMDeleteParametersRoot sMDeleteParametersRoot = default(SMDeleteParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get existing securities
+        /// </summary>
+        /// <remarks>
+        /// This endpoint gets all existing securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMRetrieveParametersRoot"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SMRetrieveResponseRoot</returns>
+        System.Threading.Tasks.Task<SMRetrieveResponseRoot> GetSecuritiesAsync(SMRetrieveParametersRoot sMRetrieveParametersRoot = default(SMRetrieveParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get existing securities
+        /// </summary>
+        /// <remarks>
+        /// This endpoint gets all existing securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMRetrieveParametersRoot"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SMRetrieveResponseRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SMRetrieveResponseRoot>> GetSecuritiesWithHttpInfoAsync(SMRetrieveParametersRoot sMRetrieveParametersRoot = default(SMRetrieveParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create or update securities
         /// </summary>
@@ -101,6 +189,16 @@ namespace FactSet.SDK.SecurityModeling.Api
 
         # region Response Type Disctionaries
         
+        private static readonly Dictionary<HttpStatusCode, System.Type> DeleteSecuritiesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(SMDeleteResponseRoot) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSecuritiesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(SMRetrieveResponseRoot) },
+        };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> UpsertSecuritiesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SMCreateResponseRoot) },
@@ -213,6 +311,340 @@ namespace FactSet.SDK.SecurityModeling.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Delete existing securities This endpoint deletes existing securities.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMDeleteParametersRoot"> (optional)</param>
+        /// <returns>SMDeleteResponseRoot</returns>
+        public SMDeleteResponseRoot DeleteSecurities(SMDeleteParametersRoot sMDeleteParametersRoot = default(SMDeleteParametersRoot))
+        {
+            var localVarResponse = DeleteSecuritiesWithHttpInfo(sMDeleteParametersRoot);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete existing securities This endpoint deletes existing securities.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMDeleteParametersRoot"> (optional)</param>
+        /// <returns>ApiResponse of SMDeleteResponseRoot</returns>
+        public ApiResponse<SMDeleteResponseRoot> DeleteSecuritiesWithHttpInfo(SMDeleteParametersRoot sMDeleteParametersRoot = default(SMDeleteParametersRoot))
+        {
+            FactSet.SDK.SecurityModeling.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecurityModeling.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.SecurityModeling.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.SecurityModeling.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = sMDeleteParametersRoot;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecurityModeling.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = DeleteSecuritiesResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            SMDeleteResponseRoot>("/analytics/security-modeling/v3/securities/delete", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteSecurities", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete existing securities This endpoint deletes existing securities.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMDeleteParametersRoot"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SMDeleteResponseRoot</returns>
+        public async System.Threading.Tasks.Task<SMDeleteResponseRoot>DeleteSecuritiesAsync(SMDeleteParametersRoot sMDeleteParametersRoot = default(SMDeleteParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await DeleteSecuritiesWithHttpInfoAsync(sMDeleteParametersRoot, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete existing securities This endpoint deletes existing securities.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMDeleteParametersRoot"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SMDeleteResponseRoot)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<SMDeleteResponseRoot>> DeleteSecuritiesWithHttpInfoAsync(SMDeleteParametersRoot sMDeleteParametersRoot = default(SMDeleteParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.SecurityModeling.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecurityModeling.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.SecurityModeling.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.SecurityModeling.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = sMDeleteParametersRoot;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecurityModeling.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = DeleteSecuritiesResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<SMDeleteResponseRoot>("/analytics/security-modeling/v3/securities/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteSecurities", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get existing securities This endpoint gets all existing securities.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMRetrieveParametersRoot"> (optional)</param>
+        /// <returns>SMRetrieveResponseRoot</returns>
+        public SMRetrieveResponseRoot GetSecurities(SMRetrieveParametersRoot sMRetrieveParametersRoot = default(SMRetrieveParametersRoot))
+        {
+            var localVarResponse = GetSecuritiesWithHttpInfo(sMRetrieveParametersRoot);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get existing securities This endpoint gets all existing securities.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMRetrieveParametersRoot"> (optional)</param>
+        /// <returns>ApiResponse of SMRetrieveResponseRoot</returns>
+        public ApiResponse<SMRetrieveResponseRoot> GetSecuritiesWithHttpInfo(SMRetrieveParametersRoot sMRetrieveParametersRoot = default(SMRetrieveParametersRoot))
+        {
+            FactSet.SDK.SecurityModeling.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecurityModeling.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.SecurityModeling.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.SecurityModeling.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = sMRetrieveParametersRoot;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecurityModeling.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetSecuritiesResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            SMRetrieveResponseRoot>("/analytics/security-modeling/v3/securities/retrieve", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSecurities", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get existing securities This endpoint gets all existing securities.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMRetrieveParametersRoot"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SMRetrieveResponseRoot</returns>
+        public async System.Threading.Tasks.Task<SMRetrieveResponseRoot>GetSecuritiesAsync(SMRetrieveParametersRoot sMRetrieveParametersRoot = default(SMRetrieveParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetSecuritiesWithHttpInfoAsync(sMRetrieveParametersRoot, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get existing securities This endpoint gets all existing securities.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.SecurityModeling.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sMRetrieveParametersRoot"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SMRetrieveResponseRoot)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<SMRetrieveResponseRoot>> GetSecuritiesWithHttpInfoAsync(SMRetrieveParametersRoot sMRetrieveParametersRoot = default(SMRetrieveParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.SecurityModeling.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecurityModeling.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.SecurityModeling.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.SecurityModeling.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = sMRetrieveParametersRoot;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecurityModeling.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetSecuritiesResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<SMRetrieveResponseRoot>("/analytics/security-modeling/v3/securities/retrieve", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSecurities", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

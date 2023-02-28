@@ -42,7 +42,13 @@ namespace FactSet.SDK.SecurityModeling.Model
             /// Enum Bond for value: Bond
             /// </summary>
             [EnumMember(Value = "Bond")]
-            Bond = 1
+            Bond = 1,
+
+            /// <summary>
+            /// Enum CCF for value: CCF
+            /// </summary>
+            [EnumMember(Value = "CCF")]
+            CCF = 2
 
         }
 

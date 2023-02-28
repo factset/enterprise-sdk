@@ -46,6 +46,17 @@ namespace FactSet.SDK.SecurityModeling.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OneOfSMFields" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of SMCustomCashFlowFields.</param>
+        public OneOfSMFields(SMCustomCashFlowFields actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -64,9 +75,13 @@ namespace FactSet.SDK.SecurityModeling.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value is SMCustomCashFlowFields)
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: SMBondFields");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: SMBondFields, SMCustomCashFlowFields");
                 }
             }
         }
@@ -79,6 +94,16 @@ namespace FactSet.SDK.SecurityModeling.Model
         public SMBondFields GetSMBondFields()
         {
             return (SMBondFields)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `SMCustomCashFlowFields`. If the actual instance is not `SMCustomCashFlowFields`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of SMCustomCashFlowFields</returns>
+        public SMCustomCashFlowFields GetSMCustomCashFlowFields()
+        {
+            return (SMCustomCashFlowFields)this.ActualInstance;
         }
 
         /// <summary>
@@ -126,11 +151,17 @@ namespace FactSet.SDK.SecurityModeling.Model
                     case "Bond":
                         newOneOfSMFields = new OneOfSMFields(JsonConvert.DeserializeObject<SMBondFields>(jsonString, OneOfSMFields.AdditionalPropertiesSerializerSettings));
                         return newOneOfSMFields;
+                    case "CCF":
+                        newOneOfSMFields = new OneOfSMFields(JsonConvert.DeserializeObject<SMCustomCashFlowFields>(jsonString, OneOfSMFields.AdditionalPropertiesSerializerSettings));
+                        return newOneOfSMFields;
                     case "SMBondFields":
                         newOneOfSMFields = new OneOfSMFields(JsonConvert.DeserializeObject<SMBondFields>(jsonString, OneOfSMFields.AdditionalPropertiesSerializerSettings));
                         return newOneOfSMFields;
+                    case "SMCustomCashFlowFields":
+                        newOneOfSMFields = new OneOfSMFields(JsonConvert.DeserializeObject<SMCustomCashFlowFields>(jsonString, OneOfSMFields.AdditionalPropertiesSerializerSettings));
+                        return newOneOfSMFields;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for OneOfSMFields. Possible values: Bond SMBondFields", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for OneOfSMFields. Possible values: Bond CCF SMBondFields SMCustomCashFlowFields", discriminatorValue));
                         break;
                 }
             }
@@ -157,6 +188,23 @@ namespace FactSet.SDK.SecurityModeling.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into SMBondFields: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(SMCustomCashFlowFields).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<SMCustomCashFlowFields>(
+                    jsonString,
+                    hasAdditionalProperties ? OneOfSMFields.AdditionalPropertiesSerializerSettings : OneOfSMFields.SerializerSettings
+                );
+                newOneOfSMFields = new OneOfSMFields(parsedValue);
+                matchedTypes.Add("SMCustomCashFlowFields");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into SMCustomCashFlowFields: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)

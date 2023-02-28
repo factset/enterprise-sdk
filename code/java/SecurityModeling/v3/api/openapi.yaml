@@ -19,6 +19,221 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 paths:
+  /analytics/security-modeling/v3/securities/retrieve:
+    post:
+      description: This endpoint gets all existing securities.
+      operationId: getSecurities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMRetrieveParametersRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMRetrieveResponseRoot'
+          description: Expected response, returns a list of existing securities.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Get existing securities
+      tags:
+      - SecurityModeling
+      x-contentType: application/json
+      x-accepts: application/json
   /analytics/security-modeling/v3/securities/upsert:
     post:
       description: This endpoint is to create or update existing securities.
@@ -235,20 +450,392 @@ paths:
       - SecurityModeling
       x-contentType: application/json
       x-accepts: application/json
+  /analytics/security-modeling/v3/securities/delete:
+    post:
+      description: This endpoint deletes existing securities.
+      operationId: deleteSecurities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMDeleteParametersRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMDeleteResponseRoot'
+          description: Expected response, deletes existing securities.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Delete existing securities
+      tags:
+      - SecurityModeling
+      x-contentType: application/json
+      x-accepts: application/json
 components:
   schemas:
+    SMRetrieveParameters:
+      example:
+        securityName: securityName
+        asofdate: asofdate
+        securityType: Bond
+        location: location
+      properties:
+        securityName:
+          type: string
+        location:
+          nullable: true
+          type: string
+        asofdate:
+          nullable: true
+          type: string
+        securityType:
+          enum:
+          - Bond
+          - CCF
+          nullable: true
+          type: string
+      required:
+      - securityName
+      type: object
+    SMRetrieveParametersRoot:
+      example:
+        data:
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: Bond
+          location: location
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: Bond
+          location: location
+        meta: '{}'
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SMRetrieveParameters'
+          type: array
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
+      type: object
+    SMCustomCashFlowFields:
+      allOf:
+      - $ref: '#/components/schemas/SMFields'
+      properties:
+        cashFlowAmounts:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        cashFlowDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        country:
+          nullable: true
+          type: string
+        currency:
+          nullable: true
+          type: string
+        issueName:
+          nullable: true
+          type: string
+        parAmt:
+          format: double
+          nullable: true
+          type: number
+        parentName:
+          nullable: true
+          type: string
+        ratingFitch:
+          nullable: true
+          type: string
+        ratingFitchDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ratingFitchValues:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ratingMoodysDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ratingMoodysValues:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ratingSpDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ratingSpValues:
+          items:
+            type: string
+          nullable: true
+          type: array
+        secondaryToVendorFlag:
+          nullable: true
+          type: boolean
+        sector:
+          nullable: true
+          type: string
+        sectorBarclay1:
+          nullable: true
+          type: string
+        sectorBarclay2:
+          nullable: true
+          type: string
+        sectorBarclay3:
+          nullable: true
+          type: string
+        sectorBarclay4:
+          nullable: true
+          type: string
+        sectorDef:
+          nullable: true
+          type: string
+        sectorIndustry:
+          nullable: true
+          type: string
+        sectorMain:
+          nullable: true
+          type: string
+        sectorMerrill1:
+          nullable: true
+          type: string
+        sectorMerrill2:
+          nullable: true
+          type: string
+        sectorMerrill3:
+          nullable: true
+          type: string
+        sectorMerrill4:
+          nullable: true
+          type: string
+        sectorSubGroup:
+          nullable: true
+          type: string
+        vendorCoverageDate:
+          nullable: true
+          type: string
+      type: object
     SMFields:
-      additionalProperties: false
       properties:
         securityType:
           enum:
           - Bond
+          - CCF
           type: string
       required:
       - securityType
       type: object
     SMBondFields:
-      additionalProperties: false
       allOf:
       - $ref: '#/components/schemas/SMFields'
       properties:
@@ -277,7 +864,7 @@ components:
         businessDayConv:
           nullable: true
           type: string
-        callAnnounceDate:
+        callAnnouncedDate:
           nullable: true
           type: string
         callDates:
@@ -539,6 +1126,9 @@ components:
         preferredSecFlag:
           nullable: true
           type: boolean
+        preferredSecType:
+          nullable: true
+          type: string
         principalType:
           nullable: true
           type: string
@@ -619,6 +1209,9 @@ components:
           nullable: true
           type: integer
         resetFreq:
+          nullable: true
+          type: string
+        refIndex:
           nullable: true
           type: string
         secondaryToVendorFlag:
@@ -728,15 +1321,95 @@ components:
           nullable: true
           type: boolean
       type: object
+    SMError:
+      example:
+        detail: detail
+      properties:
+        detail:
+          nullable: true
+          type: string
+      type: object
+    OneOfFieldsFields:
+      discriminator:
+        mapping:
+          Bond: '#/components/schemas/SMBondFields'
+          CCF: '#/components/schemas/SMCustomCashFlowFields'
+        propertyName: securityType
+      nullable: true
+      oneOf:
+      - $ref: '#/components/schemas/SMBondFields'
+      - $ref: '#/components/schemas/SMCustomCashFlowFields'
+    SMRetrieveResponse:
+      example:
+        securityName: securityName
+        asofdate: asofdate
+        location: location
+        errors:
+        - detail: detail
+        - detail: detail
+        status: success
+      properties:
+        securityName:
+          nullable: true
+          type: string
+        status:
+          enum:
+          - success
+          - failure
+          type: string
+        location:
+          nullable: true
+          type: string
+        asofdate:
+          nullable: true
+          type: string
+        fields:
+          $ref: '#/components/schemas/OneOfFieldsFields'
+        errors:
+          items:
+            $ref: '#/components/schemas/SMError'
+          nullable: true
+          type: array
+      type: object
+    SMRetrieveResponseRoot:
+      example:
+        data:
+        - securityName: securityName
+          asofdate: asofdate
+          location: location
+          errors:
+          - detail: detail
+          - detail: detail
+          status: success
+        - securityName: securityName
+          asofdate: asofdate
+          location: location
+          errors:
+          - detail: detail
+          - detail: detail
+          status: success
+        meta: '{}'
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SMRetrieveResponse'
+          type: array
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
+      type: object
     OneOfSMFields:
       discriminator:
         mapping:
           Bond: '#/components/schemas/SMBondFields'
+          CCF: '#/components/schemas/SMCustomCashFlowFields'
         propertyName: securityType
       oneOf:
       - $ref: '#/components/schemas/SMBondFields'
+      - $ref: '#/components/schemas/SMCustomCashFlowFields'
     SMCreateParameters:
-      additionalProperties: false
       example:
         securityName: securityName
         asofdate: asofdate
@@ -757,7 +1430,6 @@ components:
       - securityName
       type: object
     SMCreateParametersRoot:
-      additionalProperties: false
       example:
         data:
         - securityName: securityName
@@ -766,24 +1438,19 @@ components:
         - securityName: securityName
           asofdate: asofdate
           location: location
+        meta: '{}'
       properties:
         data:
           items:
             $ref: '#/components/schemas/SMCreateParameters'
-          nullable: true
           type: array
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
       type: object
     SMWarning:
-      additionalProperties: false
-      example:
-        detail: detail
-      properties:
-        detail:
-          nullable: true
-          type: string
-      type: object
-    SMError:
-      additionalProperties: false
       example:
         detail: detail
       properties:
@@ -792,7 +1459,6 @@ components:
           type: string
       type: object
     SMCreateResponse:
-      additionalProperties: false
       example:
         securityName: securityName
         warnings:
@@ -823,7 +1489,6 @@ components:
           type: array
       type: object
     SMCreateResponseRoot:
-      additionalProperties: false
       example:
         data:
         - securityName: securityName
@@ -847,6 +1512,100 @@ components:
         data:
           items:
             $ref: '#/components/schemas/SMCreateResponse'
+          type: array
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
+      type: object
+    SMDeleteParameters:
+      example:
+        securityName: securityName
+        asofdate: asofdate
+        securityType: Bond
+        location: location
+      properties:
+        securityName:
+          type: string
+        location:
+          nullable: true
+          type: string
+        asofdate:
+          nullable: true
+          type: string
+        securityType:
+          enum:
+          - Bond
+          - CCF
+          nullable: true
+          type: string
+      required:
+      - securityName
+      type: object
+    SMDeleteParametersRoot:
+      example:
+        data:
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: Bond
+          location: location
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: Bond
+          location: location
+        meta: '{}'
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SMDeleteParameters'
+          type: array
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
+      type: object
+    SMDeleteResponse:
+      example:
+        securityName: securityName
+        errors:
+        - detail: detail
+        - detail: detail
+        status: success
+      properties:
+        securityName:
+          nullable: true
+          type: string
+        status:
+          enum:
+          - success
+          - failure
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/SMError'
+          nullable: true
+          type: array
+      type: object
+    SMDeleteResponseRoot:
+      example:
+        data:
+        - securityName: securityName
+          errors:
+          - detail: detail
+          - detail: detail
+          status: success
+        - securityName: securityName
+          errors:
+          - detail: detail
+          - detail: detail
+          status: success
+        meta: '{}'
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SMDeleteResponse'
           type: array
         meta:
           nullable: true

@@ -78,7 +78,13 @@ SMFields['SecurityTypeEnum'] = {
      * value: "Bond"
      * @const
      */
-    "Bond": "Bond"
+    "Bond": "Bond",
+
+    /**
+     * value: "CCF"
+     * @const
+     */
+    "CCF": "CCF"
 };
 
 

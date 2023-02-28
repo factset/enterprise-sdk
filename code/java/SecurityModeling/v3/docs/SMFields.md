@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 BOND | &quot;Bond&quot;
+CCF | &quot;CCF&quot;
 
 
 ## Implemented Interfaces

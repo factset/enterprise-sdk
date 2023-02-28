@@ -106,7 +106,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/SecurityModeling/0.20.2'
+        self.user_agent = 'fds-sdk/python/SecurityModeling/0.20.3'
 
     def __enter__(self):
         return self
@@ -837,10 +837,10 @@ class Endpoint(object):
         Example:
 
         api_instance = SecurityModelingApi()
-        api_instance.upsert_securities  # this is an instance of the class Endpoint
-        api_instance.upsert_securities()  # this invokes api_instance.upsert_securities.__call__()
+        api_instance.delete_securities  # this is an instance of the class Endpoint
+        api_instance.delete_securities()  # this invokes api_instance.delete_securities.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.upsert_securities.callable or self.callable in this class
+        api_instance.delete_securities.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

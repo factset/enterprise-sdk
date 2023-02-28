@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 
 * `Bond` (value: `"Bond"`)
 
+* `CCF` (value: `"CCF"`)
+
 
 
 

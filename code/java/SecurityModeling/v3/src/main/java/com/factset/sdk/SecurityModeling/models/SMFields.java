@@ -43,7 +43,9 @@ public class SMFields implements Serializable {
    * Gets or Sets securityType
    */
   public enum SecurityTypeEnum {
-    BOND("Bond");
+    BOND("Bond"),
+    
+    CCF("CCF");
 
     private String value;
 

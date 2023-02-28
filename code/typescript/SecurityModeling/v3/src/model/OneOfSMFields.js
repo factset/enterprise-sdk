@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import SMBondFields from './SMBondFields';
+import SMCustomCashFlowFields from './SMCustomCashFlowFields';
 
 /**
  * The OneOfSMFields model module.
@@ -23,10 +24,11 @@ class OneOfSMFields {
      * Constructs a new <code>OneOfSMFields</code>.
      * @alias module:model/OneOfSMFields
      * @implements module:model/SMBondFields
+     * @implements module:model/SMCustomCashFlowFields
      * @param securityType {module:model/OneOfSMFields.SecurityTypeEnum} 
      */
     constructor(securityType) { 
-        SMBondFields.initialize(this, securityType);
+        SMBondFields.initialize(this, securityType);SMCustomCashFlowFields.initialize(this, securityType);
         OneOfSMFields.initialize(this, securityType);
     }
 
@@ -50,6 +52,8 @@ class OneOfSMFields {
         switch (data['securityType']) {
             case 'Bond':
               return SMBondFields.constructFromObject(data, obj);
+            case 'CCF':
+              return SMCustomCashFlowFields.constructFromObject(data, obj);
         }
         return obj;
     }
@@ -68,6 +72,11 @@ OneOfSMFields.prototype['securityType'] = undefined;
  * @member {module:model/SMBondFields.SecurityTypeEnum} securityType
  */
 SMBondFields.prototype['securityType'] = undefined;
+// Implement SMCustomCashFlowFields interface:
+/**
+ * @member {module:model/SMCustomCashFlowFields.SecurityTypeEnum} securityType
+ */
+SMCustomCashFlowFields.prototype['securityType'] = undefined;
 
 
 
@@ -82,7 +91,13 @@ OneOfSMFields['SecurityTypeEnum'] = {
      * value: "Bond"
      * @const
      */
-    "Bond": "Bond"
+    "Bond": "Bond",
+
+    /**
+     * value: "CCF"
+     * @const
+     */
+    "CCF": "CCF"
 };
 
 

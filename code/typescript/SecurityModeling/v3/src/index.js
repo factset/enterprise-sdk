@@ -12,14 +12,24 @@
  */
 
 import ApiClient from './ApiClient';
+import OneOfFieldsFields from './model/OneOfFieldsFields';
 import OneOfSMFields from './model/OneOfSMFields';
 import SMBondFields from './model/SMBondFields';
 import SMCreateParameters from './model/SMCreateParameters';
 import SMCreateParametersRoot from './model/SMCreateParametersRoot';
 import SMCreateResponse from './model/SMCreateResponse';
 import SMCreateResponseRoot from './model/SMCreateResponseRoot';
+import SMCustomCashFlowFields from './model/SMCustomCashFlowFields';
+import SMDeleteParameters from './model/SMDeleteParameters';
+import SMDeleteParametersRoot from './model/SMDeleteParametersRoot';
+import SMDeleteResponse from './model/SMDeleteResponse';
+import SMDeleteResponseRoot from './model/SMDeleteResponseRoot';
 import SMError from './model/SMError';
 import SMFields from './model/SMFields';
+import SMRetrieveParameters from './model/SMRetrieveParameters';
+import SMRetrieveParametersRoot from './model/SMRetrieveParametersRoot';
+import SMRetrieveResponse from './model/SMRetrieveResponse';
+import SMRetrieveResponseRoot from './model/SMRetrieveResponseRoot';
 import SMWarning from './model/SMWarning';
 
 import SecurityModelingApi from './api/SecurityModelingApi';
@@ -63,6 +73,12 @@ export {
     ApiClient,
 
     /**
+     * The OneOfFieldsFields model constructor.
+     * @property {module:model/OneOfFieldsFields}
+     */
+    OneOfFieldsFields,
+
+    /**
      * The OneOfSMFields model constructor.
      * @property {module:model/OneOfSMFields}
      */
@@ -99,6 +115,36 @@ export {
     SMCreateResponseRoot,
 
     /**
+     * The SMCustomCashFlowFields model constructor.
+     * @property {module:model/SMCustomCashFlowFields}
+     */
+    SMCustomCashFlowFields,
+
+    /**
+     * The SMDeleteParameters model constructor.
+     * @property {module:model/SMDeleteParameters}
+     */
+    SMDeleteParameters,
+
+    /**
+     * The SMDeleteParametersRoot model constructor.
+     * @property {module:model/SMDeleteParametersRoot}
+     */
+    SMDeleteParametersRoot,
+
+    /**
+     * The SMDeleteResponse model constructor.
+     * @property {module:model/SMDeleteResponse}
+     */
+    SMDeleteResponse,
+
+    /**
+     * The SMDeleteResponseRoot model constructor.
+     * @property {module:model/SMDeleteResponseRoot}
+     */
+    SMDeleteResponseRoot,
+
+    /**
      * The SMError model constructor.
      * @property {module:model/SMError}
      */
@@ -109,6 +155,30 @@ export {
      * @property {module:model/SMFields}
      */
     SMFields,
+
+    /**
+     * The SMRetrieveParameters model constructor.
+     * @property {module:model/SMRetrieveParameters}
+     */
+    SMRetrieveParameters,
+
+    /**
+     * The SMRetrieveParametersRoot model constructor.
+     * @property {module:model/SMRetrieveParametersRoot}
+     */
+    SMRetrieveParametersRoot,
+
+    /**
+     * The SMRetrieveResponse model constructor.
+     * @property {module:model/SMRetrieveResponse}
+     */
+    SMRetrieveResponse,
+
+    /**
+     * The SMRetrieveResponseRoot model constructor.
+     * @property {module:model/SMRetrieveResponseRoot}
+     */
+    SMRetrieveResponseRoot,
 
     /**
      * The SMWarning model constructor.

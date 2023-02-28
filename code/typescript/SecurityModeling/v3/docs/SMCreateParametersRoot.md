@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[SMCreateParameters]**](SMCreateParameters.md) |  | [optional] 
+**data** | [**[SMCreateParameters]**](SMCreateParameters.md) |  | 
+**meta** | **Object** |  | [optional] 
 
 

@@ -58,13 +58,20 @@ class SMFields(ModelNormal):
     allowed_values = {
         ('security_type',): {
             'BOND': "Bond",
+            'CCF': "CCF",
         },
     }
 
     validations = {
     }
 
-    additional_properties_type = None
+    @cached_property
+    def additional_properties_type():
+        """
+        This must be a method because a model may have properties that are
+        of type self, this must run after the class is loaded
+        """
+        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
 
@@ -98,13 +105,13 @@ class SMFields(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, security_type, *args, **kwargs):  # noqa: E501
         """SMFields - a model defined in OpenAPI
 
         Args:
+            security_type (str):
 
         Keyword Args:
-            security_type (str): defaults to "Bond", must be one of ["Bond", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -137,7 +144,6 @@ class SMFields(ModelNormal):
                                 _visited_composed_classes = (Animal,)
         """
 
-        security_type = kwargs.get('security_type', "Bond")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -184,13 +190,13 @@ class SMFields(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, security_type, *args, **kwargs):  # noqa: E501
         """SMFields - a model defined in OpenAPI
 
         Args:
+            security_type (str):
 
         Keyword Args:
-            security_type (str): defaults to "Bond", must be one of ["Bond", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -223,7 +229,6 @@ class SMFields(ModelNormal):
                                 _visited_composed_classes = (Animal,)
         """
 
-        security_type = kwargs.get('security_type', "Bond")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())

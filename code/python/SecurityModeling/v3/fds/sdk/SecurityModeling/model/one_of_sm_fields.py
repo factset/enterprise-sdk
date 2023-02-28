@@ -32,7 +32,9 @@ from fds.sdk.SecurityModeling.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.SecurityModeling.model.sm_bond_fields import SMBondFields
+    from fds.sdk.SecurityModeling.model.sm_custom_cash_flow_fields import SMCustomCashFlowFields
     globals()['SMBondFields'] = SMBondFields
+    globals()['SMCustomCashFlowFields'] = SMCustomCashFlowFields
 
 
 class OneOfSMFields(ModelComposed):
@@ -96,7 +98,9 @@ class OneOfSMFields(ModelComposed):
         lazy_import()
         val = {
             'Bond': SMBondFields,
+            'CCF': SMCustomCashFlowFields,
             'SMBondFields': SMBondFields,
+            'SMCustomCashFlowFields': SMCustomCashFlowFields,
         }
         if not val:
             return None
@@ -115,7 +119,7 @@ class OneOfSMFields(ModelComposed):
         """OneOfSMFields - a model defined in OpenAPI
 
         Keyword Args:
-            security_type (str): defaults to "Bond", must be one of ["Bond", ]  # noqa: E501
+            security_type (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -148,7 +152,6 @@ class OneOfSMFields(ModelComposed):
                                 _visited_composed_classes = (Animal,)
         """
 
-        security_type = kwargs.get('security_type', "Bond")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -216,7 +219,7 @@ class OneOfSMFields(ModelComposed):
         """OneOfSMFields - a model defined in OpenAPI
 
         Keyword Args:
-            security_type (str): defaults to "Bond", must be one of ["Bond", ]  # noqa: E501
+            security_type (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -249,7 +252,6 @@ class OneOfSMFields(ModelComposed):
                                 _visited_composed_classes = (Animal,)
         """
 
-        security_type = kwargs.get('security_type', "Bond")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -316,5 +318,6 @@ class OneOfSMFields(ModelComposed):
           ],
           'oneOf': [
               SMBondFields,
+              SMCustomCashFlowFields,
           ],
         }
