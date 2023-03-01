@@ -459,7 +459,6 @@ namespace FactSet.SDK.FactSetTickHistory.Client
             client.AddHandler("application/xml", () => xmlDeserializer);
             client.AddHandler("text/xml", () => xmlDeserializer);
             client.AddHandler("*+xml", () => xmlDeserializer);
-            client.AddHandler("*", () => xmlDeserializer);
 
             client.Timeout = configuration.Timeout;
 
@@ -569,7 +568,6 @@ namespace FactSet.SDK.FactSetTickHistory.Client
             client.AddHandler("application/xml", () => xmlDeserializer);
             client.AddHandler("text/xml", () => xmlDeserializer);
             client.AddHandler("*+xml", () => xmlDeserializer);
-            client.AddHandler("*", () => xmlDeserializer);
 
             client.Timeout = configuration.Timeout;
 

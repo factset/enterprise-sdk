@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.NorthfieldPortfolioOptimizer",
-  "packageVersion": "0.21.2",
+  "packageVersion": "0.21.3",
   "packageGuid": "{4e7f0f79-f9dc-58d9-a2e3-d8bbbfab1e7e}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/NorthfieldPortfolioOptimizer/0.21.2",
+  "httpUserAgent": "fds-sdk/dotnet/NorthfieldPortfolioOptimizer/0.21.3",
   "files": {
     "LICENSE": {}
   },

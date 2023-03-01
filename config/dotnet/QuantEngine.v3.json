@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.QuantEngine",
-  "packageVersion": "0.1.1",
+  "packageVersion": "0.1.2",
   "packageGuid": "{4bc8cd27-7d71-5e4e-a623-3adf2007e04f}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/QuantEngine/0.1.1",
+  "httpUserAgent": "fds-sdk/dotnet/QuantEngine/0.1.2",
   "files": {
     "LICENSE": {}
   },

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetFundamentals",
-  "packageVersion": "1.0.1",
+  "packageVersion": "1.0.2",
   "packageGuid": "{1d0a079a-c04a-5bbd-800e-f4203488d4ed}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetFundamentals/1.0.1",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetFundamentals/1.0.2",
   "files": {
     "LICENSE": {}
   },

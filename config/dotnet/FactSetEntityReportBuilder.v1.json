@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetEntityReportBuilder",
-  "packageVersion": "1.0.1",
+  "packageVersion": "1.0.2",
   "packageGuid": "{0824ef50-d8ed-5c79-af73-242e371da1a7}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetEntityReportBuilder/1.0.1",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetEntityReportBuilder/1.0.2",
   "files": {
     "LICENSE": {}
   },
