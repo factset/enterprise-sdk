@@ -1,0 +1,2943 @@
+openapi: 3.0.0
+info:
+  description: FactSet's SCIM API implementation.
+  title: FactSet SCIM API
+  version: 2.0.0
+servers:
+- description: Production environment
+  url: https://api.factset.com/scim/v2/
+- description: UAT environment
+  url: https://api.uat.factset.com/scim/v2/
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /ServiceProviderConfig:
+    get:
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ServiceProviderConfig'
+          description: Success.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get server configuration.
+      tags:
+      - Server configuration
+      x-accepts: application/scim+json
+  /Schemas:
+    get:
+      parameters:
+      - description: Result start index. The one-based index of the first result to
+          be returned in the list of resources. For example, to exclude the first
+          two resources, use a *startIndex* value of 3. This parameter has a default
+          value of 1. This index applies *after* any resource filtration has been
+          applied as specified by the *filter* argument.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Maximum resource count. The server will not return more resources
+          than this value, although it may return fewer.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/SchemaList'
+          description: Success.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get a list of schemas.
+      tags:
+      - Schemas
+      x-accepts: application/scim+json
+  /Schemas/{id}:
+    get:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Schema'
+          description: Success.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "404":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: Schema urn:scim:schemas:extension:FactSet:Core:1.0:User not
+                  found
+                status: "404"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Schema not found.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get a schema.
+      tags:
+      - Schemas
+      x-accepts: application/scim+json
+  /Users:
+    get:
+      parameters:
+      - description: Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2)
+          for syntax. Note this API implementation also supports a non-standard "re"
+          operator for regular expression matching against strings.
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Result start index. The one-based index of the first result to
+          be returned in the list of resources. For example, to exclude the first
+          two resources, use a *startIndex* value of 3. This parameter has a default
+          value of 1. This index applies *after* any resource filtration has been
+          applied as specified by the *filter* argument.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Maximum resource count. The server will not return more resources
+          than this value, although it may return fewer.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* parameter.
+        explode: true
+        in: query
+        name: attributes
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* parameter.
+        explode: true
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserResourceList'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidFilter
+                detail: Invalid filter value.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid filter value provided.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get a list of users.
+      tags:
+      - Users
+      x-accepts: application/scim+json
+    post:
+      requestBody:
+        $ref: '#/components/requestBodies/userResource'
+      responses:
+        "201":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserResource'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidValue
+                detail: Provided resource contains invalid data.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Provided resource contains invalid data.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Create a user.
+      tags:
+      - Users
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+  /Users/{id}:
+    delete:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: User successfully deleted.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "404":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: User FIN_WEALTH-123456 was not found.
+                status: "404"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not found.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Delete a user
+      tags:
+      - Users
+      x-accepts: application/scim+json
+    get:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserResource'
+          description: Success.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "404":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: User FIN_WEALTH-123456 was not found.
+                status: "404"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not found.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get a user.
+      tags:
+      - Users
+      x-accepts: application/scim+json
+    patch:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/patchUserResource'
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserResource'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidValue
+                detail: Provided resource contains invalid data.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Patch request invalid.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Patch a user (add, replace, or remove attributes of a user.)
+      tags:
+      - Users
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+    put:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/userResource'
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserResource'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidValue
+                detail: Provided resource contains invalid data.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Provided resource contains invalid data.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "404":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: User FIN_WEALTH-123456 was not found.
+                status: "404"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not found.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Replace a user.
+      tags:
+      - Users
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+  /Groups:
+    get:
+      parameters:
+      - description: Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2)
+          for syntax. Note this API implementation also supports a non-standard "re"
+          operator for regular expression matching against strings.
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Result start index. The one-based index of the first result to
+          be returned in the list of resources. For example, to exclude the first
+          two resources, use a *startIndex* value of 3. This parameter has a default
+          value of 1. This index applies *after* any resource filtration has been
+          applied as specified by the *filter* argument.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Maximum resource count. The server will not return more resources
+          than this value, although it may return fewer.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* parameter.
+        explode: true
+        in: query
+        name: attributes
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* parameter.
+        explode: true
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupResourceList'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidFilter
+                detail: Invalid filter value.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid filter value provided.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get a list of groups.
+      tags:
+      - Groups
+      x-accepts: application/scim+json
+  /Group/{id}:
+    get:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupResource'
+          description: Success.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "404":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: Group Domain btud - Pod 04 - CitrixApps - Cymba OMS was not
+                  found.
+                status: "404"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Group not found.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get a group.
+      tags:
+      - Groups
+      x-accepts: application/scim+json
+    patch:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/patchGroupResource'
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupResource'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidValue
+                detail: Provided resource contains invalid data.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Patch request invalid.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Patch a group (add, replace, or remove attributes of a group.)
+      tags:
+      - Groups
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+    put:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/groupResource'
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupResource'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidValue
+                detail: Provided resource contains invalid data.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Provided resource contains invalid data.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "404":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: Group Domain btud - Pod 04 - CitrixApps - Cymba OMS was not
+                  found.
+                status: "404"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Group not found.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Replace a group.
+      tags:
+      - Groups
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+  /Locations:
+    get:
+      parameters:
+      - description: Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2)
+          for syntax. Note this API implementation also supports a non-standard "re"
+          operator for regular expression matching against strings.
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Result start index. The one-based index of the first result to
+          be returned in the list of resources. For example, to exclude the first
+          two resources, use a *startIndex* value of 3. This parameter has a default
+          value of 1. This index applies *after* any resource filtration has been
+          applied as specified by the *filter* argument.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Maximum resource count. The server will not return more resources
+          than this value, although it may return fewer.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* parameter.
+        explode: true
+        in: query
+        name: attributes
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* parameter.
+        explode: true
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/LocationResourceList'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidFilter
+                detail: Invalid filter value.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid filter value provided.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get a list of locations.
+      tags:
+      - Locations
+      x-accepts: application/scim+json
+  /Locations/{id}:
+    get:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/LocationResource'
+          description: Success.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "404":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: Location 1598276 was not found.
+                status: "404"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Location not found.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get a location.
+      tags:
+      - Locations
+      x-accepts: application/scim+json
+    patch:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/patchLocationResource'
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/LocationResource'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidValue
+                detail: Provided resource contains invalid data.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Patch request invalid.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Patch a location (add, replace, or remove attributes of a location.)
+      tags:
+      - Locations
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+    put:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/locationResource'
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/LocationResource'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidValue
+                detail: Provided resource contains invalid data.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Provided resource contains invalid data.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "404":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: Location 1598276 was not found.
+                status: "404"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Location not found.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Replace a location.
+      tags:
+      - Locations
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+  /Products:
+    get:
+      parameters:
+      - description: Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2)
+          for syntax. Note this API implementation also supports a non-standard "re"
+          operator for regular expression matching against strings.
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Result start index. The one-based index of the first result to
+          be returned in the list of resources. For example, to exclude the first
+          two resources, use a *startIndex* value of 3. This parameter has a default
+          value of 1. This index applies *after* any resource filtration has been
+          applied as specified by the *filter* argument.
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Maximum resource count. The server will not return more resources
+          than this value, although it may return fewer.
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* parameter.
+        explode: true
+        in: query
+        name: attributes
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* parameter.
+        explode: true
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ProductResourceList'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidFilter
+                detail: Invalid filter value.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid filter value provided.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get a list of products.
+      tags:
+      - Products
+      x-accepts: application/scim+json
+  /Products/{id}:
+    get:
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ProductResource'
+          description: Success.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet.net credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "404":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: Product 6781 was not found.
+                status: "404"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Product not found.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get a product.
+      tags:
+      - Products
+      x-accepts: application/scim+json
+  /FileManagerAudit:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileManagerAudit'
+          description: Success.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      security:
+      - basicAuth: []
+      summary: Get File Manager audit data.
+      tags:
+      - FileManagerAudit
+      x-accepts: application/json
+components:
+  parameters:
+    resourceId:
+      description: ID of resource.
+      explode: false
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    filter:
+      description: Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2)
+        for syntax. Note this API implementation also supports a non-standard "re"
+        operator for regular expression matching against strings.
+      explode: true
+      in: query
+      name: filter
+      required: false
+      schema:
+        type: string
+      style: form
+    startIndex:
+      description: Result start index. The one-based index of the first result to
+        be returned in the list of resources. For example, to exclude the first two
+        resources, use a *startIndex* value of 3. This parameter has a default value
+        of 1. This index applies *after* any resource filtration has been applied
+        as specified by the *filter* argument.
+      explode: true
+      in: query
+      name: startIndex
+      required: false
+      schema:
+        type: integer
+      style: form
+    count:
+      description: Maximum resource count. The server will not return more resources
+        than this value, although it may return fewer.
+      explode: true
+      in: query
+      name: count
+      required: false
+      schema:
+        type: integer
+      style: form
+    attributes:
+      description: Attribute whitelist filter string. A comma-separated list of resource
+        attribute names to be returned in the response, overriding the set of attributes
+        that would be returned by default. Attribute names must be specified in standard
+        attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+        This parameter cannot be used with the *excludedAttributes* parameter.
+      explode: true
+      in: query
+      name: attributes
+      required: false
+      schema:
+        type: string
+      style: form
+    excludedAttributes:
+      description: Attribute blacklist filter string. A comma-separated list of resource
+        attribute names to be excluded in the response, overriding the set of attributes
+        that would be returned by default. Attribute names must be specified in standard
+        attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+        This parameter cannot be used with the *attributes* parameter.
+      explode: true
+      in: query
+      name: excludedAttributes
+      required: false
+      schema:
+        type: string
+      style: form
+  requestBodies:
+    userResource:
+      content:
+        application/scim+json:
+          examples:
+            Minimum:
+              value:
+                schemas:
+                - urn:ietf:params:scim:schemas:core:2.0:User
+                - urn:scim:schemas:extension:FactSet:Core:1.0:User
+                name:
+                  familyName: Doe
+                  givenName: John
+                email: jdoe@factset.com
+                urn:scim:schemas:extension:FactSet:Core:1.0:User:
+                  username: FIN_WEALTH
+                  location:
+                    value: "1598276"
+            Expanded:
+              value:
+                schemas:
+                - urn:ietf:params:scim:schemas:core:2.0:User
+                - urn:scim:schemas:extension:FactSet:Core:1.0:User
+                externalId: C3574707-FFF9-433C-A17F-DFF806C72A7F
+                name:
+                  familyName: Doe
+                  givenName: John
+                email: jdoe@factset.com
+                urn:scim:schemas:extension:FactSet:Core:1.0:User:
+                  username: FIN_WEALTH
+                  location:
+                    value: "1598276"
+                  roleName: Wealth Manager
+                  products:
+                  - value: "1396"
+                  assertionValue: exampleAssertionValue
+          schema:
+            $ref: '#/components/schemas/UserResource'
+      description: User resource.
+      required: true
+    patchUserResource:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:PatchOp
+            Operations:
+            - op: replace
+              path: urn:scim:schemas:extension:FactSet:Core:1.0:User:roleName
+              value: Wealth Manager
+          schema:
+            $ref: '#/components/schemas/Patch'
+    groupResource:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/GroupResource'
+      description: Group resource.
+      required: true
+    patchGroupResource:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:PatchOp
+            Operations:
+            - op: add
+              path: members
+              value:
+              - value: FIN_WEALTH-123456
+          schema:
+            $ref: '#/components/schemas/Patch'
+    locationResource:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/LocationResource'
+      description: Location resource.
+      required: true
+    patchLocationResource:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:PatchOp
+            Operations:
+            - op: replace
+              path: externalId
+              value:
+              - value: exampleExternalId
+          schema:
+            $ref: '#/components/schemas/Patch'
+  responses:
+    invalidFilterError:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+            scimType: invalidFilter
+            detail: Invalid filter value.
+            status: "400"
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Invalid filter value provided.
+    invalidResourceProvidedError:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+            scimType: invalidValue
+            detail: Provided resource contains invalid data.
+            status: "400"
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Provided resource contains invalid data.
+    invalidPatchRequestError:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+            scimType: invalidValue
+            detail: Provided resource contains invalid data.
+            status: "400"
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Patch request invalid.
+    unauthorizedError:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: FactSet.net credentials are missing or invalid.
+            status: "401"
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: User has not been authenticated.
+    forbiddenError:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM API.
+            status: "403"
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: User is not authorized to use this API.
+    internalServerError:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Internal server error.
+    serviceProviderConfigSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/ServiceProviderConfig'
+      description: Success.
+    schemaSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Schema'
+      description: Success.
+    schemasSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/SchemaList'
+      description: Success.
+    userSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/UserResource'
+      description: Success.
+    usersSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/UserResourceList'
+      description: Success.
+    userNotFoundError:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: User FIN_WEALTH-123456 was not found.
+            status: "404"
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: User not found.
+    groupSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/GroupResource'
+      description: Success.
+    groupsSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/GroupResourceList'
+      description: Success.
+    groupNotFoundError:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: Group Domain btud - Pod 04 - CitrixApps - Cymba OMS was not found.
+            status: "404"
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Group not found.
+    locationSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/LocationResource'
+      description: Success.
+    locationsSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/LocationResourceList'
+      description: Success.
+    locationNotFoundError:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: Location 1598276 was not found.
+            status: "404"
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Location not found.
+    productSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/ProductResource'
+      description: Success.
+    productsSuccess:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/ProductResourceList'
+      description: Success.
+    productNotFoundError:
+      content:
+        application/scim+json:
+          example:
+            schemas:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: Product 6781 was not found.
+            status: "404"
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Product not found.
+    fileManagerAuditSuccess:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FileManagerAudit'
+      description: Success.
+  schemas:
+    ServiceProviderConfig:
+      properties:
+        schemas:
+          example:
+          - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+          items:
+            type: string
+          type: array
+        documentationUri:
+          description: An HTTP-addressable URL pointing to the service provider's
+            human-consumable help documentation.
+          example: https://developer-staging.factset.com/api-catalog/scim-api
+          readOnly: true
+          type: string
+        patch:
+          $ref: '#/components/schemas/ServiceProviderConfig_patch'
+        bulk:
+          $ref: '#/components/schemas/ServiceProviderConfig_bulk'
+        filter:
+          $ref: '#/components/schemas/ServiceProviderConfig_filter'
+        changePassword:
+          $ref: '#/components/schemas/ServiceProviderConfig_changePassword'
+        sort:
+          $ref: '#/components/schemas/ServiceProviderConfig_sort'
+        etag:
+          $ref: '#/components/schemas/ServiceProviderConfig_etag'
+        authenticationSchemes:
+          $ref: '#/components/schemas/ServiceProviderConfig_authenticationSchemes'
+      required:
+      - authenticationSchemes
+      - bulk
+      - changePassword
+      - etag
+      - filter
+      - patch
+      - sort
+      type: object
+    Schema:
+      properties:
+        id:
+          description: The unique URI of the schema. When applicable, service providers
+            MUST specify the URI.
+          example: urn:scim:schemas:extension:FactSet:Core:1.0:User
+          readOnly: true
+          type: string
+        name:
+          description: The schema's human-readable name.  When applicable, service
+            providers MUST specify the name, e.g., 'User'.
+          example: FactSet Core User
+          readOnly: true
+          type: string
+        description:
+          description: The schema's human-readable name.  When applicable, service
+            providers MUST specify the name, e.g., 'User'.
+          example: FactSet core user details
+          readOnly: true
+          type: string
+        attributes:
+          description: A complex attribute that includes the attributes of a schema.
+          example:
+          - name: username
+            type: string
+            multiValued: false
+            description: A FactSet "username" is FactSet's logical structure for grouping
+              serial numbers into like-groups based on roleName, geographical location
+              or line of business.
+            required: true
+            caseExact: false
+            mutability: immutable
+            returned: default
+            uniqueness: none
+          - name: serialNumber
+            type: string
+            multiValued: false
+            description: A serial number represents an individual's unique FactSet
+              account identifier and base-workstation access. Serial numbers are allocated
+              to an individual when a valid RoleName is present.
+            required: false
+            caseExact: false
+            mutability: readOnly
+            returned: default
+            uniqueness: global
+          - name: factSetNetId
+            type: string
+            multiValued: false
+            description: FactSet.net ID.
+            required: false
+            caseExact: false
+            mutability: readOnly
+            returned: default
+            uniqueness: global
+          - name: locationId
+            type: string
+            multiValued: false
+            description: Your reference to a distinct physical location in your organization
+              (such as an office)
+            required: true
+            caseExact: false
+            mutability: readWrite
+            returned: default
+            uniqueness: none
+          - name: roleName
+            type: string
+            multiValued: false
+            description: Predetermined role of specific individual. Issues individual
+              a base FactSet workstation and serial number. If passed as NULL a base-FactSet
+              workstation will be allocated to the individual granting the individual
+              a FactSet SerialNumber
+            required: false
+            caseExact: false
+            mutability: readWrite
+            returned: default
+            uniqueness: none
+          - name: productIds
+            type: integer
+            multiValued: true
+            description: An array of FactSet products to allocate/remove from an individual.
+              Individual must have a FactSet serial number associated with them.
+            required: false
+            mutability: readWrite
+            returned: default
+            uniqueness: none
+          - name: assertionValue
+            type: string
+            multiValued: false
+            description: Field containing the value, passed as nameID, used to assert
+              the identity of an individual via SAML2.0 which maps service-provider-side
+              to a FactSet serial number. Only applicable to individuals with a FactSet
+              serial number with a Federation setup between your domain and FactSet's
+            required: false
+            caseExact: false
+            mutability: readWrite
+            returned: default
+            uniqueness: server
+          items:
+            $ref: '#/components/schemas/Schema_attributes'
+          readOnly: true
+          type: array
+      required:
+      - attributes
+      - id
+      - name
+      type: object
+    SchemaList:
+      properties:
+        schemas:
+          example:
+          - urn:ietf:params:scim:api:messages:2.0:ListResponse
+          items:
+            type: string
+          type: array
+        totalResults:
+          example: 1
+          type: integer
+        Resources:
+          items:
+            $ref: '#/components/schemas/Schema'
+          type: array
+      type: object
+    UserResource:
+      properties:
+        schemas:
+          example:
+          - urn:ietf:params:scim:schemas:core:2.0:User
+          - urn:scim:schemas:extension:FactSet:Core:1.0:User
+          - urn:scim:schemas:extension:FactSet:VRS:1.0:User
+          items:
+            type: string
+          type: array
+        id:
+          example: FIN_WEALTH-123456
+          readOnly: true
+          type: string
+        externalId:
+          example: C3574707-FFF9-433C-A17F-DFF806C72A7F
+          type: string
+        userName:
+          description: Unique identifier for the User, typically used by the user
+            to directly authenticate to the service provider. Each User MUST include
+            a non-empty userName value.  This identifier MUST be unique across the
+            service provider's entire set of Users.
+          example: FIN_WEALTH-123456
+          readOnly: true
+          type: string
+        name:
+          $ref: '#/components/schemas/UserResource_name'
+        email:
+          description: Email addresses for the user.  The value SHOULD be canonicalized
+            by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'.
+          example: jdoe@factset.com
+          type: string
+        phoneNumbers:
+          description: Phone numbers for the User.  The value SHOULD be canonicalized
+            by the service provider according to the format specified in RFC 3966,
+            e.g., 'tel:+1-201-555-0123'. Canonical type values of 'main', 'work',
+            'mobile', and 'home'.
+          items:
+            $ref: '#/components/schemas/UserResource_phoneNumbers'
+          readOnly: true
+          type: array
+        groups:
+          description: A list of groups to which the user belongs, either through
+            direct membership, through nested groups, or dynamically calculated.
+          items:
+            $ref: '#/components/schemas/UserResource_groups'
+          readOnly: true
+          type: array
+        urn:scim:schemas:extension:FactSet:Core:1.0:User:
+          $ref: '#/components/schemas/UserResource_urn_scim_schemas_extension_FactSet_Core_1_0_User'
+        urn:scim:schemas:extension:FactSet:VRS:1.0:User:
+          $ref: '#/components/schemas/UserResource_urn_scim_schemas_extension_FactSet_VRS_1_0_User'
+        meta:
+          $ref: '#/components/schemas/UserResource_meta'
+      required:
+      - email
+      - name
+      - userName
+      type: object
+    UserResourceList:
+      properties:
+        schemas:
+          example:
+          - urn:ietf:params:scim:api:messages:2.0:ListResponse
+          items:
+            type: string
+          type: array
+        totalResults:
+          example: 1
+          type: integer
+        Resources:
+          items:
+            $ref: '#/components/schemas/UserResource'
+          type: array
+      type: object
+    GroupResource:
+      properties:
+        schemas:
+          example:
+          - urn:ietf:params:scim:schemas:core:2.0:Group
+          - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
+          - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+          items:
+            type: string
+          type: array
+        id:
+          example: eh:btud:Pod 04 - CitrixApps - Cymba OMS
+          readOnly: true
+          type: string
+        externalId:
+          example: B8FE8BBD-0E04-40B2-9BB3-E5EE17C4C9C9
+          type: string
+        displayName:
+          description: A human-readable name for the Group.
+          example: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+          type: string
+        description:
+          description: A description for the Group.
+          example: Group representing access to the Cymba OMS application.
+          type: string
+        members:
+          description: A list of members of the Group.
+          items:
+            $ref: '#/components/schemas/GroupResource_members'
+          type: array
+        urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group:
+          $ref: '#/components/schemas/GroupResource_urn_scim_schemas_extension_FactSet_EnterpriseHosting_1_0_Group'
+        urn:scim:schemas:extension:FactSet:VRS:1.0:Group:
+          $ref: '#/components/schemas/GroupResource_urn_scim_schemas_extension_FactSet_VRS_1_0_Group'
+        meta:
+          $ref: '#/components/schemas/GroupResource_meta'
+      type: object
+    GroupResourceList:
+      properties:
+        schemas:
+          example:
+          - urn:ietf:params:scim:api:messages:2.0:ListResponse
+          items:
+            type: string
+          type: array
+        totalResults:
+          example: 1
+          type: integer
+        Resources:
+          items:
+            $ref: '#/components/schemas/GroupResource'
+          type: array
+      type: object
+    LocationResource:
+      properties:
+        schemas:
+          example:
+          - urn:scim:schemas:extension:FactSet:Core:1.0:Location
+          items:
+            type: string
+          type: array
+        id:
+          example: "1598276"
+          readOnly: true
+          type: string
+        externalId:
+          example: "1598276"
+          type: string
+        name:
+          description: Name of the location.
+          example: FIN Wealth Management
+          readOnly: true
+          type: string
+        description:
+          description: Description of the location.
+          readOnly: true
+          type: string
+        address1:
+          description: First line of location's address.
+          example: 601 Main Avenue
+          readOnly: true
+          type: string
+        address2:
+          description: Second line of location's address.
+          example: Factset - First Floor
+          readOnly: true
+          type: string
+        address3:
+          description: Third line of location's address.
+          readOnly: true
+          type: string
+        locality:
+          description: City of location.
+          example: Norwalk
+          readOnly: true
+          type: string
+        region:
+          description: State or province of location.
+          example: Connecticut
+          readOnly: true
+          type: string
+        postalCode:
+          description: Postal code of location.
+          example: "06850"
+          readOnly: true
+          type: string
+        country:
+          description: Country of location.
+          example: United States
+          readOnly: true
+          type: string
+        phoneNumber:
+          description: Phone number of location.
+          readOnly: true
+          type: string
+        mainLocation:
+          allOf:
+          - $ref: '#/components/schemas/LocationResourceReference'
+          - readOnly: true
+        meta:
+          $ref: '#/components/schemas/LocationResource_meta'
+      type: object
+    LocationResourceList:
+      properties:
+        schemas:
+          example:
+          - urn:ietf:params:scim:api:messages:2.0:ListResponse
+          items:
+            type: string
+          type: array
+        totalResults:
+          example: 1
+          type: integer
+        Resources:
+          items:
+            $ref: '#/components/schemas/LocationResource'
+          type: array
+      type: object
+    LocationResourceReference:
+      properties:
+        value:
+          description: Identifier of the Location.
+          example: "1598276"
+          type: string
+        $ref:
+          description: The URI corresponding to a SCIM resource that is this Location.
+          example: https://api.factset.com/scim/v2/Locations/1598276
+          type: string
+        display:
+          description: A human-readable name, primarily used for display purposes.
+          example: FIN Wealth Management
+          type: string
+      required:
+      - value
+      type: object
+    ProductResource:
+      properties:
+        schemas:
+          example:
+          - urn:scim:schemas:extension:FactSet:Core:1.0:Product
+          items:
+            type: string
+          type: array
+        id:
+          example: "6781"
+          readOnly: true
+          type: string
+        name:
+          description: Name of product.
+          example: FactSet Identity
+          readOnly: true
+          type: string
+        description:
+          description: Details of product.
+          example: This workstation product will provide the user with a serial number
+            and a "blanket" login. Examples of when this can be used is for web only
+            users, notify clients, or to give users minimal access.
+          readOnly: true
+          type: string
+        groupDescription:
+          description: Description of the group the product belongs in, e.g. Exchange,
+            Product, Database, Workstation, etc.
+          example: Workstations
+          readOnly: true
+          type: string
+        workstation:
+          description: A boolean representing whether the product is base-level access
+            to FactSet, issuing the individual's serial number. Only one Product "id"
+            per individual will have this value set to true.
+          example: true
+          readOnly: true
+          type: boolean
+        requiresApproval:
+          description: A description of the type of approval required before an order
+            for this product can be fulfilled. This value is null for those products
+            that do not require any approval.
+          example: FactSet
+          readOnly: true
+          type: string
+        whitelist:
+          description: Whether the product appears in the requester's product whitelist.
+            Presence in the product whitelist means the requester is authorized to
+            order this product for other users.
+          example: true
+          readOnly: true
+          type: boolean
+        meta:
+          $ref: '#/components/schemas/ProductResource_meta'
+      required:
+      - whitelist
+      type: object
+    ProductResourceList:
+      properties:
+        schemas:
+          example:
+          - urn:ietf:params:scim:api:messages:2.0:ListResponse
+          items:
+            type: string
+          type: array
+        totalResults:
+          example: 1
+          type: integer
+        Resources:
+          items:
+            $ref: '#/components/schemas/ProductResource'
+          type: array
+      type: object
+    ProductResourceReference:
+      properties:
+        value:
+          example: "6781"
+          type: string
+        $ref:
+          example: https://api.factset.com/scim/v2/Products/6781
+          type: string
+        display:
+          example: FactSet Identity
+          type: string
+      required:
+      - value
+      type: object
+    PendingProductOrder:
+      properties:
+        product:
+          $ref: '#/components/schemas/ProductResourceReference'
+        type:
+          description: Type of product order, e.g. 'Add' or 'Remove'.
+          example: Add
+          readOnly: true
+          type: string
+        status:
+          description: Status of the pending product order.
+          example: Processing
+          readOnly: true
+          type: string
+        requested:
+          description: Date and time when product was ordered.
+          example: 2019-06-07T08:59:37+00:00
+          readOnly: true
+          type: string
+      required:
+      - product
+      - requested
+      - status
+      - type
+      type: object
+    FileManagerAudit:
+      example:
+      - username: fds_demo_va_sc
+        paths:
+          /sc/fds_demo_va_sc/:
+          - entity:
+              name: fds_demo_eur:245600
+              type: user
+            permissions:
+              read: true
+              write: true
+              maintain: true
+            permission-overrides:
+              read: true
+              write: true
+              maintain: true
+            inheritance-distance: 0
+      items:
+        properties:
+          username:
+            description: The FactSet username associated with the file paths.
+            type: string
+          paths:
+            additionalProperties:
+              description: A file path and its associated attributes.
+              items:
+                description: Attributes of the file.
+                properties:
+                  entity:
+                    description: The entity associated with the file's attributes.
+                    properties:
+                      name:
+                        description: The name of the entity.
+                        type: string
+                      type:
+                        description: The type of the entity.
+                        type: string
+                    required:
+                    - name
+                    - type
+                    type: object
+                  permissions:
+                    description: Object describing the permissions the associated
+                      entity has regarding the associated file.
+                    properties:
+                      read:
+                        description: Whether the associated entity has permission
+                          to read the associated file.
+                        type: boolean
+                      write:
+                        description: Whether the associated entity has permission
+                          to write the associated file.
+                        type: boolean
+                      maintain:
+                        description: Whether the associated entity has permission
+                          to maintain the associated file.
+                        type: boolean
+                    required:
+                    - maintain
+                    - read
+                    - write
+                    type: object
+                  permission-override:
+                    properties:
+                      read:
+                        type: boolean
+                      write:
+                        type: boolean
+                      maintain:
+                        type: boolean
+                    required:
+                    - maintain
+                    - read
+                    - write
+                    type: object
+                  inheritance-distance:
+                    type: integer
+                required:
+                - entity
+                - permissions
+                type: object
+              type: array
+            description: Object containing all file paths and their associated attributes.
+            type: object
+        required:
+        - paths
+        - username
+        type: object
+      type: array
+    Patch:
+      properties:
+        schemas:
+          items:
+            type: string
+          type: array
+        Operations:
+          items:
+            $ref: '#/components/schemas/Patch_Operations'
+          type: array
+      type: object
+    Error:
+      properties:
+        schemas:
+          example:
+          - urn:ietf:params:scim:api:messages:2.0:Error
+          items:
+            type: string
+          type: array
+        scimType:
+          example: invalidValue
+          type: string
+        detail:
+          description: A detailed human-readable message.
+          example: An unhandled exception occurred.
+          type: string
+        status:
+          description: HTTP status code.
+          example: "500"
+          type: string
+      type: object
+    ServiceProviderConfig_patch:
+      description: A complex type that specifies PATCH configuration options.
+      properties:
+        supported:
+          description: A Boolean value specifying whether or not the operation is
+            supported.
+          example: false
+          readOnly: true
+          type: boolean
+      readOnly: true
+      required:
+      - supported
+      type: object
+    ServiceProviderConfig_bulk:
+      description: A complex type that specifies bulk configuration options.
+      properties:
+        supported:
+          description: A Boolean value specifying whether or not the operation is
+            supported.
+          example: false
+          readOnly: true
+          type: boolean
+        maxOperations:
+          description: An integer value specifying the maximum number of operations.
+          example: 0
+          readOnly: true
+          type: integer
+        maxPayloadSize:
+          description: An integer value specifying the maximum payload size in bytes.
+          example: 0
+          readOnly: true
+          type: integer
+      required:
+      - maxOperations
+      - maxPayloadSize
+      - supported
+      type: object
+    ServiceProviderConfig_filter:
+      description: A complex type that specifies FILTER options.
+      properties:
+        supported:
+          description: A Boolean value specifying whether or not the operation is
+            supported.
+          example: false
+          readOnly: true
+          type: boolean
+        maxResults:
+          description: An integer value specifying the maximum number of resources
+            returned in a response.
+          example: 0
+          readOnly: true
+          type: integer
+      required:
+      - maxResults
+      - supported
+      type: object
+    ServiceProviderConfig_changePassword:
+      description: A complex type that specifies configuration options related to
+        changing a password.
+      properties:
+        supported:
+          description: A Boolean value specifying whether or not the operation is
+            supported.
+          example: false
+          readOnly: true
+          type: boolean
+      required:
+      - supported
+      type: object
+    ServiceProviderConfig_sort:
+      description: A complex type that specifies sort result options.
+      properties:
+        supported:
+          description: A Boolean value specifying whether or not the operation is
+            supported.
+          example: false
+          readOnly: true
+          type: boolean
+      required:
+      - supported
+      type: object
+    ServiceProviderConfig_etag:
+      description: A complex type that specifies ETag configuration options.
+      properties:
+        supported:
+          description: A Boolean value specifying whether or not the operation is
+            supported.
+          example: false
+          readOnly: true
+          type: boolean
+      required:
+      - supported
+      type: object
+    ServiceProviderConfig_authenticationSchemes:
+      description: A complex type that specifies supported authentication scheme properties.
+      properties:
+        type:
+          description: The authentication scheme.
+          example: httpbasic
+          readOnly: true
+          type: string
+        name:
+          description: The common authentication scheme name, e.g., HTTP Basic.
+          example: HTTP Basic
+          readOnly: true
+          type: string
+        description:
+          description: A description of the authentication scheme.
+          example: FactSet API key authentication.
+          readOnly: true
+          type: string
+        specUri:
+          description: An HTTP-addressable URL pointing to the authentication scheme's
+            specification.
+          example: https://datatracker.ietf.org/doc/rfc7617/
+          readOnly: true
+          type: string
+        documentationUri:
+          description: An HTTP-addressable URL pointing to the authentication scheme's
+            usage documentation.
+          example: https://developer.factset.com/authentication
+          readOnly: true
+          type: string
+      required:
+      - description
+      - name
+      - type
+      type: object
+    Schema_subAttributes:
+      properties:
+        name:
+          description: The attribute's name.
+          readOnly: true
+          type: string
+        type:
+          description: The attribute's data type. Valid values include 'string', 'complex',
+            'boolean', 'decimal', 'integer', 'dateTime', 'reference'.
+          readOnly: true
+          type: string
+        multiValued:
+          description: A Boolean value indicating an attribute's plurality.
+          readOnly: true
+          type: boolean
+        description:
+          description: A human-readable description of the attribute.
+          readOnly: true
+          type: string
+        required:
+          description: A boolean value indicating whether or not the attribute is
+            required.
+          readOnly: true
+          type: boolean
+        canonicalValues:
+          description: A collection of canonical values.  When applicable, service
+            providers MUST specify the canonical types, e.g.,  'work', 'home'.
+          items:
+            type: string
+          readOnly: true
+          type: array
+        caseExact:
+          description: A Boolean value indicating whether or not a string attribute
+            is case sensitive.
+          readOnly: true
+          type: boolean
+        mutability:
+          description: Indicates whether or not an attribute is modifiable.
+          readOnly: true
+          type: string
+        returned:
+          description: Indicates when an attribute is returned in a response (e.g.,
+            to a query).
+          readOnly: true
+          type: string
+        uniqueness:
+          description: Indicates how unique a value must be.
+          readOnly: true
+          type: string
+        referenceTypes:
+          description: Used only with an attribute of type 'reference'.  Specifies
+            a SCIM resourceType that a reference attribute MAY refer to, e.g., 'User'.
+          items:
+            type: string
+          readOnly: true
+          type: array
+      required:
+      - multiValued
+      - name
+      - type
+      type: object
+    Schema_attributes:
+      properties:
+        name:
+          description: The attribute's name.
+          readOnly: true
+          type: string
+        type:
+          description: The attribute's data type. Valid values include 'string', 'complex',
+            'boolean', 'decimal', 'integer', 'dateTime', 'reference'.
+          readOnly: true
+          type: string
+        multiValued:
+          description: A Boolean value indicating an attribute's plurality.
+          readOnly: true
+          type: boolean
+        description:
+          description: A human-readable description of the attribute.
+          readOnly: true
+          type: string
+        required:
+          description: A boolean value indicating whether or not the attribute is
+            required.
+          readOnly: true
+          type: boolean
+        canonicalValues:
+          description: A collection of canonical values.  When applicable, service
+            providers MUST specify the canonical types, e.g.,  'work', 'home'.
+          items:
+            type: string
+          readOnly: true
+          type: array
+        caseExact:
+          description: A Boolean value indicating whether or not a string attribute
+            is case sensitive.
+          readOnly: true
+          type: boolean
+        mutability:
+          description: Indicates whether or not an attribute is modifiable.
+          readOnly: true
+          type: string
+        returned:
+          description: Indicates when an attribute is returned in a response (e.g.,
+            to a query).
+          readOnly: true
+          type: string
+        uniqueness:
+          description: Indicates how unique a value must be.
+          readOnly: true
+          type: string
+        referenceTypes:
+          description: Used only with an attribute of type 'reference'.  Specifies
+            a SCIM resourceType that a reference attribute MAY refer to, e.g., 'User'.
+          items:
+            type: string
+          readOnly: true
+          type: array
+        subAttributes:
+          description: Used to define the sub-attributes of a complex attribute.
+          items:
+            $ref: '#/components/schemas/Schema_subAttributes'
+          readOnly: true
+          type: array
+      required:
+      - multiValued
+      - name
+      - type
+      type: object
+    UserResource_name:
+      description: The components of the user's real name. Providers MAY return just
+        the full name as a single string in the formatted sub-attribute, or they MAY
+        return just the individual component attributes using the other sub-attributes,
+        or they MAY return both.  If both variants are returned, they SHOULD be describing
+        the same name, with the formatted name indicating how the component attributes
+        should be combined.
+      properties:
+        familyName:
+          description: The family name of the User, or last name in most Western languages
+            (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III').
+          example: Doe
+          type: string
+        givenName:
+          description: The given name of the User, or first name in most Western languages
+            (e.g., 'Barbara' given the full name 'Ms. Barbara J Jensen, III').
+          example: John
+          type: string
+      required:
+      - familyName
+      - givenName
+      type: object
+    UserResource_phoneNumbers:
+      properties:
+        value:
+          description: Phone number of the User.
+          example: tel:5558675309
+          readOnly: true
+          type: string
+        display:
+          description: A human-readable name, primarily used for display purposes.  READ-ONLY.
+          example: (555) 867-5309
+          readOnly: true
+          type: string
+        type:
+          description: A label indicating the attribute's function, e.g., 'work',
+            'home', 'mobile'.
+          example: work
+          readOnly: true
+          type: string
+        primary:
+          description: A Boolean value indicating the 'primary' or preferred attribute
+            value for this attribute, e.g., the preferred phone number or primary
+            phone number.  The primary attribute value 'true' MUST appear no more
+            than once.
+          example: true
+          readOnly: true
+          type: boolean
+      type: object
+    UserResource_groups:
+      properties:
+        value:
+          description: The identifier of the User's group.
+          example: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+          readOnly: true
+          type: string
+        $ref:
+          description: The URI of the corresponding 'Group' resource to which the
+            user belongs.
+          example: https://api.factset.com/scim/v2/Groups/Domain%20btud%20-%20Pod%2004%20-%20CitrixApps%20-%20Cymba%20OMS
+          readOnly: true
+          type: string
+        display:
+          description: A human-readable name, primarily used for display purposes.  READ-ONLY.
+          example: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+          readOnly: true
+          type: string
+      type: object
+    UserResource_urn_scim_schemas_extension_FactSet_Core_1_0_User:
+      properties:
+        username:
+          description: A FactSet "username" is FactSet's logical structure for grouping
+            serial numbers into like-groups based on roleName, geographical location
+            or line of business.
+          example: FIN_WEALTH
+          type: string
+        serialNumber:
+          description: A serial number represents an individual's unique FactSet account
+            identifier and base-workstation access. Serial numbers are allocated to
+            an individual when a valid RoleName is present.
+          example: "123456"
+          readOnly: true
+          type: string
+        factSetNetId:
+          description: FactSet.net ID.
+          example: John.Doe9@factset.net
+          readOnly: true
+          type: string
+        location:
+          $ref: '#/components/schemas/LocationResourceReference'
+        roleName:
+          description: Predetermined role of specific individual. Issues individual
+            a base FactSet workstation and serial number. If passed as NULL a base-FactSet
+            workstation will be allocated to the individual granting the individual
+            a FactSet SerialNumber
+          example: Wealth Manager
+          type: string
+        products:
+          description: An array of FactSet products to allocate/remove from an individual.
+            Individual must have a FactSet serial number associated with them.
+          items:
+            $ref: '#/components/schemas/ProductResourceReference'
+          type: array
+        pendingProductOrders:
+          description: An array of pending FactSet product orders.
+          items:
+            $ref: '#/components/schemas/PendingProductOrder'
+          readOnly: true
+          type: array
+        assertionValue:
+          description: Field containing the value, passed as nameID, used to assert
+            the identity of an individual via SAML2.0 which maps service-provider-side
+            to a FactSet serial number. Only applicable to individuals with a FactSet
+            serial number with a Federation setup between your domain and FactSet's
+          example: exampleAssertionValue
+          type: string
+      required:
+      - username
+      type: object
+    UserResource_urn_scim_schemas_extension_FactSet_VRS_1_0_User_tenancies:
+      description: List of tenancies where the User exists in the associated domain.
+      properties:
+        value:
+          description: Name of a tenant.
+          example: MASTER
+          type: string
+      required:
+      - value
+      type: object
+    UserResource_urn_scim_schemas_extension_FactSet_VRS_1_0_User_domainData:
+      properties:
+        domainCode:
+          description: Unique identifier for the Vermilion domain.
+          example: btud
+          type: string
+        tenancies:
+          $ref: '#/components/schemas/UserResource_urn_scim_schemas_extension_FactSet_VRS_1_0_User_tenancies'
+        isAdministrator:
+          description: Whether the User is an administrator in the associated domain.
+          example: false
+          type: boolean
+        password:
+          description: Password of the User in the associated domain. May be null
+            upon creation of the User, but afterward may not change from a non-null
+            to a null value.
+          type: string
+      required:
+      - domainCode
+      - isAdministrator
+      - tenancies
+      type: object
+    UserResource_urn_scim_schemas_extension_FactSet_VRS_1_0_User:
+      properties:
+        domainData:
+          description: A set of attributes pertaining to individual Vermilion domains.
+          items:
+            $ref: '#/components/schemas/UserResource_urn_scim_schemas_extension_FactSet_VRS_1_0_User_domainData'
+          type: array
+      type: object
+    UserResource_meta:
+      properties:
+        resourceType:
+          example: User
+          type: string
+        created:
+          example: 2019-02-11T15:33:31.077+00:00
+          type: string
+        lastModified:
+          example: 2019-06-07T08:59:37+00:00
+          type: string
+        location:
+          example: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+          type: string
+      readOnly: true
+      type: object
+    GroupResource_members:
+      properties:
+        value:
+          description: Identifier of the member of this Group.
+          example: FIN_WEALTH-123456
+          type: string
+        $ref:
+          description: The URI corresponding to a SCIM resource that is a member of
+            this Group.
+          example: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+          type: string
+        type:
+          description: A label indicating the type of resource, e.g., 'User' or 'Group'.
+          example: User
+          type: string
+      type: object
+    GroupResource_urn_scim_schemas_extension_FactSet_EnterpriseHosting_1_0_Group:
+      properties:
+        domainCode:
+          description: Domain code of the Enterprise Hosting pod containing this group.
+          example: btud
+          readOnly: true
+          type: string
+      readOnly: true
+      required:
+      - domainCode
+      type: object
+    GroupResource_urn_scim_schemas_extension_FactSet_VRS_1_0_Group:
+      properties:
+        tenant:
+          description: The tenant this role is in
+          example: QA
+          type: string
+        domainCode:
+          description: Domain code of Enterprise Hosting pod in which user resides.
+            REQUIRED.
+          example: btud
+          type: string
+      required:
+      - domainCode
+      type: object
+    GroupResource_meta:
+      properties:
+        resourceType:
+          example: Group
+          type: string
+        created:
+          example: 2019-02-11T15:33:31.077+00:00
+          type: string
+        lastModified:
+          example: 2019-06-07T08:59:37+00:00
+          type: string
+        location:
+          example: https://api.factset.com/scim/v2/Groups/eh%3Abtud%3APod%2004%20-%20CitrixApps%20-%20Cymba%20OMS
+          type: string
+      readOnly: true
+      type: object
+    LocationResource_meta:
+      properties:
+        resourceType:
+          example: Location
+          type: string
+        created:
+          example: 2019-02-11T08:44:19+00:00
+          type: string
+        lastModified:
+          example: 2021-01-12T03:11:13+00:00
+          type: string
+        location:
+          example: https://api.factset.com/scim/v2/Locations/1598276
+          type: string
+      readOnly: true
+      type: object
+    ProductResource_meta:
+      properties:
+        resourceType:
+          example: Product
+          type: string
+        location:
+          example: https://api.factset.com/scim/v2/Products/6781
+          type: string
+      readOnly: true
+      type: object
+    Patch_Operations:
+      properties:
+        op:
+          type: string
+        path:
+          type: string
+        value:
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -1,0 +1,1967 @@
+openapi: 3.0.0
+info:
+  title: FactSet SCIM API
+  version: 2.0.0
+  description: FactSet's SCIM API implementation.
+servers:
+  - url: https://api.factset.com/scim/v2/
+    description: Production environment
+  - url: https://api.uat.factset.com/scim/v2/
+    description: UAT environment
+paths:
+  /ServiceProviderConfig:
+    get:
+      tags:
+        - Server configuration
+      summary: Get server configuration.
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/serviceProviderConfigSuccess'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /Schemas:
+    get:
+      tags:
+        - Schemas
+      summary: Get a list of schemas.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/startIndex'
+        - $ref: '#/components/parameters/count'
+      responses:
+        '200':
+          $ref: '#/components/responses/schemasSuccess'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /Schemas/{id}:
+    get:
+      tags:
+        - Schemas
+      summary: Get a schema.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '200':
+          $ref: '#/components/responses/schemaSuccess'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '404':
+          description: Schema not found.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: >-
+                  Schema urn:scim:schemas:extension:FactSet:Core:1.0:User not
+                  found
+                status: '404'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /Users:
+    get:
+      tags:
+        - Users
+      summary: Get a list of users.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/startIndex'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+      responses:
+        '200':
+          $ref: '#/components/responses/usersSuccess'
+        '400':
+          $ref: '#/components/responses/invalidFilterError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    post:
+      tags:
+        - Users
+      summary: Create a user.
+      security:
+        - basicAuth: []
+      requestBody:
+        $ref: '#/components/requestBodies/userResource'
+      responses:
+        '201':
+          $ref: '#/components/responses/userSuccess'
+        '400':
+          $ref: '#/components/responses/invalidResourceProvidedError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /Users/{id}:
+    get:
+      tags:
+        - Users
+      summary: Get a user.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '200':
+          $ref: '#/components/responses/userSuccess'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/userNotFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    put:
+      tags:
+        - Users
+      summary: Replace a user.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      requestBody:
+        $ref: '#/components/requestBodies/userResource'
+      responses:
+        '200':
+          $ref: '#/components/responses/userSuccess'
+        '400':
+          $ref: '#/components/responses/invalidResourceProvidedError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/userNotFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    patch:
+      tags:
+        - Users
+      summary: Patch a user (add, replace, or remove attributes of a user.)
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      requestBody:
+        $ref: '#/components/requestBodies/patchUserResource'
+      responses:
+        '200':
+          $ref: '#/components/responses/userSuccess'
+        '400':
+          $ref: '#/components/responses/invalidPatchRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    delete:
+      tags:
+        - Users
+      summary: Delete a user
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '204':
+          description: User successfully deleted.
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/userNotFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /Groups:
+    get:
+      tags:
+        - Groups
+      summary: Get a list of groups.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/startIndex'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+      responses:
+        '200':
+          $ref: '#/components/responses/groupsSuccess'
+        '400':
+          $ref: '#/components/responses/invalidFilterError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /Group/{id}:
+    get:
+      tags:
+        - Groups
+      summary: Get a group.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '200':
+          $ref: '#/components/responses/groupSuccess'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/groupNotFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    put:
+      tags:
+        - Groups
+      summary: Replace a group.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      requestBody:
+        $ref: '#/components/requestBodies/groupResource'
+      responses:
+        '200':
+          $ref: '#/components/responses/groupSuccess'
+        '400':
+          $ref: '#/components/responses/invalidResourceProvidedError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/groupNotFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    patch:
+      tags:
+        - Groups
+      summary: Patch a group (add, replace, or remove attributes of a group.)
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      requestBody:
+        $ref: '#/components/requestBodies/patchGroupResource'
+      responses:
+        '200':
+          $ref: '#/components/responses/groupSuccess'
+        '400':
+          $ref: '#/components/responses/invalidPatchRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /Locations:
+    get:
+      tags:
+        - Locations
+      summary: Get a list of locations.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/startIndex'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+      responses:
+        '200':
+          $ref: '#/components/responses/locationsSuccess'
+        '400':
+          $ref: '#/components/responses/invalidFilterError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /Locations/{id}:
+    get:
+      tags:
+        - Locations
+      summary: Get a location.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '200':
+          $ref: '#/components/responses/locationSuccess'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/locationNotFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    put:
+      tags:
+        - Locations
+      summary: Replace a location.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      requestBody:
+        $ref: '#/components/requestBodies/locationResource'
+      responses:
+        '200':
+          $ref: '#/components/responses/locationSuccess'
+        '400':
+          $ref: '#/components/responses/invalidResourceProvidedError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/locationNotFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+    patch:
+      tags:
+        - Locations
+      summary: Patch a location (add, replace, or remove attributes of a location.)
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      requestBody:
+        $ref: '#/components/requestBodies/patchLocationResource'
+      responses:
+        '200':
+          $ref: '#/components/responses/locationSuccess'
+        '400':
+          $ref: '#/components/responses/invalidPatchRequestError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /Products:
+    get:
+      tags:
+        - Products
+      summary: Get a list of products.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/startIndex'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+      responses:
+        '200':
+          $ref: '#/components/responses/productsSuccess'
+        '400':
+          $ref: '#/components/responses/invalidFilterError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /Products/{id}:
+    get:
+      tags:
+        - Products
+      summary: Get a product.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '200':
+          $ref: '#/components/responses/productSuccess'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/productNotFoundError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+  /FileManagerAudit:
+    get:
+      tags:
+        - FileManagerAudit
+      summary: Get File Manager audit data.
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/fileManagerAuditSuccess'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    resourceId:
+      name: id
+      description: ID of resource.
+      in: path
+      schema:
+        type: string
+      required: true
+    filter:
+      name: filter
+      description: >-
+        Resource filter string. See [RFC 7644 section
+        3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for
+        syntax. Note this API implementation also supports a non-standard "re"
+        operator for regular expression matching against strings.
+      in: query
+      schema:
+        type: string
+      required: false
+    startIndex:
+      name: startIndex
+      description: >-
+        Result start index. The one-based index of the first result to be
+        returned in the list of resources. For example, to exclude the first two
+        resources, use a *startIndex* value of 3. This parameter has a default
+        value of 1. This index applies *after* any resource filtration has been
+        applied as specified by the *filter* argument.
+      in: query
+      schema:
+        type: integer
+      required: false
+    count:
+      name: count
+      description: >-
+        Maximum resource count. The server will not return more resources than
+        this value, although it may return fewer.
+      in: query
+      schema:
+        type: integer
+      required: false
+    attributes:
+      name: attributes
+      description: >-
+        Attribute whitelist filter string. A comma-separated list of resource
+        attribute names to be returned in the response, overriding the set of
+        attributes that would be returned by default. Attribute names must be
+        specified in standard attribute notation (see [RFC 7644 section
+        3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+        parameter cannot be used with the *excludedAttributes* parameter.
+      in: query
+      schema:
+        type: string
+      required: false
+    excludedAttributes:
+      name: excludedAttributes
+      description: >-
+        Attribute blacklist filter string. A comma-separated list of resource
+        attribute names to be excluded in the response, overriding the set of
+        attributes that would be returned by default. Attribute names must be
+        specified in standard attribute notation (see [RFC 7644 section
+        3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+        parameter cannot be used with the *attributes* parameter.
+      in: query
+      schema:
+        type: string
+      required: false
+  requestBodies:
+    userResource:
+      description: User resource.
+      required: true
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/UserResource'
+          examples:
+            Minimum:
+              value:
+                schemas:
+                  - urn:ietf:params:scim:schemas:core:2.0:User
+                  - urn:scim:schemas:extension:FactSet:Core:1.0:User
+                name:
+                  familyName: Doe
+                  givenName: John
+                email: jdoe@factset.com
+                urn:scim:schemas:extension:FactSet:Core:1.0:User:
+                  username: FIN_WEALTH
+                  location:
+                    value: '1598276'
+            Expanded:
+              value:
+                schemas:
+                  - urn:ietf:params:scim:schemas:core:2.0:User
+                  - urn:scim:schemas:extension:FactSet:Core:1.0:User
+                externalId: C3574707-FFF9-433C-A17F-DFF806C72A7F
+                name:
+                  familyName: Doe
+                  givenName: John
+                email: jdoe@factset.com
+                urn:scim:schemas:extension:FactSet:Core:1.0:User:
+                  username: FIN_WEALTH
+                  location:
+                    value: '1598276'
+                  roleName: Wealth Manager
+                  products:
+                    - value: '1396'
+                  assertionValue: exampleAssertionValue
+    patchUserResource:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Patch'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:PatchOp
+            Operations:
+              - op: replace
+                path: urn:scim:schemas:extension:FactSet:Core:1.0:User:roleName
+                value: Wealth Manager
+    groupResource:
+      description: Group resource.
+      required: true
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/GroupResource'
+    patchGroupResource:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Patch'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:PatchOp
+            Operations:
+              - op: add
+                path: members
+                value:
+                  - value: FIN_WEALTH-123456
+    locationResource:
+      description: Location resource.
+      required: true
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/LocationResource'
+    patchLocationResource:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Patch'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:PatchOp
+            Operations:
+              - op: replace
+                path: externalId
+                value:
+                  - value: exampleExternalId
+  responses:
+    invalidFilterError:
+      description: Invalid filter value provided.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            scimType: invalidFilter
+            detail: Invalid filter value.
+            status: '400'
+    invalidResourceProvidedError:
+      description: Provided resource contains invalid data.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            scimType: invalidValue
+            detail: Provided resource contains invalid data.
+            status: '400'
+    invalidPatchRequestError:
+      description: Patch request invalid.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            scimType: invalidValue
+            detail: Provided resource contains invalid data.
+            status: '400'
+    unauthorizedError:
+      description: User has not been authenticated.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: FactSet.net credentials are missing or invalid.
+            status: '401'
+    forbiddenError:
+      description: User is not authorized to use this API.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM API.
+            status: '403'
+    internalServerError:
+      description: Internal server error.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    serviceProviderConfigSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/ServiceProviderConfig'
+    schemaSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Schema'
+    schemasSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/SchemaList'
+    userSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/UserResource'
+    usersSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/UserResourceList'
+    userNotFoundError:
+      description: User not found.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: User FIN_WEALTH-123456 was not found.
+            status: '404'
+    groupSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/GroupResource'
+    groupsSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/GroupResourceList'
+    groupNotFoundError:
+      description: Group not found.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: Group Domain btud - Pod 04 - CitrixApps - Cymba OMS was not found.
+            status: '404'
+    locationSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/LocationResource'
+    locationsSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/LocationResourceList'
+    locationNotFoundError:
+      description: Location not found.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: Location 1598276 was not found.
+            status: '404'
+    productSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/ProductResource'
+    productsSuccess:
+      description: Success.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/ProductResourceList'
+    productNotFoundError:
+      description: Product not found.
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            schemas:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+            detail: Product 6781 was not found.
+            status: '404'
+    fileManagerAuditSuccess:
+      description: Success.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FileManagerAudit'
+  schemas:
+    ServiceProviderConfig:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+        documentationUri:
+          type: string
+          description: >-
+            An HTTP-addressable URL pointing to the service provider's
+            human-consumable help documentation.
+          readOnly: true
+          example: https://developer-staging.factset.com/api-catalog/scim-api
+        patch:
+          type: object
+          description: A complex type that specifies PATCH configuration options.
+          properties:
+            supported:
+              type: boolean
+              description: >-
+                A Boolean value specifying whether or not the operation is
+                supported.
+              readOnly: true
+              example: false
+          required:
+            - supported
+          readOnly: true
+        bulk:
+          type: object
+          description: A complex type that specifies bulk configuration options.
+          properties:
+            supported:
+              type: boolean
+              description: >-
+                A Boolean value specifying whether or not the operation is
+                supported.
+              readOnly: true
+              example: false
+            maxOperations:
+              type: integer
+              description: An integer value specifying the maximum number of operations.
+              readOnly: true
+              example: 0
+            maxPayloadSize:
+              type: integer
+              description: An integer value specifying the maximum payload size in bytes.
+              readOnly: true
+              example: 0
+          required:
+            - supported
+            - maxOperations
+            - maxPayloadSize
+        filter:
+          type: object
+          description: A complex type that specifies FILTER options.
+          properties:
+            supported:
+              type: boolean
+              description: >-
+                A Boolean value specifying whether or not the operation is
+                supported.
+              readOnly: true
+              example: false
+            maxResults:
+              type: integer
+              description: >-
+                An integer value specifying the maximum number of resources
+                returned in a response.
+              readOnly: true
+              example: 0
+          required:
+            - supported
+            - maxResults
+        changePassword:
+          type: object
+          description: >-
+            A complex type that specifies configuration options related to
+            changing a password.
+          properties:
+            supported:
+              type: boolean
+              description: >-
+                A Boolean value specifying whether or not the operation is
+                supported.
+              readOnly: true
+              example: false
+          required:
+            - supported
+        sort:
+          type: object
+          description: A complex type that specifies sort result options.
+          properties:
+            supported:
+              type: boolean
+              description: >-
+                A Boolean value specifying whether or not the operation is
+                supported.
+              readOnly: true
+              example: false
+          required:
+            - supported
+        etag:
+          type: object
+          description: A complex type that specifies ETag configuration options.
+          properties:
+            supported:
+              type: boolean
+              description: >-
+                A Boolean value specifying whether or not the operation is
+                supported.
+              readOnly: true
+              example: false
+          required:
+            - supported
+        authenticationSchemes:
+          type: object
+          description: >-
+            A complex type that specifies supported authentication scheme
+            properties.
+          properties:
+            type:
+              type: string
+              description: The authentication scheme.
+              readOnly: true
+              example: httpbasic
+            name:
+              type: string
+              description: The common authentication scheme name, e.g., HTTP Basic.
+              readOnly: true
+              example: HTTP Basic
+            description:
+              type: string
+              description: A description of the authentication scheme.
+              readOnly: true
+              example: FactSet API key authentication.
+            specUri:
+              type: string
+              description: >-
+                An HTTP-addressable URL pointing to the authentication scheme's
+                specification.
+              readOnly: true
+              example: https://datatracker.ietf.org/doc/rfc7617/
+            documentationUri:
+              type: string
+              description: >-
+                An HTTP-addressable URL pointing to the authentication scheme's
+                usage documentation.
+              readOnly: true
+              example: https://developer.factset.com/authentication
+          required:
+            - type
+            - name
+            - description
+      required:
+        - patch
+        - bulk
+        - filter
+        - changePassword
+        - sort
+        - etag
+        - authenticationSchemes
+    Schema:
+      type: object
+      properties:
+        id:
+          type: string
+          description: >-
+            The unique URI of the schema. When applicable, service providers
+            MUST specify the URI.
+          readOnly: true
+          example: urn:scim:schemas:extension:FactSet:Core:1.0:User
+        name:
+          type: string
+          description: >-
+            The schema's human-readable name.  When applicable, service
+            providers MUST specify the name, e.g., 'User'.
+          readOnly: true
+          example: FactSet Core User
+        description:
+          type: string
+          description: >-
+            The schema's human-readable name.  When applicable, service
+            providers MUST specify the name, e.g., 'User'.
+          readOnly: true
+          example: FactSet core user details
+        attributes:
+          type: array
+          description: A complex attribute that includes the attributes of a schema.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: The attribute's name.
+                readOnly: true
+              type:
+                type: string
+                description: >-
+                  The attribute's data type. Valid values include 'string',
+                  'complex', 'boolean', 'decimal', 'integer', 'dateTime',
+                  'reference'.
+                readOnly: true
+              multiValued:
+                type: boolean
+                description: A Boolean value indicating an attribute's plurality.
+                readOnly: true
+              description:
+                type: string
+                description: A human-readable description of the attribute.
+                readOnly: true
+              required:
+                type: boolean
+                description: >-
+                  A boolean value indicating whether or not the attribute is
+                  required.
+                readOnly: true
+              canonicalValues:
+                type: array
+                description: >-
+                  A collection of canonical values.  When applicable, service
+                  providers MUST specify the canonical types, e.g.,  'work',
+                  'home'.
+                items:
+                  type: string
+                readOnly: true
+              caseExact:
+                type: boolean
+                description: >-
+                  A Boolean value indicating whether or not a string attribute
+                  is case sensitive.
+                readOnly: true
+              mutability:
+                type: string
+                description: Indicates whether or not an attribute is modifiable.
+                readOnly: true
+              returned:
+                type: string
+                description: >-
+                  Indicates when an attribute is returned in a response (e.g.,
+                  to a query).
+                readOnly: true
+              uniqueness:
+                type: string
+                description: Indicates how unique a value must be.
+                readOnly: true
+              referenceTypes:
+                type: array
+                description: >-
+                  Used only with an attribute of type 'reference'.  Specifies a
+                  SCIM resourceType that a reference attribute MAY refer to,
+                  e.g., 'User'.
+                items:
+                  type: string
+                readOnly: true
+              subAttributes:
+                type: array
+                description: Used to define the sub-attributes of a complex attribute.
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: The attribute's name.
+                      readOnly: true
+                    type:
+                      type: string
+                      description: >-
+                        The attribute's data type. Valid values include
+                        'string', 'complex', 'boolean', 'decimal', 'integer',
+                        'dateTime', 'reference'.
+                      readOnly: true
+                    multiValued:
+                      type: boolean
+                      description: A Boolean value indicating an attribute's plurality.
+                      readOnly: true
+                    description:
+                      type: string
+                      description: A human-readable description of the attribute.
+                      readOnly: true
+                    required:
+                      type: boolean
+                      description: >-
+                        A boolean value indicating whether or not the attribute
+                        is required.
+                      readOnly: true
+                    canonicalValues:
+                      type: array
+                      description: >-
+                        A collection of canonical values.  When applicable,
+                        service providers MUST specify the canonical types,
+                        e.g.,  'work', 'home'.
+                      items:
+                        type: string
+                      readOnly: true
+                    caseExact:
+                      type: boolean
+                      description: >-
+                        A Boolean value indicating whether or not a string
+                        attribute is case sensitive.
+                      readOnly: true
+                    mutability:
+                      type: string
+                      description: Indicates whether or not an attribute is modifiable.
+                      readOnly: true
+                    returned:
+                      type: string
+                      description: >-
+                        Indicates when an attribute is returned in a response
+                        (e.g., to a query).
+                      readOnly: true
+                    uniqueness:
+                      type: string
+                      description: Indicates how unique a value must be.
+                      readOnly: true
+                    referenceTypes:
+                      type: array
+                      description: >-
+                        Used only with an attribute of type 'reference'. 
+                        Specifies a SCIM resourceType that a reference attribute
+                        MAY refer to, e.g., 'User'.
+                      items:
+                        type: string
+                      readOnly: true
+                  required:
+                    - name
+                    - type
+                    - multiValued
+                readOnly: true
+            required:
+              - name
+              - type
+              - multiValued
+          readOnly: true
+          example:
+            - name: username
+              type: string
+              multiValued: false
+              description: >-
+                A FactSet "username" is FactSet's logical structure for grouping
+                serial numbers into like-groups based on roleName, geographical
+                location or line of business.
+              required: true
+              caseExact: false
+              mutability: immutable
+              returned: default
+              uniqueness: none
+            - name: serialNumber
+              type: string
+              multiValued: false
+              description: >-
+                A serial number represents an individual's unique FactSet
+                account identifier and base-workstation access. Serial numbers
+                are allocated to an individual when a valid RoleName is present.
+              required: false
+              caseExact: false
+              mutability: readOnly
+              returned: default
+              uniqueness: global
+            - name: factSetNetId
+              type: string
+              multiValued: false
+              description: FactSet.net ID.
+              required: false
+              caseExact: false
+              mutability: readOnly
+              returned: default
+              uniqueness: global
+            - name: locationId
+              type: string
+              multiValued: false
+              description: >-
+                Your reference to a distinct physical location in your
+                organization (such as an office)
+              required: true
+              caseExact: false
+              mutability: readWrite
+              returned: default
+              uniqueness: none
+            - name: roleName
+              type: string
+              multiValued: false
+              description: >-
+                Predetermined role of specific individual. Issues individual a
+                base FactSet workstation and serial number. If passed as NULL a
+                base-FactSet workstation will be allocated to the individual
+                granting the individual a FactSet SerialNumber
+              required: false
+              caseExact: false
+              mutability: readWrite
+              returned: default
+              uniqueness: none
+            - name: productIds
+              type: integer
+              multiValued: true
+              description: >-
+                An array of FactSet products to allocate/remove from an
+                individual. Individual must have a FactSet serial number
+                associated with them.
+              required: false
+              mutability: readWrite
+              returned: default
+              uniqueness: none
+            - name: assertionValue
+              type: string
+              multiValued: false
+              description: >-
+                Field containing the value, passed as nameID, used to assert the
+                identity of an individual via SAML2.0 which maps
+                service-provider-side to a FactSet serial number. Only
+                applicable to individuals with a FactSet serial number with a
+                Federation setup between your domain and FactSet's
+              required: false
+              caseExact: false
+              mutability: readWrite
+              returned: default
+              uniqueness: server
+      required:
+        - id
+        - name
+        - attributes
+    SchemaList:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        totalResults:
+          type: integer
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schema'
+    UserResource:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:schemas:core:2.0:User
+            - urn:scim:schemas:extension:FactSet:Core:1.0:User
+            - urn:scim:schemas:extension:FactSet:VRS:1.0:User
+        id:
+          type: string
+          readOnly: true
+          example: FIN_WEALTH-123456
+        externalId:
+          type: string
+          example: C3574707-FFF9-433C-A17F-DFF806C72A7F
+        userName:
+          type: string
+          description: >-
+            Unique identifier for the User, typically used by the user to
+            directly authenticate to the service provider. Each User MUST
+            include a non-empty userName value.  This identifier MUST be unique
+            across the service provider's entire set of Users.
+          readOnly: true
+          example: FIN_WEALTH-123456
+        name:
+          type: object
+          description: >-
+            The components of the user's real name. Providers MAY return just
+            the full name as a single string in the formatted sub-attribute, or
+            they MAY return just the individual component attributes using the
+            other sub-attributes, or they MAY return both.  If both variants are
+            returned, they SHOULD be describing the same name, with the
+            formatted name indicating how the component attributes should be
+            combined.
+          properties:
+            familyName:
+              type: string
+              description: >-
+                The family name of the User, or last name in most Western
+                languages (e.g., 'Jensen' given the full name 'Ms. Barbara J
+                Jensen, III').
+              example: Doe
+            givenName:
+              type: string
+              description: >-
+                The given name of the User, or first name in most Western
+                languages (e.g., 'Barbara' given the full name 'Ms. Barbara J
+                Jensen, III').
+              example: John
+          required:
+            - familyName
+            - givenName
+        email:
+          type: string
+          description: >-
+            Email addresses for the user.  The value SHOULD be canonicalized by
+            the service provider, e.g., 'bjensen@example.com' instead of
+            'bjensen@EXAMPLE.COM'.
+          example: jdoe@factset.com
+        phoneNumbers:
+          type: array
+          description: >-
+            Phone numbers for the User.  The value SHOULD be canonicalized by
+            the service provider according to the format specified in RFC 3966,
+            e.g., 'tel:+1-201-555-0123'. Canonical type values of 'main',
+            'work', 'mobile', and 'home'.
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                description: Phone number of the User.
+                readOnly: true
+                example: tel:5558675309
+              display:
+                type: string
+                description: >-
+                  A human-readable name, primarily used for display purposes. 
+                  READ-ONLY.
+                readOnly: true
+                example: (555) 867-5309
+              type:
+                type: string
+                description: >-
+                  A label indicating the attribute's function, e.g., 'work',
+                  'home', 'mobile'.
+                readOnly: true
+                example: work
+              primary:
+                type: boolean
+                description: >-
+                  A Boolean value indicating the 'primary' or preferred
+                  attribute value for this attribute, e.g., the preferred phone
+                  number or primary phone number.  The primary attribute value
+                  'true' MUST appear no more than once.
+                readOnly: true
+                example: true
+          readOnly: true
+        groups:
+          type: array
+          description: >-
+            A list of groups to which the user belongs, either through direct
+            membership, through nested groups, or dynamically calculated.
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                description: The identifier of the User's group.
+                readOnly: true
+                example: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+              $ref:
+                type: string
+                description: >-
+                  The URI of the corresponding 'Group' resource to which the
+                  user belongs.
+                readOnly: true
+                example: >-
+                  https://api.factset.com/scim/v2/Groups/Domain%20btud%20-%20Pod%2004%20-%20CitrixApps%20-%20Cymba%20OMS
+              display:
+                type: string
+                description: >-
+                  A human-readable name, primarily used for display purposes. 
+                  READ-ONLY.
+                readOnly: true
+                example: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+          readOnly: true
+        urn:scim:schemas:extension:FactSet:Core:1.0:User:
+          type: object
+          properties:
+            username:
+              type: string
+              description: >-
+                A FactSet "username" is FactSet's logical structure for grouping
+                serial numbers into like-groups based on roleName, geographical
+                location or line of business.
+              example: FIN_WEALTH
+            serialNumber:
+              type: string
+              description: >-
+                A serial number represents an individual's unique FactSet
+                account identifier and base-workstation access. Serial numbers
+                are allocated to an individual when a valid RoleName is present.
+              readOnly: true
+              example: '123456'
+            factSetNetId:
+              type: string
+              description: FactSet.net ID.
+              readOnly: true
+              example: John.Doe9@factset.net
+            location:
+              $ref: '#/components/schemas/LocationResourceReference'
+            roleName:
+              type: string
+              description: >-
+                Predetermined role of specific individual. Issues individual a
+                base FactSet workstation and serial number. If passed as NULL a
+                base-FactSet workstation will be allocated to the individual
+                granting the individual a FactSet SerialNumber
+              example: Wealth Manager
+            products:
+              type: array
+              description: >-
+                An array of FactSet products to allocate/remove from an
+                individual. Individual must have a FactSet serial number
+                associated with them.
+              items:
+                $ref: '#/components/schemas/ProductResourceReference'
+            pendingProductOrders:
+              type: array
+              description: An array of pending FactSet product orders.
+              items:
+                $ref: '#/components/schemas/PendingProductOrder'
+              readOnly: true
+            assertionValue:
+              type: string
+              description: >-
+                Field containing the value, passed as nameID, used to assert the
+                identity of an individual via SAML2.0 which maps
+                service-provider-side to a FactSet serial number. Only
+                applicable to individuals with a FactSet serial number with a
+                Federation setup between your domain and FactSet's
+              example: exampleAssertionValue
+          required:
+            - username
+        urn:scim:schemas:extension:FactSet:VRS:1.0:User:
+          type: object
+          properties:
+            domainData:
+              type: array
+              description: A set of attributes pertaining to individual Vermilion domains.
+              items:
+                type: object
+                properties:
+                  domainCode:
+                    type: string
+                    description: Unique identifier for the Vermilion domain.
+                    example: btud
+                  tenancies:
+                    type: object
+                    description: >-
+                      List of tenancies where the User exists in the associated
+                      domain.
+                    properties:
+                      value:
+                        type: string
+                        description: Name of a tenant.
+                        example: MASTER
+                    required:
+                      - value
+                  isAdministrator:
+                    type: boolean
+                    description: >-
+                      Whether the User is an administrator in the associated
+                      domain.
+                    example: false
+                  password:
+                    type: string
+                    description: >-
+                      Password of the User in the associated domain. May be null
+                      upon creation of the User, but afterward may not change
+                      from a non-null to a null value.
+                required:
+                  - domainCode
+                  - tenancies
+                  - isAdministrator
+        meta:
+          type: object
+          properties:
+            resourceType:
+              type: string
+              example: User
+            created:
+              type: string
+              example: '2019-02-11T15:33:31.077+00:00'
+            lastModified:
+              type: string
+              example: '2019-06-07T08:59:37+00:00'
+            location:
+              type: string
+              example: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+          readOnly: true
+      required:
+        - userName
+        - name
+        - email
+    UserResourceList:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        totalResults:
+          type: integer
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserResource'
+    GroupResource:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:schemas:core:2.0:Group
+            - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
+            - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+        id:
+          type: string
+          example: eh:btud:Pod 04 - CitrixApps - Cymba OMS
+          readOnly: true
+        externalId:
+          type: string
+          example: B8FE8BBD-0E04-40B2-9BB3-E5EE17C4C9C9
+        displayName:
+          type: string
+          description: A human-readable name for the Group.
+          example: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+        description:
+          type: string
+          description: A description for the Group.
+          example: Group representing access to the Cymba OMS application.
+        members:
+          type: array
+          description: A list of members of the Group.
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                description: Identifier of the member of this Group.
+                example: FIN_WEALTH-123456
+              $ref:
+                type: string
+                description: >-
+                  The URI corresponding to a SCIM resource that is a member of
+                  this Group.
+                example: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+              type:
+                type: string
+                description: >-
+                  A label indicating the type of resource, e.g., 'User' or
+                  'Group'.
+                example: User
+        urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group:
+          type: object
+          properties:
+            domainCode:
+              type: string
+              description: Domain code of the Enterprise Hosting pod containing this group.
+              readOnly: true
+              example: btud
+          required:
+            - domainCode
+          readOnly: true
+        urn:scim:schemas:extension:FactSet:VRS:1.0:Group:
+          type: object
+          properties:
+            tenant:
+              type: string
+              description: The tenant this role is in
+              example: QA
+            domainCode:
+              type: string
+              description: >-
+                Domain code of Enterprise Hosting pod in which user resides.
+                REQUIRED.
+              example: btud
+          required:
+            - domainCode
+        meta:
+          type: object
+          properties:
+            resourceType:
+              type: string
+              example: Group
+            created:
+              type: string
+              example: '2019-02-11T15:33:31.077+00:00'
+            lastModified:
+              type: string
+              example: '2019-06-07T08:59:37+00:00'
+            location:
+              type: string
+              example: >-
+                https://api.factset.com/scim/v2/Groups/eh%3Abtud%3APod%2004%20-%20CitrixApps%20-%20Cymba%20OMS
+          readOnly: true
+    GroupResourceList:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        totalResults:
+          type: integer
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupResource'
+    LocationResource:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:scim:schemas:extension:FactSet:Core:1.0:Location
+        id:
+          type: string
+          example: '1598276'
+          readOnly: true
+        externalId:
+          type: string
+          example: '1598276'
+        name:
+          type: string
+          description: Name of the location.
+          readOnly: true
+          example: FIN Wealth Management
+        description:
+          type: string
+          description: Description of the location.
+          readOnly: true
+        address1:
+          type: string
+          description: First line of location's address.
+          readOnly: true
+          example: 601 Main Avenue
+        address2:
+          type: string
+          description: Second line of location's address.
+          readOnly: true
+          example: Factset - First Floor
+        address3:
+          type: string
+          description: Third line of location's address.
+          readOnly: true
+        locality:
+          type: string
+          description: City of location.
+          readOnly: true
+          example: Norwalk
+        region:
+          type: string
+          description: State or province of location.
+          readOnly: true
+          example: Connecticut
+        postalCode:
+          type: string
+          description: Postal code of location.
+          readOnly: true
+          example: '06850'
+        country:
+          type: string
+          description: Country of location.
+          readOnly: true
+          example: United States
+        phoneNumber:
+          type: string
+          description: Phone number of location.
+          readOnly: true
+        mainLocation:
+          allOf:
+            - $ref: '#/components/schemas/LocationResourceReference'
+            - readOnly: true
+        meta:
+          type: object
+          properties:
+            resourceType:
+              type: string
+              example: Location
+            created:
+              type: string
+              example: '2019-02-11T08:44:19+00:00'
+            lastModified:
+              type: string
+              example: '2021-01-12T03:11:13+00:00'
+            location:
+              type: string
+              example: https://api.factset.com/scim/v2/Locations/1598276
+          readOnly: true
+    LocationResourceList:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        totalResults:
+          type: integer
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationResource'
+    LocationResourceReference:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Identifier of the Location.
+          example: '1598276'
+        $ref:
+          type: string
+          description: The URI corresponding to a SCIM resource that is this Location.
+          example: https://api.factset.com/scim/v2/Locations/1598276
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+          example: FIN Wealth Management
+      required:
+        - value
+    ProductResource:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:scim:schemas:extension:FactSet:Core:1.0:Product
+        id:
+          type: string
+          example: '6781'
+          readOnly: true
+        name:
+          type: string
+          description: Name of product.
+          readOnly: true
+          example: FactSet Identity
+        description:
+          type: string
+          description: Details of product.
+          readOnly: true
+          example: >-
+            This workstation product will provide the user with a serial number
+            and a "blanket" login. Examples of when this can be used is for web
+            only users, notify clients, or to give users minimal access.
+        groupDescription:
+          type: string
+          description: >-
+            Description of the group the product belongs in, e.g. Exchange,
+            Product, Database, Workstation, etc.
+          readOnly: true
+          example: Workstations
+        workstation:
+          type: boolean
+          description: >-
+            A boolean representing whether the product is base-level access to
+            FactSet, issuing the individual's serial number. Only one Product
+            "id" per individual will have this value set to true.
+          readOnly: true
+          example: true
+        requiresApproval:
+          type: string
+          description: >-
+            A description of the type of approval required before an order for
+            this product can be fulfilled. This value is null for those products
+            that do not require any approval.
+          readOnly: true
+          example: FactSet
+        whitelist:
+          type: boolean
+          description: >-
+            Whether the product appears in the requester's product whitelist.
+            Presence in the product whitelist means the requester is authorized
+            to order this product for other users.
+          readOnly: true
+          example: true
+        meta:
+          type: object
+          properties:
+            resourceType:
+              type: string
+              example: Product
+            location:
+              type: string
+              example: https://api.factset.com/scim/v2/Products/6781
+          readOnly: true
+      required:
+        - whitelist
+    ProductResourceList:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        totalResults:
+          type: integer
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductResource'
+    ProductResourceReference:
+      type: object
+      properties:
+        value:
+          type: string
+          example: '6781'
+        $ref:
+          type: string
+          example: https://api.factset.com/scim/v2/Products/6781
+        display:
+          type: string
+          example: FactSet Identity
+      required:
+        - value
+    PendingProductOrder:
+      type: object
+      properties:
+        product:
+          $ref: '#/components/schemas/ProductResourceReference'
+        type:
+          type: string
+          description: Type of product order, e.g. 'Add' or 'Remove'.
+          example: Add
+          readOnly: true
+        status:
+          type: string
+          description: Status of the pending product order.
+          example: Processing
+          readOnly: true
+        requested:
+          type: string
+          description: Date and time when product was ordered.
+          example: '2019-06-07T08:59:37+00:00'
+          readOnly: true
+      required:
+        - product
+        - type
+        - status
+        - requested
+    FileManagerAudit:
+      type: array
+      items:
+        type: object
+        properties:
+          username:
+            type: string
+            description: The FactSet username associated with the file paths.
+          paths:
+            type: object
+            description: Object containing all file paths and their associated attributes.
+            additionalProperties:
+              type: array
+              description: A file path and its associated attributes.
+              items:
+                type: object
+                description: Attributes of the file.
+                properties:
+                  entity:
+                    type: object
+                    description: The entity associated with the file's attributes.
+                    properties:
+                      name:
+                        type: string
+                        description: The name of the entity.
+                      type:
+                        type: string
+                        description: The type of the entity.
+                    required:
+                      - name
+                      - type
+                  permissions:
+                    type: object
+                    description: >-
+                      Object describing the permissions the associated entity
+                      has regarding the associated file.
+                    properties:
+                      read:
+                        type: boolean
+                        description: >-
+                          Whether the associated entity has permission to read
+                          the associated file.
+                      write:
+                        type: boolean
+                        description: >-
+                          Whether the associated entity has permission to write
+                          the associated file.
+                      maintain:
+                        type: boolean
+                        description: >-
+                          Whether the associated entity has permission to
+                          maintain the associated file.
+                    required:
+                      - read
+                      - write
+                      - maintain
+                  permission-override:
+                    type: object
+                    properties:
+                      read:
+                        type: boolean
+                      write:
+                        type: boolean
+                      maintain:
+                        type: boolean
+                    required:
+                      - read
+                      - write
+                      - maintain
+                  inheritance-distance:
+                    type: integer
+                required:
+                  - entity
+                  - permissions
+        required:
+          - username
+          - paths
+      example:
+        - username: fds_demo_va_sc
+          paths:
+            /sc/fds_demo_va_sc/:
+              - entity:
+                  name: fds_demo_eur:245600
+                  type: user
+                permissions:
+                  read: true
+                  write: true
+                  maintain: true
+                permission-overrides:
+                  read: true
+                  write: true
+                  maintain: true
+                inheritance-distance: 0
+    Patch:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+        Operations:
+          type: array
+          items:
+            type: object
+            properties:
+              op:
+                type: string
+              path:
+                type: string
+              value:
+                type: string
+    Error:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: invalidValue
+        detail:
+          type: string
+          description: A detailed human-readable message.
+          example: An unhandled exception occurred.
+        status:
+          type: string
+          description: HTTP status code.
+          example: '500'
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
