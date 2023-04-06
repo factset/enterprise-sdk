@@ -1,13 +1,13 @@
-# factsetconcordance.MappingsApi
+# factsetconcordance.EntityMappingsApi
 
 All URIs are relative to *https://api.factset.com/content*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getEntityMappingDeleteForList**](MappingsApi.md#getEntityMappingDeleteForList) | **POST** /factset-concordance/v2/entity-mapping-delete | Deletes mapping specified by the client.
-[**getEntityMappingForList**](MappingsApi.md#getEntityMappingForList) | **POST** /factset-concordance/v2/entity-mapping | Saves a single-mapping specified by the client.
-[**getEntityUniverse**](MappingsApi.md#getEntityUniverse) | **GET** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe
-[**getEntityUniverseForList**](MappingsApi.md#getEntityUniverseForList) | **POST** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe or large list of client ids
+[**getEntityMappingDeleteForList**](EntityMappingsApi.md#getEntityMappingDeleteForList) | **POST** /factset-concordance/v2/entity-mapping-delete | Deletes mapping specified by the client.
+[**getEntityMappingForList**](EntityMappingsApi.md#getEntityMappingForList) | **POST** /factset-concordance/v2/entity-mapping | Saves a single-mapping specified by the client.
+[**getEntityUniverse**](EntityMappingsApi.md#getEntityUniverse) | **GET** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe
+[**getEntityUniverseForList**](EntityMappingsApi.md#getEntityUniverseForList) | **POST** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe or large list of client ids
 
 
 
@@ -22,7 +22,7 @@ Delete a Concordance Mapping to the client universe. When making a post, all exi
 ### Example
 
 ```javascript
-const { ApiClient, MappingsApi } = require('@factset/sdk-factsetconcordance');
+const { ApiClient, EntityMappingsApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
@@ -44,7 +44,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.username = 'USERNAME-SERIAL';
 // FactSetApiKey.password = 'API-KEY';
 
-const apiInstance = new MappingsApi();
+const apiInstance = new EntityMappingsApi();
 const entityMappingDeleteRequest = new factsetconcordance.EntityMappingDeleteRequest(); // EntityMappingDeleteRequest | A request to delete entity mappings specified by the client
 
 // Call api endpoint
@@ -94,7 +94,7 @@ Saves a Concordance Mapping to the client universe. When making a post, all exit
 ### Example
 
 ```javascript
-const { ApiClient, MappingsApi } = require('@factset/sdk-factsetconcordance');
+const { ApiClient, EntityMappingsApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
@@ -116,7 +116,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.username = 'USERNAME-SERIAL';
 // FactSetApiKey.password = 'API-KEY';
 
-const apiInstance = new MappingsApi();
+const apiInstance = new EntityMappingsApi();
 const entityMappingRequest = new factsetconcordance.EntityMappingRequest(); // EntityMappingRequest | A request to create a single mapping.
 
 // Call api endpoint
@@ -166,7 +166,7 @@ Retrieves all entity mappings within a requested universe.
 ### Example
 
 ```javascript
-const { ApiClient, MappingsApi } = require('@factset/sdk-factsetconcordance');
+const { ApiClient, EntityMappingsApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
@@ -188,7 +188,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.username = 'USERNAME-SERIAL';
 // FactSetApiKey.password = 'API-KEY';
 
-const apiInstance = new MappingsApi();
+const apiInstance = new EntityMappingsApi();
 const universeId = 1; // Number | Universe identifier. *To create a universe, use the `/universe' endpoint.*
 const opts = {
   'clientId': ["abc-123","def-456"], // [String] | Filter by the clientId(s) created by the user in a previous mapping. 
@@ -250,7 +250,7 @@ Retrieves all entity mappings that were saved in a given universe. Supports filt
 ### Example
 
 ```javascript
-const { ApiClient, MappingsApi } = require('@factset/sdk-factsetconcordance');
+const { ApiClient, EntityMappingsApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
@@ -272,7 +272,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.username = 'USERNAME-SERIAL';
 // FactSetApiKey.password = 'API-KEY';
 
-const apiInstance = new MappingsApi();
+const apiInstance = new EntityMappingsApi();
 const entityUniverseRequest = new factsetconcordance.EntityUniverseRequest(); // EntityUniverseRequest | A request to fetch all entities of a given universe
 
 // Call api endpoint

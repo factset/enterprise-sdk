@@ -1,7 +1,7 @@
 /*
  * FactSet Concordance API
  *
- * The FactSet Concordance API provides the ability to programmatically look up several types of entities by their name and other attributes. It attempts to match attributes that you supply for the entity and returns as many match candidates as it can find. The result is a \"concorded\" FactSet Entity Permanent identifier.  The Entity Identifier can then be used as input throughout FactSet's Content soultions, such as Content APIs and Standard DataFeeds.<p> There are two types of workflows supported in the API. The first workflow type follows traditional API conventions in that a request is accepted and a response is returned synchronously. The second workflow type involves a background task. With this workflow, a task is created for uploading a set of queries, and then the client polls for the task to complete. Once the task has completed, the client retrieves the concordance results throught the decisions endpoint.</p> 
+ *    The FactSet Concordance API enables Application Developers and Data Scientists to programmatically discover the FactSet Identifier for a specific Entity or Person based on attributes, such as name, URL, and location.FactSet Identifiers are mapped to industry-standard identifiers, as well as to a comprehensive set of reference data and unique content, to enhance the ability to quickly connect content sets.<p>     Using the submitted attributes, the FactSet Concordance API leverages FactSet’s extensive Entity Master, People, and Symbology databases to return potential candidate matches and a proposed match. The result is a concorded FactSet Identifier that can then be used as input throughout FactSet's expanding catalog of Content using our Content APIs or Standard DataFeeds.</p>    <b>There are two types of workflows supported in the API:</b>    <b>Entity & People Match:</b> The first workflow follows traditional API conventions in that a request is accepted and a response is returned synchronously enabling the concordance of up to 25 names in a single request. The response returns a list of 20 candidates as well as a proposed match.    <b>Entity & People Match - Bulk:</b> The second workflow allows you to input a large list of names within a .CSV file in a single request With this workflow, a task is created for uploading a set of queries. Once the task has completed, the client retrieves the concordance results through the /entity-decisions or /people-decisions endpoint. Note that in the Bulk workflow, only the matches for the records are returned. Candidates are not included.    Once the service has provided a list of concorded FactSet Identifiers, you can then use our Entity Mappings and People Mappings endpoints to further review the universe of mapped identifiers or modify existing records. </p> 
  *
  * The version of the OpenAPI document: 2.5.0
  * Contact: api@factset.com
@@ -25,7 +25,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IMappingsApiSync : IApiAccessor
+    public interface IEntityMappingsApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -128,7 +128,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IMappingsApiAsync : IApiAccessor
+    public interface IEntityMappingsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -239,7 +239,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IMappingsApi : IMappingsApiSync, IMappingsApiAsync
+    public interface IEntityMappingsApi : IEntityMappingsApiSync, IEntityMappingsApiAsync
     {
 
     }
@@ -247,7 +247,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class MappingsApi : IMappingsApi
+    public partial class EntityMappingsApi : IEntityMappingsApi
     {
         private FactSet.SDK.FactSetConcordance.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -301,18 +301,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
         # endregion Api Response Objects
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MappingsApi"/> class.
+        /// Initializes a new instance of the <see cref="EntityMappingsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public MappingsApi() : this((string)null)
+        public EntityMappingsApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MappingsApi"/> class.
+        /// Initializes a new instance of the <see cref="EntityMappingsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public MappingsApi(string basePath)
+        public EntityMappingsApi(string basePath)
         {
             this.Configuration = FactSet.SDK.FactSetConcordance.Client.Configuration.MergeConfigurations(
                 FactSet.SDK.FactSetConcordance.Client.GlobalConfiguration.Instance,
@@ -324,12 +324,12 @@ namespace FactSet.SDK.FactSetConcordance.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MappingsApi"/> class
+        /// Initializes a new instance of the <see cref="EntityMappingsApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public MappingsApi(FactSet.SDK.FactSetConcordance.Client.Configuration configuration)
+        public EntityMappingsApi(FactSet.SDK.FactSetConcordance.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -343,13 +343,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MappingsApi"/> class
+        /// Initializes a new instance of the <see cref="EntityMappingsApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public MappingsApi(FactSet.SDK.FactSetConcordance.Client.ISynchronousClient client, FactSet.SDK.FactSetConcordance.Client.IAsynchronousClient asyncClient, FactSet.SDK.FactSetConcordance.Client.IReadableConfiguration configuration)
+        public EntityMappingsApi(FactSet.SDK.FactSetConcordance.Client.ISynchronousClient client, FactSet.SDK.FactSetConcordance.Client.IAsynchronousClient asyncClient, FactSet.SDK.FactSetConcordance.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -425,7 +425,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
             // verify the required parameter 'entityMappingDeleteRequest' is set
             if (entityMappingDeleteRequest == null)
             {
-                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingDeleteRequest' when calling MappingsApi->GetEntityMappingDeleteForList");
+                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingDeleteRequest' when calling EntityMappingsApi->GetEntityMappingDeleteForList");
             }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -515,7 +515,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
             // verify the required parameter 'entityMappingDeleteRequest' is set
             if (entityMappingDeleteRequest == null)
             {
-                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingDeleteRequest' when calling MappingsApi->GetEntityMappingDeleteForList");
+                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingDeleteRequest' when calling EntityMappingsApi->GetEntityMappingDeleteForList");
             }
 
 
@@ -604,7 +604,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
             // verify the required parameter 'entityMappingRequest' is set
             if (entityMappingRequest == null)
             {
-                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingRequest' when calling MappingsApi->GetEntityMappingForList");
+                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingRequest' when calling EntityMappingsApi->GetEntityMappingForList");
             }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -694,7 +694,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
             // verify the required parameter 'entityMappingRequest' is set
             if (entityMappingRequest == null)
             {
-                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingRequest' when calling MappingsApi->GetEntityMappingForList");
+                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingRequest' when calling EntityMappingsApi->GetEntityMappingForList");
             }
 
 
@@ -1008,7 +1008,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
             // verify the required parameter 'entityUniverseRequest' is set
             if (entityUniverseRequest == null)
             {
-                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityUniverseRequest' when calling MappingsApi->GetEntityUniverseForList");
+                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityUniverseRequest' when calling EntityMappingsApi->GetEntityUniverseForList");
             }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -1098,7 +1098,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
             // verify the required parameter 'entityUniverseRequest' is set
             if (entityUniverseRequest == null)
             {
-                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityUniverseRequest' when calling MappingsApi->GetEntityUniverseForList");
+                throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityUniverseRequest' when calling EntityMappingsApi->GetEntityUniverseForList");
             }
 
 

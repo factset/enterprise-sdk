@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.Formula",
-  "packageVersion": "2.0.2",
+  "packageVersion": "2.1.0",
   "packageGuid": "{962816a3-1926-54bf-ad02-cf8ba9b34f33}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/Formula/2.0.2",
+  "httpUserAgent": "fds-sdk/dotnet/Formula/2.1.0",
   "files": {
     "LICENSE": {}
   },

@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/FactSetTickHistory/0.22.0'
+            'User-Agent': 'fds-sdk/javascript/FactSetTickHistory/0.22.1'
         };
 
         /**

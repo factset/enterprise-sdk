@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **SubTopicCode** | **string** | Codes for the General, Mandatory and Additional PAI indicators | [optional] 
 **SubTopicName** | **string** | Names for the General, Mandatory and Additional PAI indicators | [optional] 
 **IndicatorType** | **string** | The type of indicator - General, Additional &amp; Mandatory | [optional] 
-**PeriodEndDate** | **DateTime** | The Reporting period end date expressed in YYYY-MM-DD format | [optional] 
+**PeriodEndDate** | **DateTime?** | The Reporting period end date expressed in YYYY-MM-DD format | [optional] 
 **ReportingPeriod** | **string** | The reporting period of the company expressed in YYYY format | [optional] 
 **StandardizedUnit** | **string** | The units of measurements for the indicators | [optional] 
 **StandardizedValue** | **string** | The PAI calculations based on the company-reported data, some metrics sourced from Factset Databases and Truvalue SASB Spotlights | [optional] 

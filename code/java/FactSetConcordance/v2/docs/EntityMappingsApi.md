@@ -1,13 +1,13 @@
-# MappingsApi
+# EntityMappingsApi
 
 All URIs are relative to *https://api.factset.com/content*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getEntityMappingDeleteForList**](MappingsApi.md#getEntityMappingDeleteForList) | **POST** /factset-concordance/v2/entity-mapping-delete | Deletes mapping specified by the client.
-[**getEntityMappingForList**](MappingsApi.md#getEntityMappingForList) | **POST** /factset-concordance/v2/entity-mapping | Saves a single-mapping specified by the client.
-[**getEntityUniverse**](MappingsApi.md#getEntityUniverse) | **GET** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe
-[**getEntityUniverseForList**](MappingsApi.md#getEntityUniverseForList) | **POST** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe or large list of client ids
+[**getEntityMappingDeleteForList**](EntityMappingsApi.md#getEntityMappingDeleteForList) | **POST** /factset-concordance/v2/entity-mapping-delete | Deletes mapping specified by the client.
+[**getEntityMappingForList**](EntityMappingsApi.md#getEntityMappingForList) | **POST** /factset-concordance/v2/entity-mapping | Saves a single-mapping specified by the client.
+[**getEntityUniverse**](EntityMappingsApi.md#getEntityUniverse) | **GET** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe
+[**getEntityUniverseForList**](EntityMappingsApi.md#getEntityUniverseForList) | **POST** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe or large list of client ids
 
 
 
@@ -29,7 +29,7 @@ import com.factset.sdk.FactSetConcordance.ApiException;
 import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.auth.*;
 import com.factset.sdk.FactSetConcordance.models.*;
-import com.factset.sdk.FactSetConcordance.api.MappingsApi;
+import com.factset.sdk.FactSetConcordance.api.EntityMappingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -53,14 +53,14 @@ public class Example {
         //   .setUsername("YOUR USERNAME")
         //   .setPassword("YOUR PASSWORD");
 
-        MappingsApi apiInstance = new MappingsApi(defaultClient);
+        EntityMappingsApi apiInstance = new EntityMappingsApi(defaultClient);
         EntityMappingDeleteRequest entityMappingDeleteRequest = new EntityMappingDeleteRequest(); // EntityMappingDeleteRequest | A request to delete entity mappings specified by the client
         try {
             EntityMappingDeleteResponse result = apiInstance.getEntityMappingDeleteForList(entityMappingDeleteRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling MappingsApi#getEntityMappingDeleteForList");
+            System.err.println("Exception when calling EntityMappingsApi#getEntityMappingDeleteForList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -119,7 +119,7 @@ import com.factset.sdk.FactSetConcordance.ApiException;
 import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.auth.*;
 import com.factset.sdk.FactSetConcordance.models.*;
-import com.factset.sdk.FactSetConcordance.api.MappingsApi;
+import com.factset.sdk.FactSetConcordance.api.EntityMappingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -143,14 +143,14 @@ public class Example {
         //   .setUsername("YOUR USERNAME")
         //   .setPassword("YOUR PASSWORD");
 
-        MappingsApi apiInstance = new MappingsApi(defaultClient);
+        EntityMappingsApi apiInstance = new EntityMappingsApi(defaultClient);
         EntityMappingRequest entityMappingRequest = new EntityMappingRequest(); // EntityMappingRequest | A request to create a single mapping.
         try {
             EntityResponse result = apiInstance.getEntityMappingForList(entityMappingRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling MappingsApi#getEntityMappingForList");
+            System.err.println("Exception when calling EntityMappingsApi#getEntityMappingForList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -209,7 +209,7 @@ import com.factset.sdk.FactSetConcordance.ApiException;
 import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.auth.*;
 import com.factset.sdk.FactSetConcordance.models.*;
-import com.factset.sdk.FactSetConcordance.api.MappingsApi;
+import com.factset.sdk.FactSetConcordance.api.EntityMappingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -233,7 +233,7 @@ public class Example {
         //   .setUsername("YOUR USERNAME")
         //   .setPassword("YOUR PASSWORD");
 
-        MappingsApi apiInstance = new MappingsApi(defaultClient);
+        EntityMappingsApi apiInstance = new EntityMappingsApi(defaultClient);
         Integer universeId = 1; // Integer | Universe identifier. *To create a universe, use the `/universe' endpoint.*
         java.util.List<String> clientId = Arrays.asList(); // java.util.List<String> | Filter by the clientId(s) created by the user in a previous mapping. 
         java.util.List<String> mapStatus = Arrays.asList(); // java.util.List<String> | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping. 
@@ -245,7 +245,7 @@ public class Example {
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling MappingsApi#getEntityUniverse");
+            System.err.println("Exception when calling EntityMappingsApi#getEntityUniverse");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -309,7 +309,7 @@ import com.factset.sdk.FactSetConcordance.ApiException;
 import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.auth.*;
 import com.factset.sdk.FactSetConcordance.models.*;
-import com.factset.sdk.FactSetConcordance.api.MappingsApi;
+import com.factset.sdk.FactSetConcordance.api.EntityMappingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -333,14 +333,14 @@ public class Example {
         //   .setUsername("YOUR USERNAME")
         //   .setPassword("YOUR PASSWORD");
 
-        MappingsApi apiInstance = new MappingsApi(defaultClient);
+        EntityMappingsApi apiInstance = new EntityMappingsApi(defaultClient);
         EntityUniverseRequest entityUniverseRequest = new EntityUniverseRequest(); // EntityUniverseRequest | A request to fetch all entities of a given universe
         try {
             EntityUniverseResponse result = apiInstance.getEntityUniverseForList(entityUniverseRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling MappingsApi#getEntityUniverseForList");
+            System.err.println("Exception when calling EntityMappingsApi#getEntityUniverseForList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

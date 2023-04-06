@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsetglobalprices",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "FactSet Global Prices client library for JavaScript",
   "license": "Apache License, Version 2.0",
   "author": "FactSet Research Systems",

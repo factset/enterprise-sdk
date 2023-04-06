@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsettickhistory",
-  "version": "0.22.0",
+  "version": "0.22.1",
   "description": "FactSet Tick History client library for JavaScript",
   "license": "Apache License, Version 2.0",
   "author": "FactSet Research Systems",

@@ -38,6 +38,7 @@ Event Categories:
   * **FSP** – Forward Split
   * **RSP** – Reverse Split
   * **SPL** – Split
+  * **EXOS** – Exchange of Securities
 
 
 ### Example

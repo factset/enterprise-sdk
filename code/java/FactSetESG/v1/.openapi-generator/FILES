@@ -6,10 +6,15 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/ArticlesApi.md
+docs/DateOf.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Frequency.md
 docs/SasbApi.md
+docs/SasbArticle.md
+docs/SasbArticlesRequest.md
+docs/SasbArticlesResponse.md
 docs/SasbRanks.md
 docs/SasbRanksRequest.md
 docs/SasbRanksResponse.md
@@ -21,6 +26,9 @@ docs/SasbScoresRequest.md
 docs/SasbScoresResponse.md
 docs/SasbSpotlightsRequest.md
 docs/SdgApi.md
+docs/SdgArticle.md
+docs/SdgArticlesRequest.md
+docs/SdgArticlesResponse.md
 docs/SdgFrequency.md
 docs/SdgScores.md
 docs/SdgScoresRequest.md
@@ -53,6 +61,7 @@ src/main/java/com/factset/sdk/FactSetESG/RFC3339DateFormat.java
 src/main/java/com/factset/sdk/FactSetESG/ServerConfiguration.java
 src/main/java/com/factset/sdk/FactSetESG/ServerVariable.java
 src/main/java/com/factset/sdk/FactSetESG/StringUtil.java
+src/main/java/com/factset/sdk/FactSetESG/api/ArticlesApi.java
 src/main/java/com/factset/sdk/FactSetESG/api/SasbApi.java
 src/main/java/com/factset/sdk/FactSetESG/api/SdgApi.java
 src/main/java/com/factset/sdk/FactSetESG/api/SfdrApi.java
@@ -65,9 +74,13 @@ src/main/java/com/factset/sdk/FactSetESG/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/FactSetESG/auth/OAuth.java
 src/main/java/com/factset/sdk/FactSetESG/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/FactSetESG/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/FactSetESG/models/DateOf.java
 src/main/java/com/factset/sdk/FactSetESG/models/ErrorResponse.java
 src/main/java/com/factset/sdk/FactSetESG/models/ErrorResponseSubErrors.java
 src/main/java/com/factset/sdk/FactSetESG/models/Frequency.java
+src/main/java/com/factset/sdk/FactSetESG/models/SasbArticle.java
+src/main/java/com/factset/sdk/FactSetESG/models/SasbArticlesRequest.java
+src/main/java/com/factset/sdk/FactSetESG/models/SasbArticlesResponse.java
 src/main/java/com/factset/sdk/FactSetESG/models/SasbRanks.java
 src/main/java/com/factset/sdk/FactSetESG/models/SasbRanksRequest.java
 src/main/java/com/factset/sdk/FactSetESG/models/SasbRanksResponse.java
@@ -78,6 +91,9 @@ src/main/java/com/factset/sdk/FactSetESG/models/SasbScoresAllResponse.java
 src/main/java/com/factset/sdk/FactSetESG/models/SasbScoresRequest.java
 src/main/java/com/factset/sdk/FactSetESG/models/SasbScoresResponse.java
 src/main/java/com/factset/sdk/FactSetESG/models/SasbSpotlightsRequest.java
+src/main/java/com/factset/sdk/FactSetESG/models/SdgArticle.java
+src/main/java/com/factset/sdk/FactSetESG/models/SdgArticlesRequest.java
+src/main/java/com/factset/sdk/FactSetESG/models/SdgArticlesResponse.java
 src/main/java/com/factset/sdk/FactSetESG/models/SdgFrequency.java
 src/main/java/com/factset/sdk/FactSetESG/models/SdgScores.java
 src/main/java/com/factset/sdk/FactSetESG/models/SdgScoresRequest.java

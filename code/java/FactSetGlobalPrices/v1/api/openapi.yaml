@@ -311,6 +311,7 @@ paths:
           * **FSP** – Forward Split
           * **RSP** – Reverse Split
           * **SPL** – Split
+          * **EXOS** – Exchange of Securities
       operationId: getGPDCorporateActions
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
@@ -2456,7 +2457,6 @@ components:
       title: Annualized Dividends Response
       type: object
     annualizedDividendsObject:
-      additionalProperties: true
       example:
         eventId: JTHPFN-A
         iadDefTradingAdj: 0.7584434

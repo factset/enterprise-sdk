@@ -20,14 +20,14 @@ import com.factset.sdk.FactSetConcordance.models.EntityUniverseResponse;
 import com.factset.sdk.FactSetConcordance.models.ErrorResponse;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class MappingsApi {
+public class EntityMappingsApi {
   private ApiClient apiClient;
 
-  public MappingsApi() {
+  public EntityMappingsApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public MappingsApi(ApiClient apiClient) {
+  public EntityMappingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
   
@@ -168,7 +168,7 @@ public class MappingsApi {
         
         EntityMappingDeleteResponse
       
-    > apiResponse = apiClient.invokeAPI("MappingsApi.getEntityMappingDeleteForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("EntityMappingsApi.getEntityMappingDeleteForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getEntityMappingDeleteForListResponseTypeMap, false);
 
@@ -251,7 +251,7 @@ public class MappingsApi {
         
         EntityResponse
       
-    > apiResponse = apiClient.invokeAPI("MappingsApi.getEntityMappingForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("EntityMappingsApi.getEntityMappingForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getEntityMappingForListResponseTypeMap, false);
 
@@ -350,7 +350,7 @@ public class MappingsApi {
         
         EntityUniverseResponse
       
-    > apiResponse = apiClient.invokeAPI("MappingsApi.getEntityUniverse", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("EntityMappingsApi.getEntityUniverse", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getEntityUniverseResponseTypeMap, false);
 
@@ -433,7 +433,7 @@ public class MappingsApi {
         
         EntityUniverseResponse
       
-    > apiResponse = apiClient.invokeAPI("MappingsApi.getEntityUniverseForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("EntityMappingsApi.getEntityUniverseForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getEntityUniverseForListResponseTypeMap, false);
 

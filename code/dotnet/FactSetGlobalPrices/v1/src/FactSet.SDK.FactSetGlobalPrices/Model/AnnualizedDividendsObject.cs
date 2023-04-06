@@ -49,7 +49,6 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             this.IadDefTradingAdj = iadDefTradingAdj;
             this.Currency = currency;
             this.RequestId = requestId;
-            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -95,12 +94,6 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         public string RequestId { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,7 +107,6 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
             sb.Append("  IadDefTradingAdj: ").Append(IadDefTradingAdj).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -179,8 +171,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&
                     this.RequestId.Equals(input.RequestId))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -215,10 +206,6 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

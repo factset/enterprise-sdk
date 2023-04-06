@@ -16,9 +16,9 @@ paths:
         reponses.</p> **In Sandbox** data available from 20210101 to 20210131. Current
         date data is not available.</p> PROD has data from 20120101 to current date
         &</p> **available IDs is limited to..**</p> US Equity - IBM-USA, F-USA, AAPL-USA,
-        GOOG-USA</p> ASX - CBA-ASX, BHP-ASX, APA-ASX</p> LSE - HSBA-LON, VOD-LON</p>
-        Tokyo - 7203-TKS, 4307-TKS</p> Swiss - NESN-SWX, COTN-SWX</p> Singapore -
-        J36-SES &</p> Hong Kong - 700-HKG</p>
+        GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo
+        - 7203-TKS, 4307-TKS</p> Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES
+        &</p> Hong Kong - 700-HKG</p>
       parameters:
       - description: The requested list of security identifiers. <p>**Either ticker(s)
           + iso_code  (OR) product is allowed**</p> **NOTE**:Only one identifier can
@@ -26,7 +26,7 @@ paths:
         examples:
           fieldname1:
             summary: ASX
-            value: CBA,BHP,APA
+            value: CBA,BHP
           fieldname2:
             summary: US Equity
             value: IBM,F,AAPL,GOOG
@@ -173,6 +173,9 @@ paths:
           fieldname1:
             summary: ASX
             value: ASX
+          fieldname2:
+            summary: US Equity
+            value: NYS
         explode: true
         in: query
         name: regionalISOCode
@@ -306,7 +309,7 @@ components:
       examples:
         fieldname1:
           summary: ASX
-          value: CBA,BHP,APA
+          value: CBA,BHP
         fieldname2:
           summary: US Equity
           value: IBM,F,AAPL,GOOG
@@ -461,6 +464,9 @@ components:
         fieldname1:
           summary: ASX
           value: ASX
+        fieldname2:
+          summary: US Equity
+          value: NYS
       explode: true
       in: query
       name: regionalISOCode

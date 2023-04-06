@@ -11,13 +11,33 @@ Method | HTTP request | Description
 
 ## getCrossSectionalData
 
-> GetCrossSectionalDataResponseWrapper getCrossSectionalData(formulas, ids, symbolType, universe, universeType, backTestDate, calendar, fsymId, displayName, flatten, batch)
+> GetCrossSectionalDataResponseWrapper getCrossSectionalData(formulas, ids, symbolType, universe, universeType, backTestDate, calendar, fsymId, displayName, flatten, batch, startDate, endDate, frequency)
 
 Retrieve data items (Screening formulas) for a list of identifiers or defined universe.
 
 The `/cross-sectional` endpoint is closely aligned with FactSet’s powerful data retrieval **Screening language** which is optimized for analysis of data items at single point in time for different entities and is extremely efficient for large universes.
 
+
 The `/cross-sectional` endpoint supports Long Running asynchronous requests up to **10 minutes** via the `batch` parameter. *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
+
+***
+
+### Iterated Cross-Sectional Functionality
+
+
+This endpoint supports the ability to automatically iterate through different cross sections over time. The **Iterated Cross-Sectional Functionality (ICSF)** expands the Cross-Sectional endpoint to support retrieving data items for *multiple dates*, allowing users to take advantage of the Screening engine’s efficiency even when history is required. 
+
+
+Use the parameters `startDate`, `endDate`, and `frequency` in the Cross-Sectional endpoint to provide your desired dates. Specify “0” in date argument of the Screening formulas provided in the formulas parameter and/or the universe parameter. Lastly, the Iterated Cross-Sectional Functionality is required to run as a `batch` request. Therefore, the batch parameter must be set to “Y”. 
+
+
+Access to backtesting and batch functionality is required to leverage the Iterated Cross-Sectional Functionality. 
+
+**When to use ICSF:**
+
+The ICSF can offer better performance than Time-Series requests when the date range is relatively small, and so it is recommended to use ICSF if the number of IDs requested is greater than the number of dates. If the number of dates is greater than the number of IDs in the request, it is recommended to use Time-Series.
+
+*Note: This is a general rule of thumb and performance may vary depending on the formulas in use.*
 
 
 ### Example
@@ -66,8 +86,11 @@ public class Example {
         java.util.List<String> displayName = Arrays.asList(); // java.util.List<String> | Define display names for the formulas inputted. Enter the list of display names in the same order as the formulas inputted. An additional field **displayName** will be returned in the data object for a formula.  If the number of display names does not match the number of formulas provided, an error will be returned.  To define the display name for a subset of the formulas, leave a blank in the position of the formula that won't be renamed. For example - If three formulas are inputted, to define display names only for the first and third formula, enter *displayName=FORMULA_1,,FORMULA_3*. The **displayName** field will still be included in that formula, but will contain the formula as inputted. 
         String flatten = "Y"; // String | Specify **Y** for `flatten` to return a flat, table-like JSON response model instead of the standard nested JSON response model. This option is provided for easier data processing and visualization. The default value for `flatten` is **N**.  See the **Cross-Sectional Result Object Flattened** schema for more detail on the response structure for flattened output. 
         String batch = "Y"; // String | Enables the ability to asynchronously \"batch\" the request,  supporting a long-running request up to **20 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.  Individual users are limited to running 5 Batch Requests in a 5 minute period and are allowed 5 concurrent Batch Requests. Production users are limited to running 10 Batch Requests in a 5 minute period and are allowed 10 concurrent Batch Requests. *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.*  Once a batch request is submitted, use `/batch-status` to see if the job has completed. Once completed, retrieve the results of the request via `/batch-result`. See the endpoints listed under *Batch Processing* for more information. 
+        String startDate = "startDate_example"; // String | Specify the start date for running the Iterated Cross Sectional Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or **MM/DD/YYYY** format. User must have access to backtesting functionality.
+        String endDate = "endDate_example"; // String | Specify the end date for running the Iterated Cross Sectional Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or **MM/DD/YYYY** format. User must have access to backtesting functionality.
+        String frequency = "D"; // String | Specify the frequency for running the Iterated Cross Sectional Functionality request. The following frequencies are supported **D**, **W**, **M**, **AM**, **CQ**, **AY**, or **CY**. To learn more about frequency, please visit [Online Assistant Page 1964](https://my.apps.factset.com/oa/pages/1964#frequency). User must have access to backtesting functionality.
         try {
-            GetCrossSectionalDataResponseWrapper result = apiInstance.getCrossSectionalData(formulas, ids, symbolType, universe, universeType, backTestDate, calendar, fsymId, displayName, flatten, batch);
+            GetCrossSectionalDataResponseWrapper result = apiInstance.getCrossSectionalData(formulas, ids, symbolType, universe, universeType, backTestDate, calendar, fsymId, displayName, flatten, batch, startDate, endDate, frequency);
             switch(result.getStatusCode()) {
             
                 case 200:
@@ -105,6 +128,9 @@ Name | Type | Description  | Notes
  **displayName** | **List&lt;String&gt;**| Define display names for the formulas inputted. Enter the list of display names in the same order as the formulas inputted. An additional field **displayName** will be returned in the data object for a formula.  If the number of display names does not match the number of formulas provided, an error will be returned.  To define the display name for a subset of the formulas, leave a blank in the position of the formula that won&#39;t be renamed. For example - If three formulas are inputted, to define display names only for the first and third formula, enter *displayName&#x3D;FORMULA_1,,FORMULA_3*. The **displayName** field will still be included in that formula, but will contain the formula as inputted.  | [optional]
  **flatten** | **String**| Specify **Y** for &#x60;flatten&#x60; to return a flat, table-like JSON response model instead of the standard nested JSON response model. This option is provided for easier data processing and visualization. The default value for &#x60;flatten&#x60; is **N**.  See the **Cross-Sectional Result Object Flattened** schema for more detail on the response structure for flattened output.  | [optional] [default to N] [enum: Y, N]
  **batch** | **String**| Enables the ability to asynchronously \&quot;batch\&quot; the request,  supporting a long-running request up to **20 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  Individual users are limited to running 5 Batch Requests in a 5 minute period and are allowed 5 concurrent Batch Requests. Production users are limited to running 10 Batch Requests in a 5 minute period and are allowed 10 concurrent Batch Requests. *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.*  Once a batch request is submitted, use &#x60;/batch-status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;/batch-result&#x60;. See the endpoints listed under *Batch Processing* for more information.  | [optional] [default to N] [enum: Y, N]
+ **startDate** | **String**| Specify the start date for running the Iterated Cross Sectional Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or **MM/DD/YYYY** format. User must have access to backtesting functionality. | [optional]
+ **endDate** | **String**| Specify the end date for running the Iterated Cross Sectional Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or **MM/DD/YYYY** format. User must have access to backtesting functionality. | [optional]
+ **frequency** | **String**| Specify the frequency for running the Iterated Cross Sectional Functionality request. The following frequencies are supported **D**, **W**, **M**, **AM**, **CQ**, **AY**, or **CY**. To learn more about frequency, please visit [Online Assistant Page 1964](https://my.apps.factset.com/oa/pages/1964#frequency). User must have access to backtesting functionality. | [optional]
 
 ### Return type
 
@@ -146,7 +172,27 @@ Retrieve data items (Screening formulas) for a list of identifiers or defined un
 
 The `/cross-sectional` endpoint is closely aligned with FactSet’s powerful data retrieval **Screening language** which is optimized for analysis of data items at single point in time for different entities and is extremely efficient for large universes.
 
+
 The `/cross-sectional` endpoint supports Long Running asynchronous requests up to **10 minutes** via the `batch` parameter. *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
+
+***
+
+### Iterated Cross-Sectional Functionality
+
+
+This endpoint supports the ability to automatically iterate through different cross sections over time. The **Iterated Cross-Sectional Functionality (ICSF)** expands the Cross-Sectional endpoint to support retrieving data items for *multiple dates*, allowing users to take advantage of the Screening engine’s efficiency even when history is required. 
+
+
+Use the parameters `startDate`, `endDate`, and `frequency` in the Cross-Sectional endpoint to provide your desired dates. Specify “0” in date argument of the Screening formulas provided in the formulas parameter and/or the universe parameter. Lastly, the Iterated Cross-Sectional Functionality is required to run as a `batch` request. Therefore, the batch parameter must be set to “Y”. 
+
+
+Access to backtesting and batch functionality is required to leverage the Iterated Cross-Sectional Functionality. 
+
+**When to use ICSF:**
+
+The ICSF can offer better performance than Time-Series requests when the date range is relatively small, and so it is recommended to use ICSF if the number of IDs requested is greater than the number of dates. If the number of dates is greater than the number of IDs in the request, it is recommended to use Time-Series. 
+
+*Note: This is a general rule of thumb and performance may vary depending on the formulas in use.*
 
 
 ### Example

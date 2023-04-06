@@ -21,7 +21,6 @@ class AnnualizedDividendsObject {
     /**
      * Constructs a new <code>AnnualizedDividendsObject</code>.
      * @alias module:model/AnnualizedDividendsObject
-     * @extends Object
      */
     constructor() { 
         
@@ -46,9 +45,6 @@ class AnnualizedDividendsObject {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new AnnualizedDividendsObject();
-
-            ApiClient.constructFromObject(data, obj, 'Object');
-            
 
             if (data.hasOwnProperty('fsymId')) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');

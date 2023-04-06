@@ -13,6 +13,7 @@ docs/EntityMappingDeleteRequest.md
 docs/EntityMappingDeleteResponse.md
 docs/EntityMappingRequest.md
 docs/EntityMappingResponse.md
+docs/EntityMappingsApi.md
 docs/EntityMatch.md
 docs/EntityMatchApi.md
 docs/EntityMatchBulkApi.md
@@ -29,7 +30,6 @@ docs/EntityUniverseStatisticsResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/MapStatus.md
-docs/MappingsApi.md
 docs/PeopleDecisions.md
 docs/PeopleDecisionsResponse.md
 docs/PeopleMapping.md
@@ -80,9 +80,9 @@ src/main/java/com/factset/sdk/FactSetConcordance/RFC3339DateFormat.java
 src/main/java/com/factset/sdk/FactSetConcordance/ServerConfiguration.java
 src/main/java/com/factset/sdk/FactSetConcordance/ServerVariable.java
 src/main/java/com/factset/sdk/FactSetConcordance/StringUtil.java
+src/main/java/com/factset/sdk/FactSetConcordance/api/EntityMappingsApi.java
 src/main/java/com/factset/sdk/FactSetConcordance/api/EntityMatchApi.java
 src/main/java/com/factset/sdk/FactSetConcordance/api/EntityMatchBulkApi.java
-src/main/java/com/factset/sdk/FactSetConcordance/api/MappingsApi.java
 src/main/java/com/factset/sdk/FactSetConcordance/api/PeopleMappingApi.java
 src/main/java/com/factset/sdk/FactSetConcordance/api/PeopleMatchApi.java
 src/main/java/com/factset/sdk/FactSetConcordance/api/PeopleMatchBulkApi.java

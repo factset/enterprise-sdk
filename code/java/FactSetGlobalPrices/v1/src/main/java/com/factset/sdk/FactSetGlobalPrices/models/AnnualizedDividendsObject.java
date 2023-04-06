@@ -13,10 +13,6 @@
 
 package com.factset.sdk.FactSetGlobalPrices.models;
 
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
@@ -268,43 +264,6 @@ public class AnnualizedDividendsObject implements Serializable {
     this.requestId = requestId;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   */
-  @JsonAnySetter
-  public AnnualizedDividendsObject putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
   /**
    * Return true if this annualizedDividendsObject object is equal to o.
@@ -323,8 +282,7 @@ public class AnnualizedDividendsObject implements Serializable {
         equalsNullable(this.effectiveDate, annualizedDividendsObject.effectiveDate) &&
         equalsNullable(this.iadDefTradingAdj, annualizedDividendsObject.iadDefTradingAdj) &&
         equalsNullable(this.currency, annualizedDividendsObject.currency) &&
-        Objects.equals(this.requestId, annualizedDividendsObject.requestId)&&
-        Objects.equals(this.additionalProperties, annualizedDividendsObject.additionalProperties);
+        Objects.equals(this.requestId, annualizedDividendsObject.requestId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -333,7 +291,7 @@ public class AnnualizedDividendsObject implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(eventId), hashCodeNullable(effectiveDate), hashCodeNullable(iadDefTradingAdj), hashCodeNullable(currency), requestId, additionalProperties);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(eventId), hashCodeNullable(effectiveDate), hashCodeNullable(iadDefTradingAdj), hashCodeNullable(currency), requestId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -353,7 +311,6 @@ public class AnnualizedDividendsObject implements Serializable {
     sb.append("    iadDefTradingAdj: ").append(toIndentedString(iadDefTradingAdj)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

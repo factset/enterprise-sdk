@@ -11,6 +11,7 @@ docs/EntityMappingDeleteRequest.md
 docs/EntityMappingDeleteResponse.md
 docs/EntityMappingRequest.md
 docs/EntityMappingResponse.md
+docs/EntityMappingsApi.md
 docs/EntityMatch.md
 docs/EntityMatchApi.md
 docs/EntityMatchBulkApi.md
@@ -27,7 +28,6 @@ docs/EntityUniverseStatisticsResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/MapStatus.md
-docs/MappingsApi.md
 docs/PeopleDecisions.md
 docs/PeopleDecisionsResponse.md
 docs/PeopleMapping.md
@@ -59,9 +59,9 @@ docs/UniversesApi.md
 docs/UniversesResponse.md
 docs/UpdateUniverseRequest.md
 git_push.sh
+src/FactSet.SDK.FactSetConcordance/Api/EntityMappingsApi.cs
 src/FactSet.SDK.FactSetConcordance/Api/EntityMatchApi.cs
 src/FactSet.SDK.FactSetConcordance/Api/EntityMatchBulkApi.cs
-src/FactSet.SDK.FactSetConcordance/Api/MappingsApi.cs
 src/FactSet.SDK.FactSetConcordance/Api/PeopleMappingApi.cs
 src/FactSet.SDK.FactSetConcordance/Api/PeopleMatchApi.cs
 src/FactSet.SDK.FactSetConcordance/Api/PeopleMatchBulkApi.cs

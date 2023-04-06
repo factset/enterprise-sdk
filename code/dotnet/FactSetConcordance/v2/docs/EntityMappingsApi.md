@@ -1,13 +1,13 @@
-# FactSet.SDK.FactSetConcordance.Api.MappingsApi
+# FactSet.SDK.FactSetConcordance.Api.EntityMappingsApi
 
 All URIs are relative to *https://api.factset.com/content*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetEntityMappingDeleteForList**](MappingsApi.md#getentitymappingdeleteforlist) | **POST** /factset-concordance/v2/entity-mapping-delete | Deletes mapping specified by the client.
-[**GetEntityMappingForList**](MappingsApi.md#getentitymappingforlist) | **POST** /factset-concordance/v2/entity-mapping | Saves a single-mapping specified by the client.
-[**GetEntityUniverse**](MappingsApi.md#getentityuniverse) | **GET** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe
-[**GetEntityUniverseForList**](MappingsApi.md#getentityuniverseforlist) | **POST** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe or large list of client ids
+[**GetEntityMappingDeleteForList**](EntityMappingsApi.md#getentitymappingdeleteforlist) | **POST** /factset-concordance/v2/entity-mapping-delete | Deletes mapping specified by the client.
+[**GetEntityMappingForList**](EntityMappingsApi.md#getentitymappingforlist) | **POST** /factset-concordance/v2/entity-mapping | Saves a single-mapping specified by the client.
+[**GetEntityUniverse**](EntityMappingsApi.md#getentityuniverse) | **GET** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe
+[**GetEntityUniverseForList**](EntityMappingsApi.md#getentityuniverseforlist) | **POST** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe or large list of client ids
 
 
 
@@ -53,7 +53,7 @@ namespace Example
             // config.Username = "USERNAME-SERIAL";
             // config.Password = "API-KEY";
 
-            var apiInstance = new MappingsApi(config);
+            var apiInstance = new EntityMappingsApi(config);
 
             var entityMappingDeleteRequest = new EntityMappingDeleteRequest(); // EntityMappingDeleteRequest | A request to delete entity mappings specified by the client
 
@@ -65,7 +65,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling MappingsApi.GetEntityMappingDeleteForList: " + e.Message );
+                Console.WriteLine("Exception when calling EntityMappingsApi.GetEntityMappingDeleteForList: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -148,7 +148,7 @@ namespace Example
             // config.Username = "USERNAME-SERIAL";
             // config.Password = "API-KEY";
 
-            var apiInstance = new MappingsApi(config);
+            var apiInstance = new EntityMappingsApi(config);
 
             var entityMappingRequest = new EntityMappingRequest(); // EntityMappingRequest | A request to create a single mapping.
 
@@ -160,7 +160,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling MappingsApi.GetEntityMappingForList: " + e.Message );
+                Console.WriteLine("Exception when calling EntityMappingsApi.GetEntityMappingForList: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -243,7 +243,7 @@ namespace Example
             // config.Username = "USERNAME-SERIAL";
             // config.Password = "API-KEY";
 
-            var apiInstance = new MappingsApi(config);
+            var apiInstance = new EntityMappingsApi(config);
 
             var universeId = 1;  // int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
             var clientId = new List<string>(); // List<string> | Filter by the clientId(s) created by the user in a previous mapping.  (optional) 
@@ -260,7 +260,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling MappingsApi.GetEntityUniverse: " + e.Message );
+                Console.WriteLine("Exception when calling EntityMappingsApi.GetEntityUniverse: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -348,7 +348,7 @@ namespace Example
             // config.Username = "USERNAME-SERIAL";
             // config.Password = "API-KEY";
 
-            var apiInstance = new MappingsApi(config);
+            var apiInstance = new EntityMappingsApi(config);
 
             var entityUniverseRequest = new EntityUniverseRequest(); // EntityUniverseRequest | A request to fetch all entities of a given universe
 
@@ -360,7 +360,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling MappingsApi.GetEntityUniverseForList: " + e.Message );
+                Console.WriteLine("Exception when calling EntityMappingsApi.GetEntityUniverseForList: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }

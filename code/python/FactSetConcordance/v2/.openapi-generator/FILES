@@ -11,6 +11,7 @@ docs/EntityMappingDeleteRequest.md
 docs/EntityMappingDeleteResponse.md
 docs/EntityMappingRequest.md
 docs/EntityMappingResponse.md
+docs/EntityMappingsApi.md
 docs/EntityMatch.md
 docs/EntityMatchApi.md
 docs/EntityMatchBulkApi.md
@@ -27,7 +28,6 @@ docs/EntityUniverseStatisticsResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/MapStatus.md
-docs/MappingsApi.md
 docs/PeopleDecisions.md
 docs/PeopleDecisionsResponse.md
 docs/PeopleMapping.md
@@ -61,9 +61,9 @@ docs/UpdateUniverseRequest.md
 fds/__init__.py
 fds/sdk/FactSetConcordance/__init__.py
 fds/sdk/FactSetConcordance/api/__init__.py
+fds/sdk/FactSetConcordance/api/entity_mappings_api.py
 fds/sdk/FactSetConcordance/api/entity_match___bulk_api.py
 fds/sdk/FactSetConcordance/api/entity_match_api.py
-fds/sdk/FactSetConcordance/api/mappings_api.py
 fds/sdk/FactSetConcordance/api/people_mapping_api.py
 fds/sdk/FactSetConcordance/api/people_match___bulk_api.py
 fds/sdk/FactSetConcordance/api/people_match_api.py

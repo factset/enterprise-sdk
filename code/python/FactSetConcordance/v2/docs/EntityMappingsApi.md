@@ -1,13 +1,13 @@
-# fds.sdk.FactSetConcordance.MappingsApi
+# fds.sdk.FactSetConcordance.EntityMappingsApi
 
 All URIs are relative to *https://api.factset.com/content*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_entity_mapping_delete_for_list**](MappingsApi.md#get_entity_mapping_delete_for_list) | **POST** /factset-concordance/v2/entity-mapping-delete | Deletes mapping specified by the client.
-[**get_entity_mapping_for_list**](MappingsApi.md#get_entity_mapping_for_list) | **POST** /factset-concordance/v2/entity-mapping | Saves a single-mapping specified by the client.
-[**get_entity_universe**](MappingsApi.md#get_entity_universe) | **GET** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe
-[**get_entity_universe_for_list**](MappingsApi.md#get_entity_universe_for_list) | **POST** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe or large list of client ids
+[**get_entity_mapping_delete_for_list**](EntityMappingsApi.md#get_entity_mapping_delete_for_list) | **POST** /factset-concordance/v2/entity-mapping-delete | Deletes mapping specified by the client.
+[**get_entity_mapping_for_list**](EntityMappingsApi.md#get_entity_mapping_for_list) | **POST** /factset-concordance/v2/entity-mapping | Saves a single-mapping specified by the client.
+[**get_entity_universe**](EntityMappingsApi.md#get_entity_universe) | **GET** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe
+[**get_entity_universe_for_list**](EntityMappingsApi.md#get_entity_universe_for_list) | **POST** /factset-concordance/v2/entity-universe | Retrieve all saved mappings within a requested universe or large list of client ids
 
 
 
@@ -26,7 +26,7 @@ Delete a Concordance Mapping to the client universe. When making a post, all exi
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
-from fds.sdk.FactSetConcordance.api import mappings_api
+from fds.sdk.FactSetConcordance.api import entity_mappings_api
 from fds.sdk.FactSetConcordance.models import *
 from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
@@ -56,7 +56,7 @@ configuration = fds.sdk.FactSetConcordance.Configuration(
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mappings_api.MappingsApi(api_client)
+    api_instance = entity_mappings_api.EntityMappingsApi(api_client)
 
     entity_mapping_delete_request = EntityMappingDeleteRequest(
         universe_id=1,
@@ -70,7 +70,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
-        print("Exception when calling MappingsApi->get_entity_mapping_delete_for_list: %s\n" % e)
+        print("Exception when calling EntityMappingsApi->get_entity_mapping_delete_for_list: %s\n" % e)
 ```
 
 
@@ -122,7 +122,7 @@ Saves a Concordance Mapping to the client universe. When making a post, all exit
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
-from fds.sdk.FactSetConcordance.api import mappings_api
+from fds.sdk.FactSetConcordance.api import entity_mappings_api
 from fds.sdk.FactSetConcordance.models import *
 from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
@@ -152,7 +152,7 @@ configuration = fds.sdk.FactSetConcordance.Configuration(
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mappings_api.MappingsApi(api_client)
+    api_instance = entity_mappings_api.EntityMappingsApi(api_client)
 
     entity_mapping_request = EntityMappingRequest(
         universe_id=1,
@@ -193,7 +193,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
-        print("Exception when calling MappingsApi->get_entity_mapping_for_list: %s\n" % e)
+        print("Exception when calling EntityMappingsApi->get_entity_mapping_for_list: %s\n" % e)
 ```
 
 
@@ -245,7 +245,7 @@ Retrieves all entity mappings within a requested universe.
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
-from fds.sdk.FactSetConcordance.api import mappings_api
+from fds.sdk.FactSetConcordance.api import entity_mappings_api
 from fds.sdk.FactSetConcordance.models import *
 from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
@@ -275,7 +275,7 @@ configuration = fds.sdk.FactSetConcordance.Configuration(
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mappings_api.MappingsApi(api_client)
+    api_instance = entity_mappings_api.EntityMappingsApi(api_client)
 
     universe_id = 1 # int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
     client_id = ["abc-123","def-456"] # [str] | Filter by the clientId(s) created by the user in a previous mapping.  (optional)
@@ -294,7 +294,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
-        print("Exception when calling MappingsApi->get_entity_universe: %s\n" % e)
+        print("Exception when calling EntityMappingsApi->get_entity_universe: %s\n" % e)
 ```
 
 
@@ -351,7 +351,7 @@ Retrieves all entity mappings that were saved in a given universe. Supports filt
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
-from fds.sdk.FactSetConcordance.api import mappings_api
+from fds.sdk.FactSetConcordance.api import entity_mappings_api
 from fds.sdk.FactSetConcordance.models import *
 from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
@@ -381,7 +381,7 @@ configuration = fds.sdk.FactSetConcordance.Configuration(
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = mappings_api.MappingsApi(api_client)
+    api_instance = entity_mappings_api.EntityMappingsApi(api_client)
 
     entity_universe_request = EntityUniverseRequest(
         universe_id=1,
@@ -398,7 +398,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
-        print("Exception when calling MappingsApi->get_entity_universe_for_list: %s\n" % e)
+        print("Exception when calling EntityMappingsApi->get_entity_universe_for_list: %s\n" % e)
 ```
 
 

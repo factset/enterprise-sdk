@@ -121,6 +121,7 @@ paths:
           * **FSP** – Forward Split
           * **RSP** – Reverse Split
           * **SPL** – Split
+          * **EXOS** – Exchange of Securities
       parameters:
         - $ref: '#/components/parameters/idsMax100'
         - $ref: '#/components/parameters/eventCategory'
@@ -1011,7 +1012,6 @@ components:
           description: Identifier that was used for the request.
           type: string
           example: AAPL-US
-      additionalProperties: true
     idsMax100:
       title: ids
       type: array

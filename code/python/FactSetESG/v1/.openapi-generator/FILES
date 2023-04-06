@@ -4,7 +4,10 @@
 .travis.yml
 LICENSE
 README.md
+docs/ArticlesApi.md
+docs/ArticlesFields.md
 docs/Categories.md
+docs/DateOf.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/FieldsSasbSpotlights.md
@@ -17,6 +20,10 @@ docs/RankCategories.md
 docs/SASBApi.md
 docs/SDGApi.md
 docs/SFDRApi.md
+docs/SasbArticle.md
+docs/SasbArticlesCategories.md
+docs/SasbArticlesRequest.md
+docs/SasbArticlesResponse.md
 docs/SasbRanks.md
 docs/SasbRanksRequest.md
 docs/SasbRanksResponse.md
@@ -29,6 +36,10 @@ docs/SasbScoresRequest.md
 docs/SasbScoresResponse.md
 docs/SasbSpotlightsCategories.md
 docs/SasbSpotlightsRequest.md
+docs/SdgArticle.md
+docs/SdgArticlesCategories.md
+docs/SdgArticlesRequest.md
+docs/SdgArticlesResponse.md
 docs/SdgCategories.md
 docs/SdgFrequency.md
 docs/SdgScoreTypes.md
@@ -47,6 +58,7 @@ docs/TvlIds.md
 fds/__init__.py
 fds/sdk/FactSetESG/__init__.py
 fds/sdk/FactSetESG/api/__init__.py
+fds/sdk/FactSetESG/api/articles_api.py
 fds/sdk/FactSetESG/api/sasb_api.py
 fds/sdk/FactSetESG/api/sdg_api.py
 fds/sdk/FactSetESG/api/sfdr_api.py
@@ -56,7 +68,9 @@ fds/sdk/FactSetESG/apis/__init__.py
 fds/sdk/FactSetESG/configuration.py
 fds/sdk/FactSetESG/exceptions.py
 fds/sdk/FactSetESG/model/__init__.py
+fds/sdk/FactSetESG/model/articles_fields.py
 fds/sdk/FactSetESG/model/categories.py
+fds/sdk/FactSetESG/model/date_of.py
 fds/sdk/FactSetESG/model/error_response.py
 fds/sdk/FactSetESG/model/error_response_sub_errors.py
 fds/sdk/FactSetESG/model/fields_sasb_spotlights.py
@@ -66,6 +80,10 @@ fds/sdk/FactSetESG/model/ids.py
 fds/sdk/FactSetESG/model/indicators.py
 fds/sdk/FactSetESG/model/pai_ids.py
 fds/sdk/FactSetESG/model/rank_categories.py
+fds/sdk/FactSetESG/model/sasb_article.py
+fds/sdk/FactSetESG/model/sasb_articles_categories.py
+fds/sdk/FactSetESG/model/sasb_articles_request.py
+fds/sdk/FactSetESG/model/sasb_articles_response.py
 fds/sdk/FactSetESG/model/sasb_ranks.py
 fds/sdk/FactSetESG/model/sasb_ranks_request.py
 fds/sdk/FactSetESG/model/sasb_ranks_response.py
@@ -78,6 +96,10 @@ fds/sdk/FactSetESG/model/sasb_scores_request.py
 fds/sdk/FactSetESG/model/sasb_scores_response.py
 fds/sdk/FactSetESG/model/sasb_spotlights_categories.py
 fds/sdk/FactSetESG/model/sasb_spotlights_request.py
+fds/sdk/FactSetESG/model/sdg_article.py
+fds/sdk/FactSetESG/model/sdg_articles_categories.py
+fds/sdk/FactSetESG/model/sdg_articles_request.py
+fds/sdk/FactSetESG/model/sdg_articles_response.py
 fds/sdk/FactSetESG/model/sdg_categories.py
 fds/sdk/FactSetESG/model/sdg_frequency.py
 fds/sdk/FactSetESG/model/sdg_score_types.py

@@ -1,8 +1,8 @@
 /**
  * FactSet Formula API
- *  **FactSet Formula API**  FactSet’s Formula API is a modern, flexible, formula-based API that enables users to access FactSet’s wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet’s expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  Please use the below endpoint to download the FactSet Formula API Specification File in .yaml. You must be authorized for this API to extract. This specification can then be used for Codegen to create your own SDKs. You can also download the spec using the \"Download Spec\" button to the right of the version number.  [https://api.factset.com/formula-api/v1/spec](https://api.factset.com/formula-api/v1/spec) 
+ *  **FactSet Formula API**  FactSet’s Formula API is a modern, flexible, formula-based API that enables users to access FactSet’s wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet’s expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
  *
- * The version of the OpenAPI document: 1.4
+ * The version of the OpenAPI document: 1.5.0
  * 
  *
  * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
@@ -81,6 +81,15 @@ class CrossSectionalRequestData {
             if (data.hasOwnProperty('batch')) {
                 obj['batch'] = ApiClient.convertToType(data['batch'], 'String');
             }
+            if (data.hasOwnProperty('startDate')) {
+                obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
+            }
+            if (data.hasOwnProperty('endDate')) {
+                obj['endDate'] = ApiClient.convertToType(data['endDate'], 'String');
+            }
+            if (data.hasOwnProperty('frequency')) {
+                obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
+            }
         }
         return obj;
     }
@@ -153,11 +162,29 @@ CrossSectionalRequestData.prototype['displayName'] = undefined;
 CrossSectionalRequestData.prototype['flatten'] = 'N';
 
 /**
- * Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to 20 minutes. Upon requesting \"batch\": \"Y\", the service will respond back with an HTTP Status Code of 202.  Individual users are limited to running 5 Batch Requests in a 5 minute period and are allowed 5 concurrent Batch Requests. Production users are limited to running 10 Batch Requests in a 5 minute period and are allowed 10 concurrent Batch Requests.  *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.*  Once a batch request is submitted, use `/batch-status` to see if the job has completed. Once completed, retrieve the results of the request via `/batch-result`. See the endpoints listed under *Batch Processing* for more information. 
+ * Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to 10 minutes. Upon requesting \"batch\": \"Y\", the service will respond back with an HTTP Status Code of 202.  Individual users are limited to running 5 Batch Requests in a 5 minute period and are allowed 5 concurrent Batch Requests. Production users are limited to running 10 Batch Requests in a 5 minute period and are allowed 10 concurrent Batch Requests.  *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.*  Once a batch request is submitted, use `/batch-status` to see if the job has completed. Once completed, retrieve the results of the request via `/batch-result`. See the endpoints listed under *Batch Processing* for more information. 
  * @member {module:model/CrossSectionalRequestData.BatchEnum} batch
  * @default 'N'
  */
 CrossSectionalRequestData.prototype['batch'] = 'N';
+
+/**
+ * Specify the start date for running the Iterated Cross Sectional Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or **MM/DD/YYYY** format. 
+ * @member {String} startDate
+ */
+CrossSectionalRequestData.prototype['startDate'] = undefined;
+
+/**
+ * Specify the end date for running the Iterated Cross Sectional Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or **MM/DD/YYYY** format. 
+ * @member {String} endDate
+ */
+CrossSectionalRequestData.prototype['endDate'] = undefined;
+
+/**
+ * Specify the frequency for running the Iterated Cross Sectional Functionality request. The following frequencies are supported **D**, **W**, **M**, **AM**, **CQ**, **AY**, or **CY**.  To learn more about frequency, please visit [Online Assistant Page 1964](https://my.apps.factset.com/oa/pages/1964#frequency). User must have access to backtesting functionality. 
+ * @member {module:model/CrossSectionalRequestData.FrequencyEnum} frequency
+ */
+CrossSectionalRequestData.prototype['frequency'] = undefined;
 
 
 
@@ -250,6 +277,57 @@ CrossSectionalRequestData['BatchEnum'] = {
      * @const
      */
     "N": "N"
+};
+
+
+/**
+ * Allowed values for the <code>frequency</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CrossSectionalRequestData['FrequencyEnum'] = {
+
+    /**
+     * value: "D"
+     * @const
+     */
+    "D": "D",
+
+    /**
+     * value: "W"
+     * @const
+     */
+    "W": "W",
+
+    /**
+     * value: "M"
+     * @const
+     */
+    "M": "M",
+
+    /**
+     * value: "AM"
+     * @const
+     */
+    "AM": "AM",
+
+    /**
+     * value: "CQ"
+     * @const
+     */
+    "CQ": "CQ",
+
+    /**
+     * value: "AY"
+     * @const
+     */
+    "AY": "AY",
+
+    /**
+     * value: "CY"
+     * @const
+     */
+    "CY": "CY"
 };
 
 

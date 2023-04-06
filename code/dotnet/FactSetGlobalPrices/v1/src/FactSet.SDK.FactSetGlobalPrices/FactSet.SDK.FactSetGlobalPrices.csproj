@@ -13,7 +13,7 @@
     <Description>FactSet Global Prices client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.FactSetGlobalPrices</RootNamespace>
-    <Version>1.2.4</Version>
+    <Version>1.2.5</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.FactSetGlobalPrices.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

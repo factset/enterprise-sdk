@@ -9,7 +9,9 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.FactSetESG.model.articles_fields import ArticlesFields
 from fds.sdk.FactSetESG.model.categories import Categories
+from fds.sdk.FactSetESG.model.date_of import DateOf
 from fds.sdk.FactSetESG.model.error_response import ErrorResponse
 from fds.sdk.FactSetESG.model.error_response_sub_errors import ErrorResponseSubErrors
 from fds.sdk.FactSetESG.model.fields_sasb_spotlights import FieldsSasbSpotlights
@@ -19,6 +21,10 @@ from fds.sdk.FactSetESG.model.ids import Ids
 from fds.sdk.FactSetESG.model.indicators import Indicators
 from fds.sdk.FactSetESG.model.pai_ids import PaiIds
 from fds.sdk.FactSetESG.model.rank_categories import RankCategories
+from fds.sdk.FactSetESG.model.sasb_article import SasbArticle
+from fds.sdk.FactSetESG.model.sasb_articles_categories import SasbArticlesCategories
+from fds.sdk.FactSetESG.model.sasb_articles_request import SasbArticlesRequest
+from fds.sdk.FactSetESG.model.sasb_articles_response import SasbArticlesResponse
 from fds.sdk.FactSetESG.model.sasb_ranks import SasbRanks
 from fds.sdk.FactSetESG.model.sasb_ranks_request import SasbRanksRequest
 from fds.sdk.FactSetESG.model.sasb_ranks_response import SasbRanksResponse
@@ -31,6 +37,10 @@ from fds.sdk.FactSetESG.model.sasb_scores_request import SasbScoresRequest
 from fds.sdk.FactSetESG.model.sasb_scores_response import SasbScoresResponse
 from fds.sdk.FactSetESG.model.sasb_spotlights_categories import SasbSpotlightsCategories
 from fds.sdk.FactSetESG.model.sasb_spotlights_request import SasbSpotlightsRequest
+from fds.sdk.FactSetESG.model.sdg_article import SdgArticle
+from fds.sdk.FactSetESG.model.sdg_articles_categories import SdgArticlesCategories
+from fds.sdk.FactSetESG.model.sdg_articles_request import SdgArticlesRequest
+from fds.sdk.FactSetESG.model.sdg_articles_response import SdgArticlesResponse
 from fds.sdk.FactSetESG.model.sdg_categories import SdgCategories
 from fds.sdk.FactSetESG.model.sdg_frequency import SdgFrequency
 from fds.sdk.FactSetESG.model.sdg_score_types import SdgScoreTypes

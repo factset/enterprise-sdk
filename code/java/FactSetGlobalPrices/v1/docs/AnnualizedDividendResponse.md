@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **java.util.List&lt;AnnualizedDividendsObject&gt;** | Array of Annualized Dividends Objects |  [optional]
+**data** | [**java.util.List&lt;AnnualizedDividendsObject&gt;**](AnnualizedDividendsObject.md) | Array of Annualized Dividends Objects |  [optional]
 
 
 ## Implemented Interfaces

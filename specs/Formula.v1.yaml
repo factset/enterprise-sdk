@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: '1.4'
+  version: 1.5.0
   title: FactSet Formula API
   description: >
 
@@ -56,14 +56,9 @@ info:
     **How to Programmatically Download API Specification File**
 
 
-    Please use the below endpoint to download the FactSet Formula API
-    Specification File in .yaml. You must be authorized for this API to extract.
-    This specification can then be used for Codegen to create your own SDKs. You
-    can also download the spec using the "Download Spec" button to the right of
-    the version number.
-
-
-    [https://api.factset.com/formula-api/v1/spec](https://api.factset.com/formula-api/v1/spec)
+    You can download the FactSet Formula API Specification File in .yaml. using
+    the "Download Spec" button to the right of the version number. This
+    specification can then be used for Codegen to create your own SDKs.
 servers:
   - description: Production
     url: https://api.factset.com/formula-api
@@ -300,6 +295,7 @@ paths:
         and is extremely efficient for large universes.
 
 
+
         The `/cross-sectional` endpoint supports Long Running asynchronous
         requests up to **10 minutes** via the `batch` parameter. *This feature
         is available to Individual Users subscribed to the Performance Package
@@ -308,6 +304,49 @@ paths:
         would like to gain access to the batch capabilities, please contact your
         FactSet Account Team or "Report Issue" above and our support teams can
         assist.*
+
+
+        ***
+
+
+        ### Iterated Cross-Sectional Functionality
+
+
+
+        This endpoint supports the ability to automatically iterate through
+        different cross sections over time. The **Iterated Cross-Sectional
+        Functionality (ICSF)** expands the Cross-Sectional endpoint to support
+        retrieving data items for *multiple dates*, allowing users to take
+        advantage of the Screening engine’s efficiency even when history is
+        required. 
+
+
+
+        Use the parameters `startDate`, `endDate`, and `frequency` in the
+        Cross-Sectional endpoint to provide your desired dates. Specify “0” in
+        date argument of the Screening formulas provided in the formulas
+        parameter and/or the universe parameter. Lastly, the Iterated
+        Cross-Sectional Functionality is required to run as a `batch` request.
+        Therefore, the batch parameter must be set to “Y”. 
+
+
+
+        Access to backtesting and batch functionality is required to leverage
+        the Iterated Cross-Sectional Functionality. 
+
+
+        **When to use ICSF:**
+
+
+        The ICSF can offer better performance than Time-Series requests when the
+        date range is relatively small, and so it is recommended to use ICSF if
+        the number of IDs requested is greater than the number of dates. If the
+        number of dates is greater than the number of IDs in the request, it is
+        recommended to use Time-Series.
+
+
+        *Note: This is a general rule of thumb and performance may vary
+        depending on the formulas in use.*
       tags:
         - Cross-Sectional
       operationId: getCrossSectionalData
@@ -323,6 +362,9 @@ paths:
         - $ref: '#/components/parameters/displayName_cross_sectional'
         - $ref: '#/components/parameters/flatten_cross_sectional'
         - $ref: '#/components/parameters/batch'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
       responses:
         '200':
           description: >-
@@ -371,6 +413,12 @@ paths:
                   $ref: '#/components/examples/cross-sectional-smallUniv-singleItem'
                 Debt Universe and Multiple Debt Data Items:
                   $ref: '#/components/examples/cross-sectional-debtUniv-multipleItem'
+                Single ID and Multiple dates using ICSF with flatten = N:
+                  $ref: >-
+                    #/components/examples/cross-sectional-ICSF-singleItem-nonflatten
+                Multiple IDs and Multiple dates using ICSF with flatten = Y:
+                  $ref: >-
+                    #/components/examples/cross-sectional-ICSF-multipleItem-Flatten
         '202':
           description: Batch request has been accepted.
           content:
@@ -416,6 +464,7 @@ paths:
         and is extremely efficient for large universes.
 
 
+
         The `/cross-sectional` endpoint supports Long Running asynchronous
         requests up to **10 minutes** via the `batch` parameter. *This feature
         is available to Individual Users subscribed to the Performance Package
@@ -424,6 +473,49 @@ paths:
         would like to gain access to the batch capabilities, please contact your
         FactSet Account Team or "Report Issue" above and our support teams can
         assist.*
+
+
+        ***
+
+
+        ### Iterated Cross-Sectional Functionality
+
+
+
+        This endpoint supports the ability to automatically iterate through
+        different cross sections over time. The **Iterated Cross-Sectional
+        Functionality (ICSF)** expands the Cross-Sectional endpoint to support
+        retrieving data items for *multiple dates*, allowing users to take
+        advantage of the Screening engine’s efficiency even when history is
+        required. 
+
+
+
+        Use the parameters `startDate`, `endDate`, and `frequency` in the
+        Cross-Sectional endpoint to provide your desired dates. Specify “0” in
+        date argument of the Screening formulas provided in the formulas
+        parameter and/or the universe parameter. Lastly, the Iterated
+        Cross-Sectional Functionality is required to run as a `batch` request.
+        Therefore, the batch parameter must be set to “Y”. 
+
+
+
+        Access to backtesting and batch functionality is required to leverage
+        the Iterated Cross-Sectional Functionality. 
+
+
+        **When to use ICSF:**
+
+
+        The ICSF can offer better performance than Time-Series requests when the
+        date range is relatively small, and so it is recommended to use ICSF if
+        the number of IDs requested is greater than the number of dates. If the
+        number of dates is greater than the number of IDs in the request, it is
+        recommended to use Time-Series. 
+
+
+        *Note: This is a general rule of thumb and performance may vary
+        depending on the formulas in use.*
       tags:
         - Cross-Sectional
       operationId: getCrossSectionalDataForList
@@ -475,6 +567,12 @@ paths:
                   $ref: '#/components/examples/cross-sectional-smallUniv-singleItem'
                 Debt Universe and Multiple Debt Data Items:
                   $ref: '#/components/examples/cross-sectional-debtUniv-multipleItem'
+                Single ID and Multiple dates using ICSF with flatten = N:
+                  $ref: >-
+                    #/components/examples/cross-sectional-ICSF-singleItem-nonflatten
+                Multiple IDs and Multiple dates using ICSF with flatten = Y:
+                  $ref: >-
+                    #/components/examples/cross-sectional-ICSF-multipleItem-Flatten
         '202':
           description: Batch request has been accepted.
           content:
@@ -1382,6 +1480,88 @@ components:
         format: uuid
       required: true
       allowEmptyValue: false
+    startDate:
+      name: startDate
+      description: >-
+        Specify the start date for running the Iterated Cross Sectional
+        Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or
+        **MM/DD/YYYY** format.
+
+        User must have access to backtesting functionality.
+      in: query
+      required: false
+      schema:
+        type: string
+      explode: false
+    endDate:
+      name: endDate
+      description: >-
+        Specify the end date for running the Iterated Cross Sectional
+        Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or
+        **MM/DD/YYYY** format.
+
+        User must have access to backtesting functionality.
+      in: query
+      required: false
+      schema:
+        type: string
+      explode: false
+    frequency:
+      name: frequency
+      description: >-
+        Specify the frequency for running the Iterated Cross Sectional
+        Functionality request. The following frequencies are supported **D**,
+        **W**, **M**, **AM**, **CQ**, **AY**, or **CY**.
+
+        To learn more about frequency, please visit [Online Assistant Page
+        1964](https://my.apps.factset.com/oa/pages/1964#frequency). User must
+        have access to backtesting functionality.
+      in: query
+      required: false
+      schema:
+        type: string
+      explode: false
+      examples:
+        D:
+          summary: Daily
+          description: Displays data on a daily basis.
+          value: D
+        W:
+          summary: Weekly
+          description: >-
+            Displays data weekly, based on the last day of the completed trading
+            week (usually Friday).
+          value: W
+        M:
+          summary: Monthly
+          description: Displays data monthly, based on the last trading day of the month.
+          value: M
+        AM:
+          summary: Monthly-Actual
+          description: >-
+            Displays data monthly, based on the start date (e.g., if the start
+            date is June 16th, data is displayed for June 16th, May 16th, April
+            16th, etc.).
+          value: AM
+        CQ:
+          summary: Quarterly-Calendar
+          description: >-
+            Displays data quarterly based on the last trading day of the
+            calendar quarter (March, June, September, or December).
+          value: CQ
+        AY:
+          summary: Yearly-Actual
+          description: >-
+            Displays data annually, based on the start date (e.g, if the start
+            date is October 31, 2019, data is displayed for October 31, 2019,
+            October 31, 2018, October 31, 2017, etc.).
+          value: AY
+        CY:
+          summary: Yearly-Calendar
+          description: >-
+            Displays data annually based on the last trading day of the calendar
+            year.
+          value: CY
   schemas:
     time_series_request:
       title: Time-Series Request Body
@@ -2281,7 +2461,7 @@ components:
               title: batch
               description: >
                 Enables the ability to asynchronously "batch" the request,
-                supporting a long-running request up to 20 minutes. Upon
+                supporting a long-running request up to 10 minutes. Upon
                 requesting "batch": "Y", the service will respond back with an
                 HTTP Status Code of 202.
 
@@ -2311,6 +2491,43 @@ components:
               enum:
                 - 'Y'
                 - 'N'
+            startDate:
+              title: statDate
+              description: >
+                Specify the start date for running the Iterated Cross Sectional
+                Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or
+                **MM/DD/YYYY** format.
+              type: string
+              example: '2020-05-01'
+            endDate:
+              title: endDate
+              description: >
+                Specify the end date for running the Iterated Cross Sectional
+                Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or
+                **MM/DD/YYYY** format.
+              type: string
+              example: '2020-05-31'
+            frequency:
+              title: frequency
+              description: >
+                Specify the frequency for running the Iterated Cross Sectional
+                Functionality request. The following frequencies are supported
+                **D**, **W**, **M**, **AM**, **CQ**, **AY**, or **CY**.
+
+
+                To learn more about frequency, please visit [Online Assistant
+                Page 1964](https://my.apps.factset.com/oa/pages/1964#frequency).
+                User must have access to backtesting functionality.
+              type: string
+              example: AM
+              enum:
+                - D
+                - W
+                - M
+                - AM
+                - CQ
+                - AY
+                - CY
           required:
             - formulas
       required:
@@ -4154,6 +4371,131 @@ components:
               - null
               - null
             dataType: DOUBLE
+    cross-sectional-ICSF-singleItem-nonflatten:
+      summary: Single ID and Multiple Dates using ICSF with flatten = N
+      description: >
+        `Iterated Cross-Sectional Functionality` Request for the monthly price
+        of Netflix Inc. for the year of 2022.
+      value:
+        data:
+          - dataItemName: requestId
+            result:
+              - NFLX-USA
+              - NFLX-USA
+              - NFLX-USA
+              - NFLX-USA
+              - NFLX-USA
+              - NFLX-USA
+              - NFLX-USA
+              - NFLX-USA
+              - NFLX-USA
+              - NFLX-USA
+              - NFLX-USA
+              - NFLX-USA
+            dataType: STRING
+            error: 0
+          - dataItemName: P_PRICE(0)
+            result:
+              - 427.14
+              - 394.52
+              - 374.59
+              - 190.36
+              - 197.44
+              - 174.87
+              - 224.9
+              - 223.56
+              - 235.44
+              - 291.88
+              - 305.53
+              - 294.88
+            dataType: FLOAT
+            error: 0
+          - dataItemName: PROPER_NAME
+            result:
+              - Netflix, Inc.
+              - Netflix, Inc.
+              - Netflix, Inc.
+              - Netflix, Inc.
+              - Netflix, Inc.
+              - Netflix, Inc.
+              - Netflix, Inc.
+              - Netflix, Inc.
+              - Netflix, Inc.
+              - Netflix, Inc.
+              - Netflix, Inc.
+              - Netflix, Inc.
+            dataType: STRING
+            error: 0
+          - dataItemName: date
+            result:
+              - '2022-01-31'
+              - '2022-02-28'
+              - '2022-03-31'
+              - '2022-04-29'
+              - '2022-05-31'
+              - '2022-06-30'
+              - '2022-07-29'
+              - '2022-08-31'
+              - '2022-09-30'
+              - '2022-10-31'
+              - '2022-11-30'
+              - '2022-12-30'
+            dataType: string
+            error: 0
+        meta: {}
+    cross-sectional-ICSF-multipleItem-Flatten:
+      summary: Multiple IDs and Multiple Dates using ICSF with flatten = Y
+      description: >
+        `Iterated Cross-Sectional Functionality` Request for the weekly sales of
+        Netflix Inc., Walt Disney Company, and Warner Bros. Discovery Inc. for
+        the month of March 2020.
+      value:
+        data:
+          - requestId: NFLX-USA
+            date: '2020-02-28'
+            FF_SALES(ANN_R,0): 20156.447
+          - requestId: DIS-USA
+            date: '2020-02-28'
+            FF_SALES(ANN_R,0): 69422
+          - requestId: WBD-USA
+            date: '2020-02-28'
+            FF_SALES(ANN_R,0): 11133
+          - requestId: NFLX-USA
+            date: '2020-03-06'
+            FF_SALES(ANN_R,0): 20156.447
+          - requestId: DIS-USA
+            date: '2020-03-06'
+            FF_SALES(ANN_R,0): 69422
+          - requestId: WBD-USA
+            date: '2020-03-06'
+            FF_SALES(ANN_R,0): 11133
+          - requestId: NFLX-USA
+            date: '2020-03-13'
+            FF_SALES(ANN_R,0): 20156.447
+          - requestId: DIS-USA
+            date: '2020-03-13'
+            FF_SALES(ANN_R,0): 69422
+          - requestId: WBD-USA
+            date: '2020-03-13'
+            FF_SALES(ANN_R,0): 11133
+          - requestId: NFLX-USA
+            date: '2020-03-20'
+            FF_SALES(ANN_R,0): 20156.447
+          - requestId: DIS-USA
+            date: '2020-03-20'
+            FF_SALES(ANN_R,0): 69422
+          - requestId: WBD-USA
+            date: '2020-03-20'
+            FF_SALES(ANN_R,0): 11133
+          - requestId: NFLX-USA
+            date: '2020-03-27'
+            FF_SALES(ANN_R,0): 20156.447
+          - requestId: DIS-USA
+            date: '2020-03-27'
+            FF_SALES(ANN_R,0): 69422
+          - requestId: WBD-USA
+            date: '2020-03-27'
+            FF_SALES(ANN_R,0): 11133
     BatchStatusAcceptedResponse:
       description: Batch Status Accepted Response
       value:
@@ -4492,6 +4834,34 @@ components:
                   formulas:
                     - FI_NAME(ISSR)
                     - FI_AMOUNT_OUT(AMT,0,USD)
+            cross-sectional-ICSF-singleItem-nonflatten:
+              summary: Single ID and Multiple Dates using ICSF with flatten = N
+              value:
+                data:
+                  ids: NFLX-USA
+                  formulas:
+                    - PROPER_NAME
+                    - P_PRICE(0)
+                  startDate: 01/01/2022
+                  endDate: 12/31/2022
+                  frequency: M
+                  batch: 'Y'
+                  flatten: 'N'
+            cross-sectional-ICSF-multipleItem-Flatten:
+              summary: Multiple IDs and Multiple Dates using ICSF with flatten = Y
+              value:
+                data:
+                  ids:
+                    - NFLX-USA
+                    - DIS-USA
+                    - WBD-USA
+                  formulas:
+                    - FF_SALES(ANN_R,0)
+                  startDate: 03/01/2020
+                  endDate: 03/31/2020
+                  frequency: W
+                  batch: 'Y'
+                  flatten: 'Y'
             cross-sectional-batch:
               summary: >-
                 Batch Request for Multiple Equity Ids and Multiple Equity Data

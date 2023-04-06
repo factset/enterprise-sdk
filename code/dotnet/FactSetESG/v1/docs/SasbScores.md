@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | **DateTime** | Date for the period requested expressed in YYYY-MM-DD format. | [optional] 
+**Date** | **DateTime?** | Date for the period requested expressed in YYYY-MM-DD format. | [optional] 
 **FsymId** | **string** | FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E). | [optional] 
 **RequestId** | **string** | Identifier that was used for the request. | [optional] 
 **SasbCategory** | **string** | The specific SASB &#39;category&#39; the score is referring to. | [optional] 

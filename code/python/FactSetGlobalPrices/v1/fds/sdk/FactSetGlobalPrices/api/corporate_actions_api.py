@@ -360,7 +360,7 @@ class CorporateActionsApi(object):
     ) -> CorporateActionsResponse:
         """Gets Corporate Actions information.  # noqa: E501
 
-        Gets the Corporate Actions amounts, dates, types, and flags over a specified date range. You may request future dates to receive information for declared events.  Event Categories: * __Cash Dividends__ (CASH_DIVS)   * **DVC** – Dividend   * **DVCD** – Dividend with DRP Option   * **DRP** – Dividend Reinvestment * __Stock Distributions__ (STOCK_DIST)   * **DVS** – Stock Dividend   * **DVSS** – Stock Dividend, Special   * **BNS** – Bonus Issue   * **BNSS** – Bonus Issue, Special * __Spin Offs__ (SPINOFFS)   * **SPO** – Spin Off * __Rights Issue__ (RIGHTS)   * **DSR** – Rights Issue * __Splits__ (SPLITS)   * **FSP** – Forward Split   * **RSP** – Reverse Split   * **SPL** – Split   # noqa: E501
+        Gets the Corporate Actions amounts, dates, types, and flags over a specified date range. You may request future dates to receive information for declared events.  Event Categories: * __Cash Dividends__ (CASH_DIVS)   * **DVC** – Dividend   * **DVCD** – Dividend with DRP Option   * **DRP** – Dividend Reinvestment * __Stock Distributions__ (STOCK_DIST)   * **DVS** – Stock Dividend   * **DVSS** – Stock Dividend, Special   * **BNS** – Bonus Issue   * **BNSS** – Bonus Issue, Special * __Spin Offs__ (SPINOFFS)   * **SPO** – Spin Off * __Rights Issue__ (RIGHTS)   * **DSR** – Rights Issue * __Splits__ (SPLITS)   * **FSP** – Forward Split   * **RSP** – Reverse Split   * **SPL** – Split   * **EXOS** – Exchange of Securities   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -412,7 +412,7 @@ class CorporateActionsApi(object):
     ) -> typing.Tuple[CorporateActionsResponse, int, typing.MutableMapping]:
         """Gets Corporate Actions information.  # noqa: E501
 
-        Gets the Corporate Actions amounts, dates, types, and flags over a specified date range. You may request future dates to receive information for declared events.  Event Categories: * __Cash Dividends__ (CASH_DIVS)   * **DVC** – Dividend   * **DVCD** – Dividend with DRP Option   * **DRP** – Dividend Reinvestment * __Stock Distributions__ (STOCK_DIST)   * **DVS** – Stock Dividend   * **DVSS** – Stock Dividend, Special   * **BNS** – Bonus Issue   * **BNSS** – Bonus Issue, Special * __Spin Offs__ (SPINOFFS)   * **SPO** – Spin Off * __Rights Issue__ (RIGHTS)   * **DSR** – Rights Issue * __Splits__ (SPLITS)   * **FSP** – Forward Split   * **RSP** – Reverse Split   * **SPL** – Split   # noqa: E501
+        Gets the Corporate Actions amounts, dates, types, and flags over a specified date range. You may request future dates to receive information for declared events.  Event Categories: * __Cash Dividends__ (CASH_DIVS)   * **DVC** – Dividend   * **DVCD** – Dividend with DRP Option   * **DRP** – Dividend Reinvestment * __Stock Distributions__ (STOCK_DIST)   * **DVS** – Stock Dividend   * **DVSS** – Stock Dividend, Special   * **BNS** – Bonus Issue   * **BNSS** – Bonus Issue, Special * __Spin Offs__ (SPINOFFS)   * **SPO** – Spin Off * __Rights Issue__ (RIGHTS)   * **DSR** – Rights Issue * __Splits__ (SPLITS)   * **FSP** – Forward Split   * **RSP** – Reverse Split   * **SPL** – Split   * **EXOS** – Exchange of Securities   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -468,7 +468,7 @@ class CorporateActionsApi(object):
     ) -> "ApplyResult[CorporateActionsResponse]":
         """Gets Corporate Actions information.  # noqa: E501
 
-        Gets the Corporate Actions amounts, dates, types, and flags over a specified date range. You may request future dates to receive information for declared events.  Event Categories: * __Cash Dividends__ (CASH_DIVS)   * **DVC** – Dividend   * **DVCD** – Dividend with DRP Option   * **DRP** – Dividend Reinvestment * __Stock Distributions__ (STOCK_DIST)   * **DVS** – Stock Dividend   * **DVSS** – Stock Dividend, Special   * **BNS** – Bonus Issue   * **BNSS** – Bonus Issue, Special * __Spin Offs__ (SPINOFFS)   * **SPO** – Spin Off * __Rights Issue__ (RIGHTS)   * **DSR** – Rights Issue * __Splits__ (SPLITS)   * **FSP** – Forward Split   * **RSP** – Reverse Split   * **SPL** – Split   # noqa: E501
+        Gets the Corporate Actions amounts, dates, types, and flags over a specified date range. You may request future dates to receive information for declared events.  Event Categories: * __Cash Dividends__ (CASH_DIVS)   * **DVC** – Dividend   * **DVCD** – Dividend with DRP Option   * **DRP** – Dividend Reinvestment * __Stock Distributions__ (STOCK_DIST)   * **DVS** – Stock Dividend   * **DVSS** – Stock Dividend, Special   * **BNS** – Bonus Issue   * **BNSS** – Bonus Issue, Special * __Spin Offs__ (SPINOFFS)   * **SPO** – Spin Off * __Rights Issue__ (RIGHTS)   * **DSR** – Rights Issue * __Splits__ (SPLITS)   * **FSP** – Forward Split   * **RSP** – Reverse Split   * **SPL** – Split   * **EXOS** – Exchange of Securities   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -519,7 +519,7 @@ class CorporateActionsApi(object):
     ) -> "ApplyResult[typing.Tuple[CorporateActionsResponse, int, typing.MutableMapping]]":
         """Gets Corporate Actions information.  # noqa: E501
 
-        Gets the Corporate Actions amounts, dates, types, and flags over a specified date range. You may request future dates to receive information for declared events.  Event Categories: * __Cash Dividends__ (CASH_DIVS)   * **DVC** – Dividend   * **DVCD** – Dividend with DRP Option   * **DRP** – Dividend Reinvestment * __Stock Distributions__ (STOCK_DIST)   * **DVS** – Stock Dividend   * **DVSS** – Stock Dividend, Special   * **BNS** – Bonus Issue   * **BNSS** – Bonus Issue, Special * __Spin Offs__ (SPINOFFS)   * **SPO** – Spin Off * __Rights Issue__ (RIGHTS)   * **DSR** – Rights Issue * __Splits__ (SPLITS)   * **FSP** – Forward Split   * **RSP** – Reverse Split   * **SPL** – Split   # noqa: E501
+        Gets the Corporate Actions amounts, dates, types, and flags over a specified date range. You may request future dates to receive information for declared events.  Event Categories: * __Cash Dividends__ (CASH_DIVS)   * **DVC** – Dividend   * **DVCD** – Dividend with DRP Option   * **DRP** – Dividend Reinvestment * __Stock Distributions__ (STOCK_DIST)   * **DVS** – Stock Dividend   * **DVSS** – Stock Dividend, Special   * **BNS** – Bonus Issue   * **BNSS** – Bonus Issue, Special * __Spin Offs__ (SPINOFFS)   * **SPO** – Spin Off * __Rights Issue__ (RIGHTS)   * **DSR** – Rights Issue * __Splits__ (SPLITS)   * **FSP** – Forward Split   * **RSP** – Reverse Split   * **SPL** – Split   * **EXOS** – Exchange of Securities   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
