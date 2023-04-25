@@ -48,6 +48,8 @@ docs/PeopleTaskStatusResponse.md
 docs/PeopleUniverseRequest.md
 docs/PeopleUniverseResponse.md
 docs/SnowflakeApi.md
+docs/SnowflakeEntityMappingRequest.md
+docs/SnowflakeEntityMappingResponse.md
 docs/SnowflakeEntityMatchRequest.md
 docs/SnowflakeEntityMatchResponse.md
 docs/Universe.md
@@ -108,6 +110,8 @@ src/model/PeopleTaskStatus.js
 src/model/PeopleTaskStatusResponse.js
 src/model/PeopleUniverseRequest.js
 src/model/PeopleUniverseResponse.js
+src/model/SnowflakeEntityMappingRequest.js
+src/model/SnowflakeEntityMappingResponse.js
 src/model/SnowflakeEntityMatchRequest.js
 src/model/SnowflakeEntityMatchResponse.js
 src/model/Universe.js

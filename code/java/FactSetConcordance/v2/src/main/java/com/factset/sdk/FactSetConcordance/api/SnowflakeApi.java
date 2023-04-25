@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.FactSetConcordance.models.SnowflakeEntityMappingRequest;
+import com.factset.sdk.FactSetConcordance.models.SnowflakeEntityMappingResponse;
 import com.factset.sdk.FactSetConcordance.models.SnowflakeEntityMatchRequest;
 import com.factset.sdk.FactSetConcordance.models.SnowflakeEntityMatchResponse;
 
@@ -29,6 +31,11 @@ public class SnowflakeApi {
   private static final Map<Integer, GenericType> getSnowflakeEntityMatchForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSnowflakeEntityMatchForListResponseTypeMap.put(200, new GenericType<SnowflakeEntityMatchResponse>(){});
+  }
+
+  private static final Map<Integer, GenericType> snowflakeEntityMappingPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    snowflakeEntityMappingPostResponseTypeMap.put(0, new GenericType<SnowflakeEntityMappingResponse>(){});
   }
 
   
@@ -121,6 +128,79 @@ public class SnowflakeApi {
     > apiResponse = apiClient.invokeAPI("SnowflakeApi.getSnowflakeEntityMatchForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getSnowflakeEntityMatchForListResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Save entity mappings to a universe
+   * Manually save or update entity mappings with metadata
+   * @param snowflakeEntityMappingRequest A request to save entity mappings to a universe (required)
+   * @return SnowflakeEntityMappingResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 0 </td><td> Response object according to snowflake external function spec </td><td>  -  </td></tr>
+     </table>
+   */
+  public SnowflakeEntityMappingResponse snowflakeEntityMappingPost(SnowflakeEntityMappingRequest snowflakeEntityMappingRequest) throws ApiException {
+    return snowflakeEntityMappingPostWithHttpInfo(snowflakeEntityMappingRequest).getData();
+  }
+
+  /**
+   * Save entity mappings to a universe
+   * Manually save or update entity mappings with metadata
+   * @param snowflakeEntityMappingRequest A request to save entity mappings to a universe (required)
+   * @return ApiResponse&lt;SnowflakeEntityMappingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 0 </td><td> Response object according to snowflake external function spec </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SnowflakeEntityMappingResponse> snowflakeEntityMappingPostWithHttpInfo(SnowflakeEntityMappingRequest snowflakeEntityMappingRequest) throws ApiException {
+    Object localVarPostBody = snowflakeEntityMappingRequest;
+    
+    // verify the required parameter 'snowflakeEntityMappingRequest' is set
+    if (snowflakeEntityMappingRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'snowflakeEntityMappingRequest' when calling snowflakeEntityMappingPost");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/factset-concordance/v2/snowflake-entity-mapping";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        SnowflakeEntityMappingResponse
+      
+    > apiResponse = apiClient.invokeAPI("SnowflakeApi.snowflakeEntityMappingPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, snowflakeEntityMappingPostResponseTypeMap, false);
 
     return apiResponse;
 

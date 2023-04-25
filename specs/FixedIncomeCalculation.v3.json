@@ -4,15 +4,15 @@
     "title": "FI API",
     "description": "Allow clients to fetch Analytics through APIs.",
     "contact": {
-      "name": "Analytics API Support",
+      "name": "FactSet Research Systems",
       "url": "https://developer.factset.com/contact",
-      "email": "analytics.api.support@factset.com"
+      "email": "api@factset.com"
     },
     "license": {
-      "name": "Apache License 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3"
+    "version": "3.9.0"
   },
   "servers": [
     {
@@ -2459,16 +2459,18 @@
         "type": "object",
         "properties": {
           "category": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "currency": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "FIDiscountCurveInfoRoot": {
         "required": [
@@ -2483,37 +2485,38 @@
             }
           },
           "meta": {
-            "type": "object"
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ErrorSource": {
         "type": "object",
         "properties": {
           "pointer": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "parameter": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "Error": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "detail": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "source": {
             "$ref": "#/components/schemas/ErrorSource"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ClientErrorResponse": {
         "type": "object",
@@ -2522,70 +2525,241 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Error"
-            }
+            },
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "FIReferencePrepay": {
         "type": "object",
         "properties": {
           "prepayName": {
             "type": "string",
-            "description": "Reference Prepay Name"
+            "description": "Reference Prepay Name",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "FIReferenceSecurity": {
         "type": "object",
         "properties": {
           "securityType": {
             "type": "string",
-            "description": "Reference Security Type"
+            "description": "Reference Security Type",
+            "nullable": true
           },
           "securityName": {
             "type": "string",
-            "description": "Reference Security Name"
+            "description": "Reference Security Name",
+            "nullable": true
           },
           "calcFromMethod": {
             "type": "string",
-            "description": "Reference Calculation Method.\r\nMethods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix"
+            "description": "Reference Calculation Method.\r\nMethods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix",
+            "nullable": true
           },
           "calcFromValue": {
             "type": "number",
             "description": "Reference CalcFromValue",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "prepay": {
             "$ref": "#/components/schemas/FIReferencePrepay"
           },
           "settlement": {
             "type": "string",
-            "description": "Reference Settlement Date"
+            "description": "Reference Settlement Date",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
+      },
+      "FIBankLoans": {
+        "type": "object",
+        "properties": {
+          "ignoreSinkingFund": {
+            "type": "boolean",
+            "description": "Ignore Sinking Fund",
+            "nullable": true
+          }
+        }
+      },
+      "FIMunicipalBonds": {
+        "type": "object",
+        "properties": {
+          "ignoreSinkingFund": {
+            "type": "boolean",
+            "description": "Ignore Sinking Fund Schedule",
+            "nullable": true
+          },
+          "useAnticipatedSinkSchedule": {
+            "type": "boolean",
+            "description": "Anticipate Sink Schedule",
+            "nullable": true
+          }
+        }
       },
       "FILoss": {
         "type": "object",
         "properties": {
           "lossName": {
             "type": "string",
-            "description": "Loss Name"
+            "description": "Loss Name",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "FIPrepay": {
         "type": "object",
         "properties": {
           "prepayName": {
             "type": "string",
-            "description": "Prepay Name"
+            "description": "Prepay Name",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
+      },
+      "FIServicerAdvancesForSecurities": {
+        "type": "object",
+        "properties": {
+          "principal": {
+            "type": "number",
+            "description": "Principal",
+            "format": "double"
+          },
+          "interest": {
+            "type": "number",
+            "description": "Interest",
+            "format": "double"
+          },
+          "advanceType": {
+            "enum": [
+              "Advances All",
+              "Advances All But Newly Liqdtd",
+              "Does Not Advance",
+              "Principal Only",
+              "Interest Only"
+            ],
+            "type": "string",
+            "description": "Advance Type"
+          }
+        }
+      },
+      "FIPrepayLockout": {
+        "type": "object",
+        "properties": {
+          "pointsAbove": {
+            "enum": [
+              "ANY",
+              "NO_LOCKOUT",
+              "NUMERIC"
+            ],
+            "type": "string",
+            "description": "Points Above"
+          },
+          "ymAbove": {
+            "enum": [
+              "ANY",
+              "NO_LOCKOUT",
+              "NUMERIC"
+            ],
+            "type": "string",
+            "description": "Ym Above"
+          }
+        }
+      },
+      "FICashflows": {
+        "type": "object",
+        "properties": {
+          "optionalRedemptionCallWhenUnits": {
+            "enum": [
+              "Manual",
+              "Never",
+              "ASAP",
+              "Date",
+              "Deal Closing",
+              "Settle Date"
+            ],
+            "type": "string",
+            "description": "OptionalRedemptionCallWhenUnits"
+          },
+          "optionalRedemptionCallWhen": {
+            "type": "integer",
+            "description": "OptionalRedemptionCallWhen",
+            "format": "int32"
+          },
+          "recoveryLag": {
+            "type": "integer",
+            "description": "RecoveryLag",
+            "format": "int32"
+          }
+        }
+      },
+      "FIBalloonExtension": {
+        "type": "object",
+        "properties": {
+          "months": {
+            "type": "integer",
+            "description": "Months",
+            "format": "int32"
+          },
+          "percentage": {
+            "type": "number",
+            "description": "Percentage",
+            "format": "double"
+          },
+          "amortizationType": {
+            "enum": [
+              "Loan_Amort_None",
+              "Loan_Amort_Regular",
+              "Loan_Amort_Default"
+            ],
+            "type": "string",
+            "description": "Amortization Type"
+          },
+          "units": {
+            "type": "string",
+            "description": "Units",
+            "nullable": true
+          },
+          "couponStepup": {
+            "type": "number",
+            "description": "Coupon Stepup",
+            "format": "double"
+          }
+        }
+      },
+      "FIStructuredProductsForSecurities": {
+        "type": "object",
+        "properties": {
+          "servicerAdvances": {
+            "$ref": "#/components/schemas/FIServicerAdvancesForSecurities"
+          },
+          "ignoreFinancialGuarantee": {
+            "type": "string",
+            "description": "Ignore Financial Guarantee",
+            "nullable": true
+          },
+          "cleanUpCallMethod": {
+            "type": "boolean",
+            "description": "Cleanup Call Method",
+            "nullable": true
+          },
+          "doOPTRedeem": {
+            "type": "string",
+            "description": "Do OPT Redeem",
+            "nullable": true
+          },
+          "prepayLockout": {
+            "$ref": "#/components/schemas/FIPrepayLockout"
+          },
+          "cashflows": {
+            "$ref": "#/components/schemas/FICashflows"
+          },
+          "balloonExtension": {
+            "$ref": "#/components/schemas/FIBalloonExtension"
+          }
+        }
       },
       "FISecurity": {
         "required": [
@@ -2596,7 +2770,8 @@
         "properties": {
           "settlement": {
             "type": "string",
-            "description": "Settlement date"
+            "description": "Settlement date",
+            "nullable": true
           },
           "callMethod": {
             "enum": [
@@ -2606,10 +2781,17 @@
               "First Par"
             ],
             "type": "string",
-            "description": "Call Method"
+            "description": "Call Method",
+            "nullable": true
           },
           "referenceSecurity": {
             "$ref": "#/components/schemas/FIReferenceSecurity"
+          },
+          "bankLoans": {
+            "$ref": "#/components/schemas/FIBankLoans"
+          },
+          "municipalBonds": {
+            "$ref": "#/components/schemas/FIMunicipalBonds"
           },
           "loss": {
             "$ref": "#/components/schemas/FILoss"
@@ -2620,16 +2802,22 @@
           "matrixSpreadAdjustment": {
             "type": "number",
             "description": "Matrix Spread Adjustment",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "matrixMultiplier": {
             "type": "number",
             "description": "Matrix Multiplier",
-            "format": "double"
+            "format": "double",
+            "nullable": true
+          },
+          "structuredProducts": {
+            "$ref": "#/components/schemas/FIStructuredProductsForSecurities"
           },
           "calcFromMethod": {
             "type": "string",
-            "description": "Calculation Method.\r\nMethods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix"
+            "description": "Calculation Method.\r\nMethods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix",
+            "nullable": true
           },
           "calcFromValue": {
             "type": "number",
@@ -2640,7 +2828,8 @@
             "type": "number",
             "description": "Face",
             "format": "double",
-            "default": 1
+            "default": 1,
+            "nullable": true
           },
           "faceType": {
             "enum": [
@@ -2649,7 +2838,8 @@
             ],
             "type": "string",
             "description": "Face type",
-            "default": "Current"
+            "default": "Current",
+            "nullable": true
           },
           "symbol": {
             "type": "string",
@@ -2657,10 +2847,30 @@
           },
           "discountCurve": {
             "type": "string",
-            "description": "Discount curve"
+            "description": "Discount curve",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
+      },
+      "FIMunicipalBondsForJobSettings": {
+        "type": "object",
+        "properties": {
+          "allowSinkForInstallmentPayment": {
+            "type": "boolean",
+            "description": "Allow Sink For Installment Payment",
+            "nullable": true
+          },
+          "ignoreSinkingFund": {
+            "type": "boolean",
+            "description": "Ignore Sinking Fund Schedule",
+            "nullable": true
+          },
+          "useAnticipatedSinkSchedule": {
+            "type": "boolean",
+            "description": "Anticipate Sink Schedule",
+            "nullable": true
+          }
+        }
       },
       "FIMarketEnvironment": {
         "type": "object",
@@ -2672,10 +2882,58 @@
               "FLAT & FORWARD"
             ],
             "type": "string",
+            "description": "Rate Path",
             "default": "FLAT & FORWARD"
           }
-        },
-        "additionalProperties": false
+        }
+      },
+      "FIServicerAdvances": {
+        "type": "object",
+        "properties": {
+          "advanceType": {
+            "enum": [
+              "Advances All",
+              "Advances All But Newly Liqdtd",
+              "Does Not Advance",
+              "Principal Only",
+              "Interest Only"
+            ],
+            "type": "string",
+            "description": "Advance Type"
+          }
+        }
+      },
+      "FIStructuredProductsForJobSettings": {
+        "type": "object",
+        "properties": {
+          "servicerAdvances": {
+            "$ref": "#/components/schemas/FIServicerAdvances"
+          },
+          "ignoreFinancialGuarantee": {
+            "type": "string",
+            "description": "Ignore Financial Guarantee",
+            "nullable": true
+          },
+          "cleanUpCallMethod": {
+            "type": "boolean",
+            "description": "Cleanup Call Method",
+            "nullable": true
+          },
+          "doOPTRedeem": {
+            "type": "string",
+            "description": "Do OPT Redeem",
+            "nullable": true
+          },
+          "prepayLockout": {
+            "$ref": "#/components/schemas/FIPrepayLockout"
+          },
+          "cashflows": {
+            "$ref": "#/components/schemas/FICashflows"
+          },
+          "balloonExtension": {
+            "$ref": "#/components/schemas/FIBalloonExtension"
+          }
+        }
       },
       "FIJobSettings": {
         "required": [
@@ -2693,7 +2951,8 @@
               "type": "integer",
               "format": "int32"
             },
-            "description": "Partial duration months"
+            "description": "Partial duration months",
+            "nullable": true
           },
           "callMethod": {
             "enum": [
@@ -2703,21 +2962,32 @@
               "First Par"
             ],
             "type": "string",
-            "description": "Call Method"
+            "description": "Call Method",
+            "nullable": true
           },
           "settlement": {
             "type": "string",
-            "description": "Settlement Date"
+            "description": "Settlement Date",
+            "nullable": true
           },
           "calcFromMethod": {
             "type": "string",
-            "description": "Calculation Method.\r\nMethods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix"
+            "description": "Calculation Method.\r\nMethods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix",
+            "nullable": true
+          },
+          "bankLoans": {
+            "$ref": "#/components/schemas/FIBankLoans"
+          },
+          "municipalBonds": {
+            "$ref": "#/components/schemas/FIMunicipalBondsForJobSettings"
           },
           "marketEnvironment": {
             "$ref": "#/components/schemas/FIMarketEnvironment"
+          },
+          "structuredProducts": {
+            "$ref": "#/components/schemas/FIStructuredProductsForJobSettings"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "FICalculationParameters": {
         "required": [
@@ -2744,8 +3014,7 @@
           "jobSettings": {
             "$ref": "#/components/schemas/FIJobSettings"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationMeta": {
         "type": "object",
@@ -2795,8 +3064,7 @@
             "type": "string",
             "default": "JsonStach"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "FICalculationParametersRoot": {
         "type": "object",
@@ -2807,18 +3075,17 @@
           "meta": {
             "$ref": "#/components/schemas/CalculationMeta"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationInfo": {
         "type": "object",
         "properties": {
           "calculationId": {
             "type": "string",
-            "description": "Calculation identifier"
+            "description": "Calculation identifier",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationInfoRoot": {
         "required": [
@@ -2830,10 +3097,10 @@
             "$ref": "#/components/schemas/CalculationInfo"
           },
           "meta": {
-            "type": "object"
+            "type": "object",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ObjectRoot": {
         "required": [
@@ -2845,10 +3112,10 @@
             "type": "object"
           },
           "meta": {
-            "type": "object"
+            "type": "object",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       }
     },
     "securitySchemes": {
@@ -2874,5 +3141,9 @@
     {
       "FactSetOAuth2": []
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/fixed-income-calculation-api"
+  }
 }

@@ -112,7 +112,7 @@ export default class CorporateActionsApi {
 
     /**
      * Gets Indicated Annualized Dividend information.
-     * Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+     * Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
      * @param {Array.<String>} ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  100 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
      * @param {Object} opts Optional parameters
      * @param {String} opts.currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
@@ -153,7 +153,7 @@ export default class CorporateActionsApi {
 
     /**
      * Gets Indicated Annualized Dividend information.
-     * Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+     * Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
      * @param {Array.<String>} ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  100 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
      * @param {Object} opts Optional parameters
      * @param {String} opts.currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
@@ -169,7 +169,7 @@ export default class CorporateActionsApi {
 
     /**
      * Gets Indicated Annualized Dividend information.
-     * Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+     * Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
      * @param {module:model/AnnualizedDividendsRequest} annualizedDividendsRequest Request object for `Annualized Response`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AnnualizedDividendResponse} and HTTP response
      */
@@ -205,7 +205,7 @@ export default class CorporateActionsApi {
 
     /**
      * Gets Indicated Annualized Dividend information.
-     * Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+     * Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
      * @param {module:model/AnnualizedDividendsRequest} annualizedDividendsRequest Request object for `Annualized Response`.
      * @return { Promise.< module:model/AnnualizedDividendResponse > } a Promise, with data of type {@link module:model/AnnualizedDividendResponse }
      */

@@ -454,6 +454,13 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                         ),
                         settlement="settlement_example",
                     ),
+                    bank_loans=FIBankLoans(
+                        ignore_sinking_fund=True,
+                    ),
+                    municipal_bonds=FIMunicipalBonds(
+                        ignore_sinking_fund=True,
+                        use_anticipated_sink_schedule=True,
+                    ),
                     loss=FILoss(
                         loss_name="loss_name_example",
                     ),
@@ -462,6 +469,32 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                     ),
                     matrix_spread_adjustment=3.14,
                     matrix_multiplier=3.14,
+                    structured_products=FIStructuredProductsForSecurities(
+                        servicer_advances=FIServicerAdvancesForSecurities(
+                            principal=3.14,
+                            interest=3.14,
+                            advance_type="Advances All",
+                        ),
+                        ignore_financial_guarantee="ignore_financial_guarantee_example",
+                        clean_up_call_method=True,
+                        do_opt_redeem="do_opt_redeem_example",
+                        prepay_lockout=FIPrepayLockout(
+                            points_above="ANY",
+                            ym_above="ANY",
+                        ),
+                        cashflows=FICashflows(
+                            optional_redemption_call_when_units="Manual",
+                            optional_redemption_call_when=1,
+                            recovery_lag=1,
+                        ),
+                        balloon_extension=FIBalloonExtension(
+                            months=1,
+                            percentage=3.14,
+                            amortization_type="Loan_Amort_None",
+                            units="units_example",
+                            coupon_stepup=3.14,
+                        ),
+                    ),
                     calc_from_method="calc_from_method_example",
                     calc_from_value=3.14,
                     face=1,
@@ -481,8 +514,40 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                 call_method="No Call",
                 settlement="settlement_example",
                 calc_from_method="calc_from_method_example",
+                bank_loans=FIBankLoans(
+                    ignore_sinking_fund=True,
+                ),
+                municipal_bonds=FIMunicipalBondsForJobSettings(
+                    allow_sink_for_installment_payment=True,
+                    ignore_sinking_fund=True,
+                    use_anticipated_sink_schedule=True,
+                ),
                 market_environment=FIMarketEnvironment(
                     rate_path="FLAT & FORWARD",
+                ),
+                structured_products=FIStructuredProductsForJobSettings(
+                    servicer_advances=FIServicerAdvances(
+                        advance_type="Advances All",
+                    ),
+                    ignore_financial_guarantee="ignore_financial_guarantee_example",
+                    clean_up_call_method=True,
+                    do_opt_redeem="do_opt_redeem_example",
+                    prepay_lockout=FIPrepayLockout(
+                        points_above="ANY",
+                        ym_above="ANY",
+                    ),
+                    cashflows=FICashflows(
+                        optional_redemption_call_when_units="Manual",
+                        optional_redemption_call_when=1,
+                        recovery_lag=1,
+                    ),
+                    balloon_extension=FIBalloonExtension(
+                        months=1,
+                        percentage=3.14,
+                        amortization_type="Loan_Amort_None",
+                        units="units_example",
+                        coupon_stepup=3.14,
+                    ),
                 ),
             ),
         ),
@@ -615,6 +680,13 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                         ),
                         settlement="settlement_example",
                     ),
+                    bank_loans=FIBankLoans(
+                        ignore_sinking_fund=True,
+                    ),
+                    municipal_bonds=FIMunicipalBonds(
+                        ignore_sinking_fund=True,
+                        use_anticipated_sink_schedule=True,
+                    ),
                     loss=FILoss(
                         loss_name="loss_name_example",
                     ),
@@ -623,6 +695,32 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                     ),
                     matrix_spread_adjustment=3.14,
                     matrix_multiplier=3.14,
+                    structured_products=FIStructuredProductsForSecurities(
+                        servicer_advances=FIServicerAdvancesForSecurities(
+                            principal=3.14,
+                            interest=3.14,
+                            advance_type="Advances All",
+                        ),
+                        ignore_financial_guarantee="ignore_financial_guarantee_example",
+                        clean_up_call_method=True,
+                        do_opt_redeem="do_opt_redeem_example",
+                        prepay_lockout=FIPrepayLockout(
+                            points_above="ANY",
+                            ym_above="ANY",
+                        ),
+                        cashflows=FICashflows(
+                            optional_redemption_call_when_units="Manual",
+                            optional_redemption_call_when=1,
+                            recovery_lag=1,
+                        ),
+                        balloon_extension=FIBalloonExtension(
+                            months=1,
+                            percentage=3.14,
+                            amortization_type="Loan_Amort_None",
+                            units="units_example",
+                            coupon_stepup=3.14,
+                        ),
+                    ),
                     calc_from_method="calc_from_method_example",
                     calc_from_value=3.14,
                     face=1,
@@ -642,8 +740,40 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                 call_method="No Call",
                 settlement="settlement_example",
                 calc_from_method="calc_from_method_example",
+                bank_loans=FIBankLoans(
+                    ignore_sinking_fund=True,
+                ),
+                municipal_bonds=FIMunicipalBondsForJobSettings(
+                    allow_sink_for_installment_payment=True,
+                    ignore_sinking_fund=True,
+                    use_anticipated_sink_schedule=True,
+                ),
                 market_environment=FIMarketEnvironment(
                     rate_path="FLAT & FORWARD",
+                ),
+                structured_products=FIStructuredProductsForJobSettings(
+                    servicer_advances=FIServicerAdvances(
+                        advance_type="Advances All",
+                    ),
+                    ignore_financial_guarantee="ignore_financial_guarantee_example",
+                    clean_up_call_method=True,
+                    do_opt_redeem="do_opt_redeem_example",
+                    prepay_lockout=FIPrepayLockout(
+                        points_above="ANY",
+                        ym_above="ANY",
+                    ),
+                    cashflows=FICashflows(
+                        optional_redemption_call_when_units="Manual",
+                        optional_redemption_call_when=1,
+                        recovery_lag=1,
+                    ),
+                    balloon_extension=FIBalloonExtension(
+                        months=1,
+                        percentage=3.14,
+                        amortization_type="Loan_Amort_None",
+                        units="units_example",
+                        coupon_stepup=3.14,
+                    ),
                 ),
             ),
         ),

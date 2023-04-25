@@ -65,7 +65,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         /// Gets Indicated Annualized Dividend information.
         /// </summary>
         /// <remarks>
-        /// Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+        /// Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  100 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
@@ -77,7 +77,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         /// Gets Indicated Annualized Dividend information.
         /// </summary>
         /// <remarks>
-        /// Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+        /// Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  100 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
@@ -88,7 +88,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         /// Gets Indicated Annualized Dividend information.
         /// </summary>
         /// <remarks>
-        /// Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+        /// Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="annualizedDividendsRequest">Request object for &#x60;Annualized Response&#x60;.</param>
@@ -99,7 +99,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         /// Gets Indicated Annualized Dividend information.
         /// </summary>
         /// <remarks>
-        /// Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+        /// Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="annualizedDividendsRequest">Request object for &#x60;Annualized Response&#x60;.</param>
@@ -174,7 +174,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         /// Gets Indicated Annualized Dividend information.
         /// </summary>
         /// <remarks>
-        /// Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+        /// Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  100 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
@@ -187,7 +187,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         /// Gets Indicated Annualized Dividend information.
         /// </summary>
         /// <remarks>
-        /// Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+        /// Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  100 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
@@ -199,7 +199,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         /// Gets Indicated Annualized Dividend information.
         /// </summary>
         /// <remarks>
-        /// Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+        /// Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="annualizedDividendsRequest">Request object for &#x60;Annualized Response&#x60;.</param>
@@ -211,7 +211,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         /// Gets Indicated Annualized Dividend information.
         /// </summary>
         /// <remarks>
-        /// Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+        /// Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="annualizedDividendsRequest">Request object for &#x60;Annualized Response&#x60;.</param>
@@ -650,7 +650,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         }
 
         /// <summary>
-        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  100 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
@@ -663,7 +663,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         }
 
         /// <summary>
-        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  100 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
@@ -742,7 +742,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         }
 
         /// <summary>
-        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  100 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
@@ -756,7 +756,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         }
 
         /// <summary>
-        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  100 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
@@ -839,7 +839,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         }
 
         /// <summary>
-        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="annualizedDividendsRequest">Request object for &#x60;Annualized Response&#x60;.</param>
@@ -851,7 +851,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         }
 
         /// <summary>
-        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="annualizedDividendsRequest">Request object for &#x60;Annualized Response&#x60;.</param>
@@ -926,7 +926,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         }
 
         /// <summary>
-        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="annualizedDividendsRequest">Request object for &#x60;Annualized Response&#x60;.</param>
@@ -939,7 +939,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
         }
 
         /// <summary>
-        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+        /// Gets Indicated Annualized Dividend information. Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetGlobalPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="annualizedDividendsRequest">Request object for &#x60;Annualized Response&#x60;.</param>

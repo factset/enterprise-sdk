@@ -48,6 +48,8 @@ docs/PeopleTaskStatusResponse.md
 docs/PeopleUniverseRequest.md
 docs/PeopleUniverseResponse.md
 docs/SnowflakeApi.md
+docs/SnowflakeEntityMappingRequest.md
+docs/SnowflakeEntityMappingResponse.md
 docs/SnowflakeEntityMatchRequest.md
 docs/SnowflakeEntityMatchResponse.md
 docs/Universe.md
@@ -111,6 +113,8 @@ fds/sdk/FactSetConcordance/model/people_task_status.py
 fds/sdk/FactSetConcordance/model/people_task_status_response.py
 fds/sdk/FactSetConcordance/model/people_universe_request.py
 fds/sdk/FactSetConcordance/model/people_universe_response.py
+fds/sdk/FactSetConcordance/model/snowflake_entity_mapping_request.py
+fds/sdk/FactSetConcordance/model/snowflake_entity_mapping_response.py
 fds/sdk/FactSetConcordance/model/snowflake_entity_match_request.py
 fds/sdk/FactSetConcordance/model/snowflake_entity_match_response.py
 fds/sdk/FactSetConcordance/model/universe.py

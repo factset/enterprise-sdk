@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'com.factset.sdk'
-version = '0.21.3'
+version = '0.21.4'
 
 buildscript {
     repositories {

@@ -28,7 +28,7 @@ info:
     \ endpoints to further review the universe of mapped identifiers or modify existing\
     \ records. </p>\n"
   title: FactSet Concordance API
-  version: 2.5.0
+  version: 2.6.0
 servers:
 - description: Production Server
   url: https://api.factset.com/content
@@ -2281,6 +2281,24 @@ paths:
             friendly response model.
       summary: Perform an entity search and return a snowflake-friendly response.
         Up to 25 Names per request.
+      tags:
+      - Snowflake
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-concordance/v2/snowflake-entity-mapping:
+    post:
+      description: Manually save or update entity mappings with metadata
+      operationId: snowflakeEntityMappingPost
+      requestBody:
+        $ref: '#/components/requestBodies/SnowflakeEntityMappingRequest'
+      responses:
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnowflakeEntityMappingResponse'
+          description: Response object according to snowflake external function spec
+      summary: Save entity mappings to a universe
       tags:
       - Snowflake
       x-contentType: application/json
@@ -4582,6 +4600,13 @@ components:
             $ref: '#/components/schemas/SnowflakeEntityMatchRequest'
       description: A request to match an entity name and its attributes within Snowflake.
       required: true
+    SnowflakeEntityMappingRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SnowflakeEntityMappingRequest'
+      description: A request to save entity mappings to a universe
+      required: true
     PeopleMatchRequestV2:
       content:
         application/json;charset=utf-8:
@@ -4777,6 +4802,12 @@ components:
             $ref: '#/components/schemas/SnowflakeEntityMatchResponse'
       description: Response object for the entity-match object in a snowflake friendly
         response model.
+    SnowflakeEntityMappingResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SnowflakeEntityMappingResponse'
+      description: Response object according to snowflake external function spec
     PeopleMatchResponse:
       content:
         application/json;charset=utf-8:
@@ -5583,8 +5614,7 @@ components:
             items:
               example: 0
               type: object
-            maxItems: 7
-            minItems: 7
+            minItems: 2
             type: array
           maxItems: 25
           minItems: 1
@@ -5592,6 +5622,55 @@ components:
       required:
       - data
       title: Snowflake Company Match Request
+      type: object
+    SnowflakeEntityMappingRequest:
+      example:
+        data:
+        - - 0
+          - 123
+          - my_id
+          - FactSet
+          - 0016YD-E
+        - - 0
+          - 123
+          - my_id
+          - FactSet
+          - 0016YD-E
+        - - 0
+          - 123
+          - my_id
+          - FactSet
+          - 0016YD-E
+        - - 0
+          - 123
+          - my_id
+          - FactSet
+          - 0016YD-E
+        - - 0
+          - 123
+          - my_id
+          - FactSet
+          - 0016YD-E
+      properties:
+        data:
+          description: Array of input rows
+          items:
+            description: One entity mapping to save
+            example:
+            - 0
+            - 123
+            - my_id
+            - FactSet
+            - 0016YD-E
+            items: {}
+            minItems: 4
+            type: array
+          maxItems: 10
+          minItems: 1
+          type: array
+      required:
+      - data
+      title: Snowflake Entity Mapping Request
       type: object
     PeopleMatchRequest:
       description: Request object for a requesting multiple People Matches.
@@ -6530,6 +6609,90 @@ components:
             type: array
           type: array
       title: Snowflake Entity Search Response
+      type: object
+    SnowflakeEntityMappingResponse:
+      example:
+        data:
+        - - 0
+          - clientBbgFigi: null
+            clientBbgTicker: null
+            clientBic: null
+            clientCik: null
+            clientCountry: US
+            clientCrd: null
+            clientCusip: null
+            clientDuns: null
+            clientEin: null
+            clientFitch: null
+            clientId: 1004_1
+            clientIsin: null
+            clientLei: null
+            clientMd: null
+            clientName: IBM
+            clientPriority: null
+            clientRssd: null
+            clientSedol: null
+            clientSpr: null
+            clientState: NY
+            clientTicker: null
+            clientTickerExchange: null
+            clientTickerRegion: null
+            clientUkch: null
+            clientUrl: www.ibm.com
+            clientValoren: null
+            clientWkn: null
+            createdTime: 2023-01-31T18:21:28.853822+00:00
+            entityId: 000N1N-E
+            entityName: International Business Machines Corp.
+            mapStatus: MAPPED
+            universeId: 1241
+            updatedTime: 2023-04-10T17:29:31.128197+00:00
+        - - 1
+          - clientBbgFigi: null
+            clientBbgTicker: null
+            clientBic: null
+            clientCik: null
+            clientCountry: null
+            clientCrd: null
+            clientCusip: null
+            clientDuns: null
+            clientEin: null
+            clientFitch: null
+            clientId: 1004_2
+            clientIsin: null
+            clientLei: null
+            clientMd: null
+            clientName: Wayfair
+            clientPriority: null
+            clientRssd: null
+            clientSedol: null
+            clientSpr: null
+            clientState: null
+            clientTicker: null
+            clientTickerExchange: null
+            clientTickerRegion: null
+            clientUkch: null
+            clientUrl: null
+            clientValoren: null
+            clientWkn: null
+            createdTime: 2023-01-31T18:21:28.853822+00:00
+            entityId: null
+            entityName: null
+            mapStatus: UNMAPPED
+            universeId: 1241
+            updatedTime: 2023-04-10T17:29:47.400250+00:00
+      properties:
+        data:
+          description: JSON body to be parsed by snowflake
+          items:
+            description: Array of response rows corresponding to the inputs
+            items:
+              description: |
+                Results for a single input row. Of the format [int, EntityMapping]
+              type: object
+            type: array
+          type: array
+      title: Snowflake Entity Mapping Response
       type: object
     EntityMappingDeleteResponse:
       example:

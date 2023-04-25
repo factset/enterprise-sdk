@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ratePath** | **String** |  | [optional] [default to &#39;FLAT &amp; FORWARD&#39;]
+**ratePath** | **String** | Rate Path | [optional] [default to &#39;FLAT &amp; FORWARD&#39;]
 
 
 

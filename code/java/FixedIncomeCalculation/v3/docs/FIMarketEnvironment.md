@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ratePath** | [**RatePathEnum**](#RatePathEnum) |  |  [optional]
+**ratePath** | [**RatePathEnum**](#RatePathEnum) | Rate Path |  [optional]
 
 
 

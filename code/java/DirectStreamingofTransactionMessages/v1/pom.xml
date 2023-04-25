@@ -5,7 +5,7 @@
     <artifactId>directstreamingoftransactionmessages</artifactId>
     <packaging>jar</packaging>
     <name>directstreamingoftransactionmessages</name>
-    <version>0.21.2</version>
+    <version>0.22.2</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Direct Streaming of Transaction Messages client library for Java</description>
     <scm>
@@ -17,7 +17,7 @@
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
             <distribution>repo</distribution>
         </license>
     </licenses>

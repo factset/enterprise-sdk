@@ -2,26 +2,31 @@
   "openapi": "3.0.1",
   "info": {
     "title": "DSOTM API",
-    "description": "Allow clients to send transactions data to FactSet",
+    "description": "Allow clients to send transactions data to FactSet.",
     "contact": {
-      "name": "Analytics API Support",
+      "name": "FactSet Research Systems",
       "url": "https://developer.factset.com/contact",
-      "email": "analytics.api.support@factset.com"
+      "email": "api@factset.com"
     },
     "license": {
-      "name": "Apache License 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "1"
+    "version": "1.1.0"
   },
+  "servers": [
+    {
+      "url": "https://api.factset.com/analytics/dsotm/v1"
+    }
+  ],
   "paths": {
-    "/analytics/dsotm/v1/transactions": {
+    "/transactions": {
       "post": {
         "tags": [
           "DSOTM"
         ],
-        "summary": "Push transactions data into FactSet's systems.",
-        "description": "This endpoint takes the transactions data and pushes them into FactSet's systems.",
+        "summary": "Push transactions data into FactSet.",
+        "description": "This endpoint takes the transactions data and pushes them into FactSet.",
         "operationId": "sendTransactions",
         "requestBody": {
           "content": {
@@ -229,7 +234,8 @@
           },
           "settlementcurrencyiso": {
             "type": "string",
-            "description": "Currency code for Settlement Value"
+            "description": "Currency code for Settlement Value",
+            "nullable": true
           },
           "portfolio": {
             "type": "string",
@@ -245,7 +251,8 @@
           },
           "description": {
             "type": "string",
-            "description": "Description"
+            "description": "Description",
+            "nullable": true
           },
           "tradetype": {
             "type": "string",
@@ -295,7 +302,8 @@
         "properties": {
           "settlementcurrencyiso": {
             "type": "string",
-            "description": "Currency code for Settlement Value"
+            "description": "Currency code for Settlement Value",
+            "nullable": true
           },
           "portfolio": {
             "type": "string",
@@ -311,7 +319,8 @@
           },
           "description": {
             "type": "string",
-            "description": "Description"
+            "description": "Description",
+            "nullable": true
           },
           "tradetype": {
             "type": "string",
@@ -373,7 +382,8 @@
           },
           "description": {
             "type": "string",
-            "description": "Description"
+            "description": "Description",
+            "nullable": true
           },
           "tradetype": {
             "type": "string",
@@ -416,21 +426,24 @@
             "items": {
               "$ref": "#/components/schemas/ExecutionParameters"
             },
-            "description": "List of executions"
+            "description": "List of executions",
+            "nullable": true
           },
           "placements": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PlacementParameters"
             },
-            "description": "List of placements"
+            "description": "List of placements",
+            "nullable": true
           },
           "orders": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderParameters"
             },
-            "description": "List of orders"
+            "description": "List of orders",
+            "nullable": true
           }
         }
       }
@@ -458,5 +471,9 @@
     {
       "FactSetOAuth2": []
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/direct-streaming-transaction-messages-api"
+  }
 }

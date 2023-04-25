@@ -1,0 +1,2850 @@
+openapi: 3.0.0
+info:
+  title: Open:FactSet - Partners
+  description: >-
+    This service provides the capability to search and download unstructured
+    content provided by <a
+    href="https://open.factset.com/catalog/en-us">Open:FactSet Partners</a>.
+  version: 2.0.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/openfactset-partners-documents
+servers:
+  - url: https://api.factset.com/bulk-documents/ofm/v2
+paths:
+  /linkup/job-listings:
+    get:
+      tags:
+        - LinkUp
+      summary: >-
+        Returns the  daily files from Open:FactSet Partner - LinkUp. The LinkUp
+        API provides access to job listings dataset that is sourced directly
+        from employer webistes globally delivered daily.
+      operationId: getLinkUpJobListings
+      description: >-
+        Returns the  daily files from Open:FactSet Partner - LinkUp. The LinkUp
+        API provides access to job listings dataset that is sourced directly
+        from employer webistes globally delivered daily. **This API is no longer
+        being sold for new clients.**
+      parameters:
+        - $ref: '#/components/parameters/_sort'
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/type'
+      responses:
+        '200':
+          description: Download link & metadata for LinkUp data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkUpResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleLinkUpResponse'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /orbit/transcripts/daily:
+    get:
+      tags:
+        - Orbit
+      summary: Returns the daily files from Open:FactSet Partner - Orbit.
+      operationId: getChineseTranscriptsDaily
+      description: Returns the daily files from Open:FactSet Partner - Orbit.
+      parameters:
+        - $ref: '#/components/parameters/_sort'
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/startDateOrbit'
+        - $ref: '#/components/parameters/endDateOrbit'
+        - $ref: '#/components/parameters/stockCode'
+        - $ref: '#/components/parameters/fileName'
+        - $ref: '#/components/parameters/title'
+      responses:
+        '200':
+          description: Download link & metadata for Orbit data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orbitResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleOrbitResponse'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /orbit/transcripts/history:
+    get:
+      tags:
+        - Orbit
+      summary: Returns the history files from Open:FactSet Partner - Orbit
+      operationId: getChineseTranscriptsHistory
+      description: 'Returns the historical files from February 28th, 2005 to current date. '
+      parameters:
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/fileName'
+      responses:
+        '200':
+          description: Download link & metadata for Orbit data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orbithistoryResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleOrbitHistoryResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /ozmosi/clinical-trials/daily:
+    get:
+      tags:
+        - Ozmosi
+      summary: >-
+        Returns the daily files of Clinical Trial Details from Open:FactSet
+        Partner - Ozmosi.
+      operationId: getOzmosiClinicalTrialsDaily
+      description: >-
+        Returns the daily files of Clinical Trial Details from Open:FactSet
+        Partner - Ozmosi.
+      parameters:
+        - $ref: '#/components/parameters/_sort'
+        - name: _paginationLimit
+          in: query
+          description: >-
+            Specifies the maximum number of results to return per result Default
+            value 20 and Maximum value 300
+          required: false
+          schema:
+            type: integer
+            default: 20
+            maximum: 300
+            minimum: 1
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/clinicalTrialId'
+        - $ref: '#/components/parameters/officalTitle'
+        - $ref: '#/components/parameters/trialId'
+        - $ref: '#/components/parameters/date'
+      responses:
+        '200':
+          description: Download link & metadata for Clinical Trial Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleDataResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /ozmosi/diseases/daily:
+    get:
+      tags:
+        - Ozmosi
+      summary: >-
+        Returns the daily files of Diseases Details from Open:FactSet Partner-
+        Ozmosi.
+      operationId: getOzmosiDiseasesDaily
+      description: >-
+        Returns the daily files of Diseases Details from Open:FactSet Partner-
+        Ozmosi.
+      parameters:
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/clinicalTrialId'
+        - $ref: '#/components/parameters/diseaseArea'
+        - $ref: '#/components/parameters/subTherapyArea'
+        - $ref: '#/components/parameters/therapyArea'
+      responses:
+        '200':
+          description: Download link & metadata for Diseases Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiseasesResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleDiseasesResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /ozmosi/biomarkers/daily:
+    get:
+      tags:
+        - Ozmosi
+      summary: >-
+        Returns the daily files of Biomarkers Details from Open:FactSet Partner
+        - Ozmosi.
+      operationId: getOzmosiBiomarkersDaily
+      description: >-
+        Returns the daily files of Biomarkers Details from Open:FactSet Partner
+        - Ozmosi.
+      parameters:
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/clinicalTrialId'
+        - $ref: '#/components/parameters/biomarkerName'
+        - $ref: '#/components/parameters/biomarkerFullName'
+      responses:
+        '200':
+          description: Download link & metadata for Biomarkers Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BiomarkersResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleBiomarkersResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /ozmosi/beam-endpoints/daily:
+    get:
+      tags:
+        - Ozmosi
+      summary: >-
+        Returns the daily files of Beam Endpoints Details from Open:FactSet
+        Partner - Ozmosi.
+      operationId: getOzmosiEndpointsDaily
+      description: >-
+        Returns the daily files of Beam Endpoints Details from Open:FactSet
+        Partner - Ozmosi.
+      parameters:
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/clinicalTrialId'
+        - $ref: '#/components/parameters/name'
+        - $ref: '#/components/parameters/fullForm'
+      responses:
+        '200':
+          description: Download link & metadata for Beam Endpoint Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeamEndpointsResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleBeamEndpointsResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /ozmosi/primaryoutcome/daily:
+    get:
+      tags:
+        - Ozmosi
+      summary: >-
+        Returns the daily files of PrimaryOutcome Details from Open:FactSet
+        Partner - Ozmosi.
+      operationId: getOzmosiPrimaryoutcomeDaily
+      description: >-
+        Returns the daily files of PrimaryOutcome Details from Open:FactSet
+        Partner - Ozmosi.
+      parameters:
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/clinicalTrialId'
+        - $ref: '#/components/parameters/primaryOutcomeMeasure'
+        - $ref: '#/components/parameters/primaryOutcomeDesc'
+      responses:
+        '200':
+          description: Download link & metadata for PrimaryOutcome Details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrimaryOutcomeResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/samplePrimaryOutcomeResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /ozmosi/orangepurple/daily:
+    get:
+      tags:
+        - Ozmosi
+      summary: >-
+        Returns the daily files of OrangePurple Details from Open:FactSet
+        Partner - Ozmosi.
+      operationId: getOzmosiOrangepurpleDaily
+      description: >-
+        Returns the daily files of OrangePurple Details from Open:FaStset
+        Partner - Ozmosi.
+      parameters:
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/clinicalTrialId'
+        - $ref: '#/components/parameters/beamOpNovelDrug'
+        - $ref: '#/components/parameters/beamOpNovelTarget'
+      responses:
+        '200':
+          description: Download link & metadata for OrangePurple Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrangePurpleResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleOrangePurpleResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /ozmosi/intervention/daily:
+    get:
+      tags:
+        - Ozmosi
+      summary: >-
+        Returns the daily files of Intervention details from Open:FactSet
+        Partner - Ozmosi.
+      operationId: getOzmosiInterventionDaily
+      description: >-
+        Returns the daily files of Intervention details from Open:FactSet
+        Partner - Ozmosi.
+      parameters:
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/clinicalTrialId'
+        - $ref: '#/components/parameters/beamInterventionName'
+        - $ref: '#/components/parameters/beamInterventionDesc'
+      responses:
+        '200':
+          description: Download link & metadata for Intervention Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InterventionResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleInterventionResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /ozmosi/sponsors/daily:
+    get:
+      tags:
+        - Ozmosi
+      summary: >-
+        Returns the daily files of Sponsors Details from Open:FactSet Partner -
+        Ozmosi.
+      operationId: getOzmosiSponsorsDaily
+      description: >-
+        Returns the daily files of Sponsors Details from Open:FactSet Partner -
+        Ozmosi.
+      parameters:
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/clinicalTrialId'
+        - $ref: '#/components/parameters/beamSponsorsName'
+        - $ref: '#/components/parameters/beamSponsorsTicker'
+      responses:
+        '200':
+          description: Download link & metadata for Sponsors Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SponsorsResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleSponsorsResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /ozmosi/collaborators/daily:
+    get:
+      tags:
+        - Ozmosi
+      summary: >-
+        Returns the daily files of Collaborators Details from Open:FactSet
+        Partner - Ozmosi.
+      operationId: getOzmosiCollaboratorsDaily
+      description: >-
+        Returns the daily files of Collaborators Details from Open:FactSet
+        Partner - Ozmosi.
+      parameters:
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/clinicalTrialId'
+        - $ref: '#/components/parameters/beamCollaboratorsName'
+        - $ref: '#/components/parameters/beamCollaboratorsTicker'
+      responses:
+        '200':
+          description: Download link & metadata for Collaborators Details..
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollaboratorsResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleCollaboratorsResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /ozmosi/clinical-trials/history:
+    get:
+      tags:
+        - Ozmosi
+      summary: Returns the history files from Open:FactSet Partner - Ozmosi
+      operationId: getOzmosiClinicalTrialsHistory
+      description: Returns the historical files from June 23rd, 2005 to current date.
+      parameters:
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+      responses:
+        '200':
+          description: Download link & metadata for Ozmosi full history.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FullHistoryResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleFullHistoryResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /luxembourg/green-bonds/daily:
+    get:
+      tags:
+        - Luxembourg
+      summary: Returns daily files from Open:FactSet Partner - Luxembourg
+      operationId: getLuxembourgGreenbondsDaily
+      description: >
+        Returns XML files and relevant metadata provided by Open: FactSet
+        Partner – Luxembourg.
+      parameters:
+        - $ref: '#/components/parameters/_sort'
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/isin'
+        - $ref: '#/components/parameters/preissuancePubDate'
+        - $ref: '#/components/parameters/typeOne'
+      responses:
+        '200':
+          description: Download link & metadata for luxembourg files.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LuxResponse'
+              examples:
+                default200LuxResponseExample:
+                  $ref: '#/components/examples/luxBondsResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+  /scripts-asia/transcripts:
+    get:
+      tags:
+        - Scripts Asia
+      summary: Returns the daily files from Open:FactSet Partner - Scripts Asia.
+      operationId: getScriptsAsiaFiles
+      description: >-
+        Returns XML files and relevant metadata provided by Open: FactSet
+        Partner – Scripts Asia.
+
+        - type=delta returns the files from March 1st 2023 to current date.
+
+        - type=full will returns the files from start of date until Feb 28th
+        2023.
+      parameters:
+        - $ref: '#/components/parameters/_sort'
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+        - $ref: '#/components/parameters/trackingId'
+        - $ref: '#/components/parameters/saId'
+        - $ref: '#/components/parameters/startDateScriptsAsia'
+        - $ref: '#/components/parameters/endDateScriptsAsia'
+        - $ref: '#/components/parameters/companyName'
+        - $ref: '#/components/parameters/eventType'
+        - $ref: '#/components/parameters/languageType'
+        - $ref: '#/components/parameters/fileNameScriptsAsia'
+        - $ref: '#/components/parameters/typeScriptsAsia'
+      responses:
+        '200':
+          description: Download link & metadata for Scripts Asia files.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/scriptsAsiaResponse'
+              examples:
+                default200LuxResponseExample:
+                  $ref: '#/components/examples/scriptsAsiaResponses'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    _sort:
+      name: _sort
+      in: query
+      description: >-
+        Enables to get the data in ascending or descending order based on
+        startTime. Results are in reverse chronological order if this parameter
+        is not used.
+      required: false
+      schema:
+        type: string
+        enum:
+          - startDate
+          - '-startDate'
+        default: '-startDate'
+    _paginationLimit:
+      name: _paginationLimit
+      in: query
+      description: Specifies the maximum number of results to return per result.
+      required: false
+      schema:
+        type: integer
+        maximum: 500
+        minimum: 1
+        default: 20
+    _paginationOffset:
+      name: _paginationOffset
+      in: query
+      description: >-
+        Specifies the starting point for pagination. This parameter is used to
+        identify the beginning of next set of results. Using this parameter can
+        fetch maximum of first 10000 records.
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    startDate:
+      name: startDate
+      in: query
+      description: >-
+        The earliest date of the LinkUp file the API should fetching for based
+        on fileTimestamp.
+      required: false
+      schema:
+        type: string
+        format: date
+      example: '2020-01-01'
+    endDate:
+      name: endDate
+      in: query
+      description: >-
+        The latest date of the LinkUp file the API should fetching for based on
+        fileTimestamp.
+      required: false
+      schema:
+        type: string
+        format: date
+      example: '2021-08-01'
+    startDateOrbit:
+      name: startDate
+      in: query
+      description: >-
+        The earliest date of the Orbit file the API should fetching for based on
+        fileTimestamp.
+      required: false
+      schema:
+        type: string
+        format: date
+      example: '2021-09-01'
+    endDateOrbit:
+      name: endDate
+      in: query
+      description: >-
+        The latest date of the Orbit file the API should fetching for based on
+        fileTimestamp.
+      required: false
+      schema:
+        type: string
+        format: date
+      example: '2021-10-08'
+    type:
+      name: type
+      in: query
+      description: >-
+        Used to provide the full job descriptions when value "full" is used for
+        this parameter.
+      required: false
+      schema:
+        type: string
+        enum:
+          - full
+          - delta
+        default: delta
+    stockCode:
+      name: stockCode
+      in: query
+      description: >
+        The company/ticker which is associated with the transcript. Please
+        submit a question via Issue Tracker under the Open:FactSet - Partner
+        Communication to get the required list of tickers.
+      required: false
+      schema:
+        type: string
+      example: '601236'
+    fileName:
+      name: fileName
+      in: query
+      description: This parameter is used to filters the results based on file name.
+      required: false
+      schema:
+        type: string
+    title:
+      name: title
+      in: query
+      description: >-
+        This parameter is used to filter the results based on the headline of
+        the transcript.
+      required: false
+      schema:
+        type: string
+      example: 投资者关系活动记录表2022-001
+    clinicalTrialId:
+      name: clinicalTrialId
+      in: query
+      description: >-
+        This parameter specifies Ozmosi unique ID for each historical version of
+        a trial.
+      required: false
+      schema:
+        type: string
+      example: NCT03037385_037
+    officalTitle:
+      name: officalTitle
+      in: query
+      description: Specifies full scientific title of a trial.
+      required: false
+      schema:
+        type: string
+      example: >-
+        A Phase 1/2 Study of the Highly-selective RET Inhibitor, BLU-667, in
+        Patients With Thyroid Cancer, Non-Small Cell Lung Cancer (NSCLC) and
+        Other Advanced Solid Tumors
+    trialId:
+      name: trialId
+      in: query
+      description: This parameter specifies ID of the trial assigned by the trial registry.
+      required: false
+      schema:
+        type: string
+      example: NCT03037385
+    date:
+      name: date
+      in: query
+      description: Specifies the timestamp of each version of a trial in YYYY-MM-DD format.
+      required: false
+      schema:
+        type: string
+        format: date-time
+      example: '2022-10-13 00:00:00'
+    diseaseArea:
+      name: diseaseArea
+      in: query
+      description: Specifies the cleaned disease name.
+      required: false
+      schema:
+        type: string
+      example: Inflammation
+    subTherapyArea:
+      name: subTherapyArea
+      in: query
+      description: Specifies the Sub Therapy Area of the disease.
+      required: false
+      schema:
+        type: string
+      example: Inflammation
+    therapyArea:
+      name: therapyArea
+      in: query
+      description: Specifies the Therapy Area of the disease.
+      required: false
+      schema:
+        type: string
+      example: Musculoskeletal
+    biomarkerName:
+      name: biomarkerName
+      in: query
+      description: >-
+        This parameter specifies the abbreviated name of any patient biomarkers
+        being targeted for research in the trial.
+      required: false
+      schema:
+        type: string
+      example: EGFR
+    biomarkerFullName:
+      name: biomarkerFullName
+      in: query
+      description: Specifies the full name of the biomarker.
+      required: false
+      schema:
+        type: string
+      example: epidermal growth factor receptor
+    name:
+      name: name
+      in: query
+      description: >-
+        This parameter specifies cleaned and standardized abbreviations of
+        primary endpoints that are common or of key interest.
+      required: false
+      schema:
+        type: string
+      example: OS
+    fullForm:
+      name: fullForm
+      in: query
+      description: >-
+        This parameter specifies cleaned and standardized full names of primary
+        endpoints that are common or of key interest.
+      required: false
+      schema:
+        type: string
+      example: Overall Survival
+    primaryOutcomeMeasure:
+      name: primaryOutcomeMeasure
+      in: query
+      description: >-
+        It specifies the description of each primary outcome measure (or for
+        observational studies, specific key measurement[s] or observation[s]
+        used to describe patterns of diseases or traits or associations with
+        exposures, risk factors or treatment).
+      required: false
+      schema:
+        type: string
+      example: >-
+        Percentage of Participants Achieving an American College of Rheumatology
+        (ACR) 50 Response at Week 12.
+    primaryOutcomeDesc:
+      name: primaryOutcomeDesc
+      in: query
+      description: >-
+        It describes the metric used to characterize the specific primary
+        outcome measure, if not included in the primary outcome measure title.
+      required: false
+      schema:
+        type: string
+      example: Week 12
+    beamOpNovelDrug:
+      name: beamOpNovelDrug
+      in: query
+      description: >-
+        This parameter identifies if the trial includes a drug that is not
+        approved by the FDA.
+      required: false
+      schema:
+        type: string
+      example: EDP-305
+    beamOpNovelTarget:
+      name: beamOpNovelTarget
+      in: query
+      description: It lists the unapproved drug.
+      required: false
+      schema:
+        type: string
+      example: tricalcium
+    beamInterventionName:
+      name: beamInterventionName
+      in: query
+      description: This parameter specifies the name of intervention applied.
+      required: false
+      schema:
+        type: string
+      example: Etelcalcetide
+    beamInterventionDesc:
+      name: beamInterventionDesc
+      in: query
+      description: It specifies the description of intervention applied.
+      required: false
+      schema:
+        type: string
+      example: Cinacalcet oral once-daily
+    beamSponsorsName:
+      name: beamSponsorsName
+      in: query
+      description: It specifies the cleaned name of the Sponsor.
+      required: false
+      schema:
+        type: string
+      example: AtriCure
+    beamSponsorsTicker:
+      name: beamSponsorsTicker
+      in: query
+      description: It specifies the stock ticker for primary sponsor.
+      required: false
+      schema:
+        type: string
+      example: ATRC
+    beamCollaboratorsName:
+      name: beamCollaboratorsName
+      in: query
+      description: It specifies the cleaned name of the collaborator.
+      required: false
+      schema:
+        type: string
+      example: Inventivan Pharma
+    beamCollaboratorsTicker:
+      name: beamCollaboratorsTicker
+      in: query
+      description: It specifies the Stock ticker for collaborator.
+      required: false
+      schema:
+        type: string
+      example: SSNLF
+    isin:
+      name: isin
+      in: query
+      required: false
+      schema:
+        type: string
+      description: |
+        Specifies the ISIN of the record.
+      example: XS2486610541
+    preissuancePubDate:
+      name: preissuancePubDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+      description: |
+        The pre-issuance date of the record.
+      example: '2022-08-26'
+    typeOne:
+      name: type
+      in: query
+      required: false
+      schema:
+        type: string
+      description: |
+        Please input the value as **idMap** to get the symbology files   
+    trackingId:
+      name: trackingId
+      in: query
+      required: false
+      schema:
+        type: string
+      description: |
+        Unique Scripts Asia identifier assigned to an event.
+      example: 5f6b2d30-955d-11ed-9002-bfc7208ab203
+    saId:
+      name: saId
+      in: query
+      required: false
+      schema:
+        type: string
+      description: |
+        This parameter filters the results based on saId of the Transcript.
+      example: SA000733_2023Feb24_a_02
+    startDateScriptsAsia:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+      description: >
+        The earliest date of the Scripts Asia file the API should return based
+        on date.
+      example: '2023-02-20'
+    endDateScriptsAsia:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+      description: >
+        The latest date of the Scripts Asia file the API should return based on
+        date.         
+      example: '2023-02-28'
+    companyName:
+      name: companyName
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        This parameter filters the results based on Company Name of the
+        Transcript.
+      example: Mercuria Holdings Co., Ltd.
+    eventType:
+      name: eventType
+      in: query
+      required: false
+      schema:
+        type: string
+      description: |
+        This parameter filters the results based on eventType of the Transcript.
+      example: '02'
+    languageType:
+      name: languageType
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - eng
+          - local
+        default: local
+      description: >
+        This parameter filters the results based on language type(either English
+        or local) of the Transcript.
+    fileNameScriptsAsia:
+      name: fileName
+      in: query
+      description: This parameter is used to filters the results based on file name.
+      required: false
+      schema:
+        type: string
+      example: SA000733_2023Feb24_a_02_xml_local.xml
+    typeScriptsAsia:
+      name: type
+      in: query
+      description: Specifies the type of the file.
+      required: false
+      schema:
+        type: string
+        enum:
+          - full
+          - delta
+        default: delta
+  schemas:
+    LinkUpResponse:
+      type: object
+      title: Linkup Response.
+      description: ' Returns LinkUp Response.'
+      properties:
+        data:
+          type: array
+          description: ' Returns LinkUp Response.'
+          items:
+            $ref: '#/components/schemas/LinkupFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    LinkupFiles:
+      type: object
+      title: LinkUp Object
+      description: ' Returns LinkUp Response.'
+      properties:
+        filename:
+          description: The filename of the daily LinkUp file.
+          type: string
+          example: raw_daily_v2_2022-10-16.xml
+        fileTimestamp:
+          description: The timestamp when LinkUp provided the file to FactSet.
+          type: string
+          format: date-time
+          example: '2022-10-16 22:00:00'
+        updateTimestamp:
+          description: The timestamp when the file is last updated.
+          type: string
+          format: date-time
+          example: '2022-10-16 22:00:55'
+        type:
+          description: >-
+            Used to provide the full job descriptions when value - full is used
+            for this parameter.
+          type: string
+          example: delta
+        url:
+          description: Download link for daily file from LinkUp on various job postings.
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-linkup-prod.s3.amazonaws.com/2022/10/raw_daily_v2_2022-10-16.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VE4KPAQD6S%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T151252Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED8aCXVzLWVhc3QtMSJGMEQCIEYZImk3I5of13kAbNkbWW7Ib0NnLkesTPO5lWMHbh83AiBuQMuFxXGRP9vcTAyCukgNzakuGUl40YqIKLAUZQ4axyruAggYEAEaDDk2NjI4MjExNjQyNSIMvMcMv4%2F0uRNVeQFUKssCh7n9%2BG6jIll%2BYG76a6NmKEz5Re6eeoDDS9%2FyyoP%2FvyBzJ9WRkvOY%2BuGsRbavlXr8tCUW%2F4trNJiukntRN8xKd66JRioQC9kTXEeGYeEIk3g7kcHBrG1yvPx1iY96XXPn5%2BW%2Bw%2FSZJluWWM0glYRnsJ01HBmS6VW%2Fad7x3guxP6QZz%2BReASeNjpvI60lc4qkasb9sCGy6wggC2KmMfQuQfGcrTqMF71%2F0LRzD12Jw1Drgyr7HH12r3k5w16x7sTJqxmEy4ovuUIV7R0AyMhBAsbPWAnrMrZmMndQyP5ZfDuqaIkmx2VZzX0NdIzYOhSMrgUjJNLJT6VKbolXJpVe4bQN5ZDMa88mi6Xol6v8IbxVNBjKhi8cVN3bVFg2TFbXNVMdu%2FewIO6nVbYMb7qtKORM4aeELr5xlFkPdHwdw7G0KdKAGpXtP9MeDQDCv17WaBjqfAegRsmgqBZGqhRXL4Y3YXWjpzURSMl4EHsltSr6%2FdNNbwe%2Fm8DdnmKQI0%2BBkLCPpIYwT0tzW4FwW4GwcUtpcZ7V5fAoHsQ4Wu2jKX2x1plTd9G2WU5CAnPn7OCKCH9zyj8Ck38L0GMBpfP3ltc0BwrlvX0Swuw33PvgB4iPsE6yR9vrF55oKwkgRn4WczoiBf3MJmhmmTades7odetEUpQ%3D%3D&X-Amz-Signature=a9221535699761e4d574b950778cc4d2460a952e9e9a5d532fb921e67483a74c
+    orbitResponse:
+      type: object
+      title: Orbit Response.
+      description: Returns Orbit Response.
+      properties:
+        data:
+          type: array
+          description: Returns Orbit Response.
+          items:
+            $ref: '#/components/schemas/OrbitFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    OrbitFiles:
+      type: object
+      title: Orbit Object
+      description: Returns Orbit Response.
+      properties:
+        stockCode:
+          description: >
+            The company/ticker which is associated with the transcript. Please
+            submit a question via Issue Tracker under the Open:FactSet - Partner
+            Communication to get the required list of tickers.
+          type: string
+          example: '601236'
+        eventStartDateTime:
+          description: >-
+            The timestamp when latest version of the call was published at the
+            source.
+          type: string
+          format: date-time
+          example: '2022-04-26 07:00:00'
+        eventEndDateTime:
+          description: The timestamp when the file is last updated.
+          type: string
+          format: date-time
+          example: '2022-04-26 08:30:00'
+        typesOfInvestorRelationsActivities:
+          description: Specifies the type of the call.
+          type: string
+          example: ecm
+        transcriptUniqueId:
+          description: Unique identifier for the transcript
+          type: string
+          example: 195227c3-0806-3791-84f8-95812edcea51
+        uploadTime:
+          description: The timestamp when the transcript was last uploaded.
+          type: string
+          format: date-time
+          example: '2022-10-16 10:17:16'
+        title:
+          description: The headline of the transcript.
+          type: string
+          example: 投资者关系活动记录表2022-001
+        exchangeCode:
+          description: Exchange Code
+          type: string
+          example: XSHG
+        versionId:
+          description: Helpful to distinguish corrected reports.
+          type: integer
+          example: 1
+        fileName:
+          description: The filename of the transcript.
+          type: string
+          example: 601236-195227c3-0806-3791-84f8-95812edcea51-ch-2022101619.json
+        fileTimestamp:
+          description: The time when file is available for ingestion at the source.
+          type: string
+          format: date-time
+          example: '2022-10-16 19:00:00'
+        updateTimestamp:
+          description: The time when file is processed.
+          type: string
+          format: date-time
+          example: '2022-10-16 19:00:40'
+        fileSize:
+          description: Defines the size of the file.
+          type: integer
+          example: 12744
+        url:
+          description: Download link for the transcripts provided by the Orbit feed.
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-orbit-v2-prod.s3.amazonaws.com/2022/10/601236-195227c3-0806-3791-84f8-95812edcea51-ch-2022101619.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T141632Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=7272242c3ec00491e43f6e20b39a65050599c033539c3ca8d8aeb2c9565d7ad1
+    orbithistoryResponse:
+      type: object
+      title: Orbit History Response
+      description: Returns History Response
+      properties:
+        data:
+          type: array
+          description: Returns History Response
+          items:
+            $ref: '#/components/schemas/OrbitHistoryFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    OrbitHistoryFiles:
+      type: object
+      title: ' Orbit History Object'
+      description: Returns History Response
+      properties:
+        fileSize:
+          description: Defines the size of the file.
+          type: integer
+          example: 210
+        fileName:
+          description: The filename of the folder.
+          type: string
+          example: 2022_03.tar.gz
+        url:
+          description: Download link for the transcripts provided by the Orbit feed.
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-orbit-v2-prod.s3.amazonaws.com/archive/2022_03.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEZIG27C5D%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T140425Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED8aCXVzLWVhc3QtMSJIMEYCIQCpnwubbmWR8h7DcyR36f7shl8rj%2BaUM8MCfTtJDz3K7gIhALvaP4DrYVJWwYI5uXlNVX0e7jFh0SDYH58NiUUuWjHZKu4CCBcQARoMOTY2MjgyMTE2NDI1IgwrEfRv2XcQccTycTUqywKK1VtBszZfOTixyF3D3wV2DGa3fJ5dtwSx%2BrhM0TBuhY%2BRzq9DsIdtLJ17odg8tmvpqsnBOIeMp9vgGAq5Y3%2BsVOav1t4iZDFZ%2FvfZNi0TKFPLHrl9I4fDzm2dJ%2FjXg9g07vsguyCAWBr6PvFEjnhvl5Mcpr9%2FcyFKULxQMQp6s%2F39zXmlhdkRNd6nZILBJH7COOd5eGlSm7UQMnmYTg3yJdHHWQ21WdpNy62KxuPs6O6oeVv1FNnL3pJuUYnqv%2BTvSqJlUuxXeathGiuQq9fpy3qahOE%2FnWxMzGuC9zibpj0e7TGDVPmZwf7RZBFNDcFI50cTtR6uRKv1m6zfhty%2BBbjqoqvX3ydqTTpROd%2FEsS4FXaQzXB5dz89YWjie9RM9JTU3fhzDrWoBOi0j%2F12yBtQ37qG%2F4NZeorxhMM%2BgueFQYV9rHNiy7XIBMObBtZoGOp0B9oNulnAKurGgAPZRKysBzw7RsskO19KoaHt2WScN1q4tt8P4SyZ9oTSD9JN%2FbZGpXQggk9HIUHAMeYk14trAyzoojXUFM6GpleF0dPX6qRBRXhkY0KuwZBT1TL6fBH828NWorWRGHSag%2FOnYAwbijOziNmbpnZ2MyhXE8OnyQu9ucFpUXP3Ie%2FqnObzyVIULXRY%2B6yXbRmrxZj46vA%3D%3D&X-Amz-Signature=b7437199bca7bd53d5467abcdb3961cee2ecee10e922644c19fdd9f629293513
+    DataResponse:
+      type: object
+      title: Data Response
+      description: Returns Data Response.
+      properties:
+        data:
+          type: array
+          description: Returns Data Response.
+          items:
+            $ref: '#/components/schemas/DataFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    DataFiles:
+      type: object
+      title: Data Object
+      description: Returns Data Response.
+      properties:
+        trialId:
+          description: ID of the trial assigned by the trial registry.
+          type: string
+          example: NCT03037385
+        version:
+          description: Specifies the version of a trial.
+          type: integer
+          example: 37
+        fileName:
+          description: The filename of the trial data.
+          type: string
+          example: NCT03037385_037.json
+        clinicalTrialId:
+          description: Specifies Ozmosi unique ID for each historical version of a trial.
+          type: string
+          example: NCT03037385_037
+        uniqueProtocolId:
+          description: ID assigned by the sponsor of a trial.
+          type: string
+          example: BO42863
+        officialTitle:
+          description: Full scientific title of a trial.
+          type: string
+          example: >-
+            A Phase 1/2 Study of the Highly-selective RET Inhibitor, BLU-667, in
+            Patients With Thyroid Cancer, Non-Small Cell Lung Cancer (NSCLC) and
+            Other Advanced Solid Tumors
+        overallStatus:
+          description: Defines the current stage of a trial's activity.
+          type: string
+          example: Active
+        primaryCompletion:
+          description: >-
+            The date where the final patient is examined or treated for the
+            purpose of collecting data on the trial's primary outcome measures.
+            Trial Sponsors may publicly announce the data. results after this
+            date
+          type: string
+          format: date-time
+          example: '2023-12-31 00:00:00'
+        studyCompletion:
+          description: >-
+            The date that treatment will complete in the trial and data will be
+            fully collected for secondary outcome measures and adverse events.
+          type: string
+          format: date-time
+          example: '2024-02-29 00:00:00'
+        firstPosted:
+          description: >-
+            The date on which the trial was first available on
+            ClinicalTrials.gov. Specifically, this date refers to version 1 of a
+            trial
+          type: string
+          format: date-time
+          example: '2017-01-31 00:00:00'
+        lastPosted:
+          description: >-
+            The date on which this version of a trial was officially updated and
+            publicly visible on the registry.
+          type: string
+          format: date-time
+          example: '2022-10-14 00:00:00'
+        sponsor:
+          description: The primary sponsor of the trial.
+          type: string
+          example: Hoffmann-La Roche
+        responsibleParty:
+          description: >-
+            Identifies if the responsible party of the trial is the Sponsor (The
+            entity that initiates the study), the Principal Investigator (An
+            individual designated by the Sponsor) or Sponsor-Investigator (An
+            individual both initiating and conduct the trial)
+          type: string
+          example: Sponsor
+        dataMonitoring:
+          description: >-
+            Identifies if the trial involves a group of independent scientists
+            who monitor the safety and scientific integrity of a clinical trial.
+          type: string
+          example: scientists
+        studyType:
+          description: Describes the nature of a clinical study.
+          type: string
+          example: Interventional
+        primaryPurpose:
+          description: Describes the main reason for the clinical trial.
+          type: string
+          example: Treatment
+        studyPhase:
+          description: >-
+            Specifies the stage of a clinical trial studying a drug or
+            biological product.
+          type: string
+          example: Phase 1/Phase 2
+        interventionalModel:
+          description: >-
+            Describes the general design of the strategy for assigning
+            interventions to participants in a clinical study.
+          type: string
+          example: Parallel Assignment
+        numberOfArms:
+          description: The number of clinical arms for study.
+          type: integer
+          example: 2
+        masking:
+          description: Defines the type of masking.
+          type: string
+          example: Open Label
+        allocation:
+          description: >-
+            Identifies the method used to assign participants to an arm of a
+            clinical study.
+          type: string
+          example: Non-Randomized
+        enrollment:
+          description: Number of patients enrolled.
+          type: integer
+          example: 589
+        minimumAge:
+          description: Minimum age of participants.
+          type: string
+          example: 18 Years
+        maximumAge:
+          description: Maximum age of participants.
+          type: string
+          example: 75 Years
+        sex:
+          description: >-
+            A type of eligibility criteria that indicates the sex of people who
+            may participate in a clinical study.
+          type: string
+          example: female
+        genderBased:
+          description: Defines if study is gender specific.
+          type: string
+          example: All
+        acceptsVolunteers:
+          description: >-
+            A type of eligibility criteria that indicates whether people who do
+            not have the condition/disease being studied can participate in that
+            clinical study.
+          type: string
+          example: sync
+        date:
+          description: Specifies the timestamp of each version of a trial.
+          type: string
+          format: date-time
+          example: '2022-10-13 00:00:00'
+        recordVerification:
+          description: >-
+            The date on which the responsible party last verified the clinical
+            study information in the entire ClinicalTrials.gov record for the
+            clinical study, even if no additional or updated information is
+            being submitted
+          type: string
+          format: date-time
+          example: '2022-10-01 00:00:00'
+        studyStart:
+          description: >-
+            Date that the trial becomes open for recruitment or the date on
+            which the first patient was enrolled.
+          type: string
+          format: date-time
+          example: '2021-06-25 00:00:00'
+        firstSubmitted:
+          description: The date that the trial was submitted to the registry.
+          type: string
+          format: date-time
+          example: '2020-10-27 00:00:00'
+        firstSubmitMetQxCrite:
+          description: >-
+            The date on which a submitted study record is confirmed to be
+            consistent with National Library of Medicine (NLM) quality control
+            (QC) review criteria.
+          type: string
+          format: date-time
+          example: '2020-10-27 00:00:00'
+        lastSubmitMetQxCrite:
+          description: >-
+            The most recent date on which the study sponsor or investigator
+            submitted changes to a study record.
+          type: string
+          format: date-time
+          example: '2022-10-13 00:00:00'
+        primaryCompDateType:
+          description: Designates if primary completion date is actual or anticipated.
+          type: string
+          example: '2025-01-09 00:00:00'
+        studyCompletionDateType:
+          description: Designates if study completion date is actual or anticipated.
+          type: string
+          example: None
+        firstPostedDateType:
+          description: Designates if the first posted date is actual or anticipated.
+          type: string
+          example: Actual
+        lastPostedDateType:
+          description: Designates if the last update posted date is actual or anticipated.
+          type: string
+          example: None
+        enrollmentType:
+          description: >-
+            Identifies if the enrollment number is the anticipated or actual
+            amount.
+          type: string
+          example: Anticipated
+        beamProbabilityOfTrialSuccess:
+          description: Probability of trial success.
+          type: number
+          example: 82
+        beamProbabilityOfLaunch:
+          description: Probability of trial being launched.
+          type: number
+          example: 61
+        url:
+          description: Download link for the clinical trials provided by the Ozmosi feed.
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT04629248_022.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T134304Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=f549097a39c169df9b810fa7c505f297db1f09ecbd317414e5d2d98db6fc2851
+    DiseasesResponse:
+      type: object
+      title: Diseases Response
+      description: Returns Diseases Response
+      properties:
+        data:
+          type: array
+          description: Returns Diseases Response
+          items:
+            $ref: '#/components/schemas/DiseasesFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    DiseasesFiles:
+      type: object
+      title: Diseases Object
+      description: Returns Diseases Response
+      properties:
+        fileName:
+          description: The filename of the trial data.
+          type: string
+          example: NCT00695292_016.json
+        clinicalTrialId:
+          description: Specifies Ozmosi unique ID for each historical version of a trial.
+          type: string
+          example: NCT00695292_016
+        diseaseArea:
+          description: Defines the cleaned disease name.
+          type: string
+          example: Small Cell Lung Cancer
+        subTherapyArea:
+          description: The parent Sub Therapy Area of the diseases.
+          type: string
+          example: Oncology Solid Tumor
+        therapyArea:
+          description: The parent Therapy Area of the diseases.
+          type: string
+          example: Oncology
+        url:
+          description: Download link for the clinical trials provided by the Ozmosi feed.
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT00695292_016.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T133245Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=ae7e50f5ea7017e217d940e9cc719ebb33c6ee086153094638de498cacf64001
+    BiomarkersResponse:
+      type: object
+      title: Biomarkers Response
+      description: Returns Biomarkers Response
+      properties:
+        data:
+          type: array
+          description: Returns Biomarkers Response
+          items:
+            $ref: '#/components/schemas/BiomarkersFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    BiomarkersFiles:
+      type: object
+      title: Biomarkers Object
+      description: Returns Biomarkers Response
+      properties:
+        organ:
+          description: Related organ where applicable.
+          type: string
+          example: Lung
+        fileName:
+          description: The filename of the trial data.
+          type: string
+          example: NCT00845832_036.json
+        clinicalTrialId:
+          description: Specifies Ozmosi unique ID for each historical version of a trial.
+          type: string
+          example: NCT00845832_036
+        biomarkerName:
+          description: >-
+            Abbreviated name of any patient biomarkers being targeted for
+            research in the trial.
+          type: string
+          example: TNF
+        biomarkerFullName:
+          description: Full name of the biomarker.
+          type: string
+          example: tumor necrosis factor
+        biomarkerType:
+          description: Defines the Biomarker type.
+          type: string
+          example: Protein
+        url:
+          description: Download link for the clinical trials provided by the Ozmosi feed.
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT00845832_036.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T132642Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=8e8ac7c3616ed9ebfb8b08f70579caf68f347670438ee41df0cfde369e1e0ee9
+    BeamEndpointsResponse:
+      type: object
+      title: BeamEndpoints Response
+      description: Returns Beam Endpoints Response
+      properties:
+        data:
+          type: array
+          description: Returns Beam Endpoints Response
+          items:
+            $ref: '#/components/schemas/BeamEndpointsFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    BeamEndpointsFiles:
+      type: object
+      title: Beam Endpoint Object
+      description: Returns Beam Endpoints Response
+      properties:
+        name:
+          description: >-
+            Cleaned and standardized abbreviations of primary endpoints that are
+            common or of key interest
+          type: string
+          example: OS
+        fileName:
+          description: The filename of the trial data
+          type: string
+          example: NCT02126371_002.json
+        clinicalTrialId:
+          description: Specifies OZMOSI unique ID for each historical version of a trial
+          type: string
+          example: NCT02126371_005
+        fullForm:
+          description: >-
+            Cleaned and standardized full names of primary endpoints that are
+            common or of key interest
+          type: string
+          example: Area Under The Curve
+        url:
+          description: Download link for the clinical trials provided by the Ozmosi feed
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT02126371_005.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T132236Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=9422d5ecb1460cedb3fb21ace5ee152ec4eacfc6d2fcd96f433c1b91e6d93dfa
+    PrimaryOutcomeResponse:
+      type: object
+      title: PrimaryOutcome Response
+      description: Reurns PrimaryOutcomee Response
+      properties:
+        data:
+          type: array
+          description: Reurns PrimaryOutcomee Response
+          items:
+            $ref: '#/components/schemas/PrimaryOutcomeFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    PrimaryOutcomeFiles:
+      type: object
+      title: PrimaryOutcome Object
+      description: Reurns PrimaryOutcomee Response
+      properties:
+        fileName:
+          description: The filename of the trial data
+          type: string
+          example: NCT03001219_013.json
+        clinicalTrialId:
+          description: Specifies Ozmosi unique ID for each historical version of a trial
+          type: string
+          example: NCT03001219_013
+        primaryOutcomeMeasure:
+          description: >-
+            It specifies the description of each primary outcome measure (or for
+            observational studies, specific key measurement[s] or observation[s]
+            used to describe patterns of diseases or traits or associations with
+            exposures, risk factors or treatment)
+          type: string
+          example: >-
+            Percentage of Participants Achieving an American College of
+            Rheumatology (ACR) 50 Response at Week 12
+        primaryOutcomeDesc:
+          description: >-
+            It describes the metric used to characterize the specific primary
+            outcome measure, if not included in the primary outcome measure
+            title
+          type: string
+          example: Week 12
+        primaryOutcomeTimeFrame:
+          description: >-
+            Time point(s) at which the measurement is assessed for the specific
+            metric used
+          type: string
+          example: Up to 6 months
+        url:
+          description: Download link for the clinical trials provided by the Ozmosi feed
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT03000257_005.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T131857Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=ede7eb8c7601b6207ec6f85a0f9cb0ae16628d40e495d78f119991f04309d169
+    OrangePurpleResponse:
+      type: object
+      title: OrangePurple Response
+      description: Returns OrangePurple Response
+      properties:
+        data:
+          type: array
+          description: Returns OrangePurple Response
+          items:
+            $ref: '#/components/schemas/OrangePurpleFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    OrangePurpleFiles:
+      type: object
+      title: OrangePurple Object
+      description: Returns OrangePurple Response
+      properties:
+        fileName:
+          description: The filename of the trial data
+          type: string
+          example: NCT01906684_002.json
+        clinicalTrialId:
+          description: Specifies Ozmosi unique ID for each historical version of a trial
+          type: string
+          example: NCT01906684_002
+        beamOpNovelDrug:
+          description: >-
+            Identifies if the trial includes a drug that is not approved by the
+            FDA
+          type: string
+          example: Epacadostate
+        beamOpNovelTarget:
+          description: It lists the unapproved drug
+          type: string
+          example: Peptide vaccine
+        beamOpNovelDrugList:
+          description: >-
+            Identifies if there is an MOA or target that has not yet been
+            approved by the FDA
+          type: string
+          example: Inhibitor
+        beamOpNovelTargetList:
+          description: Lists the unapproved targets
+          type: string
+          example: IDO1 Inhibitor
+        url:
+          description: Download link for the clinical trials provided by the Ozmosi feed
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT02651116_004.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEZSWBDXP4%2F20230130%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230130T154615Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBgaCXVzLWVhc3QtMSJIMEYCIQC%2B6L670ZxJKib2KCWj0SHnwXoVHDr7sPz%2Ft40qmv7vHwIhAOBZa4eIOTl2oC88R7jpi0gVYPLyp6E9Pw2ty0UP3pRWKvcCCJD%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMOTY2MjgyMTE2NDI1IgwYUf6AhlNl%2BR093MUqywLwFEZ9iTI10C3qIGKVmpnZ2PnFkrCVlkYIyDdxYIWyigl8iA9sQ1pWoIp%2FefD797agmqqPoXf9JXaBcw2ygeXT9EYMwljLJtw54O8nzrcUSHZ5HtOqEIPOnF9P6I9YCaD571N6oGfl8hKVGIH1yk7fByz48QZt9cQWwtc%2FWY4ORNvaaCGTin3Xpd0rQ%2BkMy3zvI8JOcfi14o%2F1KBXmUgNAII0h6QBOnzhiG291UZPlyH2U2WardyN5YwyDFbUxeskdqBVCJqx%2BdkUsU%2Fjk3rNPWE3s9CxSO%2Bubt%2B9BcYTl0mJnx7MCKJCTCOxn2h%2FR%2BvyAMyRluJyU6T5I15uFipcp00gEfpeYQDrtFLfvzPzAEWFw2QI9BmNKhr%2BRbKYxfMiDHTgXn9WaijZEB8DHB9G0pwgWE5z7LUg70umwvz60e5qH7pP26O1TMI6hMIO7354GOp0BCTiRD%2F6ow8Sn3f8vLp4IbNnvKNQ4AimQjcW%2B5fWkTwxFr2fBlcI52YJ97yzm5H%2F3340dD1tBtVxXGSmTVQh%2FLQ8G1DTbkjJvPEYL2j8zMm%2Fs953XXNjAqIkkN2copRx%2F0R%2BLwAM67rAwXldE1q1VlCz2IRzEPrh%2BCulTl2XxbxiAFo6PX4MLE4GMQjjmy%2F67rbQAoLBSoVTaUshT%2Fg%3D%3D&X-Amz-Signature=e03a21bcb2355205758d2b17886e207f421c1e889d04466760084247cb00f866
+    InterventionResponse:
+      type: object
+      title: Intervention Response
+      description: Returns Intervention Response
+      properties:
+        data:
+          description: Returns Intervention Response
+          type: array
+          items:
+            $ref: '#/components/schemas/InterventionFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    InterventionFiles:
+      type: object
+      title: Intervention Object
+      description: Returns Intervention Response
+      properties:
+        fileName:
+          description: The filename of the trial data
+          type: string
+          example: NCT01896232_010.json
+        clinicalTrialId:
+          description: Specifies Ozmosi unique ID for each historical version of a trial
+          type: string
+          example: NCT01896232_010
+        beamInterventionType:
+          description: Identifies intervention type such as Drug, Biological, or Device
+          type: string
+          example: Drug
+        beamInterventionName:
+          description: Specifies the name of intervention applied
+          type: string
+          example: Cinacalcet
+        beamInterventionDesc:
+          description: Specifies the description of intervention applied
+          type: string
+          example: Cinacalcet oral once-daily
+        beamOtherName:
+          description: Other names listed for intervention
+          type: string
+          example: AMG 416
+        beamArmGroupLabel:
+          description: Name of the arm or group that this intervention is used in
+          type: string
+          example: Etelcalcetide
+        url:
+          description: Download link for the clinical trials provided by the Ozmosi feed
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT01896232_030.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T130802Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=58c1d0fa60a3e87d873c7c123f07e291f67091b45b87498cbc9b35a81e15bb61
+    SponsorsResponse:
+      type: object
+      title: Sponsors Response
+      description: Returns Sponsors Response
+      properties:
+        data:
+          description: Returns Sponsors Response
+          type: array
+          items:
+            $ref: '#/components/schemas/SponsorsFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    SponsorsFiles:
+      type: object
+      title: Sponsors Object
+      description: Returns Sponsors Response
+      properties:
+        fileName:
+          description: The filename of the trial data
+          type: string
+          example: NCT05393180_001.json
+        clinicalTrialId:
+          description: Specifies Ozmosi unique ID for each historical version of a trial
+          type: string
+          example: NCT05393180_001
+        beamSponsorsId:
+          description: Ozmosi unique ID for each sponsor
+          type: number
+          example: 376
+        beamSponsorsName:
+          description: Cleaned name of Sponsor
+          type: string
+          example: AtriCure
+        beamSponsorsType:
+          description: Identifies if the sponsor is an Industry sponsor or other
+          type: string
+          example: Industry
+        beamSponsorsTicker:
+          description: Stock ticker for primary sponsor
+          type: string
+          example: RHHBY
+        url:
+          description: Download link for the clinical trials provided by the Ozmosi feed
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT05394402_001.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T125718Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=16598a96c02c84f38ec6c069ebc38c5f8183f4232b8139bcaa5a3b951cc2808c
+    CollaboratorsResponse:
+      type: object
+      title: Collaborators Response
+      description: Returns Collaborators Response
+      properties:
+        data:
+          description: Returns Collaborators Response
+          type: array
+          items:
+            $ref: '#/components/schemas/CollaboratorsFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    CollaboratorsFiles:
+      type: object
+      title: Collaborators Object
+      description: Returns Collaborators Response
+      properties:
+        fileName:
+          description: The filename of the trial data
+          type: string
+          example: NCT00079001_483.json
+        clinicalTrialId:
+          description: Specifies Ozmosi unique ID for each historical version of a trial
+          type: string
+          example: NCT00079001_483
+        beamCollaboratorsId:
+          description: Ozmosi unique ID for each collaborator
+          type: number
+          example: 142
+        beamCollaboratorsName:
+          description: Cleaned name of collaborator
+          type: string
+          example: Eastern Cooperative Oncology Group
+        beamCollaboratorsType:
+          description: Identifies if the collaborator is an Industry collaborator or other
+          type: string
+          example: Industry
+        beamCollaboratorsTicker:
+          description: Stock ticker for collaborator
+          type: string
+          example: MEDP
+        url:
+          description: Download link for the clinical trials provided by the Ozmosi feed
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_v2/NCT00079001_483.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEYODKETS6%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T125047Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDzGmRWCkwvfl8WKsZ3rektfXyQa551ht8wkggj29qufwIhALaFsXrpyISV%2B6A3hASCdStEUtlzUEaBL9Bs0%2BSP3wUaKu4CCBYQARoMOTY2MjgyMTE2NDI1IgxkKPBJ4cINLlvTEkIqywKmD%2BMhpGDpCzI8LfS13Rvs%2FnCQ5S5khGdpMUk8j0kQ4%2F6xoX7SYyXjkn8VFk2OSJkfPpu6XBADJ3H6BmuJvAM5ovraQqQXjx8iuB7LPgYAHoIJNvZDivb8HV%2BmBSwbEoOyCIslX%2FFrlYNU6KmfpvKUZqJRPmpSVdb%2F2%2BwG6rw3WHO6qBxWjwPga2b9U7DvU0LCke0myB8cRhdimWuONNendFNuwm9KnvhrUbszsLT4dIxufiYQarCqQvx0FuMG21%2FPTKWXbpvHbSSG663qqBi2xYmIP%2BmvQ9JvZMkWN%2FOtVhkDqT8YcyaaLshDVv0xDvzdsP6h4YYjDohaABooNIuP1OVJ9fzzUe4F4ZlP5eZDAKKCPOU%2FfG9UitWHxm3feQDe460sVVbiGow7is85fhQsoeHQEfqqLifPXwxo2s72bwaxd2ZJOTYh7ra7MJeTtZoGOp0BJqQMDoOIol1WSTKBI02ne6rUGKfvR6ksj%2BjEQR9OURvMj843tnJketh6IUBNG%2Be0q7Y0YcV2AAKj1Q7nloa%2B6LoRFOyvKwy4SAfNh%2F1KGM8%2F%2FitZfxzOAwI%2BtlEPKuHWL3OWAyusy6VSXaw4PYtJrS9lual9O%2Brz3kK2au4JZnkeZH3KJsIefE4tJ2GcL%2FT3IOt7htI%2BGRZZDGNCHQ%3D%3D&X-Amz-Signature=c0ffeb0f683b0ab453c0524742cb921e07059fcf29b9a577184d6431dce2c7b4
+    FullHistoryResponse:
+      type: object
+      title: History Response
+      description: Returns History Response
+      properties:
+        data:
+          description: Returns History Response
+          type: array
+          items:
+            $ref: '#/components/schemas/FullHistoryFiles'
+        meta:
+          $ref: '#/components/schemas/meta'
+    FullHistoryFiles:
+      type: object
+      title: History Object
+      description: Returns History Response
+      properties:
+        fileName:
+          description: The filename of the trial data
+          type: string
+          example: 2022_03.tar.gz
+        url:
+          description: Download link for the clinical trials provided by the Ozmosi feed
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-orbit-v2-prod.s3.amazonaws.com/archive/2022_06.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VE23HSGOXN%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T124345Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJIMEYCIQDVUwdFfY7TovRIELO54fCybFpnRy0H9mEh%2BVYtbrShggIhAK4XqVxB7qDE7uSkiXAb%2B40iwRjHWHZKlrOPb2jqjyt9Ku4CCBYQARoMOTY2MjgyMTE2NDI1IgzHJhjd2bE1bVjuSoUqywKWvOnTxTb4QD3a2Rb3bvtpcYMtvNpkiPxDF%2BdCmmrJEn%2FPy5o6mK1SDd7CbrYusRz%2FVCunT6Qb2ZSHWcFoe2lnMBZORBkqNwbBYcaneZSHJ%2FOHL54sSkm6CkioiSZ7t6h3hplLiIbsavOWTuYfMbaXO%2B%2BF19F3rD2lHO00V7HY4uRX2zzSI23%2F18rqfvxPb9Tb5rw%2FKR2%2FFAAJaoxUnleX6oID56EaYZUCoz29G%2BDGGQ5chnOqkWrMLXSGww7vicwDHJ3CffXCDLSfrq%2FCPAVDzG5RLD%2Fur6oTEfgKoLNVILiDrnccvexEHrRm6Rm78Wd%2FE0PyjaeTp%2FZtgwrdakFZsWdDlLyYWXcjtWIkpHboJb91ofuLuLX3VHUaIQycciKFx90GhJnx%2B5hFn4Q87LaiIo9GQQQJM2GfmpO6%2FdBqL7DwJ%2FdK9u59uk7MMP%2BbtZoGOp0BTPxvk9cCBS5LfnYIgw0y2xjYxKXW6LXadcN82aQABEr0rCd%2BDhUsMi4S1LdqfpWmXpDO%2BMIdefnDqgaLzqO5V4NvukVOCDllzUUf9fs6MUC0egI6Etn5tqpyg6u6O1bPIDB1CKzB6hWulW01gE4ReWbk9RoGG5YmfLqGtJ41AeZ8gXCpQO%2BJIMyh6UEDIIIGf1RxPHi0AJb7%2F%2BvxVg%3D%3D&X-Amz-Signature=3322c497a664499b7054f597b58ecf56db54d6c1977b06c64dc0da3dc47f77b8
+    LuxResponse:
+      type: object
+      title: Luxembourg Response
+      description: Returns Bonds Response
+      properties:
+        data:
+          description: Returns Bonds Response
+          type: array
+          items:
+            $ref: '#/components/schemas/bonds'
+        meta:
+          $ref: '#/components/schemas/meta'
+    bonds:
+      title: Luxembourg Object
+      type: object
+      description: Returns Bonds Response
+      properties:
+        isin:
+          description: >-
+            12-digit alphanumeric code that uniquely identifies a specific
+            security.
+          type: string
+          example: XS2486610541
+        fileName:
+          description: The filename of the bonds data.
+          type: string
+          example: XS2486610541.xml
+        preissuancePubDate:
+          description: 'Specifies the Pre-issuance date of the record. '
+          type: string
+          format: date
+          example: '2022-08-26'
+        preissuanceExistence:
+          description: >-
+            Specifies the Pre-issuance existence of the record. The Issuer has
+            developed a Framework for its upcoming Green and/or Social and/or
+            Sustainability bond issuances. File is publically available on the
+            Issuer's website. 
+          type: string
+          example: PUBLICLY_AVAILABLE
+        postissuancePubDate:
+          description: 'Specifies the Post-issuance date of the record. '
+          type: string
+          format: date
+          example: '2022-09-24'
+        postissuanceExistence:
+          description: >-
+            Specifies the Post-issuance existence of the record.The Issuer has
+            published a file presenting some information on the utilisation of
+            the proceeds of the bond. File is publicly available. 
+          type: string
+          example: PUBLICLY_AVAILABLE
+        url:
+          description: >-
+            Download link for the bonds data provided by the Luxembourg feed.
+            This download link will expire after 30 mins.
+          type: string
+          example: >-
+            https://fdss3-unstructured-data-delivery-luxembourg.s3.amazonaws.com/luxembourg_green_bonds/split/XS2486610541.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDMNDXWUYH%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T103314Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDsaCXVzLWVhc3QtMSJHMEUCIHYez7Q5O9E2TpbKcNvtYdtQbSK3bi6KI2hBTkpMTTI1AiEAzMcz3OhOznjS0Bksa1b9rVSRGcYkkhcQEFp03WGKLgAq7gIIFBACGgw4NTI1NjI2MjA4NzAiDOK94aV1LhKeVcZsairLAgzxbHvmsmtwWTV7REDFmw1ex6b1h7VWzWVNmxhZUlb3UMr3W%2BBSERk%2F3uRDS8U88nJsHpjqjumNal2sw1r6FKAqhHjNlcNP0%2BcCqbNHBVo74IYgEe6uqF%2Btt03vCYLZwkd9fSg7U8BZ3DD0QjB27iLCB1nWDtNN3VaTTSxe%2BYievqUI8kgg8kSDreHOocB5tmlvmE2LcCD5zeb0FxZEQSh6o4%2Bvduzg4giIxfnCEbLLWmEFT49E2VxGC8E6pWjNccC%2FK%2BibiNmkivhI4vtG6KWpQyPbgMAUE4WXBIFnsulZJz2lfn3MpU3xkLVEch1n2IZMVzBdT49hAIeG9KSjppf2faDIXB0N5WwsduWl29RAfwxTJu7V7IhdYLvZDEhQaf%2B7IQXS3zijzdWrf6uclgw6Me%2BDAS8WFzaj%2FIQuxurSjGZJZRaoxarydGsw5t60mgY6ngGA303sALk%2BrsSXtp%2B5cSEyW%2FkrZcits1gXatpTU%2BEOwJBatTbRcoQa8zEHuspFtZD6nKOXvX5ZBWzzvRNjHpX7sXyM0LNcMH409aAqJfU6IU5%2B7KaoaucLj3VhaMdQgSEMAqp%2BFi47UFOQ3FvnG0Ih%2FjxEcTO8iYBHg2MfAMpx%2BNW0WwrNEQUXFWNt70HPrM2RnDkkzaTTTz9NDEbHpg%3D%3D&X-Amz-Signature=9db775727619af7f31024d33f8c1cb391140460ed269cec869cd4cff8253611d
+    scriptsAsiaResponse:
+      type: object
+      title: Scrips Asia Response
+      description: Returns Transcripts Response
+      properties:
+        data:
+          description: Returns Transcripts Response
+          type: array
+          items:
+            $ref: '#/components/schemas/transcripts'
+        meta:
+          $ref: '#/components/schemas/meta'
+    transcripts:
+      title: Scripts Asia Object
+      type: object
+      description: Returns Transcripts Response
+      properties:
+        type:
+          description: Specifies the type of the record.
+          type: string
+          example: delta
+        languageType:
+          description: ' Defines the language type(either local or english)of the XML file.'
+          type: string
+          example: eng
+        date:
+          description: Specifies the date of the XML file.
+          type: string
+          format: date
+          example: '2023-03-01'
+        fileName:
+          description: Defines the name of the record.
+          type: string
+          example: SA002591_2023Mar01_a_03_xml_eng.xml.
+        trackingId:
+          description: Defines an identifier assigned to an event.
+          type: string
+          example: 059180b0-b728-11ed-89e6-1b2cff4f6d2b
+        eventType:
+          description: ' Defines Code of the event type.'
+          type: string
+          example: '03'
+        companyName:
+          description: Specifies the name of the company of the event.
+          type: string
+          example: Ajinomoto Co., Inc.
+        language:
+          description: Defines the language of the XML file.
+          type: string
+          example: JPN
+        saId:
+          description: Specifies the name of the company of the event.
+          type: string
+          example: SA002591_2023Mar01_a_03
+        url:
+          description: Download link for the Scripts Asia API provided by the Scripts Asia.
+          type: string
+          example: >-
+            https://fdss3-scripts-asia.s3.amazonaws.com/scripts_asia_processed_data/scra_events/xml_files/059180b0-b728-11ed-89e6-1b2cff4f6d2b/SA002591_2023Mar01_a_03_xml_eng.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDIIPCUVPG%2F20230301%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230301T100743Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQCvZLHP1v0WWI3ii6DEK9fVvGfi%2BfCxexxx%2B6mzcWcHLwIhAPTldtEfTdZYezHAO92eK8%2B6Yu6DYBV2KVd5HLDQzo4PKvcCCIv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAhoMODUyNTYyNjIwODcwIgxJYY0THhy%2FGYck2aQqywLfzjVGrxormOYhOXiSObA%2FTJSYcNtawuzKczgrcaIvQw5pXTp0Ea%2BFsxbFd9K8Dnx5gA%2Ft7bQdCiZrF4qEss2l2SClG9WW5IMf1E5OEFup%2FIVmkZrANZrA0nOg8i9oFe4cBJZpqcBt04AVzA%2F%2BKiDSxSLECParvdQ%2FNNbX79c%2F2pj4zR%2BPt93HgMrPwgFrarpZwd6RtrX6BLJ2GGfNPePyT2Uk7Z4mJERzls7v6I9izlSm%2FbbMRHgq4a8wPGxvwuDcZtb4qBiYHoxcVBL5Z9iwF7H4HlUiPdtQpTjLfaVh9PEUoPu%2FlpCqxVBtQ0Ub9Fv%2FXM4vufl04hdJXvZKqjgqtzi7tp3KsdUNeE7%2BwOEWHiuDoXwna2Aou92%2BjHK9XS8VwXHGqrLA%2Bj%2B%2Bq7I35pJe4ZJ6UzVcsy3w1qUfDIM5EQGCIhK9Am4pA0SNMKzF%2FJ8GOp0B5bmv%2B3S4%2B60Hxgv%2BucGDuYbSO9K19C0UVmHqmvmFiVnNU%2FnDU%2FSfyUpWFz5c0eMH1ctrD1Tn68ObDXflcgMYTS6VeDbqqFBlzE6hYw7JPO2WUeEtbmAvwAx1yyqS1o0FtPvN3mHdcbsGZKYUZsudouMLd0KxvlViIfTUp8Uj%2Bx18vf9sWpHpEIkt3%2Bo4wkOO5XyH3KeFfXKuJWDOrw%3D%3D&X-Amz-Signature=5110653d7932edcf295bac211e88498319fe493cd2bb2b2af776d775a4fe71f1
+    meta:
+      title: Meta
+      description: Array of metadata objects.
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination'
+    pagination:
+      title: PaginationItems
+      description: List of pagination objects
+      type: object
+      properties:
+        total:
+          description: Total number of files the API returns for a particular query.
+          type: integer
+        isEstimatedTotal:
+          description: >-
+            Boolean value that represents whether the total count of files
+            returned is exact or an estimate. This is defaulted to “False” as
+            the API should always return the exact count.
+          type: boolean
+    AuthStatus:
+      type: object
+      description: specifies the error message fields in the response
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/errorExample'
+    errorExample:
+      type: object
+      description: Specifies the fields in the error message
+      properties:
+        code:
+          description: It specifies the unique code
+          type: string
+        title:
+          description: ' Specifies the error message'
+          type: string
+        id:
+          description: Specifies the id
+          type: string
+  examples:
+    sampleLinkUpResponse:
+      summary: Sample Response
+      value:
+        data:
+          - filename: raw_daily_2020-07-21_descriptions.xml
+            fileTimestamp: '2020-07-21T03:00:00Z'
+            updateTimestamp: '2020-07-22T10:56:10Z'
+            type: delta
+            url: >-
+              https://fdss3-unstructured-data-delivery-linkup.s3.amazonaws.com/2020/07/raw_daily_2020-07-21_descriptions.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDD5ED2XO5%2F20200722%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200722T163634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEKn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDA05f8TjYKH8FYTAOXxj3YLuPdBmrS6KipP7bRlclTrAIhANFny6Yj93QXE10XOoj2u0YLAIWEB1mm%2BvQCngYDoe0yKskBCGIQABoMODUyNTYyNjIwODcwIgzMpg0Pr%2Bu7pRFp%2FJ4qpgFZVQK9WGmEMGKMW%2B1%2FXL05rHXMNSdgVlSmj7ulkTG62dnzFT4YpSe81L5GmKYLTT22N0sG7bHXK6l%2F2S5CVqH2JIIrrMwZwSaEM%2F%2F1D8QbL4OyF8XB1WHKiyU6PxG4rbz5cv0kcL%2BfQe3WD6g4E5ZwxMmKWSsiNbiqo3qF1ZB0Tr7ttARFnbQsqhbUCL3VIcctbPwTvKVoCfT2nyAgp3uKTEa%2BNKQpMITW4fgFOt8BZCJ%2FQCn1dmTphR7%2FQM3eQzYLxcS%2FTFgq8%2FVQ17lfVlU3veB1TOfWyAYFnKp%2F0Dq6QMvXBpDY6inrsF9AsmGjo%2FkhD5A796xPJPR8QeD73NyiRCcavhEfP2kfxh%2FTbn3WbZ2bQjEIVmZxscmFw2YA%2BSqDE7nnUiCpqI4Bdrnlq0iINWAHUiOimrt3T91o4QWytaG0coZlTErboirsI1htlWv1gCbhyF0tW%2BM9RCtiy3Er%2FMwzLAogcvWGR5eXpHPGWQExB2V%2FPXMmX7oiOCcw3QVPnf5uyjyUjS8V5NAlTQ%3D%3D&X-Amz-Signature=bd31322afc4fab5accbca83069256d354bf329177d6bc49b801a6b49bcb4d2fa
+        meta:
+          pagination:
+            total: 4730
+            isEstimatedTotal: false
+    sampleOrbitResponse:
+      summary: Sample Response
+      value:
+        data:
+          - stockCode: '601236'
+            eventStartDateTime: '2020-08-05T14:47:29Z'
+            eventEndDateTime: '2020-08-05T08:47:29Z'
+            typesOfInvestorRelationsActivities: brd
+            transcriptUniqueId: d934bc7c-d81a-31ac-9fb2-aab33576ee8f
+            uploadTime: '2020-08-12T03:54:57Z'
+            title: >-
+              Huafeng spandex: record of investor relations activities of
+              Zhejiang Huafeng spandex Co., Ltd
+            exchangeCode: XSHE
+            versionId: 1
+            fileName: 002064-d934bc7c-d81a-31ac-9fb2-aab33576ee8f-en-2020080522.json
+            fileTimestamp: '2020-08-05T22:00:00Z'
+            updateTimestamp: '2020-08-24T06:52:02Z'
+            url: >-
+              https://fdss3-unstructured-data-delivery-orbit.s3.amazonaws.com/2020/08/002137-a54c077f-b6bf-3adc-b8bd-5b1916a4afe0-ch-2020080518.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDB4T2AAGA%2F20200826%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200826T070219Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIHjFdEYooDJ49iNGzEXM6bfDH5%2FhGu2ENWdfc0VGJ0UZAiBUokGCU%2BU0FM1mSHXoPb5BFYqY2HOt%2FNZOJ2Hgfg4IqyrSAQjQ%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDg1MjU2MjYyMDg3MCIMUyM10oEUavPMlRRCKqYBdMSLi6yZzjRSwDpWDxeBR%2Fcy2zm1bZECZpHbcB15qiVNRRFWD8qkVHW4fLzvCsEH%2BG49Lnh0Y6BvZtLPWQcNIqX6cXAuaiWCqU2C6LEjFnQEC5M4z45lFBCkkMZpAyhziGT7mfb4kt06z3eqfiOSS1fY1yJbNZ7j2A33QqZj84zOCCLfocHYfrO%2FFLyIkvWJfpnWOVGuNkFzq5JqyIiVL9xDSpEf9jD6kJj6BTrhAZ8b0VUvskzU4sdzszImy03%2Bsb2sF6pEAp8pH2M0uhxPUZLvPssXIrfP6We9Offfnj%2FJplU850N2tj88%2BeZXeDPCNLJLSWNvQePsBCVCZRNQNHCqTA6KMAlZ6qVhcwe4lklw7sWKZgfbo7DoHimgPhv8MqKv8sbBwAh%2B8A1pcGP5QKnsvEqj69nFICs0JbC7voAZRMdl7lUZ0yi03LElFGQAWjpSlMiqj%2Bh6gSwAPuc2uzKECGuRW%2B8UO4O6AMZn%2BGtDifMZI729GqwgdoPfM3%2BSiUV8vlslgZ2ebaPhr3oYRw%3D%3D&X-Amz-Signature=a25b4ceffd67dc38d9021d9f3346f60bcb07501205484ec92c15a523839fbeaf
+        meta:
+          pagination:
+            total: 4730
+            isEstimatedTotal: false
+    sampleOrbitHistoryResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: 2020_02.tar.gz
+            fileSize: 228331
+            url: >-
+              https://fdss3-unstructured-data-delivery-orbit-v2-prod.s3.amazonaws.com/archive/2020_03.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEXROQV7QX%2F20220307%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220307T125658Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED0aCXVzLWVhc3QtMSJHMEUCIAFtVRo9geiTlmJhMYKRm6ib0FV87h7w58OD8BZ6KAfMAiEAwGjtb4h4FN%2BzcelveEVPYi2nKOya8%2FcmsQ%2BVkPT3CpkqmwIIpv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NjYyODIxMTY0MjUiDNIC4BziKIboJ5JbXyrvAZyq%2FfQ9T6b6YBBwjmkQwN0cZkIAlbaMARS1bRK8myFICyLqUQfR0p5rWy%2FNGNsXQfHpKPK2v1Pa4Fbwef3dXEGISTeOr4uTFv6zXdA%2BB3gxFB7PPIiFNEuClf3%2FErpeJj1PAJwlzWXH1M0XxR4S%2FtlSwxdXN3F48zxr2YfBl3nWtjPW7Bg%2FTLSlQLWHMd7a5JRheVsJ2eEei7V5FLXN3c3Sp%2BRVX7TSzVgiGq8hzy5VkKhUI0onlvgA4HgAqvZZiJGa%2BjgxMcfkHOfjZiD5JO0U5yIsUayKRsJLqF69q2aaKi9ht3zav2%2BIU17h5rOHMJiCmJEGOpoBkYiceR6PceySRwrB%2F6HEfOC%2Fw4tibsVVvvXEKtluftgqxFfXVr6XQ%2B%2BO%2FwkP3TI7ty1D%2BMN9ia0bxRr6flrviBmZ%2BMr2zbgGZQ8fuHeQS0VTK%2BD9flFTYST%2F6TtN90r21BTI1JQ58kFtBZ3zPDvB1TWenv1DylogGfjAjreNQiQEUTnlU2C%2BsOYx6KVarBLVfrchUkgPcSTCmg%3D%3D&X-Amz-Signature=055c05b0bdf84426eb501089b924cf0683b19c0dba00c7201c802f257259219b
+        meta:
+          pagination:
+            total: 206
+            isEstimatedTotal: false
+    sampleDataResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: NCT04006210_022.json
+            clinicalTrialId: NCT04006210_022
+            uniqueProtocolId: ND0612-317
+            officialTitle: >-
+              A Multicenter, Randomized, Active-controlled, Double-blind,
+              Double-dummy, Parallel Group Clinical Trial, Investigating the
+              Efficacy, Safety, and Tolerability of Continuous Subcutaneous
+              ND0612 Infusion in Comparison to Oral IR-LD/CD in Subjects With
+              Parkinson's Disease Experiencing Motor Fluctuations (BouNDless)
+            overallStatus: Recruiting
+            primaryCompletion: '2021-03-28T00:00:00Z'
+            studyCompletion: '2021-04-28T00:00:00Z'
+            firstPosted: '2019-07-05T00:00:00Z'
+            lastPosted: '2020-07-02T00:00:00Z'
+            sponsor: NeuroDerm Ltd.
+            responsibleParty: Sponsor
+            dataMonitoring: 'Yes'
+            studyType: Interventional
+            primaryPurpose: Treatment
+            studyPhase: Phase 3
+            interventionalModel: Parallel Assignment
+            numberOfArms: 2
+            masking: >-
+              Quadruple (Participant, Care Provider, Investigator, Outcomes
+              Assessor)
+            allocation: Randomized
+            enrollment: 300
+            minimumAge: 30 Years
+            maximumAge: 80 Years
+            sex: All
+            genderBased: ''
+            acceptsVolunteers: 'No'
+            date: '2020-07-01T00:00:00Z'
+            recordVerification: '2020-07-01T00:00:00Z'
+            studyStart: '2019-08-27T00:00:00Z'
+            firstSubmitted: '2019-06-30T00:00:00Z'
+            firstSubmitMetQxCrite: '2019-06-30T00:00:00Z'
+            lastSubmitMetQxCrite: '2020-07-01T00:00:00Z'
+            primaryCompDateType: Anticipated
+            studyCompletionDateType: None
+            firstPostedDateType: Actual
+            lastPostedDateType: None
+            enrollmentType: Anticipated
+            version: 22
+            trialId: NCT04006210
+            beamProbabilityOfTrialSuccess: 0.5
+            beamProbabilityOfLaunch: 0.26
+            url: >-
+              https://fdss3-ozmosi.s3.amazonaws.com/ozmosi_v20/NCT04006210_022.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDEMSGXO7K%2F20211020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211020T171424Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLWVhc3QtMSJHMEUCIGI9U6xU551LsRFjZXRZZOjT3gqtz%2FbAEARPxGbTRxHlAiEAzqASzb9iiWYe5%2FBPqa8yxgdC1Bs27rL64j%2Fyho6MdagqmwII2v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw4NTI1NjI2MjA4NzAiDPkz65WmKLWO%2FaQVsirvAabdTW%2FxnMqGXglYVgSk6fqzKpXE7D58rNP7aDAHaVhFPxKOefSjHzTWKR%2B2lmNlu3UD%2BZ%2BZl6cRSMlBumSUencdM31ggWUFbobQPUQpaZXn1YcRA66AJrtdY0b8w5CHKkvIoYZeJldBbgKj4RBdNQpEYGISb%2FZTD05ZPIZpgGtDPfIoPq%2FeaHdr3gKrvRuYxxwRXAd7hdL46gQV%2FLXK%2FVTGs2JFMWlFk7MYmW8uhUNf1hj9AwxpZx8bQHWRRwfUzDyNCklJB4CdM2HUw0Wgzq7o%2BTv%2BeKeU81%2BBcGBkNOaQhkAuN1xU8k7tgQ%2BOnoteMO2cwYsGOpoBMvVurxzslBIgj6Ri8ufpb86fW8GkOGhFvEgY%2BzvsVyIBX5eKrm%2FeLHPi0UqWNBzF3TFwdjesYp%2BjUfO1DSyiQZruWrc0Y%2B2BavhHmEtzndEdWoewD0vFk09mOz2KptSNpKWPzLXoxBd5ppXWMEsGDLrJGvj0kIjn0YhKDxDh68V2FrQr7WrccxFmtsv3YE4p4m2h%2BVAn7NKDsg%3D%3D&X-Amz-Signature=a163a88a367202756a3a37b4ceab6abc937748170c2ff4795bef9729661ca7c9
+        meta:
+          pagination:
+            total: 52025
+            isEstimatedTotal: false
+    sampleDiseasesResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: NCT03976323_012.json
+            clinicalTrialId: NCT03976323_012
+            diseaseArea: Carcinoma
+            subTherapyArea: Oncology Solid Tumor
+            therapyArea: Oncology
+            url: >-
+              https://fdss3-ozmosi.s3.amazonaws.com/ozmosi_v20/NCT03976323_012.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDEMSGXO7K%2F20211020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211020T171426Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLWVhc3QtMSJHMEUCIGI9U6xU551LsRFjZXRZZOjT3gqtz%2FbAEARPxGbTRxHlAiEAzqASzb9iiWYe5%2FBPqa8yxgdC1Bs27rL64j%2Fyho6MdagqmwII2v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw4NTI1NjI2MjA4NzAiDPkz65WmKLWO%2FaQVsirvAabdTW%2FxnMqGXglYVgSk6fqzKpXE7D58rNP7aDAHaVhFPxKOefSjHzTWKR%2B2lmNlu3UD%2BZ%2BZl6cRSMlBumSUencdM31ggWUFbobQPUQpaZXn1YcRA66AJrtdY0b8w5CHKkvIoYZeJldBbgKj4RBdNQpEYGISb%2FZTD05ZPIZpgGtDPfIoPq%2FeaHdr3gKrvRuYxxwRXAd7hdL46gQV%2FLXK%2FVTGs2JFMWlFk7MYmW8uhUNf1hj9AwxpZx8bQHWRRwfUzDyNCklJB4CdM2HUw0Wgzq7o%2BTv%2BeKeU81%2BBcGBkNOaQhkAuN1xU8k7tgQ%2BOnoteMO2cwYsGOpoBMvVurxzslBIgj6Ri8ufpb86fW8GkOGhFvEgY%2BzvsVyIBX5eKrm%2FeLHPi0UqWNBzF3TFwdjesYp%2BjUfO1DSyiQZruWrc0Y%2B2BavhHmEtzndEdWoewD0vFk09mOz2KptSNpKWPzLXoxBd5ppXWMEsGDLrJGvj0kIjn0YhKDxDh68V2FrQr7WrccxFmtsv3YE4p4m2h%2BVAn7NKDsg%3D%3D&X-Amz-Signature=61fd0138360446ab620dbeacc6fa9408c435f3370db72229f09a9bd432025168
+        meta:
+          pagination:
+            total: 119902
+            isEstimatedTotal: false
+    sampleBiomarkersResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: NCT02380274_033.json
+            clinicalTrialId: NCT02380274_033
+            biomarkerName: PSA
+            biomarkerFullName: PSA
+            biomarkerType: Protein
+            organ: Prostate, Breast
+            url: >-
+              https://fdss3-ozmosi.s3.amazonaws.com/ozmosi_v20/NCT02380274_033.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDEMSGXO7K%2F20211020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211020T171428Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLWVhc3QtMSJHMEUCIGI9U6xU551LsRFjZXRZZOjT3gqtz%2FbAEARPxGbTRxHlAiEAzqASzb9iiWYe5%2FBPqa8yxgdC1Bs27rL64j%2Fyho6MdagqmwII2v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw4NTI1NjI2MjA4NzAiDPkz65WmKLWO%2FaQVsirvAabdTW%2FxnMqGXglYVgSk6fqzKpXE7D58rNP7aDAHaVhFPxKOefSjHzTWKR%2B2lmNlu3UD%2BZ%2BZl6cRSMlBumSUencdM31ggWUFbobQPUQpaZXn1YcRA66AJrtdY0b8w5CHKkvIoYZeJldBbgKj4RBdNQpEYGISb%2FZTD05ZPIZpgGtDPfIoPq%2FeaHdr3gKrvRuYxxwRXAd7hdL46gQV%2FLXK%2FVTGs2JFMWlFk7MYmW8uhUNf1hj9AwxpZx8bQHWRRwfUzDyNCklJB4CdM2HUw0Wgzq7o%2BTv%2BeKeU81%2BBcGBkNOaQhkAuN1xU8k7tgQ%2BOnoteMO2cwYsGOpoBMvVurxzslBIgj6Ri8ufpb86fW8GkOGhFvEgY%2BzvsVyIBX5eKrm%2FeLHPi0UqWNBzF3TFwdjesYp%2BjUfO1DSyiQZruWrc0Y%2B2BavhHmEtzndEdWoewD0vFk09mOz2KptSNpKWPzLXoxBd5ppXWMEsGDLrJGvj0kIjn0YhKDxDh68V2FrQr7WrccxFmtsv3YE4p4m2h%2BVAn7NKDsg%3D%3D&X-Amz-Signature=5390a014aa6f883cbabf40e8cb11e2385d7f1d98641ef569a2cb6735bce6a543
+        meta:
+          pagination:
+            total: 9296
+            isEstimatedTotal: false
+    sampleBeamEndpointsResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: NCT02609126_001.json
+            clinicalTrialId: NCT02609126_001
+            fullForm: Area Under The Curve
+            name: AUC
+            url: >-
+              https://fdss3-ozmosi.s3.amazonaws.com/ozmosi_v20/NCT02609126_001.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDEMSGXO7K%2F20211020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211020T171434Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLWVhc3QtMSJHMEUCIGI9U6xU551LsRFjZXRZZOjT3gqtz%2FbAEARPxGbTRxHlAiEAzqASzb9iiWYe5%2FBPqa8yxgdC1Bs27rL64j%2Fyho6MdagqmwII2v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw4NTI1NjI2MjA4NzAiDPkz65WmKLWO%2FaQVsirvAabdTW%2FxnMqGXglYVgSk6fqzKpXE7D58rNP7aDAHaVhFPxKOefSjHzTWKR%2B2lmNlu3UD%2BZ%2BZl6cRSMlBumSUencdM31ggWUFbobQPUQpaZXn1YcRA66AJrtdY0b8w5CHKkvIoYZeJldBbgKj4RBdNQpEYGISb%2FZTD05ZPIZpgGtDPfIoPq%2FeaHdr3gKrvRuYxxwRXAd7hdL46gQV%2FLXK%2FVTGs2JFMWlFk7MYmW8uhUNf1hj9AwxpZx8bQHWRRwfUzDyNCklJB4CdM2HUw0Wgzq7o%2BTv%2BeKeU81%2BBcGBkNOaQhkAuN1xU8k7tgQ%2BOnoteMO2cwYsGOpoBMvVurxzslBIgj6Ri8ufpb86fW8GkOGhFvEgY%2BzvsVyIBX5eKrm%2FeLHPi0UqWNBzF3TFwdjesYp%2BjUfO1DSyiQZruWrc0Y%2B2BavhHmEtzndEdWoewD0vFk09mOz2KptSNpKWPzLXoxBd5ppXWMEsGDLrJGvj0kIjn0YhKDxDh68V2FrQr7WrccxFmtsv3YE4p4m2h%2BVAn7NKDsg%3D%3D&X-Amz-Signature=98d5c6ce8b1e6dfb2f0e18acd5bb1a09ebce26daa54fdb2a34007bdda7f1ccb4
+        meta:
+          pagination:
+            total: 60000
+            isEstimatedTotal: false
+    samplePrimaryOutcomeResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: NCT03866239_011.json
+            clinicalTrialId: NCT03866239_011
+            primaryOutcomeMeasure: Confirmed Objective Response Rate (ORR)
+            primaryOutcomeDesc: Baseline up to 5 years
+            primaryOutcomeTimeFrame: ''
+            url: >-
+              https://fdss3-ozmosi.s3.amazonaws.com/ozmosi_v20/NCT03866239_011.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDDSL2P5AE%2F20211020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211020T192209Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFQaCXVzLWVhc3QtMSJIMEYCIQD6XINV6yIy%2BchwSDKqsyBqMmY0zcja6CRdl9d9NbH9NgIhAIQYwVlH0MYp4CzGpIWy0BRgQgidrhUGsl5o7%2FPVPyR9KpsCCN3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMODUyNTYyNjIwODcwIgxGYZIGwu2WTXWWMaYq7wFZg20DB1atz8ZtmN9%2FNSxFy5uUCA90CExP3gmv6paZ6%2Fkj5%2F1KcK9w0YRMK%2BwozXX87G%2FE2zNdx9b6sTCySq%2BIqeeOBRYDLaeGL%2Fc2vlc3Gxld%2B7I6pBpKEz7qedekVSne%2FkPV0gYy9veTm4WfNBuThlK4M%2Fyr6B15YeGxSd2djz3vvRh08Z%2BwEGpUDKmP4sJPHY%2BoyeqzXoU6k8QOXSXLE0uecGt9Bn8vd0xuyxg5WkMUFXL62%2Bpeb5qBRXErkJqM2f%2FagWNxhvvNa3Vyck7EsFZDxOKDQcmckKVUKTvqWFpRP9YSL4nXMxtovFtSpDDf2MGLBjqZARzaNJ%2B8RyOnOJRzh0afIym2P9eiGZafD9ZpLNktADpZI31DHRXEG%2B9Qh%2Fn%2F1%2BwG7kI8%2B8Xv1dfliUMDcY4aw9T83OJpR4hKdBv8CZBSxqJqxaVS4z7gq9NdVJmyG8PdoTKkLr8vPc0d3popXUtXbDT%2FVC7GTlQvSulHBvgYlvCR8XCFB6GNhcSQvhu%2FXdVAmJRZ3Ax50Z2oJw%3D%3D&X-Amz-Signature=234146a0675284167fd8a599c17a75519a1d9f690cf9c36ad8f4a198c95e6a52
+        meta:
+          pagination:
+            total: 1984645
+            isEstimatedTotal: false
+    sampleOrangePurpleResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: NCT03135015_003.json
+            clinicalTrialId: NCT03135015_003
+            beamOpNovelDrug: 'No'
+            beamOpNovelTarget: 'No'
+            beamOpNovelDrugList: None
+            beamOpNovelTargetList: None
+            url: >-
+              https://fdss3-ozmosi.s3.amazonaws.com/ozmosi_v20/NCT03135015_003.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDEMSGXO7K%2F20211020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211020T171437Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLWVhc3QtMSJHMEUCIGI9U6xU551LsRFjZXRZZOjT3gqtz%2FbAEARPxGbTRxHlAiEAzqASzb9iiWYe5%2FBPqa8yxgdC1Bs27rL64j%2Fyho6MdagqmwII2v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw4NTI1NjI2MjA4NzAiDPkz65WmKLWO%2FaQVsirvAabdTW%2FxnMqGXglYVgSk6fqzKpXE7D58rNP7aDAHaVhFPxKOefSjHzTWKR%2B2lmNlu3UD%2BZ%2BZl6cRSMlBumSUencdM31ggWUFbobQPUQpaZXn1YcRA66AJrtdY0b8w5CHKkvIoYZeJldBbgKj4RBdNQpEYGISb%2FZTD05ZPIZpgGtDPfIoPq%2FeaHdr3gKrvRuYxxwRXAd7hdL46gQV%2FLXK%2FVTGs2JFMWlFk7MYmW8uhUNf1hj9AwxpZx8bQHWRRwfUzDyNCklJB4CdM2HUw0Wgzq7o%2BTv%2BeKeU81%2BBcGBkNOaQhkAuN1xU8k7tgQ%2BOnoteMO2cwYsGOpoBMvVurxzslBIgj6Ri8ufpb86fW8GkOGhFvEgY%2BzvsVyIBX5eKrm%2FeLHPi0UqWNBzF3TFwdjesYp%2BjUfO1DSyiQZruWrc0Y%2B2BavhHmEtzndEdWoewD0vFk09mOz2KptSNpKWPzLXoxBd5ppXWMEsGDLrJGvj0kIjn0YhKDxDh68V2FrQr7WrccxFmtsv3YE4p4m2h%2BVAn7NKDsg%3D%3D&X-Amz-Signature=bee2aba5b1ee4f06d9fbf0a3bf857cb6f8b91158912d8a05e370f986122c6180
+        meta:
+          pagination:
+            total: 60000
+            isEstimatedTotal: false
+    sampleInterventionResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: NCT02526017_012.json
+            clinicalTrialId: NCT02526017_012
+            beamInterventionType: Biological
+            beamInterventionName: BMS-936558
+            beamInterventionDesc: ''
+            beamOtherName: anti-PD-1 (anti-programmed-death-1)  MDX-1106  Nivolumab
+            beamArmGroupLabel: Phase 1b combination therapy dose expansion
+            url: >-
+              https://fdss3-ozmosi.s3.amazonaws.com/ozmosi_v20/NCT02526017_012.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDEMSGXO7K%2F20211020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211020T171511Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLWVhc3QtMSJHMEUCIGI9U6xU551LsRFjZXRZZOjT3gqtz%2FbAEARPxGbTRxHlAiEAzqASzb9iiWYe5%2FBPqa8yxgdC1Bs27rL64j%2Fyho6MdagqmwII2v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw4NTI1NjI2MjA4NzAiDPkz65WmKLWO%2FaQVsirvAabdTW%2FxnMqGXglYVgSk6fqzKpXE7D58rNP7aDAHaVhFPxKOefSjHzTWKR%2B2lmNlu3UD%2BZ%2BZl6cRSMlBumSUencdM31ggWUFbobQPUQpaZXn1YcRA66AJrtdY0b8w5CHKkvIoYZeJldBbgKj4RBdNQpEYGISb%2FZTD05ZPIZpgGtDPfIoPq%2FeaHdr3gKrvRuYxxwRXAd7hdL46gQV%2FLXK%2FVTGs2JFMWlFk7MYmW8uhUNf1hj9AwxpZx8bQHWRRwfUzDyNCklJB4CdM2HUw0Wgzq7o%2BTv%2BeKeU81%2BBcGBkNOaQhkAuN1xU8k7tgQ%2BOnoteMO2cwYsGOpoBMvVurxzslBIgj6Ri8ufpb86fW8GkOGhFvEgY%2BzvsVyIBX5eKrm%2FeLHPi0UqWNBzF3TFwdjesYp%2BjUfO1DSyiQZruWrc0Y%2B2BavhHmEtzndEdWoewD0vFk09mOz2KptSNpKWPzLXoxBd5ppXWMEsGDLrJGvj0kIjn0YhKDxDh68V2FrQr7WrccxFmtsv3YE4p4m2h%2BVAn7NKDsg%3D%3D&X-Amz-Signature=a7d6bd61e7a6c28aa437a3d53ef2b0f93e523bac697e6b5c8a7d189772aedd5e
+        meta:
+          pagination:
+            total: 203852
+            isEstimatedTotal: false
+    sampleSponsorsResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: NCT03802591_001.json
+            clinicalTrialId: NCT03802591_001
+            beamSponsorsId: 53713
+            beamSponsorsName: CStone Pharmaceuticals
+            beamSponsorsType: Industry
+            beamSponsorsTicker: CSPHF
+            url: >-
+              https://fdss3-ozmosi.s3.amazonaws.com/ozmosi_v20/NCT03802591_001.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDEMSGXO7K%2F20211020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211020T171516Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLWVhc3QtMSJHMEUCIGI9U6xU551LsRFjZXRZZOjT3gqtz%2FbAEARPxGbTRxHlAiEAzqASzb9iiWYe5%2FBPqa8yxgdC1Bs27rL64j%2Fyho6MdagqmwII2v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw4NTI1NjI2MjA4NzAiDPkz65WmKLWO%2FaQVsirvAabdTW%2FxnMqGXglYVgSk6fqzKpXE7D58rNP7aDAHaVhFPxKOefSjHzTWKR%2B2lmNlu3UD%2BZ%2BZl6cRSMlBumSUencdM31ggWUFbobQPUQpaZXn1YcRA66AJrtdY0b8w5CHKkvIoYZeJldBbgKj4RBdNQpEYGISb%2FZTD05ZPIZpgGtDPfIoPq%2FeaHdr3gKrvRuYxxwRXAd7hdL46gQV%2FLXK%2FVTGs2JFMWlFk7MYmW8uhUNf1hj9AwxpZx8bQHWRRwfUzDyNCklJB4CdM2HUw0Wgzq7o%2BTv%2BeKeU81%2BBcGBkNOaQhkAuN1xU8k7tgQ%2BOnoteMO2cwYsGOpoBMvVurxzslBIgj6Ri8ufpb86fW8GkOGhFvEgY%2BzvsVyIBX5eKrm%2FeLHPi0UqWNBzF3TFwdjesYp%2BjUfO1DSyiQZruWrc0Y%2B2BavhHmEtzndEdWoewD0vFk09mOz2KptSNpKWPzLXoxBd5ppXWMEsGDLrJGvj0kIjn0YhKDxDh68V2FrQr7WrccxFmtsv3YE4p4m2h%2BVAn7NKDsg%3D%3D&X-Amz-Signature=56c988aeba973ff8f7d10f4594d08244eddfdfa500a8c8539506323d3407d979
+        meta:
+          pagination:
+            total: 60000
+            isEstimatedTotal: false
+    sampleCollaboratorsResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: NCT02497781_025.json
+            clinicalTrialId: NCT02497781_025
+            beamCollaboratorsId: 38300
+            beamCollaboratorsName: PRA Health Sciences
+            beamCollaboratorsType: Industry
+            beamCollaboratorsTicker: PRAH
+            url: >-
+              https://fdss3-ozmosi.s3.amazonaws.com/ozmosi_v20/NCT02497781_025.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDEMSGXO7K%2F20211020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211020T171517Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLWVhc3QtMSJHMEUCIGI9U6xU551LsRFjZXRZZOjT3gqtz%2FbAEARPxGbTRxHlAiEAzqASzb9iiWYe5%2FBPqa8yxgdC1Bs27rL64j%2Fyho6MdagqmwII2v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw4NTI1NjI2MjA4NzAiDPkz65WmKLWO%2FaQVsirvAabdTW%2FxnMqGXglYVgSk6fqzKpXE7D58rNP7aDAHaVhFPxKOefSjHzTWKR%2B2lmNlu3UD%2BZ%2BZl6cRSMlBumSUencdM31ggWUFbobQPUQpaZXn1YcRA66AJrtdY0b8w5CHKkvIoYZeJldBbgKj4RBdNQpEYGISb%2FZTD05ZPIZpgGtDPfIoPq%2FeaHdr3gKrvRuYxxwRXAd7hdL46gQV%2FLXK%2FVTGs2JFMWlFk7MYmW8uhUNf1hj9AwxpZx8bQHWRRwfUzDyNCklJB4CdM2HUw0Wgzq7o%2BTv%2BeKeU81%2BBcGBkNOaQhkAuN1xU8k7tgQ%2BOnoteMO2cwYsGOpoBMvVurxzslBIgj6Ri8ufpb86fW8GkOGhFvEgY%2BzvsVyIBX5eKrm%2FeLHPi0UqWNBzF3TFwdjesYp%2BjUfO1DSyiQZruWrc0Y%2B2BavhHmEtzndEdWoewD0vFk09mOz2KptSNpKWPzLXoxBd5ppXWMEsGDLrJGvj0kIjn0YhKDxDh68V2FrQr7WrccxFmtsv3YE4p4m2h%2BVAn7NKDsg%3D%3D&X-Amz-Signature=52ea9678bfe4b936d99197e7b705dfeb63e231857405d1b0120c6711edc9f992
+        meta:
+          pagination:
+            total: 30199
+            isEstimatedTotal: false
+    sampleFullHistoryResponse:
+      summary: Sample Response
+      value:
+        data:
+          - fileName: clinical_trials_pit_factset_historic_1_part-09.json
+            url: >-
+              https://fdss3-unstructured-data-delivery-ozmosi-prod.s3.amazonaws.com/ozmosi_source/full_history_v2/clinical_trials_pit_factset_historic_1_part-09.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEU2T5QLU6%2F20211130%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211130T144500Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECYaCXVzLWVhc3QtMSJHMEUCIQC7DsXx6kEAz7tRvA9UCCCOs9pzeuZTVja6n3RyUYyPYwIgELxMmCBBqcxB3Q1RPVTdVgbKezBV0HdipgCs2XrqMRoqmwII7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NjYyODIxMTY0MjUiDEkR1g8P1KWTj4onjirvAY76L6DloZRpp9T21riJXQNQYBPyRCVLJH%2FA4LIvk6M4S3A6ClIwbkVyuQTnCqJZHEj6BBTplM7BfdlhLpfcvDqHMHVEBiE3b8LTS9sRnI56lYr8%2FqsQ9INqxjThujxSZ%2Bf0dWw2274e1HLYzqK9pBAvfYLGCBdZivIMpBO%2FGDCqRRbhPSYbj2B9PhcBwdFyMPgyBcyrHTK7VCPqzwVzQ%2FiHsAY13IRMVKtbLdb0WM1ZVFLcrrpHMnO2M2dJ26WUq2%2BPUXcyO39JdsscUjFInbi5ntoO%2BTna0dMR9WTtn6bD4l0xAXcuRZkXifSalJP%2FMPnYmI0GOpoB%2FgD%2FeWnYXzZwPGSzXMsSXojMkNjtZRvWRRyJ%2BmJthR0rDBAfCt%2Bc8BxTAvlodMJ8%2BR2iMWfPwHZ5P7QGbCjFk75SIUsdhkYwyzzw9cYrLxPvyaQmGzU0%2FLLf6utat%2B7OJU2Gb1EDnVINV6kyhq8Xi1xURHvDJDs3m9%2FJ%2BjtxXdgz8icbfzpP2oCizzhuVUxMyX%2B00mT%2BO5x%2FqQ%3D%3D&X-Amz-Signature=f30cfd89ea17afd16164d5dbf33bdf72cb38dd472535ac41a535f25630f1fd9e
+        meta:
+          pagination:
+            total: 64
+            isEstimatedTotal: false
+    luxBondsResponse:
+      summary: Sample Response
+      description: Single bond Record for XS2486610541
+      value:
+        data:
+          - isin: XS2486610541
+            fileName: XS2486610541.xml
+            preissuancePubDate: 2022-08-26T00:00:00.000Z
+            preissuanceExistence: PUBLICLY_AVAILABLE
+            postissuancePubDate: 2022-09-24T00:00:00.000Z
+            postissuanceExistence: PUBLICLY_AVAILABLE
+            url: >-
+              https://fdss3-unstructured-data-delivery-luxembourg.s3.amazonaws.com/luxembourg_green_bonds/split/XS2486610541.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDMNDXWUYH%2F20221017%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221017T103314Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDsaCXVzLWVhc3QtMSJHMEUCIHYez7Q5O9E2TpbKcNvtYdtQbSK3bi6KI2hBTkpMTTI1AiEAzMcz3OhOznjS0Bksa1b9rVSRGcYkkhcQEFp03WGKLgAq7gIIFBACGgw4NTI1NjI2MjA4NzAiDOK94aV1LhKeVcZsairLAgzxbHvmsmtwWTV7REDFmw1ex6b1h7VWzWVNmxhZUlb3UMr3W%2BBSERk%2F3uRDS8U88nJsHpjqjumNal2sw1r6FKAqhHjNlcNP0%2BcCqbNHBVo74IYgEe6uqF%2Btt03vCYLZwkd9fSg7U8BZ3DD0QjB27iLCB1nWDtNN3VaTTSxe%2BYievqUI8kgg8kSDreHOocB5tmlvmE2LcCD5zeb0FxZEQSh6o4%2Bvduzg4giIxfnCEbLLWmEFT49E2VxGC8E6pWjNccC%2FK%2BibiNmkivhI4vtG6KWpQyPbgMAUE4WXBIFnsulZJz2lfn3MpU3xkLVEch1n2IZMVzBdT49hAIeG9KSjppf2faDIXB0N5WwsduWl29RAfwxTJu7V7IhdYLvZDEhQaf%2B7IQXS3zijzdWrf6uclgw6Me%2BDAS8WFzaj%2FIQuxurSjGZJZRaoxarydGsw5t60mgY6ngGA303sALk%2BrsSXtp%2B5cSEyW%2FkrZcits1gXatpTU%2BEOwJBatTbRcoQa8zEHuspFtZD6nKOXvX5ZBWzzvRNjHpX7sXyM0LNcMH409aAqJfU6IU5%2B7KaoaucLj3VhaMdQgSEMAqp%2BFi47UFOQ3FvnG0Ih%2FjxEcTO8iYBHg2MfAMpx%2BNW0WwrNEQUXFWNt70HPrM2RnDkkzaTTTz9NDEbHpg%3D%3D&X-Amz-Signature=9db775727619af7f31024d33f8c1cb391140460ed269cec869cd4cff8253611d
+        meta:
+          pagination:
+            total: 52025
+            isEstimatedTotal: false
+    scriptsAsiaResponses:
+      summary: Sample Response
+      description: Single record for c017c490-b73b-11ed-9332-a376adde0fbe trackingId.
+      value:
+        data:
+          - type: delta
+            date: 2023-02-23T00:00:00.000Z
+            eventType: '02'
+            language: JPN
+            companyNmae: Vipshop Holdings Limited
+            languageType: eng
+            fileName: SA002846_2023Feb23_a_02_xml_eng.xml
+            trackingId: c017c490-b73b-11ed-9332-a376adde0fbe
+            saId: SA002846_2023Feb23_a_02
+            url: >-
+              https://fdss3-scripts-asia.s3.amazonaws.com/scripts_asia_processed_data/scra_events/xml_files/c017c490-b73b-11ed-9332-a376adde0fbe/SA002846_2023Feb23_a_02_xml_eng.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDIIPCUVPG%2F20230301%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230301T100743Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQCvZLHP1v0WWI3ii6DEK9fVvGfi%2BfCxexxx%2B6mzcWcHLwIhAPTldtEfTdZYezHAO92eK8%2B6Yu6DYBV2KVd5HLDQzo4PKvcCCIv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAhoMODUyNTYyNjIwODcwIgxJYY0THhy%2FGYck2aQqywLfzjVGrxormOYhOXiSObA%2FTJSYcNtawuzKczgrcaIvQw5pXTp0Ea%2BFsxbFd9K8Dnx5gA%2Ft7bQdCiZrF4qEss2l2SClG9WW5IMf1E5OEFup%2FIVmkZrANZrA0nOg8i9oFe4cBJZpqcBt04AVzA%2F%2BKiDSxSLECParvdQ%2FNNbX79c%2F2pj4zR%2BPt93HgMrPwgFrarpZwd6RtrX6BLJ2GGfNPePyT2Uk7Z4mJERzls7v6I9izlSm%2FbbMRHgq4a8wPGxvwuDcZtb4qBiYHoxcVBL5Z9iwF7H4HlUiPdtQpTjLfaVh9PEUoPu%2FlpCqxVBtQ0Ub9Fv%2FXM4vufl04hdJXvZKqjgqtzi7tp3KsdUNeE7%2BwOEWHiuDoXwna2Aou92%2BjHK9XS8VwXHGqrLA%2Bj%2B%2Bq7I35pJe4ZJ6UzVcsy3w1qUfDIM5EQGCIhK9Am4pA0SNMKzF%2FJ8GOp0B5bmv%2B3S4%2B60Hxgv%2BucGDuYbSO9K19C0UVmHqmvmFiVnNU%2FnDU%2FSfyUpWFz5c0eMH1ctrD1Tn68ObDXflcgMYTS6VeDbqqFBlzE6hYw7JPO2WUeEtbmAvwAx1yyqS1o0FtPvN3mHdcbsGZKYUZsudouMLd0KxvlViIfTUp8Uj%2Bx18vf9sWpHpEIkt3%2Bo4wkOO5XyH3KeFfXKuJWDOrw%3D%3D&X-Amz-Signature=aabffc3e314301083472f469db636d4918a448442ed72c72ffbc0354b47c52eb
+        meta:
+          pagination:
+            total: 50
+            isEstimatedTotal: false
+    ErrorDetails:
+      summary: sample error response
+      value:
+        errors:
+          - code: Bad Request
+            title: parameterError:['_paginationLimit'] is not a valid parameter(s)
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    AuthErrorDetails:
+      summary: sample error response
+      value:
+        errors:
+          - code: Not Authenticated
+            title: Unauthenticated USERNAME-SERIAL
+            id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
+    AuthorizationErrorDetails:
+      summary: sample error response
+      value:
+        errors:
+          - code: Forbidden
+            title: USERNAME-SERIAL does not have permission
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    serverErrorDetails:
+      summary: sample error response
+      value:
+        errors:
+          - code: Internal server error
+            title: An unexpected error happened
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+tags:
+  - name: Luxembourg
+    description: >
+      <a
+      href=https://go.factset.com/marketplace/catalog/product/lgx-datahub>Luxembourg</a>
+      API provides access to Green Bonds data. 
+  - name: Orbit
+    description: >
+      <a
+      href=https://go.factset.com/marketplace/catalog/product/china-a-shares-transcripts>Orbit</a>
+      API covers full universe of almost 4,800 companies since the early 2000's.
+      Content covers 3 types, both in Chinese and English: 1) Earning Call
+      Transcripts 2) Public disclosures on broker onsite research 3) Executive
+      official responses on online platforms.
+  - name: Ozmosi
+    description: >
+      <a href=https://open.factset.com/partners/ozmosi/en-us>Ozmosi</a> API
+      provides access to Clinical Trials data.
+  - name: Scripts Asia
+    description: >-
+      Scripts Asia API provides access to Asia Pacific regional collected
+      transcripts.
+  - name: LinkUp
+    description: >
+      <a
+      href=https://go.factset.com/marketplace/catalog/product/linkup-raw>LinkUp</a>
+      API provides access to job listings data.  

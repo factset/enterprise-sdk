@@ -1,15 +1,18 @@
 openapi: 3.0.1
 info:
   contact:
-    email: analytics.api.support@factset.com
-    name: Analytics API Support
+    email: api@factset.com
+    name: FactSet Research Systems
     url: https://developer.factset.com/contact
   description: Allow clients to fetch Analytics through APIs.
   license:
-    name: Apache License 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.txt
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: FI API
-  version: "3"
+  version: 3.9.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/fixed-income-calculation-api
 servers:
 - url: https://api.factset.com
 security:
@@ -2364,75 +2367,77 @@ paths:
 components:
   schemas:
     FIDiscountCurveInfo:
-      additionalProperties: false
       example:
         name: name
         currency: currency
         category: category
       properties:
         category:
+          nullable: true
           type: string
         name:
+          nullable: true
           type: string
         currency:
+          nullable: true
           type: string
       type: object
     FIDiscountCurveInfoRoot:
-      additionalProperties: false
       example:
         data:
           key:
             name: name
             currency: currency
             category: category
-        meta: '{}'
+        meta: ""
       properties:
         data:
           additionalProperties:
             $ref: '#/components/schemas/FIDiscountCurveInfo'
           type: object
         meta:
-          type: object
+          nullable: true
       required:
       - data
       type: object
     ErrorSource:
-      additionalProperties: false
       properties:
         pointer:
+          nullable: true
           type: string
         parameter:
+          nullable: true
           type: string
       type: object
     Error:
-      additionalProperties: false
       properties:
         id:
+          nullable: true
           type: string
         detail:
+          nullable: true
           type: string
         source:
           $ref: '#/components/schemas/ErrorSource'
       type: object
     ClientErrorResponse:
-      additionalProperties: false
       properties:
         errors:
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
       type: object
     FIReferencePrepay:
-      additionalProperties: false
       example:
         prepayName: prepayName
       properties:
         prepayName:
           description: Reference Prepay Name
+          nullable: true
           type: string
       type: object
     FIReferenceSecurity:
-      additionalProperties: false
       example:
         calcFromMethod: calcFromMethod
         prepay:
@@ -2444,9 +2449,11 @@ components:
       properties:
         securityType:
           description: Reference Security Type
+          nullable: true
           type: string
         securityName:
           description: Reference Security Name
+          nullable: true
           type: string
         calcFromMethod:
           description: "Reference Calculation Method.\r\nMethods : Active Spread,\
@@ -2454,43 +2461,215 @@ components:
             \ To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield\
             \ To Worst Call, Discount Yield, Discount Margin, Implied Volatility,\
             \ Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix"
+          nullable: true
           type: string
         calcFromValue:
           description: Reference CalcFromValue
           format: double
+          nullable: true
           type: number
         prepay:
           $ref: '#/components/schemas/FIReferencePrepay'
         settlement:
           description: Reference Settlement Date
+          nullable: true
           type: string
       type: object
+    FIBankLoans:
+      example:
+        ignoreSinkingFund: true
+      properties:
+        ignoreSinkingFund:
+          description: Ignore Sinking Fund
+          nullable: true
+          type: boolean
+      type: object
+    FIMunicipalBonds:
+      example:
+        useAnticipatedSinkSchedule: true
+        ignoreSinkingFund: true
+      properties:
+        ignoreSinkingFund:
+          description: Ignore Sinking Fund Schedule
+          nullable: true
+          type: boolean
+        useAnticipatedSinkSchedule:
+          description: Anticipate Sink Schedule
+          nullable: true
+          type: boolean
+      type: object
     FILoss:
-      additionalProperties: false
       example:
         lossName: lossName
       properties:
         lossName:
           description: Loss Name
+          nullable: true
           type: string
       type: object
     FIPrepay:
-      additionalProperties: false
       example:
         prepayName: prepayName
       properties:
         prepayName:
           description: Prepay Name
+          nullable: true
           type: string
       type: object
+    FIServicerAdvancesForSecurities:
+      example:
+        principal: 5.962133916683182
+        interest: 5.637376656633329
+        advanceType: Advances All
+      properties:
+        principal:
+          description: Principal
+          format: double
+          type: number
+        interest:
+          description: Interest
+          format: double
+          type: number
+        advanceType:
+          description: Advance Type
+          enum:
+          - Advances All
+          - Advances All But Newly Liqdtd
+          - Does Not Advance
+          - Principal Only
+          - Interest Only
+          type: string
+      type: object
+    FIPrepayLockout:
+      example:
+        pointsAbove: ANY
+        ymAbove: ANY
+      properties:
+        pointsAbove:
+          description: Points Above
+          enum:
+          - ANY
+          - NO_LOCKOUT
+          - NUMERIC
+          type: string
+        ymAbove:
+          description: Ym Above
+          enum:
+          - ANY
+          - NO_LOCKOUT
+          - NUMERIC
+          type: string
+      type: object
+    FICashflows:
+      example:
+        optionalRedemptionCallWhenUnits: Manual
+        optionalRedemptionCallWhen: 2
+        recoveryLag: 7
+      properties:
+        optionalRedemptionCallWhenUnits:
+          description: OptionalRedemptionCallWhenUnits
+          enum:
+          - Manual
+          - Never
+          - ASAP
+          - Date
+          - Deal Closing
+          - Settle Date
+          type: string
+        optionalRedemptionCallWhen:
+          description: OptionalRedemptionCallWhen
+          format: int32
+          type: integer
+        recoveryLag:
+          description: RecoveryLag
+          format: int32
+          type: integer
+      type: object
+    FIBalloonExtension:
+      example:
+        months: 9
+        percentage: 3.616076749251911
+        units: units
+        amortizationType: Loan_Amort_None
+        couponStepup: 2.027123023002322
+      properties:
+        months:
+          description: Months
+          format: int32
+          type: integer
+        percentage:
+          description: Percentage
+          format: double
+          type: number
+        amortizationType:
+          description: Amortization Type
+          enum:
+          - Loan_Amort_None
+          - Loan_Amort_Regular
+          - Loan_Amort_Default
+          type: string
+        units:
+          description: Units
+          nullable: true
+          type: string
+        couponStepup:
+          description: Coupon Stepup
+          format: double
+          type: number
+      type: object
+    FIStructuredProductsForSecurities:
+      example:
+        balloonExtension:
+          months: 9
+          percentage: 3.616076749251911
+          units: units
+          amortizationType: Loan_Amort_None
+          couponStepup: 2.027123023002322
+        prepayLockout:
+          pointsAbove: ANY
+          ymAbove: ANY
+        doOPTRedeem: doOPTRedeem
+        ignoreFinancialGuarantee: ignoreFinancialGuarantee
+        servicerAdvances:
+          principal: 5.962133916683182
+          interest: 5.637376656633329
+          advanceType: Advances All
+        cleanUpCallMethod: true
+        cashflows:
+          optionalRedemptionCallWhenUnits: Manual
+          optionalRedemptionCallWhen: 2
+          recoveryLag: 7
+      properties:
+        servicerAdvances:
+          $ref: '#/components/schemas/FIServicerAdvancesForSecurities'
+        ignoreFinancialGuarantee:
+          description: Ignore Financial Guarantee
+          nullable: true
+          type: string
+        cleanUpCallMethod:
+          description: Cleanup Call Method
+          nullable: true
+          type: boolean
+        doOPTRedeem:
+          description: Do OPT Redeem
+          nullable: true
+          type: string
+        prepayLockout:
+          $ref: '#/components/schemas/FIPrepayLockout'
+        cashflows:
+          $ref: '#/components/schemas/FICashflows'
+        balloonExtension:
+          $ref: '#/components/schemas/FIBalloonExtension'
+      type: object
     FISecurity:
-      additionalProperties: false
       example:
         callMethod: No Call
         symbol: symbol
         matrixMultiplier: 1.4658129805029452
         discountCurve: discountCurve
-        calcFromValue: 5.962133916683182
+        calcFromValue: 4.145608029883936
+        bankLoans:
+          ignoreSinkingFund: true
         faceType: Current
         referenceSecurity:
           calcFromMethod: calcFromMethod
@@ -2506,11 +2685,36 @@ components:
           lossName: lossName
         prepay:
           prepayName: prepayName
-        face: 5.637376656633329
+        structuredProducts:
+          balloonExtension:
+            months: 9
+            percentage: 3.616076749251911
+            units: units
+            amortizationType: Loan_Amort_None
+            couponStepup: 2.027123023002322
+          prepayLockout:
+            pointsAbove: ANY
+            ymAbove: ANY
+          doOPTRedeem: doOPTRedeem
+          ignoreFinancialGuarantee: ignoreFinancialGuarantee
+          servicerAdvances:
+            principal: 5.962133916683182
+            interest: 5.637376656633329
+            advanceType: Advances All
+          cleanUpCallMethod: true
+          cashflows:
+            optionalRedemptionCallWhenUnits: Manual
+            optionalRedemptionCallWhen: 2
+            recoveryLag: 7
+        face: 7.386281948385884
+        municipalBonds:
+          useAnticipatedSinkSchedule: true
+          ignoreSinkingFund: true
         matrixSpreadAdjustment: 6.027456183070403
       properties:
         settlement:
           description: Settlement date
+          nullable: true
           type: string
         callMethod:
           description: Call Method
@@ -2519,9 +2723,14 @@ components:
           - Intrinsic Value
           - First Call
           - First Par
+          nullable: true
           type: string
         referenceSecurity:
           $ref: '#/components/schemas/FIReferenceSecurity'
+        bankLoans:
+          $ref: '#/components/schemas/FIBankLoans'
+        municipalBonds:
+          $ref: '#/components/schemas/FIMunicipalBonds'
         loss:
           $ref: '#/components/schemas/FILoss'
         prepay:
@@ -2529,17 +2738,22 @@ components:
         matrixSpreadAdjustment:
           description: Matrix Spread Adjustment
           format: double
+          nullable: true
           type: number
         matrixMultiplier:
           description: Matrix Multiplier
           format: double
+          nullable: true
           type: number
+        structuredProducts:
+          $ref: '#/components/schemas/FIStructuredProductsForSecurities'
         calcFromMethod:
           description: "Calculation Method.\r\nMethods : Active Spread, Actual Spread,\
             \ Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act\
             \ Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount\
             \ Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread\
             \ To Worst Call, Pricing Matrix"
+          nullable: true
           type: string
         calcFromValue:
           description: Calculation from value
@@ -2549,6 +2763,7 @@ components:
           default: 1
           description: Face
           format: double
+          nullable: true
           type: number
         faceType:
           default: Current
@@ -2556,41 +2771,142 @@ components:
           enum:
           - Current
           - Original
+          nullable: true
           type: string
         symbol:
           description: Symbol
           type: string
         discountCurve:
           description: Discount curve
+          nullable: true
           type: string
       required:
       - calcFromValue
       - symbol
       type: object
+    FIMunicipalBondsForJobSettings:
+      example:
+        useAnticipatedSinkSchedule: true
+        ignoreSinkingFund: true
+        allowSinkForInstallmentPayment: true
+      properties:
+        allowSinkForInstallmentPayment:
+          description: Allow Sink For Installment Payment
+          nullable: true
+          type: boolean
+        ignoreSinkingFund:
+          description: Ignore Sinking Fund Schedule
+          nullable: true
+          type: boolean
+        useAnticipatedSinkSchedule:
+          description: Anticipate Sink Schedule
+          nullable: true
+          type: boolean
+      type: object
     FIMarketEnvironment:
-      additionalProperties: false
       example:
         ratePath: FLAT & FORWARD
       properties:
         ratePath:
           default: FLAT & FORWARD
+          description: Rate Path
           enum:
           - FLAT
           - FORWARD
           - FLAT & FORWARD
           type: string
       type: object
+    FIServicerAdvances:
+      example:
+        advanceType: Advances All
+      properties:
+        advanceType:
+          description: Advance Type
+          enum:
+          - Advances All
+          - Advances All But Newly Liqdtd
+          - Does Not Advance
+          - Principal Only
+          - Interest Only
+          type: string
+      type: object
+    FIStructuredProductsForJobSettings:
+      example:
+        balloonExtension:
+          months: 9
+          percentage: 3.616076749251911
+          units: units
+          amortizationType: Loan_Amort_None
+          couponStepup: 2.027123023002322
+        prepayLockout:
+          pointsAbove: ANY
+          ymAbove: ANY
+        doOPTRedeem: doOPTRedeem
+        ignoreFinancialGuarantee: ignoreFinancialGuarantee
+        servicerAdvances:
+          advanceType: Advances All
+        cleanUpCallMethod: true
+        cashflows:
+          optionalRedemptionCallWhenUnits: Manual
+          optionalRedemptionCallWhen: 2
+          recoveryLag: 7
+      properties:
+        servicerAdvances:
+          $ref: '#/components/schemas/FIServicerAdvances'
+        ignoreFinancialGuarantee:
+          description: Ignore Financial Guarantee
+          nullable: true
+          type: string
+        cleanUpCallMethod:
+          description: Cleanup Call Method
+          nullable: true
+          type: boolean
+        doOPTRedeem:
+          description: Do OPT Redeem
+          nullable: true
+          type: string
+        prepayLockout:
+          $ref: '#/components/schemas/FIPrepayLockout'
+        cashflows:
+          $ref: '#/components/schemas/FICashflows'
+        balloonExtension:
+          $ref: '#/components/schemas/FIBalloonExtension'
+      type: object
     FIJobSettings:
-      additionalProperties: false
       example:
         callMethod: No Call
         calcFromMethod: calcFromMethod
+        structuredProducts:
+          balloonExtension:
+            months: 9
+            percentage: 3.616076749251911
+            units: units
+            amortizationType: Loan_Amort_None
+            couponStepup: 2.027123023002322
+          prepayLockout:
+            pointsAbove: ANY
+            ymAbove: ANY
+          doOPTRedeem: doOPTRedeem
+          ignoreFinancialGuarantee: ignoreFinancialGuarantee
+          servicerAdvances:
+            advanceType: Advances All
+          cleanUpCallMethod: true
+          cashflows:
+            optionalRedemptionCallWhenUnits: Manual
+            optionalRedemptionCallWhen: 2
+            recoveryLag: 7
+        municipalBonds:
+          useAnticipatedSinkSchedule: true
+          ignoreSinkingFund: true
+          allowSinkForInstallmentPayment: true
         marketEnvironment:
           ratePath: FLAT & FORWARD
         asOfDate: asOfDate
+        bankLoans:
+          ignoreSinkingFund: true
         partialDurationMonths:
-        - 2
-        - 2
+        - 1
+        - 1
         settlement: settlement
       properties:
         asOfDate:
@@ -2601,6 +2917,7 @@ components:
           items:
             format: int32
             type: integer
+          nullable: true
           type: array
         callMethod:
           description: Call Method
@@ -2609,9 +2926,11 @@ components:
           - Intrinsic Value
           - First Call
           - First Par
+          nullable: true
           type: string
         settlement:
           description: Settlement Date
+          nullable: true
           type: string
         calcFromMethod:
           description: "Calculation Method.\r\nMethods : Active Spread, Actual Spread,\
@@ -2619,24 +2938,55 @@ components:
             \ Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount\
             \ Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread\
             \ To Worst Call, Pricing Matrix"
+          nullable: true
           type: string
+        bankLoans:
+          $ref: '#/components/schemas/FIBankLoans'
+        municipalBonds:
+          $ref: '#/components/schemas/FIMunicipalBondsForJobSettings'
         marketEnvironment:
           $ref: '#/components/schemas/FIMarketEnvironment'
+        structuredProducts:
+          $ref: '#/components/schemas/FIStructuredProductsForJobSettings'
       required:
       - asOfDate
       type: object
     FICalculationParameters:
-      additionalProperties: false
       example:
         jobSettings:
           callMethod: No Call
           calcFromMethod: calcFromMethod
+          structuredProducts:
+            balloonExtension:
+              months: 9
+              percentage: 3.616076749251911
+              units: units
+              amortizationType: Loan_Amort_None
+              couponStepup: 2.027123023002322
+            prepayLockout:
+              pointsAbove: ANY
+              ymAbove: ANY
+            doOPTRedeem: doOPTRedeem
+            ignoreFinancialGuarantee: ignoreFinancialGuarantee
+            servicerAdvances:
+              advanceType: Advances All
+            cleanUpCallMethod: true
+            cashflows:
+              optionalRedemptionCallWhenUnits: Manual
+              optionalRedemptionCallWhen: 2
+              recoveryLag: 7
+          municipalBonds:
+            useAnticipatedSinkSchedule: true
+            ignoreSinkingFund: true
+            allowSinkForInstallmentPayment: true
           marketEnvironment:
             ratePath: FLAT & FORWARD
           asOfDate: asOfDate
+          bankLoans:
+            ignoreSinkingFund: true
           partialDurationMonths:
-          - 2
-          - 2
+          - 1
+          - 1
           settlement: settlement
         calculations:
         - calculations
@@ -2646,7 +2996,9 @@ components:
           symbol: symbol
           matrixMultiplier: 1.4658129805029452
           discountCurve: discountCurve
-          calcFromValue: 5.962133916683182
+          calcFromValue: 4.145608029883936
+          bankLoans:
+            ignoreSinkingFund: true
           faceType: Current
           referenceSecurity:
             calcFromMethod: calcFromMethod
@@ -2662,13 +3014,39 @@ components:
             lossName: lossName
           prepay:
             prepayName: prepayName
-          face: 5.637376656633329
+          structuredProducts:
+            balloonExtension:
+              months: 9
+              percentage: 3.616076749251911
+              units: units
+              amortizationType: Loan_Amort_None
+              couponStepup: 2.027123023002322
+            prepayLockout:
+              pointsAbove: ANY
+              ymAbove: ANY
+            doOPTRedeem: doOPTRedeem
+            ignoreFinancialGuarantee: ignoreFinancialGuarantee
+            servicerAdvances:
+              principal: 5.962133916683182
+              interest: 5.637376656633329
+              advanceType: Advances All
+            cleanUpCallMethod: true
+            cashflows:
+              optionalRedemptionCallWhenUnits: Manual
+              optionalRedemptionCallWhen: 2
+              recoveryLag: 7
+          face: 7.386281948385884
+          municipalBonds:
+            useAnticipatedSinkSchedule: true
+            ignoreSinkingFund: true
           matrixSpreadAdjustment: 6.027456183070403
         - callMethod: No Call
           symbol: symbol
           matrixMultiplier: 1.4658129805029452
           discountCurve: discountCurve
-          calcFromValue: 5.962133916683182
+          calcFromValue: 4.145608029883936
+          bankLoans:
+            ignoreSinkingFund: true
           faceType: Current
           referenceSecurity:
             calcFromMethod: calcFromMethod
@@ -2684,7 +3062,31 @@ components:
             lossName: lossName
           prepay:
             prepayName: prepayName
-          face: 5.637376656633329
+          structuredProducts:
+            balloonExtension:
+              months: 9
+              percentage: 3.616076749251911
+              units: units
+              amortizationType: Loan_Amort_None
+              couponStepup: 2.027123023002322
+            prepayLockout:
+              pointsAbove: ANY
+              ymAbove: ANY
+            doOPTRedeem: doOPTRedeem
+            ignoreFinancialGuarantee: ignoreFinancialGuarantee
+            servicerAdvances:
+              principal: 5.962133916683182
+              interest: 5.637376656633329
+              advanceType: Advances All
+            cleanUpCallMethod: true
+            cashflows:
+              optionalRedemptionCallWhenUnits: Manual
+              optionalRedemptionCallWhen: 2
+              recoveryLag: 7
+          face: 7.386281948385884
+          municipalBonds:
+            useAnticipatedSinkSchedule: true
+            ignoreSinkingFund: true
           matrixSpreadAdjustment: 6.027456183070403
       properties:
         securities:
@@ -2705,7 +3107,6 @@ components:
       - securities
       type: object
     CalculationMeta:
-      additionalProperties: false
       example:
         contentorganization: SimplifiedRow
         format: JsonStach
@@ -2751,18 +3152,42 @@ components:
           type: string
       type: object
     FICalculationParametersRoot:
-      additionalProperties: false
       example:
         data:
           jobSettings:
             callMethod: No Call
             calcFromMethod: calcFromMethod
+            structuredProducts:
+              balloonExtension:
+                months: 9
+                percentage: 3.616076749251911
+                units: units
+                amortizationType: Loan_Amort_None
+                couponStepup: 2.027123023002322
+              prepayLockout:
+                pointsAbove: ANY
+                ymAbove: ANY
+              doOPTRedeem: doOPTRedeem
+              ignoreFinancialGuarantee: ignoreFinancialGuarantee
+              servicerAdvances:
+                advanceType: Advances All
+              cleanUpCallMethod: true
+              cashflows:
+                optionalRedemptionCallWhenUnits: Manual
+                optionalRedemptionCallWhen: 2
+                recoveryLag: 7
+            municipalBonds:
+              useAnticipatedSinkSchedule: true
+              ignoreSinkingFund: true
+              allowSinkForInstallmentPayment: true
             marketEnvironment:
               ratePath: FLAT & FORWARD
             asOfDate: asOfDate
+            bankLoans:
+              ignoreSinkingFund: true
             partialDurationMonths:
-            - 2
-            - 2
+            - 1
+            - 1
             settlement: settlement
           calculations:
           - calculations
@@ -2772,7 +3197,9 @@ components:
             symbol: symbol
             matrixMultiplier: 1.4658129805029452
             discountCurve: discountCurve
-            calcFromValue: 5.962133916683182
+            calcFromValue: 4.145608029883936
+            bankLoans:
+              ignoreSinkingFund: true
             faceType: Current
             referenceSecurity:
               calcFromMethod: calcFromMethod
@@ -2788,13 +3215,39 @@ components:
               lossName: lossName
             prepay:
               prepayName: prepayName
-            face: 5.637376656633329
+            structuredProducts:
+              balloonExtension:
+                months: 9
+                percentage: 3.616076749251911
+                units: units
+                amortizationType: Loan_Amort_None
+                couponStepup: 2.027123023002322
+              prepayLockout:
+                pointsAbove: ANY
+                ymAbove: ANY
+              doOPTRedeem: doOPTRedeem
+              ignoreFinancialGuarantee: ignoreFinancialGuarantee
+              servicerAdvances:
+                principal: 5.962133916683182
+                interest: 5.637376656633329
+                advanceType: Advances All
+              cleanUpCallMethod: true
+              cashflows:
+                optionalRedemptionCallWhenUnits: Manual
+                optionalRedemptionCallWhen: 2
+                recoveryLag: 7
+            face: 7.386281948385884
+            municipalBonds:
+              useAnticipatedSinkSchedule: true
+              ignoreSinkingFund: true
             matrixSpreadAdjustment: 6.027456183070403
           - callMethod: No Call
             symbol: symbol
             matrixMultiplier: 1.4658129805029452
             discountCurve: discountCurve
-            calcFromValue: 5.962133916683182
+            calcFromValue: 4.145608029883936
+            bankLoans:
+              ignoreSinkingFund: true
             faceType: Current
             referenceSecurity:
               calcFromMethod: calcFromMethod
@@ -2810,7 +3263,31 @@ components:
               lossName: lossName
             prepay:
               prepayName: prepayName
-            face: 5.637376656633329
+            structuredProducts:
+              balloonExtension:
+                months: 9
+                percentage: 3.616076749251911
+                units: units
+                amortizationType: Loan_Amort_None
+                couponStepup: 2.027123023002322
+              prepayLockout:
+                pointsAbove: ANY
+                ymAbove: ANY
+              doOPTRedeem: doOPTRedeem
+              ignoreFinancialGuarantee: ignoreFinancialGuarantee
+              servicerAdvances:
+                principal: 5.962133916683182
+                interest: 5.637376656633329
+                advanceType: Advances All
+              cleanUpCallMethod: true
+              cashflows:
+                optionalRedemptionCallWhenUnits: Manual
+                optionalRedemptionCallWhen: 2
+                recoveryLag: 7
+            face: 7.386281948385884
+            municipalBonds:
+              useAnticipatedSinkSchedule: true
+              ignoreSinkingFund: true
             matrixSpreadAdjustment: 6.027456183070403
         meta:
           contentorganization: SimplifiedRow
@@ -2824,24 +3301,23 @@ components:
           $ref: '#/components/schemas/CalculationMeta'
       type: object
     CalculationInfo:
-      additionalProperties: false
       properties:
         calculationId:
           description: Calculation identifier
+          nullable: true
           type: string
       type: object
     CalculationInfoRoot:
-      additionalProperties: false
       properties:
         data:
           $ref: '#/components/schemas/CalculationInfo'
         meta:
+          nullable: true
           type: object
       required:
       - data
       type: object
     ObjectRoot:
-      additionalProperties: false
       example:
         data: '{}'
         meta: '{}'
@@ -2849,6 +3325,7 @@ components:
         data:
           type: object
         meta:
+          nullable: true
           type: object
       required:
       - data

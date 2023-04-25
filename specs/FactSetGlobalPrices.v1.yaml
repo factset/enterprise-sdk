@@ -196,7 +196,7 @@ paths:
       summary: Gets Indicated Annualized Dividend information.
       operationId: getannualizedDividends
       description: >
-        Gets the Annualized dividend or the latest reported dividend.
+        Gets the Annualized dividend of the latest reported dividend.
 
         The annualized dividend calculations does not involve cancelled
         dividends.
@@ -225,7 +225,7 @@ paths:
         - Corporate Actions
       summary: Gets Indicated Annualized Dividend information.
       description: >-
-        Gets the Annualized dividend or the latest reported dividend. The
+        Gets the Annualized dividend of the latest reported dividend. The
         annualized dividend calculations does not involve cancelled dividends.
       operationId: getannualizedDividendsForList
       requestBody:

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.5.0
+  version: 2.6.0
   title: FactSet Concordance API
   description: >
 
@@ -808,6 +808,18 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/SnowflakeEntityMatchResponse'
+  /factset-concordance/v2/snowflake-entity-mapping:
+    post:
+      summary: Save entity mappings to a universe
+      description: Manually save or update entity mappings with metadata
+      tags:
+        - Snowflake
+      operationId: snowflakeEntityMappingPost
+      requestBody:
+        $ref: '#/components/requestBodies/SnowflakeEntityMappingRequest'
+      responses:
+        default:
+          $ref: '#/components/responses/SnowflakeEntityMappingResponse'
   /factset-concordance/v2/people-match:
     get:
       summary: >-
@@ -1804,6 +1816,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/SnowflakeEntityMatchRequest'
+    SnowflakeEntityMappingRequest:
+      description: A request to save entity mappings to a universe
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SnowflakeEntityMappingRequest'
     PeopleMatchRequestV2:
       description: A request to People match.
       required: true
@@ -1996,6 +2015,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/SnowflakeEntityMatchResponse'
+    SnowflakeEntityMappingResponse:
+      description: Response object according to snowflake external function spec
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SnowflakeEntityMappingResponse'
     PeopleMatchResponse:
       description: Response containing People Match results.
       content:
@@ -2699,8 +2724,7 @@ components:
             items:
               type: object
               example: 0
-            minItems: 7
-            maxItems: 7
+            minItems: 2
             example:
               - 0
               - FactSet
@@ -2711,6 +2735,32 @@ components:
               - 10
           minItems: 1
           maxItems: 25
+    SnowflakeEntityMappingRequest:
+      title: Snowflake Entity Mapping Request
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          description: Array of input rows
+          type: array
+          items:
+            type: array
+            items:
+              oneOf:
+                - integer
+                - string
+                - object
+            description: One entity mapping to save
+            minItems: 4
+            example:
+              - 0
+              - 123
+              - my_id
+              - FactSet
+              - 0016YD-E
+          minItems: 1
+          maxItems: 10
     PeopleMatchRequest:
       title: People Match Request
       description: Request object for a requesting multiple People Matches.
@@ -2964,6 +3014,91 @@ components:
             type: array
             items:
               type: object
+          description: JSON body to be parsed by snowflake
+    SnowflakeEntityMappingResponse:
+      title: Snowflake Entity Mapping Response
+      type: object
+      example:
+        data:
+          - - 0
+            - clientBbgFigi: null
+              clientBbgTicker: null
+              clientBic: null
+              clientCik: null
+              clientCountry: US
+              clientCrd: null
+              clientCusip: null
+              clientDuns: null
+              clientEin: null
+              clientFitch: null
+              clientId: '1004_1'
+              clientIsin: null
+              clientLei: null
+              clientMd: null
+              clientName: IBM
+              clientPriority: null
+              clientRssd: null
+              clientSedol: null
+              clientSpr: null
+              clientState: NY
+              clientTicker: null
+              clientTickerExchange: null
+              clientTickerRegion: null
+              clientUkch: null
+              clientUrl: www.ibm.com
+              clientValoren: null
+              clientWkn: null
+              createdTime: '2023-01-31T18:21:28.853822+00:00'
+              entityId: 000N1N-E
+              entityName: International Business Machines Corp.
+              mapStatus: MAPPED
+              universeId: 1241
+              updatedTime: '2023-04-10T17:29:31.128197+00:00'
+          - - 1
+            - clientBbgFigi: null
+              clientBbgTicker: null
+              clientBic: null
+              clientCik: null
+              clientCountry: null
+              clientCrd: null
+              clientCusip: null
+              clientDuns: null
+              clientEin: null
+              clientFitch: null
+              clientId: '1004_2'
+              clientIsin: null
+              clientLei: null
+              clientMd: null
+              clientName: Wayfair
+              clientPriority: null
+              clientRssd: null
+              clientSedol: null
+              clientSpr: null
+              clientState: null
+              clientTicker: null
+              clientTickerExchange: null
+              clientTickerRegion: null
+              clientUkch: null
+              clientUrl: null
+              clientValoren: null
+              clientWkn: null
+              createdTime: '2023-01-31T18:21:28.853822+00:00'
+              entityId: null
+              entityName: null
+              mapStatus: UNMAPPED
+              universeId: 1241
+              updatedTime: '2023-04-10T17:29:47.400250+00:00'
+      properties:
+        data:
+          type: array
+          items:
+            type: array
+            description: Array of response rows corresponding to the inputs
+            items:
+              type: object
+              description: >
+                Results for a single input row. Of the format [int,
+                EntityMapping]
           description: JSON body to be parsed by snowflake
     EntityMappingDeleteResponse:
       title: Entity Delete Mapping Response

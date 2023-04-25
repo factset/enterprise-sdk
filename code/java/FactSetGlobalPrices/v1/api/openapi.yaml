@@ -621,7 +621,7 @@ paths:
   /factset-global-prices/v1/annualized-dividends:
     get:
       description: |
-        Gets the Annualized dividend or the latest reported dividend.
+        Gets the Annualized dividend of the latest reported dividend.
         The annualized dividend calculations does not involve cancelled dividends.
       operationId: getannualizedDividends
       parameters:
@@ -744,7 +744,7 @@ paths:
       - Corporate Actions
       x-accepts: application/json
     post:
-      description: Gets the Annualized dividend or the latest reported dividend. The
+      description: Gets the Annualized dividend of the latest reported dividend. The
         annualized dividend calculations does not involve cancelled dividends.
       operationId: getannualizedDividendsForList
       requestBody:

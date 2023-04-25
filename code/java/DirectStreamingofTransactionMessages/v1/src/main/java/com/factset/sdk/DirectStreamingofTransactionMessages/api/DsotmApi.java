@@ -49,8 +49,8 @@ public class DsotmApi {
   }
 
   /**
-   * Push transactions data into FactSet&#39;s systems.
-   * This endpoint takes the transactions data and pushes them into FactSet&#39;s systems.
+   * Push transactions data into FactSet.
+   * This endpoint takes the transactions data and pushes them into FactSet.
    * @param transactions  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -71,8 +71,8 @@ public class DsotmApi {
   }
 
   /**
-   * Push transactions data into FactSet&#39;s systems.
-   * This endpoint takes the transactions data and pushes them into FactSet&#39;s systems.
+   * Push transactions data into FactSet.
+   * This endpoint takes the transactions data and pushes them into FactSet.
    * @param transactions  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -93,7 +93,7 @@ public class DsotmApi {
     Object localVarPostBody = transactions;
     
     // create path and map variables
-    String localVarPath = "/analytics/dsotm/v1/transactions";
+    String localVarPath = "/transactions";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

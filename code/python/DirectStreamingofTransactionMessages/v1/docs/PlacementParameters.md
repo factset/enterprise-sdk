@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **tradedate** | **str** | Transaction date which is in the format YYYYMMDD | 
 **amount** | **float** | Quantity of the instrument traded. | 
 **currencyiso** | **str** | The currency code of cash valued fields, Net Amount and Gross Amount. | 
-**settlementcurrencyiso** | **str** | Currency code for Settlement Value | [optional] 
-**description** | **str** | Description | [optional] 
+**settlementcurrencyiso** | **str, none_type** | Currency code for Settlement Value | [optional] 
+**description** | **str, none_type** | Description | [optional] 
 **transactionleaves** | **float** | Shares that have been ordered and not executed | [optional] 
 **foreignexchangerate** | **float** | FX rate that can be picked up by PA, multiplied with the cash valued fields, Net, Gross, to allow PA to show transactions in reporting currency. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

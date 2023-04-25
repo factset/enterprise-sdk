@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-fixedincomecalculation",
-  "version": "0.21.1",
+  "version": "0.22.1",
   "description": "Fixed Income Calculation client library for JavaScript",
   "license": "Apache License, Version 2.0",
   "author": "FactSet Research Systems",

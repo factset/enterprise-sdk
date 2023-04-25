@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 Gets Indicated Annualized Dividend information.
 
-Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
+Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends. 
 
 ### Example
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 Gets Indicated Annualized Dividend information.
 
-Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
+Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.
 
 ### Example
 

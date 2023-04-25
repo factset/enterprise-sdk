@@ -46,6 +46,8 @@ from fds.sdk.FactSetConcordance.model.people_task_status import PeopleTaskStatus
 from fds.sdk.FactSetConcordance.model.people_task_status_response import PeopleTaskStatusResponse
 from fds.sdk.FactSetConcordance.model.people_universe_request import PeopleUniverseRequest
 from fds.sdk.FactSetConcordance.model.people_universe_response import PeopleUniverseResponse
+from fds.sdk.FactSetConcordance.model.snowflake_entity_mapping_request import SnowflakeEntityMappingRequest
+from fds.sdk.FactSetConcordance.model.snowflake_entity_mapping_response import SnowflakeEntityMappingResponse
 from fds.sdk.FactSetConcordance.model.snowflake_entity_match_request import SnowflakeEntityMatchRequest
 from fds.sdk.FactSetConcordance.model.snowflake_entity_match_response import SnowflakeEntityMatchResponse
 from fds.sdk.FactSetConcordance.model.universe import Universe

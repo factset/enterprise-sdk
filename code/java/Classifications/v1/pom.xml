@@ -5,7 +5,7 @@
     <artifactId>classifications</artifactId>
     <packaging>jar</packaging>
     <name>classifications</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Classifications client library for Java</description>
     <scm>

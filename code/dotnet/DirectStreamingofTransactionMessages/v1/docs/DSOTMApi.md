@@ -1,10 +1,10 @@
 # FactSet.SDK.DirectStreamingofTransactionMessages.Api.DSOTMApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com/analytics/dsotm/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SendTransactions**](DSOTMApi.md#sendtransactions) | **POST** /analytics/dsotm/v1/transactions | Push transactions data into FactSet&#39;s systems.
+[**SendTransactions**](DSOTMApi.md#sendtransactions) | **POST** /transactions | Push transactions data into FactSet.
 
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 # **SendTransactions**
 > void SendTransactions (Transactions transactions = null)
 
-Push transactions data into FactSet's systems.
+Push transactions data into FactSet.
 
-This endpoint takes the transactions data and pushes them into FactSet's systems.
+This endpoint takes the transactions data and pushes them into FactSet.
 
 ### Example
 ```csharp
@@ -56,7 +56,7 @@ namespace Example
 
             try
             {
-                // Push transactions data into FactSet's systems.
+                // Push transactions data into FactSet.
                 apiInstance.SendTransactions(transactions);
             }
             catch (ApiException  e)

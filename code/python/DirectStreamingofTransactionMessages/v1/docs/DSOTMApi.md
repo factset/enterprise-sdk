@@ -1,19 +1,19 @@
 # fds.sdk.DirectStreamingofTransactionMessages.DSOTMApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com/analytics/dsotm/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**send_transactions**](DSOTMApi.md#send_transactions) | **POST** /analytics/dsotm/v1/transactions | Push transactions data into FactSet&#39;s systems.
+[**send_transactions**](DSOTMApi.md#send_transactions) | **POST** /transactions | Push transactions data into FactSet.
 
 
 
 # **send_transactions**
 > send_transactions()
 
-Push transactions data into FactSet's systems.
+Push transactions data into FactSet.
 
-This endpoint takes the transactions data and pushes them into FactSet's systems.
+This endpoint takes the transactions data and pushes them into FactSet.
 
 ### Example
 
@@ -110,7 +110,7 @@ with fds.sdk.DirectStreamingofTransactionMessages.ApiClient(configuration) as ap
     ) # Transactions |  (optional)
 
     try:
-        # Push transactions data into FactSet's systems.
+        # Push transactions data into FactSet.
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.send_transactions(transactions=transactions)

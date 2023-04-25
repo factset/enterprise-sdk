@@ -1522,6 +1522,9 @@ components:
         type: string
       explode: false
       examples:
+        noFrequency:
+          value: ''
+          summary: '---'
         D:
           summary: Daily
           description: Displays data on a daily basis.

@@ -1,25 +1,28 @@
 openapi: 3.0.1
 info:
   contact:
-    email: analytics.api.support@factset.com
-    name: Analytics API Support
+    email: api@factset.com
+    name: FactSet Research Systems
     url: https://developer.factset.com/contact
-  description: Allow clients to send transactions data to FactSet
+  description: Allow clients to send transactions data to FactSet.
   license:
-    name: Apache License 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.txt
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: DSOTM API
-  version: "1"
+  version: 1.1.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/direct-streaming-transaction-messages-api
 servers:
-- url: /
+- url: https://api.factset.com/analytics/dsotm/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 paths:
-  /analytics/dsotm/v1/transactions:
+  /transactions:
     post:
       description: This endpoint takes the transactions data and pushes them into
-        FactSet's systems.
+        FactSet.
       operationId: sendTransactions
       requestBody:
         content:
@@ -182,7 +185,7 @@ paths:
                   available after successful authentication.
                 type: string
               style: simple
-      summary: Push transactions data into FactSet's systems.
+      summary: Push transactions data into FactSet.
       tags:
       - DSOTM
       x-contentType: application/json
@@ -226,6 +229,7 @@ components:
           type: string
         settlementcurrencyiso:
           description: Currency code for Settlement Value
+          nullable: true
           type: string
         portfolio:
           description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
@@ -238,6 +242,7 @@ components:
           type: string
         description:
           description: Description
+          nullable: true
           type: string
         tradetype:
           description: "Trade type could be any of the following values BL, BC, SL,\
@@ -300,6 +305,7 @@ components:
       properties:
         settlementcurrencyiso:
           description: Currency code for Settlement Value
+          nullable: true
           type: string
         portfolio:
           description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
@@ -312,6 +318,7 @@ components:
           type: string
         description:
           description: Description
+          nullable: true
           type: string
         tradetype:
           description: "Trade type could be any of the following values BL, BC, SL,\
@@ -378,6 +385,7 @@ components:
           type: string
         description:
           description: Description
+          nullable: true
           type: string
         tradetype:
           description: "Trade type could be any of the following values BL, BC, SL,\
@@ -507,16 +515,19 @@ components:
           description: List of executions
           items:
             $ref: '#/components/schemas/ExecutionParameters'
+          nullable: true
           type: array
         placements:
           description: List of placements
           items:
             $ref: '#/components/schemas/PlacementParameters'
+          nullable: true
           type: array
         orders:
           description: List of orders
           items:
             $ref: '#/components/schemas/OrderParameters'
+          nullable: true
           type: array
       type: object
   securitySchemes:

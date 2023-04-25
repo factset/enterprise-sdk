@@ -571,7 +571,7 @@ class CorporateActionsApi(object):
     ) -> AnnualizedDividendResponse:
         """Gets Indicated Annualized Dividend information.  # noqa: E501
 
-        Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.   # noqa: E501
+        Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -618,7 +618,7 @@ class CorporateActionsApi(object):
     ) -> typing.Tuple[AnnualizedDividendResponse, int, typing.MutableMapping]:
         """Gets Indicated Annualized Dividend information.  # noqa: E501
 
-        Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.   # noqa: E501
+        Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -669,7 +669,7 @@ class CorporateActionsApi(object):
     ) -> "ApplyResult[AnnualizedDividendResponse]":
         """Gets Indicated Annualized Dividend information.  # noqa: E501
 
-        Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.   # noqa: E501
+        Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -715,7 +715,7 @@ class CorporateActionsApi(object):
     ) -> "ApplyResult[typing.Tuple[AnnualizedDividendResponse, int, typing.MutableMapping]]":
         """Gets Indicated Annualized Dividend information.  # noqa: E501
 
-        Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.   # noqa: E501
+        Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -762,7 +762,7 @@ class CorporateActionsApi(object):
     ) -> AnnualizedDividendResponse:
         """Gets Indicated Annualized Dividend information.  # noqa: E501
 
-        Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.  # noqa: E501
+        Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -808,7 +808,7 @@ class CorporateActionsApi(object):
     ) -> typing.Tuple[AnnualizedDividendResponse, int, typing.MutableMapping]:
         """Gets Indicated Annualized Dividend information.  # noqa: E501
 
-        Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.  # noqa: E501
+        Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -858,7 +858,7 @@ class CorporateActionsApi(object):
     ) -> "ApplyResult[AnnualizedDividendResponse]":
         """Gets Indicated Annualized Dividend information.  # noqa: E501
 
-        Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.  # noqa: E501
+        Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -903,7 +903,7 @@ class CorporateActionsApi(object):
     ) -> "ApplyResult[typing.Tuple[AnnualizedDividendResponse, int, typing.MutableMapping]]":
         """Gets Indicated Annualized Dividend information.  # noqa: E501
 
-        Gets the Annualized dividend or the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.  # noqa: E501
+        Gets the Annualized dividend of the latest reported dividend. The annualized dividend calculations does not involve cancelled dividends.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:

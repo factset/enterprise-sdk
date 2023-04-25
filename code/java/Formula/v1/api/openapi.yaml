@@ -1348,6 +1348,9 @@ paths:
           Specify the frequency for running the Iterated Cross Sectional Functionality request. The following frequencies are supported **D**, **W**, **M**, **AM**, **CQ**, **AY**, or **CY**.
           To learn more about frequency, please visit [Online Assistant Page 1964](https://my.apps.factset.com/oa/pages/1964#frequency). User must have access to backtesting functionality.
         examples:
+          noFrequency:
+            summary: '---'
+            value: ""
           D:
             description: Displays data on a daily basis.
             summary: Daily
@@ -4367,6 +4370,9 @@ components:
         Specify the frequency for running the Iterated Cross Sectional Functionality request. The following frequencies are supported **D**, **W**, **M**, **AM**, **CQ**, **AY**, or **CY**.
         To learn more about frequency, please visit [Online Assistant Page 1964](https://my.apps.factset.com/oa/pages/1964#frequency). User must have access to backtesting functionality.
       examples:
+        noFrequency:
+          summary: '---'
+          value: ""
         D:
           description: Displays data on a daily basis.
           summary: Daily

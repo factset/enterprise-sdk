@@ -50,6 +50,8 @@ docs/PeopleTaskStatusResponse.md
 docs/PeopleUniverseRequest.md
 docs/PeopleUniverseResponse.md
 docs/SnowflakeApi.md
+docs/SnowflakeEntityMappingRequest.md
+docs/SnowflakeEntityMappingResponse.md
 docs/SnowflakeEntityMatchRequest.md
 docs/SnowflakeEntityMatchResponse.md
 docs/Universe.md
@@ -133,6 +135,8 @@ src/main/java/com/factset/sdk/FactSetConcordance/models/PeopleTaskStatus.java
 src/main/java/com/factset/sdk/FactSetConcordance/models/PeopleTaskStatusResponse.java
 src/main/java/com/factset/sdk/FactSetConcordance/models/PeopleUniverseRequest.java
 src/main/java/com/factset/sdk/FactSetConcordance/models/PeopleUniverseResponse.java
+src/main/java/com/factset/sdk/FactSetConcordance/models/SnowflakeEntityMappingRequest.java
+src/main/java/com/factset/sdk/FactSetConcordance/models/SnowflakeEntityMappingResponse.java
 src/main/java/com/factset/sdk/FactSetConcordance/models/SnowflakeEntityMatchRequest.java
 src/main/java/com/factset/sdk/FactSetConcordance/models/SnowflakeEntityMatchResponse.java
 src/main/java/com/factset/sdk/FactSetConcordance/models/Universe.java
