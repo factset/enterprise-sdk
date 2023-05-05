@@ -125,7 +125,7 @@ class CreateApi(object):
     ) -> CreateDatabase:
         """create_database  # noqa: E501
 
-        Creates a 2d or 3d database(OFDB)  # noqa: E501
+        Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
 
@@ -167,7 +167,7 @@ class CreateApi(object):
     ) -> typing.Tuple[CreateDatabase, int, typing.MutableMapping]:
         """create_database  # noqa: E501
 
-        Creates a 2d or 3d database(OFDB)  # noqa: E501
+        Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
 
@@ -213,7 +213,7 @@ class CreateApi(object):
     ) -> "ApplyResult[CreateDatabase]":
         """create_database  # noqa: E501
 
-        Creates a 2d or 3d database(OFDB)  # noqa: E501
+        Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
 
@@ -254,7 +254,7 @@ class CreateApi(object):
     ) -> "ApplyResult[typing.Tuple[CreateDatabase, int, typing.MutableMapping]]":
         """create_database  # noqa: E501
 
-        Creates a 2d or 3d database(OFDB)  # noqa: E501
+        Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
 

@@ -28,9 +28,9 @@ from fds.sdk.OFDB.exceptions import ApiException
 from fds.sdk.OFDB.model.inline_response200 import InlineResponse200
 from fds.sdk.OFDB.model.inline_response2001 import InlineResponse2001
 from fds.sdk.OFDB.model.inline_response2002 import InlineResponse2002
-from fds.sdk.OFDB.model.inline_response2003 import InlineResponse2003
 from fds.sdk.OFDB.model.inline_response2004 import InlineResponse2004
 from fds.sdk.OFDB.model.inline_response2005 import InlineResponse2005
+from fds.sdk.OFDB.model.inline_response2006 import InlineResponse2006
 from fds.sdk.OFDB.model.inline_response202 import InlineResponse202
 from fds.sdk.OFDB.model.inline_response400 import InlineResponse400
 from fds.sdk.OFDB.model.inline_response403 import InlineResponse403
@@ -113,7 +113,7 @@ class GetApi(object):
         self.get_data_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2005,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 200: (InlineResponse2006,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
                   None
                 ),
                 'auth': [
@@ -230,7 +230,7 @@ class GetApi(object):
         self.get_dates_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2004,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 200: (InlineResponse2005,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
                   None
                 ),
                 'auth': [
@@ -429,7 +429,7 @@ class GetApi(object):
         self.get_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2003,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
+                  { 200: (InlineResponse2004,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse404,), 406: (InlineResponse406,), 429: (InlineResponse429,),  },
                   None
                 ),
                 'auth': [
@@ -718,7 +718,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> InlineResponse2005:
+    ) -> InlineResponse2006:
         """get_data  # noqa: E501
 
         Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required. For a range of dates symbol parameter is mandatory.  # noqa: E501
@@ -763,7 +763,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2005
+            InlineResponse2006
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -775,7 +775,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2006, int, typing.MutableMapping]:
         """get_data  # noqa: E501
 
         Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required. For a range of dates symbol parameter is mandatory.  # noqa: E501
@@ -820,7 +820,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2005
+            InlineResponse2006
                 Response Object
             int
                 Http Status Code
@@ -836,7 +836,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2005]":
+    ) -> "ApplyResult[InlineResponse2006]":
         """get_data  # noqa: E501
 
         Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required. For a range of dates symbol parameter is mandatory.  # noqa: E501
@@ -857,6 +857,219 @@ class GetApi(object):
             filter_symbols_values (str): Can specify the symbol filter values of the date filter operations e.g: [\"ab\", \"xy\"] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided. . [optional]
             sort_field_name (str): Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn't exist in the OFDB is requested. [optional]
             sort_field_order (str): Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2006]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        return self.get_data_endpoint.call_with_http_info(**kwargs)
+
+    def get_data_with_http_info_async(
+        self,
+        path,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2006, int, typing.MutableMapping]]":
+        """get_data  # noqa: E501
+
+        Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required. For a range of dates symbol parameter is mandatory.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+
+        Keyword Args:
+            symbol (str): Returns data for the symbol mentioned. e.g:sym1. [optional]
+            date (str): Return data for the specific date or range of dates mentioned.e.g:[date1,date2]. [optional]
+            filter_fields (str): Can specify the fields on which you want to perform field filter operations e.g: [\"PRICE\",\"SECTOR\"]  Note:  The request will respond with 400 1. If fields which are not present on OFDB are given. 2. If filterOps or filterValues query parameters are missing    when filterFields is present. 3. If number of values given for filterOps,      filterFields, filterValues are different 4. If exactly one of symbol or date query parameter is not provided. . [optional]
+            filter_ops (str): Can specify the field filter operations which you want to perform e.g: [\"LT\", \"GTEQ\", \"CT\"] in respective order of values in filterFields query parameter.  The available field filter operations are :  For CHAR type fields:  \"CT\" : contains  \"SW\" : starts-with  \"EW\" : ends-with   \"EQ\" : equals  For NUMERIC type fields:  \"GT\" : greater than  \"GTEQ\" : greater than or equals  \"LT\" : lesser than  \"LTEQ\" : lesser than or equals  \"EQ\" : equals  Note:  The request will respond with 400  1. If operations other than the above mentioned are provided. 2. If numeric operations are given to char type fields instead of char operations. 3. If char operations are given to numeric type fields instead of numeric operations. 4. If filterFields or filterValues query parameters are missing    when filterOps is present. 5. If number of values given for filterOps,      filterFields, filterValues are different 6. If exactly one of symbol or date query parameter is not provided. . [optional]
+            filter_values (str): Can specify the field filter values of the field filter operations e.g: [100, 20, \"AB\"] in respective order of values in filterFields and filterOps query parameters .  Note:   The request will respond with 400 1. If char values are given to numeric type fields. 2. If filterFields or filterOps query parameters are missing    when filterValues is present. 3. If number of values given for filterOps,      filterFields, filterValues are different 4. If exactly one of symbol or date query parameter is not provided. . [optional]
+            filter_dates_ops (str): Can specify the date filter operations which you want to perform e.g: [\"LT\", \"GTEQ\"].  The available date filter operations are :  \"GT\" : after  \"GTEQ\" : after or equals  \"LT\" : before  \"LTEQ\" : before or equals  \"EQ\" : equals\"  Note:  The request will respond with 400  1. If operations other than the above mentioned are given. 2. If filterDatesValues query parameter is missing when filterDatesOps is present. 3. If number of values given for filterDatesOps and filterDatesValues differ. 4. If symbol query parameter is not provided. . [optional]
+            filter_dates_values (str): Can specify the date filter values of the date filter operations e.g: [20200505, 20200303] in respective order of values in filterDatesOps query parameter.  Note:  The request will respond with 400 1. If invalid date values are given 2. If filterDatesOps query parameter is missing when filterDatesValues is present. 3. If number of values given for filterDatesOps and filterDatesValues differ. 4. If symbol query parameter is not provided. . [optional]
+            filter_symbols_ops (str): Can specify the symbol filter operations which you want to perform e.g: [\"CT\", \"SW\"].  The available symbol filter operations are:  \"SW\" : starts-with  \"EW\" : ends-with  \"CT\" : contains  \"EQ\" : equals  Note:  The request will respond with 400 1. If operations other than the above mentioned are given. 2. If filterSymbolsValues query parameter is missing when filterSymbolsOps is present. 3. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 4. If date query parameter is not provided. . [optional]
+            filter_symbols_values (str): Can specify the symbol filter values of the date filter operations e.g: [\"ab\", \"xy\"] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided. . [optional]
+            sort_field_name (str): Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn't exist in the OFDB is requested. [optional]
+            sort_field_order (str): Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2006, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['path'] = \
+            path
+        return self.get_data_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_dates(
+        self,
+        path,
+        **kwargs
+    ) -> InlineResponse2005:
+        """get_dates  # noqa: E501
+
+        Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            path (str): Encode database path
+
+        Keyword Args:
+            between (str): Returns list of dates which are between [start,end], dates should be in the respective order of start and end. [optional]
+            equals (str): Returns the date which matches given date. [optional]
+            before (str): Returns list of dates which are before mentioned date. [optional]
+            after (str): Returns list of dates which are after mentioned date. [optional]
+            order_by (str): Returns dates in the mentioned sorted order, should provide asc or desc. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2005
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        return self.get_dates_endpoint.call_with_http_info(**kwargs)
+
+    def get_dates_with_http_info(
+        self,
+        path,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
+        """get_dates  # noqa: E501
+
+        Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): Encode database path
+
+        Keyword Args:
+            between (str): Returns list of dates which are between [start,end], dates should be in the respective order of start and end. [optional]
+            equals (str): Returns the date which matches given date. [optional]
+            before (str): Returns list of dates which are before mentioned date. [optional]
+            after (str): Returns list of dates which are after mentioned date. [optional]
+            order_by (str): Returns dates in the mentioned sorted order, should provide asc or desc. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2005
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        return self.get_dates_endpoint.call_with_http_info(**kwargs)
+
+    def get_dates_async(
+        self,
+        path,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2005]":
+        """get_dates  # noqa: E501
+
+        Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): Encode database path
+
+        Keyword Args:
+            between (str): Returns list of dates which are between [start,end], dates should be in the respective order of start and end. [optional]
+            equals (str): Returns the date which matches given date. [optional]
+            before (str): Returns list of dates which are before mentioned date. [optional]
+            after (str): Returns list of dates which are after mentioned date. [optional]
+            order_by (str): Returns dates in the mentioned sorted order, should provide asc or desc. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -886,33 +1099,27 @@ class GetApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
             path
-        return self.get_data_endpoint.call_with_http_info(**kwargs)
+        return self.get_dates_endpoint.call_with_http_info(**kwargs)
 
-    def get_data_with_http_info_async(
+    def get_dates_with_http_info_async(
         self,
         path,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
-        """get_data  # noqa: E501
+        """get_dates  # noqa: E501
 
-        Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required. For a range of dates symbol parameter is mandatory.  # noqa: E501
+        Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
             path (str): Encode database path
 
         Keyword Args:
-            symbol (str): Returns data for the symbol mentioned. e.g:sym1. [optional]
-            date (str): Return data for the specific date or range of dates mentioned.e.g:[date1,date2]. [optional]
-            filter_fields (str): Can specify the fields on which you want to perform field filter operations e.g: [\"PRICE\",\"SECTOR\"]  Note:  The request will respond with 400 1. If fields which are not present on OFDB are given. 2. If filterOps or filterValues query parameters are missing    when filterFields is present. 3. If number of values given for filterOps,      filterFields, filterValues are different 4. If exactly one of symbol or date query parameter is not provided. . [optional]
-            filter_ops (str): Can specify the field filter operations which you want to perform e.g: [\"LT\", \"GTEQ\", \"CT\"] in respective order of values in filterFields query parameter.  The available field filter operations are :  For CHAR type fields:  \"CT\" : contains  \"SW\" : starts-with  \"EW\" : ends-with   \"EQ\" : equals  For NUMERIC type fields:  \"GT\" : greater than  \"GTEQ\" : greater than or equals  \"LT\" : lesser than  \"LTEQ\" : lesser than or equals  \"EQ\" : equals  Note:  The request will respond with 400  1. If operations other than the above mentioned are provided. 2. If numeric operations are given to char type fields instead of char operations. 3. If char operations are given to numeric type fields instead of numeric operations. 4. If filterFields or filterValues query parameters are missing    when filterOps is present. 5. If number of values given for filterOps,      filterFields, filterValues are different 6. If exactly one of symbol or date query parameter is not provided. . [optional]
-            filter_values (str): Can specify the field filter values of the field filter operations e.g: [100, 20, \"AB\"] in respective order of values in filterFields and filterOps query parameters .  Note:   The request will respond with 400 1. If char values are given to numeric type fields. 2. If filterFields or filterOps query parameters are missing    when filterValues is present. 3. If number of values given for filterOps,      filterFields, filterValues are different 4. If exactly one of symbol or date query parameter is not provided. . [optional]
-            filter_dates_ops (str): Can specify the date filter operations which you want to perform e.g: [\"LT\", \"GTEQ\"].  The available date filter operations are :  \"GT\" : after  \"GTEQ\" : after or equals  \"LT\" : before  \"LTEQ\" : before or equals  \"EQ\" : equals\"  Note:  The request will respond with 400  1. If operations other than the above mentioned are given. 2. If filterDatesValues query parameter is missing when filterDatesOps is present. 3. If number of values given for filterDatesOps and filterDatesValues differ. 4. If symbol query parameter is not provided. . [optional]
-            filter_dates_values (str): Can specify the date filter values of the date filter operations e.g: [20200505, 20200303] in respective order of values in filterDatesOps query parameter.  Note:  The request will respond with 400 1. If invalid date values are given 2. If filterDatesOps query parameter is missing when filterDatesValues is present. 3. If number of values given for filterDatesOps and filterDatesValues differ. 4. If symbol query parameter is not provided. . [optional]
-            filter_symbols_ops (str): Can specify the symbol filter operations which you want to perform e.g: [\"CT\", \"SW\"].  The available symbol filter operations are:  \"SW\" : starts-with  \"EW\" : ends-with  \"CT\" : contains  \"EQ\" : equals  Note:  The request will respond with 400 1. If operations other than the above mentioned are given. 2. If filterSymbolsValues query parameter is missing when filterSymbolsOps is present. 3. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 4. If date query parameter is not provided. . [optional]
-            filter_symbols_values (str): Can specify the symbol filter values of the date filter operations e.g: [\"ab\", \"xy\"] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided. . [optional]
-            sort_field_name (str): Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn't exist in the OFDB is requested. [optional]
-            sort_field_order (str): Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested. [optional]
+            between (str): Returns list of dates which are between [start,end], dates should be in the respective order of start and end. [optional]
+            equals (str): Returns the date which matches given date. [optional]
+            before (str): Returns list of dates which are before mentioned date. [optional]
+            after (str): Returns list of dates which are after mentioned date. [optional]
+            order_by (str): Returns dates in the mentioned sorted order, should provide asc or desc. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -938,213 +1145,6 @@ class GetApi(object):
                 Default is read from the configuration.
         Returns:
             ApplyResult[(InlineResponse2005, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['path'] = \
-            path
-        return self.get_data_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_dates(
-        self,
-        path,
-        **kwargs
-    ) -> InlineResponse2004:
-        """get_dates  # noqa: E501
-
-        Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            path (str): Encode database path
-
-        Keyword Args:
-            between (str): Returns list of dates which are between [start,end], dates should be in the respective order of start and end. [optional]
-            equals (str): Returns the date which matches given date. [optional]
-            before (str): Returns list of dates which are before mentioned date. [optional]
-            after (str): Returns list of dates which are after mentioned date. [optional]
-            order_by (str): Returns dates in the mentioned sorted order, should provide asc or desc. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse2004
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['path'] = \
-            path
-        return self.get_dates_endpoint.call_with_http_info(**kwargs)
-
-    def get_dates_with_http_info(
-        self,
-        path,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse2004, int, typing.MutableMapping]:
-        """get_dates  # noqa: E501
-
-        Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            path (str): Encode database path
-
-        Keyword Args:
-            between (str): Returns list of dates which are between [start,end], dates should be in the respective order of start and end. [optional]
-            equals (str): Returns the date which matches given date. [optional]
-            before (str): Returns list of dates which are before mentioned date. [optional]
-            after (str): Returns list of dates which are after mentioned date. [optional]
-            order_by (str): Returns dates in the mentioned sorted order, should provide asc or desc. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse2004
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['path'] = \
-            path
-        return self.get_dates_endpoint.call_with_http_info(**kwargs)
-
-    def get_dates_async(
-        self,
-        path,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse2004]":
-        """get_dates  # noqa: E501
-
-        Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            path (str): Encode database path
-
-        Keyword Args:
-            between (str): Returns list of dates which are between [start,end], dates should be in the respective order of start and end. [optional]
-            equals (str): Returns the date which matches given date. [optional]
-            before (str): Returns list of dates which are before mentioned date. [optional]
-            after (str): Returns list of dates which are after mentioned date. [optional]
-            order_by (str): Returns dates in the mentioned sorted order, should provide asc or desc. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse2004]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['path'] = \
-            path
-        return self.get_dates_endpoint.call_with_http_info(**kwargs)
-
-    def get_dates_with_http_info_async(
-        self,
-        path,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2004, int, typing.MutableMapping]]":
-        """get_dates  # noqa: E501
-
-        Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            path (str): Encode database path
-
-        Keyword Args:
-            between (str): Returns list of dates which are between [start,end], dates should be in the respective order of start and end. [optional]
-            equals (str): Returns the date which matches given date. [optional]
-            before (str): Returns list of dates which are before mentioned date. [optional]
-            after (str): Returns list of dates which are after mentioned date. [optional]
-            order_by (str): Returns dates in the mentioned sorted order, should provide asc or desc. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse2004, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -1530,7 +1530,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> InlineResponse2003:
+    ) -> InlineResponse2004:
         """get_symbols  # noqa: E501
 
         Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1569,7 +1569,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2003
+            InlineResponse2004
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1581,7 +1581,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2003, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2004, int, typing.MutableMapping]:
         """get_symbols  # noqa: E501
 
         Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1620,7 +1620,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2003
+            InlineResponse2004
                 Response Object
             int
                 Http Status Code
@@ -1636,7 +1636,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2003]":
+    ) -> "ApplyResult[InlineResponse2004]":
         """get_symbols  # noqa: E501
 
         Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1675,7 +1675,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse2003]
+            ApplyResult[InlineResponse2004]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -1686,7 +1686,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2003, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2004, int, typing.MutableMapping]]":
         """get_symbols  # noqa: E501
 
         Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1725,7 +1725,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse2003, int, typing.Dict)]
+            ApplyResult[(InlineResponse2004, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \

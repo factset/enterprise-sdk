@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.3.0
+  version: 2.3.1
   title: FactSet Estimates
   contact:
     name: FactSet Research Systems
@@ -1607,6 +1607,11 @@ components:
           description: Identifier that was used for the request.
           type: string
           example: IBM-US
+        inputDateTime:
+          description: Date and time when the data is available at the source.
+          type: string
+          format: string
+          example: '2022-10-25T22:40:09'
     fixedDetailRequest:
       title: Fixed Detail Request Body
       description: Request object for requesting rolling detail estimates.
@@ -1840,6 +1845,11 @@ components:
           description: Identifier that was used for the request.
           type: string
           example: IBM-US
+        inputDateTime:
+          description: Date and time when the data is available at the source.
+          type: string
+          format: string
+          example: '2022-10-25T22:40:09'
     segmentsRequest:
       title: Segments Request Body
       description: Request object for requesting segments estimates.

@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 <a name="getdata"></a>
 # **GetData**
-> InlineResponse2005 GetData (string path, string symbol = null, string date = null, string filterFields = null, string filterOps = null, string filterValues = null, string filterDatesOps = null, string filterDatesValues = null, string filterSymbolsOps = null, string filterSymbolsValues = null, string sortFieldName = null, string sortFieldOrder = null)
+> InlineResponse2006 GetData (string path, string symbol = null, string date = null, string filterFields = null, string filterOps = null, string filterValues = null, string filterDatesOps = null, string filterDatesValues = null, string filterSymbolsOps = null, string filterSymbolsValues = null, string sortFieldName = null, string sortFieldOrder = null)
 
 
 
@@ -169,7 +169,7 @@ namespace Example
 
             try
             {
-                InlineResponse2005 result = apiInstance.GetData(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder);
+                InlineResponse2006 result = apiInstance.GetData(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
  **sortFieldOrder** | **string**| Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested | [optional] 
 
 ### Return type
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 <a name="getdates"></a>
 # **GetDates**
-> InlineResponse2004 GetDates (string path, string between = null, string equals = null, string before = null, string after = null, string orderBy = null)
+> InlineResponse2005 GetDates (string path, string between = null, string equals = null, string before = null, string after = null, string orderBy = null)
 
 
 
@@ -282,7 +282,7 @@ namespace Example
 
             try
             {
-                InlineResponse2004 result = apiInstance.GetDates(path, between, equals, before, after, orderBy);
+                InlineResponse2005 result = apiInstance.GetDates(path, between, equals, before, after, orderBy);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string**| Returns dates in the mentioned sorted order, should provide asc or desc | [optional] 
 
 ### Return type
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 
 <a name="getsymbols"></a>
 # **GetSymbols**
-> InlineResponse2003 GetSymbols (string path, string startsWith = null, string endsWith = null, string contains = null, string equals = null, string orderBy = null)
+> InlineResponse2004 GetSymbols (string path, string startsWith = null, string endsWith = null, string contains = null, string equals = null, string orderBy = null)
 
 
 
@@ -583,7 +583,7 @@ namespace Example
 
             try
             {
-                InlineResponse2003 result = apiInstance.GetSymbols(path, startsWith, endsWith, contains, equals, orderBy);
+                InlineResponse2004 result = apiInstance.GetSymbols(path, startsWith, endsWith, contains, equals, orderBy);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -609,7 +609,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string**| Returns symbols in the mentioned sorted order, should provide asc or desc | [optional] 
 
 ### Return type
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**currentCapGet**](CompanyApi.md#currentCapGet) | **GET** /current-cap | Current Capitalization
 [**financialHighlightsGet**](CompanyApi.md#financialHighlightsGet) | **GET** /financial-highlights | Financial / Estimate Highlights
 [**getProfileProfile**](CompanyApi.md#getProfileProfile) | **GET** /profile | Overview Profile
+[**keyStatsGet**](CompanyApi.md#keyStatsGet) | **GET** /key-stats | Key Stats
 [**peerListGet**](CompanyApi.md#peerListGet) | **GET** /peer-list | Peer List
 [**transactionsGet**](CompanyApi.md#transactionsGet) | **GET** /transactions | Transactions
 
@@ -84,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## financialHighlightsGet
 
-> StachTableResponse financialHighlightsGet(id)
+> StachTableResponse financialHighlightsGet(id, opts)
 
 Financial / Estimate Highlights
 
@@ -115,9 +116,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new CompanyApi();
 const id = FDS; // String | Company ticker
+const opts = {
+  'actual': 4, // Number | The number of actual data periods to be returned. Must be greater than 0
+  'estimate': 1 // Number | The number of estimate data periods to be returned. Must be greater than 0
+};
 
 // Call api endpoint
-apiInstance.financialHighlightsGet(id).then(
+apiInstance.financialHighlightsGet(id, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -137,6 +142,8 @@ apiInstance.financialHighlightsGet(id).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Company ticker | 
+ **actual** | **Number**| The number of actual data periods to be returned. Must be greater than 0 | [optional] [default to 4]
+ **estimate** | **Number**| The number of estimate data periods to be returned. Must be greater than 0 | [optional] [default to 1]
 
 ### Return type
 
@@ -211,6 +218,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ProfileResponse**](ProfileResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## keyStatsGet
+
+> KeyStatsResponse keyStatsGet(id)
+
+Key Stats
+
+### Example
+
+```javascript
+const { ApiClient, CompanyApi } = require('@factset/sdk-overviewreportbuilder');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new CompanyApi();
+const id = FDS; // String | Company ticker
+
+// Call api endpoint
+apiInstance.keyStatsGet(id).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Company ticker | 
+
+### Return type
+
+[**KeyStatsResponse**](KeyStatsResponse.md)
 
 ### Authorization
 

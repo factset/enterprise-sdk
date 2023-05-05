@@ -2,7 +2,7 @@
 
 # MetadataEntry
 
-Restricted metadata entries. Restricts the possible key in the following STACH schema: - RowOrganizedPackage.CellDetail.CellMetadataEntry - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry - RowOrganizedPackage.MapOfMetadata.ItemsEntry - RowOrganizedPackage.Row.RowMetadataEntry - RowOrganizedPackage.TableData.TableMetadataEntry  And sets restrictions on the possible values for a MetadataItem. 
+Restricted metadata entries. Restricts the possible key in the following STACH schema: - RowOrganizedPackage.CellDetail.CellMetadataEntry - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry - RowOrganizedPackage.MapOfMetadata.ItemsEntry - RowOrganizedPackage.Row.RowMetadataEntry - RowOrganizedPackage.TableData.TableMetadataEntry And sets restrictions on the possible values for a MetadataItem. 
 
 ## oneOf schemas
 * [Category](Category.md)
@@ -11,8 +11,8 @@ Restricted metadata entries. Restricts the possible key in the following STACH s
 * [Description](Description.md)
 * [Frequency](Frequency.md)
 * [Metric](Metric.md)
-* [RelevanceType](RelevanceType.md)
 * [Scale](Scale.md)
+* [Sources](Sources.md)
 * [TransactionId](TransactionId.md)
 * [TransactionType](TransactionType.md)
 * [ValueType](ValueType.md)
@@ -27,8 +27,8 @@ import com.factset.sdk.OverviewReportBuilder.models.CurrencySymbol;
 import com.factset.sdk.OverviewReportBuilder.models.Description;
 import com.factset.sdk.OverviewReportBuilder.models.Frequency;
 import com.factset.sdk.OverviewReportBuilder.models.Metric;
-import com.factset.sdk.OverviewReportBuilder.models.RelevanceType;
 import com.factset.sdk.OverviewReportBuilder.models.Scale;
+import com.factset.sdk.OverviewReportBuilder.models.Sources;
 import com.factset.sdk.OverviewReportBuilder.models.TransactionId;
 import com.factset.sdk.OverviewReportBuilder.models.TransactionType;
 import com.factset.sdk.OverviewReportBuilder.models.ValueType;
@@ -79,19 +79,19 @@ public class Example {
         // to get back the Metric set earlier
         Metric testMetric = (Metric) exampleMetadataEntry.getActualInstance();
 
-        // create a new RelevanceType
-        RelevanceType exampleRelevanceType = new RelevanceType();
-        // set MetadataEntry to RelevanceType
-        exampleMetadataEntry.setActualInstance(exampleRelevanceType);
-        // to get back the RelevanceType set earlier
-        RelevanceType testRelevanceType = (RelevanceType) exampleMetadataEntry.getActualInstance();
-
         // create a new Scale
         Scale exampleScale = new Scale();
         // set MetadataEntry to Scale
         exampleMetadataEntry.setActualInstance(exampleScale);
         // to get back the Scale set earlier
         Scale testScale = (Scale) exampleMetadataEntry.getActualInstance();
+
+        // create a new Sources
+        Sources exampleSources = new Sources();
+        // set MetadataEntry to Sources
+        exampleMetadataEntry.setActualInstance(exampleSources);
+        // to get back the Sources set earlier
+        Sources testSources = (Sources) exampleMetadataEntry.getActualInstance();
 
         // create a new TransactionId
         TransactionId exampleTransactionId = new TransactionId();

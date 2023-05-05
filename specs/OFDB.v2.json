@@ -250,6 +250,61 @@
         }
       }
     },
+    "/database/{path}/delete": {
+      "post": {
+        "operationId": "DeleteBulkItems",
+        "tags": [
+          "Delete"
+        ],
+        "description": "Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BulkDelete"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/databaseLocationPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200BulkDelete"
+          },
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "204": {
+            "$ref": "#/components/responses/204Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
     "/database/{path}/symbols": {
       "get": {
         "operationId": "GetSymbols",
@@ -757,11 +812,15 @@
                 "$ref": "#/components/schemas/AddDates"
               },
               "example": {
-                "symbol": "FDS",
                 "data": [
                   {
                     "date": 20220107,
-                    "price": "444"
+                    "content": [
+                      {
+                        "symbol": "FDS",
+                        "price": 444
+                      }
+                    ]
                   }
                 ]
               }
@@ -1169,7 +1228,7 @@
         "tags": [
           "Create"
         ],
-        "description": "Creates a 2d or 3d database(OFDB)",
+        "description": "Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1463,7 +1522,7 @@
       },
       "UpdateSymbols": {
         "type": "object",
-        "description": "Any arbitary set of fields that are provided while creating the ofdb and their values.",
+        "description": "Any arbitrary set of fields that are provided while creating the ofdb and their values.",
         "properties": {
           "data": {
             "type": "array",
@@ -1493,6 +1552,49 @@
                 }
               }
             }
+          }
+        }
+      },
+      "BulkDelete": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "description": "Users may provide any combination of a symbol, date, and/or field to perform a bulk delete operation. For example, if a user provides both a symbol and a date within the same data point {} then the endpoint will delete the symbol for just that date. If they provide a symbol, date, and field then the endpoint will delete just that singular field entry point for that date for the given symbol. Providing singular entities within a {} will delete the complete data for that given value.",
+              "type": "object",
+              "properties": {
+                "symbol": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "integer"
+                },
+                "field": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": [
+              {
+                "symbol": "FDS"
+              },
+              {
+                "date": 20220202
+              },
+              {
+                "field": "PRICE"
+              },
+              {
+                "symbol": "AAPL",
+                "date": 20230303
+              },
+              {
+                "symbol": "TSLA",
+                "date": 20240404,
+                "field": "SHARES"
+              }
+            ]
           }
         }
       },
@@ -2003,6 +2105,46 @@
           }
         }
       },
+      "200BulkDelete": {
+        "description": "successful output",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "description": "A list of the various backend responses needed for the bulk delete",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "FDS"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "202LongRunningResponse": {
         "description": "Returns when the request is moved to long running mode.",
         "headers": {
@@ -2359,6 +2501,6 @@
   },
   "externalDocs": {
     "description": "API Documentation",
-    "url": "https://developer.factset.com/api-catalog/"
+    "url": "https://developer.factset.com/api-catalog/ofdb-api"
   }
 }

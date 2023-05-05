@@ -47,7 +47,7 @@ class InlineResponse2003 {
             obj = obj || new InlineResponse2003();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], ['String']);
+                obj['data'] = ApiClient.convertToType(data['data'], [['String']]);
             }
         }
         return obj;
@@ -57,7 +57,8 @@ class InlineResponse2003 {
 }
 
 /**
- * @member {Array.<String>} data
+ * A list of the various backend responses needed for the bulk delete
+ * @member {Array.<Array.<String>>} data
  */
 InlineResponse2003.prototype['data'] = undefined;
 

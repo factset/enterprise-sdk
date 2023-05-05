@@ -1,6 +1,6 @@
 # MetadataEntry
 
-Restricted metadata entries. Restricts the possible key in the following STACH schema: - RowOrganizedPackage.CellDetail.CellMetadataEntry - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry - RowOrganizedPackage.MapOfMetadata.ItemsEntry - RowOrganizedPackage.Row.RowMetadataEntry - RowOrganizedPackage.TableData.TableMetadataEntry  And sets restrictions on the possible values for a MetadataItem. 
+Restricted metadata entries. Restricts the possible key in the following STACH schema: - RowOrganizedPackage.CellDetail.CellMetadataEntry - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry - RowOrganizedPackage.MapOfMetadata.ItemsEntry - RowOrganizedPackage.Row.RowMetadataEntry - RowOrganizedPackage.TableData.TableMetadataEntry And sets restrictions on the possible values for a MetadataItem. 
 
 ## Properties
 Name | Type | Description | Notes
@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **description** | [**DescriptionDescription**](DescriptionDescription.md) |  | [optional] 
 **frequency** | [**FrequencyFrequency**](FrequencyFrequency.md) |  | [optional] 
 **metric** | [**MetricMetric**](MetricMetric.md) |  | [optional] 
-**relevance_type** | [**RelevanceTypeRelevanceType**](RelevanceTypeRelevanceType.md) |  | [optional] 
 **scale** | [**ScaleScale**](ScaleScale.md) |  | [optional] 
+**value** | **[str]** |  | [optional] 
 **transaction_id** | [**TransactionIdTransactionId**](TransactionIdTransactionId.md) |  | [optional] 
 **transaction_type** | [**TransactionTypeTransactionType**](TransactionTypeTransactionType.md) |  | [optional] 
 **value_type** | [**ValueTypeValueType**](ValueTypeValueType.md) |  | [optional] 

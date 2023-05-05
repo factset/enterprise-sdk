@@ -32,6 +32,29 @@ namespace FactSet.SDK.OFDB.Api
         /// 
         /// </summary>
         /// <remarks>
+        /// Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="bulkDelete"> (optional)</param>
+        /// <returns>InlineResponse2003</returns>
+        InlineResponse2003 DeleteBulkItems(string path, BulkDelete bulkDelete = default(BulkDelete));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="bulkDelete"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        ApiResponse<InlineResponse2003> DeleteBulkItemsWithHttpInfo(string path, BulkDelete bulkDelete = default(BulkDelete));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
         /// Deletes all data specific to the date in 3d database(OFDB). This includes all the symbols related to that date
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
@@ -108,6 +131,31 @@ namespace FactSet.SDK.OFDB.Api
     public interface IDeleteApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="bulkDelete"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2003</returns>
+        System.Threading.Tasks.Task<InlineResponse2003> DeleteBulkItemsAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="bulkDelete"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> DeleteBulkItemsWithHttpInfoAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -205,6 +253,17 @@ namespace FactSet.SDK.OFDB.Api
 
         # region Response Type Disctionaries
         
+        private static readonly Dictionary<HttpStatusCode, System.Type> DeleteBulkItemsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+            { (HttpStatusCode)202, typeof(InlineResponse202) },
+            { (HttpStatusCode)400, typeof(InlineResponse400) },
+            { (HttpStatusCode)403, typeof(InlineResponse403) },
+            { (HttpStatusCode)404, typeof(InlineResponse404) },
+            { (HttpStatusCode)406, typeof(InlineResponse406) },
+            { (HttpStatusCode)429, typeof(InlineResponse429) },
+        };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(InlineResponse202) },
@@ -342,6 +401,191 @@ namespace FactSet.SDK.OFDB.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        ///  Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="bulkDelete"> (optional)</param>
+        /// <returns>InlineResponse2003</returns>
+        public InlineResponse2003 DeleteBulkItems(string path, BulkDelete bulkDelete = default(BulkDelete))
+        {
+            var localVarResponse = DeleteBulkItemsWithHttpInfo(path, bulkDelete);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="bulkDelete"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        public ApiResponse<InlineResponse2003> DeleteBulkItemsWithHttpInfo(string path, BulkDelete bulkDelete = default(BulkDelete))
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling DeleteApi->DeleteBulkItems");
+            }
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.Data = bulkDelete;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = DeleteBulkItemsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2003>("/database/{path}/delete", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteBulkItems", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="bulkDelete"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2003</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2003>DeleteBulkItemsAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await DeleteBulkItemsWithHttpInfoAsync(path, bulkDelete, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="bulkDelete"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> DeleteBulkItemsWithHttpInfoAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling DeleteApi->DeleteBulkItems");
+            }
+
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.Data = bulkDelete;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = DeleteBulkItemsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/database/{path}/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteBulkItems", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

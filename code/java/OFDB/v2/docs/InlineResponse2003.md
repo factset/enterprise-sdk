@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **java.util.List&lt;String&gt;** |  |  [optional]
+**data** | **java.util.List&lt;java.util.List&lt;String&gt;&gt;** | A list of the various backend responses needed for the bulk delete |  [optional]
 
 
 ## Implemented Interfaces

@@ -1,10 +1,19 @@
 openapi: 3.0.3
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: Get relevant industry-specific data for high level analysis of public
+    and private companies
   license:
-    name: Apache 2.0
+    name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Overview Report Builder API
-  version: 1.0.0
+  version: 1.2.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/overview-report-builder-api
 servers:
 - url: https://api.factset.com/report/overview/v1
 security:
@@ -53,6 +62,10 @@ paths:
                   $ref: '#/components/examples/idInvalidParameterError'
                 unsupportedEntityParameterError:
                   $ref: '#/components/examples/unsupportedEntityParameterError'
+                parameterErrorActual:
+                  $ref: '#/components/examples/parameterErrorActual'
+                parameterErrorEstimate:
+                  $ref: '#/components/examples/parameterErrorEstimate'
                 parameterErrorTopn:
                   $ref: '#/components/examples/parameterErrorTopn'
                 parameterErrorView:
@@ -189,6 +202,10 @@ paths:
                   $ref: '#/components/examples/idInvalidParameterError'
                 unsupportedEntityParameterError:
                   $ref: '#/components/examples/unsupportedEntityParameterError'
+                parameterErrorActual:
+                  $ref: '#/components/examples/parameterErrorActual'
+                parameterErrorEstimate:
+                  $ref: '#/components/examples/parameterErrorEstimate'
                 parameterErrorTopn:
                   $ref: '#/components/examples/parameterErrorTopn'
                 parameterErrorView:
@@ -317,6 +334,10 @@ paths:
                   $ref: '#/components/examples/idInvalidParameterError'
                 unsupportedEntityParameterError:
                   $ref: '#/components/examples/unsupportedEntityParameterError'
+                parameterErrorActual:
+                  $ref: '#/components/examples/parameterErrorActual'
+                parameterErrorEstimate:
+                  $ref: '#/components/examples/parameterErrorEstimate'
                 parameterErrorTopn:
                   $ref: '#/components/examples/parameterErrorTopn'
                 parameterErrorView:
@@ -417,6 +438,28 @@ paths:
           example: FDS
           type: string
         style: form
+      - description: The number of actual data periods to be returned. Must be greater
+          than 0
+        explode: true
+        in: query
+        name: actual
+        required: false
+        schema:
+          default: 4
+          example: 4
+          type: integer
+        style: form
+      - description: The number of estimate data periods to be returned. Must be greater
+          than 0
+        explode: true
+        in: query
+        name: estimate
+        required: false
+        schema:
+          default: 1
+          example: 1
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -447,6 +490,10 @@ paths:
                   $ref: '#/components/examples/idInvalidParameterError'
                 unsupportedEntityParameterError:
                   $ref: '#/components/examples/unsupportedEntityParameterError'
+                parameterErrorActual:
+                  $ref: '#/components/examples/parameterErrorActual'
+                parameterErrorEstimate:
+                  $ref: '#/components/examples/parameterErrorEstimate'
                 parameterErrorTopn:
                   $ref: '#/components/examples/parameterErrorTopn'
                 parameterErrorView:
@@ -565,6 +612,8 @@ paths:
           - NOTES_BONDS
           - REVOLVING_CREDIT
           - TERM_LOANS
+          - PEVC_INVESTMENTS
+          - FUNDING
           example: ACQUISITION_MERGER
           type: string
         style: form
@@ -615,6 +664,10 @@ paths:
                   $ref: '#/components/examples/idInvalidParameterError'
                 unsupportedEntityParameterError:
                   $ref: '#/components/examples/unsupportedEntityParameterError'
+                parameterErrorActual:
+                  $ref: '#/components/examples/parameterErrorActual'
+                parameterErrorEstimate:
+                  $ref: '#/components/examples/parameterErrorEstimate'
                 parameterErrorTopn:
                   $ref: '#/components/examples/parameterErrorTopn'
                 parameterErrorView:
@@ -703,6 +756,144 @@ paths:
       tags:
       - Company
       x-accepts: application/json
+  /key-stats:
+    description: Returns key financial metrics for private and public companies, as
+      well as ETFs and mutual funds.  This endpoint provides a quick and easy way
+      to obtain fundamental financial data. These key statistics can be used to evaluate
+      a company's financial health, compare it to other companies in the same industry,
+      and make informed investment decisions.
+    get:
+      parameters:
+      - description: Company ticker
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          example: FDS
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/default200KeyStatsResponse'
+                noDataResponse:
+                  $ref: '#/components/examples/noData200KeyStatsResponse'
+              schema:
+                $ref: '#/components/schemas/KeyStatsResponse'
+          description: Expected response; returns the JSON in a simple key-value format
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/xDataDirectRequestKey'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/apiSupportedVersions'
+            Api-Version:
+              $ref: '#/components/headers/apiVersion'
+        "400":
+          content:
+            application/json:
+              examples:
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
+                idInvalidParameterError:
+                  $ref: '#/components/examples/idInvalidParameterError'
+                unsupportedEntityParameterError:
+                  $ref: '#/components/examples/unsupportedEntityParameterError'
+                parameterErrorActual:
+                  $ref: '#/components/examples/parameterErrorActual'
+                parameterErrorEstimate:
+                  $ref: '#/components/examples/parameterErrorEstimate'
+                parameterErrorTopn:
+                  $ref: '#/components/examples/parameterErrorTopn'
+                parameterErrorView:
+                  $ref: '#/components/examples/parameterErrorView'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. For further assistance, file an issue under "Workflow
+            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
+            this page, including the X-DataDirect-Request-Key from the header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/xDataDirectRequestKey'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/apiSupportedVersions'
+            Api-Version:
+              $ref: '#/components/headers/apiVersion'
+        "401":
+          description: Missing or invalid authentication. Ensure you are logged in
+            and have successfully generated an API KEY for the IP range you are connecting
+            from. For further assistance, file an issue under "Connectivty - 401 or
+            403 Responses" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/endpointNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Too many requests - this API is rate-limited to 20 requests
+            per second. For further assistance, file an issue under "Workflow & Throttling
+            - 400 or 429 Response" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Service unavailable. Typically a timeout, or result of a rejected
+            request to prevent service overload. For further assistance, file an issue
+            under "Performance - 404 and 500 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Key Stats
+      tags:
+      - Company
+      x-accepts: application/json
 components:
   examples:
     default200CurrentCapitalizationResponse:
@@ -734,6 +925,12 @@ components:
                   rowMetadata:
                     category:
                       value: DETAIL
+                    scale:
+                      value: null
+                    currencyCode:
+                      value: USD
+                    currencySymbol:
+                      value: $
                 - cells:
                   - Basic Shares
                   - null
@@ -741,6 +938,8 @@ components:
                   rowMetadata:
                     category:
                       value: DETAIL
+                    scale:
+                      value: 6
                 - cells:
                   - Basic Shares
                   - Common Stock
@@ -748,6 +947,8 @@ components:
                   rowMetadata:
                     category:
                       value: DETAIL
+                    scale:
+                      value: null
                 - cells:
                   - Market Cap
                   - null
@@ -755,6 +956,12 @@ components:
                   rowMetadata:
                     category:
                       value: MAIN
+                    scale:
+                      value: 6
+                    currencyCode:
+                      value: USD
+                    currencySymbol:
+                      value: $
                 - cells:
                   - Enterprise Value
                   - null
@@ -762,16 +969,17 @@ components:
                   rowMetadata:
                     category:
                       value: MAIN
+                    scale:
+                      value: null
+                    currencyCode:
+                      value: USD
+                    currencySymbol:
+                      value: $
                 tableMetadata:
-                  currencyCode:
-                    value: USD
-                  currencySymbol:
-                    value: $
-                columnMetadata:
-                  lineItemValue:
-                    items:
-                      scale:
-                        value: 6
+                  sources:
+                    value:
+                    - FactSet ECS
+                    - FactSet DCS
         meta:
           requestId: FDS-US
           fsymId: SQFMK3-R
@@ -865,6 +1073,10 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                    - FactSet Fundamentals
+                    - FactSet Estimates
                 columnMetadata:
                   "1":
                     items:
@@ -925,20 +1137,32 @@ components:
           peers:
           - id: 000PLZ-E
             name: S&P Global, Inc.
+            ticker: SPGI-US
           - id: 05TYNB-E
             name: Morningstar, Inc.
+            ticker: MORN-US
           - id: 06JP5R-E
             name: MSCI Inc. Class A
+            ticker: MSCI-US
           - id: 002HJD-E
             name: BlackRock, Inc.
+            ticker: BLK-US
           - id: 0GCKWP-E
             name: IHS Markit Ltd.
+            ticker: INFO-US
           - id: 000HSZ-E
             name: Moody's Corporation
+            ticker: MCO-US
           - id: 06S1MZ-E
             name: Nasdaq, Inc.
+            ticker: NDAQ-US
           - id: 0G4Z2V-E
             name: Donnelley Financial Solutions, Inc.
+            ticker: DFIN-US
+          meta:
+            sources:
+              value:
+              - FactSet Fundamentals
         meta:
           requestId: FDS-US
           fsymId: SQFMK3-R
@@ -1049,6 +1273,12 @@ components:
                 value: null
             pevcBacking:
               value: null
+          meta:
+            sources:
+              value:
+              - FactSet Fundamentals
+              - FactSet RBICS
+              - Crunchbase
         meta:
           requestId: FDS
           fsymId: SQFMK3-R
@@ -1130,6 +1360,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                    - FactSet Fundamentals
+                    - FactSet Mergers
+                    - FactSet DCS
+                    - FactSet Fixed Income
             details:
               definition:
                 columns:
@@ -1173,6 +1409,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                    - FactSet Fundamentals
+                    - FactSet Mergers
+                    - FactSet DCS
+                    - FactSet Fixed Income
                 columnMetadata:
                   c_gross_proceeds:
                     items:
@@ -1181,6 +1423,114 @@ components:
         meta:
           requestId: FDS-US
           fsymId: SQFMK3-R
+    default200KeyStatsResponse:
+      summary: sample response
+      value:
+        data:
+          range52Week:
+            value:
+              value: $317.55 - 495.39
+            label:
+              value: 52 Week Range
+          averageDailyVol:
+            value:
+              value: 300330.25
+            label:
+              value: Avg Daily Vol (3 Mo)
+          basicShares:
+            value:
+              value: 37896.579
+            label:
+              value: Basic Shares (000)
+          marketCap:
+            value:
+              value: 14179.383999
+            label:
+              value: Market Cap (M)
+          dividendYield:
+            value:
+              value: 0.983615616279391
+            label:
+              value: Dividend Yield
+          firstDate:
+            value:
+              value: 1996-06-28
+            label:
+              value: IPO Date
+          dilutedShares:
+            value:
+              value: 39266.127
+            label:
+              value: FD Shares Out (000)
+          dilutedMarketCap:
+            value:
+              value: 14691.814201
+            label:
+              value: FD Mkt Cap (M)
+          enterpriseValue:
+            value:
+              value: 14458.443201
+            label:
+              value: EV (M)
+          wacc:
+            value:
+              value: 6.76303
+            label:
+              value: WACC
+          float:
+            value:
+              value: 99.9248
+            label:
+              value: Float
+          institutional:
+            value:
+              value: 91.3343
+            label:
+              value: Institutional
+          top10InstitutionalHolders:
+            value:
+              value: 48.76016379
+            label:
+              value: Top 10 Inst Hldrs
+          brokerContributors:
+            value:
+              value: 18
+            label:
+              value: Broker Contributors
+          averageRating:
+            value:
+              value: Hold (2.11)
+            label:
+              value: Avg Rating
+          targetPrice:
+            value:
+              value: $462.41
+            label:
+              value: Target Price
+          ltGrowthRate:
+            value:
+              value: 10
+            label:
+              value: LT Growth Rate
+          meta:
+            sources:
+              value:
+              - FactSet Fundamentals
+              - FactSet Estimates
+              - FactSet Capital Structure
+              - FactSet Ownership
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+    noData200KeyStatsResponse:
+      summary: no data response
+      value:
+        data: null
+        meta:
+          requestId: 0N57YY-E
+          fsymId: null
+          noData: true
+          message: There is no data for this request.
     transactionType200Response:
       summary: transactionType=NOTES_BONDS response
       value:
@@ -1254,6 +1604,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                    - FactSet Fundamentals
+                    - FactSet Mergers
+                    - FactSet DCS
+                    - FactSet Fixed Income
                 columnMetadata:
                   c_transaction_amount:
                     items:
@@ -1298,6 +1654,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                    - FactSet Fundamentals
+                    - FactSet Mergers
+                    - FactSet DCS
+                    - FactSet Fixed Income
                 columnMetadata:
                   c_gross_proceeds:
                     items:
@@ -1428,6 +1790,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                    - FactSet Fundamentals
+                    - FactSet Mergers
+                    - FactSet DCS
+                    - FactSet Fixed Income
                 columnMetadata:
                   c_transaction_amount:
                     items:
@@ -1472,6 +1840,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                    - FactSet Fundamentals
+                    - FactSet Mergers
+                    - FactSet DCS
+                    - FactSet Fixed Income
                 columnMetadata:
                   c_gross_proceeds:
                     items:
@@ -1645,6 +2019,21 @@ components:
           code: parameterError
           title: 'Invalid parameter: ''view''. Accepted values include: ''FINANCIAL'',
             ''VALUATION'', ''CAPITALIZATION'', ''MARGINS'' or ''PERFORMANCE'''
+    parameterErrorActual:
+      summary: actual periods parameter error
+      value:
+        errors:
+        - id: 35a62bd5-c4aa-4e6b-9357-0f1b5688e2db
+          code: parameterError
+          title: 'Invalid parameter: ''actual''. Accepted values include nonzero integers'
+    parameterErrorEstimate:
+      summary: estimate periods parameter error
+      value:
+        errors:
+        - id: 372a28d1-53ac-49cd-9be5-beb714cd62a8
+          code: parameterError
+          title: 'Invalid parameter: ''estimate''. Accepted values include nonzero
+            integers'
   headers:
     xDataDirectRequestKey:
       description: FactSet request ID
@@ -1756,6 +2145,24 @@ components:
           $ref: '#/components/headers/apiSupportedVersions'
         Api-Version:
           $ref: '#/components/headers/apiVersion'
+    "200OKKeyStats":
+      content:
+        application/json:
+          examples:
+            default200ResponseExample:
+              $ref: '#/components/examples/default200KeyStatsResponse'
+            noDataResponse:
+              $ref: '#/components/examples/noData200KeyStatsResponse'
+          schema:
+            $ref: '#/components/schemas/KeyStatsResponse'
+      description: Expected response; returns the JSON in a simple key-value format
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/xDataDirectRequestKey'
+        Api-Supported-Versions:
+          $ref: '#/components/headers/apiSupportedVersions'
+        Api-Version:
+          $ref: '#/components/headers/apiVersion'
     "400BadRequest":
       content:
         application/json:
@@ -1766,6 +2173,10 @@ components:
               $ref: '#/components/examples/idInvalidParameterError'
             unsupportedEntityParameterError:
               $ref: '#/components/examples/unsupportedEntityParameterError'
+            parameterErrorActual:
+              $ref: '#/components/examples/parameterErrorActual'
+            parameterErrorEstimate:
+              $ref: '#/components/examples/parameterErrorEstimate'
             parameterErrorTopn:
               $ref: '#/components/examples/parameterErrorTopn'
             parameterErrorView:
@@ -1851,6 +2262,129 @@ components:
             type: string
           style: simple
   schemas:
+    KeyStatsResponse:
+      description: Key statistics data for the requested id
+      example:
+        meta:
+          key: meta
+      properties:
+        data:
+          $ref: '#/components/schemas/KeyStatsObject'
+        meta:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    KeyStatsEntityObject:
+      description: Key Statistics for the provided entity
+      properties:
+        range52Week:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week'
+        averageDailyVol:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol'
+        basicShares:
+          $ref: '#/components/schemas/KeyStatsEntityObject_basicShares'
+        marketCap:
+          $ref: '#/components/schemas/KeyStatsEntityObject_marketCap'
+        dividendYield:
+          $ref: '#/components/schemas/KeyStatsEntityObject_dividendYield'
+        firstDate:
+          $ref: '#/components/schemas/KeyStatsEntityObject_firstDate'
+        dilutedShares:
+          $ref: '#/components/schemas/KeyStatsEntityObject_dilutedShares'
+        dilutedMarketCap:
+          $ref: '#/components/schemas/KeyStatsEntityObject_dilutedMarketCap'
+        enterpriseValue:
+          $ref: '#/components/schemas/KeyStatsEntityObject_enterpriseValue'
+        wacc:
+          $ref: '#/components/schemas/KeyStatsEntityObject_wacc'
+        float:
+          $ref: '#/components/schemas/KeyStatsEntityObject_float'
+        institutional:
+          $ref: '#/components/schemas/KeyStatsEntityObject_institutional'
+        top10InstitutionalHolders:
+          $ref: '#/components/schemas/KeyStatsEntityObject_top10InstitutionalHolders'
+        brokerContributors:
+          $ref: '#/components/schemas/KeyStatsEntityObject_brokerContributors'
+        averageRating:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageRating'
+        targetPrice:
+          $ref: '#/components/schemas/KeyStatsEntityObject_targetPrice'
+        ltGrowthRate:
+          $ref: '#/components/schemas/KeyStatsEntityObject_ltGrowthRate'
+        revenue:
+          $ref: '#/components/schemas/KeyStatsEntityObject_revenue'
+        employees:
+          $ref: '#/components/schemas/KeyStatsEntityObject_employees'
+        fundingRounds:
+          $ref: '#/components/schemas/KeyStatsEntityObject_fundingRounds'
+        estimatedVcRaised:
+          $ref: '#/components/schemas/KeyStatsEntityObject_estimatedVcRaised'
+        lastFunding:
+          $ref: '#/components/schemas/KeyStatsEntityObject_lastFunding'
+        firstFunding:
+          $ref: '#/components/schemas/KeyStatsEntityObject_firstFunding'
+        latestPostMoneyValuation:
+          $ref: '#/components/schemas/KeyStatsEntityObject_latestPostMoneyValuation'
+        activeInvestors:
+          $ref: '#/components/schemas/KeyStatsEntityObject_activeInvestors'
+        totalInvestors:
+          $ref: '#/components/schemas/KeyStatsEntityObject_totalInvestors'
+        premiums:
+          $ref: '#/components/schemas/KeyStatsEntityObject_premiums'
+        grossPremiums:
+          $ref: '#/components/schemas/KeyStatsEntityObject_grossPremiums'
+        grossAssets:
+          $ref: '#/components/schemas/KeyStatsEntityObject_grossAssets'
+        totalDeposits:
+          $ref: '#/components/schemas/KeyStatsEntityObject_totalDeposits'
+        branches:
+          $ref: '#/components/schemas/KeyStatsEntityObject_branches'
+        netInterestIncome:
+          $ref: '#/components/schemas/KeyStatsEntityObject_netInterestIncome'
+        meta:
+          $ref: '#/components/schemas/KeyStatsEntityObject_meta'
+      type: object
+    KeyStatsFundObject:
+      description: Key Statistics for the provided fund
+      properties:
+        expenseRatio:
+          $ref: '#/components/schemas/KeyStatsFundObject_expenseRatio'
+        distributionYield:
+          $ref: '#/components/schemas/KeyStatsFundObject_distributionYield'
+        aumShareDaily:
+          $ref: '#/components/schemas/KeyStatsFundObject_aumShareDaily'
+        aumFundMonth:
+          $ref: '#/components/schemas/KeyStatsFundObject_aumFundMonth'
+        outstandingShare:
+          $ref: '#/components/schemas/KeyStatsFundObject_outstandingShare'
+        fundFlowYTD:
+          $ref: '#/components/schemas/KeyStatsFundObject_fundFlowYTD'
+        firstNavRecord:
+          $ref: '#/components/schemas/KeyStatsFundObject_firstNavRecord'
+        dailyTradingVol:
+          $ref: '#/components/schemas/KeyStatsFundObject_dailyTradingVol'
+        averageSpread:
+          $ref: '#/components/schemas/KeyStatsFundObject_averageSpread'
+        inceptionDateShare:
+          $ref: '#/components/schemas/KeyStatsFundObject_inceptionDateShare'
+        inceptionDateFund:
+          $ref: '#/components/schemas/KeyStatsFundObject_inceptionDateFund'
+        availableForSale:
+          $ref: '#/components/schemas/KeyStatsFundObject_availableForSale'
+        currencyIso:
+          $ref: '#/components/schemas/KeyStatsFundObject_currencyIso'
+        esgCompliance:
+          $ref: '#/components/schemas/KeyStatsFundObject_esgCompliance'
+        sfdrClassification:
+          $ref: '#/components/schemas/KeyStatsFundObject_sfdrClassification'
+        meta:
+          $ref: '#/components/schemas/KeyStatsFundObject_meta'
+      type: object
+    KeyStatsObject:
+      oneOf:
+      - $ref: '#/components/schemas/KeyStatsEntityObject'
+      - $ref: '#/components/schemas/KeyStatsFundObject'
     ErrorResponse:
       properties:
         errors:
@@ -1957,6 +2491,11 @@ components:
                 value: value
               end:
                 value: value
+          meta:
+            sources:
+              value:
+              - value
+              - value
           contact:
             zip:
               value: value
@@ -2072,6 +2611,11 @@ components:
               value: value
             end:
               value: value
+        meta:
+          sources:
+            value:
+            - value
+            - value
         contact:
           zip:
             value: value
@@ -2111,6 +2655,8 @@ components:
           $ref: '#/components/schemas/ProfileData_size'
         stage:
           $ref: '#/components/schemas/ProfileData_stage'
+        meta:
+          $ref: '#/components/schemas/KeyStatsEntityObject_meta'
       required:
       - business
       - contact
@@ -2138,10 +2684,17 @@ components:
     PeerListResponse:
       example:
         data:
+          meta:
+            sources:
+              value:
+              - value
+              - value
           peers:
-          - name: name
+          - ticker: ticker
+            name: name
             id: id
-          - name: name
+          - ticker: ticker
+            name: name
             id: id
         meta:
           key: meta
@@ -2154,32 +2707,49 @@ components:
           type: object
       type: object
     PeerListObject:
+      description: A list of key-value pairs representing the company's peers
       example:
+        meta:
+          sources:
+            value:
+            - value
+            - value
         peers:
-        - name: name
+        - ticker: ticker
+          name: name
           id: id
-        - name: name
+        - ticker: ticker
+          name: name
           id: id
       properties:
         peers:
           items:
             $ref: '#/components/schemas/PeerListData'
           type: array
+        meta:
+          $ref: '#/components/schemas/KeyStatsEntityObject_meta'
       required:
       - peers
       type: object
     PeerListData:
       example:
+        ticker: ticker
         name: name
         id: id
       properties:
         id:
+          description: The FactSet Entity ID of the peer
           type: string
         name:
+          description: The name of the peer
+          type: string
+        ticker:
+          description: The ticker of the peer
           type: string
       required:
       - id
       - name
+      - ticker
       type: object
     MetadataEntry:
       description: |
@@ -2189,7 +2759,6 @@ components:
         - RowOrganizedPackage.MapOfMetadata.ItemsEntry
         - RowOrganizedPackage.Row.RowMetadataEntry
         - RowOrganizedPackage.TableData.TableMetadataEntry
-
         And sets restrictions on the possible values for a MetadataItem.
       oneOf:
       - $ref: '#/components/schemas/category'
@@ -2198,8 +2767,8 @@ components:
       - $ref: '#/components/schemas/description'
       - $ref: '#/components/schemas/frequency'
       - $ref: '#/components/schemas/metric'
-      - $ref: '#/components/schemas/relevanceType'
       - $ref: '#/components/schemas/scale'
+      - $ref: '#/components/schemas/sources'
       - $ref: '#/components/schemas/transactionId'
       - $ref: '#/components/schemas/transactionType'
       - $ref: '#/components/schemas/valueType'
@@ -2234,15 +2803,18 @@ components:
         metric:
           $ref: '#/components/schemas/metric_metric'
       type: object
-    relevanceType:
-      properties:
-        relevanceType:
-          $ref: '#/components/schemas/relevanceType_relevanceType'
-      type: object
     scale:
       properties:
         scale:
           $ref: '#/components/schemas/scale_scale'
+      type: object
+    sources:
+      description: Where the data is sourced from
+      properties:
+        value:
+          items:
+            type: string
+          type: array
       type: object
     transactionId:
       properties:
@@ -2258,6 +2830,670 @@ components:
       properties:
         valueType:
           $ref: '#/components/schemas/valueType_valueType'
+      type: object
+    KeyStatsEntityObject_range52Week_value:
+      properties:
+        value:
+          type: string
+      required:
+      - value
+      type: object
+    KeyStatsEntityObject_range52Week:
+      description: The highest and lowest prices at which a stock as traded over the
+        past 52 weeks
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_averageDailyVol_value:
+      example:
+        value: 2.3021358869347655
+      properties:
+        value:
+          type: number
+      required:
+      - value
+      type: object
+    KeyStatsEntityObject_averageDailyVol:
+      description: The average number of shares traded per day
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_basicShares:
+      description: Number of basic shares. Also known as common shares or ordinary
+        shares, this datapoint represents ownership in a company and offers the potential
+        for capital appreciation and dividend payments
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_marketCap:
+      description: The total value of a company's outstanding shares
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_dividendYield:
+      description: Represents return on investment from dividends
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_firstDate_value:
+      properties:
+        value:
+          description: Date formatted to YYYY-MM-DD
+          format: date
+          type: string
+      required:
+      - value
+      type: object
+    KeyStatsEntityObject_firstDate:
+      description: The day on which a private company's shares became available for
+        purchase by the public for the first time
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_firstDate_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_dilutedShares:
+      description: The total number of a company's outstanding shares that would exist
+        if all securities that could potentially be converted into common shares,
+        such as outstanding shares, stock options, warrants, and convertible securities
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_dilutedMarketCap:
+      description: The total theoretical market value of a company, including all
+        shares that could potentially be converted into common shares, such as outstanding
+        shares, stock options, warrants, and convertible securities
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_enterpriseValue:
+      description: The total value of a company
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_wacc:
+      description: The weighted average cost of capital, or the average cost of all
+        company's capital sources, including debt and equity , weighted by their respective
+        proportions in the company's capital structure
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_float:
+      description: The percentage of a company's outstanding shares that are available
+        for trading by the public, excluding shares that are closely held or restricted
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_institutional:
+      description: The percentage of a company's outstanding shares that are owned
+        by institutional investors
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_top10InstitutionalHolders:
+      description: Percentage owned by 10 largest institutional investors in a company,
+        based on the number of shares they hold
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_brokerContributors:
+      description: Number of brokerage firms that provide research and analysis on
+        the company
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_averageRating:
+      description: The mean recommendation score given by financial analysts covering
+        a particular stock
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_targetPrice:
+      description: The price level at which an analyst or brokerage firm predicts
+        a stock will trade in the future
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_ltGrowthRate:
+      description: The estimated rate at which a company's earnings are expected to
+        grow over a multi-year period
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_revenue_asOfDate:
+      properties:
+        value:
+          format: date
+          type: string
+      required:
+      - value
+      type: object
+    KeyStatsEntityObject_revenue:
+      description: The total amount of money that a company earns from its primary
+        business activities, such as the sale of goods or services, before deducting
+        any expenses or taxes
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        asOfDate:
+          $ref: '#/components/schemas/KeyStatsEntityObject_revenue_asOfDate'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_employees:
+      description: The total count of individuals who are employed by a company
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        asOfDate:
+          $ref: '#/components/schemas/KeyStatsEntityObject_revenue_asOfDate'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_fundingRounds:
+      description: Number of stages of financing that a startup or early-stage company
+        goes through
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_estimatedVcRaised:
+      description: The estimated total amount of venture capital funding that a company
+        has fraised from investors
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_lastFunding:
+      description: The most recent date on which a company raised capital from investors
+        in a funding round.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_firstDate_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_firstFunding:
+      description: The first date a company raised capital from an external investor
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_firstDate_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_latestPostMoneyValuation:
+      description: The estimated total value of a company after its most recent funding
+        round, taking into account the new capital that was raised
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        asOfDate:
+          $ref: '#/components/schemas/KeyStatsEntityObject_revenue_asOfDate'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_activeInvestors:
+      description: The total count of individual or institutional investors that have
+        invested in a company and currently hold a position in its securities
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_totalInvestors:
+      description: The total count of individual or institutional investors that have
+        invested in a company at any point in time, including those that may no longer
+        hold a position in its securities
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_premiums:
+      description: The portion of gross premiums that an insurance company has earned
+        by providing coverage for a certain period of time
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_grossPremiums:
+      description: The total amount of premiums collected by an insurance company
+        from policyholders before taking into account any expenses or claims payments
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_grossAssets:
+      description: The total value of a company's assets, including both tangible
+        assets such as property and equipment, and intangible assets such as intellectual
+        property or goodwill, without taking into account any liabilities or deductions
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_totalDeposits:
+      description: The sum of all funds held in deposit accounts, including checking
+        accounts, savings accounts, money market accounts, and certificates of deposit,
+        among others
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_branches:
+      description: The total count of physical locations, such as buildings or offices,
+        where a bank offers its products and services to customers
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_netInterestIncome:
+      description: The difference between the interest earned by a financial institution
+        on its interest-earning assets, such as loans and investments, and the interest
+        paid on its interest-bearing liabilities, such as deposits and borrowings
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsEntityObject_meta_sources:
+      description: Where the data is sourced from
+      example:
+        value:
+        - value
+        - value
+      properties:
+        value:
+          items:
+            type: string
+          type: array
+      type: object
+    KeyStatsEntityObject_meta:
+      example:
+        sources:
+          value:
+          - value
+          - value
+      properties:
+        sources:
+          $ref: '#/components/schemas/KeyStatsEntityObject_meta_sources'
+      type: object
+    KeyStatsFundObject_expenseRatio_value:
+      example:
+        value: 0.8008281904610115
+      properties:
+        value:
+          nullable: true
+          type: number
+      required:
+      - value
+      type: object
+    KeyStatsFundObject_expenseRatio:
+      description: The net expense ratio, or total expense ratio, represents the percentage
+        of assets of the fund used to run and manage the fund, after any fee waivers
+        or reimbursements that may be in effect. Ongoing charge is collected as the
+        Net Expense ratio for Mutual Funds if the Net Expense Ratio is not available.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsFundObject_expenseRatio_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_distributionYield:
+      description: LTM (Last Twelve Months) trailing 12-month yield of distributions
+        made by the fund, relative to the current price. Distinct from Dividend Yield,
+        which measures distributions made by the portfolio's holdings. This data point
+        is returned as a percentage.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsFundObject_expenseRatio_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_aumShareDaily:
+      description: The AUM (Actual) is the market value of total assets that a fund
+        manages on behalf of investors based on the shares outstanding, multiplied
+        by the net asset value from the preceding day, at share class level. Data
+        is updated daily.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_aumFundMonth:
+      description: The AUM (Actual) is the market value of total assets that a fund
+        manages on behalf of investors based on the shares outstanding, multiplied
+        by the net asset value from the month end at a fund level. Data is updated
+        monthly, based on the last trading day of the month.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_outstandingShare:
+      description: Returns historical shares outstanding figures for the specified
+        share class.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_fundFlowYTD:
+      description: The dollars invested or divested from a fund over one calendar
+        year, based on the creation/redemption process. Data returned may not be related
+        to overall volume or price movement. All fund flow inputs use transaction-day
+        values to ensure that all AUM and flows are fully comparable and reflective
+        of the same, verified market conditions.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_firstNavRecord:
+      description: Returns the first NAV record available in FactSet’s database. This
+        may not equal the first trading record of the fund.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_firstDate_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_dailyTradingVol:
+      description: The daily trading volume of the fund as a dollar value.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_averageSpread:
+      description: The 45-day median of daily time-weighted percentage differences
+        between the highest-posted price a market participant is willing to pay to
+        buy a fund and the lowest-posted price at which a market participant is willing
+        to sell a fund.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsFundObject_expenseRatio_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_inceptionDateShare:
+      description: Launch date of the share class.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_firstDate_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_inceptionDateFund:
+      description: Launch date of the fund.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_firstDate_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_availableForSale:
+      description: Determines where the fund is available for sale.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_currencyIso:
+      description: Returns currency ISO code for a listing.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_esgCompliance:
+      description: Determines if the fund is ESG compliant or not.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_sfdrClassification:
+      description: Article 6 - Fund is not ESG but makes disclosures on the integration
+        of sustainable risks. Article 8 - Preferences for products having ESG Characteristics.
+        Article 9 - Preferences for products having Sustainable Objectives. Article
+        0 - The type or structure of the fund is out of ESG requirements. NA - No
+        information available.
+      properties:
+        value:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+        label:
+          $ref: '#/components/schemas/KeyStatsEntityObject_range52Week_value'
+      required:
+      - label
+      - value
+      type: object
+    KeyStatsFundObject_meta_asOfDate:
+      description: Data as of date
+      properties:
+        value:
+          items:
+            format: date
+            type: string
+          type: array
+      type: object
+    KeyStatsFundObject_meta:
+      properties:
+        sources:
+          $ref: '#/components/schemas/KeyStatsEntityObject_meta_sources'
+        asOfDate:
+          $ref: '#/components/schemas/KeyStatsFundObject_meta_asOfDate'
       type: object
     ErrorObject_links:
       properties:
@@ -2446,16 +3682,6 @@ components:
       - website
       - zip
       type: object
-    ProfileData_size_employeeNumber:
-      example:
-        value: 0.8008281904610115
-      properties:
-        value:
-          nullable: true
-          type: number
-      required:
-      - value
-      type: object
     ProfileData_size_ev:
       example:
         value: 6.027456183070403
@@ -2498,7 +3724,7 @@ components:
           value: 0.8008281904610115
       properties:
         employeeNumber:
-          $ref: '#/components/schemas/ProfileData_size_employeeNumber'
+          $ref: '#/components/schemas/KeyStatsFundObject_expenseRatio_value'
         ev:
           $ref: '#/components/schemas/ProfileData_size_ev'
         mcap:
@@ -2538,15 +3764,6 @@ components:
           $ref: '#/components/schemas/DataPointMeta'
       required:
       - asOfDate
-      - value
-      type: object
-    ProfileData_stage_peActiveFirmNumber:
-      example:
-        value: 2.3021358869347655
-      properties:
-        value:
-          type: number
-      required:
       - value
       type: object
     ProfileData_stage_peActiveFirms:
@@ -2628,9 +3845,9 @@ components:
         pevcLatestPostMoneyValuation:
           $ref: '#/components/schemas/ProfileData_stage_pevcLatestPostMoneyValuation'
         peActiveFirmNumber:
-          $ref: '#/components/schemas/ProfileData_stage_peActiveFirmNumber'
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
         peActiveInvestmentNumber:
-          $ref: '#/components/schemas/ProfileData_stage_peActiveFirmNumber'
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
         peLastInvestmentDate:
           $ref: '#/components/schemas/ProfileData_business_industry'
         peActiveFirms:
@@ -2646,7 +3863,7 @@ components:
         vcLastRoundAmt:
           $ref: '#/components/schemas/ProfileData_size_ev'
         vcLastRoundInvestorNumber:
-          $ref: '#/components/schemas/ProfileData_stage_peActiveFirmNumber'
+          $ref: '#/components/schemas/KeyStatsEntityObject_averageDailyVol_value'
         vcLastRoundDate:
           $ref: '#/components/schemas/ProfileData_business_industry'
         vcTotalEstRaised:
@@ -2767,35 +3984,6 @@ components:
           - FIN
           - RAT
           type: string
-      type: object
-    relevanceType_relevanceType_C:
-      properties:
-        value:
-          default: Customer
-          type: string
-      type: object
-    relevanceType_relevanceType_P:
-      properties:
-        value:
-          default: Partner
-          type: string
-      type: object
-    relevanceType_relevanceType_S:
-      properties:
-        value:
-          default: Supplier
-          type: string
-      type: object
-    relevanceType_relevanceType:
-      description: |
-        Relevance type of company. Only applicable in /supply-chain-relationship.
-      properties:
-        C:
-          $ref: '#/components/schemas/relevanceType_relevanceType_C'
-        P:
-          $ref: '#/components/schemas/relevanceType_relevanceType_P'
-        S:
-          $ref: '#/components/schemas/relevanceType_relevanceType_S'
       type: object
     scale_scale:
       description: |

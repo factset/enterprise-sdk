@@ -66,7 +66,7 @@ public class CreateApi {
 
   /**
    * 
-   * Creates a 2d or 3d database(OFDB)
+   * Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
    * @param databaseSchema  (optional)
    * @return CreateDatabase
    * @throws ApiException if fails to make API call
@@ -90,7 +90,7 @@ public class CreateApi {
 
   /**
    * 
-   * Creates a 2d or 3d database(OFDB)
+   * Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
    * @param databaseSchema  (optional)
    * @return ApiResponse&lt;CreateDatabase&gt;
    * @throws ApiException if fails to make API call

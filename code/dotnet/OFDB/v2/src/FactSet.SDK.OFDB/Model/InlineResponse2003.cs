@@ -35,17 +35,18 @@ namespace FactSet.SDK.OFDB.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
-        public InlineResponse2003(List<string> data = default(List<string>))
+        /// <param name="data">A list of the various backend responses needed for the bulk delete.</param>
+        public InlineResponse2003(List<List<string>> data = default(List<List<string>>))
         {
             this.Data = data;
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// A list of the various backend responses needed for the bulk delete
         /// </summary>
+        /// <value>A list of the various backend responses needed for the bulk delete</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<string> Data { get; set; }
+        public List<List<string>> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

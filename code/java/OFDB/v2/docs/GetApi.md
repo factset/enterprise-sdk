@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ## getData
 
-> InlineResponse2005 getData(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder)
+> InlineResponse2006 getData(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder)
 
 
 
@@ -160,7 +160,7 @@ public class Example {
         String sortFieldName = "sortFieldName_example"; // String | Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn't exist in the OFDB is requested
         String sortFieldOrder = "ASC"; // String | Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested
         try {
-            InlineResponse2005 result = apiInstance.getData(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder);
+            InlineResponse2006 result = apiInstance.getData(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ## getDates
 
-> InlineResponse2004 getDates(path, between, equals, before, after, orderBy)
+> InlineResponse2005 getDates(path, between, equals, before, after, orderBy)
 
 
 
@@ -268,7 +268,7 @@ public class Example {
         String after = "after_example"; // String | Returns list of dates which are after mentioned date
         String orderBy = "asc"; // String | Returns dates in the mentioned sorted order, should provide asc or desc
         try {
-            InlineResponse2004 result = apiInstance.getDates(path, between, equals, before, after, orderBy);
+            InlineResponse2005 result = apiInstance.getDates(path, between, equals, before, after, orderBy);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 ## getSymbols
 
-> InlineResponse2003 getSymbols(path, startsWith, endsWith, contains, equals, orderBy)
+> InlineResponse2004 getSymbols(path, startsWith, endsWith, contains, equals, orderBy)
 
 
 
@@ -554,7 +554,7 @@ public class Example {
         String equals = "equals_example"; // String | Returns symbol which matches mentioned string
         String orderBy = "asc"; // String | Returns symbols in the mentioned sorted order, should provide asc or desc
         try {
-            InlineResponse2003 result = apiInstance.getSymbols(path, startsWith, endsWith, contains, equals, orderBy);
+            InlineResponse2004 result = apiInstance.getSymbols(path, startsWith, endsWith, contains, equals, orderBy);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

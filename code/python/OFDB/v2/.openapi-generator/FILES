@@ -12,6 +12,8 @@ docs/AddFields.md
 docs/AddSymbols.md
 docs/AddSymbolsContent.md
 docs/AddSymbolsData.md
+docs/BulkDelete.md
+docs/BulkDeleteData.md
 docs/CreateApi.md
 docs/CreateDatabase.md
 docs/CreateDatabaseData.md
@@ -28,7 +30,8 @@ docs/InlineResponse2002.md
 docs/InlineResponse2003.md
 docs/InlineResponse2004.md
 docs/InlineResponse2005.md
-docs/InlineResponse2005Data.md
+docs/InlineResponse2006.md
+docs/InlineResponse2006Data.md
 docs/InlineResponse200Data.md
 docs/InlineResponse202.md
 docs/InlineResponse202Data.md
@@ -78,6 +81,8 @@ fds/sdk/OFDB/model/add_fields.py
 fds/sdk/OFDB/model/add_symbols.py
 fds/sdk/OFDB/model/add_symbols_content.py
 fds/sdk/OFDB/model/add_symbols_data.py
+fds/sdk/OFDB/model/bulk_delete.py
+fds/sdk/OFDB/model/bulk_delete_data.py
 fds/sdk/OFDB/model/create_database.py
 fds/sdk/OFDB/model/create_database_data.py
 fds/sdk/OFDB/model/database_schema.py
@@ -91,7 +96,8 @@ fds/sdk/OFDB/model/inline_response2002.py
 fds/sdk/OFDB/model/inline_response2003.py
 fds/sdk/OFDB/model/inline_response2004.py
 fds/sdk/OFDB/model/inline_response2005.py
-fds/sdk/OFDB/model/inline_response2005_data.py
+fds/sdk/OFDB/model/inline_response2006.py
+fds/sdk/OFDB/model/inline_response2006_data.py
 fds/sdk/OFDB/model/inline_response200_data.py
 fds/sdk/OFDB/model/inline_response202.py
 fds/sdk/OFDB/model/inline_response202_data.py

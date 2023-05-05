@@ -47,7 +47,7 @@ class InlineResponse2004 {
             obj = obj || new InlineResponse2004();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], ['Number']);
+                obj['data'] = ApiClient.convertToType(data['data'], ['String']);
             }
         }
         return obj;
@@ -57,7 +57,7 @@ class InlineResponse2004 {
 }
 
 /**
- * @member {Array.<Number>} data
+ * @member {Array.<String>} data
  */
 InlineResponse2004.prototype['data'] = undefined;
 

@@ -31,9 +31,9 @@ import com.factset.sdk.OFDB.JSON;
 
 
 /**
- * Any arbitary set of fields that are provided while creating the ofdb and their values.
+ * Any arbitrary set of fields that are provided while creating the ofdb and their values.
  */
-@ApiModel(description = "Any arbitary set of fields that are provided while creating the ofdb and their values.")
+@ApiModel(description = "Any arbitrary set of fields that are provided while creating the ofdb and their values.")
 @JsonPropertyOrder({
   UpdateSymbols.JSON_PROPERTY_DATA
 })

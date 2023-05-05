@@ -9,15 +9,15 @@ Name | Type | Description | Notes
 **FoundedYear** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | 
 **PevcBacking** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | 
 **PevcLatestPostMoneyValuation** | [**ProfileDataStagePevcLatestPostMoneyValuation**](ProfileDataStagePevcLatestPostMoneyValuation.md) |  | [optional] 
-**PeActiveFirmNumber** | [**ProfileDataStagePeActiveFirmNumber**](ProfileDataStagePeActiveFirmNumber.md) |  | [optional] 
-**PeActiveInvestmentNumber** | [**ProfileDataStagePeActiveFirmNumber**](ProfileDataStagePeActiveFirmNumber.md) |  | [optional] 
+**PeActiveFirmNumber** | [**KeyStatsEntityObjectAverageDailyVolValue**](KeyStatsEntityObjectAverageDailyVolValue.md) |  | [optional] 
+**PeActiveInvestmentNumber** | [**KeyStatsEntityObjectAverageDailyVolValue**](KeyStatsEntityObjectAverageDailyVolValue.md) |  | [optional] 
 **PeLastInvestmentDate** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | [optional] 
 **PeActiveFirms** | [**List&lt;ProfileDataStagePeActiveFirms&gt;**](ProfileDataStagePeActiveFirms.md) |  | [optional] 
 **PeActiveAcqDate** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | [optional] 
 **PeActiveAcqAmt** | [**ProfileDataSizeEv**](ProfileDataSizeEv.md) |  | [optional] 
 **VcLastRound** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | [optional] 
 **VcLastRoundAmt** | [**ProfileDataSizeEv**](ProfileDataSizeEv.md) |  | [optional] 
-**VcLastRoundInvestorNumber** | [**ProfileDataStagePeActiveFirmNumber**](ProfileDataStagePeActiveFirmNumber.md) |  | [optional] 
+**VcLastRoundInvestorNumber** | [**KeyStatsEntityObjectAverageDailyVolValue**](KeyStatsEntityObjectAverageDailyVolValue.md) |  | [optional] 
 **VcLastRoundDate** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | [optional] 
 **VcTotalEstRaised** | [**ProfileDataSizeEv**](ProfileDataSizeEv.md) |  | [optional] 
 **CrunchbaseRank** | [**ProfileDataStageCrunchbaseRank**](ProfileDataStageCrunchbaseRank.md) |  | [optional] 

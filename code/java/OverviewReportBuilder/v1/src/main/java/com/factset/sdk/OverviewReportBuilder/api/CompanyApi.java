@@ -13,6 +13,7 @@ import java.util.Objects;
 
 import java.math.BigDecimal;
 import com.factset.sdk.OverviewReportBuilder.models.ErrorResponse;
+import com.factset.sdk.OverviewReportBuilder.models.KeyStatsResponse;
 import com.factset.sdk.OverviewReportBuilder.models.PeerListResponse;
 import com.factset.sdk.OverviewReportBuilder.models.ProfileResponse;
 import com.factset.sdk.OverviewReportBuilder.models.StachTableResponse;
@@ -48,6 +49,13 @@ public class CompanyApi {
     getProfileProfileResponseTypeMap.put(200, new GenericType<ProfileResponse>(){});
     getProfileProfileResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     getProfileProfileResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+  }
+
+  private static final Map<Integer, GenericType> keyStatsGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    keyStatsGetResponseTypeMap.put(200, new GenericType<KeyStatsResponse>(){});
+    keyStatsGetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    keyStatsGetResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> peerListGetResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -175,6 +183,8 @@ public class CompanyApi {
    * Financial / Estimate Highlights
    * 
    * @param id Company ticker (required)
+   * @param actual The number of actual data periods to be returned. Must be greater than 0 (optional, default to 4)
+   * @param estimate The number of estimate data periods to be returned. Must be greater than 0 (optional, default to 1)
    * @return StachTableResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -189,14 +199,16 @@ public class CompanyApi {
        <tr><td> 503 </td><td> Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public StachTableResponse financialHighlightsGet(String id) throws ApiException {
-    return financialHighlightsGetWithHttpInfo(id).getData();
+  public StachTableResponse financialHighlightsGet(String id, Integer actual, Integer estimate) throws ApiException {
+    return financialHighlightsGetWithHttpInfo(id, actual, estimate).getData();
   }
 
   /**
    * Financial / Estimate Highlights
    * 
    * @param id Company ticker (required)
+   * @param actual The number of actual data periods to be returned. Must be greater than 0 (optional, default to 4)
+   * @param estimate The number of estimate data periods to be returned. Must be greater than 0 (optional, default to 1)
    * @return ApiResponse&lt;StachTableResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -211,7 +223,7 @@ public class CompanyApi {
        <tr><td> 503 </td><td> Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<StachTableResponse> financialHighlightsGetWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<StachTableResponse> financialHighlightsGetWithHttpInfo(String id, Integer actual, Integer estimate) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -229,6 +241,8 @@ public class CompanyApi {
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "actual", actual));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "estimate", estimate));
 
     
     
@@ -339,6 +353,92 @@ public class CompanyApi {
     > apiResponse = apiClient.invokeAPI("CompanyApi.getProfileProfile", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getProfileProfileResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Key Stats
+   * 
+   * @param id Company ticker (required)
+   * @return KeyStatsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Expected response; returns the JSON in a simple key-value format </td><td>  * X-DataDirect-Request-Key -  <br>  * Api-Supported-Versions -  <br>  * Api-Version -  <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. For further assistance, file an issue under \&quot;Workflow &amp; Throttling - 400 or 429 Response\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  * Api-Supported-Versions -  <br>  * Api-Version -  <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For further assistance, file an issue under \&quot;Connectivty - 401 or 403 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
+       <tr><td> 404 </td><td> Not found. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Too many requests - this API is rate-limited to 20 requests per second. For further assistance, file an issue under \&quot;Workflow &amp; Throttling - 400 or 429 Response\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Server error. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
+     </table>
+   */
+  public KeyStatsResponse keyStatsGet(String id) throws ApiException {
+    return keyStatsGetWithHttpInfo(id).getData();
+  }
+
+  /**
+   * Key Stats
+   * 
+   * @param id Company ticker (required)
+   * @return ApiResponse&lt;KeyStatsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Expected response; returns the JSON in a simple key-value format </td><td>  * X-DataDirect-Request-Key -  <br>  * Api-Supported-Versions -  <br>  * Api-Version -  <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. For further assistance, file an issue under \&quot;Workflow &amp; Throttling - 400 or 429 Response\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  * Api-Supported-Versions -  <br>  * Api-Version -  <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For further assistance, file an issue under \&quot;Connectivty - 401 or 403 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
+       <tr><td> 404 </td><td> Not found. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Too many requests - this API is rate-limited to 20 requests per second. For further assistance, file an issue under \&quot;Workflow &amp; Throttling - 400 or 429 Response\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Server error. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
+     </table>
+   */
+  public ApiResponse<KeyStatsResponse> keyStatsGetWithHttpInfo(String id) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling keyStatsGet");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/key-stats";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        KeyStatsResponse
+      
+    > apiResponse = apiClient.invokeAPI("CompanyApi.keyStatsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, keyStatsGetResponseTypeMap, false);
 
     return apiResponse;
 

@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-overviewreportbuilder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Overview Report Builder client library for JavaScript",
   "license": "Apache License, Version 2.0",
   "author": "FactSet Research Systems",

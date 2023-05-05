@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **status_code** | **int** | Status code of the estimate. | [optional] 
 **status_text** | **str** | Status description of the estimate. | [optional] 
 **request_id** | **str** | Identifier that was used for the request. | [optional] 
+**input_date_time** | **str** | Date and time when the data is available at the source. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

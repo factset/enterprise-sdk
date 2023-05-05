@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.OFDB.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OFDB.Model
 {
     /// <summary>
-    /// Any arbitary set of fields that are provided while creating the ofdb and their values.
+    /// Any arbitrary set of fields that are provided while creating the ofdb and their values.
     /// </summary>
     [DataContract(Name = "UpdateSymbols")]
     public partial class UpdateSymbols : IEquatable<UpdateSymbols>, IValidatableObject

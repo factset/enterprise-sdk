@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CurrentCapGet**](CompanyApi.md#currentcapget) | **GET** /current-cap | Current Capitalization
 [**FinancialHighlightsGet**](CompanyApi.md#financialhighlightsget) | **GET** /financial-highlights | Financial / Estimate Highlights
 [**GetProfileProfile**](CompanyApi.md#getprofileprofile) | **GET** /profile | Overview Profile
+[**KeyStatsGet**](CompanyApi.md#keystatsget) | **GET** /key-stats | Key Stats
 [**PeerListGet**](CompanyApi.md#peerlistget) | **GET** /peer-list | Peer List
 [**TransactionsGet**](CompanyApi.md#transactionsget) | **GET** /transactions | Transactions
 
@@ -108,7 +109,7 @@ Name | Type | Description  | Notes
 
 <a name="financialhighlightsget"></a>
 # **FinancialHighlightsGet**
-> StachTableResponse FinancialHighlightsGet (string id)
+> StachTableResponse FinancialHighlightsGet (string id, int? actual = null, int? estimate = null)
 
 Financial / Estimate Highlights
 
@@ -149,11 +150,13 @@ namespace Example
             var apiInstance = new CompanyApi(config);
 
             var id = "FDS";  // string | Company ticker
+            var actual = 4;  // int? | The number of actual data periods to be returned. Must be greater than 0 (optional)  (default to 4)
+            var estimate = 1;  // int? | The number of estimate data periods to be returned. Must be greater than 0 (optional)  (default to 1)
 
             try
             {
                 // Financial / Estimate Highlights
-                StachTableResponse result = apiInstance.FinancialHighlightsGet(id);
+                StachTableResponse result = apiInstance.FinancialHighlightsGet(id, actual, estimate);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -172,6 +175,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Company ticker | 
+ **actual** | **int?**| The number of actual data periods to be returned. Must be greater than 0 | [optional] [default to 4]
+ **estimate** | **int?**| The number of estimate data periods to be returned. Must be greater than 0 | [optional] [default to 1]
 
 ### Return type
 [**StachTableResponse**](StachTableResponse.md)
@@ -269,6 +274,100 @@ Name | Type | Description  | Notes
 
 ### Return type
 [**ProfileResponse**](ProfileResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Expected response; returns the JSON in a simple key-value format |  * X-DataDirect-Request-Key -  <br>  * Api-Supported-Versions -  <br>  * Api-Version -  <br>  |
+| **400** | Bad Request. For further assistance, file an issue under \&quot;Workflow &amp; Throttling - 400 or 429 Response\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key -  <br>  * Api-Supported-Versions -  <br>  * Api-Version -  <br>  |
+| **401** | Missing or invalid authentication. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For further assistance, file an issue under \&quot;Connectivty - 401 or 403 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key -  <br>  |
+| **404** | Not found. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key -  <br>  |
+| **429** | Too many requests - this API is rate-limited to 20 requests per second. For further assistance, file an issue under \&quot;Workflow &amp; Throttling - 400 or 429 Response\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key -  <br>  |
+| **500** | Server error. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key -  <br>  |
+| **503** | Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. |  * X-DataDirect-Request-Key -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="keystatsget"></a>
+# **KeyStatsGet**
+> KeyStatsResponse KeyStatsGet (string id)
+
+Key Stats
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.OverviewReportBuilder.Api;
+using FactSet.SDK.OverviewReportBuilder.Client;
+using FactSet.SDK.OverviewReportBuilder.Model;
+
+namespace Example
+{
+    public class KeyStatsGetExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.OverviewReportBuilder.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new CompanyApi(config);
+
+            var id = "FDS";  // string | Company ticker
+
+            try
+            {
+                // Key Stats
+                KeyStatsResponse result = apiInstance.KeyStatsGet(id);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling CompanyApi.KeyStatsGet: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Company ticker | 
+
+### Return type
+[**KeyStatsResponse**](KeyStatsResponse.md)
 
 ### Authorization
 

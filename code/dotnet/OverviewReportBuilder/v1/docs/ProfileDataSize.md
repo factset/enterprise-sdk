@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EmployeeNumber** | [**ProfileDataSizeEmployeeNumber**](ProfileDataSizeEmployeeNumber.md) |  | 
+**EmployeeNumber** | [**KeyStatsFundObjectExpenseRatioValue**](KeyStatsFundObjectExpenseRatioValue.md) |  | 
 **Ev** | [**ProfileDataSizeEv**](ProfileDataSizeEv.md) |  | 
 **Mcap** | [**ProfileDataSizeEv**](ProfileDataSizeEv.md) |  | 
 **Revenue** | [**ProfileDataSizeRevenue**](ProfileDataSizeRevenue.md) |  | 

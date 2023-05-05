@@ -24,5 +24,6 @@ Name | Type | Description | Notes
 **statusCode** | **Number** | Status code of the estimate. | [optional] 
 **statusText** | **String** | Status description of the estimate. | [optional] 
 **requestId** | **String** | Identifier that was used for the request. | [optional] 
+**inputDateTime** | **String** | Date and time when the data is available at the source. | [optional] 
 
 

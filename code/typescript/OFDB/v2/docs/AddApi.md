@@ -45,7 +45,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new AddApi();
 const path = "path_example"; // String | Encode database path
-const addDates = {"symbol":"FDS","data":[{"date":20220107,"price":"444"}]}; // AddDates | Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
+const addDates = {"data":[{"date":20220107,"content":[{"symbol":"FDS","price":444}]}]}; // AddDates | Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
 
 // Call api endpoint
 apiInstance.addDates(path, addDates).then(

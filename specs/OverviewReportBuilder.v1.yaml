@@ -1,11 +1,20 @@
 openapi: 3.0.3
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/overview-report-builder-api
 info:
   title: FactSet Overview Report Builder API
-  description: ''
+  description: >-
+    Get relevant industry-specific data for high level analysis of public and
+    private companies
   license:
-    name: Apache 2.0
+    name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  version: 1.0.0
+  version: 1.2.0
+  contact:
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+    email: api@factset.com
 servers:
   - url: https://api.factset.com/report/overview/v1
 tags:
@@ -116,6 +125,26 @@ paths:
           schema:
             type: string
             example: FDS
+        - name: actual
+          in: query
+          description: >-
+            The number of actual data periods to be returned. Must be greater
+            than 0
+          required: false
+          schema:
+            type: integer
+            example: 4
+            default: 4
+        - name: estimate
+          in: query
+          description: >-
+            The number of estimate data periods to be returned. Must be greater
+            than 0
+          required: false
+          schema:
+            type: integer
+            example: 1
+            default: 1
       responses:
         '200':
           $ref: '#/components/responses/200OKFinancialHighlights'
@@ -163,6 +192,8 @@ paths:
               - NOTES_BONDS
               - REVOLVING_CREDIT
               - TERM_LOANS
+              - PEVC_INVESTMENTS
+              - FUNDING
             example: ACQUISITION_MERGER
         - name: financingType
           in: query
@@ -180,6 +211,40 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/200OKTransactions'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /key-stats:
+    description: >-
+      Returns key financial metrics for private and public companies, as well as
+      ETFs and mutual funds.  This endpoint provides a quick and easy way to
+      obtain fundamental financial data. These key statistics can be used to
+      evaluate a company's financial health, compare it to other companies in
+      the same industry, and make informed investment decisions.
+    get:
+      tags:
+        - Company
+      summary: Key Stats
+      parameters:
+        - name: id
+          in: query
+          description: Company ticker
+          required: true
+          schema:
+            type: string
+            example: FDS
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKKeyStats'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -301,6 +366,24 @@ components:
               $ref: '#/components/examples/financingType200Response'
             noDataresponse:
               $ref: '#/components/examples/noData200TransactionsResponse'
+    200OKKeyStats:
+      description: Expected response; returns the JSON in a simple key-value format
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/xDataDirectRequestKey'
+        Api-Supported-Versions:
+          $ref: '#/components/headers/apiSupportedVersions'
+        Api-Version:
+          $ref: '#/components/headers/apiVersion'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/KeyStatsResponse'
+          examples:
+            default200ResponseExample:
+              $ref: '#/components/examples/default200KeyStatsResponse'
+            noDataResponse:
+              $ref: '#/components/examples/noData200KeyStatsResponse'
     400BadRequest:
       description: >-
         Bad Request. For further assistance, file an issue under "Workflow &
@@ -325,6 +408,10 @@ components:
               $ref: '#/components/examples/idInvalidParameterError'
             unsupportedEntityParameterError:
               $ref: '#/components/examples/unsupportedEntityParameterError'
+            parameterErrorActual:
+              $ref: '#/components/examples/parameterErrorActual'
+            parameterErrorEstimate:
+              $ref: '#/components/examples/parameterErrorEstimate'
             parameterErrorTopn:
               $ref: '#/components/examples/parameterErrorTopn'
             parameterErrorView:
@@ -438,6 +525,12 @@ components:
                     rowMetadata:
                       category:
                         value: DETAIL
+                      scale:
+                        value: null
+                      currencyCode:
+                        value: USD
+                      currencySymbol:
+                        value: $
                   - cells:
                       - Basic Shares
                       - null
@@ -445,6 +538,8 @@ components:
                     rowMetadata:
                       category:
                         value: DETAIL
+                      scale:
+                        value: 6
                   - cells:
                       - Basic Shares
                       - Common Stock
@@ -452,6 +547,8 @@ components:
                     rowMetadata:
                       category:
                         value: DETAIL
+                      scale:
+                        value: null
                   - cells:
                       - Market Cap
                       - null
@@ -459,6 +556,12 @@ components:
                     rowMetadata:
                       category:
                         value: MAIN
+                      scale:
+                        value: 6
+                      currencyCode:
+                        value: USD
+                      currencySymbol:
+                        value: $
                   - cells:
                       - Enterprise Value
                       - null
@@ -466,16 +569,17 @@ components:
                     rowMetadata:
                       category:
                         value: MAIN
-                tableMetadata:
-                  currencyCode:
-                    value: USD
-                  currencySymbol:
-                    value: $
-                columnMetadata:
-                  lineItemValue:
-                    items:
                       scale:
-                        value: 6
+                        value: null
+                      currencyCode:
+                        value: USD
+                      currencySymbol:
+                        value: $
+                tableMetadata:
+                  sources:
+                    value:
+                      - FactSet ECS
+                      - FactSet DCS
         meta:
           requestId: FDS-US
           fsymId: SQFMK3-R
@@ -569,6 +673,10 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                      - FactSet Fundamentals
+                      - FactSet Estimates
                 columnMetadata:
                   '1':
                     items:
@@ -629,20 +737,32 @@ components:
           peers:
             - id: 000PLZ-E
               name: S&P Global, Inc.
+              ticker: SPGI-US
             - id: 05TYNB-E
               name: Morningstar, Inc.
+              ticker: MORN-US
             - id: 06JP5R-E
               name: MSCI Inc. Class A
+              ticker: MSCI-US
             - id: 002HJD-E
               name: BlackRock, Inc.
+              ticker: BLK-US
             - id: 0GCKWP-E
               name: IHS Markit Ltd.
+              ticker: INFO-US
             - id: 000HSZ-E
               name: Moody's Corporation
+              ticker: MCO-US
             - id: 06S1MZ-E
               name: Nasdaq, Inc.
+              ticker: NDAQ-US
             - id: 0G4Z2V-E
               name: Donnelley Financial Solutions, Inc.
+              ticker: DFIN-US
+          meta:
+            sources:
+              value:
+                - FactSet Fundamentals
         meta:
           requestId: FDS-US
           fsymId: SQFMK3-R
@@ -760,6 +880,12 @@ components:
                 value: null
             pevcBacking:
               value: null
+          meta:
+            sources:
+              value:
+                - FactSet Fundamentals
+                - FactSet RBICS
+                - Crunchbase
         meta:
           requestId: FDS
           fsymId: SQFMK3-R
@@ -845,6 +971,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                      - FactSet Fundamentals
+                      - FactSet Mergers
+                      - FactSet DCS
+                      - FactSet Fixed Income
             details:
               definition:
                 columns:
@@ -888,6 +1020,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                      - FactSet Fundamentals
+                      - FactSet Mergers
+                      - FactSet DCS
+                      - FactSet Fixed Income
                 columnMetadata:
                   c_gross_proceeds:
                     items:
@@ -896,6 +1034,114 @@ components:
         meta:
           requestId: FDS-US
           fsymId: SQFMK3-R
+    default200KeyStatsResponse:
+      summary: sample response
+      value:
+        data:
+          range52Week:
+            value:
+              value: $317.55 - 495.39
+            label:
+              value: 52 Week Range
+          averageDailyVol:
+            value:
+              value: 300330.25
+            label:
+              value: Avg Daily Vol (3 Mo)
+          basicShares:
+            value:
+              value: 37896.579
+            label:
+              value: Basic Shares (000)
+          marketCap:
+            value:
+              value: 14179.383999
+            label:
+              value: Market Cap (M)
+          dividendYield:
+            value:
+              value: 0.983615616279391
+            label:
+              value: Dividend Yield
+          firstDate:
+            value:
+              value: '1996-06-28'
+            label:
+              value: IPO Date
+          dilutedShares:
+            value:
+              value: 39266.127
+            label:
+              value: FD Shares Out (000)
+          dilutedMarketCap:
+            value:
+              value: 14691.814201
+            label:
+              value: FD Mkt Cap (M)
+          enterpriseValue:
+            value:
+              value: 14458.443201
+            label:
+              value: EV (M)
+          wacc:
+            value:
+              value: 6.76303
+            label:
+              value: WACC
+          float:
+            value:
+              value: 99.9248
+            label:
+              value: Float
+          institutional:
+            value:
+              value: 91.3343
+            label:
+              value: Institutional
+          top10InstitutionalHolders:
+            value:
+              value: 48.76016379
+            label:
+              value: Top 10 Inst Hldrs
+          brokerContributors:
+            value:
+              value: 18
+            label:
+              value: Broker Contributors
+          averageRating:
+            value:
+              value: Hold (2.11)
+            label:
+              value: Avg Rating
+          targetPrice:
+            value:
+              value: $462.41
+            label:
+              value: Target Price
+          ltGrowthRate:
+            value:
+              value: 10
+            label:
+              value: LT Growth Rate
+          meta:
+            sources:
+              value:
+                - FactSet Fundamentals
+                - FactSet Estimates
+                - FactSet Capital Structure
+                - FactSet Ownership
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+    noData200KeyStatsResponse:
+      summary: no data response
+      value:
+        data: null
+        meta:
+          requestId: 0N57YY-E
+          fsymId: null
+          noData: true
+          message: There is no data for this request.
     transactionType200Response:
       summary: transactionType=NOTES_BONDS response
       value:
@@ -969,6 +1215,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                      - FactSet Fundamentals
+                      - FactSet Mergers
+                      - FactSet DCS
+                      - FactSet Fixed Income
                 columnMetadata:
                   c_transaction_amount:
                     items:
@@ -1013,6 +1265,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                      - FactSet Fundamentals
+                      - FactSet Mergers
+                      - FactSet DCS
+                      - FactSet Fixed Income
                 columnMetadata:
                   c_gross_proceeds:
                     items:
@@ -1147,6 +1405,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                      - FactSet Fundamentals
+                      - FactSet Mergers
+                      - FactSet DCS
+                      - FactSet Fixed Income
                 columnMetadata:
                   c_transaction_amount:
                     items:
@@ -1191,6 +1455,12 @@ components:
                     value: USD
                   currencySymbol:
                     value: $
+                  sources:
+                    value:
+                      - FactSet Fundamentals
+                      - FactSet Mergers
+                      - FactSet DCS
+                      - FactSet Fixed Income
                 columnMetadata:
                   c_gross_proceeds:
                     items:
@@ -1365,7 +1635,1207 @@ components:
             title: >-
               Invalid parameter: 'view'. Accepted values include: 'FINANCIAL',
               'VALUATION', 'CAPITALIZATION', 'MARGINS' or 'PERFORMANCE'
+    parameterErrorActual:
+      summary: actual periods parameter error
+      value:
+        errors:
+          - id: 35a62bd5-c4aa-4e6b-9357-0f1b5688e2db
+            code: parameterError
+            title: >-
+              Invalid parameter: 'actual'. Accepted values include nonzero
+              integers
+    parameterErrorEstimate:
+      summary: estimate periods parameter error
+      value:
+        errors:
+          - id: 372a28d1-53ac-49cd-9be5-beb714cd62a8
+            code: parameterError
+            title: >-
+              Invalid parameter: 'estimate'. Accepted values include nonzero
+              integers
   schemas:
+    KeyStatsResponse:
+      type: object
+      description: Key statistics data for the requested id
+      properties:
+        data:
+          $ref: '#/components/schemas/KeyStatsObject'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    KeyStatsEntityObject:
+      type: object
+      description: Key Statistics for the provided entity
+      properties:
+        range52Week:
+          description: >-
+            The highest and lowest prices at which a stock as traded over the
+            past 52 weeks
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        averageDailyVol:
+          description: The average number of shares traded per day
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        basicShares:
+          description: >-
+            Number of basic shares. Also known as common shares or ordinary
+            shares, this datapoint represents ownership in a company and offers
+            the potential for capital appreciation and dividend payments
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        marketCap:
+          description: The total value of a company's outstanding shares
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        dividendYield:
+          description: Represents return on investment from dividends
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        firstDate:
+          description: >-
+            The day on which a private company's shares became available for
+            purchase by the public for the first time
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  format: date
+                  description: Date formatted to YYYY-MM-DD
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        dilutedShares:
+          description: >-
+            The total number of a company's outstanding shares that would exist
+            if all securities that could potentially be converted into common
+            shares, such as outstanding shares, stock options, warrants, and
+            convertible securities
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        dilutedMarketCap:
+          description: >-
+            The total theoretical market value of a company, including all
+            shares that could potentially be converted into common shares, such
+            as outstanding shares, stock options, warrants, and convertible
+            securities
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        enterpriseValue:
+          description: The total value of a company
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        wacc:
+          description: >-
+            The weighted average cost of capital, or the average cost of all
+            company's capital sources, including debt and equity , weighted by
+            their respective proportions in the company's capital structure
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        float:
+          description: >-
+            The percentage of a company's outstanding shares that are available
+            for trading by the public, excluding shares that are closely held or
+            restricted
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        institutional:
+          description: >-
+            The percentage of a company's outstanding shares that are owned by
+            institutional investors
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        top10InstitutionalHolders:
+          description: >-
+            Percentage owned by 10 largest institutional investors in a company,
+            based on the number of shares they hold
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        brokerContributors:
+          description: >-
+            Number of brokerage firms that provide research and analysis on the
+            company
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        averageRating:
+          description: >-
+            The mean recommendation score given by financial analysts covering a
+            particular stock
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        targetPrice:
+          description: >-
+            The price level at which an analyst or brokerage firm predicts a
+            stock will trade in the future
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        ltGrowthRate:
+          description: >-
+            The estimated rate at which a company's earnings are expected to
+            grow over a multi-year period
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        revenue:
+          description: >-
+            The total amount of money that a company earns from its primary
+            business activities, such as the sale of goods or services, before
+            deducting any expenses or taxes
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            asOfDate:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  format: date
+        employees:
+          description: The total count of individuals who are employed by a company
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            asOfDate:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  format: date
+        fundingRounds:
+          description: >-
+            Number of stages of financing that a startup or early-stage company
+            goes through
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        estimatedVcRaised:
+          description: >-
+            The estimated total amount of venture capital funding that a company
+            has fraised from investors
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        lastFunding:
+          description: >-
+            The most recent date on which a company raised capital from
+            investors in a funding round.
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  format: date
+                  description: Date formatted to YYYY-MM-DD
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        firstFunding:
+          description: The first date a company raised capital from an external investor
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  format: date
+                  description: Date formatted to YYYY-MM-DD
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        latestPostMoneyValuation:
+          description: >-
+            The estimated total value of a company after its most recent funding
+            round, taking into account the new capital that was raised
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            asOfDate:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  format: date
+        activeInvestors:
+          description: >-
+            The total count of individual or institutional investors that have
+            invested in a company and currently hold a position in its
+            securities
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        totalInvestors:
+          description: >-
+            The total count of individual or institutional investors that have
+            invested in a company at any point in time, including those that may
+            no longer hold a position in its securities
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        premiums:
+          description: >-
+            The portion of gross premiums that an insurance company has earned
+            by providing coverage for a certain period of time
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        grossPremiums:
+          description: >-
+            The total amount of premiums collected by an insurance company from
+            policyholders before taking into account any expenses or claims
+            payments
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        grossAssets:
+          description: >-
+            The total value of a company's assets, including both tangible
+            assets such as property and equipment, and intangible assets such as
+            intellectual property or goodwill, without taking into account any
+            liabilities or deductions
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        totalDeposits:
+          description: >-
+            The sum of all funds held in deposit accounts, including checking
+            accounts, savings accounts, money market accounts, and certificates
+            of deposit, among others
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        branches:
+          description: >-
+            The total count of physical locations, such as buildings or offices,
+            where a bank offers its products and services to customers
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        netInterestIncome:
+          description: >-
+            The difference between the interest earned by a financial
+            institution on its interest-earning assets, such as loans and
+            investments, and the interest paid on its interest-bearing
+            liabilities, such as deposits and borrowings
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+        meta:
+          type: object
+          properties:
+            sources:
+              type: object
+              properties:
+                value:
+                  type: array
+                  items:
+                    type: string
+              description: Where the data is sourced from
+    KeyStatsFundObject:
+      description: Key Statistics for the provided fund
+      type: object
+      properties:
+        expenseRatio:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+                  nullable: true
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: >-
+            The net expense ratio, or total expense ratio, represents the
+            percentage of assets of the fund used to run and manage the fund,
+            after any fee waivers or reimbursements that may be in effect.
+            Ongoing charge is collected as the Net Expense ratio for Mutual
+            Funds if the Net Expense Ratio is not available.
+        distributionYield:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+                  nullable: true
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: >-
+            LTM (Last Twelve Months) trailing 12-month yield of distributions
+            made by the fund, relative to the current price. Distinct from
+            Dividend Yield, which measures distributions made by the portfolio's
+            holdings. This data point is returned as a percentage.
+        aumShareDaily:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: >-
+            The AUM (Actual) is the market value of total assets that a fund
+            manages on behalf of investors based on the shares outstanding,
+            multiplied by the net asset value from the preceding day, at share
+            class level. Data is updated daily.
+        aumFundMonth:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: >-
+            The AUM (Actual) is the market value of total assets that a fund
+            manages on behalf of investors based on the shares outstanding,
+            multiplied by the net asset value from the month end at a fund
+            level. Data is updated monthly, based on the last trading day of the
+            month.
+        outstandingShare:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: >-
+            Returns historical shares outstanding figures for the specified
+            share class.
+        fundFlowYTD:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: >-
+            The dollars invested or divested from a fund over one calendar year,
+            based on the creation/redemption process. Data returned may not be
+            related to overall volume or price movement. All fund flow inputs
+            use transaction-day values to ensure that all AUM and flows are
+            fully comparable and reflective of the same, verified market
+            conditions.
+        firstNavRecord:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  format: date
+                  description: Date formatted to YYYY-MM-DD
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: >-
+            Returns the first NAV record available in FactSet’s database. This
+            may not equal the first trading record of the fund.
+        dailyTradingVol:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: The daily trading volume of the fund as a dollar value.
+        averageSpread:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+                  nullable: true
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: >-
+            The 45-day median of daily time-weighted percentage differences
+            between the highest-posted price a market participant is willing to
+            pay to buy a fund and the lowest-posted price at which a market
+            participant is willing to sell a fund.
+        inceptionDateShare:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  format: date
+                  description: Date formatted to YYYY-MM-DD
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: Launch date of the share class.
+        inceptionDateFund:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  format: date
+                  description: Date formatted to YYYY-MM-DD
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: Launch date of the fund.
+        availableForSale:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: Determines where the fund is available for sale.
+        currencyIso:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: Returns currency ISO code for a listing.
+        esgCompliance:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: Determines if the fund is ESG compliant or not.
+        sfdrClassification:
+          type: object
+          required:
+            - value
+            - label
+          properties:
+            value:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+            label:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+          description: >-
+            Article 6 - Fund is not ESG but makes disclosures on the integration
+            of sustainable risks. Article 8 - Preferences for products having
+            ESG Characteristics. Article 9 - Preferences for products having
+            Sustainable Objectives. Article 0 - The type or structure of the
+            fund is out of ESG requirements. NA - No information available.
+        meta:
+          type: object
+          properties:
+            sources:
+              type: object
+              properties:
+                value:
+                  type: array
+                  items:
+                    type: string
+              description: Where the data is sourced from
+            asOfDate:
+              type: object
+              properties:
+                value:
+                  type: array
+                  items:
+                    type: string
+                    format: date
+              description: Data as of date
+    KeyStatsObject:
+      oneOf:
+        - $ref: '#/components/schemas/KeyStatsEntityObject'
+        - $ref: '#/components/schemas/KeyStatsFundObject'
     ErrorResponse:
       type: object
       properties:
@@ -1819,6 +3289,17 @@ components:
                   type: number
                 note:
                   type: string
+        meta:
+          type: object
+          properties:
+            sources:
+              type: object
+              properties:
+                value:
+                  type: array
+                  items:
+                    type: string
+              description: Where the data is sourced from
     DataPointMeta:
       type: object
       anyOf:
@@ -1848,11 +3329,11 @@ components:
       type: object
       properties:
         data:
-          description: Returns a list of key-value pairs
           $ref: '#/components/schemas/PeerListObject'
         meta:
           $ref: '#/components/schemas/Meta'
     PeerListObject:
+      description: A list of key-value pairs representing the company's peers
       type: object
       required:
         - peers
@@ -1861,15 +3342,32 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PeerListData'
+        meta:
+          type: object
+          properties:
+            sources:
+              type: object
+              properties:
+                value:
+                  type: array
+                  items:
+                    type: string
+              description: Where the data is sourced from
     PeerListData:
       type: object
       required:
         - id
         - name
+        - ticker
       properties:
         id:
+          description: The FactSet Entity ID of the peer
           type: string
         name:
+          description: The name of the peer
+          type: string
+        ticker:
+          description: The ticker of the peer
           type: string
     MetadataEntry:
       type: object
@@ -1887,7 +3385,6 @@ components:
 
         - RowOrganizedPackage.TableData.TableMetadataEntry
 
-
         And sets restrictions on the possible values for a MetadataItem.
       oneOf:
         - $ref: '#/components/schemas/category'
@@ -1896,8 +3393,8 @@ components:
         - $ref: '#/components/schemas/description'
         - $ref: '#/components/schemas/frequency'
         - $ref: '#/components/schemas/metric'
-        - $ref: '#/components/schemas/relevanceType'
         - $ref: '#/components/schemas/scale'
+        - $ref: '#/components/schemas/sources'
         - $ref: '#/components/schemas/transactionId'
         - $ref: '#/components/schemas/transactionType'
         - $ref: '#/components/schemas/valueType'
@@ -2031,33 +3528,6 @@ components:
               enum:
                 - FIN
                 - RAT
-    relevanceType:
-      type: object
-      properties:
-        relevanceType:
-          type: object
-          description: >
-            Relevance type of company. Only applicable in
-            /supply-chain-relationship.
-          properties:
-            C:
-              type: object
-              properties:
-                value:
-                  type: string
-                  default: Customer
-            P:
-              type: object
-              properties:
-                value:
-                  type: string
-                  default: Partner
-            S:
-              type: object
-              properties:
-                value:
-                  type: string
-                  default: Supplier
     scale:
       type: object
       properties:
@@ -2071,6 +3541,14 @@ components:
           properties:
             value:
               type: integer
+    sources:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: string
+      description: Where the data is sourced from
     transactionId:
       type: object
       properties:

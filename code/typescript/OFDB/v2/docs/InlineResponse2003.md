@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **[String]** |  | [optional] 
+**data** | **[[String]]** | A list of the various backend responses needed for the bulk delete | [optional] 
 
 

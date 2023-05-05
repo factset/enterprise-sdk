@@ -2,7 +2,7 @@
 
 # UpdateSymbols
 
-Any arbitary set of fields that are provided while creating the ofdb and their values.
+Any arbitrary set of fields that are provided while creating the ofdb and their values.
 
 ## Properties
 

@@ -1,0 +1,12 @@
+# FactSet.SDK.OverviewReportBuilder.Model.KeyStatsEntityObjectTop10InstitutionalHolders
+Percentage owned by 10 largest institutional investors in a company, based on the number of shares they hold
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Value** | [**KeyStatsEntityObjectAverageDailyVolValue**](KeyStatsEntityObjectAverageDailyVolValue.md) |  | 
+**Label** | [**KeyStatsEntityObjectRange52WeekValue**](KeyStatsEntityObjectRange52WeekValue.md) |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

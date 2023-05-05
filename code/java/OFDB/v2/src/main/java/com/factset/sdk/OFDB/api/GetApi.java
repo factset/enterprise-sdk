@@ -14,9 +14,9 @@ import java.util.Objects;
 import com.factset.sdk.OFDB.models.InlineResponse200;
 import com.factset.sdk.OFDB.models.InlineResponse2001;
 import com.factset.sdk.OFDB.models.InlineResponse2002;
-import com.factset.sdk.OFDB.models.InlineResponse2003;
 import com.factset.sdk.OFDB.models.InlineResponse2004;
 import com.factset.sdk.OFDB.models.InlineResponse2005;
+import com.factset.sdk.OFDB.models.InlineResponse2006;
 import com.factset.sdk.OFDB.models.InlineResponse202;
 import com.factset.sdk.OFDB.models.InlineResponse400;
 import com.factset.sdk.OFDB.models.InlineResponse403;
@@ -49,7 +49,7 @@ public class GetApi {
 
   private static final Map<Integer, GenericType> getDataResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getDataResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
+    getDataResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
     getDataResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     getDataResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     getDataResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -60,7 +60,7 @@ public class GetApi {
 
   private static final Map<Integer, GenericType> getDatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getDatesResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
+    getDatesResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
     getDatesResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     getDatesResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     getDatesResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -93,7 +93,7 @@ public class GetApi {
 
   private static final Map<Integer, GenericType> getSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getSymbolsResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+    getSymbolsResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
     getSymbolsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     getSymbolsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     getSymbolsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -228,7 +228,7 @@ public class GetApi {
    * @param filterSymbolsValues Can specify the symbol filter values of the date filter operations e.g: [\&quot;ab\&quot;, \&quot;xy\&quot;] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided.  (optional)
    * @param sortFieldName Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)
    * @param sortFieldOrder Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)
-   * @return InlineResponse2005
+   * @return InlineResponse2006
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -244,7 +244,7 @@ public class GetApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse2005 getData(String path, String symbol, String date, String filterFields, String filterOps, String filterValues, String filterDatesOps, String filterDatesValues, String filterSymbolsOps, String filterSymbolsValues, String sortFieldName, String sortFieldOrder) throws ApiException {
+  public InlineResponse2006 getData(String path, String symbol, String date, String filterFields, String filterOps, String filterValues, String filterDatesOps, String filterDatesValues, String filterSymbolsOps, String filterSymbolsValues, String sortFieldName, String sortFieldOrder) throws ApiException {
     return getDataWithHttpInfo(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder).getData();
   }
 
@@ -263,7 +263,7 @@ public class GetApi {
    * @param filterSymbolsValues Can specify the symbol filter values of the date filter operations e.g: [\&quot;ab\&quot;, \&quot;xy\&quot;] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided.  (optional)
    * @param sortFieldName Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)
    * @param sortFieldOrder Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)
-   * @return ApiResponse&lt;InlineResponse2005&gt;
+   * @return ApiResponse&lt;InlineResponse2006&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -279,7 +279,7 @@ public class GetApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2005> getDataWithHttpInfo(String path, String symbol, String date, String filterFields, String filterOps, String filterValues, String filterDatesOps, String filterDatesValues, String filterSymbolsOps, String filterSymbolsValues, String sortFieldName, String sortFieldOrder) throws ApiException {
+  public ApiResponse<InlineResponse2006> getDataWithHttpInfo(String path, String symbol, String date, String filterFields, String filterOps, String filterValues, String filterDatesOps, String filterDatesValues, String filterSymbolsOps, String filterSymbolsValues, String sortFieldName, String sortFieldOrder) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'path' is set
@@ -327,7 +327,7 @@ public class GetApi {
 
     ApiResponse<
         
-        InlineResponse2005
+        InlineResponse2006
       
     > apiResponse = apiClient.invokeAPI("GetApi.getData", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -345,7 +345,7 @@ public class GetApi {
    * @param before Returns list of dates which are before mentioned date (optional)
    * @param after Returns list of dates which are after mentioned date (optional)
    * @param orderBy Returns dates in the mentioned sorted order, should provide asc or desc (optional)
-   * @return InlineResponse2004
+   * @return InlineResponse2005
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -361,7 +361,7 @@ public class GetApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse2004 getDates(String path, String between, String equals, String before, String after, String orderBy) throws ApiException {
+  public InlineResponse2005 getDates(String path, String between, String equals, String before, String after, String orderBy) throws ApiException {
     return getDatesWithHttpInfo(path, between, equals, before, after, orderBy).getData();
   }
 
@@ -374,7 +374,7 @@ public class GetApi {
    * @param before Returns list of dates which are before mentioned date (optional)
    * @param after Returns list of dates which are after mentioned date (optional)
    * @param orderBy Returns dates in the mentioned sorted order, should provide asc or desc (optional)
-   * @return ApiResponse&lt;InlineResponse2004&gt;
+   * @return ApiResponse&lt;InlineResponse2005&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -390,7 +390,7 @@ public class GetApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2004> getDatesWithHttpInfo(String path, String between, String equals, String before, String after, String orderBy) throws ApiException {
+  public ApiResponse<InlineResponse2005> getDatesWithHttpInfo(String path, String between, String equals, String before, String after, String orderBy) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'path' is set
@@ -432,7 +432,7 @@ public class GetApi {
 
     ApiResponse<
         
-        InlineResponse2004
+        InlineResponse2005
       
     > apiResponse = apiClient.invokeAPI("GetApi.getDates", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -630,7 +630,7 @@ public class GetApi {
    * @param contains Returns list of symbols which contains mentioned string (optional)
    * @param equals Returns symbol which matches mentioned string (optional)
    * @param orderBy Returns symbols in the mentioned sorted order, should provide asc or desc (optional)
-   * @return InlineResponse2003
+   * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -646,7 +646,7 @@ public class GetApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse2003 getSymbols(String path, String startsWith, String endsWith, String contains, String equals, String orderBy) throws ApiException {
+  public InlineResponse2004 getSymbols(String path, String startsWith, String endsWith, String contains, String equals, String orderBy) throws ApiException {
     return getSymbolsWithHttpInfo(path, startsWith, endsWith, contains, equals, orderBy).getData();
   }
 
@@ -659,7 +659,7 @@ public class GetApi {
    * @param contains Returns list of symbols which contains mentioned string (optional)
    * @param equals Returns symbol which matches mentioned string (optional)
    * @param orderBy Returns symbols in the mentioned sorted order, should provide asc or desc (optional)
-   * @return ApiResponse&lt;InlineResponse2003&gt;
+   * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -675,7 +675,7 @@ public class GetApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> getSymbolsWithHttpInfo(String path, String startsWith, String endsWith, String contains, String equals, String orderBy) throws ApiException {
+  public ApiResponse<InlineResponse2004> getSymbolsWithHttpInfo(String path, String startsWith, String endsWith, String contains, String equals, String orderBy) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'path' is set
@@ -717,7 +717,7 @@ public class GetApi {
 
     ApiResponse<
         
-        InlineResponse2003
+        InlineResponse2004
       
     > apiResponse = apiClient.invokeAPI("GetApi.getSymbols", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

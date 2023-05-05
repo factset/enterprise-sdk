@@ -6,7 +6,7 @@ info:
   description: |
     Gain access to 20+ years of comprehensive estimates and statistics of over 250+ estimated metrics, including financial statement items, product segments, geosegments, and industry metrics. FactSet's consensus estimates are aggregated from a wide base of over 800+ contributors and cover over 19,000 active companies across 90+ countries. Data returned can be accessed on the data frequencies based on quarterly, fiscal years, and calendar years. FactSet Estimates updates on a real time basis intraday (every 5 minutes). Updating times vary based on earning season vs. non-earning season but the goal is to have the data available to the client within a few hours that FactSet receives updated information. Often times updates times can be much faster as FactSet has always been known as one of the fastest estimate providers in the market.
   title: FactSet Estimates
-  version: 2.3.0
+  version: 2.3.1
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -3908,6 +3908,7 @@ components:
           prevEstimateDate: 2017-05-02T00:00:00.000+0000
           section: Included
           analystId: 0DXTST-E
+          inputDateTime: 2022-10-25T22:40:09
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
           prevEstimateValue: 22336
           metric: SALES
@@ -3928,6 +3929,7 @@ components:
           prevEstimateDate: 2017-05-02T00:00:00.000+0000
           section: Included
           analystId: 0DXTST-E
+          inputDateTime: 2022-10-25T22:40:09
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
           prevEstimateValue: 22336
           metric: SALES
@@ -3958,6 +3960,7 @@ components:
         prevEstimateDate: 2017-05-02T00:00:00.000+0000
         section: Included
         analystId: 0DXTST-E
+        inputDateTime: 2022-10-25T22:40:09
         fiscalEndDate: 2017-12-31T00:00:00.000+0000
         prevEstimateValue: 22336
         metric: SALES
@@ -4068,6 +4071,11 @@ components:
         requestId:
           description: Identifier that was used for the request.
           example: IBM-US
+          type: string
+        inputDateTime:
+          description: Date and time when the data is available at the source.
+          example: 2022-10-25T22:40:09
+          format: string
           type: string
       title: Detail
       type: object
@@ -4326,6 +4334,7 @@ components:
           ratingsNoteText: overweight
           analystId: 0DXTST-E
           brokerName: Morgan Stanley
+          inputDateTime: 2022-10-25T22:40:09
           estimateDate: 2017-07-24T00:00:00.000+0000
         - brokerId: 05FBK7-E
           requestId: IBM-US
@@ -4334,6 +4343,7 @@ components:
           ratingsNoteText: overweight
           analystId: 0DXTST-E
           brokerName: Morgan Stanley
+          inputDateTime: 2022-10-25T22:40:09
           estimateDate: 2017-07-24T00:00:00.000+0000
       properties:
         data:
@@ -4352,6 +4362,7 @@ components:
         ratingsNoteText: overweight
         analystId: 0DXTST-E
         brokerName: Morgan Stanley
+        inputDateTime: 2022-10-25T22:40:09
         estimateDate: 2017-07-24T00:00:00.000+0000
       properties:
         fsymId:
@@ -4396,6 +4407,11 @@ components:
         requestId:
           description: Identifier that was used for the request.
           example: IBM-US
+          type: string
+        inputDateTime:
+          description: Date and time when the data is available at the source.
+          example: 2022-10-25T22:40:09
+          format: string
           type: string
       title: Detail Ratings
       type: object

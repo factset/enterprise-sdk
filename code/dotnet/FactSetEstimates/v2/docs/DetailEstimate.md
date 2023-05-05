@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **StatusCode** | **int** | Status code of the estimate. | [optional] 
 **StatusText** | **string** | Status description of the estimate. | [optional] 
 **RequestId** | **string** | Identifier that was used for the request. | [optional] 
+**InputDateTime** | **string** | Date and time when the data is available at the source. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

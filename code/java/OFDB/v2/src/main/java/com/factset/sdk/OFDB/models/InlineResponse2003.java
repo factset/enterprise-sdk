@@ -40,17 +40,17 @@ public class InlineResponse2003 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<String> data = null;
+  private java.util.List<java.util.List<String>> data = null;
 
   public InlineResponse2003() { 
   }
 
-  public InlineResponse2003 data(java.util.List<String> data) {
+  public InlineResponse2003 data(java.util.List<java.util.List<String>> data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse2003 addDataItem(String dataItem) {
+  public InlineResponse2003 addDataItem(java.util.List<String> dataItem) {
     if (this.data == null) {
       this.data = new java.util.ArrayList<>();
     }
@@ -59,22 +59,22 @@ public class InlineResponse2003 implements Serializable {
   }
 
    /**
-   * Get data
+   * A list of the various backend responses needed for the bulk delete
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of the various backend responses needed for the bulk delete")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<String> getData() {
+  public java.util.List<java.util.List<String>> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<String> data) {
+  public void setData(java.util.List<java.util.List<String>> data) {
     this.data = data;
   }
 

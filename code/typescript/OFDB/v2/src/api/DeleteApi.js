@@ -13,6 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
+import BulkDelete from '../model/BulkDelete';
+import InlineResponse2003 from '../model/InlineResponse2003';
 import InlineResponse202 from '../model/InlineResponse202';
 import InlineResponse400 from '../model/InlineResponse400';
 import InlineResponse403 from '../model/InlineResponse403';
@@ -37,6 +39,60 @@ export default class DeleteApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB
+     * @param {String} path Encode database path
+     * @param {Object} opts Optional parameters
+     * @param {module:model/BulkDelete} opts.bulkDelete 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
+     */
+    deleteBulkItemsWithHttpInfo(path, opts) {
+      opts = opts || {};
+      let postBody = opts['bulkDelete'];
+      // verify the required parameter 'path' is set
+      if (path === undefined || path === null) {
+        throw new Error("Missing the required parameter 'path' when calling deleteBulkItems");
+      }
+
+      let pathParams = {
+        'path': path
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse2003;
+
+      return this.apiClient.callApi(
+        '/database/{path}/delete', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Allows users to delete various combinations of symbols, dates, and fields from the desired OFDB
+     * @param {String} path Encode database path
+     * @param {Object} opts Optional parameters
+     * @param {module:model/BulkDelete} opts.bulkDelete 
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
+     */
+    deleteBulkItems(path, opts) {
+      return this.deleteBulkItemsWithHttpInfo(path, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**

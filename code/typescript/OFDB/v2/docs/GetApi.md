@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## getData
 
-> InlineResponse2005 getData(path, opts)
+> InlineResponse2006 getData(path, opts)
 
 
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ## getDates
 
-> InlineResponse2004 getDates(path, opts)
+> InlineResponse2005 getDates(path, opts)
 
 
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ## getSymbols
 
-> InlineResponse2003 getSymbols(path, opts)
+> InlineResponse2004 getSymbols(path, opts)
 
 
 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

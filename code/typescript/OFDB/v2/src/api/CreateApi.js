@@ -42,7 +42,7 @@ export default class CreateApi {
 
 
     /**
-     * Creates a 2d or 3d database(OFDB)
+     * Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
      * @param {Object} opts Optional parameters
      * @param {module:model/DatabaseSchema} opts.databaseSchema 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateDatabase} and HTTP response
@@ -75,7 +75,7 @@ export default class CreateApi {
     }
 
     /**
-     * Creates a 2d or 3d database(OFDB)
+     * Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
      * @param {Object} opts Optional parameters
      * @param {module:model/DatabaseSchema} opts.databaseSchema 
      * @return { Promise.< module:model/CreateDatabase > } a Promise, with data of type {@link module:model/CreateDatabase }

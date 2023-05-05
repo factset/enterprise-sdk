@@ -14,6 +14,8 @@ docs/AddFields.md
 docs/AddSymbols.md
 docs/AddSymbolsContent.md
 docs/AddSymbolsData.md
+docs/BulkDelete.md
+docs/BulkDeleteData.md
 docs/CreateApi.md
 docs/CreateDatabase.md
 docs/CreateDatabaseData.md
@@ -28,7 +30,8 @@ docs/InlineResponse2002.md
 docs/InlineResponse2003.md
 docs/InlineResponse2004.md
 docs/InlineResponse2005.md
-docs/InlineResponse2005Data.md
+docs/InlineResponse2006.md
+docs/InlineResponse2006Data.md
 docs/InlineResponse200Data.md
 docs/InlineResponse202.md
 docs/InlineResponse202Data.md
@@ -97,6 +100,8 @@ src/main/java/com/factset/sdk/OFDB/models/AddFields.java
 src/main/java/com/factset/sdk/OFDB/models/AddSymbols.java
 src/main/java/com/factset/sdk/OFDB/models/AddSymbolsContent.java
 src/main/java/com/factset/sdk/OFDB/models/AddSymbolsData.java
+src/main/java/com/factset/sdk/OFDB/models/BulkDelete.java
+src/main/java/com/factset/sdk/OFDB/models/BulkDeleteData.java
 src/main/java/com/factset/sdk/OFDB/models/CreateDatabase.java
 src/main/java/com/factset/sdk/OFDB/models/CreateDatabaseData.java
 src/main/java/com/factset/sdk/OFDB/models/DatabaseSchema.java
@@ -108,7 +113,8 @@ src/main/java/com/factset/sdk/OFDB/models/InlineResponse2002.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse2003.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse2004.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse2005.java
-src/main/java/com/factset/sdk/OFDB/models/InlineResponse2005Data.java
+src/main/java/com/factset/sdk/OFDB/models/InlineResponse2006.java
+src/main/java/com/factset/sdk/OFDB/models/InlineResponse2006Data.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse200Data.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse202.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse202Data.java

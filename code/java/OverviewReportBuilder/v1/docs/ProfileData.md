@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **contact** | [**ProfileDataContact**](ProfileDataContact.md) |  | 
 **size** | [**ProfileDataSize**](ProfileDataSize.md) |  | 
 **stage** | [**ProfileDataStage**](ProfileDataStage.md) |  | 
+**meta** | [**KeyStatsEntityObjectMeta**](KeyStatsEntityObjectMeta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

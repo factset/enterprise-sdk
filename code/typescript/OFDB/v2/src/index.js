@@ -19,6 +19,8 @@ import AddFields from './model/AddFields';
 import AddSymbols from './model/AddSymbols';
 import AddSymbolsContent from './model/AddSymbolsContent';
 import AddSymbolsData from './model/AddSymbolsData';
+import BulkDelete from './model/BulkDelete';
+import BulkDeleteData from './model/BulkDeleteData';
 import CreateDatabase from './model/CreateDatabase';
 import CreateDatabaseData from './model/CreateDatabaseData';
 import DatabaseSchema from './model/DatabaseSchema';
@@ -30,7 +32,8 @@ import InlineResponse2002 from './model/InlineResponse2002';
 import InlineResponse2003 from './model/InlineResponse2003';
 import InlineResponse2004 from './model/InlineResponse2004';
 import InlineResponse2005 from './model/InlineResponse2005';
-import InlineResponse2005Data from './model/InlineResponse2005Data';
+import InlineResponse2006 from './model/InlineResponse2006';
+import InlineResponse2006Data from './model/InlineResponse2006Data';
 import InlineResponse200Data from './model/InlineResponse200Data';
 import InlineResponse202 from './model/InlineResponse202';
 import InlineResponse202Data from './model/InlineResponse202Data';
@@ -146,6 +149,18 @@ export {
     AddSymbolsData,
 
     /**
+     * The BulkDelete model constructor.
+     * @property {module:model/BulkDelete}
+     */
+    BulkDelete,
+
+    /**
+     * The BulkDeleteData model constructor.
+     * @property {module:model/BulkDeleteData}
+     */
+    BulkDeleteData,
+
+    /**
      * The CreateDatabase model constructor.
      * @property {module:model/CreateDatabase}
      */
@@ -212,10 +227,16 @@ export {
     InlineResponse2005,
 
     /**
-     * The InlineResponse2005Data model constructor.
-     * @property {module:model/InlineResponse2005Data}
+     * The InlineResponse2006 model constructor.
+     * @property {module:model/InlineResponse2006}
      */
-    InlineResponse2005Data,
+    InlineResponse2006,
+
+    /**
+     * The InlineResponse2006Data model constructor.
+     * @property {module:model/InlineResponse2006Data}
+     */
+    InlineResponse2006Data,
 
     /**
      * The InlineResponse200Data model constructor.

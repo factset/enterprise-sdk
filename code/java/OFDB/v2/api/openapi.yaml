@@ -13,7 +13,7 @@ info:
   version: 2.0.0
 externalDocs:
   description: API Documentation
-  url: https://developer.factset.com/api-catalog/
+  url: https://developer.factset.com/api-catalog/ofdb-api
 servers:
 - url: https://api.factset.com/analytics/ofdb/v2
 security:
@@ -726,6 +726,194 @@ paths:
       - Add
       x-contentType: application/json
       x-accepts: application/json
+  /database/{path}/delete:
+    post:
+      description: Allows users to delete various combinations of symbols, dates,
+        and fields from the desired OFDB
+      operationId: DeleteBulkItems
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkDelete'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+          description: successful output
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "204":
+          description: Resource is deleted successfully
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Delete
+      x-contentType: application/json
+      x-accepts: application/json
   /database/{path}/symbols:
     get:
       description: Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)
@@ -788,7 +976,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_3'
+                $ref: '#/components/schemas/inline_response_200_4'
           description: Successful symbols array within OFDB
           headers:
             X-DataDirect-Request-Key:
@@ -1824,7 +2012,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_4'
+                $ref: '#/components/schemas/inline_response_200_5'
           description: Successful output
           headers:
             X-DataDirect-Request-Key:
@@ -1990,10 +2178,11 @@ paths:
         content:
           application/json:
             example:
-              symbol: FDS
               data:
               - date: 20220107
-                price: "444"
+                content:
+                - symbol: FDS
+                  price: 444
             schema:
               $ref: '#/components/schemas/AddDates'
         description: Required data for creating date in the database. At least one
@@ -3111,7 +3300,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_5'
+                $ref: '#/components/schemas/inline_response_200_6'
           description: successful output
           headers:
             X-DataDirect-Request-Key:
@@ -3263,7 +3452,9 @@ paths:
       x-accepts: application/json
   /database:
     post:
-      description: Creates a 2d or 3d database(OFDB)
+      description: Creates a 2d or 3d database(OFDB). Users will note that not every
+        field requires all the parameters listed in the schema. Please review FactSet
+        data types on the OA for further guidance.
       operationId: CreateDatabase
       requestBody:
         content:
@@ -3606,7 +3797,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_200_3'
+            $ref: '#/components/schemas/inline_response_200_4'
       description: Successful symbols array within OFDB
       headers:
         X-DataDirect-Request-Key:
@@ -3623,7 +3814,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_200_4'
+            $ref: '#/components/schemas/inline_response_200_5'
       description: Successful output
       headers:
         X-DataDirect-Request-Key:
@@ -3640,7 +3831,24 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_200_5'
+            $ref: '#/components/schemas/inline_response_200_6'
+      description: successful output
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200BulkDelete":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_3'
       description: successful output
       headers:
         X-DataDirect-Request-Key:
@@ -3960,7 +4168,7 @@ components:
           type: array
       type: object
     UpdateSymbols:
-      description: Any arbitary set of fields that are provided while creating the
+      description: Any arbitrary set of fields that are provided while creating the
         ofdb and their values.
       example:
         data:
@@ -3984,6 +4192,32 @@ components:
         data:
           items:
             $ref: '#/components/schemas/UpdateSymbols_data'
+          type: array
+      type: object
+    BulkDelete:
+      example:
+        data:
+        - symbol: FDS
+        - date: 20220202
+        - field: PRICE
+        - symbol: AAPL
+          date: 20230303
+        - symbol: TSLA
+          date: 20240404
+          field: SHARES
+      properties:
+        data:
+          example:
+          - symbol: FDS
+          - date: 20220202
+          - field: PRICE
+          - symbol: AAPL
+            date: 20230303
+          - symbol: TSLA
+            date: 20240404
+            field: SHARES
+          items:
+            $ref: '#/components/schemas/BulkDelete_data'
           type: array
       type: object
     Symbols:
@@ -4281,6 +4515,24 @@ components:
     inline_response_200_3:
       example:
         data:
+        - - FDS
+          - FDS
+        - - FDS
+          - FDS
+      properties:
+        data:
+          description: A list of the various backend responses needed for the bulk
+            delete
+          items:
+            items:
+              example: FDS
+              type: string
+            type: array
+          type: array
+      type: object
+    inline_response_200_4:
+      example:
+        data:
         - FDS
         - FDS
       properties:
@@ -4309,7 +4561,7 @@ components:
             $ref: '#/components/schemas/inline_response_413_errors'
           type: array
       type: object
-    inline_response_200_4:
+    inline_response_200_5:
       example:
         data:
         - 20220202
@@ -4321,7 +4573,7 @@ components:
             type: integer
           type: array
       type: object
-    inline_response_200_5_data:
+    inline_response_200_6_data:
       example:
         symbol: FDS
         field_1: 1
@@ -4333,7 +4585,7 @@ components:
           example: 1
           type: integer
       type: object
-    inline_response_200_5:
+    inline_response_200_6:
       example:
         data:
         - symbol: FDS
@@ -4343,7 +4595,7 @@ components:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/inline_response_200_5_data'
+            $ref: '#/components/schemas/inline_response_200_6_data'
           type: array
       type: object
     AddSymbols_content:
@@ -4476,6 +4728,22 @@ components:
           items:
             $ref: '#/components/schemas/UpdateSymbol_content'
           type: array
+      type: object
+    BulkDelete_data:
+      description: Users may provide any combination of a symbol, date, and/or field
+        to perform a bulk delete operation. For example, if a user provides both a
+        symbol and a date within the same data point {} then the endpoint will delete
+        the symbol for just that date. If they provide a symbol, date, and field then
+        the endpoint will delete just that singular field entry point for that date
+        for the given symbol. Providing singular entities within a {} will delete
+        the complete data for that given value.
+      properties:
+        symbol:
+          type: string
+        date:
+          type: integer
+        field:
+          type: string
       type: object
     DatabaseSchema_data:
       example:

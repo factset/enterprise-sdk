@@ -21,7 +21,7 @@ import UpdateSymbolsData from './UpdateSymbolsData';
 class UpdateSymbols {
     /**
      * Constructs a new <code>UpdateSymbols</code>.
-     * Any arbitary set of fields that are provided while creating the ofdb and their values.
+     * Any arbitrary set of fields that are provided while creating the ofdb and their values.
      * @alias module:model/UpdateSymbols
      */
     constructor() { 

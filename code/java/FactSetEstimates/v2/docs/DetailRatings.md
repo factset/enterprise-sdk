@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **brokerName** | **String** | The name of the broker making the estimate. |  [optional]
 **ratingsNoteText** | **String** | A textual representation of the analysts rating. Broker recommendations are divided into five main broad categories- **Buy, Overweight, Hold, Underweight, and Sell**.&lt;p&gt;Additional recommendations may be displayed for the below reasons -  * Without- A rating \&quot;Without\&quot; is displayed when a broker provides estimates but does not provide a rating. * Dropping- When a broker stops covering an equity, the recommendation will show \&quot;Dropping.\&quot; * Not Available- A broker may be \&quot;Not Available\&quot; due to outstanding circumstances with that particular security. Ratings are not displayed until a new rating is provided. * Most/Least- \&quot;Most\&quot; or \&quot;Least\&quot; favorable rating is displayed for top or bottom rating available for a particular security.  |  [optional]
 **requestId** | **String** | Identifier that was used for the request. |  [optional]
+**inputDateTime** | **String** | Date and time when the data is available at the source. |  [optional]
 
 
 ## Implemented Interfaces

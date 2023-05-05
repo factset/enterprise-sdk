@@ -12,6 +12,8 @@ docs/AddFields.md
 docs/AddSymbols.md
 docs/AddSymbolsContent.md
 docs/AddSymbolsData.md
+docs/BulkDelete.md
+docs/BulkDeleteData.md
 docs/CreateApi.md
 docs/CreateDatabase.md
 docs/CreateDatabaseData.md
@@ -26,7 +28,8 @@ docs/InlineResponse2002.md
 docs/InlineResponse2003.md
 docs/InlineResponse2004.md
 docs/InlineResponse2005.md
-docs/InlineResponse2005Data.md
+docs/InlineResponse2006.md
+docs/InlineResponse2006Data.md
 docs/InlineResponse200Data.md
 docs/InlineResponse202.md
 docs/InlineResponse202Data.md
@@ -72,6 +75,8 @@ src/model/AddFields.js
 src/model/AddSymbols.js
 src/model/AddSymbolsContent.js
 src/model/AddSymbolsData.js
+src/model/BulkDelete.js
+src/model/BulkDeleteData.js
 src/model/CreateDatabase.js
 src/model/CreateDatabaseData.js
 src/model/DatabaseSchema.js
@@ -83,7 +88,8 @@ src/model/InlineResponse2002.js
 src/model/InlineResponse2003.js
 src/model/InlineResponse2004.js
 src/model/InlineResponse2005.js
-src/model/InlineResponse2005Data.js
+src/model/InlineResponse2006.js
+src/model/InlineResponse2006Data.js
 src/model/InlineResponse200Data.js
 src/model/InlineResponse202.js
 src/model/InlineResponse202Data.js

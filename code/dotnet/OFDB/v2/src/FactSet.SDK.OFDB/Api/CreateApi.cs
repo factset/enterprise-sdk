@@ -32,7 +32,7 @@ namespace FactSet.SDK.OFDB.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Creates a 2d or 3d database(OFDB)
+        /// Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
@@ -43,7 +43,7 @@ namespace FactSet.SDK.OFDB.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Creates a 2d or 3d database(OFDB)
+        /// Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
@@ -62,7 +62,7 @@ namespace FactSet.SDK.OFDB.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Creates a 2d or 3d database(OFDB)
+        /// Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
@@ -74,7 +74,7 @@ namespace FactSet.SDK.OFDB.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Creates a 2d or 3d database(OFDB)
+        /// Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
@@ -222,7 +222,7 @@ namespace FactSet.SDK.OFDB.Api
         }
 
         /// <summary>
-        ///  Creates a 2d or 3d database(OFDB)
+        ///  Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
@@ -234,7 +234,7 @@ namespace FactSet.SDK.OFDB.Api
         }
 
         /// <summary>
-        ///  Creates a 2d or 3d database(OFDB)
+        ///  Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
@@ -303,7 +303,7 @@ namespace FactSet.SDK.OFDB.Api
         }
 
         /// <summary>
-        ///  Creates a 2d or 3d database(OFDB)
+        ///  Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
@@ -316,7 +316,7 @@ namespace FactSet.SDK.OFDB.Api
         }
 
         /// <summary>
-        ///  Creates a 2d or 3d database(OFDB)
+        ///  Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
