@@ -1,7 +1,8 @@
 {
   "packageName": "FactSet.SDK.IRNMeetings",
-  "packageVersion": "2.0.2",
+  "packageVersion": "2.0.3",
   "packageGuid": "{88bc14a6-383a-55f1-8739-5fae9534103e}",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/IRNMeetings/v1",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
   "packageAuthors": "FactSet Research Systems",
@@ -17,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/IRNMeetings/2.0.2",
+  "httpUserAgent": "fds-sdk/dotnet/IRNMeetings/2.0.3",
   "files": {
     "LICENSE": {}
   },

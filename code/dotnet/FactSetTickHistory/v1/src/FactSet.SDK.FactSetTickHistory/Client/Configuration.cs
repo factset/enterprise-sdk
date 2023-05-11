@@ -32,7 +32,7 @@ namespace FactSet.SDK.FactSetTickHistory.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.22.3";
+        public const string Version = "0.22.4";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -104,7 +104,7 @@ namespace FactSet.SDK.FactSetTickHistory.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/FactSetTickHistory/0.22.3";
+            UserAgent = "fds-sdk/dotnet/FactSetTickHistory/0.22.4";
             BasePath = "https://api-sandbox.factset.com/bulk-documents/tickhistory";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -460,7 +460,7 @@ namespace FactSet.SDK.FactSetTickHistory.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.1.0\n";
-            report += "    SDK Package Version: 0.22.3\n";
+            report += "    SDK Package Version: 0.22.4\n";
 
             return report;
         }

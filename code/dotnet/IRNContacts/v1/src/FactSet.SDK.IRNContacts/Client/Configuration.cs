@@ -32,7 +32,7 @@ namespace FactSet.SDK.IRNContacts.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.0.2";
+        public const string Version = "2.0.3";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -104,7 +104,7 @@ namespace FactSet.SDK.IRNContacts.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/IRNContacts/2.0.2";
+            UserAgent = "fds-sdk/dotnet/IRNContacts/2.0.3";
             BasePath = "https://api.factset.com/research/irn";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -466,7 +466,7 @@ namespace FactSet.SDK.IRNContacts.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1\n";
-            report += "    SDK Package Version: 2.0.2\n";
+            report += "    SDK Package Version: 2.0.3\n";
 
             return report;
         }

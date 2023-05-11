@@ -1,7 +1,8 @@
 {
   "packageName": "FactSet.SDK.StocksAPIforDigitalPortals",
-  "packageVersion": "0.10.8",
+  "packageVersion": "0.10.9",
   "packageGuid": "{78566938-ed5b-5815-918f-d9a6553105c1}",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/StocksAPIforDigitalPortals/v3",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
   "packageAuthors": "FactSet Research Systems",
@@ -17,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/StocksAPIforDigitalPortals/0.10.8",
+  "httpUserAgent": "fds-sdk/dotnet/StocksAPIforDigitalPortals/0.10.9",
   "files": {
     "LICENSE": {}
   },

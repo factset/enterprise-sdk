@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 
 # import ApiClient
 from fds.sdk.FactSetEntity.api_client import ApiClient

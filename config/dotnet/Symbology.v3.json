@@ -1,7 +1,8 @@
 {
   "packageName": "FactSet.SDK.Symbology",
-  "packageVersion": "3.0.2",
+  "packageVersion": "3.0.3",
   "packageGuid": "{2cab5003-5e9c-509f-b25c-db583c3876e5}",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/Symbology/v3",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
   "packageAuthors": "FactSet Research Systems",
@@ -17,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/Symbology/3.0.2",
+  "httpUserAgent": "fds-sdk/dotnet/Symbology/3.0.3",
   "files": {
     "LICENSE": {}
   },

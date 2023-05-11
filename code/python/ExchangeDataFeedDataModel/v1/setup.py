@@ -15,7 +15,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.ExchangeDataFeedDataModel"
-VERSION = "0.20.1"
+VERSION = "0.20.2"
 # To install the library, run the following
 #
 # python setup.py install

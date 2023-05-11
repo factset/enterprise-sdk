@@ -32,7 +32,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.2";
+        public const string Version = "1.0.3";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -104,7 +104,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/FactSetEstimatesReportBuilder/1.0.2";
+            UserAgent = "fds-sdk/dotnet/FactSetEstimatesReportBuilder/1.0.3";
             BasePath = "https://api.factset.com/report/estimates/v1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -460,7 +460,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 1.0.2\n";
+            report += "    SDK Package Version: 1.0.3\n";
 
             return report;
         }

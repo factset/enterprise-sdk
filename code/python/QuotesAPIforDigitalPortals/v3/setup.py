@@ -15,7 +15,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.QuotesAPIforDigitalPortals"
-VERSION = "0.10.4"
+VERSION = "0.10.5"
 # To install the library, run the following
 #
 # python setup.py install

@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.20.3"
+__version__ = "0.20.4"
 
 # import ApiClient
 from fds.sdk.SecurityModeling.api_client import ApiClient

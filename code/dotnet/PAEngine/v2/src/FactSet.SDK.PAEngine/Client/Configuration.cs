@@ -33,7 +33,7 @@ namespace FactSet.SDK.PAEngine.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.8.7";
+        public const string Version = "0.8.8";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.PAEngine.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/PAEngine/0.8.7";
+            UserAgent = "fds-sdk/dotnet/PAEngine/0.8.8";
             BasePath = "https://api-sandbox.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.PAEngine.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2\n";
-            report += "    SDK Package Version: 0.8.7\n";
+            report += "    SDK Package Version: 0.8.8\n";
 
             return report;
         }

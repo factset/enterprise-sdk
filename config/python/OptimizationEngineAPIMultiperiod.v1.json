@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.OptimizationEngineAPIMultiperiod",
   "projectName": "fds.sdk.OptimizationEngineAPIMultiperiod",
-  "packageVersion": "0.21.2",
+  "packageVersion": "0.21.3",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Optimization Engine API (Multi-period) client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/OptimizationEngineAPIMultiperiod/v1",
-  "httpUserAgent": "fds-sdk/python/OptimizationEngineAPIMultiperiod/0.21.2",
+  "httpUserAgent": "fds-sdk/python/OptimizationEngineAPIMultiperiod/0.21.3",
   "files": {
     "LICENSE": {}
   }

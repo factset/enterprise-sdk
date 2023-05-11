@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.OpenFactSetPartnersDocuments",
   "projectName": "fds.sdk.OpenFactSetPartnersDocuments",
-  "packageVersion": "2.0.0",
+  "packageVersion": "2.0.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Open:FactSet Partners - Documents client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/OpenFactSetPartnersDocuments/v2",
-  "httpUserAgent": "fds-sdk/python/OpenFactSetPartnersDocuments/2.0.0",
+  "httpUserAgent": "fds-sdk/python/OpenFactSetPartnersDocuments/2.0.1",
   "files": {
     "LICENSE": {}
   }

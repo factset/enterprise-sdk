@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "2.0.0"
+__version__ = "2.0.1"
 
 # import ApiClient
 from fds.sdk.OpenFactSetPartnersDocuments.api_client import ApiClient

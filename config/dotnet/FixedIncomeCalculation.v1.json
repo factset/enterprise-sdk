@@ -1,7 +1,8 @@
 {
   "packageName": "FactSet.SDK.FixedIncomeCalculation",
-  "packageVersion": "0.8.6",
+  "packageVersion": "0.8.7",
   "packageGuid": "{563860c3-c419-5ac7-a050-cd25ecd75d23}",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FixedIncomeCalculation/v1",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
   "packageAuthors": "FactSet Research Systems",
@@ -17,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FixedIncomeCalculation/0.8.6",
+  "httpUserAgent": "fds-sdk/dotnet/FixedIncomeCalculation/0.8.7",
   "files": {
     "LICENSE": {}
   },
