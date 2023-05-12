@@ -58,6 +58,7 @@ with fds.sdk.Formula.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | Batch Request identifier.
 
     try:
@@ -152,6 +153,7 @@ with fds.sdk.Formula.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     batch_data_request = BatchDataRequest(
         data=BatchDataRequestData(
             id="2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c",
@@ -250,6 +252,7 @@ with fds.sdk.Formula.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | Batch Request identifier.
 
     try:
@@ -340,6 +343,7 @@ with fds.sdk.Formula.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     batch_data_request = BatchDataRequest(
         data=BatchDataRequestData(
             id="2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c",

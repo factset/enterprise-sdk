@@ -60,6 +60,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = about_api.AboutApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
     try:
@@ -152,6 +153,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = about_api.AboutApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
     try:
@@ -244,6 +246,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = about_api.AboutApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
     try:
@@ -336,7 +339,9 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = about_api.AboutApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     model_code = RiskModelCode("FDS:GLOBAL_EQUITY_M_V1") # RiskModelCode | Model code
 
     try:
@@ -430,6 +435,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = about_api.AboutApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
     try:
@@ -521,6 +527,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = about_api.AboutApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     version = "v1" # str | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
     try:

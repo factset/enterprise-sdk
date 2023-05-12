@@ -60,6 +60,7 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
     try:
@@ -153,6 +154,7 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
     try:
@@ -247,6 +249,7 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
     try:
@@ -342,8 +345,11 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Get Pub calculation status by id endpoint
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     unit_id = "unitId_example" # str | from url, provided from the location header in the Get Pub calculation status by id endpoint
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     accept = "Accept_example" # str | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)
 
     try:
@@ -441,8 +447,11 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the POST body. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pub_calculation_parameters_root = PubCalculationParametersRoot(
         data={
             "key": PubCalculationParameters(
@@ -564,9 +573,13 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Pub calculation endpoint
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pub_calculation_parameters_root = PubCalculationParametersRoot(
         data={
             "key": PubCalculationParameters(

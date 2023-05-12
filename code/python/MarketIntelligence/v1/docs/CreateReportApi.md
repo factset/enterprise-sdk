@@ -55,6 +55,7 @@ with fds.sdk.MarketIntelligence.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = create_report_api.CreateReportApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     miapi_post_request = MIAPIPostRequest(
         report_name="Morning Portfolio Update",
         identifier="OEX",

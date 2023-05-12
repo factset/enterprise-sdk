@@ -258,7 +258,7 @@ paths:
             minimum: 1
         - $ref: '#/components/parameters/_paginationOffset'
         - $ref: '#/components/parameters/clinicalTrialId'
-        - $ref: '#/components/parameters/officalTitle'
+        - $ref: '#/components/parameters/officialTitle'
         - $ref: '#/components/parameters/trialId'
         - $ref: '#/components/parameters/date'
       responses:
@@ -1257,8 +1257,8 @@ components:
       schema:
         type: string
       example: NCT03037385_037
-    officalTitle:
-      name: officalTitle
+    officialTitle:
+      name: officialTitle
       in: query
       description: Specifies full scientific title of a trial.
       required: false
@@ -1472,7 +1472,7 @@ components:
         type: string
       description: |
         Unique Scripts Asia identifier assigned to an event.
-      example: 5f6b2d30-955d-11ed-9002-bfc7208ab203
+      example: 431eb8d0-cc45-11ed-8609-0f67251fe7a4
     saId:
       name: saId
       in: query
@@ -1481,7 +1481,7 @@ components:
         type: string
       description: |
         This parameter filters the results based on saId of the Transcript.
-      example: SA000733_2023Feb24_a_02
+      example: SA002220_2023Mar27_a_02
     startDateScriptsAsia:
       name: startDate
       in: query
@@ -1492,7 +1492,7 @@ components:
       description: >
         The earliest date of the Scripts Asia file the API should return based
         on date.
-      example: '2023-02-20'
+      example: '2023-03-20'
     endDateScriptsAsia:
       name: endDate
       in: query
@@ -1503,7 +1503,7 @@ components:
       description: >
         The latest date of the Scripts Asia file the API should return based on
         date.         
-      example: '2023-02-28'
+      example: '2023-03-28'
     companyName:
       name: companyName
       in: query
@@ -1513,16 +1513,29 @@ components:
       description: >
         This parameter filters the results based on Company Name of the
         Transcript.
-      example: Mercuria Holdings Co., Ltd.
+      example: Beijing Shunxin Agriculture Co Ltd
     eventType:
       name: eventType
       in: query
       required: false
       schema:
         type: string
+        enum:
+          - '01'
+          - '02'
+          - '03'
+          - '04'
+          - '05'
+          - '06'
       description: |
         This parameter filters the results based on eventType of the Transcript.
-      example: '02'
+
+        * 01 = Shareholders Meeting
+        * 02 = Earnings Announcement
+        * 03 = Medium-term Management Plan Announcement
+        * 04 = Analyst Meeting
+        * 05 = Special Announcement
+        * 06 = Investor Conference
     languageType:
       name: languageType
       in: query
@@ -1543,7 +1556,7 @@ components:
       required: false
       schema:
         type: string
-      example: SA000733_2023Feb24_a_02_xml_local.xml
+      example: SA002220_2023Mar27_a_02_fds_xml_local.xml
     typeScriptsAsia:
       name: type
       in: query

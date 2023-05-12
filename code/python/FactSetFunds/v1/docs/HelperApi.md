@@ -56,6 +56,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = helper_api.HelperApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
     try:
@@ -149,6 +150,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = helper_api.HelperApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     statuses_request = StatusesRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # StatusesRequest | The Statuses request body, allowing the user to specify a list of ids.

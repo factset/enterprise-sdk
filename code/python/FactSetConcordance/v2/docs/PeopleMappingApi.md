@@ -58,6 +58,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = people_mapping_api.PeopleMappingApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     entity_mapping_delete_request = EntityMappingDeleteRequest(
         universe_id=1,
         client_id=["abc-123","dfg-456"],
@@ -154,6 +155,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = people_mapping_api.PeopleMappingApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     people_mapping_request = PeopleMappingRequest(
         client_entity="Microsoft",
         client_first_name="William",
@@ -259,13 +261,19 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = people_mapping_api.PeopleMappingApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     universe_id = 1 # int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     client_id = ["abc-123","def-456"] # [str] | Filter by the clientId(s) created by the user in a previous mapping.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     map_status = [
         "MAPPED",
     ] # [str] | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     limit = 10 # int | Limits the number of records in the response. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = ["clientId:asc","clientPersonName:desc"] # [str] | Sort clientId, createdTime, updatedTime, clientPersonName, personId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc) (optional)
 
     try:
@@ -365,6 +373,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = people_mapping_api.PeopleMappingApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     people_universe_request = PeopleUniverseRequest(
         universe_id=1,
         offset=0,

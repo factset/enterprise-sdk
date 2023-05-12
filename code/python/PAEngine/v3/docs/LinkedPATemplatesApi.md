@@ -59,6 +59,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     linked_pa_template_parameters_root = LinkedPATemplateParametersRoot(
         data=LinkedPATemplateParameters(
             directory="directory_example",
@@ -267,8 +268,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     directory = "Personal:LinkedPATemplates/" # str | Get linked PA templates in path. (optional) if omitted the server will use the default value of "Personal:LinkedPATemplates/"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     document_directory = "documentDirectory_example" # str | Get linked PA templates for documents in document path (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     document_name = "documentName_example" # str | Get linked PA templates for documents by document name (optional)
 
     try:
@@ -463,6 +467,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     linked_pa_template_update_parameters_root = LinkedPATemplateUpdateParametersRoot(
         data=LinkedPATemplateUpdateParameters(
             parent_component_id="parent_component_id_example",

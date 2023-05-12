@@ -57,6 +57,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___relationships_api.CustomSymbolsRelationshipsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol_relationship_save_dto = [
         SymbolRelationshipSaveDto(
             symbols_relationship_id="symbols_relationship_id_example",
@@ -154,6 +155,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___relationships_api.CustomSymbolsRelationshipsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol_relationship_id = "symbolRelationshipId_example" # str | symbolRelationshipId to delete associated record
 
     try:
@@ -242,7 +244,9 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___relationships_api.CustomSymbolsRelationshipsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol_relationship_update_dto = [
         SymbolRelationshipUpdateDto(
             id="id_example",
@@ -340,6 +344,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___relationships_api.CustomSymbolsRelationshipsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol_relationship_id = "symbolRelationshipId_example" # str | symbolRelationshipId to get associated record
 
     try:
@@ -428,6 +433,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols___relationships_api.CustomSymbolsRelationshipsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol_id = "symbolId_example" # str | symbolId to get associated records
 
     try:

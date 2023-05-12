@@ -55,9 +55,13 @@ with fds.sdk.CompanyLogoAPIforDigitalPortals.ApiClient(configuration) as api_cli
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier = "80728" # str | Identifier that resolves to a company. 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idInstrument" # str | The type of the identifier.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     format = "rectangular" # str | Format of the logos. (optional) if omitted the server will use the default value of "rectangular"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)

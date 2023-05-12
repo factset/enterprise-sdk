@@ -57,7 +57,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = add_api.AddApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     add_dates = AddDates(
         data=[
             AddDatesData(
@@ -167,7 +169,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = add_api.AddApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     add_fields = AddFields(
         data=Fields([
             {
@@ -276,7 +280,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = add_api.AddApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     add_symbols = AddSymbols(
         data=[
             AddSymbolsData(

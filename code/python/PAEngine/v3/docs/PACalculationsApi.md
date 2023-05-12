@@ -61,6 +61,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run PA calculation endpoint
 
     try:
@@ -249,6 +250,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run PA calculation endpoint
 
     try:
@@ -343,6 +345,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run PA calculation endpoint
 
     try:
@@ -438,7 +441,9 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Get PA calculation status by id endpoint
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     unit_id = "unitId_example" # str | from url, provided from the location header in the Get PA calculation status by id endpoint
 
     try:
@@ -534,8 +539,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the POST body. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pa_calculation_parameters_root = PACalculationParametersRoot(
         data={
             "key": PACalculationParameters(
@@ -700,9 +708,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run PA calculation endpoint
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pa_calculation_parameters_root = PACalculationParametersRoot(
         data={
             "key": PACalculationParameters(

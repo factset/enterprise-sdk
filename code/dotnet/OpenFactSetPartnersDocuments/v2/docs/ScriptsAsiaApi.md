@@ -55,14 +55,14 @@ namespace Example
             var sort = "startDate";  // string | Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used. (optional)  (default to -startDate)
             var paginationLimit = 20;  // int? | Specifies the maximum number of results to return per result. (optional)  (default to 20)
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional)  (default to 0)
-            var trackingId = "5f6b2d30-955d-11ed-9002-bfc7208ab203";  // string | Unique Scripts Asia identifier assigned to an event.  (optional) 
-            var saId = "SA000733_2023Feb24_a_02";  // string | This parameter filters the results based on saId of the Transcript.  (optional) 
-            var startDate = DateTime.Parse("2023-02-20");  // DateTime? | The earliest date of the Scripts Asia file the API should return based on date.  (optional) 
-            var endDate = DateTime.Parse("2023-02-28");  // DateTime? | The latest date of the Scripts Asia file the API should return based on date.           (optional) 
-            var companyName = "Mercuria Holdings Co., Ltd.";  // string | This parameter filters the results based on Company Name of the Transcript.  (optional) 
-            var eventType = "02";  // string | This parameter filters the results based on eventType of the Transcript.  (optional) 
+            var trackingId = "431eb8d0-cc45-11ed-8609-0f67251fe7a4";  // string | Unique Scripts Asia identifier assigned to an event.  (optional) 
+            var saId = "SA002220_2023Mar27_a_02";  // string | This parameter filters the results based on saId of the Transcript.  (optional) 
+            var startDate = DateTime.Parse("2023-03-20");  // DateTime? | The earliest date of the Scripts Asia file the API should return based on date.  (optional) 
+            var endDate = DateTime.Parse("2023-03-28");  // DateTime? | The latest date of the Scripts Asia file the API should return based on date.           (optional) 
+            var companyName = "Beijing Shunxin Agriculture Co Ltd";  // string | This parameter filters the results based on Company Name of the Transcript.  (optional) 
+            var eventType = "01";  // string | This parameter filters the results based on eventType of the Transcript.  * 01 = Shareholders Meeting * 02 = Earnings Announcement * 03 = Medium-term Management Plan Announcement * 04 = Analyst Meeting * 05 = Special Announcement * 06 = Investor Conference  (optional) 
             var languageType = "eng";  // string | This parameter filters the results based on language type(either English or local) of the Transcript.  (optional)  (default to local)
-            var fileName = "SA000733_2023Feb24_a_02_xml_local.xml";  // string | This parameter is used to filters the results based on file name. (optional) 
+            var fileName = "SA002220_2023Mar27_a_02_fds_xml_local.xml";  // string | This parameter is used to filters the results based on file name. (optional) 
             var type = "full";  // string | Specifies the type of the file. (optional)  (default to delta)
 
             try
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
  **startDate** | **DateTime?**| The earliest date of the Scripts Asia file the API should return based on date.  | [optional] 
  **endDate** | **DateTime?**| The latest date of the Scripts Asia file the API should return based on date.           | [optional] 
  **companyName** | **string**| This parameter filters the results based on Company Name of the Transcript.  | [optional] 
- **eventType** | **string**| This parameter filters the results based on eventType of the Transcript.  | [optional] 
+ **eventType** | **string**| This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  | [optional] 
  **languageType** | **string**| This parameter filters the results based on language type(either English or local) of the Transcript.  | [optional] [default to local]
  **fileName** | **string**| This parameter is used to filters the results based on file name. | [optional] 
  **type** | **string**| Specifies the type of the file. | [optional] [default to delta]

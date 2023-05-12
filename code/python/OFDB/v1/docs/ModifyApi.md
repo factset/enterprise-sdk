@@ -60,7 +60,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = 1 # int | Date in YYYYMMDD format
 
     try:
@@ -156,8 +158,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = 1 # int | Date in YYYYMMDD format
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | Symbol with in the ofdb
 
     try:
@@ -254,7 +259,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | Symbol with in the ofdb
 
     try:
@@ -350,8 +357,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = 1 # int | Date in YYYYMMDD format
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_symbol_date = UpdateSymbolDate(
         data=[
             AddSymbolDateData(
@@ -456,9 +466,13 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = 1 # int | Date in YYYYMMDD format
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | Symbol with in the ofdb
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_symbol_date3_d = UpdateSymbolDate3D(
         data=UpdateSymbolDate3DData(
             field_1="field_1_example",
@@ -560,8 +574,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str | Symbol with in the ofdb
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_symbols = UpdateSymbols(
         data=[
             UpdateSymbolsData(

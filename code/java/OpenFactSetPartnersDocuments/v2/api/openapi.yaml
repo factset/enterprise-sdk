@@ -479,7 +479,7 @@ paths:
           Other Advanced Solid Tumors
         explode: true
         in: query
-        name: officalTitle
+        name: officialTitle
         required: false
         schema:
           type: string
@@ -1763,7 +1763,7 @@ paths:
         style: form
       - description: |
           Unique Scripts Asia identifier assigned to an event.
-        example: 5f6b2d30-955d-11ed-9002-bfc7208ab203
+        example: 431eb8d0-cc45-11ed-8609-0f67251fe7a4
         explode: true
         in: query
         name: trackingId
@@ -1773,7 +1773,7 @@ paths:
         style: form
       - description: |
           This parameter filters the results based on saId of the Transcript.
-        example: SA000733_2023Feb24_a_02
+        example: SA002220_2023Mar27_a_02
         explode: true
         in: query
         name: saId
@@ -1783,7 +1783,7 @@ paths:
         style: form
       - description: |
           The earliest date of the Scripts Asia file the API should return based on date.
-        example: 2023-02-20
+        example: 2023-03-20
         explode: true
         in: query
         name: startDate
@@ -1794,7 +1794,7 @@ paths:
         style: form
       - description: "The latest date of the Scripts Asia file the API should return\
           \ based on date.         \n"
-        example: 2023-02-28
+        example: 2023-03-28
         explode: true
         in: query
         name: endDate
@@ -1805,7 +1805,7 @@ paths:
         style: form
       - description: |
           This parameter filters the results based on Company Name of the Transcript.
-        example: Mercuria Holdings Co., Ltd.
+        example: Beijing Shunxin Agriculture Co Ltd
         explode: true
         in: query
         name: companyName
@@ -1815,12 +1815,25 @@ paths:
         style: form
       - description: |
           This parameter filters the results based on eventType of the Transcript.
-        example: "02"
+
+          * 01 = Shareholders Meeting
+          * 02 = Earnings Announcement
+          * 03 = Medium-term Management Plan Announcement
+          * 04 = Analyst Meeting
+          * 05 = Special Announcement
+          * 06 = Investor Conference
         explode: true
         in: query
         name: eventType
         required: false
         schema:
+          enum:
+          - "01"
+          - "02"
+          - "03"
+          - "04"
+          - "05"
+          - "06"
           type: string
         style: form
       - description: |
@@ -1837,7 +1850,7 @@ paths:
           type: string
         style: form
       - description: This parameter is used to filters the results based on file name.
-        example: SA000733_2023Feb24_a_02_xml_local.xml
+        example: SA002220_2023Mar27_a_02_fds_xml_local.xml
         explode: true
         in: query
         name: fileName
@@ -2350,14 +2363,14 @@ components:
       schema:
         type: string
       style: form
-    officalTitle:
+    officialTitle:
       description: Specifies full scientific title of a trial.
       example: A Phase 1/2 Study of the Highly-selective RET Inhibitor, BLU-667, in
         Patients With Thyroid Cancer, Non-Small Cell Lung Cancer (NSCLC) and Other
         Advanced Solid Tumors
       explode: true
       in: query
-      name: officalTitle
+      name: officialTitle
       required: false
       schema:
         type: string
@@ -2600,7 +2613,7 @@ components:
     trackingId:
       description: |
         Unique Scripts Asia identifier assigned to an event.
-      example: 5f6b2d30-955d-11ed-9002-bfc7208ab203
+      example: 431eb8d0-cc45-11ed-8609-0f67251fe7a4
       explode: true
       in: query
       name: trackingId
@@ -2611,7 +2624,7 @@ components:
     saId:
       description: |
         This parameter filters the results based on saId of the Transcript.
-      example: SA000733_2023Feb24_a_02
+      example: SA002220_2023Mar27_a_02
       explode: true
       in: query
       name: saId
@@ -2622,7 +2635,7 @@ components:
     startDateScriptsAsia:
       description: |
         The earliest date of the Scripts Asia file the API should return based on date.
-      example: 2023-02-20
+      example: 2023-03-20
       explode: true
       in: query
       name: startDate
@@ -2634,7 +2647,7 @@ components:
     endDateScriptsAsia:
       description: "The latest date of the Scripts Asia file the API should return\
         \ based on date.         \n"
-      example: 2023-02-28
+      example: 2023-03-28
       explode: true
       in: query
       name: endDate
@@ -2646,7 +2659,7 @@ components:
     companyName:
       description: |
         This parameter filters the results based on Company Name of the Transcript.
-      example: Mercuria Holdings Co., Ltd.
+      example: Beijing Shunxin Agriculture Co Ltd
       explode: true
       in: query
       name: companyName
@@ -2657,12 +2670,25 @@ components:
     eventType:
       description: |
         This parameter filters the results based on eventType of the Transcript.
-      example: "02"
+
+        * 01 = Shareholders Meeting
+        * 02 = Earnings Announcement
+        * 03 = Medium-term Management Plan Announcement
+        * 04 = Analyst Meeting
+        * 05 = Special Announcement
+        * 06 = Investor Conference
       explode: true
       in: query
       name: eventType
       required: false
       schema:
+        enum:
+        - "01"
+        - "02"
+        - "03"
+        - "04"
+        - "05"
+        - "06"
         type: string
       style: form
     languageType:
@@ -2681,7 +2707,7 @@ components:
       style: form
     fileNameScriptsAsia:
       description: This parameter is used to filters the results based on file name.
-      example: SA000733_2023Feb24_a_02_xml_local.xml
+      example: SA002220_2023Mar27_a_02_fds_xml_local.xml
       explode: true
       in: query
       name: fileName

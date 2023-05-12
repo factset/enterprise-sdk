@@ -56,6 +56,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___types_api.ContactsTypesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     body = "body_example" # str | Contact type name
 
     try:
@@ -144,6 +145,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___types_api.ContactsTypesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_type_id = "contactTypeId_example" # str | contactTypeId to delete associated record
 
     try:
@@ -314,7 +316,9 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___types_api.ContactsTypesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_type_id = "contactTypeId_example" # str | contactTypeId to update associated record
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     body = "body_example" # str | Updated contact type name
 
     try:

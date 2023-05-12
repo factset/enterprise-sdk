@@ -57,6 +57,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = question__answer_api.QuestionAnswerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | Identifier from the Question & Answer task and comes from the POST request which created the task
 
     try:
@@ -153,6 +154,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = question__answer_api.QuestionAnswerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | Identifier from the Question & Answer task and comes from the POST request which created the task
 
     try:
@@ -245,6 +247,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = question__answer_api.QuestionAnswerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     qn_a_answer_parameters_root = QnAAnswerParametersRoot(
         data=QnAAnswerParameters(
             input='''

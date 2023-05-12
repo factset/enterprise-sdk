@@ -56,6 +56,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = identifier_resolution_api.IdentifierResolutionApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_resolution_request = IdentifierResolutionRequest(
         ids=GetIdsResolution(["GOOGL-US"]),
         input_symbol_type=GetInputSymbolType("tickerRegion"),
@@ -153,7 +154,9 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = identifier_resolution_api.IdentifierResolutionApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["GOOGL-US"] # [str] | Requested security or entity identifiers. All requested identifiers must be of the same type. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p>   *<p>NOTE:  GET Method URL request lines are also limited to a total   length of 8192 bytes (8KB). In cases where the service allows for thousands   of ids, which may lead to exceeding this request line limit of 8KB, its   advised for any requests with large request lines to be requested through   the respective \"POST\" method.</p>* 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     output_symbol_types = ["CUSIP","SEDOL"] # [str] | The type of symbols being outputted. Multiple types of symbols can be outputted with each request. The user must be authorized for the requested identifier type.
 
     try:

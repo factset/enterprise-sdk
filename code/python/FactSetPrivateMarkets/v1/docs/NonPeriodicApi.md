@@ -56,7 +56,9 @@ with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = non_periodic_api.NonPeriodicApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["000BFG-E","000BGZ-E","000C64-E"] # [str] | The requested FactSet Private Market Entity Identifier in XXXXXX-E format.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     fields = ["amtRaisedUsd"] # [str] | Private Markets Non-Periodic Fields. 
 
     try:
@@ -151,6 +153,7 @@ with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = non_periodic_api.NonPeriodicApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     non_periodic_request = NonPeriodicRequest(
         ids=PrivateMarketIds(["000BFG-E","000BGZ-E","000C64-E"]),
         fields=NonPeriodicFields(["amtRaised"]),

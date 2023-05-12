@@ -55,11 +55,17 @@ with fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.ApiClient(configuration) 
     # Create an instance of the API class
     api_instance = snapshot_api.SnapshotApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     product = 10001 # int | any product subscribed by client. Minimum value for prod code=9001
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = dateutil_parser('1970-01-01').date() # date | YYYYMMDD (Choose between 1 and 4 previous trading days)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = dateutil_parser('1970-01-01').date() # date | YYYYMMDD (Choose between 1 and 4 previous trading days, greater than or equal to start date)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_time = "start_time_example" # str | HHMM (24 hour time EST)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_time = "end_time_example" # str | HHMM (24 hour time EST)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     access = "DL" # str | Option to select from static, DL or RT data (optional) if omitted the server will use the default value of "DL"
 
     try:

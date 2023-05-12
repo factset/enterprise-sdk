@@ -56,6 +56,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = option_chains__screening_api.OptionChainsScreeningApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     chains_request = ChainsRequest(
         ids=UnderlyingIds(["TSLA-US"]),
         date="2021-05-03",
@@ -154,6 +155,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = option_chains__screening_api.OptionChainsScreeningApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     option_screening_request = OptionScreeningRequest(
         ids=ExchangeScreeningId("USA_OPTS"),
         condition_one="P_OPT_UNDERLYING_SECURITY_E",

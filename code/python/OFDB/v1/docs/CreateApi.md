@@ -58,7 +58,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = create_api.CreateApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     add_symbol_date = AddSymbolDate(
         date="20220202",
         data=[
@@ -163,8 +165,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = create_api.CreateApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = 1 # int | Date in YYYYMMDD format
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     add_symbol_date3_d = AddSymbolDate3D(
         symbol="FSA",
         data=AddSymbolDate3DData(
@@ -266,7 +271,9 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = create_api.CreateApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     add_symbols = AddSymbols(
         symbol="symbol_example",
         data=[
@@ -371,6 +378,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = create_api.CreateApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     database_schema = DatabaseSchema(
         path="CLIENT:this_is_a_test_.OFDB",
         description="A user would fill this with relevant information",

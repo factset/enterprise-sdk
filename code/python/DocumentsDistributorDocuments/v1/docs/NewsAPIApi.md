@@ -57,9 +57,13 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = news_api_api.NewsAPIApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     job_id = "jobID_example" # str | jobID returned by the request-files endpoint to know the status and percentDone
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     source = "news_ukwd" # str | This parameter filters the results based on the source of the filings document
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 1 # int | Specifies the maximum number of results to return per result (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 1 # int | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results (optional)
 
     try:
@@ -153,9 +157,13 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = news_api_api.NewsAPIApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     job_id = "jobID_example" # str | jobID returned by the request-files endpoint to collect the results of the query
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     source = "news_ukwd" # str | This parameter filters the results based on the source of the filings document
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 1 # int | Specifies the maximum number of results to return per result (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 1 # int | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results (optional)
 
     try:
@@ -249,8 +257,11 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = news_api_api.NewsAPIApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = dateutil_parser('1970-01-01').date() # date | Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = dateutil_parser('1970-01-01').date() # date | The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     source = "news_ukwd" # str | This parameter filters the results based on the source of the filings document
 
     try:

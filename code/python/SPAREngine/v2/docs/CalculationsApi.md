@@ -58,6 +58,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | From url, provided from the location header in the Run Multiple Calculations endpoint.
 
     try:
@@ -152,6 +153,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | From url, provided from the location header in the Run Multiple Calculations endpoint.
 
     try:
@@ -338,6 +340,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     calculation = Calculation(
         pa={
             "key": PACalculationParameters(

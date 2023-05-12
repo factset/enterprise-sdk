@@ -151,8 +151,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = columns_api.ColumnsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     name = "" # str |  (optional) if omitted the server will use the default value of ""
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     category = "" # str |  (optional) if omitted the server will use the default value of ""
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     directory = "" # str |  (optional) if omitted the server will use the default value of ""
 
     try:

@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/OpenFactSetPartnersDocuments/2.0.0'
+            'User-Agent': 'fds-sdk/javascript/OpenFactSetPartnersDocuments/3.0.0'
         };
 
         /**

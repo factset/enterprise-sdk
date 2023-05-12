@@ -60,6 +60,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     event_id = "eventId_example" # str | The UUID of the event to return.
 
     try:
@@ -149,6 +150,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     event_id = "eventId_example" # str | The UUID of the event to return.
 
     try:
@@ -238,6 +240,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     event_request_body = EventRequestBody(
         created=None,
         updated=None,
@@ -338,6 +341,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     event_request_body = EventRequestBody(
         created=None,
         updated=None,
@@ -436,6 +440,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     events_entities_post = EventsEntitiesPost(
         created=None,
         updated=None,
@@ -532,6 +537,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     event_request_body = EventRequestBody(
         created=None,
         updated=None,

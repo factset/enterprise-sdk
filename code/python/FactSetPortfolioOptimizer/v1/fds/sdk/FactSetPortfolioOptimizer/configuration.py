@@ -422,7 +422,7 @@ conf = fds.sdk.FactSetPortfolioOptimizer.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1\n"\
-               "SDK Package Version: 0.8.6".\
+               "SDK Package Version: 0.8.7".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

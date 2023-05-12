@@ -58,6 +58,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "FDS" # str | Company ticker
 
     try:
@@ -150,8 +151,11 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "FDS" # str | Company ticker
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     actual = 4 # int | The number of actual data periods to be returned. Must be greater than 0 (optional) if omitted the server will use the default value of 4
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     estimate = 1 # int | The number of estimate data periods to be returned. Must be greater than 0 (optional) if omitted the server will use the default value of 1
 
     try:
@@ -247,6 +251,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "FDS" # str | Company ticker
 
     try:
@@ -339,6 +344,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "FDS" # str | Company ticker
 
     try:
@@ -431,7 +437,9 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "FDS" # str | Company ticker
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     topn = 5 # float | Limits the number of peers returned. (optional)
 
     try:
@@ -526,8 +534,11 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "FDS" # str | Company ticker
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     transaction_type = "ACQUISITION_MERGER" # str | Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     financing_type = "EQUITY" # str | Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)
 
     try:

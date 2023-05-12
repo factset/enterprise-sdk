@@ -56,6 +56,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = profiles_api.ProfilesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["0DPHLH-E","07MZV9-E"] # [str] | List of FactSet Person Entity identifier.
 
     try:
@@ -147,6 +148,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = profiles_api.ProfilesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     people_profiles_request = PeopleProfilesRequest(
         ids=Ids(["0DPHLH-E"]),
     ) # PeopleProfilesRequest | 

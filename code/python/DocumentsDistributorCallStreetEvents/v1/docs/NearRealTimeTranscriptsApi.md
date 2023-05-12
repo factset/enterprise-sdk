@@ -58,13 +58,21 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
     # Create an instance of the API class
     api_instance = near_real_time_transcripts_api.NearRealTimeTranscriptsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 5 # int | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional) if omitted the server will use the default value of 200
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     audio_source_id = 471849 # int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_id = 2683372 # int | Unique identifier for an event. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = "-startDate" # str | Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used. (optional) if omitted the server will use the default value of "-startDate"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     entity_id = "000CGP-E" # str | Factset entity level identifier for the company hosting the event. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ticker = "AZZ-US" # str | Ticker-region identifier for the company hosting the event. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     call_status = "inProgress" # str | Status of the call i.e. ended or inProgress or ewn or issueAtSource. (optional)
 
     try:
@@ -165,9 +173,13 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
     # Create an instance of the API class
     api_instance = near_real_time_transcripts_api.NearRealTimeTranscriptsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     audio_source_id = 471849 # int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 5 # int | Specifies the  number of results to return per page. [ Min=0; Max=50 ] (optional) if omitted the server will use the default value of 25
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_id = 2683372 # int | Unique identifier for an event. (optional)
 
     try:
@@ -264,9 +276,13 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
     # Create an instance of the API class
     api_instance = near_real_time_transcripts_api.NearRealTimeTranscriptsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     audio_source_id = 471849 # int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 5 # int | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional) if omitted the server will use the default value of 200
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_id = 2683372 # int | Unique identifier for an event. (optional)
 
     try:
@@ -363,9 +379,13 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
     # Create an instance of the API class
     api_instance = near_real_time_transcripts_api.NearRealTimeTranscriptsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     audio_source_id = 471849 # int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 5 # int | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional) if omitted the server will use the default value of 200
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = "startDate" # str | Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used. (optional) if omitted the server will use the default value of "startDate"
 
     try:

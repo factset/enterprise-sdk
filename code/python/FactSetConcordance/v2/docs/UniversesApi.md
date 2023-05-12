@@ -59,6 +59,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universes_api.UniversesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     universe_id = 1 # int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
 
     try:
@@ -148,6 +149,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universes_api.UniversesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     create_universe_request = CreateUniverseRequest(
         universe_name="My Universe",
         universe_description="This is my universe",
@@ -246,6 +248,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universes_api.UniversesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     universe_id = 1 # int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
 
     try:
@@ -335,7 +338,9 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universes_api.UniversesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     universe_id = 1 # int | Universe identifier. *To create a universe, use the `/universe' endpoint.* (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     universe_type = "ENTITY" # str | Universe Type. (optional)
 
     try:
@@ -427,6 +432,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universes_api.UniversesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_universe_request = UpdateUniverseRequest(
         universe_name="My Universe",
         universe_description="This is my universe",

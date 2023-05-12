@@ -55,6 +55,7 @@ with fds.sdk.DirectStreamingofTransactionMessages.ApiClient(configuration) as ap
     # Create an instance of the API class
     api_instance = dsotm_api.DSOTMApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     transactions = Transactions(
         executions=[
             ExecutionParameters(

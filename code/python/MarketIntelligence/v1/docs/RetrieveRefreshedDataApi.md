@@ -55,6 +55,7 @@ with fds.sdk.MarketIntelligence.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = retrieve_refreshed_data_api.RetrieveRefreshedDataApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     poll_id = "poll_id_example" # str | example: 65ba6dd63fb366464646426d0b
 
     try:

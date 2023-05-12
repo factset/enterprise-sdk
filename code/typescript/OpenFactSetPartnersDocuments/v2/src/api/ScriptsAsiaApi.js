@@ -47,7 +47,7 @@ export default class ScriptsAsiaApi {
      * @param {Date} opts.startDate The earliest date of the Scripts Asia file the API should return based on date. 
      * @param {Date} opts.endDate The latest date of the Scripts Asia file the API should return based on date.          
      * @param {String} opts.companyName This parameter filters the results based on Company Name of the Transcript. 
-     * @param {String} opts.eventType This parameter filters the results based on eventType of the Transcript. 
+     * @param {module:model/String} opts.eventType This parameter filters the results based on eventType of the Transcript.  * 01 = Shareholders Meeting * 02 = Earnings Announcement * 03 = Medium-term Management Plan Announcement * 04 = Analyst Meeting * 05 = Special Announcement * 06 = Investor Conference 
      * @param {module:model/String} opts.languageType This parameter filters the results based on language type(either English or local) of the Transcript.  (default to 'local')
      * @param {String} opts.fileName This parameter is used to filters the results based on file name.
      * @param {module:model/String} opts.type Specifies the type of the file. (default to 'delta')
@@ -104,7 +104,7 @@ export default class ScriptsAsiaApi {
      * @param {Date} opts.startDate The earliest date of the Scripts Asia file the API should return based on date. 
      * @param {Date} opts.endDate The latest date of the Scripts Asia file the API should return based on date.          
      * @param {String} opts.companyName This parameter filters the results based on Company Name of the Transcript. 
-     * @param {String} opts.eventType This parameter filters the results based on eventType of the Transcript. 
+     * @param {module:model/String} opts.eventType This parameter filters the results based on eventType of the Transcript.  * 01 = Shareholders Meeting * 02 = Earnings Announcement * 03 = Medium-term Management Plan Announcement * 04 = Analyst Meeting * 05 = Special Announcement * 06 = Investor Conference 
      * @param {module:model/String} opts.languageType This parameter filters the results based on language type(either English or local) of the Transcript.  (default to 'local')
      * @param {String} opts.fileName This parameter is used to filters the results based on file name.
      * @param {module:model/String} opts.type Specifies the type of the file. (default to 'delta')

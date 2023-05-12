@@ -55,6 +55,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dates_api.DatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     startdate = "-3AY" # str | Start Date (optional) if omitted the server will use the default value of "-3AY"
 
     try:

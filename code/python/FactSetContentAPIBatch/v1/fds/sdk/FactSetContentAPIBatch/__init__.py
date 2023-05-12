@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.21.3"
+__version__ = "0.21.4"
 
 # import ApiClient
 from fds.sdk.FactSetContentAPIBatch.api_client import ApiClient

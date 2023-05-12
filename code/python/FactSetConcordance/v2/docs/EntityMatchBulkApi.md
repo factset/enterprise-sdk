@@ -57,8 +57,11 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_match___bulk_api.EntityMatchBulkApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     task_id = 31589 # int | Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     limit = 10 # int | Limits the number of records in the response. (optional)
 
     try:
@@ -155,45 +158,79 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_match___bulk_api.EntityMatchBulkApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     universe_id = 1 # int | The id of the universe that entities should be mapped to. Reference the `/universe` endpoint to create a universe, or view available universes via `/universes`.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     task_name = "test31" # str | User defined name for the task that will be used to name the output files.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     input_file = open('/path/to/file', 'rb') # file_type | The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     client_id_column = "ClientId" # str | Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     name_column = "NAME" # str | Header name of the column in the input file that contains the Entity Name to be matched. 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     country_column = "COUNTRY" # str | Header Name of the column in the input file that contains the country's ISO Code. This is used to filter the candidates before taking a match decision.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     url_column = "URL" # str | Header Name of the column in the input file that contains the Entity's URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     state_column = "STATE" # str | Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     priority_column = "Priority" # str | Header Name of the column in the inputfile that contains the priority for the client id.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     bic_column = "bic_column_example" # str | Header Name of the column in the input file for the BICCode, `bank indentification code` symbol type  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     bbg_ticker_column = "bbg_ticker_column_example" # str | Header Name of the column in the input file for the Bloomberg `Listing and Regional Ticker` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cik_column = "cik_column_example" # str | Header Name of the column in the input file for the CIK, `Edgar Central Index Keys` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     crd_column = "crd_column_example" # str | Header Name of the column in the input file for the CRD, `Central Registration Depository` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cusip_column = "cusip_column_example" # str | Header Name of the column in the input file for the `CUSIP` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     duns_column = "duns_column_example" # str | Header Name of the column in the input file for the DUNS, `Dun&Bradstreet` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ein_column = "ein_column_example" # str | Header Name of the column in the input file for the EIN, `EmployerIdentificationNumber` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     rssd_column = "rssd_column_example" # str | Header Name of the column in the input file for the RSSD, `FederalReserveRSSDIdentifier` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     fitch_column = "fitch_column_example" # str | Header Name of the column in the input file for the FitchCreditRating, `Fitch Ratings Identifier` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     isin_column = "isin_column_example" # str | Header Name of the column in the input file for the `ISIN`symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     lei_column = "lei_column_example" # str | Header Name of the column in the input file for the LEI, `LegalEntityIdentifier` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     bbg_figi_column = "bbg_figi_column_example" # str | Header Name of the column in the input file for the `Bloomberg Listing/Regional/Security ID` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     md_column = "md_column_example" # str | Header Name of the column in the input file for the MoodysIssuer, `Moody's Ratings Identifier` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ticker_column = "ticker_column_example" # str | Header Name of the column in the input file for the `PriceTicker` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     spr_column = "spr_column_example" # str | Header Name of the column in the input file for the S&PRating, `S&P Ratings Identifier` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sedol_column = "sedol_column_example" # str | Header Name of the column in the input file for the `SEDOL` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ticker_exchange_column = "ticker_exchange_column_example" # str | Header Name of the column in the input file for the `TickerExchange` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ticker_region_column = "ticker_region_column_example" # str | Header Name of the column in the input file for the `TickerRegion` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ukch_column = "ukch_column_example" # str | Header Name of the column in the input file for the `UKCompanyHouse` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     valoren_column = "valoren_column_example" # str | Header Name of the column in the input file for the VALOR, `Valoren (\\\"Valor\\\") Identification` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     wkn_column = "wkn_column_example" # str | Header Name of the column in the input file for the WKN, `German Securities Identification` symbol type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_entity_type = [
         "PUB",
     ] # [str] | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     exclude_entity_type = [
         "EXT",
     ] # [str] | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.**  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_entity_sub_type = [
         "PR",
     ] # [str] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     exclude_entity_sub_type = [
         "IB",
     ] # [str] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional)
@@ -323,9 +360,13 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_match___bulk_api.EntityMatchBulkApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     task_id = 31589 # int | Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     limit = 10 # int | Limits the number of records in the response. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     status = [
         "PENDING",
     ] # [str] | Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  (optional)

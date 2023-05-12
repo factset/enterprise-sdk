@@ -57,6 +57,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Run FI Calculation endpoint
 
     try:
@@ -150,6 +151,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Run FI Calculation endpoint
 
     try:
@@ -245,8 +247,11 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_content_organization = "X-FactSet-Content-Organization_example" # str | FactSet content organization (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_content_type = "X-FactSet-Content-Type_example" # str | FactSet content type (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     fi_calculation_parameters = FICalculationParameters(
         securities=[
             FISecurity(

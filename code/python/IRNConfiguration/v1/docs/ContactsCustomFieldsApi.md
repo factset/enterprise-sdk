@@ -57,6 +57,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___custom_fields_api.ContactsCustomFieldsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_custom_field_save_dto = ContactCustomFieldSaveDto(
         code="code_example",
         name="name_example",
@@ -162,6 +163,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___custom_fields_api.ContactsCustomFieldsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_custom_field_id = "contactCustomFieldId_example" # str | contactCustomFieldId to delete associated record
 
     try:
@@ -250,6 +252,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___custom_fields_api.ContactsCustomFieldsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_custom_field_id = "contactCustomFieldId_example" # str | contactCustomFieldId to get associated record
 
     try:
@@ -420,7 +423,9 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___custom_fields_api.ContactsCustomFieldsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_custom_field_id = "contactCustomFieldId_example" # str | contactCustomFieldId to update associated record
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     operation = [
         Operation(
             operation_type=OperationType(0),

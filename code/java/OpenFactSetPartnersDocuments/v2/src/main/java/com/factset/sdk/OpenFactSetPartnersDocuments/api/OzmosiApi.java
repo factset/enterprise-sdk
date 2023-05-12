@@ -243,7 +243,7 @@ public class OzmosiApi {
    * @param paginationLimit Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional, default to 20)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)
    * @param clinicalTrialId This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
-   * @param officalTitle Specifies full scientific title of a trial. (optional)
+   * @param officialTitle Specifies full scientific title of a trial. (optional)
    * @param trialId This parameter specifies ID of the trial assigned by the trial registry. (optional)
    * @param date Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)
    * @return DataResponse
@@ -258,8 +258,8 @@ public class OzmosiApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public DataResponse getOzmosiClinicalTrialsDaily(String sort, Integer paginationLimit, Integer paginationOffset, String clinicalTrialId, String officalTitle, String trialId, OffsetDateTime date) throws ApiException {
-    return getOzmosiClinicalTrialsDailyWithHttpInfo(sort, paginationLimit, paginationOffset, clinicalTrialId, officalTitle, trialId, date).getData();
+  public DataResponse getOzmosiClinicalTrialsDaily(String sort, Integer paginationLimit, Integer paginationOffset, String clinicalTrialId, String officialTitle, String trialId, OffsetDateTime date) throws ApiException {
+    return getOzmosiClinicalTrialsDailyWithHttpInfo(sort, paginationLimit, paginationOffset, clinicalTrialId, officialTitle, trialId, date).getData();
   }
 
   /**
@@ -269,7 +269,7 @@ public class OzmosiApi {
    * @param paginationLimit Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional, default to 20)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)
    * @param clinicalTrialId This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
-   * @param officalTitle Specifies full scientific title of a trial. (optional)
+   * @param officialTitle Specifies full scientific title of a trial. (optional)
    * @param trialId This parameter specifies ID of the trial assigned by the trial registry. (optional)
    * @param date Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)
    * @return ApiResponse&lt;DataResponse&gt;
@@ -284,7 +284,7 @@ public class OzmosiApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DataResponse> getOzmosiClinicalTrialsDailyWithHttpInfo(String sort, Integer paginationLimit, Integer paginationOffset, String clinicalTrialId, String officalTitle, String trialId, OffsetDateTime date) throws ApiException {
+  public ApiResponse<DataResponse> getOzmosiClinicalTrialsDailyWithHttpInfo(String sort, Integer paginationLimit, Integer paginationOffset, String clinicalTrialId, String officialTitle, String trialId, OffsetDateTime date) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -300,7 +300,7 @@ public class OzmosiApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "clinicalTrialId", clinicalTrialId));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "officalTitle", officalTitle));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "officialTitle", officialTitle));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "trialId", trialId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "date", date));
 

@@ -68,11 +68,11 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="paginationLimit">Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional, default to 20)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)</param>
         /// <param name="clinicalTrialId">This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)</param>
-        /// <param name="officalTitle">Specifies full scientific title of a trial. (optional)</param>
+        /// <param name="officialTitle">Specifies full scientific title of a trial. (optional)</param>
         /// <param name="trialId">This parameter specifies ID of the trial assigned by the trial registry. (optional)</param>
         /// <param name="date">Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)</param>
         /// <returns>DataResponse</returns>
-        DataResponse GetOzmosiClinicalTrialsDaily(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officalTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?));
+        DataResponse GetOzmosiClinicalTrialsDaily(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officialTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?));
 
         /// <summary>
         /// Returns the daily files of Clinical Trial Details from Open:FactSet Partner - Ozmosi.
@@ -85,11 +85,11 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="paginationLimit">Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional, default to 20)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)</param>
         /// <param name="clinicalTrialId">This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)</param>
-        /// <param name="officalTitle">Specifies full scientific title of a trial. (optional)</param>
+        /// <param name="officialTitle">Specifies full scientific title of a trial. (optional)</param>
         /// <param name="trialId">This parameter specifies ID of the trial assigned by the trial registry. (optional)</param>
         /// <param name="date">Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)</param>
         /// <returns>ApiResponse of DataResponse</returns>
-        ApiResponse<DataResponse> GetOzmosiClinicalTrialsDailyWithHttpInfo(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officalTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?));
+        ApiResponse<DataResponse> GetOzmosiClinicalTrialsDailyWithHttpInfo(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officialTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?));
         /// <summary>
         /// Returns the history files from Open:FactSet Partner - Ozmosi
         /// </summary>
@@ -369,12 +369,12 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="paginationLimit">Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional, default to 20)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)</param>
         /// <param name="clinicalTrialId">This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)</param>
-        /// <param name="officalTitle">Specifies full scientific title of a trial. (optional)</param>
+        /// <param name="officialTitle">Specifies full scientific title of a trial. (optional)</param>
         /// <param name="trialId">This parameter specifies ID of the trial assigned by the trial registry. (optional)</param>
         /// <param name="date">Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DataResponse</returns>
-        System.Threading.Tasks.Task<DataResponse> GetOzmosiClinicalTrialsDailyAsync(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officalTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DataResponse> GetOzmosiClinicalTrialsDailyAsync(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officialTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Returns the daily files of Clinical Trial Details from Open:FactSet Partner - Ozmosi.
@@ -387,12 +387,12 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="paginationLimit">Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional, default to 20)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)</param>
         /// <param name="clinicalTrialId">This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)</param>
-        /// <param name="officalTitle">Specifies full scientific title of a trial. (optional)</param>
+        /// <param name="officialTitle">Specifies full scientific title of a trial. (optional)</param>
         /// <param name="trialId">This parameter specifies ID of the trial assigned by the trial registry. (optional)</param>
         /// <param name="date">Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataResponse>> GetOzmosiClinicalTrialsDailyWithHttpInfoAsync(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officalTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DataResponse>> GetOzmosiClinicalTrialsDailyWithHttpInfoAsync(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officialTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns the history files from Open:FactSet Partner - Ozmosi
         /// </summary>
@@ -1083,13 +1083,13 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="paginationLimit">Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional, default to 20)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)</param>
         /// <param name="clinicalTrialId">This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)</param>
-        /// <param name="officalTitle">Specifies full scientific title of a trial. (optional)</param>
+        /// <param name="officialTitle">Specifies full scientific title of a trial. (optional)</param>
         /// <param name="trialId">This parameter specifies ID of the trial assigned by the trial registry. (optional)</param>
         /// <param name="date">Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)</param>
         /// <returns>DataResponse</returns>
-        public DataResponse GetOzmosiClinicalTrialsDaily(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officalTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?))
+        public DataResponse GetOzmosiClinicalTrialsDaily(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officialTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?))
         {
-            var localVarResponse = GetOzmosiClinicalTrialsDailyWithHttpInfo(sort, paginationLimit, paginationOffset, clinicalTrialId, officalTitle, trialId, date);
+            var localVarResponse = GetOzmosiClinicalTrialsDailyWithHttpInfo(sort, paginationLimit, paginationOffset, clinicalTrialId, officialTitle, trialId, date);
             return localVarResponse.Data;
         }
 
@@ -1101,11 +1101,11 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="paginationLimit">Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional, default to 20)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)</param>
         /// <param name="clinicalTrialId">This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)</param>
-        /// <param name="officalTitle">Specifies full scientific title of a trial. (optional)</param>
+        /// <param name="officialTitle">Specifies full scientific title of a trial. (optional)</param>
         /// <param name="trialId">This parameter specifies ID of the trial assigned by the trial registry. (optional)</param>
         /// <param name="date">Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)</param>
         /// <returns>ApiResponse of DataResponse</returns>
-        public ApiResponse<DataResponse> GetOzmosiClinicalTrialsDailyWithHttpInfo(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officalTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?))
+        public ApiResponse<DataResponse> GetOzmosiClinicalTrialsDailyWithHttpInfo(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officialTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?))
         {
             FactSet.SDK.OpenFactSetPartnersDocuments.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenFactSetPartnersDocuments.Client.RequestOptions();
 
@@ -1145,9 +1145,9 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "clinicalTrialId", clinicalTrialId));
             }
-            if (officalTitle != null)
+            if (officialTitle != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "officalTitle", officalTitle));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "officialTitle", officialTitle));
             }
             if (trialId != null)
             {
@@ -1202,14 +1202,14 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="paginationLimit">Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional, default to 20)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)</param>
         /// <param name="clinicalTrialId">This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)</param>
-        /// <param name="officalTitle">Specifies full scientific title of a trial. (optional)</param>
+        /// <param name="officialTitle">Specifies full scientific title of a trial. (optional)</param>
         /// <param name="trialId">This parameter specifies ID of the trial assigned by the trial registry. (optional)</param>
         /// <param name="date">Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DataResponse</returns>
-        public async System.Threading.Tasks.Task<DataResponse>GetOzmosiClinicalTrialsDailyAsync(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officalTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DataResponse>GetOzmosiClinicalTrialsDailyAsync(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officialTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetOzmosiClinicalTrialsDailyWithHttpInfoAsync(sort, paginationLimit, paginationOffset, clinicalTrialId, officalTitle, trialId, date, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetOzmosiClinicalTrialsDailyWithHttpInfoAsync(sort, paginationLimit, paginationOffset, clinicalTrialId, officialTitle, trialId, date, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1221,13 +1221,13 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="paginationLimit">Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional, default to 20)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)</param>
         /// <param name="clinicalTrialId">This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)</param>
-        /// <param name="officalTitle">Specifies full scientific title of a trial. (optional)</param>
+        /// <param name="officialTitle">Specifies full scientific title of a trial. (optional)</param>
         /// <param name="trialId">This parameter specifies ID of the trial assigned by the trial registry. (optional)</param>
         /// <param name="date">Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DataResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<DataResponse>> GetOzmosiClinicalTrialsDailyWithHttpInfoAsync(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officalTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<DataResponse>> GetOzmosiClinicalTrialsDailyWithHttpInfoAsync(string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), string clinicalTrialId = default(string), string officialTitle = default(string), string trialId = default(string), DateTime? date = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.OpenFactSetPartnersDocuments.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OpenFactSetPartnersDocuments.Client.RequestOptions();
@@ -1268,9 +1268,9 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "clinicalTrialId", clinicalTrialId));
             }
-            if (officalTitle != null)
+            if (officialTitle != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "officalTitle", officalTitle));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OpenFactSetPartnersDocuments.Client.ClientUtils.ParameterToMultiMap("", "officialTitle", officialTitle));
             }
             if (trialId != null)
             {

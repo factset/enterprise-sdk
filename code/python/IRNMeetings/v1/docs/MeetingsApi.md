@@ -57,6 +57,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meetings_api.MeetingsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     create_meeting_dto = CreateMeetingDto(
         author=UserSerialDto(
             username="username_example",
@@ -202,6 +203,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meetings_api.MeetingsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     meeting_id = "meetingId_example" # str | 
 
     try:
@@ -290,6 +292,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meetings_api.MeetingsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     meeting_id = "meetingId_example" # str | Meeting Id
 
     try:
@@ -378,13 +381,19 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meetings_api.MeetingsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start = "start_example" # str | StartDate (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end = "end_example" # str | EndDate (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifiers = [
         "identifiers_example",
     ] # [str] | Set of identifiers to filter on (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     limit = 1 # int | Limit on the number of meetings retrieved (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     modified_since = "modifiedSince_example" # str | Only return meetings which have been modified or created since a particular time (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_include_deleted = False # bool | Includes deleted meetings in results when set to true (optional) if omitted the server will use the default value of False
 
     try:
@@ -478,7 +487,9 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meetings_api.MeetingsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     meeting_id = "meetingId_example" # str | Meeting Id
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     update_meeting_dto = UpdateMeetingDto(
         title="title_example",
         identifier="identifier_example",

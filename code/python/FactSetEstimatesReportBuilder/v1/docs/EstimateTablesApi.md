@@ -55,7 +55,9 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = estimate_tables_api.EstimateTablesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "FDS" # str | Company Ticker
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     metric = "EPS" # str | Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034). (optional)
 
     try:

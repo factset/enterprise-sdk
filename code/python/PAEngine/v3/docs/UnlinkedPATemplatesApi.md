@@ -61,6 +61,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     unlinked_pa_template_parameters_root = UnlinkedPATemplateParametersRoot(
         data=UnlinkedPATemplateParameters(
             directory="directory_example",
@@ -404,6 +405,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | Unique identifier for an unlinked PA template type
 
     try:
@@ -500,7 +502,9 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     directory = "Personal:UninkedPATemplates/" # str | Get unlinked PA templates in path. (optional) if omitted the server will use the default value of "Personal:UninkedPATemplates/"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     category = "Weights" # str | Get unlinked PA templates by category. (optional) if omitted the server will use the default value of "Weights"
 
     try:
@@ -693,6 +697,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     unlinked_pa_template_update_parameters_root = UnlinkedPATemplateUpdateParametersRoot(
         data=UnlinkedPATemplateUpdateParameters(
             description="description_example",

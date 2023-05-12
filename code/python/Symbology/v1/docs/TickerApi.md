@@ -58,6 +58,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ticker_api.TickerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ticker_history_translation_request = TickerHistoryTranslationRequest(
         ids=GetIds(["GOOGL-US"]),
         ticker_type="REGION",
@@ -154,6 +155,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ticker_api.TickerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ticker_translation_request = TickerTranslationRequest(
         ids=GetIds(["GOOGL-US"]),
         ticker_type="REGION",
@@ -251,7 +253,9 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ticker_api.TickerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ticker_type = "REGION" # str | Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)  (optional) if omitted the server will use the default value of "REGION"
 
     try:
@@ -347,8 +351,11 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ticker_api.TickerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ticker_type = "REGION" # str | Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)  (optional) if omitted the server will use the default value of "REGION"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     as_of_date = "2010-01-01" # str | As-Of date for historical symbol request in YYYY-MM-DD format. (optional)
 
     try:

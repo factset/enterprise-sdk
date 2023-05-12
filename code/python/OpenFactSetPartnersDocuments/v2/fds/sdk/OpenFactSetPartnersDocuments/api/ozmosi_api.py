@@ -159,7 +159,7 @@ class OzmosiApi(object):
                     'pagination_limit',
                     'pagination_offset',
                     'clinical_trial_id',
-                    'offical_title',
+                    'official_title',
                     'trial_id',
                     'date',
                 ],
@@ -202,7 +202,7 @@ class OzmosiApi(object):
                         (int,),
                     'clinical_trial_id':
                         (str,),
-                    'offical_title':
+                    'official_title':
                         (str,),
                     'trial_id':
                         (str,),
@@ -214,7 +214,7 @@ class OzmosiApi(object):
                     'pagination_limit': '_paginationLimit',
                     'pagination_offset': '_paginationOffset',
                     'clinical_trial_id': 'clinicalTrialId',
-                    'offical_title': 'officalTitle',
+                    'official_title': 'officialTitle',
                     'trial_id': 'trialId',
                     'date': 'date',
                 },
@@ -223,7 +223,7 @@ class OzmosiApi(object):
                     'pagination_limit': 'query',
                     'pagination_offset': 'query',
                     'clinical_trial_id': 'query',
-                    'offical_title': 'query',
+                    'official_title': 'query',
                     'trial_id': 'query',
                     'date': 'query',
                 },
@@ -1125,7 +1125,7 @@ class OzmosiApi(object):
             pagination_limit (int): Specifies the maximum number of results to return per result Default value 20 and Maximum value 300. [optional] if omitted the server will use the default value of 20
             pagination_offset (int): Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records.. [optional] if omitted the server will use the default value of 0
             clinical_trial_id (str): This parameter specifies Ozmosi unique ID for each historical version of a trial.. [optional]
-            offical_title (str): Specifies full scientific title of a trial.. [optional]
+            official_title (str): Specifies full scientific title of a trial.. [optional]
             trial_id (str): This parameter specifies ID of the trial assigned by the trial registry.. [optional]
             date (datetime): Specifies the timestamp of each version of a trial in YYYY-MM-DD format.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1173,7 +1173,7 @@ class OzmosiApi(object):
             pagination_limit (int): Specifies the maximum number of results to return per result Default value 20 and Maximum value 300. [optional] if omitted the server will use the default value of 20
             pagination_offset (int): Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records.. [optional] if omitted the server will use the default value of 0
             clinical_trial_id (str): This parameter specifies Ozmosi unique ID for each historical version of a trial.. [optional]
-            offical_title (str): Specifies full scientific title of a trial.. [optional]
+            official_title (str): Specifies full scientific title of a trial.. [optional]
             trial_id (str): This parameter specifies ID of the trial assigned by the trial registry.. [optional]
             date (datetime): Specifies the timestamp of each version of a trial in YYYY-MM-DD format.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1225,7 +1225,7 @@ class OzmosiApi(object):
             pagination_limit (int): Specifies the maximum number of results to return per result Default value 20 and Maximum value 300. [optional] if omitted the server will use the default value of 20
             pagination_offset (int): Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records.. [optional] if omitted the server will use the default value of 0
             clinical_trial_id (str): This parameter specifies Ozmosi unique ID for each historical version of a trial.. [optional]
-            offical_title (str): Specifies full scientific title of a trial.. [optional]
+            official_title (str): Specifies full scientific title of a trial.. [optional]
             trial_id (str): This parameter specifies ID of the trial assigned by the trial registry.. [optional]
             date (datetime): Specifies the timestamp of each version of a trial in YYYY-MM-DD format.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1272,7 +1272,7 @@ class OzmosiApi(object):
             pagination_limit (int): Specifies the maximum number of results to return per result Default value 20 and Maximum value 300. [optional] if omitted the server will use the default value of 20
             pagination_offset (int): Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records.. [optional] if omitted the server will use the default value of 0
             clinical_trial_id (str): This parameter specifies Ozmosi unique ID for each historical version of a trial.. [optional]
-            offical_title (str): Specifies full scientific title of a trial.. [optional]
+            official_title (str): Specifies full scientific title of a trial.. [optional]
             trial_id (str): This parameter specifies ID of the trial assigned by the trial registry.. [optional]
             date (datetime): Specifies the timestamp of each version of a trial in YYYY-MM-DD format.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object

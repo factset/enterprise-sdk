@@ -43,7 +43,7 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="startDate">The earliest date of the Scripts Asia file the API should return based on date.  (optional)</param>
         /// <param name="endDate">The latest date of the Scripts Asia file the API should return based on date.           (optional)</param>
         /// <param name="companyName">This parameter filters the results based on Company Name of the Transcript.  (optional)</param>
-        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  (optional)</param>
+        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  (optional)</param>
         /// <param name="languageType">This parameter filters the results based on language type(either English or local) of the Transcript.  (optional, default to local)</param>
         /// <param name="fileName">This parameter is used to filters the results based on file name. (optional)</param>
         /// <param name="type">Specifies the type of the file. (optional, default to delta)</param>
@@ -65,7 +65,7 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="startDate">The earliest date of the Scripts Asia file the API should return based on date.  (optional)</param>
         /// <param name="endDate">The latest date of the Scripts Asia file the API should return based on date.           (optional)</param>
         /// <param name="companyName">This parameter filters the results based on Company Name of the Transcript.  (optional)</param>
-        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  (optional)</param>
+        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  (optional)</param>
         /// <param name="languageType">This parameter filters the results based on language type(either English or local) of the Transcript.  (optional, default to local)</param>
         /// <param name="fileName">This parameter is used to filters the results based on file name. (optional)</param>
         /// <param name="type">Specifies the type of the file. (optional, default to delta)</param>
@@ -95,7 +95,7 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="startDate">The earliest date of the Scripts Asia file the API should return based on date.  (optional)</param>
         /// <param name="endDate">The latest date of the Scripts Asia file the API should return based on date.           (optional)</param>
         /// <param name="companyName">This parameter filters the results based on Company Name of the Transcript.  (optional)</param>
-        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  (optional)</param>
+        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  (optional)</param>
         /// <param name="languageType">This parameter filters the results based on language type(either English or local) of the Transcript.  (optional, default to local)</param>
         /// <param name="fileName">This parameter is used to filters the results based on file name. (optional)</param>
         /// <param name="type">Specifies the type of the file. (optional, default to delta)</param>
@@ -118,7 +118,7 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="startDate">The earliest date of the Scripts Asia file the API should return based on date.  (optional)</param>
         /// <param name="endDate">The latest date of the Scripts Asia file the API should return based on date.           (optional)</param>
         /// <param name="companyName">This parameter filters the results based on Company Name of the Transcript.  (optional)</param>
-        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  (optional)</param>
+        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  (optional)</param>
         /// <param name="languageType">This parameter filters the results based on language type(either English or local) of the Transcript.  (optional, default to local)</param>
         /// <param name="fileName">This parameter is used to filters the results based on file name. (optional)</param>
         /// <param name="type">Specifies the type of the file. (optional, default to delta)</param>
@@ -275,7 +275,7 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="startDate">The earliest date of the Scripts Asia file the API should return based on date.  (optional)</param>
         /// <param name="endDate">The latest date of the Scripts Asia file the API should return based on date.           (optional)</param>
         /// <param name="companyName">This parameter filters the results based on Company Name of the Transcript.  (optional)</param>
-        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  (optional)</param>
+        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  (optional)</param>
         /// <param name="languageType">This parameter filters the results based on language type(either English or local) of the Transcript.  (optional, default to local)</param>
         /// <param name="fileName">This parameter is used to filters the results based on file name. (optional)</param>
         /// <param name="type">Specifies the type of the file. (optional, default to delta)</param>
@@ -298,7 +298,7 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="startDate">The earliest date of the Scripts Asia file the API should return based on date.  (optional)</param>
         /// <param name="endDate">The latest date of the Scripts Asia file the API should return based on date.           (optional)</param>
         /// <param name="companyName">This parameter filters the results based on Company Name of the Transcript.  (optional)</param>
-        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  (optional)</param>
+        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  (optional)</param>
         /// <param name="languageType">This parameter filters the results based on language type(either English or local) of the Transcript.  (optional, default to local)</param>
         /// <param name="fileName">This parameter is used to filters the results based on file name. (optional)</param>
         /// <param name="type">Specifies the type of the file. (optional, default to delta)</param>
@@ -424,7 +424,7 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="startDate">The earliest date of the Scripts Asia file the API should return based on date.  (optional)</param>
         /// <param name="endDate">The latest date of the Scripts Asia file the API should return based on date.           (optional)</param>
         /// <param name="companyName">This parameter filters the results based on Company Name of the Transcript.  (optional)</param>
-        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  (optional)</param>
+        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  (optional)</param>
         /// <param name="languageType">This parameter filters the results based on language type(either English or local) of the Transcript.  (optional, default to local)</param>
         /// <param name="fileName">This parameter is used to filters the results based on file name. (optional)</param>
         /// <param name="type">Specifies the type of the file. (optional, default to delta)</param>
@@ -448,7 +448,7 @@ namespace FactSet.SDK.OpenFactSetPartnersDocuments.Api
         /// <param name="startDate">The earliest date of the Scripts Asia file the API should return based on date.  (optional)</param>
         /// <param name="endDate">The latest date of the Scripts Asia file the API should return based on date.           (optional)</param>
         /// <param name="companyName">This parameter filters the results based on Company Name of the Transcript.  (optional)</param>
-        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  (optional)</param>
+        /// <param name="eventType">This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  (optional)</param>
         /// <param name="languageType">This parameter filters the results based on language type(either English or local) of the Transcript.  (optional, default to local)</param>
         /// <param name="fileName">This parameter is used to filters the results based on file name. (optional)</param>
         /// <param name="type">Specifies the type of the file. (optional, default to delta)</param>

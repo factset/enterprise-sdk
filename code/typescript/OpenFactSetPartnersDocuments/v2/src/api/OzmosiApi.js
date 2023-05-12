@@ -114,7 +114,7 @@ export default class OzmosiApi {
      * @param {Number} opts.paginationLimit Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (default to 20)
      * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (default to 0)
      * @param {String} opts.clinicalTrialId This parameter specifies Ozmosi unique ID for each historical version of a trial.
-     * @param {String} opts.officalTitle Specifies full scientific title of a trial.
+     * @param {String} opts.officialTitle Specifies full scientific title of a trial.
      * @param {String} opts.trialId This parameter specifies ID of the trial assigned by the trial registry.
      * @param {Date} opts.date Specifies the timestamp of each version of a trial in YYYY-MM-DD format.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DataResponse} and HTTP response
@@ -130,7 +130,7 @@ export default class OzmosiApi {
         '_paginationLimit': opts['paginationLimit'],
         '_paginationOffset': opts['paginationOffset'],
         'clinicalTrialId': opts['clinicalTrialId'],
-        'officalTitle': opts['officalTitle'],
+        'officialTitle': opts['officialTitle'],
         'trialId': opts['trialId'],
         'date': opts['date']
       };
@@ -161,7 +161,7 @@ export default class OzmosiApi {
      * @param {Number} opts.paginationLimit Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (default to 20)
      * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (default to 0)
      * @param {String} opts.clinicalTrialId This parameter specifies Ozmosi unique ID for each historical version of a trial.
-     * @param {String} opts.officalTitle Specifies full scientific title of a trial.
+     * @param {String} opts.officialTitle Specifies full scientific title of a trial.
      * @param {String} opts.trialId This parameter specifies ID of the trial assigned by the trial registry.
      * @param {Date} opts.date Specifies the timestamp of each version of a trial in YYYY-MM-DD format.
      * @return { Promise.< module:model/DataResponse > } a Promise, with data of type {@link module:model/DataResponse }

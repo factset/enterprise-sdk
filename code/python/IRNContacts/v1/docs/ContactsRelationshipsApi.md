@@ -57,6 +57,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___relationships_api.ContactsRelationshipsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_relationship_two_sided_save_dto = ContactRelationshipTwoSidedSaveDto(
         relationship_id="relationship_id_example",
         left_contact_id="left_contact_id_example",
@@ -157,6 +158,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___relationships_api.ContactsRelationshipsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_relationship_id = "contactRelationshipId_example" # str | contactRelationshipId to delete associated record
 
     try:
@@ -245,8 +247,11 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___relationships_api.ContactsRelationshipsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     symbol = "symbol_example" # str |  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_id = "contactId_example" # str |  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     relationship_id = "relationshipId_example" # str |  (optional)
 
     try:
@@ -337,6 +342,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___relationships_api.ContactsRelationshipsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_relationship_id = "contactRelationshipId_example" # str | contactRelationshipId to get associated record
 
     try:
@@ -425,7 +431,9 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___relationships_api.ContactsRelationshipsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_relationship_id = "contactRelationshipId_example" # str | contactRelationshipId to update associated record
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     operation = [
         Operation(
             operation_type=OperationType(0),

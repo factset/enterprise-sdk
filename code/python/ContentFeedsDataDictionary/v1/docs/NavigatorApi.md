@@ -58,6 +58,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = navigator_api.NavigatorApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     basic_search_request = BasicSearchRequest(None) # BasicSearchRequest | A list of search terms (each term must be at least two characters).
 
     try:
@@ -146,6 +147,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = navigator_api.NavigatorApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     product_id = "Product_id_example" # str | The id for the Product to fetch the list of data items for.
 
     try:
@@ -317,7 +319,9 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = navigator_api.NavigatorApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     data_item_id = "DataItem_id_example" # str | The id for the DataItem to fetch the sources for.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     product_id = "Product_id_example" # str | The id for the Product to filter down the sources returned on.
 
     try:
@@ -407,6 +411,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = navigator_api.NavigatorApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     product_id = "Product_id_example" # str | The id for the Product to filter down the sources returned on.
 
     try:
@@ -495,7 +500,9 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = navigator_api.NavigatorApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     table_id = "Table_id_example" # str | The id for the Table to fetch the fields for.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     data_item_id = "DataItem_id_example" # str | The id for the DataItem. This is required in case the data item is represented as a code in Standard DataFeeds. (optional)
 
     try:

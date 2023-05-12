@@ -56,14 +56,14 @@ public class Example {
         String sort = "startDate"; // String | Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used.
         Integer paginationLimit = 20; // Integer | Specifies the maximum number of results to return per result.
         Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records.
-        String trackingId = "5f6b2d30-955d-11ed-9002-bfc7208ab203"; // String | Unique Scripts Asia identifier assigned to an event. 
-        String saId = "SA000733_2023Feb24_a_02"; // String | This parameter filters the results based on saId of the Transcript. 
-        LocalDate startDate = LocalDate.parse("2023-02-20"); // LocalDate | The earliest date of the Scripts Asia file the API should return based on date. 
-        LocalDate endDate = LocalDate.parse("2023-02-28"); // LocalDate | The latest date of the Scripts Asia file the API should return based on date.          
-        String companyName = "Mercuria Holdings Co., Ltd."; // String | This parameter filters the results based on Company Name of the Transcript. 
-        String eventType = "02"; // String | This parameter filters the results based on eventType of the Transcript. 
+        String trackingId = "431eb8d0-cc45-11ed-8609-0f67251fe7a4"; // String | Unique Scripts Asia identifier assigned to an event. 
+        String saId = "SA002220_2023Mar27_a_02"; // String | This parameter filters the results based on saId of the Transcript. 
+        LocalDate startDate = LocalDate.parse("2023-03-20"); // LocalDate | The earliest date of the Scripts Asia file the API should return based on date. 
+        LocalDate endDate = LocalDate.parse("2023-03-28"); // LocalDate | The latest date of the Scripts Asia file the API should return based on date.          
+        String companyName = "Beijing Shunxin Agriculture Co Ltd"; // String | This parameter filters the results based on Company Name of the Transcript. 
+        String eventType = "01"; // String | This parameter filters the results based on eventType of the Transcript.  * 01 = Shareholders Meeting * 02 = Earnings Announcement * 03 = Medium-term Management Plan Announcement * 04 = Analyst Meeting * 05 = Special Announcement * 06 = Investor Conference 
         String languageType = "eng"; // String | This parameter filters the results based on language type(either English or local) of the Transcript. 
-        String fileName = "SA000733_2023Feb24_a_02_xml_local.xml"; // String | This parameter is used to filters the results based on file name.
+        String fileName = "SA002220_2023Mar27_a_02_fds_xml_local.xml"; // String | This parameter is used to filters the results based on file name.
         String type = "full"; // String | Specifies the type of the file.
         try {
             ScriptsAsiaResponse result = apiInstance.getScriptsAsiaFiles(sort, paginationLimit, paginationOffset, trackingId, saId, startDate, endDate, companyName, eventType, languageType, fileName, type);
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
  **startDate** | **LocalDate**| The earliest date of the Scripts Asia file the API should return based on date.  | [optional]
  **endDate** | **LocalDate**| The latest date of the Scripts Asia file the API should return based on date.           | [optional]
  **companyName** | **String**| This parameter filters the results based on Company Name of the Transcript.  | [optional]
- **eventType** | **String**| This parameter filters the results based on eventType of the Transcript.  | [optional]
+ **eventType** | **String**| This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  | [optional] [enum: 01, 02, 03, 04, 05, 06]
  **languageType** | **String**| This parameter filters the results based on language type(either English or local) of the Transcript.  | [optional] [default to local] [enum: eng, local]
  **fileName** | **String**| This parameter is used to filters the results based on file name. | [optional]
  **type** | **String**| Specifies the type of the file. | [optional] [default to delta] [enum: full, delta]

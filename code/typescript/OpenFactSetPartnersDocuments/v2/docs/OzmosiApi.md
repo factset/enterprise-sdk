@@ -138,7 +138,7 @@ const opts = {
   'paginationLimit': 20, // Number | Specifies the maximum number of results to return per result Default value 20 and Maximum value 300
   'paginationOffset': 0, // Number | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records.
   'clinicalTrialId': NCT03037385_037, // String | This parameter specifies Ozmosi unique ID for each historical version of a trial.
-  'officalTitle': A Phase 1/2 Study of the Highly-selective RET Inhibitor, BLU-667, in Patients With Thyroid Cancer, Non-Small Cell Lung Cancer (NSCLC) and Other Advanced Solid Tumors, // String | Specifies full scientific title of a trial.
+  'officialTitle': A Phase 1/2 Study of the Highly-selective RET Inhibitor, BLU-667, in Patients With Thyroid Cancer, Non-Small Cell Lung Cancer (NSCLC) and Other Advanced Solid Tumors, // String | Specifies full scientific title of a trial.
   'trialId': NCT03037385, // String | This parameter specifies ID of the trial assigned by the trial registry.
   'date': 2022-10-13 00:00:00 // Date | Specifies the timestamp of each version of a trial in YYYY-MM-DD format.
 };
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
  **paginationLimit** | **Number**| Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 | [optional] [default to 20]
  **paginationOffset** | **Number**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. | [optional] [default to 0]
  **clinicalTrialId** | **String**| This parameter specifies Ozmosi unique ID for each historical version of a trial. | [optional] 
- **officalTitle** | **String**| Specifies full scientific title of a trial. | [optional] 
+ **officialTitle** | **String**| Specifies full scientific title of a trial. | [optional] 
  **trialId** | **String**| This parameter specifies ID of the trial assigned by the trial registry. | [optional] 
  **date** | **Date**| Specifies the timestamp of each version of a trial in YYYY-MM-DD format. | [optional] 
 

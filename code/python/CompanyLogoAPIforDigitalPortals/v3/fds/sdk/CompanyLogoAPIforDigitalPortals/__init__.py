@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.10.5"
+__version__ = "0.10.6"
 
 # import ApiClient
 from fds.sdk.CompanyLogoAPIforDigitalPortals.api_client import ApiClient

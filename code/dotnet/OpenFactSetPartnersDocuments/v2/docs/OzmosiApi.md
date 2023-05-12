@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 <a name="getozmosiclinicaltrialsdaily"></a>
 # **GetOzmosiClinicalTrialsDaily**
-> DataResponse GetOzmosiClinicalTrialsDaily (string sort = null, int? paginationLimit = null, int? paginationOffset = null, string clinicalTrialId = null, string officalTitle = null, string trialId = null, DateTime? date = null)
+> DataResponse GetOzmosiClinicalTrialsDaily (string sort = null, int? paginationLimit = null, int? paginationOffset = null, string clinicalTrialId = null, string officialTitle = null, string trialId = null, DateTime? date = null)
 
 Returns the daily files of Clinical Trial Details from Open:FactSet Partner - Ozmosi.
 
@@ -167,14 +167,14 @@ namespace Example
             var paginationLimit = 20;  // int? | Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional)  (default to 20)
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional)  (default to 0)
             var clinicalTrialId = "NCT03037385_037";  // string | This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional) 
-            var officalTitle = "A Phase 1/2 Study of the Highly-selective RET Inhibitor, BLU-667, in Patients With Thyroid Cancer, Non-Small Cell Lung Cancer (NSCLC) and Other Advanced Solid Tumors";  // string | Specifies full scientific title of a trial. (optional) 
+            var officialTitle = "A Phase 1/2 Study of the Highly-selective RET Inhibitor, BLU-667, in Patients With Thyroid Cancer, Non-Small Cell Lung Cancer (NSCLC) and Other Advanced Solid Tumors";  // string | Specifies full scientific title of a trial. (optional) 
             var trialId = "NCT03037385";  // string | This parameter specifies ID of the trial assigned by the trial registry. (optional) 
             var date = DateTime.Parse("2022-10-13 00:00:00");  // DateTime? | Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional) 
 
             try
             {
                 // Returns the daily files of Clinical Trial Details from Open:FactSet Partner - Ozmosi.
-                DataResponse result = apiInstance.GetOzmosiClinicalTrialsDaily(sort, paginationLimit, paginationOffset, clinicalTrialId, officalTitle, trialId, date);
+                DataResponse result = apiInstance.GetOzmosiClinicalTrialsDaily(sort, paginationLimit, paginationOffset, clinicalTrialId, officialTitle, trialId, date);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
  **paginationLimit** | **int?**| Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 | [optional] [default to 20]
  **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. | [optional] [default to 0]
  **clinicalTrialId** | **string**| This parameter specifies Ozmosi unique ID for each historical version of a trial. | [optional] 
- **officalTitle** | **string**| Specifies full scientific title of a trial. | [optional] 
+ **officialTitle** | **string**| Specifies full scientific title of a trial. | [optional] 
  **trialId** | **string**| This parameter specifies ID of the trial assigned by the trial registry. | [optional] 
  **date** | **DateTime?**| Specifies the timestamp of each version of a trial in YYYY-MM-DD format. | [optional] 
 

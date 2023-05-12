@@ -57,6 +57,7 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = optimizations_api.OptimizationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Run Optimization endpoint
 
     try:
@@ -150,6 +151,7 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = optimizations_api.OptimizationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Run Optimization endpoint
 
     try:
@@ -244,6 +246,7 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = optimizations_api.OptimizationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     fpo_optimization_parameters = FPOOptimizationParameters(
         account=FPOAccount(
             padocument=PaDoc(

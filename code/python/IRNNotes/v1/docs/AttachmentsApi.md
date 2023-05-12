@@ -56,7 +56,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     note_id = "noteId_example" # str | 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     file = open('/path/to/file', 'rb') # file_type | 
 
     try:
@@ -146,7 +148,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     note_id = "noteId_example" # str | 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attachment_id = "attachmentId_example" # str | 
 
     try:
@@ -236,6 +240,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     note_id = "noteId_example" # str | Note Id
 
     try:
@@ -324,7 +329,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     note_id = "noteId_example" # str | Note Id
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attachment_id = "attachmentId_example" # str | Attachment Id
 
     try:

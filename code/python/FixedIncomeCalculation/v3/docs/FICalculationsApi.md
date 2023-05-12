@@ -60,6 +60,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run FI calculation endpoint
 
     try:
@@ -153,6 +154,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run FI calculation endpoint
 
     try:
@@ -247,6 +249,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Get FI calculation status by id endpoint
 
     try:
@@ -341,6 +344,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run FI calculation endpoint
 
     try:
@@ -436,8 +440,11 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     fi_calculation_parameters_root = FICalculationParametersRoot(
         data=FICalculationParameters(
             securities=[
@@ -661,9 +668,13 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run FI calculation endpoint
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     fi_calculation_parameters_root = FICalculationParametersRoot(
         data=FICalculationParameters(
             securities=[

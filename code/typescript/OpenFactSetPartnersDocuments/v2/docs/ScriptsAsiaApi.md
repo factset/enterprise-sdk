@@ -46,14 +46,14 @@ const opts = {
   'sort': "'-startDate'", // String | Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used.
   'paginationLimit': 20, // Number | Specifies the maximum number of results to return per result.
   'paginationOffset': 0, // Number | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records.
-  'trackingId': 5f6b2d30-955d-11ed-9002-bfc7208ab203, // String | Unique Scripts Asia identifier assigned to an event. 
-  'saId': SA000733_2023Feb24_a_02, // String | This parameter filters the results based on saId of the Transcript. 
-  'startDate': 2023-02-20, // Date | The earliest date of the Scripts Asia file the API should return based on date. 
-  'endDate': 2023-02-28, // Date | The latest date of the Scripts Asia file the API should return based on date.          
-  'companyName': Mercuria Holdings Co., Ltd., // String | This parameter filters the results based on Company Name of the Transcript. 
-  'eventType': 02, // String | This parameter filters the results based on eventType of the Transcript. 
+  'trackingId': 431eb8d0-cc45-11ed-8609-0f67251fe7a4, // String | Unique Scripts Asia identifier assigned to an event. 
+  'saId': SA002220_2023Mar27_a_02, // String | This parameter filters the results based on saId of the Transcript. 
+  'startDate': 2023-03-20, // Date | The earliest date of the Scripts Asia file the API should return based on date. 
+  'endDate': 2023-03-28, // Date | The latest date of the Scripts Asia file the API should return based on date.          
+  'companyName': Beijing Shunxin Agriculture Co Ltd, // String | This parameter filters the results based on Company Name of the Transcript. 
+  'eventType': "eventType_example", // String | This parameter filters the results based on eventType of the Transcript.  * 01 = Shareholders Meeting * 02 = Earnings Announcement * 03 = Medium-term Management Plan Announcement * 04 = Analyst Meeting * 05 = Special Announcement * 06 = Investor Conference 
   'languageType': "'local'", // String | This parameter filters the results based on language type(either English or local) of the Transcript. 
-  'fileName': SA000733_2023Feb24_a_02_xml_local.xml, // String | This parameter is used to filters the results based on file name.
+  'fileName': SA002220_2023Mar27_a_02_fds_xml_local.xml, // String | This parameter is used to filters the results based on file name.
   'type': "'delta'" // String | Specifies the type of the file.
 };
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
  **startDate** | **Date**| The earliest date of the Scripts Asia file the API should return based on date.  | [optional] 
  **endDate** | **Date**| The latest date of the Scripts Asia file the API should return based on date.           | [optional] 
  **companyName** | **String**| This parameter filters the results based on Company Name of the Transcript.  | [optional] 
- **eventType** | **String**| This parameter filters the results based on eventType of the Transcript.  | [optional] 
+ **eventType** | **String**| This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  | [optional] 
  **languageType** | **String**| This parameter filters the results based on language type(either English or local) of the Transcript.  | [optional] [default to &#39;local&#39;]
  **fileName** | **String**| This parameter is used to filters the results based on file name. | [optional] 
  **type** | **String**| Specifies the type of the file. | [optional] [default to &#39;delta&#39;]

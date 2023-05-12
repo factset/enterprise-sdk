@@ -64,10 +64,15 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = ozmosi_api.OzmosiApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result. (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     clinical_trial_id = "NCT03037385_037" # str | This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     biomarker_name = "EGFR" # str | This parameter specifies the abbreviated name of any patient biomarkers being targeted for research in the trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     biomarker_full_name = "epidermal growth factor receptor" # str | Specifies the full name of the biomarker. (optional)
 
     try:
@@ -165,19 +170,26 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = ozmosi_api.OzmosiApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = "-startDate" # str | Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used. (optional) if omitted the server will use the default value of "-startDate"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     clinical_trial_id = "NCT03037385_037" # str | This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
-    offical_title = "A Phase 1/2 Study of the Highly-selective RET Inhibitor, BLU-667, in Patients With Thyroid Cancer, Non-Small Cell Lung Cancer (NSCLC) and Other Advanced Solid Tumors" # str | Specifies full scientific title of a trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    official_title = "A Phase 1/2 Study of the Highly-selective RET Inhibitor, BLU-667, in Patients With Thyroid Cancer, Non-Small Cell Lung Cancer (NSCLC) and Other Advanced Solid Tumors" # str | Specifies full scientific title of a trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     trial_id = "NCT03037385" # str | This parameter specifies ID of the trial assigned by the trial registry. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = dateutil_parser('2022-10-13 00:00:00') # datetime | Specifies the timestamp of each version of a trial in YYYY-MM-DD format. (optional)
 
     try:
         # Returns the daily files of Clinical Trial Details from Open:FactSet Partner - Ozmosi.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_ozmosi_clinical_trials_daily(sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, offical_title=offical_title, trial_id=trial_id, date=date)
+        api_response = api_instance.get_ozmosi_clinical_trials_daily(sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, official_title=official_title, trial_id=trial_id, date=date)
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:
@@ -193,7 +205,7 @@ Name | Type | Description  | Notes
  **pagination_limit** | **int**| Specifies the maximum number of results to return per result Default value 20 and Maximum value 300 | [optional] if omitted the server will use the default value of 20
  **pagination_offset** | **int**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. | [optional] if omitted the server will use the default value of 0
  **clinical_trial_id** | **str**| This parameter specifies Ozmosi unique ID for each historical version of a trial. | [optional]
- **offical_title** | **str**| Specifies full scientific title of a trial. | [optional]
+ **official_title** | **str**| Specifies full scientific title of a trial. | [optional]
  **trial_id** | **str**| This parameter specifies ID of the trial assigned by the trial registry. | [optional]
  **date** | **datetime**| Specifies the timestamp of each version of a trial in YYYY-MM-DD format. | [optional]
 
@@ -270,7 +282,9 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = ozmosi_api.OzmosiApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result. (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
 
     try:
@@ -365,10 +379,15 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = ozmosi_api.OzmosiApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result. (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     clinical_trial_id = "NCT03037385_037" # str | This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     beam_collaborators_name = "Inventivan Pharma" # str | It specifies the cleaned name of the collaborator. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     beam_collaborators_ticker = "SSNLF" # str | It specifies the Stock ticker for collaborator. (optional)
 
     try:
@@ -466,11 +485,17 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = ozmosi_api.OzmosiApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result. (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     clinical_trial_id = "NCT03037385_037" # str | This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     disease_area = "Inflammation" # str | Specifies the cleaned disease name. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sub_therapy_area = "Inflammation" # str | Specifies the Sub Therapy Area of the disease. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     therapy_area = "Musculoskeletal" # str | Specifies the Therapy Area of the disease. (optional)
 
     try:
@@ -569,10 +594,15 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = ozmosi_api.OzmosiApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result. (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     clinical_trial_id = "NCT03037385_037" # str | This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     name = "OS" # str | This parameter specifies cleaned and standardized abbreviations of primary endpoints that are common or of key interest. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     full_form = "Overall Survival" # str | This parameter specifies cleaned and standardized full names of primary endpoints that are common or of key interest. (optional)
 
     try:
@@ -670,10 +700,15 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = ozmosi_api.OzmosiApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result. (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     clinical_trial_id = "NCT03037385_037" # str | This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     beam_intervention_name = "Etelcalcetide" # str | This parameter specifies the name of intervention applied. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     beam_intervention_desc = "Cinacalcet oral once-daily" # str | It specifies the description of intervention applied. (optional)
 
     try:
@@ -771,10 +806,15 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = ozmosi_api.OzmosiApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result. (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     clinical_trial_id = "NCT03037385_037" # str | This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     beam_op_novel_drug = "EDP-305" # str | This parameter identifies if the trial includes a drug that is not approved by the FDA. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     beam_op_novel_target = "tricalcium" # str | It lists the unapproved drug. (optional)
 
     try:
@@ -872,10 +912,15 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = ozmosi_api.OzmosiApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result. (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     clinical_trial_id = "NCT03037385_037" # str | This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     primary_outcome_measure = "Percentage of Participants Achieving an American College of Rheumatology (ACR) 50 Response at Week 12." # str | It specifies the description of each primary outcome measure (or for observational studies, specific key measurement[s] or observation[s] used to describe patterns of diseases or traits or associations with exposures, risk factors or treatment). (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     primary_outcome_desc = "Week 12" # str | It describes the metric used to characterize the specific primary outcome measure, if not included in the primary outcome measure title. (optional)
 
     try:
@@ -973,10 +1018,15 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = ozmosi_api.OzmosiApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result. (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     clinical_trial_id = "NCT03037385_037" # str | This parameter specifies Ozmosi unique ID for each historical version of a trial. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     beam_sponsors_name = "AtriCure" # str | It specifies the cleaned name of the Sponsor. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     beam_sponsors_ticker = "ATRC" # str | It specifies the stock ticker for primary sponsor. (optional)
 
     try:

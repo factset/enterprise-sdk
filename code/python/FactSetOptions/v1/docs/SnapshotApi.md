@@ -55,6 +55,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = snapshot_api.SnapshotApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     snapshot_request = SnapshotRequest(
         ids=OptionIds(["TSLA.US#CD33M-USA"]),
         date="2021-05-03",

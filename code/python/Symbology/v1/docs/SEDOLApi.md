@@ -58,6 +58,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sedol_api.SEDOLApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sedol_history_translation_request = SedolHistoryTranslationRequest(
         ids=GetIds(["GOOGL-US"]),
     ) # SedolHistoryTranslationRequest | Request Body for SEDOL History
@@ -153,6 +154,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sedol_api.SEDOLApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sedol_translation_request = SedolTranslationRequest(
         ids=GetIds(["GOOGL-US"]),
         as_of_date="2010-01-01",
@@ -249,6 +251,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sedol_api.SEDOLApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
 
     try:
@@ -342,7 +345,9 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sedol_api.SEDOLApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     as_of_date = "2010-01-01" # str | As-Of date for historical symbol request in YYYY-MM-DD format. (optional)
 
     try:

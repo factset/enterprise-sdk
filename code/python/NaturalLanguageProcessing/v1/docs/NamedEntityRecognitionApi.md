@@ -55,6 +55,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = named_entity_recognition_api.NamedEntityRecognitionApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ner_input_schema = NERInputSchema(
         data=NERInputDataSchema(
             enable_id_lookup=True,

@@ -54,6 +54,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     meeting_id = "meetingId_example" # str | Meeting ID
 
     try:
@@ -142,7 +143,9 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     meeting_id = "meetingId_example" # str | Meeting Id
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     record_event_id = "recordEventId_example" # str | Record Event Id
 
     try:

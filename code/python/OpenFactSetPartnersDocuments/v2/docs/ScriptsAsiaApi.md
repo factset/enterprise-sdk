@@ -55,17 +55,29 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
     # Create an instance of the API class
     api_instance = scripts_asia_api.ScriptsAsiaApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = "-startDate" # str | Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used. (optional) if omitted the server will use the default value of "-startDate"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the maximum number of results to return per result. (optional) if omitted the server will use the default value of 20
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional) if omitted the server will use the default value of 0
-    tracking_id = "5f6b2d30-955d-11ed-9002-bfc7208ab203" # str | Unique Scripts Asia identifier assigned to an event.  (optional)
-    sa_id = "SA000733_2023Feb24_a_02" # str | This parameter filters the results based on saId of the Transcript.  (optional)
-    start_date = dateutil_parser('2023-02-20').date() # date | The earliest date of the Scripts Asia file the API should return based on date.  (optional)
-    end_date = dateutil_parser('2023-02-28').date() # date | The latest date of the Scripts Asia file the API should return based on date.           (optional)
-    company_name = "Mercuria Holdings Co., Ltd." # str | This parameter filters the results based on Company Name of the Transcript.  (optional)
-    event_type = "02" # str | This parameter filters the results based on eventType of the Transcript.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    tracking_id = "431eb8d0-cc45-11ed-8609-0f67251fe7a4" # str | Unique Scripts Asia identifier assigned to an event.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    sa_id = "SA002220_2023Mar27_a_02" # str | This parameter filters the results based on saId of the Transcript.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    start_date = dateutil_parser('2023-03-20').date() # date | The earliest date of the Scripts Asia file the API should return based on date.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    end_date = dateutil_parser('2023-03-28').date() # date | The latest date of the Scripts Asia file the API should return based on date.           (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    company_name = "Beijing Shunxin Agriculture Co Ltd" # str | This parameter filters the results based on Company Name of the Transcript.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    event_type = "01" # str | This parameter filters the results based on eventType of the Transcript.  * 01 = Shareholders Meeting * 02 = Earnings Announcement * 03 = Medium-term Management Plan Announcement * 04 = Analyst Meeting * 05 = Special Announcement * 06 = Investor Conference  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language_type = "local" # str | This parameter filters the results based on language type(either English or local) of the Transcript.  (optional) if omitted the server will use the default value of "local"
-    file_name = "SA000733_2023Feb24_a_02_xml_local.xml" # str | This parameter is used to filters the results based on file name. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    file_name = "SA002220_2023Mar27_a_02_fds_xml_local.xml" # str | This parameter is used to filters the results based on file name. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     type = "delta" # str | Specifies the type of the file. (optional) if omitted the server will use the default value of "delta"
 
     try:
@@ -92,7 +104,7 @@ Name | Type | Description  | Notes
  **start_date** | **date**| The earliest date of the Scripts Asia file the API should return based on date.  | [optional]
  **end_date** | **date**| The latest date of the Scripts Asia file the API should return based on date.           | [optional]
  **company_name** | **str**| This parameter filters the results based on Company Name of the Transcript.  | [optional]
- **event_type** | **str**| This parameter filters the results based on eventType of the Transcript.  | [optional]
+ **event_type** | **str**| This parameter filters the results based on eventType of the Transcript.  * 01 &#x3D; Shareholders Meeting * 02 &#x3D; Earnings Announcement * 03 &#x3D; Medium-term Management Plan Announcement * 04 &#x3D; Analyst Meeting * 05 &#x3D; Special Announcement * 06 &#x3D; Investor Conference  | [optional]
  **language_type** | **str**| This parameter filters the results based on language type(either English or local) of the Transcript.  | [optional] if omitted the server will use the default value of "local"
  **file_name** | **str**| This parameter is used to filters the results based on file name. | [optional]
  **type** | **str**| Specifies the type of the file. | [optional] if omitted the server will use the default value of "delta"

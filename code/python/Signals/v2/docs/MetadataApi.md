@@ -226,6 +226,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     signal_id = "dilutionTrigger" # str | 
 
     try:

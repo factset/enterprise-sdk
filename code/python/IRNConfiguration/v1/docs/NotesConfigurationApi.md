@@ -145,6 +145,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -315,6 +316,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -649,7 +651,9 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     subject_id = "subjectId_example" # str | Id
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -740,6 +744,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -828,7 +833,9 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     team_id = "teamId_example" # str | Id
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
@@ -919,6 +926,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:

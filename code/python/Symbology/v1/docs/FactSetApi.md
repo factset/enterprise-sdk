@@ -56,6 +56,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fact_set_api.FactSetApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     factset_translation_request = FactsetTranslationRequest(
         ids=GetIds(["GOOGL-US"]),
     ) # FactsetTranslationRequest | Request Body for FactSet Symbology Translation
@@ -151,6 +152,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fact_set_api.FactSetApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
 
     try:

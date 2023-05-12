@@ -56,12 +56,19 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = people_match_api.PeopleMatchApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     entity = "Microsoft" # str | Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     person_name = "Bill Gates" # str | Name of Person to match. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     salutation = "Mr" # str | Title in person's name. This parameter should not be provided when the person name is provided as the input. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     first_name = "Bill" # str | First name of person. This parameter should not be provided when the person name is provided as the input. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     middle_name = "Henry" # str | Middle name of person.This parameter should not be provided when the person name is provided as the input. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     last_name = "Gates" # str | Last name of person. This parameter should not be provided when the person name is provided as the input. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     suffix = "III" # str | Suffix in person's name. This parameter should not be provided when the person name is provided as the input. (optional)
 
     try:
@@ -162,6 +169,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = people_match_api.PeopleMatchApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     people_match_request = PeopleMatchRequest(
         input=[
             PeopleMatchRequestInput(

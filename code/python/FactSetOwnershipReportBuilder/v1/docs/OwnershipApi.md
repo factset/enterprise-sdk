@@ -55,10 +55,15 @@ with fds.sdk.FactSetOwnershipReportBuilder.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = ownership_api.OwnershipApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "FDS" # str | Company or Fund Identifier
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     asset_type = "EQUITY" # str | Controls the Asset Type of the data returned (optional) if omitted the server will use the default value of "EQUITY"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     holder_type = "INSTITUTIONS" # str | Controls the Holder Type of the data returned (optional) if omitted the server will use the default value of "INSTITUTIONS"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     topn = "ALL" # str | Limits the number of holders returned based on their Market Value position in the security.   Default is ALL, otherwise use a valid number above 0.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = "2019-12-31" # str | Top Holders as of date expressed in YYYY-MM-DD format. Defaults to latest month-end close; non-month-end dates are converted to month-end dates. (optional)
 
     try:

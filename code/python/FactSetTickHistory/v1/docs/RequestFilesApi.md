@@ -55,14 +55,23 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = request_files_api.RequestFilesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = dateutil_parser('2021-01-01').date() # date | The date for (or from which) the data is required.</p> **In Sandbox, data available from 1st to 31st Jan'21 only**.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = dateutil_parser('2021-01-31').date() # date | The date to which data is required.</p> **In Sandbox, data available from 1st to 31st Jan'21 only**.
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ticker = "CBA,BHP" # str | The requested list of security identifiers. <p>**Either ticker(s) + iso_code  (OR) product is allowed**</p> **NOTE**:Only one identifier can be requested per request (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     iso_code = "AUS" # str | The requested ISO code. <p>ticker(s) + iso_code</p> <p>**Does not support multiple iso_codes**</p> (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     fields = "*" # str | Fields for which data is requested. Refer <a href= \"https://developer.factset.com/api-catalog/factset-tick-history-api#apiDocumentation\">Output fields list</a>. for available fields.</p> **In trial default=all fields** (optional) if omitted the server will use the default value of "*"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_time = "10:20:30" # str | The start time of the data being requested. The time should be in HH:MM:SS format. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_time = "11:20:30" # str | The end time of the data being requested. The time should be in HH:MM:SS format. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     single = "false" # str | Returns data in a single file when single=true. This parameter only works for smaller date/time requests where the file size is upto 128MB. (optional) if omitted the server will use the default value of "false"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     regional_iso_code = "ASX" # str | Works in conjunction with iso_code parameter.<p>ticker(s) + iso_code + regionalISOCode</p> <p>**Does not support multiple regionalISOCodes**</p> (optional)
 
     try:

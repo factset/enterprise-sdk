@@ -55,8 +55,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pricing_sources_api.PricingSourcesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     name = "" # str | PA pricing sources name (optional) if omitted the server will use the default value of ""
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     category = "" # str | PA pricing sources category (optional) if omitted the server will use the default value of ""
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     directory = "" # str | The directory to get the PA pricing sources in (optional) if omitted the server will use the default value of ""
 
     try:

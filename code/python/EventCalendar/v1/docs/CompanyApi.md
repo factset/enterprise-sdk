@@ -55,6 +55,7 @@ with fds.sdk.EventCalendar.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     company_event_request = CompanyEventRequest(
         data=CompanyEventRequestData(
             date=CompanyEventRequestDataDate(

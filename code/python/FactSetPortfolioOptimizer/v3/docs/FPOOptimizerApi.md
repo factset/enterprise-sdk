@@ -60,6 +60,7 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fpo_optimizer_api.FPOOptimizerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run FPO optimization endpoint
 
     try:
@@ -153,6 +154,7 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fpo_optimizer_api.FPOOptimizerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run FPO optimization endpoint
 
     try:
@@ -247,7 +249,9 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fpo_optimizer_api.FPOOptimizerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Get FPO optimization status by id endpoint
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     accept = "Accept_example" # str | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)
 
     try:
@@ -344,6 +348,7 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fpo_optimizer_api.FPOOptimizerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run FPO optimization endpoint
 
     try:
@@ -439,8 +444,11 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fpo_optimizer_api.FPOOptimizerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     fpo_optimization_parameters_root = FPOOptimizationParametersRoot(
         data=FPOOptimizationParameters(
             account=FPOAccount(
@@ -596,9 +604,13 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fpo_optimizer_api.FPOOptimizerApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run FPO optimization endpoint
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     fpo_optimization_parameters_root = FPOOptimizationParametersRoot(
         data=FPOOptimizationParameters(
             account=FPOAccount(

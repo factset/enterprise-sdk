@@ -79,6 +79,7 @@ class ScriptsAsiaApi(object):
                 ],
                 'enum': [
                     'sort',
+                    'event_type',
                     'language_type',
                     'type',
                 ],
@@ -104,6 +105,15 @@ class ScriptsAsiaApi(object):
 
                         "STARTDATE": "startDate",
                         "-STARTDATE": "-startDate"
+                    },
+                    ('event_type',): {
+
+                        "01": "01",
+                        "02": "02",
+                        "03": "03",
+                        "04": "04",
+                        "05": "05",
+                        "06": "06"
                     },
                     ('language_type',): {
 
@@ -215,7 +225,7 @@ class ScriptsAsiaApi(object):
             start_date (date): The earliest date of the Scripts Asia file the API should return based on date. . [optional]
             end_date (date): The latest date of the Scripts Asia file the API should return based on date.          . [optional]
             company_name (str): This parameter filters the results based on Company Name of the Transcript. . [optional]
-            event_type (str): This parameter filters the results based on eventType of the Transcript. . [optional]
+            event_type (str): This parameter filters the results based on eventType of the Transcript.  * 01 = Shareholders Meeting * 02 = Earnings Announcement * 03 = Medium-term Management Plan Announcement * 04 = Analyst Meeting * 05 = Special Announcement * 06 = Investor Conference . [optional]
             language_type (str): This parameter filters the results based on language type(either English or local) of the Transcript. . [optional] if omitted the server will use the default value of "local"
             file_name (str): This parameter is used to filters the results based on file name.. [optional]
             type (str): Specifies the type of the file.. [optional] if omitted the server will use the default value of "delta"
@@ -268,7 +278,7 @@ class ScriptsAsiaApi(object):
             start_date (date): The earliest date of the Scripts Asia file the API should return based on date. . [optional]
             end_date (date): The latest date of the Scripts Asia file the API should return based on date.          . [optional]
             company_name (str): This parameter filters the results based on Company Name of the Transcript. . [optional]
-            event_type (str): This parameter filters the results based on eventType of the Transcript. . [optional]
+            event_type (str): This parameter filters the results based on eventType of the Transcript.  * 01 = Shareholders Meeting * 02 = Earnings Announcement * 03 = Medium-term Management Plan Announcement * 04 = Analyst Meeting * 05 = Special Announcement * 06 = Investor Conference . [optional]
             language_type (str): This parameter filters the results based on language type(either English or local) of the Transcript. . [optional] if omitted the server will use the default value of "local"
             file_name (str): This parameter is used to filters the results based on file name.. [optional]
             type (str): Specifies the type of the file.. [optional] if omitted the server will use the default value of "delta"
@@ -325,7 +335,7 @@ class ScriptsAsiaApi(object):
             start_date (date): The earliest date of the Scripts Asia file the API should return based on date. . [optional]
             end_date (date): The latest date of the Scripts Asia file the API should return based on date.          . [optional]
             company_name (str): This parameter filters the results based on Company Name of the Transcript. . [optional]
-            event_type (str): This parameter filters the results based on eventType of the Transcript. . [optional]
+            event_type (str): This parameter filters the results based on eventType of the Transcript.  * 01 = Shareholders Meeting * 02 = Earnings Announcement * 03 = Medium-term Management Plan Announcement * 04 = Analyst Meeting * 05 = Special Announcement * 06 = Investor Conference . [optional]
             language_type (str): This parameter filters the results based on language type(either English or local) of the Transcript. . [optional] if omitted the server will use the default value of "local"
             file_name (str): This parameter is used to filters the results based on file name.. [optional]
             type (str): Specifies the type of the file.. [optional] if omitted the server will use the default value of "delta"
@@ -377,7 +387,7 @@ class ScriptsAsiaApi(object):
             start_date (date): The earliest date of the Scripts Asia file the API should return based on date. . [optional]
             end_date (date): The latest date of the Scripts Asia file the API should return based on date.          . [optional]
             company_name (str): This parameter filters the results based on Company Name of the Transcript. . [optional]
-            event_type (str): This parameter filters the results based on eventType of the Transcript. . [optional]
+            event_type (str): This parameter filters the results based on eventType of the Transcript.  * 01 = Shareholders Meeting * 02 = Earnings Announcement * 03 = Medium-term Management Plan Announcement * 04 = Analyst Meeting * 05 = Special Announcement * 06 = Investor Conference . [optional]
             language_type (str): This parameter filters the results based on language type(either English or local) of the Transcript. . [optional] if omitted the server will use the default value of "local"
             file_name (str): This parameter is used to filters the results based on file name.. [optional]
             type (str): Specifies the type of the file.. [optional] if omitted the server will use the default value of "delta"

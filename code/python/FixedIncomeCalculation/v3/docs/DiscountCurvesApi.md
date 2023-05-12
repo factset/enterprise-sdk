@@ -55,6 +55,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = discount_curves_api.DiscountCurvesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     currency = "currency_example" # str |  (optional)
 
     try:
