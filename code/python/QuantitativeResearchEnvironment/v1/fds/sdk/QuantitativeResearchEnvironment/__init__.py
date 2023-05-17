@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.21.4"
+__version__ = "0.21.5"
 
 # import ApiClient
 from fds.sdk.QuantitativeResearchEnvironment.api_client import ApiClient

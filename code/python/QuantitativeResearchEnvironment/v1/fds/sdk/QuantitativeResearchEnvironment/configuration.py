@@ -421,7 +421,7 @@ conf = fds.sdk.QuantitativeResearchEnvironment.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 0.0.0\n"\
-               "SDK Package Version: 0.21.4".\
+               "SDK Package Version: 0.21.5".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

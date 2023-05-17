@@ -421,7 +421,7 @@ conf = fds.sdk.Formula.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.5.0\n"\
-               "SDK Package Version: 2.1.2".\
+               "SDK Package Version: 2.1.3".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

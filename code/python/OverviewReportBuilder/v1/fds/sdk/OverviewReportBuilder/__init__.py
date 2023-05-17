@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.1.2"
+__version__ = "1.1.3"
 
 # import ApiClient
 from fds.sdk.OverviewReportBuilder.api_client import ApiClient

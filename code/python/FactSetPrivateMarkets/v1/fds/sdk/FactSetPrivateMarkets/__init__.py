@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.0.3"
+__version__ = "1.0.4"
 
 # import ApiClient
 from fds.sdk.FactSetPrivateMarkets.api_client import ApiClient

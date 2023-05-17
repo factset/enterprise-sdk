@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.10.6"
+__version__ = "0.10.7"
 
 # import ApiClient
 from fds.sdk.QuotesAPIforDigitalPortals.api_client import ApiClient

@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetEntity",
   "projectName": "fds.sdk.FactSetEntity",
-  "packageVersion": "1.0.3",
+  "packageVersion": "1.0.4",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet Entity client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetEntity/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetEntity/1.0.3",
+  "httpUserAgent": "fds-sdk/python/FactSetEntity/1.0.4",
   "files": {
     "LICENSE": {}
   }

@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.OpenRisk"
-VERSION = "1.1.3"
+VERSION = "1.1.4"
 # To install the library, run the following
 #
 # python setup.py install
