@@ -6,7 +6,7 @@ info:
   description: Collection of endpoints for providing Signal Events, Definitions and
     Metadata
   title: Signals API
-  version: 2.5.0
+  version: 2.6.0
 servers:
 - description: Production
   url: https://api.factset.com/signals/v2
@@ -14,18 +14,22 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- description: Fetch signal events
+- description: Fetch signal events. Please note that FactSet Cognitive signals and
+    signals contributed by third parties are excluded from the response for limited
+    API access.
   name: Events
 - description: Fetch signal metadata
   name: Metadata
 paths:
   /events/headlines:
     get:
-      description: Fetch Signals event headlines based on the filtering criteria
+      description: 'Fetch Signals event headlines based on at least one of the following
+        filtering parameters: `ids`, `portfolios`'
       operationId: getEventHeadlines
       parameters:
       - description: A date/time (UTC) interval for filtering signal events based
-          on their creation date. Defaults to NOW - 7 days if omitted.
+          on their creation date. Defaults to NOW - 7 days if omitted. Users with
+          limited access can only provide the default or a smaller date window.
         examples:
           default:
             value: {}
@@ -43,7 +47,8 @@ paths:
           $ref: '#/components/schemas/DateTimeInterval'
         style: deepObject
       - description: A date/time (UTC) interval for filtering signal events based
-          on their last updated date. Defaults to NOW - 7 days if omitted.
+          on their last updated date. Defaults to NOW - 7 days if omitted. Users with
+          limited access can only provide the default or a smaller date window.
         examples:
           default:
             value: {}
@@ -72,7 +77,8 @@ paths:
       - description: Comma delimited string of identifiers. An identifier can be a
           ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers
           either via a ids or a portfolios parameter. If both are provided, only ids
-          filter is used.
+          filter is used. Users with limited access can use only the ids filter and
+          provide at most 10 ids.
         example: FDS-US,AMZN-US
         explode: true
         in: query
@@ -82,8 +88,9 @@ paths:
           type: string
         style: form
       - description: Name of a portfolio file stored by FactSet. If the portfolio
-          contains more than 1,000 ids, only the first 1,000 ids are processed. e.g.
-          client:techstocks.ofdb
+          contains more than 1,000 ids, only the first 1,000 ids are processed (e.g.
+          client:techstocks.ofdb). Please note that using this parameter requires
+          full subscription to Signals API.
         explode: true
         in: query
         name: portfolios
@@ -165,6 +172,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -176,8 +200,9 @@ paths:
       x-factset-sdk-ignore: true
       x-accepts: application/json
     post:
-      description: Fetch Signals event headlines based on the filtering criteria for
-        up to 1000 identifiers
+      description: 'Fetch Signals event headlines based on the filtering criteria
+        for up to 1000 identifiers and at least one of the following filtering parameters:
+        `ids`, `portfolios`'
       operationId: postEventHeadlines
       requestBody:
         content:
@@ -192,18 +217,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/eventHeadlines'
           description: OK
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
       tags:
       - Events
       x-contentType: application/json
       x-accepts: application/json
   /events/details:
     get:
-      description: Fetch Signals event headlines plus all additional event details
-        based on the filtering criteria
+      description: 'Fetch Signals event headlines plus all additional event details
+        based on at least one of the following filtering parameters: `ids`, `portfolios`'
       operationId: getEventDetails
       parameters:
       - description: A date/time (UTC) interval for filtering signal events based
-          on their creation date. Defaults to NOW - 7 days if omitted.
+          on their creation date. Defaults to NOW - 7 days if omitted. Users with
+          limited access can only provide the default or a smaller date window.
         examples:
           default:
             value: {}
@@ -221,7 +264,8 @@ paths:
           $ref: '#/components/schemas/DateTimeInterval'
         style: deepObject
       - description: A date/time (UTC) interval for filtering signal events based
-          on their last updated date. Defaults to NOW - 7 days if omitted.
+          on their last updated date. Defaults to NOW - 7 days if omitted. Users with
+          limited access can only provide the default or a smaller date window.
         examples:
           default:
             value: {}
@@ -250,7 +294,8 @@ paths:
       - description: Comma delimited string of identifiers. An identifier can be a
           ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers
           either via a ids or a portfolios parameter. If both are provided, only ids
-          filter is used.
+          filter is used. Users with limited access can use only the ids filter and
+          provide at most 10 ids.
         example: FDS-US,AMZN-US
         explode: true
         in: query
@@ -260,8 +305,9 @@ paths:
           type: string
         style: form
       - description: Name of a portfolio file stored by FactSet. If the portfolio
-          contains more than 1,000 ids, only the first 1,000 ids are processed. e.g.
-          client:techstocks.ofdb
+          contains more than 1,000 ids, only the first 1,000 ids are processed (e.g.
+          client:techstocks.ofdb). Please note that using this parameter requires
+          full subscription to Signals API.
         explode: true
         in: query
         name: portfolios
@@ -343,6 +389,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -354,8 +417,9 @@ paths:
       x-factset-sdk-ignore: true
       x-accepts: application/json
     post:
-      description: Fetch Signals event headlines plus all additional event details
-        for up to 1000 identifiers
+      description: 'Fetch Signals event headlines plus all additional event details
+        for up to 1000 identifiers and at least one of the following filtering parameters:
+        `ids`, `portfolios`'
       operationId: postEventDetails
       requestBody:
         content:
@@ -370,6 +434,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/eventDetails'
           description: OK
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
       tags:
       - Events
       x-contentType: application/json
@@ -403,6 +484,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -414,13 +512,14 @@ paths:
       x-accepts: application/json
   /events/adaptive-cards:
     get:
-      description: Fetch Microsoft's Adaptive Cards, which includes headlines and
-        event details data plus hyperlinks to FactSet reports, based on the filtering
-        criteria
+      description: 'Fetch Microsoft''s Adaptive Cards, which includes headlines and
+        event details data plus hyperlinks to FactSet reports, based on at least one
+        of the following filtering parameters: `ids`, `portfolios`'
       operationId: getEventAdaptiveCards
       parameters:
       - description: A date/time (UTC) interval for filtering signal events based
-          on their creation date. Defaults to NOW - 7 days if omitted.
+          on their creation date. Defaults to NOW - 7 days if omitted. Users with
+          limited access can only provide the default or a smaller date window.
         examples:
           default:
             value: {}
@@ -438,7 +537,8 @@ paths:
           $ref: '#/components/schemas/DateTimeInterval'
         style: deepObject
       - description: A date/time (UTC) interval for filtering signal events based
-          on their last updated date. Defaults to NOW - 7 days if omitted.
+          on their last updated date. Defaults to NOW - 7 days if omitted. Users with
+          limited access can only provide the default or a smaller date window.
         examples:
           default:
             value: {}
@@ -467,7 +567,8 @@ paths:
       - description: Comma delimited string of identifiers. An identifier can be a
           ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers
           either via a ids or a portfolios parameter. If both are provided, only ids
-          filter is used.
+          filter is used. Users with limited access can use only the ids filter and
+          provide at most 10 ids.
         example: FDS-US,AMZN-US
         explode: true
         in: query
@@ -477,8 +578,9 @@ paths:
           type: string
         style: form
       - description: Name of a portfolio file stored by FactSet. If the portfolio
-          contains more than 1,000 ids, only the first 1,000 ids are processed. e.g.
-          client:techstocks.ofdb
+          contains more than 1,000 ids, only the first 1,000 ids are processed (e.g.
+          client:techstocks.ofdb). Please note that using this parameter requires
+          full subscription to Signals API.
         explode: true
         in: query
         name: portfolios
@@ -560,6 +662,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -571,9 +690,9 @@ paths:
       x-factset-sdk-ignore: true
       x-accepts: application/json
     post:
-      description: Fetch Microsoft's Adaptive Cards, which includes headlines and
-        event details data plus hyperlinks to FactSet reports, based on the filtering
-        criteria
+      description: 'Fetch Microsoft''s Adaptive Cards, which includes headlines and
+        event details data plus hyperlinks to FactSet reports, based on at least one
+        of the following filtering parameters: `ids`, `portfolios`'
       operationId: postEventAdaptiveCards
       requestBody:
         content:
@@ -594,6 +713,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -634,6 +770,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -649,7 +802,8 @@ paths:
       operationId: getEventEntities
       parameters:
       - description: A date/time (UTC) interval for filtering signal events based
-          on their creation date. Defaults to NOW - 7 days if omitted.
+          on their creation date. Defaults to NOW - 7 days if omitted. Users with
+          limited access can only provide the default or a smaller date window.
         examples:
           default:
             value: {}
@@ -667,7 +821,8 @@ paths:
           $ref: '#/components/schemas/DateTimeInterval'
         style: deepObject
       - description: A date/time (UTC) interval for filtering signal events based
-          on their last updated date. Defaults to NOW - 7 days if omitted.
+          on their last updated date. Defaults to NOW - 7 days if omitted. Users with
+          limited access can only provide the default or a smaller date window.
         examples:
           default:
             value: {}
@@ -744,6 +899,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -776,6 +948,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -797,6 +986,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/signalMetaData'
           description: OK
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -833,6 +1039,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Not found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -853,6 +1076,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/signalMetaData'
           description: OK
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -873,6 +1113,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/signalMetaData'
           description: OK
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rateLimitResponse'
+          description: API Rate Limit Exceeded
+          headers:
+            Api-Version:
+              $ref: '#/components/headers/Api-Version'
+            Api-Supported-Versions:
+              $ref: '#/components/headers/Api-Supported-Versions'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimit-Limit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimit-Remaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimit-Reset'
         "500":
           content:
             application/json:
@@ -894,10 +1151,49 @@ components:
       value:
         gt: 2022-01-01T00:00:00.000Z
         lt: 2022-01-02T00:00:00.000Z
+  headers:
+    Api-Version:
+      description: Full semantic version of the API.
+      explode: false
+      schema:
+        example: 1.0.0
+        type: string
+      style: simple
+    Api-Supported-Versions:
+      description: Comma-separated list of supported major versions.
+      explode: false
+      schema:
+        example: "1"
+        type: string
+      style: simple
+    RateLimit-Limit:
+      description: Total number of requests allowed in a specific time window. The
+        time window is two seconds for regular API users and one week for limited
+        access users.
+      explode: false
+      schema:
+        example: 5
+        type: integer
+      style: simple
+    RateLimit-Remaining:
+      description: Remaining number of requests in the current time window.
+      explode: false
+      schema:
+        example: 4
+        type: integer
+      style: simple
+    RateLimit-Reset:
+      description: Time remaining (in seconds) until the quota is reset.
+      explode: false
+      schema:
+        example: 1000
+        type: integer
+      style: simple
   parameters:
     createdParam:
       description: A date/time (UTC) interval for filtering signal events based on
-        their creation date. Defaults to NOW - 7 days if omitted.
+        their creation date. Defaults to NOW - 7 days if omitted. Users with limited
+        access can only provide the default or a smaller date window.
       examples:
         default:
           value: {}
@@ -916,7 +1212,8 @@ components:
       style: deepObject
     updatedParam:
       description: A date/time (UTC) interval for filtering signal events based on
-        their last updated date. Defaults to NOW - 7 days if omitted.
+        their last updated date. Defaults to NOW - 7 days if omitted. Users with limited
+        access can only provide the default or a smaller date window.
       examples:
         default:
           value: {}
@@ -947,7 +1244,8 @@ components:
       description: Comma delimited string of identifiers. An identifier can be a ticker,
         FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either
         via a ids or a portfolios parameter. If both are provided, only ids filter
-        is used.
+        is used. Users with limited access can use only the ids filter and provide
+        at most 10 ids.
       example: FDS-US,AMZN-US
       explode: true
       in: query
@@ -958,7 +1256,9 @@ components:
       style: form
     portfoliosParam:
       description: Name of a portfolio file stored by FactSet. If the portfolio contains
-        more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
+        more than 1,000 ids, only the first 1,000 ids are processed (e.g. client:techstocks.ofdb).
+        Please note that using this parameter requires full subscription to Signals
+        API.
       explode: true
       in: query
       name: portfolios
@@ -1068,6 +1368,13 @@ components:
       required:
       - message
       type: object
+    rateLimitResponse:
+      description: Error returned if any of the user's rate limit have been reached.
+      properties:
+        message:
+          example: API rate limit exceeded
+          type: string
+      title: Rate Limit Error Object
     errorItem:
       example:
         code: parameterError
@@ -1190,12 +1497,17 @@ components:
             gte: 2021-01-01T00:00:00Z
             lte: 2021-01-01T00:00:00Z
             gt: 2021-01-01T00:00:00Z
+        partial:
+          reason: reason
+          isPartial: true
       properties:
         signalRequestId:
           format: uuid
           type: string
         dateRange:
           $ref: '#/components/schemas/eventsMeta_dateRange'
+        partial:
+          $ref: '#/components/schemas/screenMeta_partial'
       required:
       - dateRange
       - signalRequestId
@@ -1540,27 +1852,31 @@ components:
           allOf:
           - $ref: '#/components/schemas/DateTimeInterval'
           description: A date/time (UTC) interval for filtering signal events based
-            on their creation date. Defaults to NOW - 7 days if omitted.
+            on their creation date. Defaults to NOW - 7 days if omitted. Users with
+            limited access can only provide the default or a smaller date window.
         updated:
           allOf:
           - $ref: '#/components/schemas/DateTimeInterval'
           description: A date/time (UTC) interval for filtering signal events based
-            on their last updated date. Defaults to NOW - 24 hours if omitted.
+            on their last updated date. Defaults to NOW - 7 days if omitted. Users
+            with limited access can only provide the default or a smaller date window.
         signalIds:
           description: Comma delimited string of signalIds
           example: dilutionTrigger,freeCashFlow
           type: string
         ids:
           description: Comma delimited string of identifiers. An identifier can be
-            a ticker, FactSet entity id, CUSIP or ISIN. Only the first 1,000 ids are
-            processed. You must provide a list of identifiers either via a ids or
-            a portfolios parameter. If both are provided, only ids filter is used.
+            a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of
+            identifiers either via a ids or a portfolios parameter. If both are provided,
+            only ids filter is used. Users with limited access can use only the ids
+            filter and provide at most 10 ids.
           example: FDS-US,AMZN-US
           type: string
         portfolios:
           description: Name of a portfolio file stored by FactSet. If the portfolio
-            contains more than 1,000 ids, only the first 1,000 ids are processed.
-            e.g. client:techstocks.ofdb
+            contains more than 1,000 ids, only the first 1,000 ids are processed (e.g.
+            client:techstocks.ofdb). Please note that using this parameter requires
+            full subscription to Signals API.
           type: string
         themes:
           description: Comma delimited string of theme ids. Full list of signal themes
@@ -1604,6 +1920,9 @@ components:
               gte: 2021-01-01T00:00:00Z
               lte: 2021-01-01T00:00:00Z
               gt: 2021-01-01T00:00:00Z
+          partial:
+            reason: reason
+            isPartial: true
         errors:
         - code: parameterError
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1640,12 +1959,14 @@ components:
           allOf:
           - $ref: '#/components/schemas/DateTimeInterval'
           description: A date/time (UTC) interval for filtering signal events based
-            on their creation date. Defaults to NOW - 7 days if omitted.
+            on their creation date. Defaults to NOW - 7 days if omitted. Users with
+            limited access can only provide the default or a smaller date window.
         updated:
           allOf:
           - $ref: '#/components/schemas/DateTimeInterval'
           description: A date/time (UTC) interval for filtering signal events based
-            on their last updated date. Defaults to NOW - 24 hours if omitted.
+            on their last updated date. Defaults to NOW - 7 days if omitted. Users
+            with limited access can only provide the default or a smaller date window.
         signalIds:
           description: Comma delimited string of signalIds
           example: dilutionTrigger,freeCashFlow
@@ -1868,6 +2189,23 @@ components:
           $ref: '#/components/schemas/DateTimeInterval'
         updated:
           $ref: '#/components/schemas/DateTimeInterval'
+      type: object
+    screenMeta_partial:
+      example:
+        reason: reason
+        isPartial: true
+      properties:
+        isPartial:
+          description: Indicates that some of the matching entities are missing in
+            the response.
+          type: boolean
+        reason:
+          description: Describes why the response was sent with an incomplete list
+            of entities.
+          type: string
+      required:
+      - isPartial
+      - reason
       type: object
     eventDetailDataItem_allOf:
       properties:

@@ -40,7 +40,7 @@ export default class ReferenceApi {
 
     /**
      * Returns option security dates such as expiration and trade.
-     * Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"* 
+     * Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* 
      * @param {module:model/OptionsDatesRequest} optionsDatesRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OptionsDatesResponse} and HTTP response
      */
@@ -76,7 +76,7 @@ export default class ReferenceApi {
 
     /**
      * Returns option security dates such as expiration and trade.
-     * Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"* 
+     * Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* 
      * @param {module:model/OptionsDatesRequest} optionsDatesRequest 
      * @return { Promise.< module:model/OptionsDatesResponse > } a Promise, with data of type {@link module:model/OptionsDatesResponse }
      */
@@ -90,7 +90,7 @@ export default class ReferenceApi {
 
     /**
      * Returns basic reference details for the options such as currency, exchange, symbols, flags and more
-     * Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"* 
+     * Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* 
      * @param {module:model/OptionsReferencesRequest} optionsReferencesRequest Options Reference Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OptionsReferencesResponse} and HTTP response
      */
@@ -126,7 +126,7 @@ export default class ReferenceApi {
 
     /**
      * Returns basic reference details for the options such as currency, exchange, symbols, flags and more
-     * Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"* 
+     * Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* 
      * @param {module:model/OptionsReferencesRequest} optionsReferencesRequest Options Reference Request Body
      * @return { Promise.< module:model/OptionsReferencesResponse > } a Promise, with data of type {@link module:model/OptionsReferencesResponse }
      */

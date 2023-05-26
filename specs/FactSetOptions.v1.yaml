@@ -28,7 +28,7 @@ tags:
   - name: Option Chains & Screening
     description: >-
       Generate a list or universe of options ids based on underlying securities
-      or other conditions.
+      or other conditions
   - name: Snapshot
     description: A generic profile for a list of option securities as of a specific date
   - name: Reference
@@ -54,7 +54,7 @@ paths:
         security identifier. Specify the date and or exhcange for the list of
         options associated to the id. 
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       requestBody:
         required: true
         content:
@@ -117,7 +117,7 @@ paths:
 
         |P_OPT_CALL_OR_PUT_E|Call or Put (0=Call, 1=Put)|
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       operationId: getOptionsScreeningForList
       requestBody:
         required: true
@@ -178,7 +178,7 @@ paths:
 
         * Name
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       requestBody:
         required: true
         content:
@@ -233,7 +233,7 @@ paths:
         *For details or definitions of all available response fields visit the
         associated schema.*
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       operationId: getOptionsReferencesForList
       requestBody:
         required: true
@@ -274,7 +274,7 @@ paths:
 
         * Last Dates for Ask, Bid, Settlement, and Trade
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       operationId: getOptionsDatesForList
       requestBody:
         required: true
@@ -334,7 +334,7 @@ paths:
         * Open, High, Low for day. Note securities must be trading for day
         requested.
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       requestBody:
         required: true
         content:
@@ -370,7 +370,7 @@ paths:
       description: >
         Return the Volume and Open Interest details for list of the options for
         the specified underlying security identifier. The data is aggregated for
-        all options contracts associated to the underlying id, or specifify in
+        all options contracts associated to the underlying id, or specified in
         the request only the contracts listed on a specific exchange. Data
         Includes - 
 
@@ -382,7 +382,7 @@ paths:
 
         * Total Put & Call Volume & Open Interest
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       requestBody:
         required: true
         content:
@@ -420,7 +420,7 @@ paths:
 
         * Volume
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       operationId: getOptionsVolumeForList
       requestBody:
         required: true
@@ -510,7 +510,7 @@ paths:
         For more detials on calculation methodologies, visit [OA
         14933](https://my.apps.factset.com/oa/pages/14933). 
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       requestBody:
         required: true
         content:
@@ -616,7 +616,7 @@ paths:
         *For more details regarding ATM Volatility calculations, visit [OA
         16276](https://my.apps.factset.com/oa/pages/16276)*
 
-          *Currently only OPRA Exchange traded options are supproted*
+          *Currently only OPRA Exchange traded options are supported*
       requestBody:
         required: true
         content:
@@ -2075,7 +2075,7 @@ components:
 
         |USA|U.S. Exchange (Composite)|Equity, Index|Mid Bid/Ask|
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       enum:
         - USA
       default: USA

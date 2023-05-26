@@ -9,10 +9,10 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: SPAR Engine API
-  version: "3"
+  version: 3.13.0
 externalDocs:
   description: API Documentation
-  url: https://developer.factset.com/api-catalog/
+  url: https://developer.factset.com/api-catalog/spar-engine-api
 servers:
 - url: https://api.factset.com
 security:
@@ -334,8 +334,8 @@ paths:
         name: path
         required: true
         schema:
-          default: 'Client:'
           description: The directory to get the accounts and sub-directories in
+          example: 'Client:'
           type: string
         style: simple
       responses:
@@ -636,8 +636,8 @@ paths:
         name: id
         required: true
         schema:
-          default: R.1000
           description: Benchmark Identifier
+          example: R.1000
           type: string
         style: form
       responses:
@@ -940,8 +940,8 @@ paths:
         name: document
         required: true
         schema:
-          default: 'Client:'
           description: Document Name
+          example: 'Client:'
           type: string
         style: form
       responses:
@@ -1231,6 +1231,307 @@ paths:
       tags:
       - Components
       x-accepts: application/json
+  /analytics/engines/spar/v3/components/{id}:
+    get:
+      description: This endpoint returns the default settings of a SPAR component.
+      operationId: getSPARComponentById
+      parameters:
+      - description: Unique identifier for a SPAR component
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: Unique identifier for a SPAR component
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARComponentRoot'
+          description: Expected response, returns the default settings of a SPAR component.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid SPAR component id.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Component not found.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Get SPAR component by id
+      tags:
+      - Components
+      x-accepts: application/json
   /analytics/lookups/v3/currencies:
     get:
       description: This endpoint lists all the currencies that can be applied to any
@@ -1453,8 +1754,8 @@ paths:
         name: path
         required: true
         schema:
-          default: SPAR_DOCUMENTS:Factset Default Document
           description: The directory to get the documents in
+          example: SPAR_DOCUMENTS:Factset Default Document
           type: string
         style: simple
       responses:
@@ -1964,7 +2265,7 @@ paths:
         name: pageNumber
         required: true
         schema:
-          default: 1
+          example: 1
           format: int32
           type: integer
         style: form
@@ -2282,38 +2583,6 @@ paths:
       requestBody:
         content:
           application/json:
-            example:
-              data:
-                "1":
-                  componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
-                  accounts:
-                  - id: R.1000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  benchmark:
-                    id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  dates:
-                    startdate: -2M
-                    enddate: "0"
-                    frequency: Monthly
-                "2":
-                  componentid: E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02
-                  accounts:
-                  - id: R.1000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  - id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  benchmark:
-                    id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-              meta:
-                stachContentorganization: SimplifiedRow
-                format: JsonStach
             schema:
               $ref: '#/components/schemas/SPARCalculationParametersRoot'
         description: Calculation Parameters
@@ -3283,38 +3552,6 @@ paths:
       requestBody:
         content:
           application/json:
-            example:
-              data:
-                "1":
-                  componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
-                  accounts:
-                  - id: R.1000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  benchmark:
-                    id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  dates:
-                    startdate: -2M
-                    enddate: "0"
-                    frequency: Monthly
-                "2":
-                  componentid: E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02
-                  accounts:
-                  - id: R.1000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  - id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-                  benchmark:
-                    id: R.2000
-                    returntype: GTR
-                    prefix: RUSSELL
-              meta:
-                stachContentorganization: SimplifiedRow
-                format: JsonStach
             schema:
               $ref: '#/components/schemas/SPARCalculationParametersRoot'
         description: Calculation Parameters
@@ -4397,8 +4634,10 @@ components:
         id: id
       properties:
         name:
+          nullable: true
           type: string
         id:
+          nullable: true
           type: string
       type: object
     SPARAccounts:
@@ -4413,6 +4652,7 @@ components:
           description: List of SPAR returnsType
           items:
             $ref: '#/components/schemas/ReturnType'
+          nullable: true
           type: array
       type: object
     SPARAccountsRoot:
@@ -4423,11 +4663,13 @@ components:
             id: id
           - name: name
             id: id
-        meta: ""
+        meta: '{}'
       properties:
         data:
           $ref: '#/components/schemas/SPARAccounts'
-        meta: {}
+        meta:
+          nullable: true
+          type: object
       required:
       - data
       type: object
@@ -4437,8 +4679,10 @@ components:
         parameter: parameter
       properties:
         pointer:
+          nullable: true
           type: string
         parameter:
+          nullable: true
           type: string
       type: object
     Error:
@@ -4450,8 +4694,10 @@ components:
           parameter: parameter
       properties:
         id:
+          nullable: true
           type: string
         detail:
+          nullable: true
           type: string
         source:
           $ref: '#/components/schemas/ErrorSource'
@@ -4461,6 +4707,7 @@ components:
         errors:
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
       type: object
     AccountDirectories:
@@ -4476,11 +4723,13 @@ components:
           description: List of account and composite files.
           items:
             type: string
+          nullable: true
           type: array
         directories:
           description: List of directories.
           items:
             type: string
+          nullable: true
           type: array
       type: object
     AccountDirectoriesRoot:
@@ -4492,11 +4741,13 @@ components:
           accounts:
           - accounts
           - accounts
-        meta: ""
+        meta: '{}'
       properties:
         data:
           $ref: '#/components/schemas/AccountDirectories'
-        meta: {}
+        meta:
+          nullable: true
+          type: object
       required:
       - data
       type: object
@@ -4512,9 +4763,11 @@ components:
           type: string
         returntype:
           description: Benchmark return type.
+          nullable: true
           type: string
         prefix:
           description: Benchmark prefix.
+          nullable: true
           type: string
       required:
       - id
@@ -4533,14 +4786,17 @@ components:
       properties:
         id:
           description: Benchmark identifier
+          nullable: true
           type: string
         name:
           description: Benchmark Name
+          nullable: true
           type: string
         identifiers:
           description: List of SPAR identifiers
           items:
             $ref: '#/components/schemas/SPARIdentifier'
+          nullable: true
           type: array
       type: object
     SPARBenchmarkRoot:
@@ -4555,11 +4811,13 @@ components:
             id: id
           name: name
           id: id
-        meta: ""
+        meta: '{}'
       properties:
         data:
           $ref: '#/components/schemas/SPARBenchmark'
-        meta: {}
+        meta:
+          nullable: true
+          type: object
       required:
       - data
       type: object
@@ -4570,9 +4828,11 @@ components:
       properties:
         name:
           description: Component name.
+          nullable: true
           type: string
         category:
           description: Component category.
+          nullable: true
           type: string
       type: object
     ComponentSummaryRoot:
@@ -4581,15 +4841,84 @@ components:
           key:
             name: name
             category: category
-        meta: ""
       properties:
         data:
           additionalProperties:
             $ref: '#/components/schemas/ComponentSummary'
+          description: The keys represent Component Ids
+          nullable: true
           type: object
-        meta: {}
-      required:
-      - data
+      type: object
+    SPARComponent:
+      example:
+        path: path
+        name: name
+        id: id
+        accounts:
+        - prefix: prefix
+          returntype: returntype
+          id: id
+        - prefix: prefix
+          returntype: returntype
+          id: id
+        benchmarks:
+          prefix: prefix
+          returntype: returntype
+          id: id
+        currencyIsoCode: currencyIsoCode
+        category: category
+      properties:
+        id:
+          description: Component identifier.
+          nullable: true
+          type: string
+        accounts:
+          description: List of accounts in SPAR document.
+          items:
+            $ref: '#/components/schemas/SPARIdentifier'
+          nullable: true
+          type: array
+        benchmarks:
+          $ref: '#/components/schemas/SPARIdentifier'
+        currencyIsoCode:
+          description: CurrencyCode in SPAR document.
+          nullable: true
+          type: string
+        path:
+          description: The path to the document
+          nullable: true
+          type: string
+        name:
+          description: Component name.
+          nullable: true
+          type: string
+        category:
+          description: Component category.
+          nullable: true
+          type: string
+      type: object
+    SPARComponentRoot:
+      example:
+        data:
+          path: path
+          name: name
+          id: id
+          accounts:
+          - prefix: prefix
+            returntype: returntype
+            id: id
+          - prefix: prefix
+            returntype: returntype
+            id: id
+          benchmarks:
+            prefix: prefix
+            returntype: returntype
+            id: id
+          currencyIsoCode: currencyIsoCode
+          category: category
+      properties:
+        data:
+          $ref: '#/components/schemas/SPARComponent'
       type: object
     Currency:
       example:
@@ -4597,6 +4926,7 @@ components:
       properties:
         name:
           description: Name of currency.
+          nullable: true
           type: string
       type: object
     CurrencyRoot:
@@ -4604,13 +4934,15 @@ components:
         data:
           key:
             name: name
-        meta: ""
+        meta: '{}'
       properties:
         data:
           additionalProperties:
             $ref: '#/components/schemas/Currency'
           type: object
-        meta: {}
+        meta:
+          nullable: true
+          type: object
       required:
       - data
       type: object
@@ -4627,11 +4959,13 @@ components:
           description: List of documents
           items:
             type: string
+          nullable: true
           type: array
         directories:
           description: List of directories.
           items:
             type: string
+          nullable: true
           type: array
       type: object
     DocumentDirectoriesRoot:
@@ -4643,11 +4977,13 @@ components:
           directories:
           - directories
           - directories
-        meta: ""
+        meta: '{}'
       properties:
         data:
           $ref: '#/components/schemas/DocumentDirectories'
-        meta: {}
+        meta:
+          nullable: true
+          type: object
       required:
       - data
       type: object
@@ -4657,6 +4993,7 @@ components:
       properties:
         name:
           description: Frequency name.
+          nullable: true
           type: string
       type: object
     FrequencyRoot:
@@ -4664,13 +5001,15 @@ components:
         data:
           key:
             name: name
-        meta: ""
+        meta: '{}'
       properties:
         data:
           additionalProperties:
             $ref: '#/components/schemas/Frequency'
           type: object
-        meta: {}
+        meta:
+          nullable: true
+          type: object
       required:
       - data
       type: object
@@ -4722,6 +5061,7 @@ components:
           description: List of accounts for SPAR calculation.
           items:
             $ref: '#/components/schemas/SPARIdentifier'
+          nullable: true
           type: array
         benchmark:
           $ref: '#/components/schemas/SPARIdentifier'
@@ -4729,6 +5069,7 @@ components:
           $ref: '#/components/schemas/SPARDateParameters'
         currencyisocode:
           description: Currency ISO code for calculation.
+          nullable: true
           type: string
       required:
       - componentid
@@ -4809,6 +5150,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/SPARCalculationParameters'
           description: List of calculation parameters.
+          nullable: true
           type: object
         meta:
           $ref: '#/components/schemas/CalculationMeta'
@@ -4816,6 +5158,9 @@ components:
     CalculationUnitStatus:
       example:
         result: result
+        warnings:
+        - warnings
+        - warnings
         progress: progress
         errors:
         - id: id
@@ -4844,17 +5189,27 @@ components:
           description: The error in a calculation unit.
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
         result:
           description: The result URL of the calculation.
+          nullable: true
           type: string
         progress:
           description: The progress of the calculation unit.
+          nullable: true
           type: string
         points:
           description: The points for the calculation unit.
           format: int32
+          nullable: true
           type: integer
+        warnings:
+          description: The warnings in a calculation unit.
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     CalculationStatus:
       example:
@@ -4862,6 +5217,9 @@ components:
         units:
           key:
             result: result
+            warnings:
+            - warnings
+            - warnings
             progress: progress
             errors:
             - id: id
@@ -4880,6 +5238,7 @@ components:
       properties:
         calculationid:
           description: Calculation's identifier
+          nullable: true
           type: string
         status:
           description: Calculation's status
@@ -4893,6 +5252,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/CalculationUnitStatus'
           description: Number of calculation units in batch.
+          nullable: true
           type: object
       type: object
     CalculationUnitStatusMeta:
@@ -4901,6 +5261,7 @@ components:
       properties:
         info:
           description: The Info URL of the calculation.
+          nullable: true
           type: string
       type: object
     CalculationStatusMeta:
@@ -4913,6 +5274,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/CalculationUnitStatusMeta'
           description: Meta of calculation units in batch.
+          nullable: true
           type: object
       type: object
     CalculationStatusRoot:
@@ -4922,6 +5284,9 @@ components:
           units:
             key:
               result: result
+              warnings:
+              - warnings
+              - warnings
               progress: progress
               errors:
               - id: id
@@ -4951,11 +5316,14 @@ components:
       type: object
     ObjectRoot:
       example:
-        data: ""
-        meta: ""
+        data: '{}'
+        meta: '{}'
       properties:
-        data: {}
-        meta: {}
+        data:
+          type: object
+        meta:
+          nullable: true
+          type: object
       required:
       - data
       type: object
@@ -5009,8 +5377,10 @@ components:
           format: int32
           type: integer
         nextPage:
+          nullable: true
           type: string
         previousPage:
+          nullable: true
           type: string
       type: object
     PaginationMeta:

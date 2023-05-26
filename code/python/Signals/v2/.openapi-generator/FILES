@@ -32,8 +32,10 @@ docs/EventsMetaDateRange.md
 docs/EventsMetaPagination.md
 docs/IdResolutionsMeta.md
 docs/MetadataApi.md
+docs/RateLimitResponse.md
 docs/RelevanceScoreRange.md
 docs/ScreenMeta.md
+docs/ScreenMetaPartial.md
 docs/SignalDefinition.md
 docs/SignalDefinitionData.md
 docs/SignalMetaData.md
@@ -74,8 +76,10 @@ fds/sdk/Signals/model/events_meta.py
 fds/sdk/Signals/model/events_meta_date_range.py
 fds/sdk/Signals/model/events_meta_pagination.py
 fds/sdk/Signals/model/id_resolutions_meta.py
+fds/sdk/Signals/model/rate_limit_response.py
 fds/sdk/Signals/model/relevance_score_range.py
 fds/sdk/Signals/model/screen_meta.py
+fds/sdk/Signals/model/screen_meta_partial.py
 fds/sdk/Signals/model/signal_definition.py
 fds/sdk/Signals/model/signal_definition_data.py
 fds/sdk/Signals/model/signal_meta_data.py

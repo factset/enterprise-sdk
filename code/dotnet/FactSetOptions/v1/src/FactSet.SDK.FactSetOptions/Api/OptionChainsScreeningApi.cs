@@ -32,7 +32,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the underlying option identifiers for the specified underlying Security identifier
         /// </summary>
         /// <remarks>
-        /// Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chainsRequest">Options Chains Request Object</param>
@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the underlying option identifiers for the specified underlying Security identifier
         /// </summary>
         /// <remarks>
-        /// Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chainsRequest">Options Chains Request Object</param>
@@ -53,7 +53,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the option identifiers based on the conditions provided as input in the request
         /// </summary>
         /// <remarks>
-        /// Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionScreeningRequest">Option Screening Request. Example request asks for Put Options where Underlying Security is AAPL and Volume is greater than 0 as of 2021-03-31.  </param>
@@ -64,7 +64,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the option identifiers based on the conditions provided as input in the request
         /// </summary>
         /// <remarks>
-        /// Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionScreeningRequest">Option Screening Request. Example request asks for Put Options where Underlying Security is AAPL and Volume is greater than 0 as of 2021-03-31.  </param>
@@ -83,7 +83,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the underlying option identifiers for the specified underlying Security identifier
         /// </summary>
         /// <remarks>
-        /// Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chainsRequest">Options Chains Request Object</param>
@@ -95,7 +95,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the underlying option identifiers for the specified underlying Security identifier
         /// </summary>
         /// <remarks>
-        /// Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chainsRequest">Options Chains Request Object</param>
@@ -106,7 +106,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the option identifiers based on the conditions provided as input in the request
         /// </summary>
         /// <remarks>
-        /// Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionScreeningRequest">Option Screening Request. Example request asks for Put Options where Underlying Security is AAPL and Volume is greater than 0 as of 2021-03-31.  </param>
@@ -118,7 +118,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the option identifiers based on the conditions provided as input in the request
         /// </summary>
         /// <remarks>
-        /// Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionScreeningRequest">Option Screening Request. Example request asks for Put Options where Underlying Security is AAPL and Volume is greater than 0 as of 2021-03-31.  </param>
@@ -275,7 +275,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the underlying option identifiers for the specified underlying Security identifier Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the underlying option identifiers for the specified underlying Security identifier Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chainsRequest">Options Chains Request Object</param>
@@ -287,7 +287,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the underlying option identifiers for the specified underlying Security identifier Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the underlying option identifiers for the specified underlying Security identifier Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chainsRequest">Options Chains Request Object</param>
@@ -362,7 +362,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the underlying option identifiers for the specified underlying Security identifier Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the underlying option identifiers for the specified underlying Security identifier Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chainsRequest">Options Chains Request Object</param>
@@ -375,7 +375,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the underlying option identifiers for the specified underlying Security identifier Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the underlying option identifiers for the specified underlying Security identifier Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id.     *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chainsRequest">Options Chains Request Object</param>
@@ -454,7 +454,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the option identifiers based on the conditions provided as input in the request Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the option identifiers based on the conditions provided as input in the request Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionScreeningRequest">Option Screening Request. Example request asks for Put Options where Underlying Security is AAPL and Volume is greater than 0 as of 2021-03-31.  </param>
@@ -466,7 +466,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the option identifiers based on the conditions provided as input in the request Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the option identifiers based on the conditions provided as input in the request Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionScreeningRequest">Option Screening Request. Example request asks for Put Options where Underlying Security is AAPL and Volume is greater than 0 as of 2021-03-31.  </param>
@@ -541,7 +541,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the option identifiers based on the conditions provided as input in the request Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the option identifiers based on the conditions provided as input in the request Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionScreeningRequest">Option Screening Request. Example request asks for Put Options where Underlying Security is AAPL and Volume is greater than 0 as of 2021-03-31.  </param>
@@ -554,7 +554,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the option identifiers based on the conditions provided as input in the request Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the option identifiers based on the conditions provided as input in the request Returns all the option identifiers based on the conditions provided as input in the request. Conditions are as follows and will follow \&quot;AND\&quot; logic if more than one condition is applied and allows up to **three conditions** using AND Logic.If a condition is used the accompanying value MUST be used -  |conditions|description| |- --|- --| |P_OPT_UNDERLYING_SECURITY_E|Underlying Security Equal To| |P_OPT_STRIKE_PRICE_E|Strike Price Equal To| |P_OPT_EXP_DATEN_E|Expiration Date (YYYYMMDD) Equal To| |P_OPT_VOLUME_G|Volume Greater Than| |P_OPT_VOLUME_GE|Volume Greater Than or Equal To| |P_OPT_VOLUME_L|Volume Less Than| |P_OPT_VOLUME_LE|Volume Less Than or Equal To| |P_OPT_VOLUME_E|Volume Equal To| |P_OPT_OPTION_TYPE_E|Option Type (1&#x3D; Equity, 2&#x3D;Index)| |P_OPT_CALL_OR_PUT_E|Call or Put (0&#x3D;Call, 1&#x3D;Put)|    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionScreeningRequest">Option Screening Request. Example request asks for Put Options where Underlying Security is AAPL and Volume is greater than 0 as of 2021-03-31.  </param>

@@ -42,7 +42,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new BenchmarksApi();
-const id = "'R.1000'"; // String | Benchmark Identifier
+const id = R.1000; // String | Benchmark Identifier
 
 // Call api endpoint
 apiInstance.getSPARBenchmarkById(id).then(
@@ -64,7 +64,7 @@ apiInstance.getSPARBenchmarkById(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Benchmark Identifier | [default to &#39;R.1000&#39;]
+ **id** | **String**| Benchmark Identifier | 
 
 ### Return type
 

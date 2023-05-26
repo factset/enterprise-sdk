@@ -71,7 +71,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The directory to get the documents in | [default to SPAR_DOCUMENTS:Factset Default Document]
+ **path** | **String**| The directory to get the documents in |
 
 ### Return type
 

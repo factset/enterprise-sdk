@@ -32,7 +32,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the profile information for the list of identifiers as of a specific date
         /// </summary>
         /// <remarks>
-        /// Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="snapshotRequest">Snapshot Request Object</param>
@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the profile information for the list of identifiers as of a specific date
         /// </summary>
         /// <remarks>
-        /// Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="snapshotRequest">Snapshot Request Object</param>
@@ -62,7 +62,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the profile information for the list of identifiers as of a specific date
         /// </summary>
         /// <remarks>
-        /// Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="snapshotRequest">Snapshot Request Object</param>
@@ -74,7 +74,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns all the profile information for the list of identifiers as of a specific date
         /// </summary>
         /// <remarks>
-        /// Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="snapshotRequest">Snapshot Request Object</param>
@@ -221,7 +221,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the profile information for the list of identifiers as of a specific date Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the profile information for the list of identifiers as of a specific date Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="snapshotRequest">Snapshot Request Object</param>
@@ -233,7 +233,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the profile information for the list of identifiers as of a specific date Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the profile information for the list of identifiers as of a specific date Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="snapshotRequest">Snapshot Request Object</param>
@@ -308,7 +308,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the profile information for the list of identifiers as of a specific date Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the profile information for the list of identifiers as of a specific date Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="snapshotRequest">Snapshot Request Object</param>
@@ -321,7 +321,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns all the profile information for the list of identifiers as of a specific date Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all the profile information for the list of identifiers as of a specific date Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="snapshotRequest">Snapshot Request Object</param>

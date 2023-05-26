@@ -32,7 +32,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns option security dates such as expiration and trade.
         /// </summary>
         /// <remarks>
-        /// Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsDatesRequest"></param>
@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns option security dates such as expiration and trade.
         /// </summary>
         /// <remarks>
-        /// Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsDatesRequest"></param>
@@ -53,7 +53,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more
         /// </summary>
         /// <remarks>
-        /// Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsReferencesRequest">Options Reference Request Body</param>
@@ -64,7 +64,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more
         /// </summary>
         /// <remarks>
-        /// Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsReferencesRequest">Options Reference Request Body</param>
@@ -83,7 +83,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns option security dates such as expiration and trade.
         /// </summary>
         /// <remarks>
-        /// Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsDatesRequest"></param>
@@ -95,7 +95,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns option security dates such as expiration and trade.
         /// </summary>
         /// <remarks>
-        /// Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsDatesRequest"></param>
@@ -106,7 +106,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more
         /// </summary>
         /// <remarks>
-        /// Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsReferencesRequest">Options Reference Request Body</param>
@@ -118,7 +118,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more
         /// </summary>
         /// <remarks>
-        /// Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsReferencesRequest">Options Reference Request Body</param>
@@ -275,7 +275,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns option security dates such as expiration and trade. Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns option security dates such as expiration and trade. Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsDatesRequest"></param>
@@ -287,7 +287,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns option security dates such as expiration and trade. Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns option security dates such as expiration and trade. Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsDatesRequest"></param>
@@ -362,7 +362,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns option security dates such as expiration and trade. Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns option security dates such as expiration and trade. Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsDatesRequest"></param>
@@ -375,7 +375,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns option security dates such as expiration and trade. Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns option security dates such as expiration and trade. Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsDatesRequest"></param>
@@ -454,7 +454,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsReferencesRequest">Options Reference Request Body</param>
@@ -466,7 +466,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsReferencesRequest">Options Reference Request Body</param>
@@ -541,7 +541,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsReferencesRequest">Options Reference Request Body</param>
@@ -554,7 +554,7 @@ namespace FactSet.SDK.FactSetOptions.Api
         }
 
         /// <summary>
-        /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+        /// Returns basic reference details for the options such as currency, exchange, symbols, flags and more Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetOptions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsReferencesRequest">Options Reference Request Body</param>

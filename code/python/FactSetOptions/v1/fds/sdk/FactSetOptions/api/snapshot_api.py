@@ -123,7 +123,7 @@ class SnapshotApi(object):
     ) -> SnapshotResponse:
         """Returns all the profile information for the list of identifiers as of a specific date  # noqa: E501
 
-        Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -169,7 +169,7 @@ class SnapshotApi(object):
     ) -> typing.Tuple[SnapshotResponse, int, typing.MutableMapping]:
         """Returns all the profile information for the list of identifiers as of a specific date  # noqa: E501
 
-        Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -219,7 +219,7 @@ class SnapshotApi(object):
     ) -> "ApplyResult[SnapshotResponse]":
         """Returns all the profile information for the list of identifiers as of a specific date  # noqa: E501
 
-        Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -264,7 +264,7 @@ class SnapshotApi(object):
     ) -> "ApplyResult[typing.Tuple[SnapshotResponse, int, typing.MutableMapping]]":
         """Returns all the profile information for the list of identifiers as of a specific date  # noqa: E501
 
-        Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:

@@ -55,6 +55,16 @@ Name | Type | Description | Notes
 
 * `JCN` (value: `"JCN"`)
 
+* `bloombergListingTicker` (value: `"bloombergListingTicker"`)
+
+* `bloombergRegionalTicker` (value: `"bloombergRegionalTicker"`)
+
+* `bloombergFigiListing` (value: `"bloombergFigiListing"`)
+
+* `bloombergFigiRegional` (value: `"bloombergFigiRegional"`)
+
+* `bloombergFigiSecurity` (value: `"bloombergFigiSecurity"`)
+
 
 
 

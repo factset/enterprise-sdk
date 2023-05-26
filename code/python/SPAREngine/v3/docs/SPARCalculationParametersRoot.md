@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**{str: (SPARCalculationParameters,)}**](SPARCalculationParameters.md) | List of calculation parameters. | [optional] 
+**data** | [**{str: (SPARCalculationParameters,)}, none_type**](SPARCalculationParameters.md) | List of calculation parameters. | [optional] 
 **meta** | [**CalculationMeta**](CalculationMeta.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

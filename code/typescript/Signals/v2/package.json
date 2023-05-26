@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-signals",
-  "version": "0.22.0",
+  "version": "0.22.1",
   "description": "Signals client library for JavaScript",
   "license": "Apache License, Version 2.0",
   "author": "FactSet Research Systems",

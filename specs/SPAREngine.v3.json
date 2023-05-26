@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3"
+    "version": "3.13.0"
   },
   "servers": [
     {
@@ -349,7 +349,7 @@
             "schema": {
               "type": "string",
               "description": "The directory to get the accounts and sub-directories in",
-              "default": "Client:"
+              "example": "Client:"
             }
           }
         ],
@@ -662,7 +662,7 @@
             "schema": {
               "type": "string",
               "description": "Benchmark Identifier",
-              "default": "R.1000"
+              "example": "R.1000"
             }
           }
         ],
@@ -975,7 +975,7 @@
             "schema": {
               "type": "string",
               "description": "Document Name",
-              "default": "Client:"
+              "example": "Client:"
             }
           }
         ],
@@ -1126,6 +1126,318 @@
           },
           "404": {
             "description": "SPAR Document not found.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/engines/spar/v3/components/{id}": {
+      "get": {
+        "tags": [
+          "Components"
+        ],
+        "summary": "Get SPAR component by id",
+        "description": "This endpoint returns the default settings of a SPAR component.",
+        "operationId": "getSPARComponentById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for a SPAR component",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for a SPAR component"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns the default settings of a SPAR component.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SPARComponentRoot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid SPAR component id.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Component not found.",
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet's request key header.",
@@ -1500,7 +1812,7 @@
             "schema": {
               "type": "string",
               "description": "The directory to get the documents in",
-              "default": "SPAR_DOCUMENTS:Factset Default Document"
+              "example": "SPAR_DOCUMENTS:Factset Default Document"
             }
           }
         ],
@@ -2040,54 +2352,6 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SPARCalculationParametersRoot"
-              },
-              "example": {
-                "data": {
-                  "1": {
-                    "componentid": "067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D",
-                    "accounts": [
-                      {
-                        "id": "R.1000",
-                        "returntype": "GTR",
-                        "prefix": "RUSSELL"
-                      }
-                    ],
-                    "benchmark": {
-                      "id": "R.2000",
-                      "returntype": "GTR",
-                      "prefix": "RUSSELL"
-                    },
-                    "dates": {
-                      "startdate": "-2M",
-                      "enddate": "0",
-                      "frequency": "Monthly"
-                    }
-                  },
-                  "2": {
-                    "componentid": "E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02",
-                    "accounts": [
-                      {
-                        "id": "R.1000",
-                        "returntype": "GTR",
-                        "prefix": "RUSSELL"
-                      },
-                      {
-                        "id": "R.2000",
-                        "returntype": "GTR",
-                        "prefix": "RUSSELL"
-                      }
-                    ],
-                    "benchmark": {
-                      "id": "R.2000",
-                      "returntype": "GTR",
-                      "prefix": "RUSSELL"
-                    }
-                  }
-                },
-                "meta": {
-                  "stachContentorganization": "SimplifiedRow",
-                  "format": "JsonStach"
-                }
               }
             }
           }
@@ -2537,7 +2801,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "default": 1
+              "example": 1
             }
           }
         ],
@@ -2875,54 +3139,6 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SPARCalculationParametersRoot"
-              },
-              "example": {
-                "data": {
-                  "1": {
-                    "componentid": "067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D",
-                    "accounts": [
-                      {
-                        "id": "R.1000",
-                        "returntype": "GTR",
-                        "prefix": "RUSSELL"
-                      }
-                    ],
-                    "benchmark": {
-                      "id": "R.2000",
-                      "returntype": "GTR",
-                      "prefix": "RUSSELL"
-                    },
-                    "dates": {
-                      "startdate": "-2M",
-                      "enddate": "0",
-                      "frequency": "Monthly"
-                    }
-                  },
-                  "2": {
-                    "componentid": "E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02",
-                    "accounts": [
-                      {
-                        "id": "R.1000",
-                        "returntype": "GTR",
-                        "prefix": "RUSSELL"
-                      },
-                      {
-                        "id": "R.2000",
-                        "returntype": "GTR",
-                        "prefix": "RUSSELL"
-                      }
-                    ],
-                    "benchmark": {
-                      "id": "R.2000",
-                      "returntype": "GTR",
-                      "prefix": "RUSSELL"
-                    }
-                  }
-                },
-                "meta": {
-                  "stachContentorganization": "SimplifiedRow",
-                  "format": "JsonStach"
-                }
               }
             }
           }
@@ -4569,10 +4785,12 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -4584,7 +4802,8 @@
             "items": {
               "$ref": "#/components/schemas/ReturnType"
             },
-            "description": "List of SPAR returnsType"
+            "description": "List of SPAR returnsType",
+            "nullable": true
           }
         }
       },
@@ -4597,17 +4816,22 @@
           "data": {
             "$ref": "#/components/schemas/SPARAccounts"
           },
-          "meta": {}
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
         }
       },
       "ErrorSource": {
         "type": "object",
         "properties": {
           "pointer": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "parameter": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -4615,10 +4839,12 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "detail": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "source": {
             "$ref": "#/components/schemas/ErrorSource"
@@ -4632,7 +4858,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Error"
-            }
+            },
+            "nullable": true
           }
         }
       },
@@ -4644,14 +4871,16 @@
             "items": {
               "type": "string"
             },
-            "description": "List of account and composite files."
+            "description": "List of account and composite files.",
+            "nullable": true
           },
           "directories": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "List of directories."
+            "description": "List of directories.",
+            "nullable": true
           }
         }
       },
@@ -4664,7 +4893,10 @@
           "data": {
             "$ref": "#/components/schemas/AccountDirectories"
           },
-          "meta": {}
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
         }
       },
       "SPARIdentifier": {
@@ -4679,11 +4911,13 @@
           },
           "returntype": {
             "type": "string",
-            "description": "Benchmark return type."
+            "description": "Benchmark return type.",
+            "nullable": true
           },
           "prefix": {
             "type": "string",
-            "description": "Benchmark prefix."
+            "description": "Benchmark prefix.",
+            "nullable": true
           }
         },
         "description": "The account/benchmark parameter for SPAR calculation."
@@ -4693,18 +4927,21 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Benchmark identifier"
+            "description": "Benchmark identifier",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Benchmark Name"
+            "description": "Benchmark Name",
+            "nullable": true
           },
           "identifiers": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SPARIdentifier"
             },
-            "description": "List of SPAR identifiers"
+            "description": "List of SPAR identifiers",
+            "nullable": true
           }
         }
       },
@@ -4717,7 +4954,10 @@
           "data": {
             "$ref": "#/components/schemas/SPARBenchmark"
           },
-          "meta": {}
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
         }
       },
       "ComponentSummary": {
@@ -4725,27 +4965,76 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Component name."
+            "description": "Component name.",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Component category."
+            "description": "Component category.",
+            "nullable": true
           }
         }
       },
       "ComponentSummaryRoot": {
-        "required": [
-          "data"
-        ],
         "type": "object",
         "properties": {
           "data": {
             "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/ComponentSummary"
-            }
+            },
+            "description": "The keys represent Component Ids",
+            "nullable": true
+          }
+        }
+      },
+      "SPARComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Component identifier.",
+            "nullable": true
           },
-          "meta": {}
+          "accounts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SPARIdentifier"
+            },
+            "description": "List of accounts in SPAR document.",
+            "nullable": true
+          },
+          "benchmarks": {
+            "$ref": "#/components/schemas/SPARIdentifier"
+          },
+          "currencyIsoCode": {
+            "type": "string",
+            "description": "CurrencyCode in SPAR document.",
+            "nullable": true
+          },
+          "path": {
+            "type": "string",
+            "description": "The path to the document",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Component name.",
+            "nullable": true
+          },
+          "category": {
+            "type": "string",
+            "description": "Component category.",
+            "nullable": true
+          }
+        }
+      },
+      "SPARComponentRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SPARComponent"
+          }
         }
       },
       "Currency": {
@@ -4753,7 +5042,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of currency."
+            "description": "Name of currency.",
+            "nullable": true
           }
         }
       },
@@ -4769,7 +5059,10 @@
               "$ref": "#/components/schemas/Currency"
             }
           },
-          "meta": {}
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
         }
       },
       "DocumentDirectories": {
@@ -4780,14 +5073,16 @@
             "items": {
               "type": "string"
             },
-            "description": "List of documents"
+            "description": "List of documents",
+            "nullable": true
           },
           "directories": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "List of directories."
+            "description": "List of directories.",
+            "nullable": true
           }
         }
       },
@@ -4800,7 +5095,10 @@
           "data": {
             "$ref": "#/components/schemas/DocumentDirectories"
           },
-          "meta": {}
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
         }
       },
       "Frequency": {
@@ -4808,7 +5106,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Frequency name."
+            "description": "Frequency name.",
+            "nullable": true
           }
         }
       },
@@ -4824,7 +5123,10 @@
               "$ref": "#/components/schemas/Frequency"
             }
           },
-          "meta": {}
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
         }
       },
       "SPARDateParameters": {
@@ -4865,7 +5167,8 @@
             "items": {
               "$ref": "#/components/schemas/SPARIdentifier"
             },
-            "description": "List of accounts for SPAR calculation."
+            "description": "List of accounts for SPAR calculation.",
+            "nullable": true
           },
           "benchmark": {
             "$ref": "#/components/schemas/SPARIdentifier"
@@ -4875,7 +5178,8 @@
           },
           "currencyisocode": {
             "type": "string",
-            "description": "Currency ISO code for calculation."
+            "description": "Currency ISO code for calculation.",
+            "nullable": true
           }
         }
       },
@@ -4937,7 +5241,8 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/SPARCalculationParameters"
             },
-            "description": "List of calculation parameters."
+            "description": "List of calculation parameters.",
+            "nullable": true
           },
           "meta": {
             "$ref": "#/components/schemas/CalculationMeta"
@@ -4963,20 +5268,32 @@
             "items": {
               "$ref": "#/components/schemas/Error"
             },
-            "description": "The error in a calculation unit."
+            "description": "The error in a calculation unit.",
+            "nullable": true
           },
           "result": {
             "type": "string",
-            "description": "The result URL of the calculation."
+            "description": "The result URL of the calculation.",
+            "nullable": true
           },
           "progress": {
             "type": "string",
-            "description": "The progress of the calculation unit."
+            "description": "The progress of the calculation unit.",
+            "nullable": true
           },
           "points": {
             "type": "integer",
             "description": "The points for the calculation unit.",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The warnings in a calculation unit.",
+            "nullable": true
           }
         }
       },
@@ -4985,7 +5302,8 @@
         "properties": {
           "calculationid": {
             "type": "string",
-            "description": "Calculation's identifier"
+            "description": "Calculation's identifier",
+            "nullable": true
           },
           "status": {
             "enum": [
@@ -5002,7 +5320,8 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/CalculationUnitStatus"
             },
-            "description": "Number of calculation units in batch."
+            "description": "Number of calculation units in batch.",
+            "nullable": true
           }
         }
       },
@@ -5011,7 +5330,8 @@
         "properties": {
           "info": {
             "type": "string",
-            "description": "The Info URL of the calculation."
+            "description": "The Info URL of the calculation.",
+            "nullable": true
           }
         }
       },
@@ -5023,7 +5343,8 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/CalculationUnitStatusMeta"
             },
-            "description": "Meta of calculation units in batch."
+            "description": "Meta of calculation units in batch.",
+            "nullable": true
           }
         }
       },
@@ -5047,8 +5368,13 @@
         ],
         "type": "object",
         "properties": {
-          "data": {},
-          "meta": {}
+          "data": {
+            "type": "object"
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
         }
       },
       "CalculationsSummary": {
@@ -5101,10 +5427,12 @@
             "format": "int32"
           },
           "nextPage": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "previousPage": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -5157,6 +5485,6 @@
   ],
   "externalDocs": {
     "description": "API Documentation",
-    "url": "https://developer.factset.com/api-catalog/"
+    "url": "https://developer.factset.com/api-catalog/spar-engine-api"
   }
 }

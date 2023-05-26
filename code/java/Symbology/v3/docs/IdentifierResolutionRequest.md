@@ -39,6 +39,11 @@ ISIN | &quot;ISIN&quot;
 TICKEREXCHANGE | &quot;tickerExchange&quot;
 TICKERREGION | &quot;tickerRegion&quot;
 JCN | &quot;JCN&quot;
+BLOOMBERGLISTINGTICKER | &quot;bloombergListingTicker&quot;
+BLOOMBERGREGIONALTICKER | &quot;bloombergRegionalTicker&quot;
+BLOOMBERGFIGILISTING | &quot;bloombergFigiListing&quot;
+BLOOMBERGFIGIREGIONAL | &quot;bloombergFigiRegional&quot;
+BLOOMBERGFIGISECURITY | &quot;bloombergFigiSecurity&quot;
 
 
 ## Implemented Interfaces

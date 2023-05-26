@@ -42,7 +42,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DocumentsApi();
-const path = "'SPAR_DOCUMENTS:Factset Default Document'"; // String | The directory to get the documents in
+const path = SPAR_DOCUMENTS:Factset Default Document; // String | The directory to get the documents in
 
 // Call api endpoint
 apiInstance.getSPAR3Documents(path).then(
@@ -64,7 +64,7 @@ apiInstance.getSPAR3Documents(path).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The directory to get the documents in | [default to &#39;SPAR_DOCUMENTS:Factset Default Document&#39;]
+ **path** | **String**| The directory to get the documents in | 
 
 ### Return type
 

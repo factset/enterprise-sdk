@@ -32,8 +32,10 @@ docs/EventsMetaDateRange.md
 docs/EventsMetaPagination.md
 docs/IdResolutionsMeta.md
 docs/MetadataApi.md
+docs/RateLimitResponse.md
 docs/RelevanceScoreRange.md
 docs/ScreenMeta.md
+docs/ScreenMetaPartial.md
 docs/SignalDefinition.md
 docs/SignalDefinitionData.md
 docs/SignalMetaData.md
@@ -71,8 +73,10 @@ src/model/EventsMeta.js
 src/model/EventsMetaDateRange.js
 src/model/EventsMetaPagination.js
 src/model/IdResolutionsMeta.js
+src/model/RateLimitResponse.js
 src/model/RelevanceScoreRange.js
 src/model/ScreenMeta.js
+src/model/ScreenMetaPartial.js
 src/model/SignalDefinition.js
 src/model/SignalDefinitionData.js
 src/model/SignalMetaData.js

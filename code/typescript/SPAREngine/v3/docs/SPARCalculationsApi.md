@@ -140,7 +140,7 @@ apiInstance.getAllCalculations(pageNumber).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageNumber** | **Number**|  | [default to 1]
+ **pageNumber** | **Number**|  | 
 
 ### Return type
 
@@ -411,7 +411,7 @@ const apiInstance = new SPARCalculationsApi();
 const opts = {
   'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the POST body.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'sPARCalculationParametersRoot': {"data":{"1":{"componentid":"067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"},"dates":{"startdate":"-2M","enddate":"0","frequency":"Monthly"}},"2":{"componentid":"E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"},{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // SPARCalculationParametersRoot | Calculation Parameters
+  'sPARCalculationParametersRoot': new sparengine.SPARCalculationParametersRoot() // SPARCalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -508,7 +508,7 @@ const id = "id_example"; // String | from url, provided from the location header
 const opts = {
   'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the PUT body.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'sPARCalculationParametersRoot': {"data":{"1":{"componentid":"067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"},"dates":{"startdate":"-2M","enddate":"0","frequency":"Monthly"}},"2":{"componentid":"E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"},{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // SPARCalculationParametersRoot | Calculation Parameters
+  'sPARCalculationParametersRoot': new sparengine.SPARCalculationParametersRoot() // SPARCalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint

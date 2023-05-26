@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 3.1.0
+  version: 3.2.0
   title: FactSet Symbology API
   contact:
     name: FactSet Research Systems
@@ -80,9 +80,11 @@ paths:
 
         * tickerRegion
 
-        * bloombergFigi (Input only)
+        * bloombergFigi (output symbols: bloombergFigiListing,
+        bloombergFigiRegional & bloombergFigiSecurity )
 
-        * bloombergTicker (Input only)
+        * bloombergTicker (output symbols: bloombergRegionalTicker &
+        bloombergListingTicker)
 
         * GVKEY (Input only)
 
@@ -207,9 +209,11 @@ paths:
 
         * tickerRegion
 
-        * bloombergFigi (Input only)
+        * bloombergFigi (output symbols: bloombergFigiListing,
+        bloombergFigiRegional & bloombergFigiSecurity )
 
-        * bloombergTicker (Input only)
+        * bloombergTicker (output symbols: bloombergRegionalTicker &
+        bloombergListingTicker)
 
         * GVKEY (Input only)
 
@@ -396,6 +400,11 @@ components:
             - tickerExchange
             - tickerRegion
             - JCN
+            - bloombergListingTicker
+            - bloombergRegionalTicker
+            - bloombergFigiListing
+            - bloombergFigiRegional
+            - bloombergFigiSecurity
       required: true
       explode: false
       description: >-
@@ -457,6 +466,11 @@ components:
             The 3 digit fref exchange code for the primary exchange of the
             security
           example: USA
+          nullable: true
+        currency:
+          type: string
+          description: The 3 digit ISO code for the currency
+          example: USD
           nullable: true
       additionalProperties:
         title: Requested output symbol type
@@ -585,6 +599,11 @@ components:
           - tickerExchange
           - tickerRegion
           - JCN
+          - bloombergListingTicker
+          - bloombergRegionalTicker
+          - bloombergFigiListing
+          - bloombergFigiRegional
+          - bloombergFigiSecurity
       minItems: 1
       maxItems: 20
       description: >-

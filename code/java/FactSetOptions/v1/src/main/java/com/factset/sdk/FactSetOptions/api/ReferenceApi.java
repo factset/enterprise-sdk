@@ -72,7 +72,7 @@ public class ReferenceApi {
 
   /**
    * Returns option security dates such as expiration and trade.
-   * Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+   * Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
    * @param optionsDatesRequest  (required)
    * @return OptionsDatesResponse
    * @throws ApiException if fails to make API call
@@ -93,7 +93,7 @@ public class ReferenceApi {
 
   /**
    * Returns option security dates such as expiration and trade.
-   * Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+   * Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
    * @param optionsDatesRequest  (required)
    * @return ApiResponse&lt;OptionsDatesResponse&gt;
    * @throws ApiException if fails to make API call
@@ -155,7 +155,7 @@ public class ReferenceApi {
   }
   /**
    * Returns basic reference details for the options such as currency, exchange, symbols, flags and more
-   * Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+   * Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
    * @param optionsReferencesRequest Options Reference Request Body (required)
    * @return OptionsReferencesResponse
    * @throws ApiException if fails to make API call
@@ -176,7 +176,7 @@ public class ReferenceApi {
 
   /**
    * Returns basic reference details for the options such as currency, exchange, symbols, flags and more
-   * Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \&quot;USA\&quot;* 
+   * Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
    * @param optionsReferencesRequest Options Reference Request Body (required)
    * @return ApiResponse&lt;OptionsReferencesResponse&gt;
    * @throws ApiException if fails to make API call

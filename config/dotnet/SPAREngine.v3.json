@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.SPAREngine",
-  "packageVersion": "0.21.5",
+  "packageVersion": "0.22.0",
   "packageGuid": "{a0d781d4-6ec9-5b29-85c1-98c530e8ab80}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/SPAREngine/v3",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/SPAREngine/0.21.5",
+  "httpUserAgent": "fds-sdk/dotnet/SPAREngine/0.22.0",
   "files": {
     "LICENSE": {}
   },

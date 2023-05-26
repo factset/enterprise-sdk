@@ -35,8 +35,10 @@ from fds.sdk.Signals.model.events_meta import EventsMeta
 from fds.sdk.Signals.model.events_meta_date_range import EventsMetaDateRange
 from fds.sdk.Signals.model.events_meta_pagination import EventsMetaPagination
 from fds.sdk.Signals.model.id_resolutions_meta import IdResolutionsMeta
+from fds.sdk.Signals.model.rate_limit_response import RateLimitResponse
 from fds.sdk.Signals.model.relevance_score_range import RelevanceScoreRange
 from fds.sdk.Signals.model.screen_meta import ScreenMeta
+from fds.sdk.Signals.model.screen_meta_partial import ScreenMetaPartial
 from fds.sdk.Signals.model.signal_definition import SignalDefinition
 from fds.sdk.Signals.model.signal_definition_data import SignalDefinitionData
 from fds.sdk.Signals.model.signal_meta_data import SignalMetaData

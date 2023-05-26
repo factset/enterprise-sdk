@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Symbology API provides symbol resolution services, allowing clients to translate market identifiers into various symbology types such as, FactSet Permanent Identifiers, CUSIP, ISIN, SEDOL, Tickers, and LEIs. <p>Factset's Symbology API sits at the center of its hub-and-spoke data model, enabling you to quickly harmonize the expanding catalog of Content APIs.</p>
   title: FactSet Symbology API
-  version: 3.1.0
+  version: 3.2.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -35,12 +35,13 @@ paths:
         \ Id\n* fsymSecurityId - FactSet security level permanent identifier\n* fsymRegionalId\
         \ - FactSet regional level permanent identifier\n* fsymListingId - FactSet\
         \ listing level permanent identifier\n* ISIN*\n* tickerExchange\n* tickerRegion\n\
-        * bloombergFigi (Input only)\n* bloombergTicker (Input only)\n* GVKEY (Input\
-        \ only)\n* GVKEY & IID (Input only)\n* JCN\n* LoanX (Input only)\n* Markit\
-        \ Red (Input only)\n\n**These symbol types require additional subscriptions.\
-        \ If you would like to gain access to these symbol types, please contact your\
-        \ FactSet Account Team or \"Report Issue\" above and our support teams can\
-        \ assist.*\n"
+        * bloombergFigi (output symbols: bloombergFigiListing, bloombergFigiRegional\
+        \ & bloombergFigiSecurity )\n* bloombergTicker (output symbols: bloombergRegionalTicker\
+        \ & bloombergListingTicker)\n* GVKEY (Input only)\n* GVKEY & IID (Input only)\n\
+        * JCN\n* LoanX (Input only)\n* Markit Red (Input only)\n\n**These symbol types\
+        \ require additional subscriptions. If you would like to gain access to these\
+        \ symbol types, please contact your FactSet Account Team or \"Report Issue\"\
+        \ above and our support teams can assist.*\n"
       operationId: identifierResolution
       parameters:
       - description: |
@@ -146,6 +147,11 @@ paths:
             - tickerExchange
             - tickerRegion
             - JCN
+            - bloombergListingTicker
+            - bloombergRegionalTicker
+            - bloombergFigiListing
+            - bloombergFigiRegional
+            - bloombergFigiSecurity
             type: string
           type: array
         style: form
@@ -247,12 +253,13 @@ paths:
         \ Id\n* fsymSecurityId - FactSet security level permanent identifier\n* fsymRegionalId\
         \ - FactSet regional level permanent identifier\n* fsymListingId - FactSet\
         \ listing level permanent identifier\n* ISIN*\n* tickerExchange\n* tickerRegion\n\
-        * bloombergFigi (Input only)\n* bloombergTicker (Input only)\n* GVKEY (Input\
-        \ only)\n* GVKEY & IID (Input only)\n* JCN\n* LoanX (Input only)\n* Markit\
-        \ Red (Input only)\n\n**These symbol types require additional subscriptions.\
-        \ If you would like to gain access to these symbol types, please contact your\
-        \ FactSet Account Team or \"Report Issue\" above and our support teams can\
-        \ assist.*\n"
+        * bloombergFigi (output symbols: bloombergFigiListing, bloombergFigiRegional\
+        \ & bloombergFigiSecurity )\n* bloombergTicker (output symbols: bloombergRegionalTicker\
+        \ & bloombergListingTicker)\n* GVKEY (Input only)\n* GVKEY & IID (Input only)\n\
+        * JCN\n* LoanX (Input only)\n* Markit Red (Input only)\n\n**These symbol types\
+        \ require additional subscriptions. If you would like to gain access to these\
+        \ symbol types, please contact your FactSet Account Team or \"Report Issue\"\
+        \ above and our support teams can assist.*\n"
       operationId: batchIdentifierResolution
       requestBody:
         content:
@@ -648,6 +655,11 @@ components:
           - tickerExchange
           - tickerRegion
           - JCN
+          - bloombergListingTicker
+          - bloombergRegionalTicker
+          - bloombergFigiListing
+          - bloombergFigiRegional
+          - bloombergFigiSecurity
           type: string
         type: array
       style: form
@@ -766,6 +778,11 @@ components:
             - tickerExchange
             - tickerRegion
             - JCN
+            - bloombergListingTicker
+            - bloombergRegionalTicker
+            - bloombergFigiListing
+            - bloombergFigiRegional
+            - bloombergFigiSecurity
             type: string
           maxItems: 20
           minItems: 1
@@ -785,10 +802,12 @@ components:
           inputSymbolType: tickerRegion
           requestId: GOOGL-US
           name: Alphabet Inc. Class A
+          currency: USD
         - frefListingExchange: USA
           inputSymbolType: tickerRegion
           requestId: GOOGL-US
           name: Alphabet Inc. Class A
+          currency: USD
       properties:
         data:
           description: Array of symbol translation objects.
@@ -812,6 +831,7 @@ components:
         inputSymbolType: tickerRegion
         requestId: GOOGL-US
         name: Alphabet Inc. Class A
+        currency: USD
       properties:
         requestId:
           description: Identifier inputted in the request.
@@ -832,6 +852,11 @@ components:
           description: The 3 digit fref exchange code for the primary exchange of
             the security
           example: USA
+          nullable: true
+          type: string
+        currency:
+          description: The 3 digit ISO code for the currency
+          example: USD
           nullable: true
           type: string
       title: Identifier Resolution
@@ -937,6 +962,11 @@ components:
         - tickerExchange
         - tickerRegion
         - JCN
+        - bloombergListingTicker
+        - bloombergRegionalTicker
+        - bloombergFigiListing
+        - bloombergFigiRegional
+        - bloombergFigiSecurity
         type: string
       maxItems: 20
       minItems: 1

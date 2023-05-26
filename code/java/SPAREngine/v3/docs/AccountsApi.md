@@ -72,7 +72,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The directory to get the accounts and sub-directories in | [default to Client:]
+ **path** | **String**| The directory to get the accounts and sub-directories in |
 
 ### Return type
 

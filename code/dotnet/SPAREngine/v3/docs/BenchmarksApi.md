@@ -52,7 +52,7 @@ namespace Example
 
             var apiInstance = new BenchmarksApi(config);
 
-            var id = "\"R.1000\"";  // string | Benchmark Identifier (default to "R.1000")
+            var id = "R.1000";  // string | Benchmark Identifier
 
             try
             {
@@ -75,7 +75,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Benchmark Identifier | [default to &quot;R.1000&quot;]
+ **id** | **string**| Benchmark Identifier | 
 
 ### Return type
 [**SPARBenchmarkRoot**](SPARBenchmarkRoot.md)

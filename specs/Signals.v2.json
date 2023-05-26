@@ -3,7 +3,7 @@
   "info": {
     "title": "Signals API",
     "description": "Collection of endpoints for providing Signal Events, Definitions and Metadata",
-    "version": "2.5.0",
+    "version": "2.6.0",
     "contact": {
       "name": "Signals API Support",
       "email": "signals.api@factset.com"
@@ -18,7 +18,7 @@
   "tags": [
     {
       "name": "Events",
-      "description": "Fetch signal events"
+      "description": "Fetch signal events. Please note that FactSet Cognitive signals and signals contributed by third parties are excluded from the response for limited API access."
     },
     {
       "name": "Metadata",
@@ -33,7 +33,7 @@
         ],
         "x-factset-sdk-ignore": true,
         "operationId": "getEventHeadlines",
-        "description": "Fetch Signals event headlines based on the filtering criteria",
+        "description": "Fetch Signals event headlines based on at least one of the following filtering parameters: `ids`, `portfolios`",
         "parameters": [
           {
             "$ref": "#/components/parameters/createdParam"
@@ -83,6 +83,33 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
                 }
               }
             }
@@ -104,7 +131,7 @@
           "Events"
         ],
         "operationId": "postEventHeadlines",
-        "description": "Fetch Signals event headlines based on the filtering criteria for up to 1000 identifiers",
+        "description": "Fetch Signals event headlines based on the filtering criteria for up to 1000 identifiers and at least one of the following filtering parameters: `ids`, `portfolios`",
         "requestBody": {
           "required": true,
           "content": {
@@ -125,6 +152,33 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -136,7 +190,7 @@
         ],
         "x-factset-sdk-ignore": true,
         "operationId": "getEventDetails",
-        "description": "Fetch Signals event headlines plus all additional event details based on the filtering criteria",
+        "description": "Fetch Signals event headlines plus all additional event details based on at least one of the following filtering parameters: `ids`, `portfolios`",
         "parameters": [
           {
             "$ref": "#/components/parameters/createdParam"
@@ -190,6 +244,33 @@
               }
             }
           },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -207,7 +288,7 @@
           "Events"
         ],
         "operationId": "postEventDetails",
-        "description": "Fetch Signals event headlines plus all additional event details for up to 1000 identifiers",
+        "description": "Fetch Signals event headlines plus all additional event details for up to 1000 identifiers and at least one of the following filtering parameters: `ids`, `portfolios`",
         "requestBody": {
           "required": true,
           "content": {
@@ -225,6 +306,33 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/eventDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
                 }
               }
             }
@@ -265,6 +373,33 @@
               }
             }
           },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -285,7 +420,7 @@
         ],
         "x-factset-sdk-ignore": true,
         "operationId": "getEventAdaptiveCards",
-        "description": "Fetch Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria",
+        "description": "Fetch Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on at least one of the following filtering parameters: `ids`, `portfolios`",
         "parameters": [
           {
             "$ref": "#/components/parameters/createdParam"
@@ -339,6 +474,33 @@
               }
             }
           },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -356,7 +518,7 @@
           "Events"
         ],
         "operationId": "postEventAdaptiveCards",
-        "description": "Fetch Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria",
+        "description": "Fetch Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on at least one of the following filtering parameters: `ids`, `portfolios`",
         "requestBody": {
           "required": true,
           "content": {
@@ -384,6 +546,33 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
                 }
               }
             }
@@ -430,6 +619,33 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
                 }
               }
             }
@@ -496,6 +712,33 @@
               }
             }
           },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -545,6 +788,33 @@
               }
             }
           },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -572,6 +842,33 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/signalMetaData"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
                 }
               }
             }
@@ -622,6 +919,33 @@
               }
             }
           },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -653,6 +977,33 @@
               }
             }
           },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -680,6 +1031,33 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/signalMetaData"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "API Rate Limit Exceeded",
+            "headers": {
+              "Api-Version": {
+                "$ref": "#/components/headers/Api-Version"
+              },
+              "Api-Supported-Versions": {
+                "$ref": "#/components/headers/Api-Supported-Versions"
+              },
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/RateLimit-Limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/RateLimit-Remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rateLimitResponse"
                 }
               }
             }
@@ -726,7 +1104,7 @@
         },
         "style": "deepObject",
         "explode": true,
-        "description": "A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.",
+        "description": "A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window.",
         "examples": {
           "default": {
             "value": {}
@@ -750,7 +1128,7 @@
         },
         "style": "deepObject",
         "explode": true,
-        "description": "A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.",
+        "description": "A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window.",
         "examples": {
           "default": {
             "value": {}
@@ -781,7 +1159,7 @@
         "schema": {
           "type": "string"
         },
-        "description": "Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.",
+        "description": "Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. Users with limited access can use only the ids filter and provide at most 10 ids.",
         "example": "FDS-US,AMZN-US"
       },
       "portfoliosParam": {
@@ -790,7 +1168,7 @@
         "schema": {
           "type": "string"
         },
-        "description": "Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb"
+        "description": "Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed (e.g. client:techstocks.ofdb). Please note that using this parameter requires full subscription to Signals API."
       },
       "themesParam": {
         "name": "themes",
@@ -894,6 +1272,16 @@
               "$ref": "#/components/schemas/errorItem"
             },
             "description": "Optional list of errors. e.g. Validation errors for multiple parameters"
+          }
+        }
+      },
+      "rateLimitResponse": {
+        "title": "Rate Limit Error Object",
+        "description": "Error returned if any of the user's rate limit have been reached.",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "API rate limit exceeded"
           }
         }
       },
@@ -1030,6 +1418,23 @@
               },
               "updated": {
                 "$ref": "#/components/schemas/DateTimeInterval"
+              }
+            }
+          },
+          "partial": {
+            "type": "object",
+            "required": [
+              "isPartial",
+              "reason"
+            ],
+            "properties": {
+              "isPartial": {
+                "type": "boolean",
+                "description": "Indicates that some of the matching entities are missing in the response."
+              },
+              "reason": {
+                "type": "string",
+                "description": "Describes why the response was sent with an incomplete list of entities."
               }
             }
           }
@@ -1282,7 +1687,7 @@
                 "$ref": "#/components/schemas/DateTimeInterval"
               }
             ],
-            "description": "A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted."
+            "description": "A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window."
           },
           "updated": {
             "allOf": [
@@ -1290,7 +1695,7 @@
                 "$ref": "#/components/schemas/DateTimeInterval"
               }
             ],
-            "description": "A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted."
+            "description": "A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window."
           },
           "signalIds": {
             "type": "string",
@@ -1299,12 +1704,12 @@
           },
           "ids": {
             "type": "string",
-            "description": "Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. Only the first 1,000 ids are processed. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.",
+            "description": "Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. Users with limited access can use only the ids filter and provide at most 10 ids.",
             "example": "FDS-US,AMZN-US"
           },
           "portfolios": {
             "type": "string",
-            "description": "Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb"
+            "description": "Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed (e.g. client:techstocks.ofdb). Please note that using this parameter requires full subscription to Signals API."
           },
           "themes": {
             "type": "string",
@@ -1367,7 +1772,7 @@
                 "$ref": "#/components/schemas/DateTimeInterval"
               }
             ],
-            "description": "A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted."
+            "description": "A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window."
           },
           "updated": {
             "allOf": [
@@ -1375,7 +1780,7 @@
                 "$ref": "#/components/schemas/DateTimeInterval"
               }
             ],
-            "description": "A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted."
+            "description": "A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window."
           },
           "signalIds": {
             "type": "string",
@@ -1588,6 +1993,43 @@
           "lte": {
             "$ref": "#/components/schemas/DateTime"
           }
+        }
+      }
+    },
+    "headers": {
+      "Api-Version": {
+        "description": "Full semantic version of the API.",
+        "schema": {
+          "type": "string",
+          "example": "1.0.0"
+        }
+      },
+      "Api-Supported-Versions": {
+        "description": "Comma-separated list of supported major versions.",
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      },
+      "RateLimit-Limit": {
+        "description": "Total number of requests allowed in a specific time window. The time window is two seconds for regular API users and one week for limited access users.",
+        "schema": {
+          "type": "integer",
+          "example": 5
+        }
+      },
+      "RateLimit-Remaining": {
+        "description": "Remaining number of requests in the current time window.",
+        "schema": {
+          "type": "integer",
+          "example": 4
+        }
+      },
+      "RateLimit-Reset": {
+        "description": "Time remaining (in seconds) until the quota is reset.",
+        "schema": {
+          "type": "integer",
+          "example": 1000
         }
       }
     },

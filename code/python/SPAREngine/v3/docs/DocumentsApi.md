@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_spar3_documents**
-> DocumentDirectoriesRoot get_spar3_documents()
+> DocumentDirectoriesRoot get_spar3_documents(path)
 
 Gets SPAR3 documents and sub-directories in a directory
 
@@ -55,11 +55,13 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    path = "SPAR_DOCUMENTS:Factset Default Document" # str | The directory to get the documents in
 
     try:
         # Gets SPAR3 documents and sub-directories in a directory
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_spar3_documents()
+        api_response = api_instance.get_spar3_documents(path)
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:
@@ -71,7 +73,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**| The directory to get the documents in | defaults to "SPAR_DOCUMENTS:Factset Default Document"
+ **path** | **str**| The directory to get the documents in |
 
 ### Return type
 

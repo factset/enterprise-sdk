@@ -109,7 +109,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_calculations**
-> CalculationsSummaryRoot get_all_calculations()
+> CalculationsSummaryRoot get_all_calculations(page_number)
 
 Get all calculations
 
@@ -155,11 +155,13 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spar_calculations_api.SPARCalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    page_number = 1 # int | 
 
     try:
         # Get all calculations
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_all_calculations()
+        api_response = api_instance.get_all_calculations(page_number)
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:
@@ -171,7 +173,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_number** | **int**|  | defaults to 1
+ **page_number** | **int**|  |
 
 ### Return type
 

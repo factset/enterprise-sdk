@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 
 
-Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
+Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
 
 ### Example
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 
 
-Fetch Signals event headlines plus all additional event details for up to 1000 identifiers
+Fetch Signals event headlines plus all additional event details for up to 1000 identifiers and at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
 
 ### Example
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 
 
-Fetch Signals event headlines based on the filtering criteria for up to 1000 identifiers
+Fetch Signals event headlines based on the filtering criteria for up to 1000 identifiers and at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
 
 ### Example
 

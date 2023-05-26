@@ -20,7 +20,7 @@ Returns all relevant dates such as  for the specified Option identifier. Data It
 * First Dates for Ask, Bid, Settlement, and Trade
 * Last Dates for Ask, Bid, Settlement, and Trade
 
-  *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+  *Currently only OPRA Exchange is supported with exchange ISO "USA"*
 
 
 ### Example
@@ -122,7 +122,7 @@ Returns basic reference details for the options. Data items include -
 
 *For details or definitions of all available response fields visit the associated schema.*
 
-  *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+  *Currently only OPRA Exchange is supported with exchange ISO "USA"*
 
 
 ### Example

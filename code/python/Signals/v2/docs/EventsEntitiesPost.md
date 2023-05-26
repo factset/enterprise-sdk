@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | **bool, date, datetime, dict, float, int, list, str, none_type** | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
-**updated** | **bool, date, datetime, dict, float, int, list, str, none_type** | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted. | [optional] 
+**created** | **bool, date, datetime, dict, float, int, list, str, none_type** | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window. | [optional] 
+**updated** | **bool, date, datetime, dict, float, int, list, str, none_type** | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. Users with limited access can only provide the default or a smaller date window. | [optional] 
 **signal_ids** | **str** | Comma delimited string of signalIds | [optional] 
 **themes** | **str** | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. | [optional] 
 **categories** | **str** | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional] 

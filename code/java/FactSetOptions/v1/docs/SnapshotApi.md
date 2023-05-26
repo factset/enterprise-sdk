@@ -26,7 +26,7 @@ Returns all the profile information for the list of identifiers for a specific d
 * Open Interest
 * Name
 
-  *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+  *Currently only OPRA Exchange is supported with exchange ISO "USA"*
 
 
 ### Example

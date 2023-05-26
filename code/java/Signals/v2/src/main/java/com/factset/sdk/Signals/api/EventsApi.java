@@ -21,6 +21,7 @@ import com.factset.sdk.Signals.models.EventHeadlines;
 import com.factset.sdk.Signals.models.EventRequestBody;
 import com.factset.sdk.Signals.models.EventsEntities;
 import com.factset.sdk.Signals.models.EventsEntitiesPost;
+import com.factset.sdk.Signals.models.RateLimitResponse;
 import com.factset.sdk.Signals.models.RelevanceScoreRange;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -39,6 +40,7 @@ public class EventsApi {
   static {
     getEventAdaptiveCardByIdResponseTypeMap.put(200, new GenericType<EventAdaptiveCard>(){});
     getEventAdaptiveCardByIdResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEventAdaptiveCardByIdResponseTypeMap.put(429, new GenericType<RateLimitResponse>(){});
     getEventAdaptiveCardByIdResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -46,6 +48,7 @@ public class EventsApi {
   static {
     getEventDetailByIdResponseTypeMap.put(200, new GenericType<EventDetail>(){});
     getEventDetailByIdResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEventDetailByIdResponseTypeMap.put(429, new GenericType<RateLimitResponse>(){});
     getEventDetailByIdResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -53,24 +56,28 @@ public class EventsApi {
   static {
     postEventAdaptiveCardsResponseTypeMap.put(200, new GenericType<EventAdaptiveCards>(){});
     postEventAdaptiveCardsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postEventAdaptiveCardsResponseTypeMap.put(429, new GenericType<RateLimitResponse>(){});
     postEventAdaptiveCardsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> postEventDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEventDetailsResponseTypeMap.put(200, new GenericType<EventDetails>(){});
+    postEventDetailsResponseTypeMap.put(429, new GenericType<RateLimitResponse>(){});
   }
 
   private static final Map<Integer, GenericType> postEventEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEventEntitiesResponseTypeMap.put(200, new GenericType<EventsEntities>(){});
     postEventEntitiesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postEventEntitiesResponseTypeMap.put(429, new GenericType<RateLimitResponse>(){});
     postEventEntitiesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> postEventHeadlinesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postEventHeadlinesResponseTypeMap.put(200, new GenericType<EventHeadlines>(){});
+    postEventHeadlinesResponseTypeMap.put(429, new GenericType<RateLimitResponse>(){});
   }
 
   
@@ -105,6 +112,7 @@ public class EventsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -123,6 +131,7 @@ public class EventsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -183,6 +192,7 @@ public class EventsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -201,6 +211,7 @@ public class EventsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -252,7 +263,7 @@ public class EventsApi {
   }
   /**
    * 
-   * Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
+   * Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
    * @param eventRequestBody  (required)
    * @return EventAdaptiveCards
    * @throws ApiException if fails to make API call
@@ -261,6 +272,7 @@ public class EventsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -270,7 +282,7 @@ public class EventsApi {
 
   /**
    * 
-   * Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
+   * Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
    * @param eventRequestBody  (required)
    * @return ApiResponse&lt;EventAdaptiveCards&gt;
    * @throws ApiException if fails to make API call
@@ -279,6 +291,7 @@ public class EventsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -329,7 +342,7 @@ public class EventsApi {
   }
   /**
    * 
-   * Fetch Signals event headlines plus all additional event details for up to 1000 identifiers
+   * Fetch Signals event headlines plus all additional event details for up to 1000 identifiers and at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
    * @param eventRequestBody  (required)
    * @return EventDetails
    * @throws ApiException if fails to make API call
@@ -337,6 +350,7 @@ public class EventsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
   public EventDetails postEventDetails(EventRequestBody eventRequestBody) throws ApiException {
@@ -345,7 +359,7 @@ public class EventsApi {
 
   /**
    * 
-   * Fetch Signals event headlines plus all additional event details for up to 1000 identifiers
+   * Fetch Signals event headlines plus all additional event details for up to 1000 identifiers and at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
    * @param eventRequestBody  (required)
    * @return ApiResponse&lt;EventDetails&gt;
    * @throws ApiException if fails to make API call
@@ -353,6 +367,7 @@ public class EventsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
   public ApiResponse<EventDetails> postEventDetailsWithHttpInfo(EventRequestBody eventRequestBody) throws ApiException {
@@ -411,6 +426,7 @@ public class EventsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -429,6 +445,7 @@ public class EventsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -479,7 +496,7 @@ public class EventsApi {
   }
   /**
    * 
-   * Fetch Signals event headlines based on the filtering criteria for up to 1000 identifiers
+   * Fetch Signals event headlines based on the filtering criteria for up to 1000 identifiers and at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
    * @param eventRequestBody  (required)
    * @return EventHeadlines
    * @throws ApiException if fails to make API call
@@ -487,6 +504,7 @@ public class EventsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
   public EventHeadlines postEventHeadlines(EventRequestBody eventRequestBody) throws ApiException {
@@ -495,7 +513,7 @@ public class EventsApi {
 
   /**
    * 
-   * Fetch Signals event headlines based on the filtering criteria for up to 1000 identifiers
+   * Fetch Signals event headlines based on the filtering criteria for up to 1000 identifiers and at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
    * @param eventRequestBody  (required)
    * @return ApiResponse&lt;EventHeadlines&gt;
    * @throws ApiException if fails to make API call
@@ -503,6 +521,7 @@ public class EventsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
   public ApiResponse<EventHeadlines> postEventHeadlinesWithHttpInfo(EventRequestBody eventRequestBody) throws ApiException {

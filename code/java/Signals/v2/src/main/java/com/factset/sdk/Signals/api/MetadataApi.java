@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.Signals.models.ErrorResponse;
+import com.factset.sdk.Signals.models.RateLimitResponse;
 import com.factset.sdk.Signals.models.SignalDefinition;
 import com.factset.sdk.Signals.models.SignalMetaData;
 
@@ -30,12 +31,14 @@ public class MetadataApi {
   private static final Map<Integer, GenericType> getCategoriesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCategoriesResponseTypeMap.put(200, new GenericType<SignalMetaData>(){});
+    getCategoriesResponseTypeMap.put(429, new GenericType<RateLimitResponse>(){});
     getCategoriesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> getDataDictionaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getDataDictionaryResponseTypeMap.put(200, new GenericType<SignalMetaData>(){});
+    getDataDictionaryResponseTypeMap.put(429, new GenericType<RateLimitResponse>(){});
     getDataDictionaryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -43,12 +46,14 @@ public class MetadataApi {
   static {
     getDataDictionaryByIdResponseTypeMap.put(200, new GenericType<SignalDefinition>(){});
     getDataDictionaryByIdResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getDataDictionaryByIdResponseTypeMap.put(429, new GenericType<RateLimitResponse>(){});
     getDataDictionaryByIdResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> getThemesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getThemesResponseTypeMap.put(200, new GenericType<SignalMetaData>(){});
+    getThemesResponseTypeMap.put(429, new GenericType<RateLimitResponse>(){});
     getThemesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -82,6 +87,7 @@ public class MetadataApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -98,6 +104,7 @@ public class MetadataApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -150,6 +157,7 @@ public class MetadataApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -166,6 +174,7 @@ public class MetadataApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -220,6 +229,7 @@ public class MetadataApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -238,6 +248,7 @@ public class MetadataApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -296,6 +307,7 @@ public class MetadataApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
@@ -312,6 +324,7 @@ public class MetadataApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> API Rate Limit Exceeded </td><td>  * Api-Version -  <br>  * Api-Supported-Versions -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */

@@ -166,7 +166,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageNumber** | **Integer**|  | [default to 1]
+ **pageNumber** | **Integer**|  |
 
 ### Return type
 

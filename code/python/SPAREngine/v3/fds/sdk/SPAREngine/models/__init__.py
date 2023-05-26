@@ -40,5 +40,7 @@ from fds.sdk.SPAREngine.model.spar_benchmark import SPARBenchmark
 from fds.sdk.SPAREngine.model.spar_benchmark_root import SPARBenchmarkRoot
 from fds.sdk.SPAREngine.model.spar_calculation_parameters import SPARCalculationParameters
 from fds.sdk.SPAREngine.model.spar_calculation_parameters_root import SPARCalculationParametersRoot
+from fds.sdk.SPAREngine.model.spar_component import SPARComponent
+from fds.sdk.SPAREngine.model.spar_component_root import SPARComponentRoot
 from fds.sdk.SPAREngine.model.spar_date_parameters import SPARDateParameters
 from fds.sdk.SPAREngine.model.spar_identifier import SPARIdentifier

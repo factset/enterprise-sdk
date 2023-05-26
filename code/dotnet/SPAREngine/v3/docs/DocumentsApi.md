@@ -52,7 +52,7 @@ namespace Example
 
             var apiInstance = new DocumentsApi(config);
 
-            var path = "\"SPAR_DOCUMENTS:Factset Default Document\"";  // string | The directory to get the documents in (default to "SPAR_DOCUMENTS:Factset Default Document")
+            var path = "SPAR_DOCUMENTS:Factset Default Document";  // string | The directory to get the documents in
 
             try
             {
@@ -75,7 +75,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| The directory to get the documents in | [default to &quot;SPAR_DOCUMENTS:Factset Default Document&quot;]
+ **path** | **string**| The directory to get the documents in | 
 
 ### Return type
 [**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)

@@ -17,7 +17,7 @@ Returns all the underlying option identifiers for the specified underlying Secur
 
 Returns all the underlying option identifiers for the underlying security identifier. Specify the date and or exhcange for the list of options associated to the id. 
 
-  *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+  *Currently only OPRA Exchange is supported with exchange ISO "USA"*
 
 
 ### Example
@@ -121,7 +121,7 @@ Returns all the option identifiers based on the conditions provided as input in 
 |P_OPT_OPTION_TYPE_E|Option Type (1= Equity, 2=Index)|
 |P_OPT_CALL_OR_PUT_E|Call or Put (0=Call, 1=Put)|
 
-  *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+  *Currently only OPRA Exchange is supported with exchange ISO "USA"*
 
 
 ### Example

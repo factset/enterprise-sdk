@@ -29,7 +29,7 @@ This at-the-money implied volatility market can calculated for different periods
 
 *For more details regarding ATM Volatility calculations, visit [OA 16276](https://my.apps.factset.com/oa/pages/16276)*
 
-  *Currently only OPRA Exchange traded options are supproted*
+  *Currently only OPRA Exchange traded options are supported*
 
 
 ### Example
@@ -134,7 +134,7 @@ Note
   
 For more detials on calculation methodologies, visit [OA 14933](https://my.apps.factset.com/oa/pages/14933). 
 
-  *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+  *Currently only OPRA Exchange is supported with exchange ISO "USA"*
 
 
 ### Example

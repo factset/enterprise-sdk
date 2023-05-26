@@ -71,7 +71,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Benchmark Identifier | [default to R.1000]
+ **id** | **String**| Benchmark Identifier |
 
 ### Return type
 

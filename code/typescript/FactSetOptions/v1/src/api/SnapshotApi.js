@@ -38,7 +38,7 @@ export default class SnapshotApi {
 
     /**
      * Returns all the profile information for the list of identifiers as of a specific date
-     * Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"* 
+     * Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* 
      * @param {module:model/SnapshotRequest} snapshotRequest Snapshot Request Object
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SnapshotResponse} and HTTP response
      */
@@ -74,7 +74,7 @@ export default class SnapshotApi {
 
     /**
      * Returns all the profile information for the list of identifiers as of a specific date
-     * Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"* 
+     * Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* 
      * @param {module:model/SnapshotRequest} snapshotRequest Snapshot Request Object
      * @return { Promise.< module:model/SnapshotResponse > } a Promise, with data of type {@link module:model/SnapshotResponse }
      */

@@ -182,7 +182,7 @@ class ReferenceApi(object):
     ) -> OptionsDatesResponse:
         """Returns option security dates such as expiration and trade.  # noqa: E501
 
-        Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -228,7 +228,7 @@ class ReferenceApi(object):
     ) -> typing.Tuple[OptionsDatesResponse, int, typing.MutableMapping]:
         """Returns option security dates such as expiration and trade.  # noqa: E501
 
-        Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -278,7 +278,7 @@ class ReferenceApi(object):
     ) -> "ApplyResult[OptionsDatesResponse]":
         """Returns option security dates such as expiration and trade.  # noqa: E501
 
-        Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -323,7 +323,7 @@ class ReferenceApi(object):
     ) -> "ApplyResult[typing.Tuple[OptionsDatesResponse, int, typing.MutableMapping]]":
         """Returns option security dates such as expiration and trade.  # noqa: E501
 
-        Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns all relevant dates such as  for the specified Option identifier. Data Items include -  * Expiration Date * First Dates for Ask, Bid, Settlement, and Trade * Last Dates for Ask, Bid, Settlement, and Trade    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -369,7 +369,7 @@ class ReferenceApi(object):
     ) -> OptionsReferencesResponse:
         """Returns basic reference details for the options such as currency, exchange, symbols, flags and more  # noqa: E501
 
-        Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -415,7 +415,7 @@ class ReferenceApi(object):
     ) -> typing.Tuple[OptionsReferencesResponse, int, typing.MutableMapping]:
         """Returns basic reference details for the options such as currency, exchange, symbols, flags and more  # noqa: E501
 
-        Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -465,7 +465,7 @@ class ReferenceApi(object):
     ) -> "ApplyResult[OptionsReferencesResponse]":
         """Returns basic reference details for the options such as currency, exchange, symbols, flags and more  # noqa: E501
 
-        Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -510,7 +510,7 @@ class ReferenceApi(object):
     ) -> "ApplyResult[typing.Tuple[OptionsReferencesResponse, int, typing.MutableMapping]]":
         """Returns basic reference details for the options such as currency, exchange, symbols, flags and more  # noqa: E501
 
-        Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*   # noqa: E501
+        Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:

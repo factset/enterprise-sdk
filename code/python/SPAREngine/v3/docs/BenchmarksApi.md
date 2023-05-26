@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_spar_benchmark_by_id**
-> SPARBenchmarkRoot get_spar_benchmark_by_id()
+> SPARBenchmarkRoot get_spar_benchmark_by_id(id)
 
 Get SPAR benchmark details
 
@@ -55,11 +55,13 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = benchmarks_api.BenchmarksApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "R.1000" # str | Benchmark Identifier
 
     try:
         # Get SPAR benchmark details
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_spar_benchmark_by_id()
+        api_response = api_instance.get_spar_benchmark_by_id(id)
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:
@@ -71,7 +73,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Benchmark Identifier | defaults to "R.1000"
+ **id** | **str**| Benchmark Identifier |
 
 ### Return type
 

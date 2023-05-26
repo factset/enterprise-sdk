@@ -153,7 +153,7 @@ namespace Example
 
             var apiInstance = new SPARCalculationsApi(config);
 
-            var pageNumber = 1;  // int |  (default to 1)
+            var pageNumber = 1;  // int | 
 
             try
             {
@@ -176,7 +176,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageNumber** | **int**|  | [default to 1]
+ **pageNumber** | **int**|  | 
 
 ### Return type
 [**CalculationsSummaryRoot**](CalculationsSummaryRoot.md)

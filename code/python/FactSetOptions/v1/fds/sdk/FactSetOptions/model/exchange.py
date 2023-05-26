@@ -105,10 +105,10 @@ class Exchange(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Controls the display of data returned based on the exchange for the specified Options Identifier. |Exchange ISO|Exchange Name|Option Types Covered|Price Type Used in Greeks| |---|---|---|---| |USA|U.S. Exchange (Composite)|Equity, Index|Mid Bid/Ask|    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"* . if omitted defaults to "USA", must be one of ["USA", ]  # noqa: E501
+            args[0] (str): Controls the display of data returned based on the exchange for the specified Options Identifier. |Exchange ISO|Exchange Name|Option Types Covered|Price Type Used in Greeks| |---|---|---|---| |USA|U.S. Exchange (Composite)|Equity, Index|Mid Bid/Ask|    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* . if omitted defaults to "USA", must be one of ["USA", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Controls the display of data returned based on the exchange for the specified Options Identifier. |Exchange ISO|Exchange Name|Option Types Covered|Price Type Used in Greeks| |---|---|---|---| |USA|U.S. Exchange (Composite)|Equity, Index|Mid Bid/Ask|    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"* . if omitted defaults to "USA", must be one of ["USA", ]  # noqa: E501
+            value (str): Controls the display of data returned based on the exchange for the specified Options Identifier. |Exchange ISO|Exchange Name|Option Types Covered|Price Type Used in Greeks| |---|---|---|---| |USA|U.S. Exchange (Composite)|Equity, Index|Mid Bid/Ask|    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* . if omitted defaults to "USA", must be one of ["USA", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -191,10 +191,10 @@ class Exchange(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Controls the display of data returned based on the exchange for the specified Options Identifier. |Exchange ISO|Exchange Name|Option Types Covered|Price Type Used in Greeks| |---|---|---|---| |USA|U.S. Exchange (Composite)|Equity, Index|Mid Bid/Ask|    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"* . if omitted defaults to "USA", must be one of ["USA", ]  # noqa: E501
+            args[0] (str): Controls the display of data returned based on the exchange for the specified Options Identifier. |Exchange ISO|Exchange Name|Option Types Covered|Price Type Used in Greeks| |---|---|---|---| |USA|U.S. Exchange (Composite)|Equity, Index|Mid Bid/Ask|    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* . if omitted defaults to "USA", must be one of ["USA", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Controls the display of data returned based on the exchange for the specified Options Identifier. |Exchange ISO|Exchange Name|Option Types Covered|Price Type Used in Greeks| |---|---|---|---| |USA|U.S. Exchange (Composite)|Equity, Index|Mid Bid/Ask|    *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"* . if omitted defaults to "USA", must be one of ["USA", ]  # noqa: E501
+            value (str): Controls the display of data returned based on the exchange for the specified Options Identifier. |Exchange ISO|Exchange Name|Option Types Covered|Price Type Used in Greeks| |---|---|---|---| |USA|U.S. Exchange (Composite)|Equity, Index|Mid Bid/Ask|    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* . if omitted defaults to "USA", must be one of ["USA", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

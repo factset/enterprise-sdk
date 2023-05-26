@@ -17,7 +17,7 @@ security:
 - FactSetOAuth2: []
 tags:
 - description: Generate a list or universe of options ids based on underlying securities
-    or other conditions.
+    or other conditions
   name: Option Chains & Screening
 - description: A generic profile for a list of option securities as of a specific
     date
@@ -34,7 +34,7 @@ paths:
     post:
       description: "Returns all the underlying option identifiers for the underlying\
         \ security identifier. Specify the date and or exhcange for the list of options\
-        \ associated to the id. \n\n  *Currently only OPRA Exchange is supproted with\
+        \ associated to the id. \n\n  *Currently only OPRA Exchange is supported with\
         \ exchange ISO \"USA\"*\n"
       operationId: getOptionsChainsForList
       requestBody:
@@ -137,7 +137,7 @@ paths:
         \ Greater Than or Equal To|\n|P_OPT_VOLUME_L|Volume Less Than|\n|P_OPT_VOLUME_LE|Volume\
         \ Less Than or Equal To|\n|P_OPT_VOLUME_E|Volume Equal To|\n|P_OPT_OPTION_TYPE_E|Option\
         \ Type (1= Equity, 2=Index)|\n|P_OPT_CALL_OR_PUT_E|Call or Put (0=Call, 1=Put)|\n\
-        \n  *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*\n"
+        \n  *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*\n"
       operationId: getOptionsScreeningForList
       requestBody:
         content:
@@ -235,7 +235,7 @@ paths:
         \ for a specific date. The data includes - \n* Expiration Date\n* Greek -\
         \ Delta\n* Implied Volatility\n* Price \n* Style\n* Type\n* Underlying Security\n\
         * Underlying Security Price\n* Open Interest\n* Name\n\n  *Currently only\
-        \ OPRA Exchange is supproted with exchange ISO \"USA\"*\n"
+        \ OPRA Exchange is supported with exchange ISO \"USA\"*\n"
       operationId: getOptionsSnapshotForList
       requestBody:
         content:
@@ -332,7 +332,7 @@ paths:
         * Other symbols such as OPRA17 and OCC21\n* Currency\n* Underlying Security\
         \ Symbols\n* Expiration Month, Dates, and Frequency\n\n*For details or definitions\
         \ of all available response fields visit the associated schema.*\n\n  *Currently\
-        \ only OPRA Exchange is supproted with exchange ISO \"USA\"*\n"
+        \ only OPRA Exchange is supported with exchange ISO \"USA\"*\n"
       operationId: getOptionsReferencesForList
       requestBody:
         content:
@@ -427,7 +427,7 @@ paths:
       description: "Returns all relevant dates such as  for the specified Option identifier.\
         \ Data Items include - \n* Expiration Date\n* First Dates for Ask, Bid, Settlement,\
         \ and Trade\n* Last Dates for Ask, Bid, Settlement, and Trade\n\n  *Currently\
-        \ only OPRA Exchange is supproted with exchange ISO \"USA\"*\n"
+        \ only OPRA Exchange is supported with exchange ISO \"USA\"*\n"
       operationId: getOptionsDatesForList
       requestBody:
         content:
@@ -522,7 +522,7 @@ paths:
         * Last Price Type (Settlement or MidBidAsk)\n* Last Price\n* Strike Price\n\
         * Underlying Security Price\n* 52 Week High/Low\n* Open, High, Low for day.\
         \ Note securities must be trading for day requested.\n\n  *Currently only\
-        \ OPRA Exchange is supproted with exchange ISO \"USA\"*\n"
+        \ OPRA Exchange is supported with exchange ISO \"USA\"*\n"
       operationId: getOptionsPricesForList
       requestBody:
         content:
@@ -615,11 +615,11 @@ paths:
     post:
       description: "Return the Volume and Open Interest details for list of the options\
         \ for the specified underlying security identifier. The data is aggregated\
-        \ for all options contracts associated to the underlying id, or specifify\
+        \ for all options contracts associated to the underlying id, or specified\
         \ in the request only the contracts listed on a specific exchange. Data Includes\
         \ - \n* Put Call Ratio \n* Total Put Volume & Open Interest\n* Total Call\
         \ Volume & Open Interest\n* Total Put & Call Volume & Open Interest\n\n  *Currently\
-        \ only OPRA Exchange is supproted with exchange ISO \"USA\"*\n"
+        \ only OPRA Exchange is supported with exchange ISO \"USA\"*\n"
       operationId: getUnderlyingVolumeForList
       requestBody:
         content:
@@ -713,7 +713,7 @@ paths:
     post:
       description: "Returns the volume details for the specified option identifier\
         \ for a specified exchange. Data items include - \n* Open Interest\n* Volume\n\
-        \n  *Currently only OPRA Exchange is supproted with exchange ISO \"USA\"*\n"
+        \n  *Currently only OPRA Exchange is supported with exchange ISO \"USA\"*\n"
       operationId: getOptionsVolumeForList
       requestBody:
         content:
@@ -847,7 +847,7 @@ paths:
         \ with 0 at the bottom. See [Constructing the Tree](https://my.apps.factset.com/oa/pages/17735#tree)\
         \ for more information).\n  \nFor more detials on calculation methodologies,\
         \ visit [OA 14933](https://my.apps.factset.com/oa/pages/14933). \n\n  *Currently\
-        \ only OPRA Exchange is supproted with exchange ISO \"USA\"*\n"
+        \ only OPRA Exchange is supported with exchange ISO \"USA\"*\n"
       operationId: getOptionsGreeksForList
       requestBody:
         content:
@@ -1044,7 +1044,7 @@ paths:
         \ market can calculated for different periods -\n* One Month\n* Two Months\n\
         * Three Months\n* Four Months\n* Five Months\n* Six Months\n\n*For more details\
         \ regarding ATM Volatility calculations, visit [OA 16276](https://my.apps.factset.com/oa/pages/16276)*\n\
-        \n  *Currently only OPRA Exchange traded options are supproted*\n"
+        \n  *Currently only OPRA Exchange traded options are supported*\n"
       operationId: getOptionsATMImpliedVolatilityForList
       requestBody:
         content:
@@ -3124,7 +3124,7 @@ components:
         |---|---|---|---|
         |USA|U.S. Exchange (Composite)|Equity, Index|Mid Bid/Ask|
 
-          *Currently only OPRA Exchange is supproted with exchange ISO "USA"*
+          *Currently only OPRA Exchange is supported with exchange ISO "USA"*
       enum:
       - USA
       example: USA
