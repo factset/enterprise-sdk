@@ -63,6 +63,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Redemption Prices for a Fixed Income security.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fixed_income_redemption_prices(ids, )
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -163,6 +164,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Redemption Prices for a list of Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fixed_income_redemption_prices_for_list(redemption_prices_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:

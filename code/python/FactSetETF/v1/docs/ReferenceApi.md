@@ -70,6 +70,7 @@ with fds.sdk.FactSetETF.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_etf_reference_data(ids, metrics=metrics, categories=categories)
+
         pprint(api_response)
 
     except fds.sdk.FactSetETF.ApiException as e:
@@ -172,6 +173,7 @@ with fds.sdk.FactSetETF.ApiClient(configuration) as api_client:
         # Fetch Reference Data for a large list of ETF securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_etf_reference_data_for_list(etf_reference_data_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetETF.ApiException as e:

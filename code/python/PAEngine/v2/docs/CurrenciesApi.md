@@ -60,6 +60,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get PA currencies
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_pa_currencies()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

@@ -56,6 +56,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -909,7 +910,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public LinkTextBlockAnswer getLinkTextBlockAnswer() throws ClassCastException {
         return (LinkTextBlockAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `TextBlockFootingAnswer`. If the actual instance is not `TextBlockFootingAnswer`,
      * the ClassCastException will be thrown.
@@ -920,7 +921,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public TextBlockFootingAnswer getTextBlockFootingAnswer() throws ClassCastException {
         return (TextBlockFootingAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `PercentChangeLabelAnswer`. If the actual instance is not `PercentChangeLabelAnswer`,
      * the ClassCastException will be thrown.
@@ -931,7 +932,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public PercentChangeLabelAnswer getPercentChangeLabelAnswer() throws ClassCastException {
         return (PercentChangeLabelAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `ValueChangeDateLabelAnswer`. If the actual instance is not `ValueChangeDateLabelAnswer`,
      * the ClassCastException will be thrown.
@@ -942,7 +943,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public ValueChangeDateLabelAnswer getValueChangeDateLabelAnswer() throws ClassCastException {
         return (ValueChangeDateLabelAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `RankedTableAnswer`. If the actual instance is not `RankedTableAnswer`,
      * the ClassCastException will be thrown.
@@ -953,7 +954,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public RankedTableAnswer getRankedTableAnswer() throws ClassCastException {
         return (RankedTableAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `TableAnswer`. If the actual instance is not `TableAnswer`,
      * the ClassCastException will be thrown.
@@ -964,7 +965,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public TableAnswer getTableAnswer() throws ClassCastException {
         return (TableAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `TableTableAnswer`. If the actual instance is not `TableTableAnswer`,
      * the ClassCastException will be thrown.
@@ -975,7 +976,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public TableTableAnswer getTableTableAnswer() throws ClassCastException {
         return (TableTableAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `ValueLabelAnswer`. If the actual instance is not `ValueLabelAnswer`,
      * the ClassCastException will be thrown.
@@ -986,7 +987,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public ValueLabelAnswer getValueLabelAnswer() throws ClassCastException {
         return (ValueLabelAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `ValueLabelDateAnswer`. If the actual instance is not `ValueLabelDateAnswer`,
      * the ClassCastException will be thrown.
@@ -997,7 +998,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public ValueLabelDateAnswer getValueLabelDateAnswer() throws ClassCastException {
         return (ValueLabelDateAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `ColoredValueLabelDateAnswer`. If the actual instance is not `ColoredValueLabelDateAnswer`,
      * the ClassCastException will be thrown.
@@ -1008,7 +1009,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public ColoredValueLabelDateAnswer getColoredValueLabelDateAnswer() throws ClassCastException {
         return (ColoredValueLabelDateAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `ValueLabelDateTextBlockAnswer`. If the actual instance is not `ValueLabelDateTextBlockAnswer`,
      * the ClassCastException will be thrown.
@@ -1019,7 +1020,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public ValueLabelDateTextBlockAnswer getValueLabelDateTextBlockAnswer() throws ClassCastException {
         return (ValueLabelDateTextBlockAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `ValueLabelDateDataPairListAnswer`. If the actual instance is not `ValueLabelDateDataPairListAnswer`,
      * the ClassCastException will be thrown.
@@ -1030,7 +1031,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public ValueLabelDateDataPairListAnswer getValueLabelDateDataPairListAnswer() throws ClassCastException {
         return (ValueLabelDateDataPairListAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `LabelValueChangeLabelValueChangeAnswer`. If the actual instance is not `LabelValueChangeLabelValueChangeAnswer`,
      * the ClassCastException will be thrown.
@@ -1041,7 +1042,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public LabelValueChangeLabelValueChangeAnswer getLabelValueChangeLabelValueChangeAnswer() throws ClassCastException {
         return (LabelValueChangeLabelValueChangeAnswer)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `AnswerWithoutData`. If the actual instance is not `AnswerWithoutData`,
      * the ClassCastException will be thrown.
@@ -1052,7 +1053,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public AnswerWithoutData getAnswerWithoutData() throws ClassCastException {
         return (AnswerWithoutData)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `NoAnswersFound`. If the actual instance is not `NoAnswersFound`,
      * the ClassCastException will be thrown.
@@ -1063,6 +1064,6 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public NoAnswersFound getNoAnswersFound() throws ClassCastException {
         return (NoAnswersFound)super.getActualInstance();
     }
-    
+
 }
 

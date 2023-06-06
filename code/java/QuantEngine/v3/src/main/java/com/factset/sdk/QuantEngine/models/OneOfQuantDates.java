@@ -42,6 +42,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -271,7 +272,7 @@ public class OneOfQuantDates extends AbstractOpenApiSchema implements Serializab
     public QuantFdsDate getQuantFdsDate() throws ClassCastException {
         return (QuantFdsDate)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `QuantDateList`. If the actual instance is not `QuantDateList`,
      * the ClassCastException will be thrown.
@@ -282,6 +283,6 @@ public class OneOfQuantDates extends AbstractOpenApiSchema implements Serializab
     public QuantDateList getQuantDateList() throws ClassCastException {
         return (QuantDateList)super.getActualInstance();
     }
-    
+
 }
 

@@ -43,6 +43,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -240,7 +241,7 @@ public class AdaptiveCardDataItem extends AbstractOpenApiSchema implements Seria
     public Object getObject() throws ClassCastException {
         return (Object)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `AdaptiveCardWithThumbnail`. If the actual instance is not `AdaptiveCardWithThumbnail`,
      * the ClassCastException will be thrown.
@@ -251,6 +252,6 @@ public class AdaptiveCardDataItem extends AbstractOpenApiSchema implements Seria
     public AdaptiveCardWithThumbnail getAdaptiveCardWithThumbnail() throws ClassCastException {
         return (AdaptiveCardWithThumbnail)super.getActualInstance();
     }
-    
+
 }
 

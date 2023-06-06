@@ -80,6 +80,7 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_bulk_documents_nrt_v1_calls(pagination_limit=pagination_limit, pagination_offset=pagination_offset, audio_source_id=audio_source_id, report_id=report_id, sort=sort, entity_id=entity_id, ticker=ticker, call_status=call_status)
+
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorCallStreetEvents.ApiException as e:
@@ -187,6 +188,7 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_bulk_documents_nrt_v1_indexed_nrt(audio_source_id, pagination_limit=pagination_limit, pagination_offset=pagination_offset, report_id=report_id)
+
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorCallStreetEvents.ApiException as e:
@@ -290,6 +292,7 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_bulk_documents_nrt_v1_list_snippets(audio_source_id, pagination_limit=pagination_limit, pagination_offset=pagination_offset, report_id=report_id)
+
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorCallStreetEvents.ApiException as e:
@@ -393,6 +396,7 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_bulk_documents_nrt_v1_speakerids(audio_source_id, pagination_limit=pagination_limit, pagination_offset=pagination_offset, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorCallStreetEvents.ApiException as e:

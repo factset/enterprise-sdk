@@ -76,6 +76,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_people_match(entity, person_name=person_name, salutation=salutation, first_name=first_name, middle_name=middle_name, last_name=last_name, suffix=suffix)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -190,6 +191,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Find potential people matches given a person's name.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_match_for_list(people_match_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:

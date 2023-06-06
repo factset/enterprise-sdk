@@ -76,6 +76,7 @@ with fds.sdk.FactSetESG.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_sasb_articles(ids, start_date, end_date, date_of=date_of, fields=fields, categories=categories)
+
         pprint(api_response)
 
     except fds.sdk.FactSetESG.ApiException as e:
@@ -183,6 +184,7 @@ with fds.sdk.FactSetESG.ApiClient(configuration) as api_client:
         # Request articles tagged with SASB lens categories from 2016-01-01 to previous day
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_sasb_articles_for_list(sasb_articles_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetESG.ApiException as e:
@@ -291,6 +293,7 @@ with fds.sdk.FactSetESG.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_sdg_articles(ids, start_date, end_date, date_of=date_of, fields=fields, categories=categories)
+
         pprint(api_response)
 
     except fds.sdk.FactSetESG.ApiException as e:
@@ -398,6 +401,7 @@ with fds.sdk.FactSetESG.ApiClient(configuration) as api_client:
         # Request articles tagged with SDG lens categories from 2016-01-01 to previous day
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_sdg_articles_for_list(sdg_articles_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetESG.ApiException as e:

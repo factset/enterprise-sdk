@@ -68,6 +68,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.cancel_optimization_by_id(id)
 
+
     except fds.sdk.AxiomaFixedIncomeOptimizer.ApiException as e:
         print("Exception when calling AFIOptimizerApi->cancel_optimization_by_id: %s\n" % e)
 ```
@@ -161,6 +162,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
         # Get AFI optimization parameters by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_optimization_parameters(id)
+
         pprint(api_response)
 
     except fds.sdk.AxiomaFixedIncomeOptimizer.ApiException as e:
@@ -256,6 +258,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
         # Get AFI optimization result by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_optimization_result(id)
+
         pprint(api_response)
 
     except fds.sdk.AxiomaFixedIncomeOptimizer.ApiException as e:
@@ -351,6 +354,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
         # Get AFI optimization status by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_optimization_status_by_id(id)
+
         pprint(api_response)
 
     except fds.sdk.AxiomaFixedIncomeOptimizer.ApiException as e:
@@ -499,12 +503,16 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
         # Create and Run AFI optimization
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_and_optimize(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, afi_optimization_parameters_root=afi_optimization_parameters_root)
-        responseWrapper = {
-            201: api_response.get_response_201,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.post_and_optimize(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, afi_optimization_parameters_root=afi_optimization_parameters_root)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 201:
+            api_response = api_response_wrapper.get_response_201()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.AxiomaFixedIncomeOptimizer.ApiException as e:
         print("Exception when calling AFIOptimizerApi->post_and_optimize: %s\n" % e)
@@ -658,12 +666,16 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
         # Create or Update AFI optimization and run it.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.put_and_optimize(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, afi_optimization_parameters_root=afi_optimization_parameters_root)
-        responseWrapper = {
-            201: api_response.get_response_201,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.put_and_optimize(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, afi_optimization_parameters_root=afi_optimization_parameters_root)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 201:
+            api_response = api_response_wrapper.get_response_201()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.AxiomaFixedIncomeOptimizer.ApiException as e:
         print("Exception when calling AFIOptimizerApi->put_and_optimize: %s\n" % e)

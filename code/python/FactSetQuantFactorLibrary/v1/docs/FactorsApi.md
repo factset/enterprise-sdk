@@ -74,6 +74,7 @@ with fds.sdk.FactSetQuantFactorLibrary.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_factors(ids, factors, start_date, end_date, factor_groups=factor_groups, frequency=frequency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetQuantFactorLibrary.ApiException as e:
@@ -180,6 +181,7 @@ with fds.sdk.FactSetQuantFactorLibrary.ApiClient(configuration) as api_client:
         # Retrieves Quant Factors for a large list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_factors_for_list(factors_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetQuantFactorLibrary.ApiException as e:

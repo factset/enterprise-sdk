@@ -74,6 +74,7 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_estimates_balance_sheet(id, periodicity=periodicity, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
@@ -177,6 +178,7 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_estimates_cash_flow(id, periodicity=periodicity, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
@@ -280,6 +282,7 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_estimates_geographic_segments(id, periodicity=periodicity, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
@@ -383,6 +386,7 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_estimates_income_statement(id, periodicity=periodicity, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
@@ -486,6 +490,7 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_estimates_industry_metrics(id, periodicity=periodicity, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
@@ -589,6 +594,7 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_estimates_per_share(id, periodicity=periodicity, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
@@ -692,6 +698,7 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_estimates_product_segments(id, periodicity=periodicity, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
@@ -795,6 +802,7 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_estimates_valuation(id, periodicity=periodicity, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:

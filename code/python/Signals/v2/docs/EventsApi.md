@@ -66,6 +66,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_event_adaptive_card_by_id(event_id)
+
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -157,6 +158,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_event_detail_by_id(event_id)
+
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -259,6 +261,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_event_adaptive_cards(event_request_body)
+
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -361,6 +364,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_event_details(event_request_body)
+
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -457,6 +461,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_event_entities(events_entities_post)
+
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -559,6 +564,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_event_headlines(event_request_body)
+
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:

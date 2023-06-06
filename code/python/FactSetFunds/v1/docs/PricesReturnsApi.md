@@ -82,6 +82,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_funds_prices(ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency, data_type=data_type, split_adjust=split_adjust)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -190,6 +191,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get Fund Prices (NAV) for a requested date range and large list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_prices_for_list(funds_prices_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -295,6 +297,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_funds_returns(ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency, dividend_adjust=dividend_adjust)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -401,6 +404,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get Fund Returns for a requested time-series and large list of ids
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_returns_for_list(funds_returns_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -502,6 +506,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_funds_returns_range(ids, start_date=start_date, end_date=end_date, dividend_adjust=dividend_adjust)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -604,6 +609,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get Fund Returns over pre-defined time horizons as of a specific date for large list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_returns_range_for_list(returns_range_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -703,6 +709,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_funds_returns_snapshot(ids, date=date, dividend_adjust=dividend_adjust)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -803,6 +810,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get Fund Returns over pre-defined time horizons as of a specific date.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_returns_snapshot_for_list(funds_returns_snapshot_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:

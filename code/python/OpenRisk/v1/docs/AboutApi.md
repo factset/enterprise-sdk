@@ -67,6 +67,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
         # Get OpenAPI Specification documentation
         # example passing only required values which don't have defaults set
         api_response = api_instance.documentation(version)
+
         pprint(api_response)
 
     except fds.sdk.OpenRisk.ApiException as e:
@@ -160,6 +161,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
         # Get health of service
         # example passing only required values which don't have defaults set
         api_response = api_instance.health_status(version)
+
         pprint(api_response)
 
     except fds.sdk.OpenRisk.ApiException as e:
@@ -253,6 +255,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
         # Get available risk models
         # example passing only required values which don't have defaults set
         api_response = api_instance.list_risk_models(version)
+
         pprint(api_response)
 
     except fds.sdk.OpenRisk.ApiException as e:
@@ -348,6 +351,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
         # Get risk model details
         # example passing only required values which don't have defaults set
         api_response = api_instance.risk_model_metadata(version, model_code)
+
         pprint(api_response)
 
     except fds.sdk.OpenRisk.ApiException as e:
@@ -442,6 +446,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
         # Get available risk statistics details
         # example passing only required values which don't have defaults set
         api_response = api_instance.stats(version)
+
         pprint(api_response)
 
     except fds.sdk.OpenRisk.ApiException as e:
@@ -534,6 +539,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
         # Get available risk statistics names
         # example passing only required values which don't have defaults set
         api_response = api_instance.stats_names_only(version)
+
         pprint(api_response)
 
     except fds.sdk.OpenRisk.ApiException as e:

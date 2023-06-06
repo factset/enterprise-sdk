@@ -63,6 +63,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # Return information about the person with the specified entity ID.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_profiles(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:
@@ -157,6 +158,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # Returns profile information for a large list of people.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_profiles_for_list(people_profiles_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:

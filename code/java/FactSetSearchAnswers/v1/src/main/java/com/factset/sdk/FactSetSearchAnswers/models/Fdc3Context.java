@@ -43,6 +43,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -272,7 +273,7 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
     public Fdc3Instrument getFdc3Instrument() throws ClassCastException {
         return (Fdc3Instrument)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `Fdc3Country`. If the actual instance is not `Fdc3Country`,
      * the ClassCastException will be thrown.
@@ -283,6 +284,6 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
     public Fdc3Country getFdc3Country() throws ClassCastException {
         return (Fdc3Country)super.getActualInstance();
     }
-    
+
 }
 

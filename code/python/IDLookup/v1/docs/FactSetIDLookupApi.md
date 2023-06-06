@@ -90,6 +90,7 @@ with fds.sdk.IDLookup.ApiClient(configuration) as api_client:
         # Search funtionality to return tickers, company names and unique identifiers for FactSet data
         # example passing only required values which don't have defaults set
         api_response = api_instance.search_companyname(lookup_request)
+
         pprint(api_response)
 
     except fds.sdk.IDLookup.ApiException as e:

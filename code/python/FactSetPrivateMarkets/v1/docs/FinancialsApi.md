@@ -70,6 +70,7 @@ with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_financials(ids, fields, start_date, end_date=end_date)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrivateMarkets.ApiException as e:
@@ -172,6 +173,7 @@ with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
         # Returns Private Company Financials for a list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_financials_for_list(financials_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrivateMarkets.ApiException as e:

@@ -76,6 +76,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_funds_aum(ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency, data_type=data_type)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -182,6 +183,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get Fund AUM for a requested date range and large list of ids
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_aum_for_list(aum_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -285,6 +287,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_funds_flows(ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -389,6 +392,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get Fund Flows for a requested date range and large list of ids
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_flows_for_list(flows_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:

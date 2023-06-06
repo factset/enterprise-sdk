@@ -5,7 +5,7 @@
     <artifactId>axiomaequityoptimizer</artifactId>
     <packaging>jar</packaging>
     <name>axiomaequityoptimizer</name>
-    <version>0.21.4</version>
+    <version>0.21.5</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Axioma Equity Optimizer client library for Java</description>
     <scm>

@@ -5,6 +5,7 @@
 LICENSE
 README.md
 docs/ArticlesApi.md
+docs/Calendar.md
 docs/DateOf.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
@@ -49,6 +50,7 @@ src/api/SDGApi.js
 src/api/SFDRApi.js
 src/api/SpotlightsApi.js
 src/index.js
+src/model/Calendar.js
 src/model/DateOf.js
 src/model/ErrorResponse.js
 src/model/ErrorResponseSubErrors.js

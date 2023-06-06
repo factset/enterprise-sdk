@@ -60,6 +60,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
         # Get SPAR frequencies
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_spar_frequencies()
+
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:

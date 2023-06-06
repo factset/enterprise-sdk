@@ -66,6 +66,7 @@ with fds.sdk.FactSetFundamentals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_fds_fundamentals_metrics(category=category, subcategory=subcategory)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFundamentals.ApiException as e:
@@ -164,6 +165,7 @@ with fds.sdk.FactSetFundamentals.ApiClient(configuration) as api_client:
         # Available fundamental metrics or ratios.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fds_fundamentals_metrics_for_list(metrics_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFundamentals.ApiException as e:

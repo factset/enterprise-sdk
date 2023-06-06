@@ -80,6 +80,7 @@ with fds.sdk.FactSetESG.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_sasb_spotlights(ids, start_date, end_date, fields=fields, categories=categories, primary_only=primary_only, is_removed=is_removed)
+
         pprint(api_response)
 
     except fds.sdk.FactSetESG.ApiException as e:
@@ -189,6 +190,7 @@ with fds.sdk.FactSetESG.ApiClient(configuration) as api_client:
         # Gets Spotlight data for the most important positive and negative ESG events to enable timely and systematic trading strategies and portfolio management
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_sasb_spotlights_for_list(sasb_spotlights_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetESG.ApiException as e:
@@ -301,6 +303,7 @@ with fds.sdk.FactSetESG.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_sdg_spotlights(ids, start_date, end_date, categories=categories, fields=fields, primary_only=primary_only, is_removed=is_removed)
+
         pprint(api_response)
 
     except fds.sdk.FactSetESG.ApiException as e:
@@ -410,6 +413,7 @@ with fds.sdk.FactSetESG.ApiClient(configuration) as api_client:
         # Gets Spotlight data for the most important positive and negative ESG events to enable timely and systematic trading strategies and portfolio management
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_sdg_spotlights_for_list(sdg_spotlights_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetESG.ApiException as e:

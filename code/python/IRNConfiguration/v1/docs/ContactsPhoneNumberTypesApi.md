@@ -63,6 +63,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Create a phone type
         # example passing only required values which don't have defaults set
         api_response = api_instance.create_phone_number_type(body)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -153,6 +154,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_phone_number_type(phone_number_type_id)
 
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsPhoneNumberTypesApi->delete_phone_number_type: %s\n" % e)
 ```
@@ -239,6 +241,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get list of the phone types configured in your group
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_phone_number_types()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -325,6 +328,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Edit a phone type
         # example passing only required values which don't have defaults set
         api_instance.update_phone_number_type(phone_number_type_id, body)
+
 
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsPhoneNumberTypesApi->update_phone_number_type: %s\n" % e)

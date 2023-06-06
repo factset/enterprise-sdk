@@ -68,6 +68,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # Translate Market IDs into ISINS as of a specific date or receive the full history of changes.
         # example passing only required values which don't have defaults set
         api_response = api_instance.batch_isin_history(isin_history_translation_request)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:
@@ -164,6 +165,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # Translate market security symbols into ISIN. - Current Only
         # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_isin(isin_translation_request)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:
@@ -261,6 +263,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.isin_history(ids, as_of_date=as_of_date)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:
@@ -356,6 +359,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # Translate market security symbols into ISIN. - Current Only
         # example passing only required values which don't have defaults set
         api_response = api_instance.translate_isin(ids)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:

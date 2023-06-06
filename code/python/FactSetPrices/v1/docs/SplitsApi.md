@@ -63,6 +63,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Gets full history of security Splits for a list of `ids`
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_splits(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
@@ -159,6 +160,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Requests splits for a list of `ids`
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_splits_for_list(splits_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:

@@ -6,6 +6,7 @@ LICENSE
 README.md
 docs/ArticlesApi.md
 docs/ArticlesFields.md
+docs/Calendar.md
 docs/Categories.md
 docs/DateOf.md
 docs/ErrorResponse.md
@@ -69,6 +70,7 @@ fds/sdk/FactSetESG/configuration.py
 fds/sdk/FactSetESG/exceptions.py
 fds/sdk/FactSetESG/model/__init__.py
 fds/sdk/FactSetESG/model/articles_fields.py
+fds/sdk/FactSetESG/model/calendar.py
 fds/sdk/FactSetESG/model/categories.py
 fds/sdk/FactSetESG/model/date_of.py
 fds/sdk/FactSetESG/model/error_response.py

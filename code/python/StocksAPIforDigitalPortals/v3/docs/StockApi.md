@@ -86,6 +86,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_composite_profile_get_by_notation(identifier, identifier_type, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -183,6 +184,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_dividend_type_list(attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -286,6 +288,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_month_1_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -392,6 +395,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_month_3_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -498,6 +502,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_month_6_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -604,6 +609,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_week_1_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -710,6 +716,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_year_1_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -816,6 +823,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_year_3_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -922,6 +930,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_year_5_get(identifier, identifier_type, id_notation_benchmark, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -1024,6 +1033,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_owner_list(identifier, identifier_type, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -1123,6 +1133,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_recommendation_aggregate_get(identifier, identifier_type, attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -1225,6 +1236,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_stock_recommendation_aggregate_history_list(identifier, identifier_type, snapshots, attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -1341,6 +1353,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_stock_dividend_list(post_stock_dividend_list_request=post_stock_dividend_list_request)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -1501,6 +1514,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_stock_notation_ranking_intraday_list(post_stock_notation_ranking_intraday_list_request=post_stock_notation_ranking_intraday_list_request)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -3074,6 +3088,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_stock_notation_screener_search(post_stock_notation_screener_search_request=post_stock_notation_screener_search_request)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -4097,6 +4112,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_stock_notation_screener_value_ranges_get(post_stock_notation_screener_value_ranges_get_request=post_stock_notation_screener_value_ranges_get_request)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:

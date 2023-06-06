@@ -1,8 +1,8 @@
 {
   "name": "@factset/sdk-paengine",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "description": "PA Engine client library for JavaScript",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
   "main": "dist/index.js",

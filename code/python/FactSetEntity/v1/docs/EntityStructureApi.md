@@ -70,6 +70,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_entity_structure(ids, level=level, active=active)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntity.ApiException as e:
@@ -171,6 +172,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ultimate_entity_structure(ids, level=level, active=active)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntity.ApiException as e:
@@ -271,6 +273,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
         # Returns all active or inactive entities below the requested entity id.
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_entity_structure(entity_structure_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntity.ApiException as e:
@@ -369,6 +372,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
         # Returns all active or inactive entities and respective levels below the requested entity id.
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_ultimate_entity_structure(ultimate_entity_structure_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntity.ApiException as e:

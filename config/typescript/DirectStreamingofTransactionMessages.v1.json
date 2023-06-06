@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-directstreamingoftransactionmessages",
-  "projectVersion": "0.22.1",
+  "projectVersion": "0.22.2",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Direct Streaming of Transaction Messages client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "directstreamingoftransactionmessages",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/DirectStreamingofTransactionMessages/0.22.1",
+  "httpUserAgent": "fds-sdk/javascript/DirectStreamingofTransactionMessages/0.22.2",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

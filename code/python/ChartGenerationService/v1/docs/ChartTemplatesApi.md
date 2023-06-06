@@ -60,6 +60,7 @@ with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
         # Get a list of chart categories
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_category_list()
+
         pprint(api_response)
 
     except fds.sdk.ChartGenerationService.ApiException as e:
@@ -150,6 +151,7 @@ with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_chart_list(categories=categories, type=type)
+
         pprint(api_response)
 
     except fds.sdk.ChartGenerationService.ApiException as e:
@@ -268,6 +270,7 @@ with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.images(chart, ids=ids, sd=sd, ed=ed, width=width, height=height, freq=freq, ccy=ccy, split=split, spin=spin, cal=cal, title=title, font_size=font_size, type=type, grid_lines=grid_lines)
+
         pprint(api_response)
 
     except fds.sdk.ChartGenerationService.ApiException as e:

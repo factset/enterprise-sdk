@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet ESG API
-  version: 1.5.0
+  version: 1.6.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-esg-api
@@ -395,12 +395,11 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Controls the display frequency of the data returned.
-            * **D** = Daily
-            * **W** = Weekly, based on the last day of the week of the start date.
-            * **M** = Monthly, based on the last trading day of the month.
-            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **W** = Weekly, based on the last day of the week of the\
+          \ start date.\n  * **M** = Monthly, based on the last trading day of the\
+          \ month.\n  * **CY** = Calendar Annual, based on the last trading day of\
+          \ the calendar year.\n  \n"
         explode: true
         in: query
         name: frequency
@@ -413,6 +412,22 @@ paths:
           - M
           - CY
           - ""
+          type: string
+        style: form
+      - description: Calendar of data returned. SEVENDAY includes weekends. LOCAL
+          calendar will default to the securities' trading calendar which excludes
+          date records for respective holiday periods.
+        example: FIVEDAY
+        explode: true
+        in: query
+        name: calendar
+        required: false
+        schema:
+          default: SEVENDAY
+          enum:
+          - FIVEDAY
+          - SEVENDAY
+          - LOCAL
           type: string
         style: form
       responses:
@@ -691,12 +706,11 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Controls the display frequency of the data returned.
-            * **D** = Daily
-            * **W** = Weekly, based on the last day of the week of the start date.
-            * **M** = Monthly, based on the last trading day of the month.
-            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **W** = Weekly, based on the last day of the week of the\
+          \ start date.\n  * **M** = Monthly, based on the last trading day of the\
+          \ month.\n  * **CY** = Calendar Annual, based on the last trading day of\
+          \ the calendar year.\n  \n"
         explode: true
         in: query
         name: frequency
@@ -709,6 +723,22 @@ paths:
           - M
           - CY
           - ""
+          type: string
+        style: form
+      - description: Calendar of data returned. SEVENDAY includes weekends. LOCAL
+          calendar will default to the securities' trading calendar which excludes
+          date records for respective holiday periods.
+        example: FIVEDAY
+        explode: true
+        in: query
+        name: calendar
+        required: false
+        schema:
+          default: SEVENDAY
+          enum:
+          - FIVEDAY
+          - SEVENDAY
+          - LOCAL
           type: string
         style: form
       responses:
@@ -985,12 +1015,11 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Controls the display frequency of the data returned.
-            * **D** = Daily
-            * **W** = Weekly, based on the last day of the week of the start date.
-            * **M** = Monthly, based on the last trading day of the month.
-            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **W** = Weekly, based on the last day of the week of the\
+          \ start date.\n  * **M** = Monthly, based on the last trading day of the\
+          \ month.\n  * **CY** = Calendar Annual, based on the last trading day of\
+          \ the calendar year.\n  \n"
         explode: true
         in: query
         name: frequency
@@ -1003,6 +1032,22 @@ paths:
           - M
           - CY
           - ""
+          type: string
+        style: form
+      - description: Calendar of data returned. SEVENDAY includes weekends. LOCAL
+          calendar will default to the securities' trading calendar which excludes
+          date records for respective holiday periods.
+        example: FIVEDAY
+        explode: true
+        in: query
+        name: calendar
+        required: false
+        schema:
+          default: SEVENDAY
+          enum:
+          - FIVEDAY
+          - SEVENDAY
+          - LOCAL
           type: string
         style: form
       responses:
@@ -4410,6 +4455,7 @@ components:
         startDate: 2019-12-31
         endDate: 2019-12-31
         frequency: D
+        calendar: SEVENDAY
     multipleSasbScoresPost:
       description: Post request body example to fetch Pulse, Insight, and Momentum
         Scores of the FDS-US, TSLA-US, AAPL-US for the HUMANRIGHTSANDCOMRELS, SUPPLYCHAINMGT,
@@ -4432,6 +4478,7 @@ components:
         startDate: 2019-12-31
         endDate: 2019-12-31
         frequency: D
+        calendar: SEVENDAY
     singleSasbScoresPost:
       description: Post request body example to fetch all Pulse Scores for AMZN-US.
       summary: Single SASB Score Type for all categories for a Single Entity (AMZN-US).
@@ -4443,6 +4490,7 @@ components:
         startDate: 2019-12-31
         endDate: 2019-12-31
         frequency: D
+        calendar: SEVENDAY
     multipleSasbScoresAllPost:
       description: Post request body example to fetch Pulse, Insight, and Momentum
         Scores of the FDS-US, TSLA-US, AAPL-US for the [HUMANRIGHTSANDCOMRELS], [SUPPLYCHAINMGT],
@@ -4465,6 +4513,7 @@ components:
         startDate: 2019-12-31
         endDate: 2019-12-31
         frequency: D
+        calendar: SEVENDAY
     singleSdgScores:
       description: Results for Amazon.com's SDG scores for Pulse Scores.
       summary: Single Score Type for all SDG categories for a single entity (AMZN-US).
@@ -4824,12 +4873,11 @@ components:
         type: string
       style: form
     frequency:
-      description: |
-        Controls the display frequency of the data returned.
-          * **D** = Daily
-          * **W** = Weekly, based on the last day of the week of the start date.
-          * **M** = Monthly, based on the last trading day of the month.
-          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+      description: "Controls the display frequency of the data returned.\n  * **D**\
+        \ = Daily\n  * **W** = Weekly, based on the last day of the week of the start\
+        \ date.\n  * **M** = Monthly, based on the last trading day of the month.\n\
+        \  * **CY** = Calendar Annual, based on the last trading day of the calendar\
+        \ year.\n  \n"
       explode: true
       in: query
       name: frequency
@@ -4842,6 +4890,23 @@ components:
         - M
         - CY
         - ""
+        type: string
+      style: form
+    calendar:
+      description: Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar
+        will default to the securities' trading calendar which excludes date records
+        for respective holiday periods.
+      example: FIVEDAY
+      explode: true
+      in: query
+      name: calendar
+      required: false
+      schema:
+        default: SEVENDAY
+        enum:
+        - FIVEDAY
+        - SEVENDAY
+        - LOCAL
         type: string
       style: form
     sdgScoreTypes:
@@ -6719,6 +6784,8 @@ components:
           type: string
         frequency:
           $ref: '#/components/schemas/frequency'
+        calendar:
+          $ref: '#/components/schemas/calendar'
       required:
       - ids
       title: SASB Scores Request Body
@@ -6838,6 +6905,8 @@ components:
           type: string
         frequency:
           $ref: '#/components/schemas/frequency'
+        calendar:
+          $ref: '#/components/schemas/calendar'
       required:
       - ids
       title: SASB Scores Request Body
@@ -6963,6 +7032,8 @@ components:
           type: string
         frequency:
           $ref: '#/components/schemas/frequency'
+        calendar:
+          $ref: '#/components/schemas/calendar'
       required:
       - ids
       title: SASB Scores All Request Body
@@ -8791,6 +8862,17 @@ components:
       - PUBLICATION
       - INGESTION
       example: PUBLICATION
+      type: string
+    calendar:
+      default: SEVENDAY
+      description: Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar
+        will default to the securities' trading calendar which excludes date records
+        for respective holiday periods.
+      enum:
+      - FIVEDAY
+      - SEVENDAY
+      - LOCAL
+      example: FIVEDAY
       type: string
     sdgStartDate:
       description: |

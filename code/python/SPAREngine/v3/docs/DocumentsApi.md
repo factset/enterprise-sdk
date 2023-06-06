@@ -62,6 +62,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
         # Gets SPAR3 documents and sub-directories in a directory
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_spar3_documents(path)
+
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:

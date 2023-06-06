@@ -73,6 +73,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_link_up_job_listings(sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset, start_date=start_date, end_date=end_date, type=type)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:

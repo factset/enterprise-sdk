@@ -82,6 +82,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_segments(ids, metrics, start_date=start_date, end_date=end_date, relative_fiscal_start=relative_fiscal_start, relative_fiscal_end=relative_fiscal_end, periodicity=periodicity, frequency=frequency, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -196,6 +197,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # Retrieves product segment estimates for a requested list of ids and fiscal periods
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_segments_for_list(segments_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:

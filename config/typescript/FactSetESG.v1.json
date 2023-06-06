@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-factsetesg",
-  "projectVersion": "1.1.0",
+  "projectVersion": "1.2.0",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "FactSet ESG client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "factsetesg",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/FactSetESG/1.1.0",
+  "httpUserAgent": "fds-sdk/javascript/FactSetESG/1.2.0",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

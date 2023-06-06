@@ -10,6 +10,7 @@
 # sys.setrecursionlimit(n)
 
 from fds.sdk.FactSetESG.model.articles_fields import ArticlesFields
+from fds.sdk.FactSetESG.model.calendar import Calendar
 from fds.sdk.FactSetESG.model.categories import Categories
 from fds.sdk.FactSetESG.model.date_of import DateOf
 from fds.sdk.FactSetESG.model.error_response import ErrorResponse

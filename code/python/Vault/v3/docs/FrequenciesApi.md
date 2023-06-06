@@ -60,6 +60,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Get Vault frequencies
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_vault_frequencies()
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:

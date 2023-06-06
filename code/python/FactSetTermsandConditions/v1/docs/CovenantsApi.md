@@ -63,6 +63,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Covenant Details for a Fixed Income security.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_covenant_details(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -159,6 +160,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Covenant Details for a list of Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_covenant_details_for_list(terms_and_conditions_scalar_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:

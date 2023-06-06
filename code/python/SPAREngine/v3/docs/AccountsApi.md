@@ -63,6 +63,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
         # Get accounts and sub-directories in a directory
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_accounts(path)
+
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:
@@ -160,6 +161,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
         # Get SPAR account returns type details
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_spar_returns_type(account_path)
+
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:

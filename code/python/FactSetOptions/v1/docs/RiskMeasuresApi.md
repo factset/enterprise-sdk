@@ -71,6 +71,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns the at-the-money (ATM) implied volatility details for the specified underlying security identifier
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_atm_implied_volatility_for_list(atm_implied_volatility_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:
@@ -172,6 +173,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns all the Greeks details for the specified option identifier
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_greeks_for_list(greeks_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:
@@ -272,6 +274,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns the implied volatility information for the specified option identifier
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_volatility_for_list(implied_volatility_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:

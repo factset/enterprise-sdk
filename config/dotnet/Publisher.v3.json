@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.Publisher",
-  "packageVersion": "0.21.4",
+  "packageVersion": "0.21.5",
   "packageGuid": "{a44bd0b4-26ee-549b-8a7b-33eb206231cf}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/Publisher/v3",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/Publisher/0.21.4",
+  "httpUserAgent": "fds-sdk/dotnet/Publisher/0.21.5",
   "files": {
     "LICENSE": {}
   },

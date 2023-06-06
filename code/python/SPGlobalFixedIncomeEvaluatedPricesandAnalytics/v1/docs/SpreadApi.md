@@ -72,6 +72,7 @@ with fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.ApiClient(configurat
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_bond_spread(ids, start_date=start_date, end_date=end_date, frequency=frequency, calendar=calendar)
+
         pprint(api_response)
 
     except fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.ApiException as e:
@@ -176,6 +177,7 @@ with fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.ApiClient(configurat
         # Request the Spread and OAS data for a list of securities
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_bond_spread_for_list(bond_spread_request)
+
         pprint(api_response)
 
     except fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.ApiException as e:

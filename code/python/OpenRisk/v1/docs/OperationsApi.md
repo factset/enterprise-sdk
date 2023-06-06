@@ -147,6 +147,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
         # Calculate risk statistics
         # example passing only required values which don't have defaults set
         api_response = api_instance.calculate_from_holdings(version, calculate_from_holdings_request_body)
+
         pprint(api_response)
 
     except fds.sdk.OpenRisk.ApiException as e:
@@ -284,6 +285,7 @@ with fds.sdk.OpenRisk.ApiClient(configuration) as api_client:
         # Generate risk model ID mapping
         # example passing only required values which don't have defaults set
         api_response = api_instance.generate_id_mapping(version, generate_id_mapping_request_body)
+
         pprint(api_response)
 
     except fds.sdk.OpenRisk.ApiException as e:

@@ -63,6 +63,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
         # Returns entity reference data in Chinese for an individual entity.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_reference_chi(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntity.ApiException as e:
@@ -159,6 +160,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
         # Returns entity reference data in Chinese for an individual entity.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_reference_chi_for_list(entity_reference_chi_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntity.ApiException as e:

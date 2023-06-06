@@ -74,6 +74,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.cancel(ems_cancel_orders_root=ems_cancel_orders_root)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTrading.ApiException as e:
@@ -216,6 +217,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create(ems_orders_root=ems_orders_root)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTrading.ApiException as e:
@@ -361,6 +363,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.replace(ems_replace_orders_root=ems_replace_orders_root)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTrading.ApiException as e:

@@ -61,6 +61,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get PA grouping frequencies
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_pa_grouping_frequencies()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -151,6 +152,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get PA groups
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_pa_groups()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

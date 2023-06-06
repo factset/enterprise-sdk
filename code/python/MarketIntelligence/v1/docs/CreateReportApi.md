@@ -73,6 +73,7 @@ with fds.sdk.MarketIntelligence.ApiClient(configuration) as api_client:
         # Create new report templates including portfolio or market news and data.
         # example passing only required values which don't have defaults set
         api_response = api_instance.create_post(miapi_post_request)
+
         pprint(api_response)
 
     except fds.sdk.MarketIntelligence.ApiException as e:

@@ -85,6 +85,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_news_article_get(code, include_media=include_media, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -184,6 +185,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_news_article_type_get(id, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -280,6 +282,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_news_article_type_list(attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -375,6 +378,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_news_distributor_get(id, attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -474,6 +478,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_news_distributor_list(ids=ids, attributes=attributes, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -570,6 +575,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_news_publisher_get(id, attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -673,6 +679,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_news_publisher_list(ids=ids, attributes=attributes, sort=sort, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -773,6 +780,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_news_publisher_list_by_distributor(id, attributes=attributes, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -916,6 +924,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_news_article_list(post_news_article_list_request=post_news_article_list_request)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1028,6 +1037,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_news_article_list_by_chain(post_news_article_list_by_chain_request=post_news_article_list_by_chain_request)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1175,6 +1185,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_news_article_list_by_index(post_news_article_list_by_index_request=post_news_article_list_by_index_request)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1322,6 +1333,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_news_article_list_by_instrument(post_news_article_list_by_instrument_request=post_news_article_list_by_instrument_request)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1466,6 +1478,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_news_article_list_by_media_kind(post_news_article_list_by_media_kind_request=post_news_article_list_by_media_kind_request)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1630,6 +1643,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_news_article_search_by_text(post_news_article_search_by_text_request=post_news_article_search_by_text_request)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1739,6 +1753,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_news_publisher_search_by_name(post_news_publisher_search_by_name_request=post_news_publisher_search_by_name_request)
+
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:

@@ -7,6 +7,7 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/ArticlesApi.md
+docs/Calendar.md
 docs/DateOf.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
@@ -74,6 +75,7 @@ src/main/java/com/factset/sdk/FactSetESG/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/FactSetESG/auth/OAuth.java
 src/main/java/com/factset/sdk/FactSetESG/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/FactSetESG/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/FactSetESG/models/Calendar.java
 src/main/java/com/factset/sdk/FactSetESG/models/DateOf.java
 src/main/java/com/factset/sdk/FactSetESG/models/ErrorResponse.java
 src/main/java/com/factset/sdk/FactSetESG/models/ErrorResponseSubErrors.java

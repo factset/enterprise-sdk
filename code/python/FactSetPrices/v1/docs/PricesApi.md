@@ -72,6 +72,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_fixed_security_prices(ids, start_date=start_date, end_date=end_date, frequency=frequency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
@@ -174,6 +175,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Requests pricing for a list of Fixed Income securities for date range requested
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fixed_security_prices_for_list(prices_fixed_income_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
@@ -282,12 +284,16 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Gets end-of-day Open, High, Low, Close for a list of securities.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_security_prices(ids, start_date=start_date, end_date=end_date, frequency=frequency, calendar=calendar, currency=currency, adjust=adjust, batch=batch)
-        responseWrapper = {
-            200: api_response.get_response_200,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.get_security_prices(ids, start_date=start_date, end_date=end_date, frequency=frequency, calendar=calendar, currency=currency, adjust=adjust, batch=batch)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
         print("Exception when calling PricesApi->get_security_prices: %s\n" % e)
@@ -397,12 +403,16 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     try:
         # Requests end-of-day Open, High, Low, Close for a large list of securities.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_security_prices_for_list(prices_request)
-        responseWrapper = {
-            200: api_response.get_response_200,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.get_security_prices_for_list(prices_request)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
         print("Exception when calling PricesApi->get_security_prices_for_list: %s\n" % e)

@@ -68,6 +68,7 @@ with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.search_for_adaptive_card_answer(query, include_thumbnail=include_thumbnail, disable_no_answer_responses=disable_no_answer_responses)
+
         pprint(api_response)
 
     except fds.sdk.FactSetSearchAnswers.ApiException as e:
@@ -162,6 +163,7 @@ with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
         # Fetch FactSet answer in data format
         # example passing only required values which don't have defaults set
         api_response = api_instance.search_for_data_answer(query)
+
         pprint(api_response)
 
     except fds.sdk.FactSetSearchAnswers.ApiException as e:

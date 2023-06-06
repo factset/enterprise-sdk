@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-axiomaequityoptimizer",
-  "projectVersion": "0.21.1",
+  "projectVersion": "0.21.2",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Axioma Equity Optimizer client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "axiomaequityoptimizer",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/AxiomaEquityOptimizer/0.21.1",
+  "httpUserAgent": "fds-sdk/javascript/AxiomaEquityOptimizer/0.21.2",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

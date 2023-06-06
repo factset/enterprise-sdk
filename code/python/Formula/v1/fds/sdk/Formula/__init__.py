@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "2.1.3"
+__version__ = "2.1.4"
 
 # import ApiClient
 from fds.sdk.Formula.api_client import ApiClient

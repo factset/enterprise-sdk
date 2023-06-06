@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.AnalyticsDatastore",
-  "packageVersion": "0.21.4",
+  "packageVersion": "0.21.5",
   "packageGuid": "{9ae8cc41-9377-5429-8572-198214c5bd21}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/AnalyticsDatastore/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/AnalyticsDatastore/0.21.4",
+  "httpUserAgent": "fds-sdk/dotnet/AnalyticsDatastore/0.21.5",
   "files": {
     "LICENSE": {}
   },

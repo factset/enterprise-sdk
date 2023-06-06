@@ -96,6 +96,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_asset_class_list(attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -190,6 +191,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_benchmark_type_list(attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -285,6 +287,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_frequency_type_list(attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -382,6 +385,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_language_get(id, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -480,6 +484,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_language_get_by_code(code, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -578,6 +583,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_language_list(attributes=attributes, language=language, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -676,6 +682,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_market_get(id, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -774,6 +781,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_market_group_list(attributes=attributes, language=language, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -872,6 +880,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_market_type_list(attributes=attributes, language=language, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -966,6 +975,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_media_kind_list(attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1062,6 +1072,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_region_continent_get(id, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1160,6 +1171,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_region_continent_list(attributes=attributes, language=language, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1258,6 +1270,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_region_country_get(id, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1356,6 +1369,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_region_country_get_by_code(code, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1454,6 +1468,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_region_country_list(attributes=attributes, language=language, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1552,6 +1567,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_region_get(id, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1650,6 +1666,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_region_list(attributes=attributes, language=language, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1746,6 +1763,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_timezone_get(id, attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1841,6 +1859,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_timezone_get_by_name(name, attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -1938,6 +1957,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_value_unit_alternative_list(attributes=attributes, language=language, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2036,6 +2056,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_value_unit_currency_fractional_get(id, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2134,6 +2155,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_value_unit_currency_fractional_list(attributes=attributes, language=language, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2232,6 +2254,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_basic_value_unit_get(id, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2337,6 +2360,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_basic_background_text_type_list(post_basic_background_text_type_list_request=post_basic_background_text_type_list_request)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2441,6 +2465,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_basic_delivery_list(post_basic_delivery_list_request=post_basic_delivery_list_request)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2553,6 +2578,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_basic_market_list(post_basic_market_list_request=post_basic_market_list_request)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2657,6 +2683,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_basic_media_type_list(post_basic_media_type_list_request=post_basic_media_type_list_request)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2763,6 +2790,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_basic_mic_operating_list(post_basic_mic_operating_list_request=post_basic_mic_operating_list_request)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2866,6 +2894,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_basic_timezone_list(post_basic_timezone_list_request=post_basic_timezone_list_request)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -2969,6 +2998,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_basic_value_unit_currency_list(post_basic_value_unit_currency_list_request=post_basic_value_unit_currency_list_request)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -3072,6 +3102,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_basic_value_unit_currency_main_list(post_basic_value_unit_currency_main_list_request=post_basic_value_unit_currency_main_list_request)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -3175,6 +3206,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_basic_value_unit_list(post_basic_value_unit_list_request=post_basic_value_unit_list_request)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:

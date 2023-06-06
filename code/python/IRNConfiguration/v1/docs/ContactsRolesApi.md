@@ -63,6 +63,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Create contact roles
         # example passing only required values which don't have defaults set
         api_response = api_instance.create_contact_role(body)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -153,6 +154,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_contact_role(contact_role_id)
 
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsRolesApi->delete_contact_role: %s\n" % e)
 ```
@@ -239,6 +241,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get list of the contact roles configured in your group
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_contact_roles()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -325,6 +328,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Edit a contact role
         # example passing only required values which don't have defaults set
         api_instance.update_contact_role(contact_role_id, body)
+
 
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsRolesApi->update_contact_role: %s\n" % e)

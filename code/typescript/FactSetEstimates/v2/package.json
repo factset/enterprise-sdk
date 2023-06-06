@@ -1,8 +1,8 @@
 {
   "name": "@factset/sdk-factsetestimates",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "FactSet Estimates client library for JavaScript",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
   "main": "dist/index.js",

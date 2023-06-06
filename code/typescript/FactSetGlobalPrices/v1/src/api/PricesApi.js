@@ -66,7 +66,7 @@ export default class PricesApi {
       };
       let queryParams = {
         'ids': this.apiClient.buildCollectionParam(ids, 'csv'),
-        'fields': this.apiClient.buildCollectionParam(opts['fields'], 'multi'),
+        'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv'),
         'startDate': startDate,
         'endDate': opts['endDate'],
         'frequency': opts['frequency'],

@@ -1,8 +1,8 @@
 {
   "name": "@factset/sdk-exchangedatafeedsnapshotapisymbollist",
-  "version": "0.21.1",
+  "version": "0.21.2",
   "description": "Exchange DataFeed Snapshot API - Symbol List client library for JavaScript",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
   "main": "dist/index.js",

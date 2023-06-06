@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/PAEngine/0.8.5'
+            'User-Agent': 'fds-sdk/javascript/PAEngine/0.8.6'
         };
 
         /**

@@ -74,6 +74,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.users_get(filter=filter, start_index=start_index, count=count, attributes=attributes, excluded_attributes=excluded_attributes)
+
         pprint(api_response)
 
     except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
@@ -170,6 +171,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.users_id_delete(id)
 
+
     except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
         print("Exception when calling UsersApi->users_id_delete: %s\n" % e)
 ```
@@ -259,6 +261,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
         # Get a user.
         # example passing only required values which don't have defaults set
         api_response = api_instance.users_id_get(id)
+
         pprint(api_response)
 
     except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
@@ -364,6 +367,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.users_id_patch(id, patch=patch)
+
         pprint(api_response)
 
     except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
@@ -495,6 +499,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
         # Replace a user.
         # example passing only required values which don't have defaults set
         api_response = api_instance.users_id_put(id, user_resource)
+
         pprint(api_response)
 
     except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
@@ -625,6 +630,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
         # Create a user.
         # example passing only required values which don't have defaults set
         api_response = api_instance.users_post(user_resource)
+
         pprint(api_response)
 
     except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:

@@ -65,6 +65,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Perform an entity search and return a snowflake-friendly response. Up to 25 Names per request.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_snowflake_entity_match_for_list(snowflake_entity_match_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -156,6 +157,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Save entity mappings to a universe
         # example passing only required values which don't have defaults set
         api_response = api_instance.snowflake_entity_mapping_post(snowflake_entity_mapping_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:

@@ -61,6 +61,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_identifiers(identifiers=identifiers)
+
         pprint(api_response)
 
     except fds.sdk.IRNNotes.ApiException as e:

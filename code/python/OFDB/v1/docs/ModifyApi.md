@@ -68,6 +68,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.delete_dates(path, date)
+
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -168,6 +169,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.delete_symbol_date3_d(path, date, symbol)
+
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -267,6 +269,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.delete_symbols(path, symbol)
+
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -374,6 +377,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.update_symbol_date(path, date, update_symbol_date)
+
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -482,6 +486,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.update_symbol_date3_d(path, date, symbol, update_symbol_date3_d)
+
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -592,6 +597,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.update_symbols(path, symbol, update_symbols)
+
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:

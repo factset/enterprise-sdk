@@ -60,6 +60,7 @@ with fds.sdk.MarketIntelligence.ApiClient(configuration) as api_client:
         # Retrieve a list of previously created reports and associated report metadata.
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_reports_get()
+
         pprint(api_response)
 
     except fds.sdk.MarketIntelligence.ApiException as e:

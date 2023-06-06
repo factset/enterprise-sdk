@@ -63,6 +63,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get Fund's current status and database availability
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_statuses(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -159,6 +160,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get Fund's current status and database availability for large list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_statuses_for_list(statuses_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:

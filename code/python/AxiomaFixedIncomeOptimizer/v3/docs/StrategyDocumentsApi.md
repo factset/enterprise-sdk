@@ -60,6 +60,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
         # Get Axioma FI strategy documents and sub-directories in a directory
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_axioma_fi_strategy_documents()
+
         pprint(api_response)
 
     except fds.sdk.AxiomaFixedIncomeOptimizer.ApiException as e:

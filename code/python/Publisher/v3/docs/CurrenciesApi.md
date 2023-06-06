@@ -60,6 +60,7 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
         # Get currencies
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_currencies()
+
         pprint(api_response)
 
     except fds.sdk.Publisher.ApiException as e:

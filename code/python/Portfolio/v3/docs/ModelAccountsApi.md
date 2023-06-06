@@ -101,6 +101,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
         # and optional values
         api_instance.create_or_update_model_account(name, model_account_fields_root=model_account_fields_root)
 
+
     except fds.sdk.Portfolio.ApiException as e:
         print("Exception when calling ModelAccountsApi->create_or_update_model_account: %s\n" % e)
 ```
@@ -197,6 +198,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
         # Delete model account, takes an account path and name and deletes it.
         # example passing only required values which don't have defaults set
         api_instance.delete_a_model_account(name)
+
 
     except fds.sdk.Portfolio.ApiException as e:
         print("Exception when calling ModelAccountsApi->delete_a_model_account: %s\n" % e)
@@ -295,6 +297,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.delete_model_account_by_date(name, date, symbols=symbols)
+
 
     except fds.sdk.Portfolio.ApiException as e:
         print("Exception when calling ModelAccountsApi->delete_model_account_by_date: %s\n" % e)
@@ -397,6 +400,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
         # and optional values
         api_instance.delete_model_account_by_symbol(name, symbol, dates=dates)
 
+
     except fds.sdk.Portfolio.ApiException as e:
         print("Exception when calling ModelAccountsApi->delete_model_account_by_symbol: %s\n" % e)
 ```
@@ -493,6 +497,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_account(name, format=format)
+
         pprint(api_response)
 
     except fds.sdk.Portfolio.ApiException as e:
@@ -593,6 +598,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_account_for_date(name, date, format=format)
+
         pprint(api_response)
 
     except fds.sdk.Portfolio.ApiException as e:
@@ -696,6 +702,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_account_for_date_and_symbol(name, symbol, date, format=format)
+
         pprint(api_response)
 
     except fds.sdk.Portfolio.ApiException as e:
@@ -798,6 +805,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_account_for_symbol(name, symbol, format=format)
+
         pprint(api_response)
 
     except fds.sdk.Portfolio.ApiException as e:
@@ -894,6 +902,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
         # Get account schema endpoint, takes an account name and returns its schema
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_account_schema(name)
+
         pprint(api_response)
 
     except fds.sdk.Portfolio.ApiException as e:

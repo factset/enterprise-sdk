@@ -64,6 +64,7 @@ with fds.sdk.FixedIncomeAnalyticsBatcher.ApiClient(configuration) as api_client:
         # Get FIAB calculation by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fiab_calculation_by_id(id)
+
         pprint(api_response)
 
     except fds.sdk.FixedIncomeAnalyticsBatcher.ApiException as e:
@@ -158,6 +159,7 @@ with fds.sdk.FixedIncomeAnalyticsBatcher.ApiClient(configuration) as api_client:
         # Get all FIAB calculation summaries
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_fiab_calculation_status_summaries()
+
         pprint(api_response)
 
     except fds.sdk.FixedIncomeAnalyticsBatcher.ApiException as e:
@@ -262,6 +264,7 @@ with fds.sdk.FixedIncomeAnalyticsBatcher.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.run_fiab_calculation(fiab_calculation_parameters=fiab_calculation_parameters)
+
 
     except fds.sdk.FixedIncomeAnalyticsBatcher.ApiException as e:
         print("Exception when calling FIABCalculationsApi->run_fiab_calculation: %s\n" % e)

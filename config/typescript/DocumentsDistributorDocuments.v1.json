@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-documentsdistributordocuments",
-  "projectVersion": "0.21.2",
+  "projectVersion": "0.21.3",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Documents Distributor - Documents client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "documentsdistributordocuments",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/DocumentsDistributorDocuments/0.21.2",
+  "httpUserAgent": "fds-sdk/javascript/DocumentsDistributorDocuments/0.21.3",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

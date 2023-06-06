@@ -71,6 +71,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns the pricing related information for the specified option identifier
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_prices_for_list(options_prices_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:
@@ -172,6 +173,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns the volume details for the specified option identifier
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_volume_for_list(options_volume_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:
@@ -272,6 +274,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns the aggregate volume and open interest for the list of the options under the specified security identifier
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_underlying_volume_for_list(underlying_volume_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:

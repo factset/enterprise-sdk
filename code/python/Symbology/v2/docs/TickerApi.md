@@ -69,6 +69,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.
         # example passing only required values which don't have defaults set
         api_response = api_instance.batch_ticker_history(ticker_history_translation_request)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:
@@ -166,6 +167,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # Returns the Ticker-Exchange or Ticker-Region for a given security.
         # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_ticker(ticker_translation_request)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:
@@ -265,6 +267,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.ticker_history(ids, ticker_type=ticker_type, as_of_date=as_of_date)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:
@@ -364,6 +367,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.translate_ticker(ids, ticker_type=ticker_type)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:

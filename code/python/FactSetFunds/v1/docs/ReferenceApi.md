@@ -73,6 +73,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get the Fund's Primary and Segment Benchmark Details
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_benchmark_details(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -169,6 +170,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get the Fund's Primary and Segment Benchmark details for large list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_benchmark_details_for_list(benchmark_details_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -263,6 +265,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get basic Fund Classifications
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_classifications(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -359,6 +362,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get basic Fund Classifications for a large list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_classifications_for_list(classifications_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -458,6 +462,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_funds_costs_fees(ids, date=date, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -558,6 +563,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get the Fund's Costs, Investment minimums and Risk, and Fees for large list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_costs_fees_for_list(costs_fees_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -652,6 +658,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get a list of Fund Managers and related details for a list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_managers(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -748,6 +755,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get a list of Fund Managers and related details for a large list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_managers_for_list(managers_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -842,6 +850,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get basic reference summary data for a Fund.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_summary(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -938,6 +947,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get basic reference data for a large list of Fund ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_summary_for_list(summaries_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -1032,6 +1042,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get a list of Related Funds for a list of Fund ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_related_funds(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:
@@ -1128,6 +1139,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         # Get a list of Related Funds for a large list of Fund ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_related_funds_for_list(related_funds_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFunds.ApiException as e:

@@ -58,6 +58,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
         # Get File Manager audit data.
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.file_manager_audit_get()
+
         pprint(api_response)
 
     except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:

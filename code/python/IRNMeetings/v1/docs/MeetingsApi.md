@@ -121,6 +121,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_meeting(create_meeting_dto=create_meeting_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -211,6 +212,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_meeting(meeting_id)
 
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling MeetingsApi->delete_meeting: %s\n" % e)
 ```
@@ -299,6 +301,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # Get details of a meeting
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_meeting(meeting_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -401,6 +404,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_meetings(start=start, end=end, identifiers=identifiers, limit=limit, modified_since=modified_since, x_irn_include_deleted=x_irn_include_deleted)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -549,6 +553,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.update_meeting(meeting_id, update_meeting_dto=update_meeting_dto)
+
 
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling MeetingsApi->update_meeting: %s\n" % e)

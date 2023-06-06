@@ -1,8 +1,8 @@
 {
   "name": "@factset/sdk-documentsdistributorcallstreetevents",
-  "version": "0.21.5",
+  "version": "0.21.6",
   "description": "Documents Distributor - CallStreet Events client library for JavaScript",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
   "main": "dist/index.js",

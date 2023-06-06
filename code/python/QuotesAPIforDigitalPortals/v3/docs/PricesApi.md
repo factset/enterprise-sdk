@@ -80,6 +80,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_prices_bid_ask_get(identifier, identifier_type, quality=quality, attributes=attributes, subscription_minimum_interval=subscription_minimum_interval)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -186,6 +187,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_prices_bid_ask_list(identifiers, identifier_type, quality=quality, same_quality=same_quality, attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -290,6 +292,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_prices_get(identifier, identifier_type, quality=quality, attributes=attributes, subscription_minimum_interval=subscription_minimum_interval)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -396,6 +399,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_prices_list(identifiers, identifier_type, quality=quality, same_quality=same_quality, attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -500,6 +504,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_prices_orderbook_aggregated_get(identifier, identifier_type, quality=quality, attributes=attributes, subscription_minimum_interval=subscription_minimum_interval)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -604,6 +609,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_prices_orderbook_full_get(identifier, identifier_type, quality=quality, attributes=attributes, subscription_minimum_interval=subscription_minimum_interval)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -700,6 +706,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_prices_trading_schedule_event_type_list(attributes=attributes)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
@@ -815,6 +822,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_prices_trading_schedule_event_list(post_prices_trading_schedule_event_list_request=post_prices_trading_schedule_event_list_request)
+
         pprint(api_response)
 
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:

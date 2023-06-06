@@ -81,6 +81,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_contact_custom_field(contact_custom_field_save_dto=contact_custom_field_save_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -171,6 +172,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_contact_custom_field(contact_custom_field_id)
 
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsCustomFieldsApi->delete_contact_custom_field: %s\n" % e)
 ```
@@ -259,6 +261,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get a specific Contact custom field's details
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_custom_field(contact_custom_field_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -346,6 +349,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get all the contact custom fields
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_contact_custom_fields()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -441,6 +445,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.patch_contact_custom_field(contact_custom_field_id, operation=operation)
+
 
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsCustomFieldsApi->patch_contact_custom_field: %s\n" % e)

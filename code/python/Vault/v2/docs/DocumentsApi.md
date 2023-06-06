@@ -60,6 +60,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Get Vault documents and sub-directories in a directory
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_vault_documents()
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:

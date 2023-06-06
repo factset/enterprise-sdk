@@ -65,6 +65,7 @@ with fds.sdk.AITextSummarization.ApiClient(configuration) as api_client:
         # GET request that returns the full headline and summary results from the initial POST requests
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_result_v1_result_result_id(result_id)
+
         pprint(api_response)
 
     except fds.sdk.AITextSummarization.ApiException as e:
@@ -161,6 +162,7 @@ with fds.sdk.AITextSummarization.ApiClient(configuration) as api_client:
         # POST request to create a 2-3 sentence summary from input text
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_headline_and_summary_v1_headline_and_summary(payload)
+
         pprint(api_response)
 
     except fds.sdk.AITextSummarization.ApiException as e:
@@ -255,6 +257,7 @@ with fds.sdk.AITextSummarization.ApiClient(configuration) as api_client:
         # POST request to create a headline from input text
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_headline_v1_headline(payload)
+
         pprint(api_response)
 
     except fds.sdk.AITextSummarization.ApiException as e:
@@ -349,6 +352,7 @@ with fds.sdk.AITextSummarization.ApiClient(configuration) as api_client:
         # POST request to create a headline and summary from input text
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_summary_v1_summary(payload)
+
         pprint(api_response)
 
     except fds.sdk.AITextSummarization.ApiException as e:

@@ -34,10 +34,9 @@ namespace FactSet.SDK.Formula.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TimeSeriesResponseObjectItems" /> class
-        /// with the <see cref="TimeSeriesResultObjectFlattened" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of TimeSeriesResultObjectFlattened.</param>
-        public TimeSeriesResponseObjectItems(TimeSeriesResultObjectFlattened actualInstance)
+        /// <param name="actualInstance">An instance of TimeSeriesResultObjectNonflattened.</param>
+        public TimeSeriesResponseObjectItems(TimeSeriesResultObjectNonflattened actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
@@ -46,10 +45,9 @@ namespace FactSet.SDK.Formula.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TimeSeriesResponseObjectItems" /> class
-        /// with the <see cref="TimeSeriesResultObjectNonflattened" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of TimeSeriesResultObjectNonflattened.</param>
-        public TimeSeriesResponseObjectItems(TimeSeriesResultObjectNonflattened actualInstance)
+        /// <param name="actualInstance">An instance of TimeSeriesResultObjectFlattened.</param>
+        public TimeSeriesResponseObjectItems(TimeSeriesResultObjectFlattened actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
@@ -70,29 +68,19 @@ namespace FactSet.SDK.Formula.Model
             }
             set
             {
-                if (value.GetType() == typeof(TimeSeriesResultObjectFlattened))
+                if (value is TimeSeriesResultObjectNonflattened)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(TimeSeriesResultObjectNonflattened))
+                else if (value is TimeSeriesResultObjectFlattened)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: TimeSeriesResultObjectFlattened, TimeSeriesResultObjectNonflattened");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: TimeSeriesResultObjectNonflattened, TimeSeriesResultObjectFlattened");
                 }
             }
-        }
-
-        /// <summary>
-        /// Get the actual instance of `TimeSeriesResultObjectFlattened`. If the actual instance is not `TimeSeriesResultObjectFlattened`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of TimeSeriesResultObjectFlattened</returns>
-        public TimeSeriesResultObjectFlattened GetTimeSeriesResultObjectFlattened()
-        {
-            return (TimeSeriesResultObjectFlattened)this.ActualInstance;
         }
 
         /// <summary>
@@ -103,6 +91,16 @@ namespace FactSet.SDK.Formula.Model
         public TimeSeriesResultObjectNonflattened GetTimeSeriesResultObjectNonflattened()
         {
             return (TimeSeriesResultObjectNonflattened)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `TimeSeriesResultObjectFlattened`. If the actual instance is not `TimeSeriesResultObjectFlattened`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of TimeSeriesResultObjectFlattened</returns>
+        public TimeSeriesResultObjectFlattened GetTimeSeriesResultObjectFlattened()
+        {
+            return (TimeSeriesResultObjectFlattened)this.ActualInstance;
         }
 
         /// <summary>
@@ -143,22 +141,6 @@ namespace FactSet.SDK.Formula.Model
 
             try
             {
-                var hasAdditionalProperties = !(typeof(TimeSeriesResultObjectFlattened).GetProperty("AdditionalProperties") is null);
-                newTimeSeriesResponseObjectItems = new TimeSeriesResponseObjectItems(JsonConvert.DeserializeObject<TimeSeriesResultObjectFlattened>(
-                    jsonString, 
-                    hasAdditionalProperties ? TimeSeriesResponseObjectItems.AdditionalPropertiesSerializerSettings : TimeSeriesResponseObjectItems.SerializerSettings
-                )); 
-                // deserialization is considered successful at this point if no exception has been thrown.
-                return newTimeSeriesResponseObjectItems;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TimeSeriesResultObjectFlattened: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
                 var hasAdditionalProperties = !(typeof(TimeSeriesResultObjectNonflattened).GetProperty("AdditionalProperties") is null);
                 newTimeSeriesResponseObjectItems = new TimeSeriesResponseObjectItems(JsonConvert.DeserializeObject<TimeSeriesResultObjectNonflattened>(
                     jsonString, 
@@ -171,6 +153,22 @@ namespace FactSet.SDK.Formula.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TimeSeriesResultObjectNonflattened: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(TimeSeriesResultObjectFlattened).GetProperty("AdditionalProperties") is null);
+                newTimeSeriesResponseObjectItems = new TimeSeriesResponseObjectItems(JsonConvert.DeserializeObject<TimeSeriesResultObjectFlattened>(
+                    jsonString, 
+                    hasAdditionalProperties ? TimeSeriesResponseObjectItems.AdditionalPropertiesSerializerSettings : TimeSeriesResponseObjectItems.SerializerSettings
+                )); 
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newTimeSeriesResponseObjectItems;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TimeSeriesResultObjectFlattened: {1}", jsonString, exception.ToString()));
             }
 
             // no match found, throw an exception

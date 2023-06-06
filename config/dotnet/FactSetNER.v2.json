@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetNER",
-  "packageVersion": "0.21.4",
+  "packageVersion": "0.21.5",
   "packageGuid": "{182c06c9-0ff3-5461-953b-65e34c412fd3}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetNER/v2",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetNER/0.21.4",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetNER/0.21.5",
   "files": {
     "LICENSE": {}
   },

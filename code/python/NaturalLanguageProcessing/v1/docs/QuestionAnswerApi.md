@@ -63,12 +63,16 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     try:
         # Get the answer(s)
         # example passing only required values which don't have defaults set
-        api_response = api_instance.qna_get_answers(id)
-        responseWrapper = {
-            200: api_response.get_response_200,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.qna_get_answers(id)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.NaturalLanguageProcessing.ApiException as e:
         print("Exception when calling QuestionAnswerApi->qna_get_answers: %s\n" % e)
@@ -161,6 +165,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
         # Get the completion status
         # example passing only required values which don't have defaults set
         api_response = api_instance.qna_get_status(id)
+
         pprint(api_response)
 
     except fds.sdk.NaturalLanguageProcessing.ApiException as e:
@@ -286,6 +291,7 @@ Don't miss their talk "Gaming in the voice-first era," and make sure you stick a
         # Post a question for answer(s)
         # example passing only required values which don't have defaults set
         api_response = api_instance.qna_post_question(qn_a_answer_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.NaturalLanguageProcessing.ApiException as e:

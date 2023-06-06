@@ -65,6 +65,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # Create an attachment for a existing meeting
         # example passing only required values which don't have defaults set
         api_response = api_instance.create_attachment(meeting_id, file)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -158,6 +159,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.download_attachment(meeting_id, attachment_id)
 
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling AttachmentsApi->download_attachment: %s\n" % e)
 ```
@@ -247,6 +249,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # Get all the attachments belonging to a meeting
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_attachments(meeting_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -338,6 +341,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # Delete attachment from meeting
         # example passing only required values which don't have defaults set
         api_instance.soft_delete_meeting_attachment(meeting_id, attachment_id)
+
 
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling AttachmentsApi->soft_delete_meeting_attachment: %s\n" % e)

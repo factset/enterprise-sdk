@@ -89,6 +89,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_standard_symbol_metadata(create_standard_symbol_metadata_dto=create_standard_symbol_metadata_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
@@ -178,6 +179,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # Get all custom field and standard field details on a specific standard symbol
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_standard_symbol_metadata_guid(standard_symbol)
+
         pprint(api_response)
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
@@ -278,6 +280,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.patch_standard_symbol(standard_symbol_id, operation=operation)
+
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling HybridSymbolsApi->patch_standard_symbol: %s\n" % e)

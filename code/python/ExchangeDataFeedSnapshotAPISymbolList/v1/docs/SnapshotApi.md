@@ -76,6 +76,7 @@ with fds.sdk.ExchangeDataFeedSnapshotAPISymbolList.ApiClient(configuration) as a
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_df_snapshot(ids=ids, oc=oc, fields=fields, sf=sf, format=format, serv=serv, req_id=req_id)
+
         pprint(api_response)
 
     except fds.sdk.ExchangeDataFeedSnapshotAPISymbolList.ApiException as e:
@@ -186,6 +187,7 @@ with fds.sdk.ExchangeDataFeedSnapshotAPISymbolList.ApiClient(configuration) as a
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_df_snapshot(ids=ids, oc=oc, fields=fields, sf=sf, format=format, serv=serv, req_id=req_id)
+
         pprint(api_response)
 
     except fds.sdk.ExchangeDataFeedSnapshotAPISymbolList.ApiException as e:

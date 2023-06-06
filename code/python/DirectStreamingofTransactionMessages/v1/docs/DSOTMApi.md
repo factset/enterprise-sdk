@@ -116,6 +116,7 @@ with fds.sdk.DirectStreamingofTransactionMessages.ApiClient(configuration) as ap
         # and optional values
         api_instance.send_transactions(transactions=transactions)
 
+
     except fds.sdk.DirectStreamingofTransactionMessages.ApiException as e:
         print("Exception when calling DSOTMApi->send_transactions: %s\n" % e)
 ```

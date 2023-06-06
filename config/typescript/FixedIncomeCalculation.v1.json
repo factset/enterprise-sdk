@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-fixedincomecalculation",
-  "projectVersion": "0.8.4",
+  "projectVersion": "0.8.5",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Fixed Income Calculation client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "fixedincomecalculation",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/FixedIncomeCalculation/0.8.4",
+  "httpUserAgent": "fds-sdk/javascript/FixedIncomeCalculation/0.8.5",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

@@ -84,6 +84,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Create a linked PA template
         # example passing only required values which don't have defaults set
         api_response = api_instance.create_linked_pa_templates(linked_pa_template_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -179,6 +180,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Delete a linked PA template.
         # example passing only required values which don't have defaults set
         api_instance.delete_linked_pa_templates()
+
 
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling LinkedPATemplatesApi->delete_linked_pa_templates: %s\n" % e)
@@ -280,6 +282,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_linked_pa_templates(directory=directory, document_directory=document_directory, document_name=document_name)
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -377,6 +380,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get linked PA template by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_linked_pa_templates_by_id()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -491,6 +495,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Update a linked PA template
         # example passing only required values which don't have defaults set
         api_response = api_instance.update_linked_pa_templates(linked_pa_template_update_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

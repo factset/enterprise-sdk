@@ -74,6 +74,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_comment(meeting_id, create_comment_dto=create_comment_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -170,6 +171,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # Create a comment attachment to a Meeting
         # example passing only required values which don't have defaults set
         api_response = api_instance.create_comment_attachment(meeting_id, comment_id, file)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -266,6 +268,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_comment(meeting_id, comment_id)
 
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling CommentsApi->delete_comment: %s\n" % e)
 ```
@@ -360,6 +363,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.download_comment_attachment_for_comment(meeting_id, comment_id, attachment_id)
 
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling CommentsApi->download_comment_attachment_for_comment: %s\n" % e)
 ```
@@ -452,6 +456,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # Get details of a comment belonging to a meeting
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_comment(meeting_id, comment_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -545,6 +550,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # Get attachments summary of a comment belonging to a meeting
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_comment_attachments(meeting_id, comment_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -636,6 +642,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # Get all comments for a meeting
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_comments(meeting_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -739,6 +746,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.patch_comment(meeting_id, comment_id, operation=operation)
+
 
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling CommentsApi->patch_comment: %s\n" % e)

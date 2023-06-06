@@ -64,6 +64,7 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
         # Retrieve filings within FactSet coverage
         # example passing only required values which don't have defaults set
         api_response = api_instance.global_filings_v1_list_files_get(start_date, end_date)
+
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorDocuments.ApiException as e:

@@ -94,6 +94,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_custom_symbol(create_custom_symbol_dto=create_custom_symbol_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
@@ -183,6 +184,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # Delete a custom symbol
         # example passing only required values which don't have defaults set
         api_instance.delete_custom_symbol(custom_symbol_id)
+
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsApi->delete_custom_symbol: %s\n" % e)
@@ -275,6 +277,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_custom_symbol(custom_symbol_id, include_event=include_event)
+
         pprint(api_response)
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
@@ -363,6 +366,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_custom_symbol_records(custom_symbol_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
@@ -461,6 +465,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_custom_symbols(type_name=type_name, query=query, include_custom_field_values=include_custom_field_values, exclude_linked_custom_symbol=exclude_linked_custom_symbol, include_event=include_event)
+
         pprint(api_response)
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
@@ -560,6 +565,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # and optional values
         api_instance.link_custom_symbol_to_standard_symbol(custom_symbol_id, standard_symbol_dto=standard_symbol_dto)
 
+
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsApi->link_custom_symbol_to_standard_symbol: %s\n" % e)
 ```
@@ -657,6 +663,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.patch_custom_symbol(custom_symbol_id, operation=operation)
+
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsApi->patch_custom_symbol: %s\n" % e)

@@ -69,6 +69,7 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.asynch_streetaccount_v1_check_status_get(job_id, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
+
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorDocuments.ApiException as e:
@@ -166,6 +167,7 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.asynch_streetaccount_v1_get_files_get(job_id, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
+
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorDocuments.ApiException as e:
@@ -260,6 +262,7 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
         # Returns the jobID
         # example passing only required values which don't have defaults set
         api_response = api_instance.asynch_streetaccount_v1_request_files_get(start_date, end_date)
+
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorDocuments.ApiException as e:

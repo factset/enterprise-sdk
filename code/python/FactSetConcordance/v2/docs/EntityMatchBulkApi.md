@@ -69,6 +69,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_entity_decisions(task_id, offset=offset, limit=limit)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -240,6 +241,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, priority_column=priority_column, bic_column=bic_column, bbg_ticker_column=bbg_ticker_column, cik_column=cik_column, crd_column=crd_column, cusip_column=cusip_column, duns_column=duns_column, ein_column=ein_column, rssd_column=rssd_column, fitch_column=fitch_column, isin_column=isin_column, lei_column=lei_column, bbg_figi_column=bbg_figi_column, md_column=md_column, ticker_column=ticker_column, spr_column=spr_column, sedol_column=sedol_column, ticker_exchange_column=ticker_exchange_column, ticker_region_column=ticker_region_column, ukch_column=ukch_column, valoren_column=valoren_column, wkn_column=wkn_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -376,6 +378,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_entity_task_status(task_id=task_id, offset=offset, limit=limit, status=status)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:

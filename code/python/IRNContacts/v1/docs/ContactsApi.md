@@ -133,6 +133,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_contact(contact_save_dto=contact_save_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNContacts.ApiException as e:
@@ -223,6 +224,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_contact(contact_id)
 
+
     except fds.sdk.IRNContacts.ApiException as e:
         print("Exception when calling ContactsApi->delete_contact: %s\n" % e)
 ```
@@ -311,6 +313,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # Get all custom field and standard field details on a specific contact
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact(contact_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNContacts.ApiException as e:
@@ -400,6 +403,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # Get a contact’s audit history
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_events(contact_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNContacts.ApiException as e:
@@ -489,6 +493,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # Get the About field content for a specific contact
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_notes(contact_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNContacts.ApiException as e:
@@ -578,6 +583,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # Get all notes and meetings where a specific contact was tagged
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_records(contact_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNContacts.ApiException as e:
@@ -667,6 +673,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # Returns a list of a contact’s relationships
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_relationships(contact_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNContacts.ApiException as e:
@@ -773,6 +780,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_contacts(full_name=full_name, email_address=email_address, identifier=identifier, employer_name=employer_name, custom_field_values=custom_field_values, search=search, sort=sort, include_last_meeting_date=include_last_meeting_date, limit=limit)
+
         pprint(api_response)
 
     except fds.sdk.IRNContacts.ApiException as e:
@@ -879,6 +887,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.patch_contact(contact_id, operation=operation)
+
 
     except fds.sdk.IRNContacts.ApiException as e:
         print("Exception when calling ContactsApi->patch_contact: %s\n" % e)

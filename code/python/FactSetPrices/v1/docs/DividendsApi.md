@@ -72,6 +72,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_security_dividends(ids, start_date=start_date, end_date=end_date, currency=currency, adjust=adjust)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
@@ -176,6 +177,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Requests dividend information for a given date range and list of securities
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_dividends_for_list(dividends_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:

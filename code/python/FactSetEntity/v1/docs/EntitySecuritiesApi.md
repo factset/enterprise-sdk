@@ -66,6 +66,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_entity_securities(ids, security_type=security_type)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntity.ApiException as e:
@@ -164,6 +165,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
         # Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_entity_securities(entity_securities_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntity.ApiException as e:

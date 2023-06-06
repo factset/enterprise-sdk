@@ -76,6 +76,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_contact_relationship(contact_relationship_two_sided_save_dto=contact_relationship_two_sided_save_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNContacts.ApiException as e:
@@ -165,6 +166,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # Delete a contact relationship
         # example passing only required values which don't have defaults set
         api_instance.delete_contact_relationship(contact_relationship_id)
+
 
     except fds.sdk.IRNContacts.ApiException as e:
         print("Exception when calling ContactsRelationshipsApi->delete_contact_relationship: %s\n" % e)
@@ -259,6 +261,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_all_relationships_tagging_a_contact(symbol=symbol, contact_id=contact_id, relationship_id=relationship_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNContacts.ApiException as e:
@@ -349,6 +352,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # Get details on a specific contact relationship
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_relationship(contact_relationship_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNContacts.ApiException as e:
@@ -449,6 +453,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.patch_contact_relationship(contact_relationship_id, operation=operation)
+
 
     except fds.sdk.IRNContacts.ApiException as e:
         print("Exception when calling ContactsRelationshipsApi->patch_contact_relationship: %s\n" % e)

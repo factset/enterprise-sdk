@@ -75,6 +75,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # and optional values
         api_instance.create_symbol_relationship(symbol_relationship_save_dto=symbol_relationship_save_dto)
 
+
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsRelationshipsApi->create_symbol_relationship: %s\n" % e)
 ```
@@ -162,6 +163,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # Delete a symbol relationship
         # example passing only required values which don't have defaults set
         api_instance.delete_symbol_relationship(symbol_relationship_id)
+
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsRelationshipsApi->delete_symbol_relationship: %s\n" % e)
@@ -265,6 +267,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # and optional values
         api_instance.edit_and_add_symbol_relationship(symbol, symbol_relationship_update_dto=symbol_relationship_update_dto)
 
+
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsRelationshipsApi->edit_and_add_symbol_relationship: %s\n" % e)
 ```
@@ -351,6 +354,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # Get details on a specific symbol relationship
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_symbol_relationship(symbol_relationship_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:
@@ -440,6 +444,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
         # Returns a list of a symbol’s relationships
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_symbol_relationships(symbol_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNCustomSymbols.ApiException as e:

@@ -65,6 +65,7 @@ with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_dcs_detail(id, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.CapitalStructureReportBuilder.ApiException as e:
@@ -163,6 +164,7 @@ with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_dcs_summary(id, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.CapitalStructureReportBuilder.ApiException as e:
@@ -258,6 +260,7 @@ with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_clien
         # Source of Capital
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_source_of_capital(id)
+
         pprint(api_response)
 
     except fds.sdk.CapitalStructureReportBuilder.ApiException as e:

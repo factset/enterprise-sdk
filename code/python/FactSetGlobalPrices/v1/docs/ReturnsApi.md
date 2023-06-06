@@ -74,6 +74,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_returns(ids, start_date, end_date=end_date, currency=currency, frequency=frequency, dividend_adjust=dividend_adjust)
+
         pprint(api_response)
 
     except fds.sdk.FactSetGlobalPrices.ApiException as e:
@@ -180,6 +181,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
         # Gets Returns for a list of `ids` as of given date range.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_returns_for_list(returns_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetGlobalPrices.ApiException as e:

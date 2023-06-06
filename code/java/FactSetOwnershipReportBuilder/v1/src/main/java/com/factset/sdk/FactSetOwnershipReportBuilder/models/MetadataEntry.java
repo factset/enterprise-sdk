@@ -54,6 +54,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -479,7 +480,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public FsymId getFsymId() throws ClassCastException {
         return (FsymId)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `CurrencyCode`. If the actual instance is not `CurrencyCode`,
      * the ClassCastException will be thrown.
@@ -490,7 +491,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public CurrencyCode getCurrencyCode() throws ClassCastException {
         return (CurrencyCode)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `CurrencySymbol`. If the actual instance is not `CurrencySymbol`,
      * the ClassCastException will be thrown.
@@ -501,7 +502,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public CurrencySymbol getCurrencySymbol() throws ClassCastException {
         return (CurrencySymbol)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `Category`. If the actual instance is not `Category`,
      * the ClassCastException will be thrown.
@@ -512,7 +513,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public Category getCategory() throws ClassCastException {
         return (Category)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `ValueType`. If the actual instance is not `ValueType`,
      * the ClassCastException will be thrown.
@@ -523,7 +524,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public ValueType getValueType() throws ClassCastException {
         return (ValueType)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `Scale`. If the actual instance is not `Scale`,
      * the ClassCastException will be thrown.
@@ -534,7 +535,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public Scale getScale() throws ClassCastException {
         return (Scale)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `Description`. If the actual instance is not `Description`,
      * the ClassCastException will be thrown.
@@ -545,7 +546,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public Description getDescription() throws ClassCastException {
         return (Description)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `Frequency`. If the actual instance is not `Frequency`,
      * the ClassCastException will be thrown.
@@ -556,6 +557,6 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public Frequency getFrequency() throws ClassCastException {
         return (Frequency)super.getActualInstance();
     }
-    
+
 }
 

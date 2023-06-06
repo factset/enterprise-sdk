@@ -1,12 +1,19 @@
 openapi: 3.0.3
 info:
   contact:
-    email: ParametricRiskAnalyticsDevelopment@factset.com
-    name: Parametric Risk Analytics Development
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: Service to calculate parametric linear risk statistics and generate
     risk model asset identifier mappings.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Open:Risk API
-  version: 1.23.0
+  version: 1.24.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/openrisk-api
 servers:
 - url: https://api.factset.com/analytics/openrisk
 security:
@@ -2678,9 +2685,7 @@ components:
       oneOf:
       - minLength: 1
         type: string
-      - type: integer
-      - format: double
-        type: number
+      - type: number
     RiskModelAppendData:
       description: '**(since 1.17.0)** Inline append data. This field can be used
         mainly for two purpose: 1) to supplement the risk model coverage when assets
@@ -3080,9 +3085,8 @@ components:
       description: Risk model covered security resolution
       properties:
         covered:
-          default: true
-          description: Coverage flag. The value will be true to indicate the security
-            is covered.
+          description: Coverage flag. The value will always be true to indicate the
+            security is covered.
           example: true
           type: boolean
         id:
@@ -3174,9 +3178,8 @@ components:
       description: Risk model uncovered security reason
       properties:
         covered:
-          default: false
-          description: Coverage flag. The value will be false to indicate the security
-            is excluded.
+          description: Coverage flag. The value will always be false to indicate the
+            security is excluded.
           example: false
           type: boolean
         exclusionInfo:

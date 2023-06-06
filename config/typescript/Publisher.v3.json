@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-publisher",
-  "projectVersion": "0.21.1",
+  "projectVersion": "0.21.2",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Publisher client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "publisher",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/Publisher/0.21.1",
+  "httpUserAgent": "fds-sdk/javascript/Publisher/0.21.2",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

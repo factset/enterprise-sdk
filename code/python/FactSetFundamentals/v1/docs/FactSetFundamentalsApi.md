@@ -76,6 +76,7 @@ with fds.sdk.FactSetFundamentals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_fds_fundamentals(ids, metrics, periodicity=periodicity, fiscal_period_start=fiscal_period_start, fiscal_period_end=fiscal_period_end, currency=currency, restated=restated)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFundamentals.ApiException as e:
@@ -184,6 +185,7 @@ with fds.sdk.FactSetFundamentals.ApiClient(configuration) as api_client:
         # Returns the Company Fundamental Data.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fds_fundamentals_for_list(fundamentals_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetFundamentals.ApiException as e:

@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-factsettrading",
-  "projectVersion": "0.22.0",
+  "projectVersion": "0.22.1",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "FactSet Trading client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "factsettrading",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/FactSetTrading/0.22.0",
+  "httpUserAgent": "fds-sdk/javascript/FactSetTrading/0.22.1",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

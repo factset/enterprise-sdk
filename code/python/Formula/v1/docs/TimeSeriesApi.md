@@ -85,12 +85,16 @@ with fds.sdk.Formula.ApiClient(configuration) as api_client:
         # Retrieve data items (FQL formulas) for a list of identifiers or defined universe.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_time_series_data(formulas, ids=ids, symbol_type=symbol_type, universe=universe, universe_type=universe_type, calendar=calendar, fsym_id=fsym_id, display_name=display_name, flatten=flatten, dates=dates, batch=batch)
-        responseWrapper = {
-            200: api_response.get_response_200,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.get_time_series_data(formulas, ids=ids, symbol_type=symbol_type, universe=universe, universe_type=universe_type, calendar=calendar, fsym_id=fsym_id, display_name=display_name, flatten=flatten, dates=dates, batch=batch)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.Formula.ApiException as e:
         print("Exception when calling TimeSeriesApi->get_time_series_data: %s\n" % e)
@@ -215,12 +219,16 @@ with fds.sdk.Formula.ApiClient(configuration) as api_client:
     try:
         # Retrieve data items (FQL formulas) for a list of identifiers or defined universe.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_time_series_data_for_list(time_series_request)
-        responseWrapper = {
-            200: api_response.get_response_200,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.get_time_series_data_for_list(time_series_request)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.Formula.ApiException as e:
         print("Exception when calling TimeSeriesApi->get_time_series_data_for_list: %s\n" % e)

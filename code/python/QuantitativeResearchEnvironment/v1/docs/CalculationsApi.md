@@ -65,6 +65,7 @@ with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_cli
         # Get calculation status by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.analytics_quant_qre_v1_calculations_id_get(id)
+
         pprint(api_response)
 
     except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:
@@ -157,6 +158,7 @@ with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_cli
         # Get calculation log for a specific calculation
         # example passing only required values which don't have defaults set
         api_response = api_instance.analytics_quant_qre_v1_calculations_id_log_get(id)
+
         pprint(api_response)
 
     except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:
@@ -249,6 +251,7 @@ with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_cli
         # Get calculation output for a specific calculation
         # example passing only required values which don't have defaults set
         api_response = api_instance.analytics_quant_qre_v1_calculations_id_output_get(id)
+
         pprint(api_response)
 
     except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:
@@ -342,6 +345,7 @@ with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_cli
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.analytics_quant_qre_v1_calculations_post(calculation=calculation)
+
         pprint(api_response)
 
     except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:

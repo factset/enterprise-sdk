@@ -63,6 +63,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
         # Returns an entity reference profiles for an individual entity
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_references(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntity.ApiException as e:
@@ -159,6 +160,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
         # Returns an entity reference data for a list of ids.
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_entity_references(entity_reference_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntity.ApiException as e:

@@ -65,6 +65,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # Create an attachment for an existing note
         # example passing only required values which don't have defaults set
         api_response = api_instance.create_attachment(note_id, file)
+
         pprint(api_response)
 
     except fds.sdk.IRNNotes.ApiException as e:
@@ -158,6 +159,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.download_attachment(note_id, attachment_id)
 
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling AttachmentsApi->download_attachment: %s\n" % e)
 ```
@@ -247,6 +249,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # Get all the attachments belonging to a note
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_attachments(note_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNNotes.ApiException as e:
@@ -338,6 +341,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # Delete attachment from note
         # example passing only required values which don't have defaults set
         api_instance.soft_delete_note_attachment(note_id, attachment_id)
+
 
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling AttachmentsApi->soft_delete_note_attachment: %s\n" % e)

@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-spglobalfixedincomeevaluatedpricesandanalytics",
-  "projectVersion": "0.1.1",
+  "projectVersion": "0.1.2",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "S&amp;P Global Fixed Income Evaluated Prices and Analytics client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "spglobalfixedincomeevaluatedpricesandanalytics",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/SPGlobalFixedIncomeEvaluatedPricesandAnalytics/0.1.1",
+  "httpUserAgent": "fds-sdk/javascript/SPGlobalFixedIncomeEvaluatedPricesandAnalytics/0.1.2",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

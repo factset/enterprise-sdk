@@ -65,6 +65,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return historical Coupon information for a Fixed Income security.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_coupon_history(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -161,6 +162,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return historical Coupon information for a list of Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_coupon_history_for_list(terms_and_conditions_scalar_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -255,6 +257,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Coupon Sechedules for a Fixed Income security.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_coupon_schedules(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -351,6 +354,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Coupon Schedules information for a list of Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_coupon_schedules_for_list(terms_and_conditions_scalar_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:

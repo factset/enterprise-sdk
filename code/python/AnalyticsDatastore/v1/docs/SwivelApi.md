@@ -60,6 +60,7 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
         # Get Swivel endpoint, takes report parameter inputs and returns the Cargo location for the specified report via a 302 redirect.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_swivel_endpoint()
+
         pprint(api_response)
 
     except fds.sdk.AnalyticsDatastore.ApiException as e:

@@ -76,6 +76,7 @@ with fds.sdk.EventCalendar.ApiClient(configuration) as api_client:
         # Retrieve Company Event data
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_event(company_event_request)
+
         pprint(api_response)
 
     except fds.sdk.EventCalendar.ApiException as e:

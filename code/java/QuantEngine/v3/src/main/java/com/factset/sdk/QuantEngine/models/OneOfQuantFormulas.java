@@ -44,6 +44,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -369,7 +370,7 @@ public class OneOfQuantFormulas extends AbstractOpenApiSchema implements Seriali
     public QuantScreeningExpression getQuantScreeningExpression() throws ClassCastException {
         return (QuantScreeningExpression)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `QuantFqlExpression`. If the actual instance is not `QuantFqlExpression`,
      * the ClassCastException will be thrown.
@@ -380,7 +381,7 @@ public class OneOfQuantFormulas extends AbstractOpenApiSchema implements Seriali
     public QuantFqlExpression getQuantFqlExpression() throws ClassCastException {
         return (QuantFqlExpression)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `QuantUniversalScreenParameter`. If the actual instance is not `QuantUniversalScreenParameter`,
      * the ClassCastException will be thrown.
@@ -391,7 +392,7 @@ public class OneOfQuantFormulas extends AbstractOpenApiSchema implements Seriali
     public QuantUniversalScreenParameter getQuantUniversalScreenParameter() throws ClassCastException {
         return (QuantUniversalScreenParameter)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `QuantAllUniversalScreenParameters`. If the actual instance is not `QuantAllUniversalScreenParameters`,
      * the ClassCastException will be thrown.
@@ -402,6 +403,6 @@ public class OneOfQuantFormulas extends AbstractOpenApiSchema implements Seriali
     public QuantAllUniversalScreenParameters getQuantAllUniversalScreenParameters() throws ClassCastException {
         return (QuantAllUniversalScreenParameters)super.getActualInstance();
     }
-    
+
 }
 

@@ -61,6 +61,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Get Vault configuration by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_vault_configuration_by_id()
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:
@@ -156,6 +157,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Get Vault configurations
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_vault_configurations()
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:

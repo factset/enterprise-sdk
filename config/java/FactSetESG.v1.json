@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "factsetesg",
-  "artifactVersion": "1.1.2",
+  "artifactVersion": "2.0.0",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "FactSet ESG client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/FactSetESG/1.1.2",
+  "httpUserAgent": "fds-sdk/java/FactSetESG/2.0.0",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

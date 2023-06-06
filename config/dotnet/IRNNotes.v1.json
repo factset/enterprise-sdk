@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.IRNNotes",
-  "packageVersion": "2.0.3",
+  "packageVersion": "2.0.4",
   "packageGuid": "{da4f3619-2ff9-5928-b98a-77fcabc681ac}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/IRNNotes/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/IRNNotes/2.0.3",
+  "httpUserAgent": "fds-sdk/dotnet/IRNNotes/2.0.4",
   "files": {
     "LICENSE": {}
   },

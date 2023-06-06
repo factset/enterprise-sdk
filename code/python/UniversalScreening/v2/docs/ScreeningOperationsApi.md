@@ -69,6 +69,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_calculate_results(id, pagination_limit=pagination_limit, pagination_cursor=pagination_cursor)
+
         pprint(api_response)
 
     except fds.sdk.UniversalScreening.ApiException as e:
@@ -165,6 +166,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.poll_calculate(id)
+
         pprint(api_response)
 
     except fds.sdk.UniversalScreening.ApiException as e:
@@ -281,6 +283,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.submit_archive_ofdb(screen_archive_ofdb_parameters=screen_archive_ofdb_parameters)
+
         pprint(api_response)
 
     except fds.sdk.UniversalScreening.ApiException as e:
@@ -383,6 +386,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.submit_calculate(screen_calc_parameters=screen_calc_parameters)
+
         pprint(api_response)
 
     except fds.sdk.UniversalScreening.ApiException as e:

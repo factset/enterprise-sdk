@@ -60,6 +60,7 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
         # Get Cargo endpoint, gets an object given an ID. In this case ID retrieved from Swivel Location header, results in json response body of the report.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_cargo_endpoint()
+
         pprint(api_response)
 
     except fds.sdk.AnalyticsDatastore.ApiException as e:

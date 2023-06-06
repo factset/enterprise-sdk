@@ -69,6 +69,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.cancel_calculation_by_id(id)
 
+
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling VaultCalculationsApi->cancel_calculation_by_id: %s\n" % e)
 ```
@@ -160,6 +161,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Get all calculations
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_all_calculations()
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:
@@ -257,6 +259,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Get Vault calculation parameters by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_parameters(id)
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:
@@ -352,6 +355,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Get Vault calculation status by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_status_by_id(id)
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:
@@ -450,6 +454,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Get Vault calculation result by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_unit_result_by_id(id, unit_id)
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:
@@ -572,13 +577,18 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Create and Run Vault calculation
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_and_calculate(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, vault_calculation_parameters_root=vault_calculation_parameters_root)
-        responseWrapper = {
-            200: api_response.get_response_200,
-            201: api_response.get_response_201,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.post_and_calculate(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, vault_calculation_parameters_root=vault_calculation_parameters_root)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 201:
+            api_response = api_response_wrapper.get_response_201()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling VaultCalculationsApi->post_and_calculate: %s\n" % e)
@@ -707,13 +717,18 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Create or Update Vault calculation and run it.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.put_and_calculate(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, vault_calculation_parameters_root=vault_calculation_parameters_root)
-        responseWrapper = {
-            200: api_response.get_response_200,
-            201: api_response.get_response_201,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.put_and_calculate(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, vault_calculation_parameters_root=vault_calculation_parameters_root)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 201:
+            api_response = api_response_wrapper.get_response_201()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling VaultCalculationsApi->put_and_calculate: %s\n" % e)

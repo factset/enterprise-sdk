@@ -65,6 +65,7 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.v1_get_files_get(request_id, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTickHistory.ApiException as e:

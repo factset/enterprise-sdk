@@ -82,6 +82,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_custom_symbol_custom_field(create_custom_symbol_custom_field_dto=create_custom_symbol_custom_field_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -172,6 +173,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_custom_symbol_custom_field(custom_symbol_custom_field_id)
 
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling CustomSymbolsCustomFieldsApi->delete_custom_symbol_custom_field: %s\n" % e)
 ```
@@ -260,6 +262,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get a specific Custom symbol custom field's details
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_custom_symbol_custom_field(custom_symbol_custom_field_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -347,6 +350,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get all the Custom symbol custom fields
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_custom_symbol_custom_fields()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -442,6 +446,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.patch_custom_symbol_custom_field(custom_symbol_custom_field_id, operation=operation)
+
 
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling CustomSymbolsCustomFieldsApi->patch_custom_symbol_custom_field: %s\n" % e)

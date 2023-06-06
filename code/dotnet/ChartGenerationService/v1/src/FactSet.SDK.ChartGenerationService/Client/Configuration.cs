@@ -32,7 +32,7 @@ namespace FactSet.SDK.ChartGenerationService.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.21.4";
+        public const string Version = "0.21.5";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -104,7 +104,7 @@ namespace FactSet.SDK.ChartGenerationService.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/ChartGenerationService/0.21.4";
+            UserAgent = "fds-sdk/dotnet/ChartGenerationService/0.21.5";
             BasePath = "https://api-sandbox.factset.com/charting";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -466,7 +466,7 @@ namespace FactSet.SDK.ChartGenerationService.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 0.21.4\n";
+            report += "    SDK Package Version: 0.21.5\n";
 
             return report;
         }

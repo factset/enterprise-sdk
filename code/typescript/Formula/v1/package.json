@@ -1,8 +1,8 @@
 {
   "name": "@factset/sdk-formula",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Formula client library for JavaScript",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
   "main": "dist/index.js",

@@ -13,7 +13,7 @@
     <Description>Signals client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.Signals</RootNamespace>
-    <Version>0.22.4</Version>
+    <Version>0.22.5</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.Signals.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

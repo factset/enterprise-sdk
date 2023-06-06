@@ -13,7 +13,7 @@
     <Description>S&amp;amp;P Global Fixed Income Evaluated Prices and Analytics client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics</RootNamespace>
-    <Version>0.1.4</Version>
+    <Version>0.1.5</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

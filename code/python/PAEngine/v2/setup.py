@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.PAEngine"
-VERSION = "0.8.9"
+VERSION = "0.8.10"
 # To install the library, run the following
 #
 # python setup.py install

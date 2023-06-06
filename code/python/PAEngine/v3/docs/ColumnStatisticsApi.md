@@ -60,6 +60,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get PA column statistics
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_pa_column_statistics()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

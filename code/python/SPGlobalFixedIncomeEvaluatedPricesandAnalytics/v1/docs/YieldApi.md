@@ -72,6 +72,7 @@ with fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.ApiClient(configurat
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_bond_yield(ids, start_date=start_date, end_date=end_date, frequency=frequency, calendar=calendar)
+
         pprint(api_response)
 
     except fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.ApiException as e:
@@ -176,6 +177,7 @@ with fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.ApiClient(configurat
         # Request yield information for given date range and list of securities
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_bond_yield_for_list(bond_yield_request)
+
         pprint(api_response)
 
     except fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.ApiException as e:

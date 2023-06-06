@@ -74,6 +74,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_returns_snapshot(ids, date=date, calendar=calendar, currency=currency, dividend_adjust=dividend_adjust)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
@@ -178,6 +179,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Returns the price performance of the security and annualized compound total returns.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_returns_snapshot_for_list(returns_snapshot_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
@@ -287,6 +289,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_security_returns(ids, start_date=start_date, end_date=end_date, frequency=frequency, calendar=calendar, currency=currency, dividend_adjust=dividend_adjust, rolling_period=rolling_period)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
@@ -397,6 +400,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Requests security returns for the given date range and rollingPeriod.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_returns_for_list(returns_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:

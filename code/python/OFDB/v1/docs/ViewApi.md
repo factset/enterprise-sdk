@@ -88,6 +88,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
         # and optional values
         api_instance.get_database(path, symbol=symbol, date=date, filter_fields=filter_fields, filter_ops=filter_ops, filter_values=filter_values, filter_dates_ops=filter_dates_ops, filter_dates_values=filter_dates_values, filter_symbols_ops=filter_symbols_ops, filter_symbols_values=filter_symbols_values, sort_field_name=sort_field_name, sort_field_order=sort_field_order)
 
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ViewApi->get_database: %s\n" % e)
 ```
@@ -203,6 +204,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_dates(path, between=between, equals=equals, before=before, after=after, order_by=order_by)
+
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -303,6 +305,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fields(path)
+
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -409,6 +412,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_symbols(path, starts_with=starts_with, ends_with=ends_with, contains=contains, equals=equals, order_by=order_by)
+
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:

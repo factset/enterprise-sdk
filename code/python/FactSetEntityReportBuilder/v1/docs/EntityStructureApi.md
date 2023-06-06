@@ -65,6 +65,7 @@ with fds.sdk.FactSetEntityReportBuilder.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_entity_structure_structure(id, schema=schema)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEntityReportBuilder.ApiException as e:

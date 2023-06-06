@@ -65,6 +65,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Requests security reference details a list of securities
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_reference_for_list(references_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
@@ -159,6 +160,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Gets security reference details for a list of securities
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_references(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:

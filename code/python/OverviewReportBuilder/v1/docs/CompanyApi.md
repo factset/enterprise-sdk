@@ -65,6 +65,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
         # Current Capitalization
         # example passing only required values which don't have defaults set
         api_response = api_instance.current_cap_get(id)
+
         pprint(api_response)
 
     except fds.sdk.OverviewReportBuilder.ApiException as e:
@@ -163,6 +164,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.financial_highlights_get(id, actual=actual, estimate=estimate)
+
         pprint(api_response)
 
     except fds.sdk.OverviewReportBuilder.ApiException as e:
@@ -258,6 +260,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
         # Overview Profile
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_profile_profile(id)
+
         pprint(api_response)
 
     except fds.sdk.OverviewReportBuilder.ApiException as e:
@@ -351,6 +354,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
         # Key Stats
         # example passing only required values which don't have defaults set
         api_response = api_instance.key_stats_get(id)
+
         pprint(api_response)
 
     except fds.sdk.OverviewReportBuilder.ApiException as e:
@@ -447,6 +451,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.peer_list_get(id, topn=topn)
+
         pprint(api_response)
 
     except fds.sdk.OverviewReportBuilder.ApiException as e:
@@ -546,6 +551,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.transactions_get(id, transaction_type=transaction_type, financing_type=financing_type)
+
         pprint(api_response)
 
     except fds.sdk.OverviewReportBuilder.ApiException as e:

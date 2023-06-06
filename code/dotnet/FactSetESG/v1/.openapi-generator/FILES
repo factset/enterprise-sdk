@@ -5,6 +5,7 @@ LICENSE
 README.md
 appveyor.yml
 docs/ArticlesApi.md
+docs/Calendar.md
 docs/DateOf.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
@@ -63,6 +64,7 @@ src/FactSet.SDK.FactSetESG/Client/RequestOptions.cs
 src/FactSet.SDK.FactSetESG/Client/RetryConfiguration.cs
 src/FactSet.SDK.FactSetESG/FactSet.SDK.FactSetESG.csproj
 src/FactSet.SDK.FactSetESG/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.FactSetESG/Model/Calendar.cs
 src/FactSet.SDK.FactSetESG/Model/DateOf.cs
 src/FactSet.SDK.FactSetESG/Model/ErrorResponse.cs
 src/FactSet.SDK.FactSetESG/Model/ErrorResponseSubErrors.cs

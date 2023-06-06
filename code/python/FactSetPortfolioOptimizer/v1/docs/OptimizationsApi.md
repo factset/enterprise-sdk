@@ -65,6 +65,7 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.cancel_fpo_optimization_by_id(id)
 
+
     except fds.sdk.FactSetPortfolioOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->cancel_fpo_optimization_by_id: %s\n" % e)
 ```
@@ -158,6 +159,7 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
         # Get FPO optimization by id
         # example passing only required values which don't have defaults set
         api_instance.get_fpo_optimization_by_id(id)
+
 
     except fds.sdk.FactSetPortfolioOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->get_fpo_optimization_by_id: %s\n" % e)
@@ -302,6 +304,7 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.run_fpo_optimization(fpo_optimization_parameters=fpo_optimization_parameters)
+
 
     except fds.sdk.FactSetPortfolioOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->run_fpo_optimization: %s\n" % e)

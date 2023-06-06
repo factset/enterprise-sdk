@@ -64,6 +64,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_active_job(id)
 
+
     except fds.sdk.UniversalScreening.ApiException as e:
         print("Exception when calling JobManagementApi->delete_active_job: %s\n" % e)
 ```
@@ -152,6 +153,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
         # example, this endpoint has no required or optional parameters
         api_instance.delete_all_active_jobs()
 
+
     except fds.sdk.UniversalScreening.ApiException as e:
         print("Exception when calling JobManagementApi->delete_all_active_jobs: %s\n" % e)
 ```
@@ -236,6 +238,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     try:
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_all_active_jobs()
+
         pprint(api_response)
 
     except fds.sdk.UniversalScreening.ApiException as e:

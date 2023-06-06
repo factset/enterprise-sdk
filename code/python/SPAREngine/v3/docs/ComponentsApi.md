@@ -63,6 +63,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
         # Get SPAR component by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_spar_component_by_id(id)
+
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:
@@ -160,6 +161,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
         # Get SPAR components
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_spar_components(document)
+
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:

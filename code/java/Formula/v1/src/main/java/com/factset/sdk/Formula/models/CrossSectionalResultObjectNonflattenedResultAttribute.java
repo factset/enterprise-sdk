@@ -32,6 +32,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -270,7 +271,7 @@ public class CrossSectionalResultObjectNonflattenedResultAttribute extends Abstr
     public String getString() throws ClassCastException {
         return (String)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `Double`. If the actual instance is not `Double`,
      * the ClassCastException will be thrown.
@@ -281,7 +282,7 @@ public class CrossSectionalResultObjectNonflattenedResultAttribute extends Abstr
     public Double getDouble() throws ClassCastException {
         return (Double)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `Integer`. If the actual instance is not `Integer`,
      * the ClassCastException will be thrown.
@@ -292,6 +293,6 @@ public class CrossSectionalResultObjectNonflattenedResultAttribute extends Abstr
     public Integer getInteger() throws ClassCastException {
         return (Integer)super.getActualInstance();
     }
-    
+
 }
 

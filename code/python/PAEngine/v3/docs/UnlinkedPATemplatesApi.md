@@ -132,6 +132,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Create unlinked PA template
         # example passing only required values which don't have defaults set
         api_response = api_instance.create_unlinked_pa_templates(unlinked_pa_template_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -227,6 +228,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_unlinked_pa_templates()
 
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling UnlinkedPATemplatesApi->delete_unlinked_pa_templates: %s\n" % e)
 ```
@@ -320,6 +322,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get default unlinked PA template types.
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_default_unlinked_pa_template_types()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -412,6 +415,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get unlinked PA template type details by id.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_details_type(id)
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -512,6 +516,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_unlinked_pa_templates(directory=directory, category=category)
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -607,6 +612,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get unlinked PA template details by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_unlinked_pa_templates_by_id()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -766,6 +772,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Update unlinked PA template
         # example passing only required values which don't have defaults set
         api_response = api_instance.update_unlinked_pa_templates(unlinked_pa_template_update_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

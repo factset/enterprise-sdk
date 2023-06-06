@@ -70,6 +70,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_people_jobs(ids, status=status, level=level, type=type)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:
@@ -172,6 +173,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # Returns the Job history for the large list of people.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_jobs_for_list(people_jobs_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:

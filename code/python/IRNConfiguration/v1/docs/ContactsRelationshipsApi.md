@@ -73,6 +73,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_contact_relationship_type(relationship_save_dto=relationship_save_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -162,6 +163,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Delete a relationship type
         # example passing only required values which don't have defaults set
         api_instance.delete_relationship(relationship_id)
+
 
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsRelationshipsApi->delete_relationship: %s\n" % e)
@@ -264,6 +266,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # and optional values
         api_instance.edit_relationship(relationship_id, relationship_save_dto=relationship_save_dto)
 
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsRelationshipsApi->edit_relationship: %s\n" % e)
 ```
@@ -354,6 +357,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_relationships(type=type)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:

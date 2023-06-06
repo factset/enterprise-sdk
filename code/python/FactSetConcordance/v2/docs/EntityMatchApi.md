@@ -130,6 +130,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_entity_match(name, country=country, state=state, url=url, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, include_parent=include_parent, bic=bic, bbg_ticker=bbg_ticker, cik=cik, crd=crd, cusip=cusip, duns=duns, ein=ein, rssd=rssd, fitch=fitch, isin=isin, lei=lei, bbg_figi=bbg_figi, md=md, ticker=ticker, spr=spr, sedol=sedol, ticker_exchange=ticker_exchange, ticker_region=ticker_region, ukch=ukch, valoren=valoren, wkn=wkn)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -299,6 +300,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_match_for_list(entity_match_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:

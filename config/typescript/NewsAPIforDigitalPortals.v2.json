@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-newsapifordigitalportals",
-  "projectVersion": "0.10.3",
+  "projectVersion": "0.10.4",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "News API for Digital Portals client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "newsapifordigitalportals",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/NewsAPIforDigitalPortals/0.10.3",
+  "httpUserAgent": "fds-sdk/javascript/NewsAPIforDigitalPortals/0.10.4",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

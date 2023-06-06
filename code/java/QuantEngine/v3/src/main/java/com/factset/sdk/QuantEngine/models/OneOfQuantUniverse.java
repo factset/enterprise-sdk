@@ -43,6 +43,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -320,7 +321,7 @@ public class OneOfQuantUniverse extends AbstractOpenApiSchema implements Seriali
     public QuantUniversalScreenUniverse getQuantUniversalScreenUniverse() throws ClassCastException {
         return (QuantUniversalScreenUniverse)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `QuantScreeningExpressionUniverse`. If the actual instance is not `QuantScreeningExpressionUniverse`,
      * the ClassCastException will be thrown.
@@ -331,7 +332,7 @@ public class OneOfQuantUniverse extends AbstractOpenApiSchema implements Seriali
     public QuantScreeningExpressionUniverse getQuantScreeningExpressionUniverse() throws ClassCastException {
         return (QuantScreeningExpressionUniverse)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `QuantIdentifierUniverse`. If the actual instance is not `QuantIdentifierUniverse`,
      * the ClassCastException will be thrown.
@@ -342,6 +343,6 @@ public class OneOfQuantUniverse extends AbstractOpenApiSchema implements Seriali
     public QuantIdentifierUniverse getQuantIdentifierUniverse() throws ClassCastException {
         return (QuantIdentifierUniverse)super.getActualInstance();
     }
-    
+
 }
 

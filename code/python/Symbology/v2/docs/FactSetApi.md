@@ -67,6 +67,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # Translate market security symbols into FactSet Permanent Identifiers
         # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_fact_set(factset_translation_request)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:
@@ -164,6 +165,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # Translate advanced symbol types into FactSet Permanent Identifiers
         # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_fact_set_advanced(factset_translation_advanced_request)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:
@@ -258,6 +260,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # Translate market security symbols into FactSet Permanent Identifiers.
         # example passing only required values which don't have defaults set
         api_response = api_instance.translate_factset(ids)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:
@@ -355,6 +358,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.translate_factset_advanced(ids, symbol_type=symbol_type)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:

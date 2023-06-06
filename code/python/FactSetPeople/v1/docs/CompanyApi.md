@@ -69,6 +69,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # Returns the compensation details of the people for the specified company identifier
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_compensation(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:
@@ -165,6 +166,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # Returns the compensation details for the people for the specified company identifier
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_compensation_for_list(company_compensation_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:
@@ -262,6 +264,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_company_people(ids, function=function)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:
@@ -360,6 +363,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # Returns the list of people associated for a large list of company identitifers
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_people_for_list(company_people_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:
@@ -457,6 +461,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_company_positions(ids, position=position)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:
@@ -555,6 +560,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # Returns the list of people associated for a large list of company identitifers and position
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_positions_for_list(company_positions_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:
@@ -652,6 +658,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_company_stats(ids, mb_type=mb_type)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:
@@ -750,6 +757,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         # Returns statistics about top leadership of a company.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_stats_for_list(company_stats_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPeople.ApiException as e:

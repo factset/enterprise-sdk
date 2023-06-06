@@ -35,7 +35,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataPointMeta" /> class
-        /// with the <see cref="DataPointMetaAnyOf" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of DataPointMetaAnyOf.</param>
         public DataPointMeta(DataPointMetaAnyOf actualInstance)
@@ -59,7 +58,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             }
             set
             {
-                if (value.GetType() == typeof(DataPointMetaAnyOf))
+                if (value is DataPointMetaAnyOf)
                 {
                     this._actualInstance = value;
                 }

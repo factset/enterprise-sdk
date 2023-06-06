@@ -66,6 +66,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.cancel_calculation_by_id(id)
 
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling CalculationsApi->cancel_calculation_by_id: %s\n" % e)
 ```
@@ -160,6 +161,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get calculation status by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_status_by_id(id)
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -255,6 +257,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get all calculation statuses
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_calculation_status_summaries()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -436,6 +439,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.run_calculation(calculation=calculation)
+
 
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling CalculationsApi->run_calculation: %s\n" % e)

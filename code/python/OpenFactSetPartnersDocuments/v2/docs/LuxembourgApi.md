@@ -73,6 +73,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_luxembourg_greenbonds_daily(sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset, isin=isin, preissuance_pub_date=preissuance_pub_date, type=type)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:

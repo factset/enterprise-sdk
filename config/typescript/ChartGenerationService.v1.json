@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-chartgenerationservice",
-  "projectVersion": "0.21.1",
+  "projectVersion": "0.21.2",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Chart Generation Service client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "chartgenerationservice",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/ChartGenerationService/0.21.1",
+  "httpUserAgent": "fds-sdk/javascript/ChartGenerationService/0.21.2",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

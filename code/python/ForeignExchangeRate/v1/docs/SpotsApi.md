@@ -70,6 +70,7 @@ with fds.sdk.ForeignExchangeRate.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_spots(ids, start_date=start_date, end_date=end_date, frequency=frequency)
+
         pprint(api_response)
 
     except fds.sdk.ForeignExchangeRate.ApiException as e:
@@ -172,6 +173,7 @@ with fds.sdk.ForeignExchangeRate.ApiClient(configuration) as api_client:
         # Gets spots for a list of currency pairs
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_spots_for_list(spots_request)
+
         pprint(api_response)
 
     except fds.sdk.ForeignExchangeRate.ApiException as e:

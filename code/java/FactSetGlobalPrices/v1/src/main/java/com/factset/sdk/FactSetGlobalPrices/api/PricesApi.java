@@ -138,7 +138,7 @@ public class PricesApi {
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "fields", fields));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "fields", fields));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDate", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "frequency", frequency));

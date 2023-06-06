@@ -69,6 +69,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_relationship_category(relationship_category_save_dto=relationship_category_save_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -158,6 +159,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Delete a relationship category
         # example passing only required values which don't have defaults set
         api_instance.delete_relationship_category(relationship_category_id)
+
 
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsRelationshipCategoryApi->delete_relationship_category: %s\n" % e)
@@ -255,6 +257,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # and optional values
         api_instance.edit_relationship_category(relationship_category_id, relationship_category_save_dto=relationship_category_save_dto)
 
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsRelationshipCategoryApi->edit_relationship_category: %s\n" % e)
 ```
@@ -342,6 +345,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get list of the relationship categories configured in your group
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_relationship_categories()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -431,6 +435,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.update_relationship_category_order(relationship_category_list_dto=relationship_category_list_dto)
+
 
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsRelationshipCategoryApi->update_relationship_category_order: %s\n" % e)

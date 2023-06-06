@@ -64,12 +64,16 @@ with fds.sdk.FactSetContentAPIBatch.ApiClient(configuration) as api_client:
     try:
         # Returns the response for a Batch Request
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_batch_data(id)
-        responseWrapper = {
-            200: api_response.get_response_200,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.get_batch_data(id)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.FactSetContentAPIBatch.ApiException as e:
         print("Exception when calling BatchProcessingApi->get_batch_data: %s\n" % e)
@@ -161,12 +165,16 @@ with fds.sdk.FactSetContentAPIBatch.ApiClient(configuration) as api_client:
     try:
         # Returns the response for a Batch Request
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_batch_data_with_post(batch_data_request)
-        responseWrapper = {
-            200: api_response.get_response_200,
-            202: api_response.get_response_202,
-        }
-        pprint(responseWrapper[api_response.status_code]())
+        api_response_wrapper = api_instance.get_batch_data_with_post(batch_data_request)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
+
+        pprint(api_response)
 
     except fds.sdk.FactSetContentAPIBatch.ApiException as e:
         print("Exception when calling BatchProcessingApi->get_batch_data_with_post: %s\n" % e)
@@ -257,6 +265,7 @@ with fds.sdk.FactSetContentAPIBatch.ApiClient(configuration) as api_client:
         # Returns the status for a Batch Request
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_batch_status(id)
+
         pprint(api_response)
 
     except fds.sdk.FactSetContentAPIBatch.ApiException as e:
@@ -350,6 +359,7 @@ with fds.sdk.FactSetContentAPIBatch.ApiClient(configuration) as api_client:
         # Returns the status for a Batch Request
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_batch_status_with_post(batch_status_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetContentAPIBatch.ApiException as e:

@@ -72,6 +72,7 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_security_holders(ids, holder_type=holder_type, topn=topn, date=date, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOwnership.ApiException as e:
@@ -176,6 +177,7 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
         # Get security ownership data for a list of requested securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_security_holders(security_holders_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOwnership.ApiException as e:

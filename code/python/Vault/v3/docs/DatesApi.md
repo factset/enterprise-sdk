@@ -69,6 +69,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.convert_vault_dates_to_absolute_format(enddate, componentid, account, startdate=startdate)
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:

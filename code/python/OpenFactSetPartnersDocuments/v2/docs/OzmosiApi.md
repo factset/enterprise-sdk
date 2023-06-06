@@ -80,6 +80,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ozmosi_biomarkers_daily(pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, biomarker_name=biomarker_name, biomarker_full_name=biomarker_full_name)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:
@@ -190,6 +191,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ozmosi_clinical_trials_daily(sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, official_title=official_title, trial_id=trial_id, date=date)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:
@@ -292,6 +294,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ozmosi_clinical_trials_history(pagination_limit=pagination_limit, pagination_offset=pagination_offset)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:
@@ -395,6 +398,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ozmosi_collaborators_daily(pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, beam_collaborators_name=beam_collaborators_name, beam_collaborators_ticker=beam_collaborators_ticker)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:
@@ -503,6 +507,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ozmosi_diseases_daily(pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, disease_area=disease_area, sub_therapy_area=sub_therapy_area, therapy_area=therapy_area)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:
@@ -610,6 +615,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ozmosi_endpoints_daily(pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, name=name, full_form=full_form)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:
@@ -716,6 +722,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ozmosi_intervention_daily(pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, beam_intervention_name=beam_intervention_name, beam_intervention_desc=beam_intervention_desc)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:
@@ -822,6 +829,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ozmosi_orangepurple_daily(pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, beam_op_novel_drug=beam_op_novel_drug, beam_op_novel_target=beam_op_novel_target)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:
@@ -928,6 +936,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ozmosi_primaryoutcome_daily(pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, primary_outcome_measure=primary_outcome_measure, primary_outcome_desc=primary_outcome_desc)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:
@@ -1034,6 +1043,7 @@ with fds.sdk.OpenFactSetPartnersDocuments.ApiClient(configuration) as api_client
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ozmosi_sponsors_daily(pagination_limit=pagination_limit, pagination_offset=pagination_offset, clinical_trial_id=clinical_trial_id, beam_sponsors_name=beam_sponsors_name, beam_sponsors_ticker=beam_sponsors_ticker)
+
         pprint(api_response)
 
     except fds.sdk.OpenFactSetPartnersDocuments.ApiException as e:

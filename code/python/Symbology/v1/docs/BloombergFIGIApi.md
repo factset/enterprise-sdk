@@ -65,6 +65,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # Translate market security symbols into Bloomberg Identifiers.
         # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_bloomberg(bloomberg_translation_request)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:
@@ -159,6 +160,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
         # Translate FactSet symbols into Bloomberg Identifiers.
         # example passing only required values which don't have defaults set
         api_response = api_instance.translate_bloomberg(ids)
+
         pprint(api_response)
 
     except fds.sdk.Symbology.ApiException as e:

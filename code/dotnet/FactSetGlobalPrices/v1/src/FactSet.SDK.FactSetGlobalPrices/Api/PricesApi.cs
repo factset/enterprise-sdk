@@ -368,7 +368,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetGlobalPrices.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetGlobalPrices.Client.ClientUtils.ParameterToMultiMap("multi", "fields", fields));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetGlobalPrices.Client.ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetGlobalPrices.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
             if (endDate != null)
@@ -503,7 +503,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Api
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetGlobalPrices.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetGlobalPrices.Client.ClientUtils.ParameterToMultiMap("multi", "fields", fields));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetGlobalPrices.Client.ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetGlobalPrices.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
             if (endDate != null)

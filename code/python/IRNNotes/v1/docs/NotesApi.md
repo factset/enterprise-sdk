@@ -118,6 +118,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_note(create_note_dto, x_irn_contributor_username=x_irn_contributor_username, x_irn_contributor_serial=x_irn_contributor_serial)
+
         pprint(api_response)
 
     except fds.sdk.IRNNotes.ApiException as e:
@@ -209,6 +210,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_note(note_id)
 
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling NotesApi->delete_note: %s\n" % e)
 ```
@@ -297,6 +299,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # Get details of a note
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_note(note_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNNotes.ApiException as e:
@@ -423,6 +426,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_notes(start=start, end=end, identifiers=identifiers, authors=authors, subjects=subjects, recommendations=recommendations, sentiments=sentiments, limit=limit, offset=offset, modified_since=modified_since, states=states, filter_on_related_symbols=filter_on_related_symbols, x_irn_include_deleted=x_irn_include_deleted)
+
         pprint(api_response)
 
     except fds.sdk.IRNNotes.ApiException as e:
@@ -575,6 +579,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.update_note(note_id, update_note_dto=update_note_dto)
+
 
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling NotesApi->update_note: %s\n" % e)

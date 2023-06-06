@@ -599,6 +599,7 @@ components:
           |tradeCount|Number of Trades|
           |vwap|Volume Weighted Average Price|
       required: false
+      explode: false
       schema:
         type: array
         items:

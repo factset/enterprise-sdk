@@ -82,6 +82,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_benchmark_ratios(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, periodicity=periodicity, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:
@@ -190,6 +191,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # Returns the aggregated ratios of a requested benchmark
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_benchmark_ratios_for_list(benchmark_ratios_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:
@@ -303,6 +305,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_index_history(ids, start_date=start_date, end_date=end_date, frequency=frequency, return_type=return_type, hedge_type=hedge_type, currency=currency, calendar=calendar, implied_date=implied_date)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:
@@ -415,6 +418,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_index_history_for_list(index_history_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:
@@ -520,6 +524,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_index_snapshot(ids, date=date, return_type=return_type, currency=currency, calendar=calendar)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:
@@ -624,6 +629,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # Retrieves the Index Level Snapshot of Prices and Returns information for a given identifier and single date.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_index_snapshot_for_list(index_snapshot_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:

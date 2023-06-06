@@ -60,6 +60,7 @@ with fds.sdk.NorthfieldPortfolioOptimizer.ApiClient(configuration) as api_client
         # Get Northfield strategy documents and sub-directories in a directory
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_northfield_strategy_documents()
+
         pprint(api_response)
 
     except fds.sdk.NorthfieldPortfolioOptimizer.ApiException as e:

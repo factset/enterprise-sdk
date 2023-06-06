@@ -67,6 +67,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns all the profile information for the list of identifiers as of a specific date
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_snapshot_for_list(snapshot_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:

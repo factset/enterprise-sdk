@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-factsetglobalprices",
-  "projectVersion": "1.2.1",
+  "projectVersion": "1.2.2",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "FactSet Global Prices client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "factsetglobalprices",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/FactSetGlobalPrices/1.2.1",
+  "httpUserAgent": "fds-sdk/javascript/FactSetGlobalPrices/1.2.2",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

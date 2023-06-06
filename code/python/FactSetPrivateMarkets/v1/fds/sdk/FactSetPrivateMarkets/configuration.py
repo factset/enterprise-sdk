@@ -77,6 +77,13 @@ class Configuration(object):
       The validation of enums is performed for variables with defined enum values before.
     :param ssl_ca_cert: str - the path to a file of concatenated CA certificates
       in PEM format
+    :param verify_ssl: Boolean - Set this to ``False`` to skip verifying SSL certificate when calling API from
+      https server. When set to ``False``, requests will accept any TLS certificate presented by the server,
+      and will ignore hostname mismatches and/or expired certificates, which will make your application
+      vulnerable to man-in-the-middle (MitM) attacks. Setting verify to ``False`` may be useful during
+      local development or testing.
+    :param proxy: str - URL of the proxy to use.
+    :param proxy_headers: dict - dictionary of additional headers sent to the proxy server (e.g. ``Proxy-Authorization``)
 
     :Example:
 
@@ -108,7 +115,8 @@ conf = fds.sdk.FactSetPrivateMarkets.Configuration(
                  disabled_client_side_validations="",
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
-                 ssl_ca_cert=None,
+                 ssl_ca_cert=None, verify_ssl=True,
+                 proxy=None, proxy_headers=None,
                  ):
         """Constructor
         """
@@ -171,7 +179,7 @@ conf = fds.sdk.FactSetPrivateMarkets.Configuration(
         """Debug switch
         """
 
-        self.verify_ssl = True
+        self.verify_ssl = verify_ssl
         """SSL/TLS verification
            Set this to false to skip verifying SSL certificate when calling API
            from https server.
@@ -197,13 +205,13 @@ conf = fds.sdk.FactSetPrivateMarkets.Configuration(
            cpu_count * 5 is used as default value to increase performance.
         """
 
-        self.proxy = None
+        self.proxy = proxy
         """Proxy URL
         """
         self.no_proxy = None
         """bypass proxy for host in the no_proxy list.
         """
-        self.proxy_headers = None
+        self.proxy_headers = proxy_headers
         """Proxy headers
         """
         self.safe_chars_for_path_param = ''
@@ -422,7 +430,7 @@ conf = fds.sdk.FactSetPrivateMarkets.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.2.0\n"\
-               "SDK Package Version: 1.0.4".\
+               "SDK Package Version: 1.0.5".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

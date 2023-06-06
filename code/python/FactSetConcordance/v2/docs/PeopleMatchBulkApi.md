@@ -69,6 +69,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_people_decisions(task_id, offset=offset, limit=limit)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -188,6 +189,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_people_task_for_list(universe_id, task_name, input_file, client_id_column, entity_column, first_name_column=first_name_column, last_name_column=last_name_column, middle_name_column=middle_name_column, person_name_column=person_name_column, priority_column=priority_column, salutation_column=salutation_column, suffix_column=suffix_column)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -302,6 +304,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_people_task_status(task_id=task_id, offset=offset, limit=limit, status=status)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:

@@ -75,6 +75,7 @@ with fds.sdk.SecurityModeling.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.delete_securities(sm_delete_parameters_root=sm_delete_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.SecurityModeling.ApiException as e:
@@ -181,6 +182,7 @@ with fds.sdk.SecurityModeling.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_securities(sm_retrieve_parameters_root=sm_retrieve_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.SecurityModeling.ApiException as e:
@@ -287,6 +289,7 @@ with fds.sdk.SecurityModeling.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.upsert_securities(sm_create_parameters_root=sm_create_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.SecurityModeling.ApiException as e:

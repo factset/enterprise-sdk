@@ -68,6 +68,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Deletes mapping specified by the client.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_mapping_delete_for_list(entity_mapping_delete_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -192,6 +193,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Saves a single-mapping specified by the client.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_mapping_for_list(entity_mapping_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -299,6 +301,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_entity_universe(universe_id, client_id=client_id, map_status=map_status, offset=offset, limit=limit, sort=sort)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -404,6 +407,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Retrieve all saved mappings within a requested universe or large list of client ids
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_universe_for_list(entity_universe_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:

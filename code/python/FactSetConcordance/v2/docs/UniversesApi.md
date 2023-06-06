@@ -66,6 +66,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Get statistics on a given universe
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_universe_statistics(universe_id)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -160,6 +161,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Create a new universe
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_universe_for_list(create_universe_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -255,6 +257,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Get statistics on a given universe
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_universe_statistics(universe_id)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -348,6 +351,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_universes(universe_id=universe_id, universe_type=universe_type)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -443,6 +447,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Update metadata for an existing universe
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_update_universe_for_list(update_universe_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:

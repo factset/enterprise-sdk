@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.21.5"
+__version__ = "0.21.6"
 
 # import ApiClient
 from fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.api_client import ApiClient

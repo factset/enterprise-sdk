@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.OFDB",
   "projectName": "fds.sdk.OFDB",
-  "packageVersion": "0.30.5",
+  "packageVersion": "0.30.6",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "OFDB client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/OFDB/v2",
-  "httpUserAgent": "fds-sdk/python/OFDB/0.30.5",
+  "httpUserAgent": "fds-sdk/python/OFDB/0.30.6",
   "files": {
     "LICENSE": {}
   }

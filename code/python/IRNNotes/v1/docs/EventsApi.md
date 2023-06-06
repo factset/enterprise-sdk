@@ -69,6 +69,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_all_events(start_date, end_date=end_date, types=types)
+
         pprint(api_response)
 
     except fds.sdk.IRNNotes.ApiException as e:
@@ -159,6 +160,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # Get all the record events that belong to a note
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_events(note_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNNotes.ApiException as e:
@@ -250,6 +252,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
         # Get details of a record event of a note
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_record_event(note_id, record_event_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNNotes.ApiException as e:

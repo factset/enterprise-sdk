@@ -61,6 +61,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Get Vault component by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_vault_component_by_id()
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:
@@ -156,6 +157,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         # Get Vault components
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_vault_components()
+
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:

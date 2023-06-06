@@ -74,6 +74,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_market_value(ids, start_date=start_date, end_date=end_date, frequency=frequency, calendar=calendar, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
@@ -180,6 +181,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Requests the market value for a list of `ids` as of given date range.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_market_value_for_list(market_value_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:

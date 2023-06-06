@@ -68,6 +68,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns all the underlying option identifiers for the specified underlying Security identifier
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_chains_for_list(chains_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:
@@ -171,6 +172,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns all the option identifiers based on the conditions provided as input in the request
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_screening_for_list(option_screening_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:

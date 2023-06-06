@@ -68,6 +68,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get all assigned FactSet users
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_assigned_fact_set_users()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -153,6 +154,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_authors(x_irn_ignore_permissions=x_irn_ignore_permissions)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -238,6 +240,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     try:
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_clients_sales_representative()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -324,6 +327,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_custom_fields(x_irn_ignore_permissions=x_irn_ignore_permissions)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -410,6 +414,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get Group details
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_group()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -492,6 +497,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get all Recommendations
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_recommendations()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -574,6 +580,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get all Sentiments
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_sentiments()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -661,6 +668,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_subject(subject_id, x_irn_ignore_permissions=x_irn_ignore_permissions)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -752,6 +760,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_subjects(x_irn_ignore_permissions=x_irn_ignore_permissions)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -843,6 +852,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_team(team_id, x_irn_ignore_permissions=x_irn_ignore_permissions)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -934,6 +944,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_teams(x_irn_ignore_permissions=x_irn_ignore_permissions)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:

@@ -71,6 +71,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_symbol_relationship_type(symbols_relation_ship_save_dto=symbols_relation_ship_save_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -160,6 +161,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Delete a symbol relationship
         # example passing only required values which don't have defaults set
         api_instance.delete_symbols_relationship(symbols_relationship_id)
+
 
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling CustomSymbolsRelationshipsApi->delete_symbols_relationship: %s\n" % e)
@@ -260,6 +262,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # and optional values
         api_instance.edit_symbols_relationship(symbols_relationship_id, symbols_relation_ship_save_dto=symbols_relation_ship_save_dto)
 
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling CustomSymbolsRelationshipsApi->edit_symbols_relationship: %s\n" % e)
 ```
@@ -347,6 +350,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get all the Symbols Relationships
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_symbols_relationships()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:

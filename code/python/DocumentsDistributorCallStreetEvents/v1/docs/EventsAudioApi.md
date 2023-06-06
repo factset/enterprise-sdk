@@ -68,6 +68,7 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_docs_distributor_audio_v1_history_files(pagination_limit=pagination_limit, pagination_offset=pagination_offset, year=year)
+
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorCallStreetEvents.ApiException as e:
@@ -186,6 +187,7 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_docs_distributor_audio_v1_list_files(sort=sort, pagination_limit=pagination_limit, start_date=start_date, pagination_offset=pagination_offset, end_date=end_date, report_id=report_id, audio_source_id=audio_source_id, ids=ids, source_code=source_code, file_name=file_name, trimmed=trimmed, upload_time=upload_time)
+
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorCallStreetEvents.ApiException as e:

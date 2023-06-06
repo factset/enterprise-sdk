@@ -1,14 +1,14 @@
 {
   "projectName": "@factset/sdk-factsettickhistory",
-  "projectVersion": "0.22.1",
+  "projectVersion": "0.22.2",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "FactSet Tick History client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "factsettickhistory",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/FactSetTickHistory/0.22.1",
+  "httpUserAgent": "fds-sdk/javascript/FactSetTickHistory/0.22.2",
   "usePromises": true,
-  "licenseName": "Apache License, Version 2.0",
+  "licenseName": "Apache-2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}

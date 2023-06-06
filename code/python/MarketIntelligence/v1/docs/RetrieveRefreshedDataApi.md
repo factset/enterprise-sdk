@@ -62,6 +62,7 @@ with fds.sdk.MarketIntelligence.ApiClient(configuration) as api_client:
         # Retrieve data for desired report.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_data_poll_id_result_get(poll_id)
+
         pprint(api_response)
 
     except fds.sdk.MarketIntelligence.ApiException as e:

@@ -162,7 +162,7 @@ class PricesApi(object):
                 },
                 'collection_format_map': {
                     'ids': 'csv',
-                    'fields': 'multi',
+                    'fields': 'csv',
                 }
             },
             headers_map={

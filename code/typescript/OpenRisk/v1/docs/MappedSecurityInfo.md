@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**covered** | **Boolean** | Coverage flag. The value will be true to indicate the security is covered. | [default to true]
+**covered** | **Boolean** | Coverage flag. The value will always be true to indicate the security is covered. | 
 **id** | **String** | Risk model canonical security identifier alias if directly covered in the model | 
 **modelClass** | **String** | **(since 1.19.0)** Security asset classification according to the risk model, if available and determinable | 
 

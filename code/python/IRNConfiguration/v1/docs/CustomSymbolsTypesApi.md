@@ -79,6 +79,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.create_custom_symbol_type(save_custom_symbol_type_dto=save_custom_symbol_type_dto)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -169,6 +170,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_custom_symbol_type_async(custom_symbol_type_id)
 
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling CustomSymbolsTypesApi->delete_custom_symbol_type_async: %s\n" % e)
 ```
@@ -257,6 +259,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get a specific Custom symbol type's details
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_custom_symbol_type(custom_symbol_type_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -344,6 +347,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get all the custom symbol types
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_custom_symbol_types()
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -428,6 +432,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # Get Custom fields for Custom Symbol type
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_symbol_custom_fields_for_custom_symbol_type(custom_symbol_type_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNConfiguration.ApiException as e:
@@ -536,6 +541,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # and optional values
         api_instance.update_custom_symbol_type(custom_symbol_type_id, update_custom_symbol_type_dto=update_custom_symbol_type_dto)
 
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling CustomSymbolsTypesApi->update_custom_symbol_type: %s\n" % e)
 ```
@@ -629,6 +635,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.update_custom_symbol_type_order(reorder_custom_symbol_type_dto=reorder_custom_symbol_type_dto)
+
 
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling CustomSymbolsTypesApi->update_custom_symbol_type_order: %s\n" % e)

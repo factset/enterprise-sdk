@@ -65,6 +65,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
         # Returns the data items (along with the products they belong to) that contain at least one of the search terms as a substring of either their name or description.
         # example passing only required values which don't have defaults set
         api_response = api_instance.navigator_basic_search_post(basic_search_request)
+
         pprint(api_response)
 
     except fds.sdk.ContentFeedsDataDictionary.ApiException as e:
@@ -154,6 +155,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
         # Get the list of data items associated with a product for Navigator.
         # example passing only required values which don't have defaults set
         api_response = api_instance.navigator_data_items_product_id_get(product_id)
+
         pprint(api_response)
 
     except fds.sdk.ContentFeedsDataDictionary.ApiException as e:
@@ -241,6 +243,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
         # Get the list of products for Navigator.
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.navigator_products_get()
+
         pprint(api_response)
 
     except fds.sdk.ContentFeedsDataDictionary.ApiException as e:
@@ -328,6 +331,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
         # Get a list of sources where the specified data item can be found, for each delivery method, filtered to the appearances of the given data item within the specified product.
         # example passing only required values which don't have defaults set
         api_response = api_instance.navigator_sources_data_item_id_get(data_item_id, product_id)
+
         pprint(api_response)
 
     except fds.sdk.ContentFeedsDataDictionary.ApiException as e:
@@ -418,6 +422,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
         # Get a list of sources by delivery method for the given product_id
         # example passing only required values which don't have defaults set
         api_response = api_instance.navigator_sources_get(product_id)
+
         pprint(api_response)
 
     except fds.sdk.ContentFeedsDataDictionary.ApiException as e:
@@ -510,6 +515,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.navigator_table_fields_table_id_get(table_id, data_item_id=data_item_id)
+
         pprint(api_response)
 
     except fds.sdk.ContentFeedsDataDictionary.ApiException as e:

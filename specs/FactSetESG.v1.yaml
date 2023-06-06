@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.5.0
+  version: 1.6.0
   title: FactSet ESG API
   contact:
     name: FactSet Research Systems
@@ -69,6 +69,7 @@ paths:
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/calendar'
       responses:
         '200':
           description: >-
@@ -186,6 +187,7 @@ paths:
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/calendar'
       responses:
         '200':
           description: The SASB Ranks response object.
@@ -293,6 +295,7 @@ paths:
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/calendar'
       responses:
         '200':
           description: >-
@@ -983,6 +986,22 @@ components:
           * **W** = Weekly, based on the last day of the week of the start date.
           * **M** = Monthly, based on the last trading day of the month.
           * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+          
+    calendar:
+      name: calendar
+      in: query
+      schema:
+        type: string
+        enum:
+          - FIVEDAY
+          - SEVENDAY
+          - LOCAL
+        default: SEVENDAY
+      description: >-
+        Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar
+        will default to the securities' trading calendar which excludes date
+        records for respective holiday periods.
+      example: FIVEDAY
     sdgScoreTypes:
       name: scoreTypes
       in: query
@@ -3228,6 +3247,8 @@ components:
           $ref: '#/components/schemas/endDate'
         frequency:
           $ref: '#/components/schemas/frequency'
+        calendar:
+          $ref: '#/components/schemas/calendar'
       required:
         - ids
     sasbScoresResponse:
@@ -3296,6 +3317,8 @@ components:
           $ref: '#/components/schemas/endDate'
         frequency:
           $ref: '#/components/schemas/frequency'
+        calendar:
+          $ref: '#/components/schemas/calendar'
       required:
         - ids
     sasbRanksResponse:
@@ -3361,6 +3384,8 @@ components:
           $ref: '#/components/schemas/endDate'
         frequency:
           $ref: '#/components/schemas/frequency'
+        calendar:
+          $ref: '#/components/schemas/calendar'
       required:
         - ids
     sasbScoresAllResponse:
@@ -4617,6 +4642,18 @@ components:
         and endDate the articles publication date * **Ingestion:**  use for
         startDate and endDate the articles TVL first processing date 
       example: PUBLICATION
+    calendar:
+      type: string
+      enum:
+        - FIVEDAY
+        - SEVENDAY
+        - LOCAL
+      default: SEVENDAY
+      description: >-
+        Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar
+        will default to the securities' trading calendar which excludes date
+        records for respective holiday periods.
+      example: FIVEDAY
     sdgStartDate:
       type: string
       description: >
@@ -6831,6 +6868,7 @@ components:
         startDate: '2019-12-31'
         endDate: '2019-12-31'
         frequency: D
+        calendar: SEVENDAY
     multipleSasbScoresPost:
       summary: >-
         Multiple SASB Scores Types with Multiple SASB Categories for Multiple
@@ -6855,6 +6893,7 @@ components:
         startDate: '2019-12-31'
         endDate: '2019-12-31'
         frequency: D
+        calendar: SEVENDAY
     singleSasbScoresPost:
       summary: Single SASB Score Type for all categories for a Single Entity (AMZN-US).
       description: Post request body example to fetch all Pulse Scores for AMZN-US.
@@ -6866,6 +6905,7 @@ components:
         startDate: '2019-12-31'
         endDate: '2019-12-31'
         frequency: D
+        calendar: SEVENDAY
     multipleSasbScoresAllPost:
       summary: >-
         Multiple SASB Scores Types with Multiple SASB Categories for (FDS-US),
@@ -6890,6 +6930,7 @@ components:
         startDate: '2019-12-31'
         endDate: '2019-12-31'
         frequency: D
+        calendar: SEVENDAY
     singleSdgScores:
       summary: Single Score Type for all SDG categories for a single entity (AMZN-US).
       description: Results for Amazon.com's SDG scores for Pulse Scores.

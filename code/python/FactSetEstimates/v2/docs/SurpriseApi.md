@@ -80,6 +80,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_surprise(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, periodicity=periodicity, statistic=statistic, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -190,6 +191,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # Surprise estimates for rolling fiscal periods
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_surprise_for_list(surprise_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:

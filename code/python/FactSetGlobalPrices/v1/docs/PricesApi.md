@@ -78,6 +78,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_gpd_prices(ids, start_date, fields=fields, end_date=end_date, frequency=frequency, calendar=calendar, currency=currency, adjust=adjust)
+
         pprint(api_response)
 
     except fds.sdk.FactSetGlobalPrices.ApiException as e:
@@ -188,6 +189,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
         # Requests end-of-day Open, High, Low, Close for a large list of securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_prices_for_list(global_prices_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetGlobalPrices.ApiException as e:

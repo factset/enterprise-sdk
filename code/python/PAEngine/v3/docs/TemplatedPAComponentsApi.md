@@ -121,6 +121,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Create templated PA component
         # example passing only required values which don't have defaults set
         api_response = api_instance.create_templated_pa_components(templated_pa_component_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -217,6 +218,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.delete_templated_pa_components()
 
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling TemplatedPAComponentsApi->delete_templated_pa_components: %s\n" % e)
 ```
@@ -310,6 +312,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get templated PA component by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_templated_pa_component_by_id()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -405,6 +408,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get templated PA components in path
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_templated_pa_components_in_path()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -555,6 +559,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Update templated PA component
         # example passing only required values which don't have defaults set
         api_response = api_instance.update_templated_pa_components(templated_pa_component_update_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

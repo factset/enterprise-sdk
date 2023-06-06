@@ -66,6 +66,7 @@ with fds.sdk.FactSetQuantFactorLibrary.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_factor_library(factors=factors, factor_groups=factor_groups)
+
         pprint(api_response)
 
     except fds.sdk.FactSetQuantFactorLibrary.ApiException as e:
@@ -159,6 +160,7 @@ with fds.sdk.FactSetQuantFactorLibrary.ApiClient(configuration) as api_client:
         # Retrieves a list of all available factors with relevant meta data.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_factor_library_list(library_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetQuantFactorLibrary.ApiException as e:

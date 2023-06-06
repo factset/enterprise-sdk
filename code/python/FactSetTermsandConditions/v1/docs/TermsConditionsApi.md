@@ -71,6 +71,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_terms_and_conditions(ids, fields=fields, categories=categories)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -168,6 +169,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_terms_and_conditions_fields(category=category)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -272,6 +274,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Terms and Conditions for a list of Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_terms_and_conditions_for_list(terms_and_conditions_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:

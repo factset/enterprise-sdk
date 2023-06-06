@@ -1,8 +1,8 @@
 {
   "name": "@factset/sdk-spglobalfixedincomeevaluatedpricesandanalytics",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "S&amp;P Global Fixed Income Evaluated Prices and Analytics client library for JavaScript",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
   "main": "dist/index.js",

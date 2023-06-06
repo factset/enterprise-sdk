@@ -88,6 +88,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -285,7 +286,7 @@ public class KeyStatsObject extends AbstractOpenApiSchema implements Serializabl
     public KeyStatsEntityObject getKeyStatsEntityObject() throws ClassCastException {
         return (KeyStatsEntityObject)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `KeyStatsFundObject`. If the actual instance is not `KeyStatsFundObject`,
      * the ClassCastException will be thrown.
@@ -296,6 +297,6 @@ public class KeyStatsObject extends AbstractOpenApiSchema implements Serializabl
     public KeyStatsFundObject getKeyStatsFundObject() throws ClassCastException {
         return (KeyStatsFundObject)super.getActualInstance();
     }
-    
+
 }
 

@@ -84,6 +84,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_fixed_consensus(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, fiscal_period_start=fiscal_period_start, fiscal_period_end=fiscal_period_end, periodicity=periodicity, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -196,6 +197,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # FactSet consensus estimates for fixed fiscal periods
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fixed_consensus_for_list(fixed_consensus_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -309,6 +311,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_rolling_consensus(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, relative_fiscal_start=relative_fiscal_start, relative_fiscal_end=relative_fiscal_end, periodicity=periodicity, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -421,6 +424,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # Retrieves consensus estimates for a requested list of ids and rolling fiscal periods
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_rolling_consensus_for_list(rolling_consensus_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:

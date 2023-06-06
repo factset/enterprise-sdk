@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/EventCalendar/0.20.0'
+            'User-Agent': 'fds-sdk/javascript/EventCalendar/0.20.1'
         };
 
         /**

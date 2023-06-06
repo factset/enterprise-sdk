@@ -61,6 +61,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get PA component by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_pa_component_by_id()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -156,6 +157,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         # Get PA components
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_pa_components()
+
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

@@ -48,6 +48,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -373,7 +374,7 @@ public class TimeSeriesResultObjectNonflattened extends AbstractOpenApiSchema im
     public TimeSeriesResultObjectNonflattenedScalar getTimeSeriesResultObjectNonflattenedScalar() throws ClassCastException {
         return (TimeSeriesResultObjectNonflattenedScalar)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `TimeSeriesResultObjectNonflattenedArray`. If the actual instance is not `TimeSeriesResultObjectNonflattenedArray`,
      * the ClassCastException will be thrown.
@@ -384,7 +385,7 @@ public class TimeSeriesResultObjectNonflattened extends AbstractOpenApiSchema im
     public TimeSeriesResultObjectNonflattenedArray getTimeSeriesResultObjectNonflattenedArray() throws ClassCastException {
         return (TimeSeriesResultObjectNonflattenedArray)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `TimeSeriesResultObjectNonflattenedMatrix`. If the actual instance is not `TimeSeriesResultObjectNonflattenedMatrix`,
      * the ClassCastException will be thrown.
@@ -395,7 +396,7 @@ public class TimeSeriesResultObjectNonflattened extends AbstractOpenApiSchema im
     public TimeSeriesResultObjectNonflattenedMatrix getTimeSeriesResultObjectNonflattenedMatrix() throws ClassCastException {
         return (TimeSeriesResultObjectNonflattenedMatrix)super.getActualInstance();
     }
-    
+
     /**
      * Get the actual instance of `TimeSeriesResultObjectNonflattenedTimeseriesObject`. If the actual instance is not `TimeSeriesResultObjectNonflattenedTimeseriesObject`,
      * the ClassCastException will be thrown.
@@ -406,6 +407,6 @@ public class TimeSeriesResultObjectNonflattened extends AbstractOpenApiSchema im
     public TimeSeriesResultObjectNonflattenedTimeseriesObject getTimeSeriesResultObjectNonflattenedTimeseriesObject() throws ClassCastException {
         return (TimeSeriesResultObjectNonflattenedTimeseriesObject)super.getActualInstance();
     }
-    
+
 }
 

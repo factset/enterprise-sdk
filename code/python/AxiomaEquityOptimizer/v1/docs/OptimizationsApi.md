@@ -65,6 +65,7 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.cancel_axioma_optimization_by_id(id)
 
+
     except fds.sdk.AxiomaEquityOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->cancel_axioma_optimization_by_id: %s\n" % e)
 ```
@@ -158,6 +159,7 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
         # Get Axioma optimization by id
         # example passing only required values which don't have defaults set
         api_instance.get_axioma_optimization_by_id(id)
+
 
     except fds.sdk.AxiomaEquityOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->get_axioma_optimization_by_id: %s\n" % e)
@@ -299,6 +301,7 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_instance.run_axioma_optimization(axioma_equity_optimization_parameters=axioma_equity_optimization_parameters)
+
 
     except fds.sdk.AxiomaEquityOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->run_axioma_optimization: %s\n" % e)

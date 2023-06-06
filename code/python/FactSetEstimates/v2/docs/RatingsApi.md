@@ -72,6 +72,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_consensus_ratings(ids, start_date=start_date, end_date=end_date, frequency=frequency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -174,6 +175,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_consensus_ratings_for_list(consensus_ratings_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -273,6 +275,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_detail_ratings(ids, start_date=start_date, end_date=end_date)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -373,6 +376,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_detail_ratings_for_list(detail_ratings_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:

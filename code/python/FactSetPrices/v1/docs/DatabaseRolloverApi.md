@@ -61,6 +61,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Gets the latest relative rollover date for the database.
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_database_rollover()
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:
@@ -150,6 +151,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
         # Gets the latest relative rollover date for the database.
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_database_rollover_for_list()
+
         pprint(api_response)
 
     except fds.sdk.FactSetPrices.ApiException as e:

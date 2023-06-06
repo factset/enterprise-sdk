@@ -68,7 +68,7 @@ paths:
         - priceHigh
         - priceLow
         - volume
-        explode: true
+        explode: false
         in: query
         name: fields
         required: false
@@ -1813,7 +1813,7 @@ components:
       - priceHigh
       - priceLow
       - volume
-      explode: true
+      explode: false
       in: query
       name: fields
       required: false

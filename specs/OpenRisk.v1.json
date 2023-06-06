@@ -3,10 +3,15 @@
   "info": {
     "title": "Open:Risk API",
     "description": "Service to calculate parametric linear risk statistics and generate risk model asset identifier mappings.",
-    "version": "1.23.0",
+    "version": "1.24.0",
     "contact": {
-      "name": "Parametric Risk Analytics Development",
-      "email": "ParametricRiskAnalyticsDevelopment@factset.com"
+      "name": "FactSet Research Systems",
+      "email": "api@factset.com",
+      "url": "https://developer.factset.com/contact"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
     }
   },
   "tags": [
@@ -1129,11 +1134,7 @@
             "minLength": 1
           },
           {
-            "type": "integer"
-          },
-          {
-            "type": "number",
-            "format": "double"
+            "type": "number"
           }
         ]
       },
@@ -1560,9 +1561,8 @@
         ],
         "properties": {
           "covered": {
-            "description": "Coverage flag. The value will be true to indicate the security is covered.",
+            "description": "Coverage flag. The value will always be true to indicate the security is covered.",
             "type": "boolean",
-            "default": true,
             "example": true
           },
           "id": {
@@ -1658,9 +1658,8 @@
         ],
         "properties": {
           "covered": {
-            "description": "Coverage flag. The value will be false to indicate the security is excluded.",
+            "description": "Coverage flag. The value will always be false to indicate the security is excluded.",
             "type": "boolean",
-            "default": false,
             "example": false
           },
           "exclusionInfo": {
@@ -3578,6 +3577,10 @@
         "scheme": "basic"
       }
     }
+  },
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/openrisk-api"
   },
   "security": [
     {

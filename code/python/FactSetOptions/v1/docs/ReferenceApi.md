@@ -65,6 +65,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns option security dates such as expiration and trade.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_dates_for_list(options_dates_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:
@@ -161,6 +162,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
         # Returns basic reference details for the options such as currency, exchange, symbols, flags and more
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_references_for_list(options_references_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOptions.ApiException as e:

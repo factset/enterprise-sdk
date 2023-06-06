@@ -65,6 +65,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         api_instance.cancel_fi_calculation_by_id(id)
 
+
     except fds.sdk.FixedIncomeCalculation.ApiException as e:
         print("Exception when calling FICalculationsApi->cancel_fi_calculation_by_id: %s\n" % e)
 ```
@@ -158,6 +159,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
         # Get FI calculation by id
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fi_calculation_by_id(id)
+
         pprint(api_response)
 
     except fds.sdk.FixedIncomeCalculation.ApiException as e:
@@ -280,6 +282,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.run_fi_calculation(x_fact_set_content_organization=x_fact_set_content_organization, x_fact_set_content_type=x_fact_set_content_type, fi_calculation_parameters=fi_calculation_parameters)
+
         pprint(api_response)
 
     except fds.sdk.FixedIncomeCalculation.ApiException as e:

@@ -65,6 +65,7 @@ with fds.sdk.FactSetNER.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.post_entities_entities(payload)
+
         pprint(api_response)
 
     except fds.sdk.FactSetNER.ApiException as e:

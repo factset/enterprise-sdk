@@ -67,6 +67,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
         # Endpoint to extract themes from text
         # example passing only required values which don't have defaults set
         api_response = api_instance.themes(theme_parameters_root)
+
         pprint(api_response)
 
     except fds.sdk.NaturalLanguageProcessing.ApiException as e:

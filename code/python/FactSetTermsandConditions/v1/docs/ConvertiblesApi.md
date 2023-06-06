@@ -67,6 +67,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Convertible Details for a list of Convertible Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_details(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -163,6 +164,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Convertible Details data for a large list of Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_details_for_list(terms_and_conditions_scalar_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -257,6 +259,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Convertible History data for a list of Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_history(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -353,6 +356,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Convertible History data for a large list of Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_history_for_list(terms_and_conditions_scalar_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -447,6 +451,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Convertible Triggers data for a list of Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_triggers(ids)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -543,6 +548,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         # Return Convertible Trigger data for a large list of Fixed Income securities.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_triggers_for_list(terms_and_conditions_scalar_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:

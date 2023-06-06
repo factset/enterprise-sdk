@@ -86,6 +86,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_fixed_detail(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, periodicity=periodicity, include_all=include_all, fiscal_period_start=fiscal_period_start, fiscal_period_end=fiscal_period_end, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -200,6 +201,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # Estimates detail data for fixed fiscal periods
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fixed_detail_for_list(fixed_detail_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -315,6 +317,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_rolling_detail(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, periodicity=periodicity, include_all=include_all, relative_fiscal_start=relative_fiscal_start, relative_fiscal_end=relative_fiscal_end, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:
@@ -429,6 +432,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         # FactSet estimates detail data for rolling fiscal periods
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_rolling_detail_for_list(rolling_detail_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetEstimates.ApiException as e:

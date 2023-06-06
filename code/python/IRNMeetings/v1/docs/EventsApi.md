@@ -61,6 +61,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # Get all the record events that belong to a meeting
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_events(meeting_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:
@@ -152,6 +153,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         # Get details of a record event of a meeting
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_record_event(meeting_id, record_event_id)
+
         pprint(api_response)
 
     except fds.sdk.IRNMeetings.ApiException as e:

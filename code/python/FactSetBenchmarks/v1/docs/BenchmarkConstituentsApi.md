@@ -72,6 +72,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_benchmark_constituents(ids, date=date, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:
@@ -172,6 +173,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_benchmark_constituents_for_list(benchmark_constituents_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:
@@ -273,6 +275,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_fi_benchmark_constituents(ids, date=date, currency=currency)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:
@@ -373,6 +376,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_fi_benchmark_constituents_for_list(fixed_income_benchmark_constituents_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:

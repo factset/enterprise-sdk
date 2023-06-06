@@ -70,6 +70,7 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_rbics_entity_focus(ids, date=date, levels=levels, include_names=include_names)
+
         pprint(api_response)
 
     except fds.sdk.FactSetRBICS.ApiException as e:
@@ -172,6 +173,7 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
         # Get RBICS classification for the Focus industry
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_rbics_entity_focus_for_list(entity_focus_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetRBICS.ApiException as e:

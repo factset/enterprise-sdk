@@ -74,6 +74,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_company_board_list_by_instrument(id, attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -170,6 +171,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_company_board_officer_function_delivery_list(attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -265,6 +267,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_company_board_type_list(attributes=attributes, language=language)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -372,6 +375,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_company_estimates_list_by_instrument(post_company_estimates_list_by_instrument_request=post_company_estimates_list_by_instrument_request)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -475,6 +479,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_company_key_items_current_get_by_instrument(post_company_key_items_current_get_by_instrument_request=post_company_key_items_current_get_by_instrument_request)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -582,6 +587,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.post_company_key_items_fiscal_year_list_by_instrument(post_company_key_items_fiscal_year_list_by_instrument_request=post_company_key_items_fiscal_year_list_by_instrument_request)
+
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:

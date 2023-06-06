@@ -71,6 +71,7 @@ with fds.sdk.FactSetOwnershipReportBuilder.ApiClient(configuration) as api_clien
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_ownership_holders(id, asset_type=asset_type, holder_type=holder_type, topn=topn, date=date)
+
         pprint(api_response)
 
     except fds.sdk.FactSetOwnershipReportBuilder.ApiException as e:

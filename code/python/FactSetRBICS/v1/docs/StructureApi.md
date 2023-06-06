@@ -70,6 +70,7 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_rbics_structure(rbics_ids=rbics_ids, level=level, include_names=include_names, date=date)
+
         pprint(api_response)
 
     except fds.sdk.FactSetRBICS.ApiException as e:
@@ -172,6 +173,7 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
         # Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_rbics_structure_for_list(structure_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetRBICS.ApiException as e:

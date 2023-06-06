@@ -64,6 +64,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_benchmark_ids(family_filter=family_filter)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:
@@ -160,6 +161,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         # Returns a sample list of Benchmark Identifiers and the benchmark categorization to use in other Benchmark API endpoints.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_benchmark_ids_for_list(benchmark_id_list_request)
+
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:

@@ -62,6 +62,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     try:
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_categories()
+
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -147,6 +148,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     try:
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_data_dictionary()
+
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -234,6 +236,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_data_dictionary_by_id(signal_id)
+
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
@@ -323,6 +326,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     try:
         # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_themes()
+
         pprint(api_response)
 
     except fds.sdk.Signals.ApiException as e:
